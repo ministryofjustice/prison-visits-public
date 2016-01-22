@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  prison_ip_matcher =
-    IpAddressMatcher.new(Rails.configuration.prison_ip_ranges)
-
   get '/', to: redirect(ENV.fetch('GOVUK_START_PAGE', '/en/request'))
 
   %w[ 404 500 503 ].each do |code|
