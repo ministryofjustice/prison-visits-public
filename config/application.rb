@@ -49,5 +49,7 @@ module PrisonVisits
     if ENV['ASSET_HOST']
       config.asset_host = ENV['ASSET_HOST']
     end
+
+    config.api_host = ENV.fetch('PRISON_VISITS_API', 'http://localhost:3001/')
   end
 end
