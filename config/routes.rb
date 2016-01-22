@@ -16,12 +16,6 @@ Rails.application.routes.draw do
   scope '/:locale', locale: /[a-z]{2}/ do
     get '/', to: redirect('/%{locale}/request')
 
-    constraints ip: prison_ip_matcher do
-      namespace :prison do
-        resources :visits, only: %i[ show update ]
-      end
-    end
-
     resources :booking_requests, path: 'request', only: %i[ index create ]
     resources :visits, only: %i[ show ]
     resources :cancellations, path: 'cancel', only: %i[ create ]
