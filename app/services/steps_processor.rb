@@ -55,6 +55,6 @@ private
 
   def prison_attributes
     prison_id = params.fetch(:prisoner_step, {}).fetch(:prison_id, nil)
-    prison_id ? { prison: Prison.find_by(id: prison_id) } : {}
+    prison_id ? { prison: Prison.find_by_id(prison_id) } : {}
   end
 end
