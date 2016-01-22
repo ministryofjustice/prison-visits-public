@@ -16,6 +16,6 @@ class PrisonerStep
   delegate :name, to: :prison, prefix: true
 
   def prison
-    Prison.find_by(id: prison_id)
+    prison_id ? Prison.find_by(id: prison_id) : nil
   end
 end
