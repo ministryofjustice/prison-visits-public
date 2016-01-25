@@ -9,10 +9,7 @@ class Prison
   attribute :postcode, String
   attribute :email_address, String
   attribute :phone_no, String
-
-  def finder_slug
-    'TODO' # Not yet reported by API
-  end
+  attribute :prison_finder_url, String
 
   def self.find_by_id(id)
     result = Rails.configuration.api.get("/prisons/#{id}")
