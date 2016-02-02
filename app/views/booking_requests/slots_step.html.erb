@@ -14,7 +14,7 @@
     <div class="Grid visible--js-enabled">
       <div class="Grid-1-2">
         <fieldset>
-          <%= render('booking_calendar', prison: f.object.prison) %>
+          <%= render('booking_calendar', slots: f.object.slot_constraints) %>
           <%= render('date_slider') %>
           <%= render('booking_calendar_legend') %>
           <%= render('slot_picker_time_slots') %>
