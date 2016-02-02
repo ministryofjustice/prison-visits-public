@@ -44,17 +44,17 @@ private
     }
   end
 
-  def load_step(klass)
-    name = klass.model_name.param_key
-    klass.new(params.fetch(name, {}).merge(prison_attributes))
+  def load_step(step_klass)
+    step_name = step_klass.name.underscore
+    step_params = params.fetch(step_name, {})
+    step_klass.new(step_params.merge(prison_id: prison_id))
   end
 
   def incomplete_step?(name)
     params.key?(name) ? steps[name].invalid? : true
   end
 
-  def prison_attributes
-    prison_id = params.fetch(:prisoner_step, {}).fetch(:prison_id, nil)
-    prison_id ? { prison: Prison.find_by_id(prison_id) } : {}
+  def prison_id
+    params.fetch(:prisoner_step, {}).fetch(:prison_id, nil)
   end
 end

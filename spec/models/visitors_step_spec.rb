@@ -1,8 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe VisitorsStep do
-  let(:prison) { build(:prison) }
-  subject { described_class.new(prison: prison) }
+  subject { described_class.new }
+
+  let(:booking_constraints) {
+    instance_double(BookingConstraints, on_visitors: visitor_constraints)
+  }
+  let(:visitor_constraints) { BookingConstraints::VisitorConstraints.new }
+
+  before do
+    allow(BookingConstraints).to receive(:new).and_return booking_constraints
+  end
 
   describe 'backfilled_visitors' do
     it 'includes supplied visitors' do
@@ -210,7 +218,9 @@ RSpec.describe VisitorsStep do
   end
 
   context 'age-related validations' do
-    let(:prison) { build(:prison, adult_age: 13) }
+    let(:visitor_constraints) {
+      BookingConstraints::VisitorConstraints.new(adult_age: 13)
+    }
 
     around do |example|
       travel_to Date.new(2015, 12, 1) do

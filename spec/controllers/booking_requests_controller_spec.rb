@@ -45,20 +45,24 @@ RSpec.describe BookingRequestsController do
     { confirmed: 'true' }
   }
 
-  let(:prison) {
-    double(
-      Prison,
-      available_slots: [
-        ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0),
-        ConcreteSlot.new(2015, 1, 3, 9, 0, 10, 0),
-        ConcreteSlot.new(2015, 1, 4, 9, 0, 10, 0)
-      ],
-      validate_visitor_ages_on: nil
-    )
+  let(:visitor_constraints) {
+    BookingConstraints::VisitorConstraints.new
+  }
+
+  let(:slots) {
+    [
+      ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0),
+      ConcreteSlot.new(2015, 1, 3, 9, 0, 10, 0),
+      ConcreteSlot.new(2015, 1, 4, 9, 0, 10, 0)
+    ]
   }
 
   before do
-    allow(Prison).to receive(:find_by).with(id: '1').and_return(prison)
+    allow(BookingConstraints).to receive(:new).and_return \
+      instance_double(BookingConstraints,
+        on_visitors: visitor_constraints,
+        on_slots: BookingConstraints::SlotConstraints.new(slots)
+                     )
   end
 
   context 'on the first prisoner details page' do

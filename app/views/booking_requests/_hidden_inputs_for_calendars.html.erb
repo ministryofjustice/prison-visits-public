@@ -3,7 +3,7 @@
      <%=
        single_field(
          f, :"option_#{i}", :select,
-         f.object.available_slots.map { |s|
+         f.object.slot_constraints.map { |s|
            [format_slot_begin_time_for_public(s), s.iso8601]
          },
          { include_blank: true },
