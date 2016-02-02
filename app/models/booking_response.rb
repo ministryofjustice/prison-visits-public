@@ -3,10 +3,19 @@ class BookingResponse
 
   SLOTS = %w[ slot_0 slot_1 slot_2 ]
 
+  REJECTION_REASONS = %w[
+    slot_unavailable
+    no_allowance
+    prisoner_details_incorrect
+    prisoner_moved
+    visitor_banned
+    visitor_not_on_list
+  ]
+
   attribute :visit
 
   attribute :selection, String
-  validates :selection, inclusion: { in: SLOTS + Rejection::REASONS }
+  validates :selection, inclusion: { in: SLOTS + REJECTION_REASONS }
 
   attribute :reference_no, String
   validates :reference_no, presence: true, if: :slot_selected?
