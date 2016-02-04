@@ -36,7 +36,7 @@
         <%= single_field(f, :number, :text_field) %>
 
         <%= single_field(f, :prison_id, :select,
-              Prison.enabled.map { |p| [p.name, p.id] },
+              Prison.all.map { |p| [p.name, p.id] },
               { prompt: t('.prison_id_prompt') },
               { class: 'js-autocomplete' }) %>
 
