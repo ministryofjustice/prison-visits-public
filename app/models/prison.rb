@@ -33,6 +33,21 @@ class Prison
     end
   end
 
+  def last_bookable_date(_today = Time.zone.today)
+    available_slots.sort.last.to_date
+  end
+
+  def bookable_date?(requested_date = Time.zone.today)
+    available_slots.any? { |s| s.to_date == requested_date }
+  end
+
+  def available_slots(_today = Time.zone.today)
+    @available_slots ||= begin
+      api_response = Rails.configuration.api.get('/slots', prison_id: id)
+      api_response['slots'].map { |s| ConcreteSlot.parse(s) }
+    end
+  end
+
 private
 
   def adult?(age)
