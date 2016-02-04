@@ -64,4 +64,13 @@ RSpec.describe ConcreteSlot do
       expect(subject.duration).to eq(5400)
     end
   end
+
+  describe 'sorting (<=>)' do
+    it 'sorts slots according to their start time' do
+      earlier_slot = described_class.new(2015, 10, 23, 14, 0, 18, 30)
+      later_slot   = described_class.new(2015, 10, 23, 17, 0, 17, 30)
+
+      expect(earlier_slot).to be < later_slot
+    end
+  end
 end

@@ -38,7 +38,7 @@
 
               <div class="group group--inline">
                 <%= single_field(f, :additional_visitor_count, :select,
-                                 additional_visitor_selections,
+                                 additional_visitor_selections(f.object),
                                  {},
                                  class: 'js-RevealAdditional',
                                  data: { target_els: '.additional-visitor' }) %>

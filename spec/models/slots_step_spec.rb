@@ -2,10 +2,18 @@ require 'rails_helper'
 
 RSpec.describe SlotsStep, type: :model do
   describe 'validation of options' do
-    subject { described_class.new(prison: prison) }
+    subject { described_class.new }
 
     let(:slot) { ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0) }
-    let(:prison) { double(Prison, available_slots: [slot]) }
+    let(:booking_constraints) {
+      instance_double(BookingConstraints,
+        on_slots: BookingConstraints::SlotConstraints.new([slot])
+                     )
+    }
+
+    before do
+      allow(BookingConstraints).to receive(:new).and_return booking_constraints
+    end
 
     describe 'option_0' do
       it 'is valid if the slot exists' do

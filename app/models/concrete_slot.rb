@@ -12,6 +12,8 @@ ConcreteSlot = Struct.new(
     end
   end
 
+  include Comparable
+
   def iso8601
     '%04d-%02d-%02dT%02d:%02d/%02d:%02d' % [
       year, month, day, begin_hour, begin_minute, end_hour, end_minute
@@ -44,5 +46,10 @@ ConcreteSlot = Struct.new(
 
   def duration
     (end_at - begin_at).to_i
+  end
+
+  # Arbitrarily define the sort order to correspond with the start time
+  def <=>(other)
+    begin_at <=> other.begin_at
   end
 end
