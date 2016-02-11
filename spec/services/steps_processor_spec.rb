@@ -95,7 +95,7 @@ RSpec.describe StepsProcessor do
     let(:params) { {} }
 
     it 'chooses the prisoner_step template' do
-      expect(subject.template_name).to eq(:prisoner_step)
+      expect(subject.step_name).to eq(:prisoner_step)
     end
 
     it_behaves_like 'it has all steps'
@@ -106,7 +106,7 @@ RSpec.describe StepsProcessor do
     let(:params) { { prisoner_step: { first_name: 'Oscar' } } }
 
     it 'chooses the prisoner_step template' do
-      expect(subject.template_name).to eq(:prisoner_step)
+      expect(subject.step_name).to eq(:prisoner_step)
     end
 
     it 'returns a PrisonerStep with the supplied attributes' do
@@ -122,7 +122,7 @@ RSpec.describe StepsProcessor do
     let(:params) { { prisoner_step: prisoner_details } }
 
     it 'chooses the visitors_step template' do
-      expect(subject.template_name).to eq(:visitors_step)
+      expect(subject.step_name).to eq(:visitors_step)
     end
 
     it 'initialises the PrisonerStep with the supplied attributes' do
@@ -137,7 +137,7 @@ RSpec.describe StepsProcessor do
       let(:params) { super().merge(review_step: :prisoner_step) }
 
       it 'chooses the prisoner_step template' do
-        expect(subject.template_name).to eq(:prisoner_step)
+        expect(subject.step_name).to eq(:prisoner_step)
       end
     end
   end
@@ -151,7 +151,7 @@ RSpec.describe StepsProcessor do
     }
 
     it 'chooses the visitors_step template' do
-      expect(subject.template_name).to eq(:visitors_step)
+      expect(subject.step_name).to eq(:visitors_step)
     end
 
     it 'initialises the PrisonerStep with the supplied attributes' do
@@ -177,7 +177,7 @@ RSpec.describe StepsProcessor do
     }
 
     it 'chooses the slots_step template' do
-      expect(subject.template_name).to eq(:slots_step)
+      expect(subject.step_name).to eq(:slots_step)
     end
 
     it 'initialises the PrisonerStep with the supplied attributes' do
@@ -197,7 +197,7 @@ RSpec.describe StepsProcessor do
       let(:params) { super().merge(review_step: :prisoner_step) }
 
       it 'chooses the prisoner_step template' do
-        expect(subject.template_name).to eq(:prisoner_step)
+        expect(subject.step_name).to eq(:prisoner_step)
       end
     end
   end
@@ -212,7 +212,7 @@ RSpec.describe StepsProcessor do
     }
 
     it 'chooses the confirmation template' do
-      expect(subject.template_name).to eq(:confirmation_step)
+      expect(subject.step_name).to eq(:confirmation_step)
     end
 
     it 'initialises the PrisonerStep with the supplied attributes' do
@@ -244,7 +244,7 @@ RSpec.describe StepsProcessor do
     }
 
     it 'chooses the slots_step template' do
-      expect(subject.template_name).to eq(:slots_step)
+      expect(subject.step_name).to eq(:slots_step)
     end
 
     it 'initialises the PrisonerStep with the supplied attributes' do
@@ -276,7 +276,7 @@ RSpec.describe StepsProcessor do
     }
 
     it 'chooses the completed template' do
-      expect(subject.template_name).to eq(:completed)
+      expect(subject.step_name).to eq(:completed)
     end
 
     it 'tells BookingRequestCreator to create a Visit record' do
