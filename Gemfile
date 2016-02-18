@@ -16,7 +16,9 @@ gem 'premailer-rails'
 gem 'puma'
 gem 'sass-rails', '~> 5.0'
 gem 'sendgrid_toolkit'
-gem 'sentry-raven'
+# Fixed version as workaround for bug in 0.15.5
+# https://github.com/getsentry/raven-ruby/issues/460
+gem 'sentry-raven', '0.15.4'
 gem 'sidekiq'
 gem 'sinatra'
 gem 'state_machines-activerecord'
