@@ -11,16 +11,17 @@ class PrisonVisitsAPI
   end
 
   def post(route, params)
-    options = {
-      headers: { 'Content-Type' => 'application/json' }
-    }
-    request(:post, route, params, options)
+    request(:post, route, params)
+  end
+
+  def delete(route, params = {})
+    request(:delete, route, params)
   end
 
 private
 
   # rubocop:disable Metrics/MethodLength
-  def request(method, route, params, extra_options = {})
+  def request(method, route, params)
     # For cleanliness, strip initial / if supplied
     route = route.sub(%r{^\/}, '')
     path = "/api/#{route}.json"
@@ -33,7 +34,7 @@ private
         'Accept' => 'application/json',
         'Accept-Language' => 'en'
       }
-    }.merge(params_options(:get, params)).deep_merge(extra_options)
+    }.deep_merge(params_options(method, params))
 
     response = @connection.request(options)
 
@@ -41,12 +42,18 @@ private
   end
   # rubocop:enable Metrics/MethodLength
 
+  # Returns excon options which put params in either the query string or body.
   def params_options(method, params)
-    if method == :get
+    return {} if params.empty?
+
+    if method == :get || method == :delete
       { query: params }
     else
       b = params.respond_to?(:to_json) ? params.to_json : JSON.generate(params)
-      { body: b }
+      {
+        body: b,
+        headers: { 'Content-Type' => 'application/json' }
+      }
     end
   end
 end
