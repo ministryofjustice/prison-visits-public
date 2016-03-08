@@ -1,3 +1,2 @@
-Rails.configuration.api = PrisonVisitsAPI.new(
-  Rails.configuration.api_host
-)
+client = PrisonVisits::Client.new(Rails.configuration.api_host)
+Rails.configuration.pvb_api = PrisonVisits::Api.new(client)

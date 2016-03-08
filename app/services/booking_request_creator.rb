@@ -1,4 +1,5 @@
 class BookingRequestCreator
+  # rubocop:disable Metrics/MethodLength
   def create!(prisoner_step, visitors_step, slots_step, locale)
     prisoner = prisoner_step.to_hash.except(:prison_id)
     visitors = visitors_step.visitors.map(&:to_hash)
@@ -17,8 +18,8 @@ class BookingRequestCreator
       locale: locale
     }
 
-    api_response = Rails.configuration.api.post('/bookings', params)
-
-    Visit.new(api_response.fetch('visit'))
+    visit = Rails.configuration.pvb_api.request_booking(params)
+    visit
   end
+  # rubocop:enable Metrics/MethodLength
 end
