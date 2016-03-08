@@ -1,5 +1,5 @@
 class VisitsController < ApplicationController
   def show
-    @visit = Visit.find(params[:id])
+    @visit = Rails.configuration.pvb_api.get_visit(params[:id])
   end
 end

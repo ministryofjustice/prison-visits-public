@@ -1,11 +1,7 @@
 class CancellationsController < ApplicationController
   def create
-    visit = Visit.find(params[:id])
-    if cancellation_confirmed?
-      visit.cancel!
-      PrisonMailer.cancelled(visit).deliver_later
-    end
-    redirect_to visit_path(visit)
+    visit = Rails.configuration.pvb_api.cancel_visit(params[:id])
+    redirect_to visit_path(visit.id)
   end
 
 private

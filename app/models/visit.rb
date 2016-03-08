@@ -8,6 +8,7 @@ class Visit
     slots.map { |s| ConcreteSlot.parse(s) }
   }
   attribute :prison_id
+  attribute :processing_state
 
   delegate :address, :email_address, :name, :phone_no, :postcode,
     to: :prison, prefix: true
