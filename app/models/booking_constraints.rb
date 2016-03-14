@@ -55,11 +55,11 @@ class BookingConstraints
       @slots = slots
     end
 
-    def bookable_date?(requested_date = Time.zone.today)
+    def bookable_date?(requested_date)
       @slots.any? { |s| s.to_date == requested_date }
     end
 
-    def last_bookable_date(_today = Time.zone.today)
+    def last_bookable_date
       @slots.sort.last.to_date
     end
   end
