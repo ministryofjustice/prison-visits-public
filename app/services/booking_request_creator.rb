@@ -18,7 +18,7 @@ class BookingRequestCreator
       locale: locale
     }
 
-    visit = Rails.configuration.pvb_api.request_booking(params)
+    visit = Rails.configuration.pvb_api.request_visit(params)
     visit
   end
   # rubocop:enable Metrics/MethodLength

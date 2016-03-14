@@ -19,18 +19,18 @@ module PrisonVisits
       response['slots'].map { |s| ConcreteSlot.parse(s) }
     end
 
-    def request_booking(params)
-      response = @client.post('/bookings', params)
+    def request_visit(params)
+      response = @client.post('/visits', params)
       Visit.new(response.fetch('visit'))
     end
 
     def get_visit(id)
-      response = @client.get("bookings/#{id}")
+      response = @client.get("visits/#{id}")
       Visit.new(response.fetch('visit'))
     end
 
     def cancel_visit(id)
-      response = @client.delete("bookings/#{id}")
+      response = @client.delete("visits/#{id}")
       Visit.new(response.fetch('visit'))
     end
   end
