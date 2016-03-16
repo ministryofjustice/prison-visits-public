@@ -1,4 +1,6 @@
 module PrisonVisits
+  # rubocop:disable Style/AccessorMethodName
+  # (in the context of a HTTP API, get_prisons is not bad style)
   class Api
     def initialize(api_client)
       @client = api_client
@@ -34,4 +36,5 @@ module PrisonVisits
       Visit.new(response.fetch('visit'))
     end
   end
+  # rubocop:enable Style/AccessorMethodName
 end

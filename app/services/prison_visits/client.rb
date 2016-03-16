@@ -44,24 +44,17 @@ module PrisonVisits
     # rubocop:enable Metrics/MethodLength
 
     # Returns excon options which put params in either the query string or body.
-    # rubocop:disable Metrics/MethodLength
     def params_options(method, params)
       return {} if params.empty?
 
       if method == :get || method == :delete
         { query: params }
       else
-        if params.respond_to?(:to_json)
-          json = params.to_json
-        else
-          json = JSON.generate(params)
-        end
         {
-          body: json,
+          body: params.to_json,
           headers: { 'Content-Type' => 'application/json' }
         }
       end
     end
-    # rubocop:enable Metrics/MethodLength
   end
 end
