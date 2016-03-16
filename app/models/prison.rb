@@ -10,10 +10,10 @@ class Prison
   attribute :prison_finder_url, String
 
   def self.find_by_id(id)
-    Rails.configuration.pvb_api.get_prison(id)
+    PrisonVisits::Api.instance.get_prison(id)
   end
 
   def self.all
-    Rails.configuration.pvb_api.get_prisons
+    PrisonVisits::Api.instance.get_prisons
   end
 end

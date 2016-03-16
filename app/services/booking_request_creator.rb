@@ -18,7 +18,7 @@ class BookingRequestCreator
       locale: locale
     }
 
-    visit = Rails.configuration.pvb_api.request_visit(params)
+    visit = PrisonVisits::Api.instance.request_visit(params)
     visit
   end
   # rubocop:enable Metrics/MethodLength

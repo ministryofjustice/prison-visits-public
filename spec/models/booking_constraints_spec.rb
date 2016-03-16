@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe BookingConstraints, type: :model do
   subject { described_class.new(prison_id: prison_id) }
 
-  let(:pvb_api) { Rails.configuration.pvb_api }
+  let(:pvb_api) { PrisonVisits::Api.instance }
   let(:prison_id) { '123' }
 
   describe 'on visitors' do

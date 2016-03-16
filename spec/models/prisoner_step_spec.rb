@@ -5,7 +5,7 @@ RSpec.describe PrisonerStep do
 
   let(:params) { { prison_id: '123' } }
   let(:prison) { Prison.new(name: 'Reading Gaol') }
-  let(:pvb_api) { Rails.configuration.pvb_api }
+  let(:pvb_api) { PrisonVisits::Api.instance }
 
   before do
     allow(pvb_api).to receive(:get_prison).and_return(prison)

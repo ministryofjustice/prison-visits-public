@@ -39,7 +39,7 @@ RSpec.describe BookingRequestCreator do
   }
 
   it 'calls the API to create a booking request using the provided steps' do
-    expect(Rails.configuration.pvb_api).to receive(:request_visit).with(
+    expect(PrisonVisits::Api.instance).to receive(:request_visit).with(
       prison_id: "PRISONID",
       prisoner: {
         first_name: "Oscar",

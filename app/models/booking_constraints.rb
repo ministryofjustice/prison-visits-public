@@ -13,7 +13,7 @@ class BookingConstraints
 
   def on_slots
     fail 'No prison' unless @prison_id
-    slots = Rails.configuration.pvb_api.get_slots(@prison_id)
+    slots = PrisonVisits::Api.instance.get_slots(@prison_id)
     SlotConstraints.new(slots)
   end
 

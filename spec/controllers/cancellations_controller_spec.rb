@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe CancellationsController, type: :controller do
   describe 'create' do
     let(:visit_id) { '123456789' }
-    let(:pvb_api) { Rails.configuration.pvb_api }
+    let(:pvb_api) { PrisonVisits::Api.instance }
 
     before do
       allow(pvb_api).to receive(:cancel_visit).and_return(nil)

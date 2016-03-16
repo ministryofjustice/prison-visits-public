@@ -2,6 +2,15 @@ module PrisonVisits
   # rubocop:disable Style/AccessorMethodName
   # (in the context of a HTTP API, get_prisons is not bad style)
   class Api
+    class << self
+      def instance
+        @instance ||= begin
+          client = PrisonVisits::Client.new(Rails.configuration.api_host)
+          new(client)
+        end
+      end
+    end
+
     def initialize(api_client)
       @client = api_client
     end

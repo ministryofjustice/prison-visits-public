@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PrisonVisits::Api do
-  subject { Rails.configuration.pvb_api }
+  subject { described_class.instance }
 
   # This should be set to the ID of Cardiff prison on the system generating
   # the VCR cassettes. Sadly this will vary from system to system as a result
@@ -105,7 +105,7 @@ RSpec.describe PrisonVisits::Api do
 
     let(:visit_id) {
       # Create a visit to use in specs
-      Rails.configuration.pvb_api.request_visit(valid_booking_params).id
+      described_class.instance.request_visit(valid_booking_params).id
     }
 
     it { is_expected.to be_kind_of(Visit) }
@@ -120,7 +120,7 @@ RSpec.describe PrisonVisits::Api do
 
     let(:visit_id) {
       # Create a visit to use in specs
-      Rails.configuration.pvb_api.request_visit(valid_booking_params).id
+      described_class.instance.request_visit(valid_booking_params).id
     }
 
     it { is_expected.to be_kind_of(Visit) }
