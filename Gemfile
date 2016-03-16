@@ -46,5 +46,6 @@ group :test do
   gem 'poltergeist'
   gem 'simplecov'
   gem 'simplecov-rcov'
+  gem 'vcr'
   gem 'webmock'
 end

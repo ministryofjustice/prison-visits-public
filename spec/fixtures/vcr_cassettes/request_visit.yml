@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:3000/api/visits.json
+    body:
+      encoding: UTF-8
+      string: '{"prison_id":"0614760e-a773-49c0-a29c-35e743e72555","prisoner":{"first_name":"Oscar","last_name":"Wilde","date_of_birth":"1980-12-31","number":"a1234bc"},"visitors":[{"first_name":"Ada","last_name":"Lovelace","date_of_birth":"1970-11-30"},{"first_name":"Charlie","last_name":"Chaplin","date_of_birth":"2005-01-02"}],"contact_email_address":"ada@test.example.com","contact_phone_no":"01154960222","slot_options":["2015-01-02T09:00/10:00","2015-01-03T09:00/10:00","2015-01-04T09:00/10:00"],"locale":"cy"}'
+    headers:
+      User-Agent:
+      - excon/0.48.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"6ca6843ec91535dc9098a2e1ce86e8c5"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c350655f-78e3-4624-8036-fe4df8d785a1
+      X-Runtime:
+      - '0.735074'
+    body:
+      encoding: UTF-8
+      string: '{"visit":{"id":"93bc9717-70a5-49f1-9cc6-0cd22904d1ad","prison_id":"0614760e-a773-49c0-a29c-35e743e72555","confirm_by":"2016-03-18","contact_email_address":"ada@test.example.com","slots":["2015-01-02T09:00/10:00","2015-01-03T09:00/10:00","2015-01-04T09:00/10:00"]}}'
+    http_version: 
+  recorded_at: Tue, 15 Mar 2016 18:32:42 GMT
+recorded_with: VCR 3.0.1
