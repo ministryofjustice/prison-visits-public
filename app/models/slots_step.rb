@@ -7,9 +7,19 @@ class SlotsStep
   attribute :option_1, String
   attribute :option_2, String
 
-  validates :option_0, :option_1, :option_2,
-    inclusion: { in: ->(o) { o.slot_constraints.map(&:iso8601) } },
+  # rubocop:disable Style/BracesAroundHashParameters
+  # (you're wrong rubocop, it's a syntax error if omitted)
+  validates_each :option_0, :option_1, :option_2, {
     allow_blank: true
+  } do |record, attr, value|
+    begin
+      ConcreteSlot.parse(value) # rescue ArgumentError false
+    rescue ArgumentError
+      record.errors.add(attr, 'must start with upper case')
+    end
+  end
+  # rubocop:enable Style/BracesAroundHashParameters
+
   validates :option_0, presence: true
 
   def options_available?
