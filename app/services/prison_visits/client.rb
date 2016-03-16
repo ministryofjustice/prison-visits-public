@@ -37,6 +37,10 @@ module PrisonVisits
         }
       }.deep_merge(params_options(method, params))
 
+      Rails.logger.info do
+        "Calling PVB API: #{method.to_s.upcase} #{path}"
+      end
+
       response = @connection.request(options)
 
       JSON.parse(response.body)
