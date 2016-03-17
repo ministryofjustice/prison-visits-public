@@ -10,13 +10,16 @@ class VisitorsStep
     attribute :date_of_birth, Date
   end
 
-  attribute :prison, Prison
+  attribute :prison_id, Integer
+
   attribute :email_address, String
   attribute :phone_no, String
   attribute :override_delivery_error, Boolean
   attribute :delivery_error_type, String
   attribute :delivery_error_occurred, Boolean
   attribute :visitors, Array[Visitor]
+
+  delegate :max_visitors, to: :visitor_constraints
 
   validates :email_address, presence: true
   validates :phone_no, presence: true, length: { minimum: 9 }
@@ -30,7 +33,7 @@ class VisitorsStep
   # actually supplied via filled fields (or one blank primary visitor).
   def backfilled_visitors
     existing = visitors
-    num_needed = Prison::MAX_VISITORS - existing.count
+    num_needed = max_visitors - existing.count
     backfill = num_needed.times.map { Visitor.new }
     existing + backfill
   end
@@ -45,7 +48,7 @@ class VisitorsStep
 
     # We always want at least one visitor. Leaving the rest blank is fine, but
     # the first one must both exist and be valid.
-    self.visitors = pruned.empty? ? [{}] : pruned.take(Prison::MAX_VISITORS)
+    self.visitors = pruned.empty? ? [{}] : pruned.take(max_visitors)
   end
 
   def valid?(*)
@@ -57,6 +60,11 @@ class VisitorsStep
 
   def additional_visitor_count
     visitors.count - 1
+  end
+
+  def visitor_constraints
+    @visitor_constraints ||=
+      BookingConstraints.new(prison_id: prison_id).on_visitors
   end
 
 private
@@ -72,6 +80,6 @@ private
 
   def validate_ages
     ages = visitors.map(&:age).compact
-    prison.validate_visitor_ages_on self, :general, ages
+    visitor_constraints.validate_visitor_ages_on self, :general, ages
   end
 end

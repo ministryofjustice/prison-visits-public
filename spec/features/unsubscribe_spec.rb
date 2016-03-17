@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Booking a visit', js: true do
+RSpec.feature 'Unsubscribe', js: true do
   include ActiveJobHelper
 
   scenario 'happy path' do

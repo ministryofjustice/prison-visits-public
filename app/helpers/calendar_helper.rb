@@ -22,9 +22,9 @@ module CalendarHelper
     today?(day) || first_day_of_month?(day)
   end
 
-  def weeks(prison)
+  def weeks(slots)
     begin_on = Time.zone.today.beginning_of_week
-    end_on = prison.last_bookable_date.end_of_month.end_of_week
+    end_on = slots.last_bookable_date.end_of_month.end_of_week
     (begin_on..end_on).group_by(&:beginning_of_week).values
   end
 
@@ -41,7 +41,7 @@ module CalendarHelper
     )
   end
 
-  def bookable(prison, day)
-    prison.bookable_date?(day) ? 'bookable' : 'unavailable'
+  def bookable(slots, day)
+    slots.bookable_date?(day) ? 'bookable' : 'unavailable'
   end
 end

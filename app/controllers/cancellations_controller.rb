@@ -1,11 +1,10 @@
 class CancellationsController < ApplicationController
   def create
-    visit = Visit.find(params[:id])
+    visit_id = params[:id]
     if cancellation_confirmed?
-      visit.cancel!
-      PrisonMailer.cancelled(visit).deliver_later
+      PrisonVisits::Api.instance.cancel_visit(visit_id)
     end
-    redirect_to visit_path(visit)
+    redirect_to visit_path(visit_id)
   end
 
 private

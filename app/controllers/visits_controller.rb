@@ -1,5 +1,5 @@
 class VisitsController < ApplicationController
   def show
-    @visit = Visit.find(params[:id])
+    @visit = PrisonVisits::Api.instance.get_visit(params[:id])
   end
 end

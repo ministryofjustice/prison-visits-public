@@ -1,2 +1,1 @@
-<p><%= t('.help_html',
-         url: link_directory.prison_finder(prison)) %></p>
+<p><%= t('.help_html', url: prison ? prison.prison_finder_url : nil) %></p>

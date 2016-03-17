@@ -1,16 +1,25 @@
 class SlotsStep
   include NonPersistedModel
 
-  attribute :prison, Prison
+  attribute :prison_id, Integer
+
   attribute :option_0, String
   attribute :option_1, String
   attribute :option_2, String
 
-  delegate :available_slots, to: :prison
-
-  validates :option_0, :option_1, :option_2,
-    inclusion: { in: ->(o) { o.available_slots.map(&:iso8601) } },
+  # rubocop:disable Style/BracesAroundHashParameters
+  # (you're wrong rubocop, it's a syntax error if omitted)
+  validates_each :option_0, :option_1, :option_2, {
     allow_blank: true
+  } do |record, attr, value|
+    begin
+      ConcreteSlot.parse(value) # rescue ArgumentError false
+    rescue ArgumentError
+      record.errors.add(attr, 'must start with upper case')
+    end
+  end
+  # rubocop:enable Style/BracesAroundHashParameters
+
   validates :option_0, presence: true
 
   def options_available?
@@ -27,5 +36,9 @@ class SlotsStep
 
   def options
     [option_0, option_1, option_2].select(&:present?)
+  end
+
+  def slot_constraints
+    @constraints ||= BookingConstraints.new(prison_id: prison_id).on_slots
   end
 end

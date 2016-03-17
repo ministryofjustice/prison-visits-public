@@ -2,92 +2,33 @@ require 'rails_helper'
 
 RSpec.describe CancellationsController, type: :controller do
   describe 'create' do
+    let(:visit_id) { '123456789' }
+    let(:pvb_api) { PrisonVisits::Api.instance }
+
+    before do
+      allow(pvb_api).to receive(:cancel_visit).and_return(nil)
+    end
+
     context 'when confirm is checked' do
-      let(:params) { { id: visit.id, confirmed: '1', locale: 'en' } }
+      let(:params) { { id: visit_id, confirmed: '1', locale: 'en' } }
 
-      context 'when the visit has been requested' do
-        let(:visit) { create(:visit) }
-
-        it 'withdraws the request' do
-          post :create, params
-          expect(visit.reload).to be_withdrawn
-        end
-
-        it 'redirects to the visit page' do
-          post :create, params
-          expect(response).to redirect_to(visit_path(visit, locale: 'en'))
-        end
-      end
-
-      context 'when the request has been withdrawn' do
-        let(:visit) { create(:withdrawn_visit) }
-
-        it 'does not change the visit' do
-          post :create, params
-          expect(visit.reload).to be_withdrawn
-        end
-
-        it 'redirects to the visit page' do
-          post :create, params
-          expect(response).to redirect_to(visit_path(visit, locale: 'en'))
-        end
-      end
-
-      context 'when the request has been accepted' do
-        let(:visit) { create(:booked_visit) }
-
-        it 'cancels the visit' do
-          post :create, params
-          expect(visit.reload).to be_cancelled
-        end
-
-        it 'redirects to the visit page' do
-          post :create, params
-          expect(response).to redirect_to(visit_path(visit, locale: 'en'))
-        end
-      end
-
-      context 'when the request has been rejected' do
-        let(:visit) { create(:rejected_visit) }
-
-        it 'does not change the visit' do
-          post :create, params
-          expect(visit.reload).to be_rejected
-        end
-
-        it 'redirects to the visit page' do
-          post :create, params
-          expect(response).to redirect_to(visit_path(visit, locale: 'en'))
-        end
-      end
-
-      context 'when the booking has been cancelled' do
-        let(:visit) { create(:cancelled_visit) }
-
-        it 'does not change the visit' do
-          post :create, params
-          expect(visit.reload).to be_cancelled
-        end
-
-        it 'redirects to the visit page' do
-          post :create, params
-          expect(response).to redirect_to(visit_path(visit, locale: 'en'))
-        end
+      it 'calls the cancel API' do
+        expect(pvb_api).to receive(:cancel_visit).with(visit_id)
+        post :create, params
       end
     end
 
     context 'when confirm is not checked' do
-      let(:visit) { create(:visit) }
-      let(:params) { { id: visit.id, locale: 'en' } }
+      let(:params) { { id: visit_id, locale: 'en' } }
 
-      it 'does not change the visit' do
+      it 'does not call the API' do
+        expect(pvb_api).to_not receive(:cancel_visit)
         post :create, params
-        expect(visit.reload).to be_requested
       end
 
       it 'redirects to the visit page' do
         post :create, params
-        expect(response).to redirect_to(visit_path(visit, locale: 'en'))
+        expect(response).to redirect_to(visit_path(visit_id, locale: 'en'))
       end
     end
   end

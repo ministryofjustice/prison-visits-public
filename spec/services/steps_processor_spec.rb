@@ -45,20 +45,27 @@ RSpec.describe StepsProcessor do
     { confirmed: 'true' }
   }
 
-  let(:prison) {
-    double(
-      Prison,
-      available_slots: [
-        ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0),
-        ConcreteSlot.new(2015, 1, 3, 9, 0, 10, 0),
-        ConcreteSlot.new(2015, 1, 4, 9, 0, 10, 0)
-      ],
-      validate_visitor_ages_on: nil
-    )
+  let(:visitor_constraints) {
+    BookingConstraints::VisitorConstraints.new
+  }
+
+  let(:slot_constraints) {
+    BookingConstraints::SlotConstraints.new([
+      ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0),
+      ConcreteSlot.new(2015, 1, 3, 9, 0, 10, 0),
+      ConcreteSlot.new(2015, 1, 4, 9, 0, 10, 0)
+    ])
+  }
+
+  let(:booking_constraints) {
+    instance_double(BookingConstraints,
+      on_visitors: visitor_constraints,
+      on_slots: slot_constraints
+                   )
   }
 
   before do
-    allow(Prison).to receive(:find_by).with(id: 1).and_return(prison)
+    allow(BookingConstraints).to receive(:new).and_return booking_constraints
   end
 
   subject { described_class.new(HashWithIndifferentAccess.new(params), :cy) }
