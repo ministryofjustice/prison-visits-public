@@ -221,11 +221,6 @@ otherwise. On production, this must be set to
 [https://www.gov.uk/prison-visits](https://www.gov.uk/prison-visits), the
 official start page for the service.
 
-#### `PRISON_ESTATE_IPS`
-
-A semicolon- or comma-separated list of IP addresses or CIDR ranges. Users on
-these addresses can access the prison booking admin pages.
-
 #### `REDIS_URL`
 
 Tells the application where to find a Redis server for use with queues. See
@@ -248,21 +243,19 @@ generate a secure secret key.
 
 This is used to sign the session used by the Sidekiq admin interface.
 
-#### `SMTP_USERNAME`, `SMTP_PASSWORD`, `SMTP_HOSTNAME`, `SMTP_PORT`, `SMTP_DOMAIN`
+#### `SMTP_USERNAME`, `SMTP_PASSWORD`
 
-These configure email delivery in the production environment. `SMTP_DOMAIN` is
-also used when generating the `no-reply@` address and the `feedback@` stand-in
-address used when submitting feedback without an email address to Zendesk.
-
-#### `ZENDESK_USERNAME`, `ZENDESK_TOKEN`, `ZENDESK_URL`
-
-These are required in order to submit user feedback to Zendesk.
-
-`ZENDESK_URL` defaults to `https://ministryofjustice.zendesk.com/api/v2`.
+Now only used to configure the Sendgrid API client.
 
 #### `ENABLE_SENDGRID_VALIDATIONS` (optional)
 
 If specified it will enable the email validations that use Sendgrid in the `EmailChecker` class.
+
+#### `EMAIL_DOMAIN`
+
+This is the email domain used in the generation of email addresses shown on the site (currently only the no-reply address from which to expect bookings).
+
+On production this must be set to `email.prisonvisits.service.gov.uk`.
 
 #### `ASSET_HOST` (optional)
 

@@ -2,10 +2,8 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails'
 require 'active_model/railtie'
-require 'active_job/railtie'
 require 'active_record/railtie'
 require 'action_controller/railtie'
-require 'action_mailer/railtie'
 require 'action_view/railtie'
 require 'sprockets/railtie'
 
@@ -30,7 +28,6 @@ module PrisonVisits
     config.action_dispatch.rescue_responses.merge!(
       'StateMachines::InvalidTransition' => :unprocessable_entity
     )
-    config.prison_ip_ranges = ENV.fetch('PRISON_ESTATE_IPS', '127.0.0.1,::1')
 
     config.ga_id = ENV['GA_TRACKING_ID']
 
@@ -58,5 +55,7 @@ module PrisonVisits
     config.lograge.custom_options = lambda do |event|
       event.payload[:custom_log_items]
     end
+
+    config.email_domain = ENV.fetch('EMAIL_DOMAIN', 'localhost')
   end
 end

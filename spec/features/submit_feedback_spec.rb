@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.feature 'Submit feedback', js: true do
   before do skip 'Features specs not yet fixed' end
 
-  include ActiveJobHelper
   include FeaturesHelper
 
   scenario 'submitting feedback' do
