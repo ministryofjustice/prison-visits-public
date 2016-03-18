@@ -45,10 +45,6 @@ RSpec.describe BookingRequestsController do
     { confirmed: 'true' }
   }
 
-  let(:visitor_constraints) {
-    BookingConstraints::VisitorConstraints.new
-  }
-
   let(:slots) {
     [
       ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0),
@@ -59,10 +55,11 @@ RSpec.describe BookingRequestsController do
 
   before do
     allow(BookingConstraints).to receive(:new).and_return \
-      instance_double(BookingConstraints,
-        on_visitors: visitor_constraints,
+      instance_double(
+        BookingConstraints,
+        on_visitors: BookingConstraints::VisitorConstraints.new,
         on_slots: BookingConstraints::SlotConstraints.new(slots)
-                     )
+      )
   end
 
   context 'on the first prisoner details page' do
