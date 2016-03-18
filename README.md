@@ -243,11 +243,9 @@ generate a secure secret key.
 
 This is used to sign the session used by the Sidekiq admin interface.
 
-#### `SMTP_USERNAME`, `SMTP_PASSWORD`, `SMTP_HOSTNAME`, `SMTP_PORT`, `SMTP_DOMAIN`
+#### `SMTP_USERNAME`, `SMTP_PASSWORD`
 
-These configure email delivery in the production environment. `SMTP_DOMAIN` is
-also used when generating the `no-reply@` address and the `feedback@` stand-in
-address used when submitting feedback without an email address to Zendesk.
+Now only used to configure the Sendgrid API client.
 
 #### `ENABLE_SENDGRID_VALIDATIONS` (optional)
 
