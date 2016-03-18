@@ -210,6 +210,10 @@ See its website for instructions.
 This will override any settings in `config/database.yml`, and should be of the
 form `postgres://myuser:mypass@localhost/somedatabase`.
 
+#### `GA_TRACKING_ID`
+
+Google Analytics ID, used for the Performance Platform.
+
 #### `GOVUK_START_PAGE`
 
 Visiting `/` will redirect to this URL, if supplied, or the new booking page
@@ -256,9 +260,17 @@ These are required in order to submit user feedback to Zendesk.
 
 `ZENDESK_URL` defaults to `https://ministryofjustice.zendesk.com/api/v2`.
 
+#### `ENABLE_SENDGRID_VALIDATIONS` (optional)
+
+If specified it will enable the email validations that use Sendgrid in the `EmailChecker` class.
+
 #### `ASSET_HOST` (optional)
 
 If specified this will configure Rails' `config.asset_host`, resulting in all asset URLs pointing to this host.
+
+#### `SENTRY_DSN` (optional)
+
+If specified, exceptions will be sent to the given Sentry project.
 
 ### Files to be created on deployment
 

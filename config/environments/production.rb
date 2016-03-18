@@ -17,18 +17,18 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   config.assets.compile = false
   config.assets.digest = true
-  config.log_level = :debug
+  config.log_level = :info
   config.i18n.fallbacks = true
   config.active_support.deprecation = :notify
   config.log_formatter = ::Logger::Formatter.new
   config.active_record.dump_schema_after_migration = false
 
-  config.logstasher.enabled = true
-  config.logstasher.suppress_app_log = true
-  config.logstasher.source = 'logstasher'
-  config.logstasher.backtrace = true
-  config.logstasher.logger_path = "#{Rails.root}/log/logstash_#{Rails.env}.json"
+  config.lograge.formatter = Lograge::Formatters::Logstash.new
+  config.lograge.logger = ActiveSupport::Logger.new \
+    "#{Rails.root}/log/logstash_#{Rails.env}.json"
 
+  config.enable_sendgrid_validations =
+    ENV.key?('ENABLE_SENDGRID_VALIDATIONS')
   config.mx_checker = MxChecker.new
 
   config.active_job.queue_adapter = :sidekiq

@@ -1,3 +1,5 @@
+require 'maybe_date'
+
 class VisitorsStep
   include NonPersistedModel
 
@@ -7,7 +9,7 @@ class VisitorsStep
 
     attribute :first_name, String
     attribute :last_name, String
-    attribute :date_of_birth, Date
+    attribute :date_of_birth, MaybeDate
   end
 
   attribute :prison_id, Integer
@@ -27,6 +29,10 @@ class VisitorsStep
   validate :validate_email, :validate_ages
 
   attr_reader :general # Required in order to assign errors to 'general'
+
+  def email_address=(val)
+    super(val.strip)
+  end
 
   # Return at least Prison::MAX_VISITORS visitors, filling with new instances
   # as needed. The regular #visitors method will return only those visitors

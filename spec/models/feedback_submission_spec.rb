@@ -1,6 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe FeedbackSubmission do
+  context 'before validations' do
+    context 'email_address' do
+      it 'strips whitespace' do
+        subject.email_address = ' user@example.com '
+        subject.valid?
+        expect(subject.email_address).to eq('user@example.com')
+      end
+    end
+  end
+
   context 'validations' do
     context 'email_address' do
       it 'is valid when absent' do
@@ -20,23 +30,6 @@ RSpec.describe FeedbackSubmission do
         subject.validate
         expect(subject.errors).to have_key(:email_address)
       end
-    end
-  end
-
-  describe 'email_address' do
-    it 'returns default when not set' do
-      expect(subject.email_address).to eq('feedback@email.test.host')
-    end
-
-    it 'returns default when blank' do
-      subject.email_address = ''
-      expect(subject.email_address).to eq('feedback@email.test.host')
-    end
-
-    it 'returns explicitly assigned value' do
-      subject.email_address = 'user@test.example.com'
-      expect(subject.email_address).
-        to eq('user@test.example.com')
     end
   end
 end

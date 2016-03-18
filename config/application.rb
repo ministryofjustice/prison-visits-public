@@ -32,6 +32,8 @@ module PrisonVisits
     )
     config.prison_ip_ranges = ENV.fetch('PRISON_ESTATE_IPS', '127.0.0.1,::1')
 
+    config.ga_id = ENV['GA_TRACKING_ID']
+
     config.smoke_test =
       OpenStruct.new(
         local_part:
@@ -51,5 +53,10 @@ module PrisonVisits
     end
 
     config.api_host = ENV.fetch('PRISON_VISITS_API', 'http://localhost:3000/')
+
+    config.lograge.enabled = true
+    config.lograge.custom_options = lambda do |event|
+      event.payload[:custom_log_items]
+    end
   end
 end

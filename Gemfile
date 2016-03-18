@@ -7,14 +7,23 @@ gem 'excon'
 gem 'govuk_frontend_toolkit', '2.0.1'
 gem 'high_voltage'
 gem 'kramdown'
-gem 'logstasher'
+gem 'lograge'
+gem 'logstash-event'
 gem 'moj_template', '0.21.0'
 gem 'netaddr'
 gem 'pg'
 gem 'premailer-rails'
 gem 'puma'
 gem 'sass-rails', '~> 5.0'
+
+# Fixed version as workaround for Rails version 4.2 expecting method
+# 'last_comment' to be defined. Review once we are using a different Rails
+# version
+gem 'rake', '< 11.0'
 gem 'sendgrid_toolkit'
+# Fixed version as workaround for bug in 0.15.5
+# https://github.com/getsentry/raven-ruby/issues/460
+gem 'sentry-raven', '0.15.4'
 gem 'sidekiq'
 gem 'sinatra'
 gem 'state_machines-activerecord'
