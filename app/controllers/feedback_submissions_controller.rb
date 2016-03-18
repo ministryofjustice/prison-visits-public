@@ -7,7 +7,7 @@ class FeedbackSubmissionsController < ApplicationController
     @feedback = FeedbackSubmission.new(feedback_params)
 
     if @feedback.save
-      ZendeskTicketsJob.perform_later(@feedback)
+      # TODO: Submit to API
     else
       render 'new'
     end

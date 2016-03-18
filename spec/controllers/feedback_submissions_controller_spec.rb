@@ -3,10 +3,6 @@ require 'rails_helper'
 RSpec.describe FeedbackSubmissionsController, type: :controller do
   include ActiveJobHelper
 
-  before do
-    allow(ZendeskTicketsJob).to receive(:perform_later)
-  end
-
   context 'new' do
     let(:params) { { locale: 'en' } }
     it 'responds with success' do
@@ -36,13 +32,7 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
         expect(response).to render_template('create')
       end
 
-      it 'sends to ZenDesk' do
-        expect(ZendeskTicketsJob).to receive(:perform_later).once do |feedback|
-          expect(feedback.email_address).to eq('test@maildrop.dsd.io')
-          expect(feedback.body).to eq('feedback')
-        end
-        post :create, params
-      end
+      it 'sends to the API'
     end
 
     context 'with no body entered' do
@@ -60,10 +50,7 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
         expect(response).to be_success
       end
 
-      it 'does not send to ZenDesk' do
-        expect(ZendeskTicketsJob).to receive(:perform_later).never
-        post :create, params
-      end
+      it 'does not send to the API'
 
       it 're-renders the new template' do
         post :create, params

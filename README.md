@@ -249,12 +249,6 @@ These configure email delivery in the production environment. `SMTP_DOMAIN` is
 also used when generating the `no-reply@` address and the `feedback@` stand-in
 address used when submitting feedback without an email address to Zendesk.
 
-#### `ZENDESK_USERNAME`, `ZENDESK_TOKEN`, `ZENDESK_URL`
-
-These are required in order to submit user feedback to Zendesk.
-
-`ZENDESK_URL` defaults to `https://ministryofjustice.zendesk.com/api/v2`.
-
 #### `ENABLE_SENDGRID_VALIDATIONS` (optional)
 
 If specified it will enable the email validations that use Sendgrid in the `EmailChecker` class.
