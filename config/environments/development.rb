@@ -17,8 +17,6 @@ Rails.application.configure do
   config.enable_sendgrid_validations = true
   config.mx_checker = MxChecker::Dummy.new
 
-  config.active_job.queue_adapter = :sidekiq
-
   config.i18n.load_path =
     Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
 end

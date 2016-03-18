@@ -4,7 +4,6 @@ require 'shared_sendgrid_context'
 RSpec.feature "overriding Sendgrid", js: true do
   before do skip 'Features specs not yet fixed' end
 
-  include ActiveJobHelper
   include FeaturesHelper
 
   let(:expected_email_address) { 'test@maildrop.dsd.io' }

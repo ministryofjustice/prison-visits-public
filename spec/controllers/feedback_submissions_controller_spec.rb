@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe FeedbackSubmissionsController, type: :controller do
-  include ActiveJobHelper
-
   context 'new' do
     let(:params) { { locale: 'en' } }
     it 'responds with success' do

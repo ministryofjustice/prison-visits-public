@@ -8,7 +8,6 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
   config.action_controller.allow_forgery_protection = false
   config.action_dispatch.show_exceptions = false
-  config.active_job.queue_adapter = :test
   config.action_mailer.delivery_method = :test
   config.action_mailer.default_url_options =
     { host: 'localhost', protocol: 'https', port: '3000' }
