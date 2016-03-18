@@ -253,6 +253,12 @@ address used when submitting feedback without an email address to Zendesk.
 
 If specified it will enable the email validations that use Sendgrid in the `EmailChecker` class.
 
+#### `EMAIL_DOMAIN`
+
+This is the email domain used in the generation of email addresses shown on the site (currently only the no-reply address from which to expect bookings).
+
+On production this must be set to `email.prisonvisits.service.gov.uk`.
+
 #### `ASSET_HOST` (optional)
 
 If specified this will configure Rails' `config.asset_host`, resulting in all asset URLs pointing to this host.

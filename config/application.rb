@@ -56,5 +56,7 @@ module PrisonVisits
     config.lograge.custom_options = lambda do |event|
       event.payload[:custom_log_items]
     end
+
+    config.email_domain = ENV.fetch('EMAIL_DOMAIN', 'localhost')
   end
 end
