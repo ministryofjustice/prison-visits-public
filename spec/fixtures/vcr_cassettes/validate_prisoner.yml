@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:3000/api/validations/prisoner.json
+    body:
+      encoding: UTF-8
+      string: '{"number":"A1459AE","date_of_birth":"1976-06-12"}'
+    headers:
+      User-Agent:
+      - excon/0.48.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"258d0a7042b13ea5f79e701af6e7f4ae"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 35df5fc5-3eff-4b2f-a993-3653951825ab
+      X-Runtime:
+      - '0.096985'
+    body:
+      encoding: UTF-8
+      string: '{"validation":{"valid":true}}'
+    http_version: 
+  recorded_at: Tue, 29 Mar 2016 17:13:38 GMT
+recorded_with: VCR 3.0.1
