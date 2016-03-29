@@ -13,6 +13,7 @@ module FormElementsHelper
       content_tag(:fieldset) {
         join(
           content_tag(:legend) { t(".#{name}") },
+          field_error(form, name),
           content_tag(:div) {
             join(
               field_hint(name),
@@ -56,8 +57,8 @@ private
         form.label(name) {
           join(
             t(".#{name}"),
-            field_hint(name),
-            field_error(form, name)
+            field_error(form, name),
+            field_hint(name)
           )
         },
         form.public_send(field_method, name, *options)
@@ -72,8 +73,8 @@ private
           join(
             form.public_send(field_method, name, *options),
             t(".#{name}"),
-            field_hint(name),
-            field_error(form, name)
+            field_error(form, name),
+            field_hint(name)
           )
         }
       )
