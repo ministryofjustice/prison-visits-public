@@ -11,6 +11,8 @@ en:
           attributes:
             number:
               invalid: is invalid
+          api:
+            prisoner_does_not_exist: does not match any prisoner
         visitors_step:
           attributes:
             general:

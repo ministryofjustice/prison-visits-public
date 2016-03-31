@@ -25,6 +25,15 @@ module PrisonVisits
       Prison.new(result['prison'])
     end
 
+    def validate_prisoner(number:, date_of_birth:)
+      result = @client.post(
+        '/validations/prisoner',
+        number: number,
+        date_of_birth: date_of_birth
+      )
+      result.fetch('validation')
+    end
+
     def get_slots(prison_id)
       response = @client.get('/slots', prison_id: prison_id)
       response['slots'].map { |s| ConcreteSlot.parse(s) }
