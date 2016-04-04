@@ -45,5 +45,9 @@ RSpec.describe BookingConstraints, type: :model do
     it 'allows checking last bookable date' do
       expect(subject.last_bookable_date).to eq(Date.new(2015, 1, 4))
     end
+
+    it 'can return whether there are available slots' do
+      expect(subject.bookable_slots?).to be(true)
+    end
   end
 end

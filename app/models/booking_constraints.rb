@@ -75,5 +75,9 @@ class BookingConstraints
     def last_bookable_date
       @slots.sort.last.to_date
     end
+
+    def bookable_slots?
+      @slots.any?
+    end
   end
 end

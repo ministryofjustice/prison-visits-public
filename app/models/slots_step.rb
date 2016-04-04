@@ -22,6 +22,8 @@ class SlotsStep
 
   validates :option_0, presence: true
 
+  delegate :bookable_slots?, to: :slot_constraints
+
   def options_available?
     options.length < 3
   end
