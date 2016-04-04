@@ -1,8 +1,10 @@
 # Responsible for fetching constraints, potentially via API calls, and
 # returning constraint objects
 class BookingConstraints
-  def initialize(prison_id: nil)
+  def initialize(prison_id: nil, prisoner_number: nil, prisoner_dob: nil)
     @prison_id = prison_id
+    @prisoner_number = prisoner_number
+    @prisoner_dob = prisoner_dob
   end
 
   def on_visitors
@@ -13,7 +15,12 @@ class BookingConstraints
 
   def on_slots
     fail 'No prison' unless @prison_id
-    slots = PrisonVisits::Api.instance.get_slots(@prison_id)
+    fail 'No prisoner details' unless @prisoner_number && @prisoner_dob
+    slots = PrisonVisits::Api.instance.get_slots(
+      prison_id: @prison_id,
+      prisoner_number: @prisoner_number,
+      prisoner_dob: @prisoner_dob
+    )
     SlotConstraints.new(slots)
   end
 

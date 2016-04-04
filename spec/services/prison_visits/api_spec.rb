@@ -79,7 +79,13 @@ RSpec.describe PrisonVisits::Api do
   end
 
   describe 'get_slots', vcr: { cassette_name: 'get_slots' } do
-    subject { super().get_slots(cardiff_prison_id) }
+    subject {
+      super().get_slots(
+        prison_id: cardiff_prison_id,
+        prisoner_number: 'a1234bc',
+        prisoner_dob: Date.parse('1970-01-01')
+      )
+    }
 
     it 'returns an array of concrete slots' do
       expect(subject).to be_kind_of(Array)
@@ -87,7 +93,7 @@ RSpec.describe PrisonVisits::Api do
     end
 
     it 'returns sensible looking concrete slots' do
-      expect(subject.first.iso8601).to eq("2016-03-19T09:45/11:15")
+      expect(subject.first.iso8601).to eq("2016-04-08T13:30/14:30")
     end
   end
 

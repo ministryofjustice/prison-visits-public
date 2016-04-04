@@ -1,10 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe BookingConstraints, type: :model do
-  subject { described_class.new(prison_id: prison_id) }
+  subject { described_class.new(params) }
 
+  let(:params) {
+    {
+      prison_id: prison_id,
+      prisoner_number: prisoner_number,
+      prisoner_dob: prisoner_dob
+    }
+  }
   let(:pvb_api) { PrisonVisits::Api.instance }
   let(:prison_id) { '123' }
+  let(:prisoner_number) { 'a1234bc' }
+  let(:prisoner_dob) { Date.parse('1970-01-01') }
 
   describe 'on visitors' do
     subject { super().on_visitors }
@@ -24,7 +33,7 @@ RSpec.describe BookingConstraints, type: :model do
     end
 
     it 'fetches available slots from the API' do
-      expect(pvb_api).to receive(:get_slots).with(prison_id)
+      expect(pvb_api).to receive(:get_slots).with(params)
       subject
     end
 

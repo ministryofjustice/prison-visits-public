@@ -23,7 +23,9 @@ class StepsProcessor
 
   def booking_constraints
     BookingConstraints.new(
-      prison_id: prison_id
+      prison_id: prison_id,
+      prisoner_number: prisoner_number,
+      prisoner_dob: prisoner_dob
     )
   end
 
@@ -65,5 +67,13 @@ private
 
   def prison_id
     params.fetch(:prisoner_step, {}).fetch(:prison_id, nil)
+  end
+
+  def prisoner_number
+    @steps[:prisoner_step].number
+  end
+
+  def prisoner_dob
+    @steps[:prisoner_step].date_of_birth
   end
 end
