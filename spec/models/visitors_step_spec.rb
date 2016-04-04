@@ -11,6 +11,52 @@ RSpec.describe VisitorsStep do
   }
   let(:visitor_constraints) { BookingConstraints::VisitorConstraints.new }
 
+  let(:adult) {
+    {
+      first_name: 'John',
+      last_name: 'Johnson',
+      date_of_birth: { day: '3', month: '4', year: '1990' }
+    }
+  }
+  let(:child_13) {
+    {
+      first_name:  'Jim',
+      last_name:  'Johnson',
+      date_of_birth:  {
+        day:  '1', month:  '12', year:  '2002' # 13 today
+      }
+    }
+  }
+  let(:child_12) {
+    {
+      first_name:  'Jessica',
+      last_name:  'Johnson',
+      date_of_birth:  {
+        day:  '2', month:  '12', year:  '2002' # 13 tomorrow
+      }
+    }
+  }
+  let(:blank_visitor) {
+    {
+      first_name: '',
+      last_name: '',
+      date_of_birth: { day: '', month: '', year: '' }
+    }
+  }
+  let(:invalid_visitor) {
+    {
+      first_name: '',
+      last_name: 'Johnson',
+      date_of_birth: { day: '3', month: '4', year: '1990' }
+    }
+  }
+
+  around do |example|
+    travel_to Date.new(2015, 12, 1) do
+      example.call
+    end
+  end
+
   describe "email_address=" do
     it 'strips whitespace' do
       subject.email_address = ' email@example.com '
@@ -76,16 +122,8 @@ RSpec.describe VisitorsStep do
 
     it 'does not validate blank additional visitors' do
       subject.visitors_attributes = {
-        '0' => {
-          'first_name' => '',
-          'last_name' => '',
-          'date_of_birth' => { 'day' => '', 'month' => '', 'year' => '' }
-        },
-        '1' => {
-          'first_name' => '',
-          'last_name' => '',
-          'date_of_birth' => { 'day' => '', 'month' => '', 'year' => '' }
-        }
+        '0' => blank_visitor,
+        '1' => blank_visitor
       }
       subject.validate
       expect(subject.backfilled_visitors[1].errors).to be_empty
@@ -94,23 +132,7 @@ RSpec.describe VisitorsStep do
 
   describe 'additional_visitor_count' do
     it 'is one less than the number of visitors supplied' do
-      subject.visitors_attributes = {
-        '0' => {
-          'first_name' => 'Bob',
-          'last_name' => 'Roberts',
-          'date_of_birth' => { 'day' => '1', 'month' => '2', 'year' => '1980' }
-        },
-        '1' => {
-          'first_name' => 'John',
-          'last_name' => 'Johnson',
-          'date_of_birth' => { 'day' => '3', 'month' => '4', 'year' => '1990' }
-        },
-        '2' => {
-          'first_name' => '',
-          'last_name' => '',
-          'date_of_birth' => { 'day' => '', 'month' => '', 'year' => '' }
-        }
-      }
+      subject.visitors = [adult, child_12]
       expect(subject.additional_visitor_count).to eq(1)
     end
   end
@@ -166,58 +188,23 @@ RSpec.describe VisitorsStep do
     end
 
     it 'is true if the step is valid and all visitors are valid' do
-      subject.visitors_attributes = {
-        '0' => {
-          'first_name' => 'Bob',
-          'last_name' => 'Roberts',
-          'date_of_birth' => { 'day' => '1', 'month' => '2', 'year' => '1980' }
-        },
-        '1' => {
-          'first_name' => 'John',
-          'last_name' => 'Johnson',
-          'date_of_birth' => { 'day' => '3', 'month' => '4', 'year' => '1990' }
-        }
-      }
-
+      subject.visitors = [adult, adult]
       expect(subject).to be_valid
     end
 
     it 'is false if a visitor is invalid' do
-      subject.visitors_attributes = {
-        '0' => {
-          'first_name' => 'Bob',
-          'last_name' => 'Roberts',
-          'date_of_birth' => { 'day' => '1', 'month' => '2', 'year' => '1980' }
-        },
-        '1' => {
-          'first_name' => '',
-          'last_name' => 'Johnson',
-          'date_of_birth' => { 'day' => '3', 'month' => '4', 'year' => '1990' }
-        }
-      }
-
+      subject.visitors = [adult, invalid_visitor]
       expect(subject).not_to be_valid
     end
 
     it 'is false if there are no visitors' do
-      subject.visitors_attributes = {}
+      subject.visitors = []
       expect(subject).not_to be_valid
     end
 
     it 'validates all objects even if one is invalid' do
       subject.email_address = 'invalid'
-      subject.visitors_attributes = {
-        '0' => {
-          'first_name' => 'Bob',
-          'last_name' => '',
-          'date_of_birth' => { 'day' => '', 'month' => '', 'year' => '' }
-        },
-        '1' => {
-          'first_name' => 'John',
-          'last_name' => '',
-          'date_of_birth' => { 'day' => '', 'month' => '', 'year' => '' }
-        }
-      }
+      subject.visitors = [invalid_visitor, invalid_visitor]
       subject.validate
       expect(subject.backfilled_visitors[0].errors).not_to be_empty
       expect(subject.backfilled_visitors[1].errors).not_to be_empty
@@ -230,118 +217,20 @@ RSpec.describe VisitorsStep do
       BookingConstraints::VisitorConstraints.new(adult_age: 13)
     }
 
-    around do |example|
-      travel_to Date.new(2015, 12, 1) do
-        example.call
-      end
-    end
-
     it 'is valid if there is one adult visitor' do
-      subject.visitors = [
-        {
-          first_name:  'John',
-          last_name:  'Johnson',
-          date_of_birth:  { day:  '1', month:  '12', year:  '2002' }
-        }
-      ]
+      subject.visitors = [adult]
       subject.validate
       expect(subject.errors).not_to have_key(:general)
     end
 
     it 'is valid if there are 3 adult and 3 child visitors' do
-      subject.visitors = [
-        {
-          first_name:  'John',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '1', month:  '12', year:  '2002' # 13 today
-          }
-        },
-        {
-          first_name:  'Jane',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '1', month:  '12', year:  '2002' # 13 today
-          }
-        },
-        {
-          first_name:  'Jim',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '1', month:  '12', year:  '2002' # 13 today
-          }
-        },
-        {
-          first_name:  'Joe',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '2', month:  '12', year:  '2002' # 13 tomorrow
-          }
-        },
-        {
-          first_name:  'Jessica',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '2', month:  '12', year:  '2002' # 13 tomorrow
-          }
-        },
-        {
-          first_name:  'Jerry',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '2', month:  '12', year:  '2002' # 13 tomorrow
-          }
-        }
-      ]
+      subject.visitors = [child_13] * 3 + [child_12] * 3
       subject.validate
       expect(subject.errors).not_to have_key(:general)
     end
 
     it 'is invalid if there are too many adult visitors' do
-      subject.visitors = [
-        {
-          first_name:  'John',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '1', month:  '12', year:  '2002' # 13 today
-          }
-        },
-        {
-          first_name:  'Jane',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '1', month:  '12', year:  '2002' # 13 today
-          }
-        },
-        {
-          first_name:  'Jim',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '1', month:  '12', year:  '2002' # 13 today
-          }
-        },
-        {
-          first_name:  'Joe',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '1', month:  '12', year:  '2002' # 13 today
-          }
-        },
-        {
-          first_name:  'Jessica',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '1', month:  '12', year:  '2002' # 13 today
-          }
-        },
-        {
-          first_name:  'Jerry',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '1', month:  '12', year:  '2002' # 13 today
-          }
-        }
-      ]
+      subject.visitors = [child_13] * 6
       subject.validate
       expect(subject.errors[:general]).to include(
         'You can book a maximum of 3 visitors over the age of 13 on this visit'
@@ -349,22 +238,7 @@ RSpec.describe VisitorsStep do
     end
 
     it 'is invalid if there is no adult visitor' do
-      subject.visitors = [
-        {
-          first_name:  'Joe',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '2', month:  '12', year:  '2002' # 13 tomorrow
-          }
-        },
-        {
-          first_name:  'Jessica',
-          last_name:  'Johnson',
-          date_of_birth:  {
-            day:  '2', month:  '12', year:  '2002' # 13 tomorrow
-          }
-        }
-      ]
+      subject.visitors = [child_12] * 2
       subject.validate
       expect(subject.errors[:general]).to include(
         'There must be at least one adult visitor'
