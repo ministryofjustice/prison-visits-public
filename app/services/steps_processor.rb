@@ -1,16 +1,21 @@
 class StepsProcessor
+  STEP_NAMES = %i[ prisoner_step visitors_step slots_step confirmation_step ]
+
   def initialize(params, locale)
-    @params = params
-    @steps = load_steps
+    @steps = load_steps(params)
     @locale = locale
+
+    # Compute now to avoid keeping @params
+    @steps_submitted = STEP_NAMES.select { |s| params.has_key?(s) }
+    @review_step = STEP_NAMES.find { |s| s.to_s == params[:review_step].to_s }
   end
 
   def step_name
-    review_step_name || incomplete_step_name || :completed
+    @review_step || incomplete_step_name || :completed
   end
 
   def execute!
-    return if incomplete?
+    return if incomplete_step_name
     BookingRequestCreator.new.create!(
       steps.fetch(:prisoner_step),
       steps.fetch(:visitors_step),
@@ -31,42 +36,34 @@ class StepsProcessor
 
 private
 
-  attr_reader :params
-
-  def review_step_name
-    steps.keys.find { |name| name.to_s == params[:review_step].to_s }
-  end
-
   def incomplete_step_name
     # Memoize this method, since otherwise potentially expensive step
     # validations are excecuted multiple times (for example the Visitor step
     # validation which calls the Sendgrid API)
-    @_incomplete_step_name ||= steps.keys.find { |name| incomplete_step?(name) }
+    @_incomplete_step_name ||= STEP_NAMES.find { |name| incomplete_step?(name) }
   end
 
-  alias_method :incomplete?, :incomplete_step_name
+  def incomplete_step?(name)
+    !@steps_submitted.include?(name) || steps[name].invalid?
+  end
 
-  def load_steps
+  def load_steps(params)
     {
-      prisoner_step: load_step(PrisonerStep),
-      visitors_step: load_step(VisitorsStep),
-      slots_step: load_step(SlotsStep),
-      confirmation_step: load_step(ConfirmationStep)
+      prisoner_step: load_step(PrisonerStep, params),
+      visitors_step: load_step(VisitorsStep, params),
+      slots_step: load_step(SlotsStep, params),
+      confirmation_step: load_step(ConfirmationStep, params)
     }
   end
 
-  def load_step(step_klass)
+  def load_step(step_klass, params)
     step_name = step_klass.name.underscore
     step_params = params.fetch(step_name, {})
     step_klass.new(step_params.merge(processor: self))
   end
 
-  def incomplete_step?(name)
-    params.key?(name) ? steps[name].invalid? : true
-  end
-
   def prison_id
-    params.fetch(:prisoner_step, {}).fetch(:prison_id, nil)
+    @steps[:prisoner_step].prison_id
   end
 
   def prisoner_number
