@@ -1,7 +1,7 @@
 class SlotsStep
   include NonPersistedModel
 
-  attribute :prison_id, Integer
+  attribute :processor, StepsProcessor
 
   attribute :option_0, String
   attribute :option_1, String
@@ -39,6 +39,6 @@ class SlotsStep
   end
 
   def slot_constraints
-    @constraints ||= BookingConstraints.new(prison_id: prison_id).on_slots
+    @constraints ||= processor.booking_constraints.on_slots
   end
 end

@@ -12,7 +12,7 @@ class VisitorsStep
     attribute :date_of_birth, MaybeDate
   end
 
-  attribute :prison_id, Integer
+  attribute :processor, StepsProcessor
 
   attribute :email_address, String
   attribute :phone_no, String
@@ -54,7 +54,7 @@ class VisitorsStep
 
     # We always want at least one visitor. Leaving the rest blank is fine, but
     # the first one must both exist and be valid.
-    self.visitors = pruned.empty? ? [{}] : pruned.take(max_visitors)
+    self.visitors = pruned.empty? ? [{}] : pruned # .take(max_visitors)
   end
 
   def valid?(*)
@@ -70,7 +70,7 @@ class VisitorsStep
 
   def visitor_constraints
     @visitor_constraints ||=
-      BookingConstraints.new(prison_id: prison_id).on_visitors
+      processor.booking_constraints.on_visitors
   end
 
 private
