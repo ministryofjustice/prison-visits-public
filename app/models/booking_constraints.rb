@@ -41,6 +41,12 @@ class BookingConstraints
       end
     end
 
+    def validate_visitor_number(target, field, number)
+      if number > max_visitors
+        target.errors.add field, :too_many_visitors, max: max_visitors
+      end
+    end
+
   private
 
     def adult?(age)

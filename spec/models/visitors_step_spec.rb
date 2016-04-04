@@ -94,21 +94,6 @@ RSpec.describe VisitorsStep do
       )
     end
 
-    it 'ignores more than Prison::MAX_VISITORS visitors' do
-      pending "temporarily disabled"
-      subject.visitors_attributes = 7.times.map { |n|
-        [
-          n.to_s,
-          {
-            'first_name' => 'John',
-            'last_name' => 'Johnson',
-            'date_of_birth' => { 'day' => '3', 'month' => '4', 'year' => '1990' }
-          }
-        ]
-      }.to_h
-      expect(subject.backfilled_visitors.length).to eq(6)
-    end
-
     it 'returns blank visitors to make up 6' do
       subject.visitors_attributes = {}
       expect(subject.backfilled_visitors.length).to eq(6)
@@ -164,21 +149,6 @@ RSpec.describe VisitorsStep do
       subject.visitors_attributes = {}
       expect(subject.visitors.length).to eq(1)
     end
-
-    it 'ignores more than Prison::MAX_VISITORS visitors' do
-      pending "temporarily disabled"
-      subject.visitors_attributes = 7.times.map { |n|
-        [
-          n.to_s,
-          {
-            'first_name' => 'John',
-            'last_name' => 'Johnson',
-            'date_of_birth' => { 'day' => '3', 'month' => '4', 'year' => '1990' }
-          }
-        ]
-      }.to_h
-      expect(subject.visitors.length).to eq(6)
-    end
   end
 
   describe 'valid?' do
@@ -200,6 +170,16 @@ RSpec.describe VisitorsStep do
     it 'is false if there are no visitors' do
       subject.visitors = []
       expect(subject).not_to be_valid
+    end
+
+    it 'is invalid if there are too many visitors' do
+      subject.visitors = [adult] * 3 + [child_12] * 4
+
+      expect(subject).not_to be_valid
+      expect(subject.errors).to have_key(:general)
+      expect(subject.errors[:general]).to eq(
+        ["You can book a maximum of 6 visitors"]
+      )
     end
 
     it 'validates all objects even if one is invalid' do
