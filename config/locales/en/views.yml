@@ -83,6 +83,14 @@ en:
       option_1: Option 2
       option_2: Option 3
       next_step: Continue
+      no_availability_md: |
+        **Your visit cannot be booked.**
+        
+        Unfortunately there is no availability to visit this prisoner. They may
+        have run out of visiting allowance, or they may be unavailable for some
+        other reason.
+
+        Please try again in a few days time.
     confirmation_step:
       title: Check your request
       prisoner_details: Prisoner details

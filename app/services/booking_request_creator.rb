@@ -1,7 +1,7 @@
 class BookingRequestCreator
   # rubocop:disable Metrics/MethodLength
   def create!(prisoner_step, visitors_step, slots_step, locale)
-    prisoner = prisoner_step.to_hash.except(:prison_id)
+    prisoner = prisoner_step.to_hash.except(:prison_id, :processor)
     visitors = visitors_step.visitors.map(&:to_hash)
 
     params = {

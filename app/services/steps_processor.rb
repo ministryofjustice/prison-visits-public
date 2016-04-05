@@ -21,6 +21,14 @@ class StepsProcessor
 
   attr_reader :steps
 
+  def booking_constraints
+    BookingConstraints.new(
+      prison_id: prison_id,
+      prisoner_number: prisoner_number,
+      prisoner_dob: prisoner_dob
+    )
+  end
+
 private
 
   attr_reader :params
@@ -50,7 +58,7 @@ private
   def load_step(step_klass)
     step_name = step_klass.name.underscore
     step_params = params.fetch(step_name, {})
-    step_klass.new(step_params.merge(prison_id: prison_id))
+    step_klass.new(step_params.merge(processor: self))
   end
 
   def incomplete_step?(name)
@@ -59,5 +67,13 @@ private
 
   def prison_id
     params.fetch(:prisoner_step, {}).fetch(:prison_id, nil)
+  end
+
+  def prisoner_number
+    @steps[:prisoner_step].number
+  end
+
+  def prisoner_dob
+    @steps[:prisoner_step].date_of_birth
   end
 end

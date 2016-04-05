@@ -1,7 +1,7 @@
 class SlotsStep
   include NonPersistedModel
 
-  attribute :prison_id, Integer
+  attribute :processor, StepsProcessor
 
   attribute :option_0, String
   attribute :option_1, String
@@ -22,6 +22,8 @@ class SlotsStep
 
   validates :option_0, presence: true
 
+  delegate :bookable_slots?, to: :slot_constraints
+
   def options_available?
     options.length < 3
   end
@@ -39,6 +41,6 @@ class SlotsStep
   end
 
   def slot_constraints
-    @constraints ||= BookingConstraints.new(prison_id: prison_id).on_slots
+    @constraints ||= processor.booking_constraints.on_slots
   end
 end

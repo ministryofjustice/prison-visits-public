@@ -12,7 +12,7 @@ class VisitorsStep
     attribute :date_of_birth, MaybeDate
   end
 
-  attribute :prison_id, Integer
+  attribute :processor, StepsProcessor
 
   attribute :email_address, String
   attribute :phone_no, String
@@ -26,7 +26,7 @@ class VisitorsStep
   validates :email_address, presence: true
   validates :phone_no, presence: true, length: { minimum: 9 }
 
-  validate :validate_email, :validate_ages
+  validate :validate_email, :validate_visitors
 
   attr_reader :general # Required in order to assign errors to 'general'
 
@@ -54,7 +54,7 @@ class VisitorsStep
 
     # We always want at least one visitor. Leaving the rest blank is fine, but
     # the first one must both exist and be valid.
-    self.visitors = pruned.empty? ? [{}] : pruned.take(max_visitors)
+    self.visitors = pruned.empty? ? [{}] : pruned
   end
 
   def valid?(*)
@@ -70,7 +70,7 @@ class VisitorsStep
 
   def visitor_constraints
     @visitor_constraints ||=
-      BookingConstraints.new(prison_id: prison_id).on_visitors
+      processor.booking_constraints.on_visitors
   end
 
 private
@@ -84,8 +84,9 @@ private
     end
   end
 
-  def validate_ages
+  def validate_visitors
     ages = visitors.map(&:age).compact
     visitor_constraints.validate_visitor_ages_on self, :general, ages
+    visitor_constraints.validate_visitor_number self, :general, visitors.size
   end
 end

@@ -4,6 +4,8 @@ class PrisonerStep
   include NonPersistedModel
   include Person
 
+  attribute :processor, StepsProcessor
+
   attribute :first_name, String
   attribute :last_name, String
   attribute :date_of_birth, MaybeDate
