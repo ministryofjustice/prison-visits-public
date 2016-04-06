@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:3000/api/feedback.json
+    body:
+      encoding: UTF-8
+      string: '{"feedback":{"body":"the feedback","email_address":"user@example.com","referrer":"referrer","user_agent":"user
+        agent"}}'
+    headers:
+      User-Agent:
+      - excon/0.49.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"99914b932bd37a50b983c5e7c90ae93b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 1ebc6ab8-046b-428e-8b0f-087e7d557790
+      X-Runtime:
+      - '0.466878'
+    body:
+      encoding: UTF-8
+      string: "{}"
+    http_version: 
+  recorded_at: Thu, 07 Apr 2016 13:02:49 GMT
+recorded_with: VCR 3.0.1

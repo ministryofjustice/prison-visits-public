@@ -148,4 +148,21 @@ RSpec.describe PrisonVisits::Api do
       expect(subject.processing_state).to eq('withdrawn')
     end
   end
+
+  describe 'create_feedback', vcr: { cassette_name: 'create_feedback' } do
+    subject { super().create_feedback(params) }
+
+    let(:params) {
+      {
+        feedback: {
+          body: 'the feedback',
+          email_address: 'user@example.com',
+          referrer: 'referrer',
+          user_agent: 'user agent'
+        }
+      }
+    }
+
+    it { is_expected.to be_nil }
+  end
 end

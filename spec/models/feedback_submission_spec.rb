@@ -1,35 +1,38 @@
+require 'spec_helper'
 require 'rails_helper'
 
-RSpec.describe FeedbackSubmission do
-  context 'before validations' do
-    context 'email_address' do
-      it 'strips whitespace' do
-        subject.email_address = ' user@example.com '
-        subject.valid?
-        expect(subject.email_address).to eq('user@example.com')
-      end
+RSpec.describe FeedbackSubmission, type: :model do
+  context '#email=' do
+    it "doesn't strip nil values" do
+      subject.email_address = nil
+      expect(subject.email_address).to be_nil
+    end
+
+    it 'strips whitespace' do
+      subject.email_address = ' user@example.com '
+      expect(subject.email_address).to eq('user@example.com')
     end
   end
 
   context 'validations' do
-    context 'email_address' do
-      it 'is valid when absent' do
-        subject.email_address = ''
-        subject.validate
-        expect(subject.errors).not_to have_key(:email_address)
+    it 'requires a body' do
+      subject.body = nil
+      subject.valid?
+      expect(subject.errors[:body]).to be_present
+    end
+  end
+
+  describe '#send_feedback' do
+    it 'sends the feedback data via the api' do
+      expect(PrisonVisits::Api.instance).
+        to receive(:create_feedback) do |arg|
+        expect(arg[:feedback][:body]).to eq(body)
+        expect(arg[:feedback][:email_address]).to eq(email_address)
+        expect(arg[:feedback][:referrer]).to eq(instance.referrer)
+        expect(arg[:feedback][:user_agent]).to eq(instance.user_agent)
       end
 
-      it 'is valid when reasonable' do
-        subject.email_address = 'user@test.example.com'
-        subject.validate
-        expect(subject.errors).not_to have_key(:email_address)
-      end
-
-      it 'is invalid when not an email address' do
-        subject.email_address = 'BOGUS!'
-        subject.validate
-        expect(subject.errors).to have_key(:email_address)
-      end
+      instance.send_feedback
     end
   end
 end

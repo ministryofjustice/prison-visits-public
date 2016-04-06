@@ -58,6 +58,11 @@ module PrisonVisits
       response = @client.delete("visits/#{id}")
       Visit.new(response.fetch('visit'))
     end
+
+    def create_feedback(params)
+      @client.post('/feedback', params)
+      nil
+    end
   end
   # rubocop:enable Style/AccessorMethodName
 end

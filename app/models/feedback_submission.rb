@@ -1,18 +1,32 @@
-class FeedbackSubmission < ActiveRecord::Base
-  validates :body, presence: true
-  validate :validate_email
+class FeedbackSubmission
+  include NonPersistedModel
 
-  before_validation :strip_email_address, on: :create
+  attribute :body, String
+  attribute :email_address, String
+  attribute :referrer, String
+  attribute :user_agent, String
+
+  validates :body, presence: true
+
+  def email_address=(val)
+    stripped = val.try(:strip)
+    super(stripped)
+  end
+
+  def send_feedback
+    PrisonVisits::Api.instance.create_feedback(feedback_params)
+  end
 
 private
 
-  def strip_email_address
-    self.email_address = email_address.strip
-  end
-
-  def validate_email
-    return unless email_address.present?
-    email_checker = EmailChecker.new(email_address)
-    errors.add :email_address, email_checker.message unless email_checker.valid?
+  def feedback_params
+    {
+      feedback: {
+        body: body,
+        email_address: email_address,
+        referrer: referrer,
+        user_agent: user_agent
+      }
+    }
   end
 end

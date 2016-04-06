@@ -16,10 +16,13 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
 
   context 'create' do
     context 'with a successful feedback submission' do
+      before do
+        allow_any_instance_of(FeedbackSubmission).to receive(:send_feedback)
+      end
       let(:params) {
         {
           feedback_submission: {
-            email_address: 'test@maildrop.dsd.io', body: 'feedback', referrer: 'ref'
+            email_address: 'test@example.com ', body: 'feedback', referrer: 'ref'
           },
           locale: 'en'
         }
@@ -30,7 +33,10 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
         expect(response).to render_template('create')
       end
 
-      it 'sends to the API'
+      it 'sends to the API' do
+        expect_any_instance_of(FeedbackSubmission).to receive(:send_feedback)
+        post :create, params
+      end
     end
 
     context 'with no body entered' do
@@ -48,7 +54,11 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
         expect(response).to be_success
       end
 
-      it 'does not send to the API'
+      it 'does not send to the API' do
+        expect_any_instance_of(FeedbackSubmission).
+          to_not receive(:send_feedback)
+        post :create, params
+      end
 
       it 're-renders the new template' do
         post :create, params
