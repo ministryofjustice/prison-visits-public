@@ -1,6 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe CalendarHelper do
+  describe 'each_day_of_the_week' do
+    let(:date) { Time.new(2016, 4, 6, 14) }
+
+    let(:expected_dates) {
+      [
+        Time.new(2016, 4, 4),
+        Time.new(2016, 4, 5),
+        Time.new(2016, 4, 6),
+        Time.new(2016, 4, 7),
+        Time.new(2016, 4, 8),
+        Time.new(2016, 4, 9),
+        Time.new(2016, 4, 10)
+      ]
+    }
+
+    it 'yields dates' do
+      expect { |b| helper.each_day_of_week(date, &b) }.
+        to yield_successive_args(*expected_dates)
+    end
+  end
+
   describe 'weeks' do
     it 'enumerates whole weeks from tomorrow to cover month of booking window' do
       #
