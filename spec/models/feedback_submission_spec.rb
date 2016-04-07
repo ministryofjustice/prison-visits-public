@@ -50,18 +50,4 @@ RSpec.describe FeedbackSubmission, type: :model do
       end
     end
   end
-
-  describe '#send_feedback' do
-    it 'sends the feedback data via the api' do
-      expect(PrisonVisits::Api.instance).
-        to receive(:create_feedback) do |arg|
-        expect(arg[:feedback][:body]).to eq(body)
-        expect(arg[:feedback][:email_address]).to eq(email_address)
-        expect(arg[:feedback][:referrer]).to eq(instance.referrer)
-        expect(arg[:feedback][:user_agent]).to eq(instance.user_agent)
-      end
-
-      instance.send_feedback
-    end
-  end
 end

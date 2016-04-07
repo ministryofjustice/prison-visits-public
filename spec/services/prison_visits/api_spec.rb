@@ -150,17 +150,14 @@ RSpec.describe PrisonVisits::Api do
   end
 
   describe 'create_feedback', vcr: { cassette_name: 'create_feedback' } do
-    subject { super().create_feedback(params) }
+    subject { super().create_feedback(feedback_submission) }
 
-    let(:params) {
-      {
-        feedback: {
-          body: 'the feedback',
-          email_address: 'user@example.com',
-          referrer: 'referrer',
-          user_agent: 'user agent'
-        }
-      }
+    let(:feedback_submission) {
+      FeedbackSubmission.new(
+        body: 'the feedback',
+        email_address: 'user@example.com',
+        referrer: 'referrer',
+        user_agent: 'user agent')
     }
 
     it { is_expected.to be_nil }

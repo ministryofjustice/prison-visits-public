@@ -7,7 +7,7 @@ class FeedbackSubmissionsController < ApplicationController
     @feedback = FeedbackSubmission.new(feedback_params)
 
     if @feedback.valid?
-      @feedback.send_feedback
+      PrisonVisits::Api.instance.create_feedback(@feedback)
       render :create
     else
       render :new

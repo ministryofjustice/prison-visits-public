@@ -17,7 +17,7 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
   context 'create' do
     context 'with a successful feedback submission' do
       before do
-        allow_any_instance_of(FeedbackSubmission).to receive(:send_feedback)
+        allow_any_instance_of(PrisonVisits::Api).to receive(:create_feedback)
       end
       let(:params) {
         {
@@ -34,7 +34,8 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
       end
 
       it 'sends to the API' do
-        expect_any_instance_of(FeedbackSubmission).to receive(:send_feedback)
+        expect_any_instance_of(PrisonVisits::Api).
+          to receive(:create_feedback).with(instance_of(FeedbackSubmission))
         post :create, params
       end
     end
@@ -55,8 +56,8 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
       end
 
       it 'does not send to the API' do
-        expect_any_instance_of(FeedbackSubmission).
-          to_not receive(:send_feedback)
+        expect_any_instance_of(PrisonVisits::Api).
+          to_not receive(:create_feedback)
         post :create, params
       end
 

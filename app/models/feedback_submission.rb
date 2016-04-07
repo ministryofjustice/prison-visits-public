@@ -14,26 +14,11 @@ class FeedbackSubmission
     super(stripped)
   end
 
-  def send_feedback
-    PrisonVisits::Api.instance.create_feedback(feedback_params)
-  end
-
 private
 
   def email_format
     Mail::Address.new(email_address)
   rescue Mail::Field::ParseError
     errors.add(:email_address, 'has incorrect format')
-  end
-
-  def feedback_params
-    {
-      feedback: {
-        body: body,
-        email_address: email_address,
-        referrer: referrer,
-        user_agent: user_agent
-      }
-    }
   end
 end
