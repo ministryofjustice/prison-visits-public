@@ -123,4 +123,9 @@ ClassAndModuleChildren:
 Rails/Delegate:
   Enabled: false
 
+# Enforcing timezone in specs is unecessary
+Rails/TimeZone:
+  Exclude:
+    - 'spec/**/*'
+
 require: rubocop-rspec
