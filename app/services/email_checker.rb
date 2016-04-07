@@ -37,7 +37,6 @@ private
 
   # rubocop:disable Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/PerceivedComplexity
-  # rubocop:disable Metrics/MethodLength
   def compute_error
     return :unparseable unless parsed
     return :domain_dot if domain_dot_error?
@@ -53,7 +52,6 @@ private
   end
   # rubocop:enable Metrics/CyclomaticComplexity
   # rubocop:enable Metrics/PerceivedComplexity
-  # rubocop:enable Metrics/MethodLength
 
   def override_sendgrid?
     @override_sendgrid || !Rails.configuration.enable_sendgrid_validations
