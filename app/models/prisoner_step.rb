@@ -30,7 +30,6 @@ class PrisonerStep
 
 private
 
-  # rubocop:disable Metrics/AbcSize
   def validate_prisoner
     result = PrisonVisits::Api.instance.validate_prisoner(
       number: number,
@@ -45,5 +44,4 @@ private
       errors.add :date_of_birth, I18n.t(error_nomatch, scope: I18N_SCOPE)
     end
   end
-  # rubocop:enable Metrics/AbcSize
 end
