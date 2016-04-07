@@ -7,6 +7,7 @@ class FeedbackSubmission
   attribute :user_agent, String
 
   validates :body, presence: true
+  validate :email_format
 
   def email_address=(val)
     stripped = val.try(:strip)
@@ -18,6 +19,12 @@ class FeedbackSubmission
   end
 
 private
+
+  def email_format
+    Mail::Address.new(email_address)
+  rescue Mail::Field::ParseError
+    errors.add(:email_address, 'has incorrect format')
+  end
 
   def feedback_params
     {
