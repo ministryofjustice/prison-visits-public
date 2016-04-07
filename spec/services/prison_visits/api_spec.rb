@@ -148,4 +148,26 @@ RSpec.describe PrisonVisits::Api do
       expect(subject.processing_state).to eq('withdrawn')
     end
   end
+
+  describe 'create_feedback', vcr: { cassette_name: 'create_feedback' } do
+    let(:feedback_attrs) {
+      {
+        body: 'the feedback',
+        email_address: 'user@example.com',
+        referrer: 'referrer',
+        user_agent: 'user agent'
+      }
+    }
+
+    let(:feedback_submission) { FeedbackSubmission.new(feedback_attrs) }
+
+    it 'makes a request to the api' do
+      # The test will use the VCR cassette
+      WebMock.allow_net_connect!
+
+      expect(subject.create_feedback(feedback_submission)).to be_nil
+      expect(WebMock).to have_requested(:post, %r{\/api\/feedback\.json}).
+        with(body: JSON.generate(feedback: feedback_attrs))
+    end
+  end
 end

@@ -1,18 +1,24 @@
-class FeedbackSubmission < ActiveRecord::Base
-  validates :body, presence: true
-  validate :validate_email
+class FeedbackSubmission
+  include NonPersistedModel
 
-  before_validation :strip_email_address, on: :create
+  attribute :body, String
+  attribute :email_address, String
+  attribute :referrer, String
+  attribute :user_agent, String
+
+  validates :body, presence: true
+  validate :email_format
+
+  def email_address=(val)
+    stripped = val.try(:strip)
+    super(stripped)
+  end
 
 private
 
-  def strip_email_address
-    self.email_address = email_address.strip
-  end
-
-  def validate_email
-    return unless email_address.present?
-    email_checker = EmailChecker.new(email_address)
-    errors.add :email_address, email_checker.message unless email_checker.valid?
+  def email_format
+    Mail::Address.new(email_address)
+  rescue Mail::Field::ParseError
+    errors.add(:email_address, 'has incorrect format')
   end
 end

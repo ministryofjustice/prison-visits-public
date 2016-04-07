@@ -6,10 +6,11 @@ class FeedbackSubmissionsController < ApplicationController
   def create
     @feedback = FeedbackSubmission.new(feedback_params)
 
-    if @feedback.save
-      # TODO: Submit to API
+    if @feedback.valid?
+      PrisonVisits::Api.instance.create_feedback(@feedback)
+      render :create
     else
-      render 'new'
+      render :new
     end
   end
 
