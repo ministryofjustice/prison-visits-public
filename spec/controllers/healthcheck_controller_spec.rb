@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe HealthcheckController, type: :controller do
+RSpec.xdescribe HealthcheckController, type: :controller do
   let(:parsed_body) {
     JSON.parse(response.body)
   }

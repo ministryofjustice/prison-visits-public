@@ -1,4 +1,4 @@
-class Healthcheck
+module Healthcheck
   module CheckComponent
     attr_reader :report
 
