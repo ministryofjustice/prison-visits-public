@@ -34,12 +34,13 @@ module PrisonVisits
       result.fetch('validation')
     end
 
-    def get_slots(prison_id:, prisoner_number:, prisoner_dob:)
+    def get_slots(prison_id:, prisoner_number:, prisoner_dob:, use_nomis_slots: false)
       response = @client.get(
         '/slots',
         prison_id: prison_id,
         prisoner_number: prisoner_number,
-        prisoner_dob: prisoner_dob
+        prisoner_dob: prisoner_dob,
+        use_nomis_slots: use_nomis_slots
       )
       response['slots'].map { |s| ConcreteSlot.parse(s) }
     end

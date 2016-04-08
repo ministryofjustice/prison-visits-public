@@ -7,6 +7,7 @@ RSpec.describe PrisonVisits::Api do
   # the VCR cassettes. Sadly this will vary from system to system as a result
   # of using UUIDs for prisons.
   let(:cardiff_prison_id) { '0614760e-a773-49c0-a29c-35e743e72555' }
+  let(:leeds_prison_id) { '8076d43d-429d-4e19-aac1-178ff9d112d3' }
 
   let(:valid_booking_params) {
     {
@@ -79,13 +80,15 @@ RSpec.describe PrisonVisits::Api do
   end
 
   describe 'get_slots', vcr: { cassette_name: 'get_slots' } do
-    subject {
-      super().get_slots(
+    let(:params) {
+      {
         prison_id: cardiff_prison_id,
         prisoner_number: 'a1234bc',
         prisoner_dob: Date.parse('1970-01-01')
-      )
+      }
     }
+
+    subject { super().get_slots(params) }
 
     it 'returns an array of concrete slots' do
       expect(subject).to be_kind_of(Array)
@@ -93,7 +96,13 @@ RSpec.describe PrisonVisits::Api do
     end
 
     it 'returns sensible looking concrete slots' do
-      expect(subject.first.iso8601).to eq("2016-04-08T13:30/14:30")
+      expect(subject.first.iso8601).to eq("2016-04-14T13:30/14:30")
+    end
+
+    it 'can request live slots from NOMIS', vcr: { cassette_name: 'get_slots-live_slots' } do
+      params[:prison_id] = leeds_prison_id
+      params[:use_nomis_slots] = true
+      expect(subject.first.iso8601).to eq("2016-04-15T10:30/11:30")
     end
   end
 
