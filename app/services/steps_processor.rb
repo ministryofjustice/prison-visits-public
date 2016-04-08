@@ -26,11 +26,15 @@ class StepsProcessor
 
   attr_reader :steps
 
+  def prisoner_step
+    @steps[:prisoner_step]
+  end
+
   def booking_constraints
     BookingConstraints.new(
-      prison_id: prison_id,
-      prisoner_number: prisoner_number,
-      prisoner_dob: prisoner_dob
+      prison_id: prisoner_step.prison_id,
+      prisoner_number: prisoner_step.number,
+      prisoner_dob: prisoner_step.date_of_birth
     )
   end
 
@@ -60,17 +64,5 @@ private
     step_name = step_klass.name.underscore
     step_params = params.fetch(step_name, {})
     step_klass.new(step_params.merge(processor: self))
-  end
-
-  def prison_id
-    @steps[:prisoner_step].prison_id
-  end
-
-  def prisoner_number
-    @steps[:prisoner_step].number
-  end
-
-  def prisoner_dob
-    @steps[:prisoner_step].date_of_birth
   end
 end
