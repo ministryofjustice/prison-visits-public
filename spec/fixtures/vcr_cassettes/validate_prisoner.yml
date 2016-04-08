@@ -8,7 +8,7 @@ http_interactions:
       string: '{"number":"A1459AE","date_of_birth":"1976-06-12"}'
     headers:
       User-Agent:
-      - excon/0.48.0
+      - excon/0.49.0
       Accept:
       - application/json
       Accept-Language:
