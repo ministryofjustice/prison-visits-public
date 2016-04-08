@@ -13,13 +13,14 @@ class BookingConstraints
     )
   end
 
-  def on_slots
+  def on_slots(use_nomis_slots = false)
     fail 'No prison' unless @prison_id
     fail 'No prisoner details' unless @prisoner_number && @prisoner_dob
     slots = PrisonVisits::Api.instance.get_slots(
       prison_id: @prison_id,
       prisoner_number: @prisoner_number,
-      prisoner_dob: @prisoner_dob
+      prisoner_dob: @prisoner_dob,
+      use_nomis_slots: use_nomis_slots
     )
     SlotConstraints.new(slots)
   end
