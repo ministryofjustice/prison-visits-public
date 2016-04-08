@@ -37,6 +37,23 @@ RSpec.describe PrisonVisits::Api do
     }
   }
 
+  # Specs use vcr cassettes, no real calls are made
+  before do
+    WebMock.allow_net_connect!
+  end
+
+  describe 'API localisation', vcr: { cassette_name: 'get_prisons_cy' } do
+    it 'uses the I18n locale' do
+      I18n.locale = 'cy'
+
+      subject.get_prisons
+
+      expect(WebMock).
+        to have_requested(:get, /api/).
+        with(headers: { 'Accept-Language' => 'cy' })
+    end
+  end
+
   describe 'get_prisons', vcr: { cassette_name: 'get_prisons' } do
     subject { super().get_prisons }
 
@@ -162,9 +179,6 @@ RSpec.describe PrisonVisits::Api do
     let(:feedback_submission) { FeedbackSubmission.new(feedback_attrs) }
 
     it 'makes a request to the api' do
-      # The test will use the VCR cassette
-      WebMock.allow_net_connect!
-
       expect(subject.create_feedback(feedback_submission)).to be_nil
       expect(WebMock).to have_requested(:post, %r{\/api\/feedback\.json}).
         with(body: JSON.generate(feedback: feedback_attrs))
