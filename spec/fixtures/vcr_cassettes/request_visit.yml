@@ -5,14 +5,14 @@ http_interactions:
     uri: http://localhost:3000/api/visits.json
     body:
       encoding: UTF-8
-      string: '{"prison_id":"0614760e-a773-49c0-a29c-35e743e72555","prisoner":{"first_name":"Oscar","last_name":"Wilde","date_of_birth":"1980-12-31","number":"a1234bc"},"visitors":[{"first_name":"Ada","last_name":"Lovelace","date_of_birth":"1970-11-30"},{"first_name":"Charlie","last_name":"Chaplin","date_of_birth":"2005-01-02"}],"contact_email_address":"ada@test.example.com","contact_phone_no":"01154960222","slot_options":["2015-01-02T09:00/10:00","2015-01-03T09:00/10:00","2015-01-04T09:00/10:00"],"locale":"cy"}'
+      string: '{"prison_id":"0614760e-a773-49c0-a29c-35e743e72555","prisoner":{"first_name":"Oscar","last_name":"Wilde","date_of_birth":"1980-12-31","number":"a1234bc"},"visitors":[{"first_name":"Ada","last_name":"Lovelace","date_of_birth":"1970-11-30"},{"first_name":"Charlie","last_name":"Chaplin","date_of_birth":"2005-01-02"}],"contact_email_address":"ada@test.example.com","contact_phone_no":"01154960222","slot_options":["2015-01-02T09:00/10:00","2015-01-03T09:00/10:00","2015-01-04T09:00/10:00"]}'
     headers:
       User-Agent:
-      - excon/0.48.0
+      - excon/0.49.0
       Accept:
       - application/json
       Accept-Language:
-      - en
+      - cy
       Content-Type:
       - application/json
   response:

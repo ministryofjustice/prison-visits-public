@@ -32,8 +32,7 @@ RSpec.describe PrisonVisits::Api do
         "2015-01-02T09:00/10:00",
         "2015-01-03T09:00/10:00",
         "2015-01-04T09:00/10:00"
-      ],
-      locale: :cy
+      ]
     }
   }
 
@@ -42,8 +41,16 @@ RSpec.describe PrisonVisits::Api do
     WebMock.allow_net_connect!
   end
 
-  describe 'API localisation', vcr: { cassette_name: 'get_prisons_cy' } do
-    it 'uses the I18n locale' do
+  describe 'API localisation' do
+    it "uses 'en' locale by default", vcr: { cassette_name: 'get_prisons' } do
+      subject.get_prisons
+
+      expect(WebMock).
+        to have_requested(:get, /api/).
+        with(headers: { 'Accept-Language' => 'en' })
+    end
+
+    it 'uses the I18n locale', vcr: { cassette_name: 'get_prisons_cy' } do
       I18n.locale = 'cy'
 
       subject.get_prisons
@@ -116,6 +123,10 @@ RSpec.describe PrisonVisits::Api do
 
   describe 'request_visit', vcr: { cassette_name: 'request_visit' } do
     subject { super().request_visit(valid_booking_params) }
+
+    before do
+      I18n.locale = 'cy'
+    end
 
     it { is_expected.to be_kind_of(Visit) }
 
