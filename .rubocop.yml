@@ -75,7 +75,7 @@ Metrics/LineLength:
 
 # Don't worry about long methods in specs.
 Metrics/MethodLength:
-  Max: 10
+  Max: 12
   Exclude:
     - 'spec/**/*'
     - 'app/helpers/form_elements_helper.rb'
@@ -122,5 +122,10 @@ ClassAndModuleChildren:
 # This encourages bad style IMHO
 Rails/Delegate:
   Enabled: false
+
+# Enforcing timezone in specs is unecessary
+Rails/TimeZone:
+  Exclude:
+    - 'spec/**/*'
 
 require: rubocop-rspec

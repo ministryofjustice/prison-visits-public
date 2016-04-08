@@ -6,7 +6,6 @@ class MaybeDate < Virtus::Attribute
   # This coercion is probably not as comprehensive as
   # Virtus::Attribute::Date, but it is understandable and sufficient for
   # our needs
-  # rubocop:disable Metrics/MethodLength
   def coerce(value)
     return nil if value.nil?
     return value if value.is_a?(Date)
@@ -22,5 +21,4 @@ class MaybeDate < Virtus::Attribute
       end
     end
   end
-  # rubocop:enable Metrics/MethodLength
 end
