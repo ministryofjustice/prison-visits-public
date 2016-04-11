@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Healthcheck::QueueCheck do
+RSpec.xdescribe Healthcheck::QueueCheck do
   subject { described_class.new('Foo queue', queue_name: 'foo') }
   let(:queue) { [] }
 

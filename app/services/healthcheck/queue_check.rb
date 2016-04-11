@@ -1,4 +1,4 @@
-class Healthcheck
+module Healthcheck
   class QueueCheck
     include CheckComponent
 

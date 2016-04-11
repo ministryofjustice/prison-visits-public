@@ -2,7 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails'
 require 'active_model/railtie'
-require 'active_record/railtie'
 require 'action_controller/railtie'
 require 'action_view/railtie'
 require 'sprockets/railtie'
@@ -11,7 +10,6 @@ Bundler.require(*Rails.groups)
 
 module PrisonVisits
   class Application < Rails::Application
-    config.active_record.schema_format = :sql
     config.phase = 'live'
     config.product_type = 'service'
 
@@ -22,8 +20,6 @@ module PrisonVisits
     config.i18n.default_locale = :en
 
     config.time_zone = 'London'
-
-    config.active_record.raise_in_transactional_callbacks = true
 
     config.action_dispatch.rescue_responses.merge!(
       'StateMachines::InvalidTransition' => :unprocessable_entity

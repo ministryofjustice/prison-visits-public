@@ -16,33 +16,14 @@ Capybara.javascript_driver = :poltergeist
 Capybara.default_max_wait_time = 3
 Capybara.asset_host = 'http://localhost:3000'
 
-ActiveRecord::Migration.maintain_test_schema!
-
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.include ActiveSupport::Testing::TimeHelpers
 
   config.infer_spec_type_from_file_location!
 
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
   config.before(:each) do
     I18n.locale = I18n.default_locale
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  config.before(:each, js: true) do
-    DatabaseCleaner.strategy = :truncation
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
   end
 end
 
