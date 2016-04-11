@@ -42,7 +42,7 @@ RSpec.describe StepsProcessor do
   }
 
   let(:prison) {
-    instance_double(Prison)
+    instance_double(Prison, adult_age: 13, max_visitors: 6)
   }
 
   let(:slots) {

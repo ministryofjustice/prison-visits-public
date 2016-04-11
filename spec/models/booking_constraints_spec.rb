@@ -5,20 +5,30 @@ RSpec.describe BookingConstraints, type: :model do
 
   let(:params) {
     {
-      prison_id: prison_id,
+      prison: prison,
       prisoner_number: prisoner_number,
       prisoner_dob: prisoner_dob
     }
   }
   let(:pvb_api) { PrisonVisits::Api.instance }
-  let(:prison_id) { '123' }
+  let(:prison) {
+    instance_double(Prison, id: '123', adult_age: 13, max_visitors: 6)
+  }
   let(:prisoner_number) { 'a1234bc' }
   let(:prisoner_dob) { Date.parse('1970-01-01') }
 
   describe 'on visitors' do
     subject { super().on_visitors }
 
-    it 'uses the API to fetch the adult age for the prison'
+    it 'reads the adult_age from the prison (which comes from the API)' do
+      expect(prison).to receive(:adult_age)
+      expect(subject.adult_age).to eq(13)
+    end
+
+    it 'reads the max_visitors from the prison (which comes from the API)' do
+      expect(prison).to receive(:max_visitors)
+      expect(subject.max_visitors).to eq(6)
+    end
   end
 
   describe 'on slots' do
@@ -34,7 +44,12 @@ RSpec.describe BookingConstraints, type: :model do
 
     it 'fetches available slots from the API' do
       expect(pvb_api).to receive(:get_slots).
-        with(params.merge(use_nomis_slots: false))
+        with(
+          prison_id: prison.id,
+          prisoner_number: prisoner_number,
+          prisoner_dob: prisoner_dob,
+          use_nomis_slots: false
+        )
       subject
     end
 
