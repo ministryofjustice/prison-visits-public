@@ -1,23 +1,21 @@
 # Responsible for fetching constraints, potentially via API calls, and
 # returning constraint objects
 class BookingConstraints
-  def initialize(prison_id: nil, prisoner_number: nil, prisoner_dob: nil)
-    @prison_id = prison_id
+  def initialize(prison: nil, prisoner_number: nil, prisoner_dob: nil)
+    @prison = prison
     @prisoner_number = prisoner_number
     @prisoner_dob = prisoner_dob
   end
 
   def on_visitors
-    VisitorConstraints.new(
-      adult_age: 18 # TODO: This varies for some prisons
-    )
+    VisitorConstraints.new(@prison)
   end
 
   def on_slots(use_nomis_slots = false)
-    fail 'No prison' unless @prison_id
+    fail 'No prison' unless @prison
     fail 'No prisoner details' unless @prisoner_number && @prisoner_dob
     slots = PrisonVisits::Api.instance.get_slots(
-      prison_id: @prison_id,
+      prison_id: @prison.id,
       prisoner_number: @prisoner_number,
       prisoner_dob: @prisoner_dob,
       use_nomis_slots: use_nomis_slots
@@ -29,9 +27,9 @@ class BookingConstraints
     MAX_ADULTS = 3
     MIN_ADULTS = 1
 
-    def initialize(adult_age: 18)
-      @adult_age = adult_age
-      @max_visitors = 6
+    def initialize(prison)
+      @adult_age = prison.adult_age
+      @max_visitors = prison.max_visitors
     end
 
     attr_reader :adult_age, :max_visitors

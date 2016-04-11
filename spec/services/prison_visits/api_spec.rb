@@ -87,6 +87,8 @@ RSpec.describe PrisonVisits::Api do
       expect(subject.address).to eq("Knox Road\nCardiff")
       expect(subject.prison_finder_url).
         to eq("http://www.justice.gov.uk/contacts/prison-finder/cardiff")
+      expect(subject.adult_age).to eq(18)
+      expect(subject.max_visitors).to eq(6)
     end
   end
 

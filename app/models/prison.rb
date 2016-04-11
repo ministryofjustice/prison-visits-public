@@ -8,6 +8,8 @@ class Prison
   attribute :email_address, String
   attribute :phone_no, String
   attribute :prison_finder_url, String
+  attribute :max_visitors, Integer
+  attribute :adult_age, Integer
 
   def self.find_by_id(id)
     PrisonVisits::Api.instance.get_prison(id)
