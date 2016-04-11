@@ -33,7 +33,8 @@ RSpec.describe BookingConstraints, type: :model do
     end
 
     it 'fetches available slots from the API' do
-      expect(pvb_api).to receive(:get_slots).with(params)
+      expect(pvb_api).to receive(:get_slots).
+        with(params.merge(use_nomis_slots: false))
       subject
     end
 
