@@ -27,18 +27,18 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"1d6a1799058b79ac063eda1df2b95323"
+      - W/"a726856392dea533b3b224db4816664f"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 08b95b34-3a9a-4a9c-94f5-c9052b22257b
+      - 96515875-9a92-480c-baef-3947f1560e41
       X-Runtime:
-      - '0.012513'
+      - '0.208361'
     body:
       encoding: UTF-8
       string: '{"prison":{"id":"0614760e-a773-49c0-a29c-35e743e72555","name":"Cardiff","address":"Knox
         Road\nCardiff","postcode":"CF24 0UG","email_address":"socialvisits.cardiff@hmps.gsi.gov.uk","phone_no":"029
-        20923327","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/cardiff","_links":{"self":{"href":"http://localhost:3000/api/prisons/0614760e-a773-49c0-a29c-35e743e72555.json"}}}}'
+        20923327","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/cardiff","max_visitors":6,"adult_age":18,"_links":{"self":{"href":"http://localhost:3000/api/prisons/0614760e-a773-49c0-a29c-35e743e72555.json"}}}}'
     http_version: 
-  recorded_at: Tue, 15 Mar 2016 18:04:04 GMT
+  recorded_at: Mon, 11 Apr 2016 13:07:02 GMT
 recorded_with: VCR 3.0.1
