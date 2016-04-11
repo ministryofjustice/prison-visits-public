@@ -41,31 +41,23 @@ RSpec.describe StepsProcessor do
     }
   }
 
-  let(:confirmation_details) {
-    { confirmed: 'true' }
+  let(:prison) {
+    instance_double(Prison)
   }
 
-  let(:visitor_constraints) {
-    BookingConstraints::VisitorConstraints.new
-  }
-
-  let(:slot_constraints) {
-    BookingConstraints::SlotConstraints.new([
+  let(:slots) {
+    [
       ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0),
       ConcreteSlot.new(2015, 1, 3, 9, 0, 10, 0),
       ConcreteSlot.new(2015, 1, 4, 9, 0, 10, 0)
-    ])
+    ]
   }
 
-  let(:booking_constraints) {
-    instance_double(BookingConstraints,
-      on_visitors: visitor_constraints,
-      on_slots: slot_constraints
-                   )
-  }
+  let(:pvb_api) { PrisonVisits::Api.instance }
 
   before do
-    allow(BookingConstraints).to receive(:new).and_return booking_constraints
+    allow(pvb_api).to receive(:get_prison).and_return(prison)
+    allow(pvb_api).to receive(:get_slots).and_return(slots)
   end
 
   subject { described_class.new(HashWithIndifferentAccess.new(params), :cy) }
@@ -267,7 +259,7 @@ RSpec.describe StepsProcessor do
         prisoner_step: prisoner_details,
         visitors_step: visitors_details,
         slots_step: slots_details,
-        confirmation_step: confirmation_details
+        confirmation_step: { confirmed: 'true' }
       }
     }
 
