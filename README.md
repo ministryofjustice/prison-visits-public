@@ -1,11 +1,10 @@
 # Visit someone in prison
 
-This is a full rewrite from the ground up, using a database instead of
-serialised data in URLs in emails. The CSS and JavaScript has largely been
-ported intact from the previous application.
+This application contains the public interface for booking a prison visit.
 
-The source of the predecessor can be found at
-[ministryofjustice/prison-visits](https://github.com/ministryofjustice/prison-visits).
+It is stateless and relies entirely on the prison visits booking API exposed by [ministryofjustice/prison-visits-2](https://github.com/ministryofjustice/prison-visits-2), which exposes prison information, slot availability, and allows booking and managing a visit.
+
+The codebase was split from [ministryofjustice/prison-visits-2](https://github.com/ministryofjustice/prison-visits-2), which previously was also responsible for serving the public interface.
 
 ## Notes on the code
 
