@@ -54,12 +54,6 @@ RSpec.configure do |config|
 
   config.order = :random
   Kernel.srand config.seed
-
-  config.before do
-    # Globally stub some API calls into PVB2
-    allow(PrisonVisits::Api.instance).to receive(:validate_prisoner).
-      and_return('valid' => true)
-  end
 end
 
 require 'vcr'
