@@ -1,7 +1,7 @@
 require 'simplecov'
 require 'simplecov-rcov'
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
-SimpleCov.minimum_coverage 100
+SimpleCov.minimum_coverage 90
 
 # Minimal auto-load for quicker specs. This avoids loading the whole of Rails
 # solely for dependency resolution.
@@ -54,12 +54,6 @@ RSpec.configure do |config|
 
   config.order = :random
   Kernel.srand config.seed
-
-  config.before do
-    # Globally stub some API calls into PVB2
-    allow(PrisonVisits::Api.instance).to receive(:validate_prisoner).
-      and_return('valid' => true)
-  end
 end
 
 require 'vcr'
@@ -76,4 +70,8 @@ VCR.configure do |config|
     # Ignore capybara requests within feature tests
     request.uri =~ /__identify__/
   end
+end
+
+def pvb_api
+  PrisonVisits::Api.instance
 end

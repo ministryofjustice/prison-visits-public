@@ -44,7 +44,7 @@
       "fingerprint": "02ab7b803c65898228495f502abdf9c6f3e623f025bafec655c1a547ef03dcf3",
       "message": "Render path contains parameter value",
       "file": "app/controllers/errors_controller.rb",
-      "line": 15,
+      "line": 19,
       "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
       "code": "render(action => { 404 => :\"404\", 500 => :\"500\", 503 => :\"503\" }.fetch(params.fetch(:status_code).to_i), { :status => params.fetch(:status_code).to_i })",
       "render_path": null,
@@ -56,6 +56,24 @@
       "user_input": "params.fetch(:status_code)",
       "confidence": "Weak",
       "note": "The controller has a lookup table of acceptable render templates"
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "34fee19bee2f2f33f7e640e0c76060bfa55f41625a80ad986d904f20ff388f34",
+      "message": "Render path contains parameter value",
+      "file": "app/views/visits/show.html.erb",
+      "line": 7,
+      "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => PrisonVisits::Api.instance.get_visit(params[:id]).processing_state, {})",
+      "render_path": [{"type":"controller","class":"VisitsController","method":"show","line":4,"file":"app/controllers/visits_controller.rb"}],
+      "location": {
+        "type": "template",
+        "template": "visits/show"
+      },
+      "user_input": "params[:id]",
+      "confidence": "Weak",
+      "note": "The processing_state is validated against an array, so it's safe."
     },
     {
       "warning_type": "Dynamic Render Path",
@@ -96,6 +114,6 @@
       "note": ""
     }
   ],
-  "updated": "2016-02-11 13:06:34 +0000",
+  "updated": "2016-04-12 14:14:47 +0100",
   "brakeman_version": "3.1.3"
 }

@@ -45,6 +45,10 @@ RSpec.describe BookingRequestsController do
     { confirmed: 'true' }
   }
 
+  let(:prison) {
+    instance_double(Prison, adult_age: 13, max_visitors: 6)
+  }
+
   let(:slots) {
     [
       ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0),
@@ -54,12 +58,9 @@ RSpec.describe BookingRequestsController do
   }
 
   before do
-    allow(BookingConstraints).to receive(:new).and_return \
-      instance_double(
-        BookingConstraints,
-        on_visitors: BookingConstraints::VisitorConstraints.new,
-        on_slots: BookingConstraints::SlotConstraints.new(slots)
-      )
+    allow(pvb_api).to receive(:get_prison).and_return(prison)
+    allow(pvb_api).to receive(:get_slots).and_return(slots)
+    allow(pvb_api).to receive(:validate_prisoner).and_return('valid' => true)
   end
 
   context 'on the first prisoner details page' do

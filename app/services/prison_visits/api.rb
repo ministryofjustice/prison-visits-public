@@ -34,7 +34,9 @@ module PrisonVisits
       result.fetch('validation')
     end
 
-    def get_slots(prison_id:, prisoner_number:, prisoner_dob:, use_nomis_slots: false)
+    def get_slots(
+      prison_id:, prisoner_number:, prisoner_dob:, use_nomis_slots: false
+    )
       response = @client.get(
         '/slots',
         prison_id: prison_id,

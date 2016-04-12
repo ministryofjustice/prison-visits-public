@@ -9,7 +9,12 @@ RSpec.describe VisitorsStep do
   let(:booking_constraints) {
     instance_double(BookingConstraints, on_visitors: visitor_constraints)
   }
-  let(:visitor_constraints) { BookingConstraints::VisitorConstraints.new }
+  let(:prison) {
+    instance_double(Prison, adult_age: 18, max_visitors: 6)
+  }
+  let(:visitor_constraints) {
+    BookingConstraints::VisitorConstraints.new(prison)
+  }
 
   let(:adult) {
     {
@@ -193,8 +198,8 @@ RSpec.describe VisitorsStep do
   end
 
   context 'age-related validations' do
-    let(:visitor_constraints) {
-      BookingConstraints::VisitorConstraints.new(adult_age: 13)
+    let(:prison) {
+      instance_double(Prison, adult_age: 13, max_visitors: 6)
     }
 
     it 'is valid if there is one adult visitor' do
