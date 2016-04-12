@@ -14,6 +14,8 @@ class Visit
     to: :prison, prefix: true
   delegate :prison_finder_url, to: :prison
 
+private
+
   def prison
     # Memoize since this does an API lookup
     @_prison ||= Prison.find_by_id(prison_id)
