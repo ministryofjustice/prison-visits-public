@@ -7,11 +7,19 @@ RSpec.describe Visit, type: :model do
     {
       id: '1',
       prison_id: '2',
+      processing_state: 'requested',
       slots: ['2015-10-23T14:00/15:30']
     }
   }
 
   let(:prison) { Prison.new(email_address: 'test@example.com') }
+
+  it 'is an error if the processing state is not a known value' do
+    params[:processing_state] = 'flubble'
+    expect {
+      subject
+    }.to raise_error('Invalid processing_state for visit: flubble')
+  end
 
   it 'corces slots into [ConcreteSlot]' do
     expect(subject.slots.first).to be_kind_of(ConcreteSlot)
