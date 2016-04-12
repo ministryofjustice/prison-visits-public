@@ -6,7 +6,7 @@
       "fingerprint": "c598eec54ac508f70f6b8ec3509e6d2d65910784da867ef6ceb57c171b86841c",
       "message": "Render path contains parameter value",
       "file": "app/controllers/booking_requests_controller.rb",
-      "line": 9,
+      "line": 11,
       "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
       "code": "render(action => StepsProcessor.new(params, I18n.locale).step_name, {})",
       "render_path": null,
@@ -25,7 +25,7 @@
       "fingerprint": "015a6adc921578bfdf0715ef6b2db543495d7b41674cfc8e630c05583b978282",
       "message": "Render path contains parameter value",
       "file": "app/controllers/booking_requests_controller.rb",
-      "line": 19,
+      "line": 24,
       "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
       "code": "render(action => StepsProcessor.new(params, I18n.locale).step_name, {})",
       "render_path": null,
@@ -37,6 +37,43 @@
       "user_input": "params",
       "confidence": "Weak",
       "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "8c390dff3f40970d84fbba866e35c1f62e8ea4629c767e5df706bf873bc39f40",
+      "message": "Render path contains parameter value",
+      "file": "app/controllers/errors_controller.rb",
+      "line": 20,
+      "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => { 404 => :\"404\", 406 => :\"404\", 500 => :\"500\", 503 => :\"503\" }.fetch(params.fetch(:status_code).to_i), { :status => params.fetch(:status_code).to_i, :format => :html })",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ErrorsController",
+        "method": "show"
+      },
+      "user_input": "params.fetch(:status_code)",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "34fee19bee2f2f33f7e640e0c76060bfa55f41625a80ad986d904f20ff388f34",
+      "message": "Render path contains parameter value",
+      "file": "app/views/visits/show.html.erb",
+      "line": 7,
+      "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => PrisonVisits::Api.instance.get_visit(params[:id]).processing_state, {})",
+      "render_path": [{"type":"controller","class":"VisitsController","method":"show","line":4,"file":"app/controllers/visits_controller.rb"}],
+      "location": {
+        "type": "template",
+        "template": "visits/show"
+      },
+      "user_input": "params[:id]",
+      "confidence": "Weak",
+      "note": "The processing_state is validated against an array, so it's safe."
     },
     {
       "warning_type": "Dynamic Render Path",
@@ -56,24 +93,6 @@
       "user_input": "params.fetch(:status_code)",
       "confidence": "Weak",
       "note": "The controller has a lookup table of acceptable render templates"
-    },
-    {
-      "warning_type": "Dynamic Render Path",
-      "warning_code": 15,
-      "fingerprint": "34fee19bee2f2f33f7e640e0c76060bfa55f41625a80ad986d904f20ff388f34",
-      "message": "Render path contains parameter value",
-      "file": "app/views/visits/show.html.erb",
-      "line": 7,
-      "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
-      "code": "render(action => PrisonVisits::Api.instance.get_visit(params[:id]).processing_state, {})",
-      "render_path": [{"type":"controller","class":"VisitsController","method":"show","line":4,"file":"app/controllers/visits_controller.rb"}],
-      "location": {
-        "type": "template",
-        "template": "visits/show"
-      },
-      "user_input": "params[:id]",
-      "confidence": "Weak",
-      "note": "The processing_state is validated against an array, so it's safe."
     },
     {
       "warning_type": "Dynamic Render Path",
@@ -114,6 +133,6 @@
       "note": ""
     }
   ],
-  "updated": "2016-04-12 14:14:47 +0100",
+  "updated": "2016-04-13 17:31:54 +0100",
   "brakeman_version": "3.1.3"
 }
