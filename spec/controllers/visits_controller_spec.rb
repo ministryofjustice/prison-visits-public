@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe VisitsController, type: :controller do
   describe 'show' do
     let(:visit) { instance_double(Visit, id: '123456789') }
-    let(:pvb_api) { PrisonVisits::Api.instance }
 
     it 'calls the get visit API' do
       expect(pvb_api).to receive(:get_visit).with(visit.id).and_return(visit)

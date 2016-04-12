@@ -53,8 +53,6 @@ RSpec.describe StepsProcessor do
     ]
   }
 
-  let(:pvb_api) { PrisonVisits::Api.instance }
-
   before do
     allow(pvb_api).to receive(:get_prison).and_return(prison)
     allow(pvb_api).to receive(:get_slots).and_return(slots)

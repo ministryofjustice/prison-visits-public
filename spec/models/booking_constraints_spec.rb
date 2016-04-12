@@ -10,7 +10,6 @@ RSpec.describe BookingConstraints, type: :model do
       prisoner_dob: prisoner_dob
     }
   }
-  let(:pvb_api) { PrisonVisits::Api.instance }
   let(:prison) {
     instance_double(Prison, id: '123', adult_age: 13, max_visitors: 6)
   }

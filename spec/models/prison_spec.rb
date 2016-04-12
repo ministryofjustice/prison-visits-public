@@ -4,7 +4,6 @@ RSpec.describe Prison do
   subject { described_class.new(params) }
 
   let(:params) { Hash.new }
-  let(:pvb_api) { PrisonVisits::Api.instance }
 
   describe 'all' do
     it 'fetches a list of prisons from API' do

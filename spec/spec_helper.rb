@@ -71,3 +71,7 @@ VCR.configure do |config|
     request.uri =~ /__identify__/
   end
 end
+
+def pvb_api
+  PrisonVisits::Api.instance
+end
