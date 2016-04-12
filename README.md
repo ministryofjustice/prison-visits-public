@@ -6,6 +6,23 @@ It is stateless and relies entirely on the prison visits booking API exposed by 
 
 The codebase was split from [ministryofjustice/prison-visits-2](https://github.com/ministryofjustice/prison-visits-2), which previously was also responsible for serving the public interface.
 
+## The API into prison-visits-2
+
+Details of the API methods consumed can be found in [api.rb](app/services/prison_visits/api.rb).
+
+### Local development
+
+The default configuration of `PRISON_VISITS_API` is http://localhost:3000/, so the least-friction development approach is to run this app on another port.
+
+          pvb2 $ rails server
+    pvb-public $ rails server -p 4000
+
+### Testing approach
+
+During testing, the approach is to stub/mock API call at the level of the API client, rather than at the HTTP level, since this is considerably cleaner, and decouples API changes. An example of this approach can be seen in [prisoner_step_spec.rb](spec/models/prisoner_step_spec.rb).
+
+The API client is then tested by recording real API interactions using VCR. The only tests recording VCR cassettes should be defined in [api_spec.rb](spec/services/prison_visits/api_spec.rb). If the API changes the appropriate cassettes should be deleted and re-recorded.
+
 ## Notes on the code
 
 ### Steps
