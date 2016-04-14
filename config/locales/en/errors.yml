@@ -11,6 +11,8 @@ en:
           attributes:
             number:
               invalid: is invalid
+            date_of_birth:
+              inclusion: is not a valid date
           api:
             prisoner_does_not_exist: does not match any prisoner
         visitors_step:
@@ -23,6 +25,11 @@ en:
                 %{age} on this visit
               too_many_visitors:
                 You can book a maximum of %{max} visitors
+        visitors_step/visitor:
+          attributes:
+            date_of_birth:
+              inclusion: is not a valid date
+
   activerecord:
     errors:
       models:
