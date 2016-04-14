@@ -1,7 +1,6 @@
 FROM ministryofjustice/ruby:2.3.0-webapp-onbuild
 
-ENV UNICORN_PORT 3000
-EXPOSE $UNICORN_PORT
+EXPOSE 3000
 
 RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
 
