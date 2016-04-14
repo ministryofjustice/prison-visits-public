@@ -5,6 +5,7 @@ require 'active_model/railtie'
 require 'action_controller/railtie'
 require 'action_view/railtie'
 require 'sprockets/railtie'
+require_relative '../app/middleware/http_method_not_allowed'
 
 Bundler.require(*Rails.groups)
 
@@ -53,5 +54,8 @@ module PrisonVisits
     end
 
     config.email_domain = ENV.fetch('EMAIL_DOMAIN', 'localhost')
+
+    config.middleware.insert_before ActionDispatch::ParamsParser,
+      HttpMethodNotAllowed
   end
 end
