@@ -1,17 +1,26 @@
 Rails.application.routes.draw do
   get '/', to: redirect(ENV.fetch('GOVUK_START_PAGE', '/en/request'))
 
-  %w[ 404 500 503 ].each do |code|
+  %w[ 404 406 500 503 ].each do |code|
     match code, to: 'errors#show', status_code: code, via: %i[ get post ]
   end
   match 'exception', to: 'errors#test', via: %i[ get post ]
+
+  # Old pvb1 path to start a booking
+  get '/prisoner', to: redirect('/en/request')
+
+  # Another Gov.uk start path
+  get '/prisoner-details', to: redirect('/en/request')
 
   constraints format: 'json' do
     get 'ping', to: 'ping#index'
     get 'healthcheck', to: 'healthcheck#index'
   end
 
-  scope '/:locale', locale: /[a-z]{2}/ do
+  # Old pvb1 link that users got in an email
+  get 'status/:id', controller: :pvb1_paths, action: :status, as: :pvb1_status
+
+  scope '/:locale', locale: /en|cy/ do
     get '/', to: redirect('/%{locale}/request')
 
     resources :booking_requests, path: 'request', only: %i[ index create ]
