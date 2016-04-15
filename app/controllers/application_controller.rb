@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :do_not_cache
   before_action :set_locale
+  before_action :store_request_id
 
   helper LinksHelper
 
@@ -22,12 +23,11 @@ private
   # Rails' instrumentation code, and is run after each request.
   def append_info_to_payload(payload)
     super
-    if @custom_log_items
-      payload[:custom_log_items] = @custom_log_items
-    end
-  end
 
-  # :nocov:
+    append_to_log(request_id: RequestStore.store[:request_id])
+
+    payload[:custom_log_items] = @custom_log_items
+  end
 
   def http_referrer
     request.headers['REFERER']
@@ -49,5 +49,9 @@ private
 
   def set_locale
     I18n.locale = params.fetch(:locale, I18n.default_locale)
+  end
+
+  def store_request_id
+    RequestStore.store[:request_id] = request.uuid
   end
 end

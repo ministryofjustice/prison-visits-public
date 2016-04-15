@@ -13,6 +13,8 @@ http_interactions:
       - application/json
       Accept-Language:
       - en
+      X-Request-Id:
+      - unique_id
   response:
     status:
       code: 200
@@ -31,14 +33,14 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 96515875-9a92-480c-baef-3947f1560e41
+      - unique_id
       X-Runtime:
-      - '0.208361'
+      - '0.016677'
     body:
       encoding: UTF-8
       string: '{"prison":{"id":"0614760e-a773-49c0-a29c-35e743e72555","name":"Cardiff","address":"Knox
         Road\nCardiff","postcode":"CF24 0UG","email_address":"socialvisits.cardiff@hmps.gsi.gov.uk","phone_no":"029
         20923327","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/cardiff","max_visitors":6,"adult_age":18,"_links":{"self":{"href":"http://localhost:3000/api/prisons/0614760e-a773-49c0-a29c-35e743e72555.json"}}}}'
     http_version: 
-  recorded_at: Mon, 11 Apr 2016 13:07:02 GMT
+  recorded_at: Fri, 15 Apr 2016 08:54:43 GMT
 recorded_with: VCR 3.0.1

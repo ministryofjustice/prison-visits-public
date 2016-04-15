@@ -19,6 +19,7 @@ gem 'sass-rails', '~> 5.0'
 # 'last_comment' to be defined. Review once we are using a different Rails
 # version
 gem 'rake', '< 11.0'
+gem 'request_store'
 gem 'sendgrid_toolkit'
 # Fixed version as workaround for bug in 0.15.5
 # https://github.com/getsentry/raven-ruby/issues/460

@@ -40,7 +40,8 @@ module PrisonVisits
         expects: [200],
         headers: {
           'Accept' => 'application/json',
-          'Accept-Language' => I18n.locale
+          'Accept-Language' => I18n.locale,
+          'X-Request-Id' => RequestStore.store[:request_id]
         }
       }.deep_merge(params_options(method, params))
 

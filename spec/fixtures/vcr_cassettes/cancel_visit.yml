@@ -5,7 +5,7 @@ http_interactions:
     uri: http://localhost:3000/api/visits.json
     body:
       encoding: UTF-8
-      string: '{"prison_id":"0614760e-a773-49c0-a29c-35e743e72555","prisoner":{"first_name":"Oscar","last_name":"Wilde","date_of_birth":"1980-12-31","number":"a1234bc"},"visitors":[{"first_name":"Ada","last_name":"Lovelace","date_of_birth":"1970-11-30"},{"first_name":"Charlie","last_name":"Chaplin","date_of_birth":"2005-01-02"}],"contact_email_address":"ada@test.example.com","contact_phone_no":"01154960222","slot_options":["2016-04-18T13:30/14:30","2016-04-19T13:30/14:30","2016-04-20T14:45/15:45"]}'
+      string: '{"prison_id":"0614760e-a773-49c0-a29c-35e743e72555","prisoner":{"first_name":"Oscar","last_name":"Wilde","date_of_birth":"1980-12-31","number":"a1234bc"},"visitors":[{"first_name":"Ada","last_name":"Lovelace","date_of_birth":"1970-11-30"},{"first_name":"Charlie","last_name":"Chaplin","date_of_birth":"2005-01-02"}],"contact_email_address":"ada@test.example.com","contact_phone_no":"01154960222","slot_options":["2016-04-25T13:30/14:30","2016-04-26T13:30/14:30","2016-04-27T14:45/15:45"]}'
     headers:
       User-Agent:
       - excon/0.49.0
@@ -13,6 +13,8 @@ http_interactions:
       - application/json
       Accept-Language:
       - en
+      X-Request-Id:
+      - unique_id
       Content-Type:
       - application/json
   response:
@@ -29,21 +31,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"ff9f765bcab95705eb2f873f54d1c1b5"
+      - W/"6085ae16bd6e2e0a51bd239f87e68736"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 7035ede8-d5ea-4f8f-8365-7c78dbd5ad17
+      - unique_id
       X-Runtime:
-      - '1.838709'
+      - '0.210211'
     body:
       encoding: UTF-8
-      string: '{"visit":{"id":"cd9cd280-2904-49ac-9a35-bf4701204a09","processing_state":"requested","prison_id":"0614760e-a773-49c0-a29c-35e743e72555","confirm_by":"2016-04-15","contact_email_address":"ada@test.example.com","slots":["2016-04-18T13:30/14:30","2016-04-19T13:30/14:30","2016-04-20T14:45/15:45"]}}'
+      string: '{"visit":{"id":"e1398858-eaea-4786-a0c3-2f4aad2cae1c","processing_state":"requested","prison_id":"0614760e-a773-49c0-a29c-35e743e72555","confirm_by":"2016-04-20","contact_email_address":"ada@test.example.com","slots":["2016-04-25T13:30/14:30","2016-04-26T13:30/14:30","2016-04-27T14:45/15:45"]}}'
     http_version: 
-  recorded_at: Tue, 12 Apr 2016 13:07:39 GMT
+  recorded_at: Fri, 15 Apr 2016 10:09:53 GMT
 - request:
     method: delete
-    uri: http://localhost:3000/api/visits/cd9cd280-2904-49ac-9a35-bf4701204a09.json
+    uri: http://localhost:3000/api/visits/e1398858-eaea-4786-a0c3-2f4aad2cae1c.json
     body:
       encoding: US-ASCII
       string: ''
@@ -54,6 +56,8 @@ http_interactions:
       - application/json
       Accept-Language:
       - en
+      X-Request-Id:
+      - unique_id
   response:
     status:
       code: 200
@@ -68,16 +72,16 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"2cb4d2d166c5442079b1f230914c1ffb"
+      - W/"7ca09123df00589c1cbdc2a55886a75e"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - fb5a216c-e73e-4c03-b76f-cfecafaecf0f
+      - unique_id
       X-Runtime:
-      - '0.065712'
+      - '0.035142'
     body:
       encoding: UTF-8
-      string: '{"visit":{"id":"cd9cd280-2904-49ac-9a35-bf4701204a09","processing_state":"withdrawn"}}'
+      string: '{"visit":{"id":"e1398858-eaea-4786-a0c3-2f4aad2cae1c","processing_state":"withdrawn"}}'
     http_version: 
-  recorded_at: Tue, 12 Apr 2016 13:07:39 GMT
+  recorded_at: Fri, 15 Apr 2016 10:09:53 GMT
 recorded_with: VCR 3.0.1
