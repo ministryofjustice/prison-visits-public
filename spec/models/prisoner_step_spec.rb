@@ -53,4 +53,10 @@ RSpec.describe PrisonerStep do
     expect(subject.errors.messages).to have_key(:number)
     expect(subject.errors.messages).to have_key(:date_of_birth)
   end
+
+  it 'does not call the PVB API if the date is invalid' do
+    params[:date_of_birth][:month] = '13'
+    expect(pvb_api).not_to receive(:validate_prisoner)
+    expect(subject.valid?).to be false
+  end
 end
