@@ -42,7 +42,8 @@ RSpec.describe PrisonVisits::Api do
     WebMock.allow_net_connect!
 
     # Needs to be set for all the requests, otherwise the recorded request's
-    # wont match
+    # wont match. VCR is set to match the request method, uri, host, path,
+    # body, headers
     RequestStore.store[:request_id] = 'unique_id'
   end
 

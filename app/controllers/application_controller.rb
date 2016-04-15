@@ -23,9 +23,10 @@ private
   # Rails' instrumentation code, and is run after each request.
   def append_info_to_payload(payload)
     super
-    if @custom_log_items
-      payload[:custom_log_items] = @custom_log_items
-    end
+
+    append_to_log(request_id: RequestStore.store[:request_id])
+
+    payload[:custom_log_items] = @custom_log_items
   end
 
   def http_referrer
