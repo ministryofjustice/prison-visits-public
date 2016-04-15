@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :do_not_cache
   before_action :set_locale
+  before_action :store_request_id
 
   helper LinksHelper
 
@@ -27,8 +28,6 @@ private
     end
   end
 
-  # :nocov:
-
   def http_referrer
     request.headers['REFERER']
   end
@@ -49,5 +48,9 @@ private
 
   def set_locale
     I18n.locale = params.fetch(:locale, I18n.default_locale)
+  end
+
+  def store_request_id
+    RequestStore.store[:request_id] = request.uuid
   end
 end

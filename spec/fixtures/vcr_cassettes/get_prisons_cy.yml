@@ -13,6 +13,8 @@ http_interactions:
       - application/json
       Accept-Language:
       - cy
+      X-Request-Id:
+      - unique_id
   response:
     status:
       code: 200
@@ -31,9 +33,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - bf6bce9e-4ed7-4130-bc5d-9d6debe07a9a
+      - unique_id
       X-Runtime:
-      - '0.050462'
+      - '0.043270'
     body:
       encoding: UTF-8
       string: '{"prisons":[{"id":"83308aa4-4e64-4261-aaf8-a4bfd2f45808","name":"Askham
@@ -83,5 +85,5 @@ http_interactions:
         (Remand only)","_links":{"self":{"href":"http://localhost:3000/api/prisons/a37cdb69-690c-482e-9a21-9379f7ccc35d.json"}}},{"id":"a85c970a-c3fd-4974-9b2d-e1c0a2afd586","name":"Wolds","_links":{"self":{"href":"http://localhost:3000/api/prisons/a85c970a-c3fd-4974-9b2d-e1c0a2afd586.json"}}},{"id":"4855bb0f-b053-42a7-9564-c89fc8a2ddf0","name":"Woodhill","_links":{"self":{"href":"http://localhost:3000/api/prisons/4855bb0f-b053-42a7-9564-c89fc8a2ddf0.json"}}},{"id":"945accc1-c6aa-49ca-9df3-b48693cd937e","name":"Wormwood
         Scrubs","_links":{"self":{"href":"http://localhost:3000/api/prisons/945accc1-c6aa-49ca-9df3-b48693cd937e.json"}}},{"id":"8484479f-f7f5-4002-a748-38d68b1bf43d","name":"Wymott","_links":{"self":{"href":"http://localhost:3000/api/prisons/8484479f-f7f5-4002-a748-38d68b1bf43d.json"}}}],"_links":{"self":{"href":"http://localhost:3000/api/prisons.json"}}}'
     http_version: 
-  recorded_at: Fri, 08 Apr 2016 10:22:13 GMT
+  recorded_at: Fri, 15 Apr 2016 08:54:43 GMT
 recorded_with: VCR 3.0.1

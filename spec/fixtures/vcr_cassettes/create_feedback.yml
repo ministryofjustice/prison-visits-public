@@ -14,6 +14,8 @@ http_interactions:
       - application/json
       Accept-Language:
       - en
+      X-Request-Id:
+      - unique_id
       Content-Type:
       - application/json
   response:
@@ -34,12 +36,12 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1ebc6ab8-046b-428e-8b0f-087e7d557790
+      - unique_id
       X-Runtime:
-      - '0.466878'
+      - '0.267651'
     body:
       encoding: UTF-8
       string: "{}"
     http_version: 
-  recorded_at: Thu, 07 Apr 2016 13:02:49 GMT
+  recorded_at: Fri, 15 Apr 2016 08:54:43 GMT
 recorded_with: VCR 3.0.1

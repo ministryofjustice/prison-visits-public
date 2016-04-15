@@ -30,16 +30,30 @@ RSpec.describe PrisonVisits::Api do
       contact_email_address: "ada@test.example.com",
       contact_phone_no: "01154960222",
       slot_options: [
-        "2016-04-18T13:30/14:30", # (mon)
-        "2016-04-19T13:30/14:30", # (tue)
-        "2016-04-20T14:45/15:45"  # (wed)
+        "2016-04-25T13:30/14:30", # (mon)
+        "2016-04-26T13:30/14:30", # (tue)
+        "2016-04-27T14:45/15:45"  # (wed)
       ]
     }
   }
 
-  # Specs use vcr cassettes, no real calls are made
   before do
+    # Specs use vcr cassettes, no real calls are made
     WebMock.allow_net_connect!
+
+    # Needs to be set for all the requests, otherwise the recorded request's
+    # wont match
+    RequestStore.store[:request_id] = 'unique_id'
+  end
+
+  describe 'request_id' do
+    it "sets the 'X-Request-Id' header", vcr: { cassette_name: 'get_prisons' } do
+      subject.get_prisons
+
+      expect(WebMock).
+        to have_requested(:get, /api/).
+        with(headers: { 'X-Request-Id' => RequestStore.store[:request_id] })
+    end
   end
 
   describe 'API localisation' do
@@ -122,13 +136,13 @@ RSpec.describe PrisonVisits::Api do
     end
 
     it 'returns sensible looking concrete slots' do
-      expect(subject.first.iso8601).to eq("2016-04-14T13:30/14:30")
+      expect(subject.first.iso8601).to eq("2016-04-21T13:30/14:30")
     end
 
     it 'can request live slots from NOMIS', vcr: { cassette_name: 'get_slots-live_slots' } do
       params[:prison_id] = leeds_prison_id
       params[:use_nomis_slots] = true
-      expect(subject.first.iso8601).to eq("2016-04-15T10:30/11:30")
+      expect(subject.first.iso8601).to eq("2016-04-22T10:30/11:30")
     end
   end
 
@@ -146,7 +160,7 @@ RSpec.describe PrisonVisits::Api do
     end
 
     it 'returns a list of the requested slots' do
-      expect(subject.slots.first.iso8601).to eq("2016-04-18T13:30/14:30")
+      expect(subject.slots.first.iso8601).to eq("2016-04-25T13:30/14:30")
     end
 
     it 'returns the booking contact email address' do
