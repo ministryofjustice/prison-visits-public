@@ -1,4 +1,4 @@
-class Metrics
+class Instrumentation
   class << self
     def log(category, message)
       fail 'Block required' unless block_given?
@@ -10,8 +10,7 @@ class Metrics
 
       Rails.logger.info "#{message} – %.2fms" % [time_in_ms]
 
-      ## Add Request::Store totals by category, writes to log at the end of the request.
-
+      RequestStore.store[category] = time_in_ms
       result
     end
   end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Metrics do
+RSpec.describe Instrumentation do
   describe '.log' do
     it 'requires a block' do
       expect { described_class.log(:arg, 'arg') }.to raise_error(/Block required/)
