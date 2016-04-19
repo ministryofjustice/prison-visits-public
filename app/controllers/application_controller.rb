@@ -13,20 +13,12 @@ private
 
   # :nocov:
 
-  def append_to_log(params)
-    @custom_log_items ||= {}
-    @custom_log_items.merge!(params)
-  end
-
   # Looks rather strange, but this is the suggested mechanism to add extra data
   # into the event passed to lograge's custom options. The method is part of
   # Rails' instrumentation code, and is run after each request.
   def append_info_to_payload(payload)
     super
-
-    append_to_log(request_id: RequestStore.store[:request_id])
-
-    payload[:custom_log_items] = @custom_log_items
+    payload[:custom_log_items] = Instrumentation.custom_log_items
   end
 
   def http_referrer
@@ -52,6 +44,7 @@ private
   end
 
   def store_request_id
+    Instrumentation.append_to_log(request_id: request.uuid)
     RequestStore.store[:request_id] = request.uuid
   end
 end

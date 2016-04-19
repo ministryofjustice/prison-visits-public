@@ -43,10 +43,11 @@ private
     return :malformed unless well_formed_address?
     return :no_mx_record unless mx_records?
     unless override_sendgrid?
-      Metrics.log('Validating email address via Sendgrid API') do
-        return :spam_reported if SendgridApi.spam_reported?(parsed.address)
-        return :bounced if SendgridApi.bounced?(parsed.address)
-      end
+      Instrumentation.
+        time_and_log('Validating email address via Sendgrid API') do
+          return :spam_reported if SendgridApi.spam_reported?(parsed.address)
+          return :bounced if SendgridApi.bounced?(parsed.address)
+        end
     end
     :valid
   end
@@ -77,7 +78,7 @@ private
   end
 
   def mx_records?
-    Metrics.log('Validating email address MX record') do
+    Instrumentation.time_and_log('Validating email address MX record') do
       Rails.configuration.mx_checker.records?(domain)
     end
   end
