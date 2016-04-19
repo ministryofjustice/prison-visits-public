@@ -1,6 +1,6 @@
 class Instrumentation
   class << self
-    def log(category, message)
+    def log(message, category = nil)
       fail 'Block required' unless block_given?
 
       started_at = Time.now.utc
@@ -10,7 +10,7 @@ class Instrumentation
 
       Rails.logger.info "#{message} – %.2fms" % [time_in_ms]
 
-      RequestStore.store[category] = time_in_ms
+      RequestStore.store[category] = time_in_ms if category
       result
     end
   end

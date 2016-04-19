@@ -21,17 +21,23 @@ RSpec.describe Instrumentation do
 
     context 'timing' do
       let!(:start_time) { Time.zone.now.utc }
+        expect(Rails.logger).to receive(:info).with(/5000.00ms/)
+        described_class.log(:arg, 'arg') { true }
+      end
       let!(:end_time) { start_time + 5.seconds }
+
+    context 'categories' do
       let!(:utc) { double('utc') }
 
       before do
         allow(utc).to receive(:utc).and_return(start_time, end_time)
         allow(Time).to receive(:now).twice.and_return(utc)
+        described_class.log('A prisoner API call', :prisoner_api) { true }
       end
 
-      it 'calculates the run time of the block' do
-        expect(Rails.logger).to receive(:info).with(/5000.00ms/)
-        described_class.log(:arg, 'arg') { true }
+      it 'does not require a category' do
+        expect(RequestStore).not_to receive(:store)
+        described_class.log('A prisoner API call') { true }
       end
     end
   end
