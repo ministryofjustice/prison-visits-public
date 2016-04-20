@@ -5,7 +5,7 @@ class BookingRequestsController < ApplicationController
     processor = StepsProcessor.new(params, I18n.locale)
     @steps = processor.steps
     @step_name = processor.step_name
-    append_to_log booking_step_rendered: processor.step_name
+    Instrumentation.append_to_log booking_step_rendered: processor.step_name
 
     respond_to do |format|
       format.html { render processor.step_name }
@@ -17,8 +17,8 @@ class BookingRequestsController < ApplicationController
     @visit = processor.execute!
     @steps = processor.steps
     @step_name = processor.step_name
-    append_to_log booking_step_rendered: processor.step_name
-    append_to_log visit_id: @visit.id if @visit
+    Instrumentation.append_to_log booking_step_rendered: processor.step_name
+    Instrumentation.append_to_log visit_id: @visit.id if @visit
 
     respond_to do |format|
       format.html { render processor.step_name }
