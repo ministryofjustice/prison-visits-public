@@ -17,8 +17,13 @@ class FeedbackSubmission
 private
 
   def email_format
-    Mail::Address.new(email_address)
-  rescue Mail::Field::ParseError
-    errors.add(:email_address, 'has incorrect format')
+    return if email_address.blank?
+
+    # true overrides sendgrid validations
+    email_checker = EmailChecker.new(email_address, true)
+
+    unless email_checker.valid?
+      errors.add(:email_address, 'has incorrect format')
+    end
   end
 end
