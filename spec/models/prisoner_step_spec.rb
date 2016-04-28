@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe PrisonerStep do
-  subject { described_class.new(params) }
+  subject(:instance) { described_class.new(params) }
 
+  let(:prison_id) { '123' }
   let(:params) {
     {
       first_name: 'Joe',
@@ -13,13 +14,36 @@ RSpec.describe PrisonerStep do
         year: '1970'
       },
       number: 'a1234bc',
-      prison_id: '123'
+      prison_id: prison_id
     }
   }
+
   let(:prison) { Prison.new(name: 'Reading Gaol') }
 
   before do
     allow(pvb_api).to receive(:get_prison).and_return(prison)
+  end
+
+  describe '#prison' do
+    subject { instance.prison }
+
+    context 'without a prison_id' do
+      let(:prison_id) { nil }
+      it { is_expected.to be_nil }
+    end
+
+    context 'with a blank prison_id (ie not selecting a prison)' do
+      let(:prison_id) { '' }
+      it { is_expected.to be_nil }
+    end
+
+    context 'with a valid prison_id' do
+      let(:prison_id) { '123' }
+      before do
+        expect(pvb_api).to receive(:get_prison).and_return(prison)
+      end
+      it { is_expected.to eq(prison) }
+    end
   end
 
   it 'uses the API in order to determine prison name' do
