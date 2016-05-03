@@ -25,7 +25,7 @@ class PrisonerStep
 
   def prison
     # Memoize to avoid multiple API lookups
-    @_prison ||= prison_id ? Prison.find_by_id(prison_id) : nil
+    @_prison ||= prison_id.present? ? Prison.find_by_id(prison_id) : nil
   end
 
 private
