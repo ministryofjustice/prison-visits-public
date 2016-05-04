@@ -13,4 +13,5 @@ Rails.application.configure do
 
   config.i18n.load_path =
     Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+  config.staff_url = 'http://localhost:3000'
 end

@@ -19,4 +19,5 @@ Rails.application.configure do
   config.enable_sendgrid_validations =
     ENV.key?('ENABLE_SENDGRID_VALIDATIONS')
   config.mx_checker = MxChecker.new
+  config.staff_url = ENV.fetch('STAFF_SERVICE_URL')
 end
