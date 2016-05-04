@@ -34,4 +34,16 @@ Rails.application.routes.draw do
       get 'unsubscribe', action: :show, id: 'unsubscribe'
     end
   end
+
+  get '/:locale/prison/*rest', to: redirect { |_, request|
+    "#{Rails.configuration.staff_url}#{request.fullpath}"
+  }
+
+  get '/:locale/metrics/*rest', to: redirect { |_, request|
+    "#{Rails.configuration.staff_url}#{request.fullpath}"
+  }
+
+  get '/staff/*rest', to: redirect { |_, request|
+    "#{Rails.configuration.staff_url}#{request.fullpath}"
+  }
 end

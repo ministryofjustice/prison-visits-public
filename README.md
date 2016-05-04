@@ -109,6 +109,10 @@ This is the email domain used in the generation of email addresses shown on the 
 
 On production this must be set to `email.prisonvisits.service.gov.uk`.
 
+#### `STAFF_SERVICE_URL`
+
+The url for the staff service.
+
 #### `ASSET_HOST` (optional)
 
 If specified this will configure Rails' `config.asset_host`, resulting in all asset URLs pointing to this host.
