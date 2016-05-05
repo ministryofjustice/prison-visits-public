@@ -26,6 +26,10 @@ module PrisonVisits
       request(:delete, route, params)
     end
 
+    def healthcheck
+      @connection.head(path: 'healthcheck')
+    end
+
   private
 
     # rubocop:disable Metrics/MethodLength

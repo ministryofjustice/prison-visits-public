@@ -77,6 +77,17 @@ RSpec.describe PrisonVisits::Api do
     end
   end
 
+  describe 'healthy?', vcr: { cassette_name: 'healthy' } do
+    subject { super().healthy? }
+
+    it 'makes a request to the healtcheck endpoint' do
+      is_expected.to eq(true)
+
+      expect(WebMock).
+        to have_requested(:head, /healthcheck/)
+    end
+  end
+
   describe 'get_prisons', vcr: { cassette_name: 'get_prisons' } do
     subject { super().get_prisons }
 

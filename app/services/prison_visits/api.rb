@@ -15,6 +15,10 @@ module PrisonVisits
       @client = api_client
     end
 
+    def healthy?
+      @client.healthcheck.status == 200
+    end
+
     def get_prisons
       result = @client.get('/prisons')
       result['prisons'].map { |params| Prison.new(params) }
