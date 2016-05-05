@@ -14,7 +14,7 @@ module FormElementsHelper
         join(
           content_tag(:legend, t(".#{name}")),
           field_error(form, name),
-          content_tag(:div, nil, class: "form-date") {
+          content_tag(:div, class: 'form-date') {
             join(
               field_hint(name),
               capture(&blk)
@@ -28,13 +28,13 @@ module FormElementsHelper
   def field_error(form, name)
     errors = form.object.errors[name]
     return '' unless errors.any?
-    content_tag(:span, nil, class: 'error-message') { errors.first }
+    content_tag(:span, class: 'error-message') { errors.first }
   end
 
   def field_hint(name)
     text = t(".#{name}_hint", default: '')
     if text.present?
-      content_tag(:p, nil, class: 'form-hint') { text }
+      content_tag(:p, class: 'form-hint') { text }
     else
       ''
     end
@@ -54,7 +54,7 @@ private
   def label_first_single_field(form, name, field_method, *options)
     error_container(form, name) {
       join(
-        form.label(name, nil, class: 'form-label') {
+        form.label(name, class: 'form-label') {
           join(
             t(".#{name}"),
             field_error(form, name),
