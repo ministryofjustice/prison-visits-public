@@ -2,8 +2,8 @@
 
 <%= render('shared/timeout_prompt') %>
 
-<div class="Grid">
-  <div class="Grid-2-3">
+<div class="grid-row">
+  <div class="column-two-thirds">
     <%= form_for(@steps.fetch(:visitors_step),
                  url: booking_requests_path,
                  html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
@@ -12,7 +12,7 @@
         <%= render('hidden_slots_step') %>
       <% end %>
 
-      <h2>
+      <h2 class="heading-medium">
         <%= t('.your_details') %>
       </h2>
 
@@ -42,7 +42,7 @@
                 <%= single_field(f, :additional_visitor_count, :select,
                                  additional_visitor_selections(f.object),
                                  {},
-                                 class: 'js-RevealAdditional',
+                                 class: 'form-control js-RevealAdditional',
                                  data: { target_els: '.additional-visitor' }) %>
               </div>
             </fieldset>

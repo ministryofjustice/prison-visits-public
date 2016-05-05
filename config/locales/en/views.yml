@@ -24,7 +24,7 @@ en:
     prisoner_step:
       title: Who are you visiting?
       information_html: |
-        <ul>
+        <ul class="list list-bullet">
           <li>
             you don’t need a Visiting Order (VO) number to request a visit
           </li>
@@ -213,7 +213,7 @@ en:
           the following:
         </p>
 
-        <ul>
+        <ul class="list list-bullet">
           <li>
             passport, including foreign passports, and expired passports where
             the photograph is still recognisable
@@ -246,7 +246,7 @@ en:
           the following:
         </p>
 
-        <ul>
+        <ul class="list list-bullet">
           <li>
             birth or marriage certificate
           </li>
@@ -345,3 +345,25 @@ en:
       title: You cancelled this visit
     withdrawn:
       title: You cancelled this visit request
+  helpers:
+    label:
+      prisoner_step:
+        first_name: Prisoner first name
+        last_name: Prisoner last name
+        number: Prisoner number
+      principal_visitor:
+        first_name: Your first name
+        last_name: Your last name
+        date_of_birth: Your date of birth
+        email_address: Email address
+        phone_no: Phone number
+    hint:
+      prisoner_step:
+        number: eg a1234bc
+      principal_visitor:
+        date_of_birth: You must be over 18 to book a visit
+        email_address: You’ll receive confirmation by email
+  errors:
+    messages:
+      prisoner_step:
+        first_name: required

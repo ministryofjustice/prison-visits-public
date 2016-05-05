@@ -14,7 +14,7 @@
 <%= form_tag(cancellations_path, html: { class: 'js-SubmitOnce' }) do %>
   <%= hidden_field_tag(:id, @visit.id) %>
 
-  <div class="group">
+  <div class="form-group">
     <label class="block-label">
       <%= check_box_tag(:confirmed) %>
       <%= t('.cancel_confirm') %>

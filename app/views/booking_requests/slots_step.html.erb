@@ -13,13 +13,13 @@
       <%= render('hidden_visitors_step') %>
 
   <div class="SlotPicker" data-today="<%= Time.zone.today %>">
-    <div class="Grid visible--js-enabled">
-      <div class="Grid-1-2">
+    <div class="grid-row visible--js-enabled">
+      <div class="column-half">
         <%= render('slot_picker') %>
       </div>
       <%= render('hidden_inputs_for_calendars', f: f) %>
 
-      <div class="Grid-1-2">
+      <div class="column-half">
         <fieldset>
           <%= render('booking_calendar', slots: f.object.slot_constraints) %>
           <%= render('date_slider') %>
