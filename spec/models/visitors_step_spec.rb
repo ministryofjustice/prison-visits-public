@@ -175,6 +175,9 @@ RSpec.describe VisitorsStep do
     it 'is false if there are no visitors' do
       subject.visitors = []
       expect(subject).not_to be_valid
+      expect(subject.errors[:general]).to eq(
+        ["The person requesting the visit must be over the age of 18"]
+      )
     end
 
     it 'is invalid if there are too many visitors' do
@@ -182,9 +185,9 @@ RSpec.describe VisitorsStep do
 
       expect(subject).not_to be_valid
       expect(subject.errors).to have_key(:general)
-      expect(subject.errors[:general]).to eq(
-        ["You can book a maximum of 6 visitors"]
-      )
+      expect(subject.errors[:general]).to eq([
+        "You can book a maximum of 6 visitors"
+      ])
     end
 
     it 'validates all objects even if one is invalid' do
@@ -209,25 +212,55 @@ RSpec.describe VisitorsStep do
     end
 
     it 'is valid if there are 3 adult and 3 child visitors' do
-      subject.visitors = [child_13] * 3 + [child_12] * 3
+      subject.visitors = [adult] * 3 + [child_12] * 3
       subject.validate
       expect(subject.errors).not_to have_key(:general)
     end
 
-    it 'is invalid if there are too many adult visitors' do
-      subject.visitors = [child_13] * 6
+    it 'is valid with one adult and lots of children' do
+      subject.visitors = [adult] + [child_12] * 5
       subject.validate
-      expect(subject.errors[:general]).to include(
-        'You can book a maximum of 3 visitors over the age of 13 on this visit'
-      )
+      expect(subject.errors).not_to have_key(:general)
     end
 
-    it 'is invalid if there is no adult visitor' do
+    it 'is invalid if there are too many adults plus "young adults" (children above the prison adult_age) (who cannot sit on adults laps!)' do
+      subject.visitors = [adult] + [child_13] * 3
+      subject.validate
+      expect(subject.errors[:general]).to eq([
+        'You can book a maximum of 3 visitors over the age of 13 on this visit'
+      ])
+    end
+
+    it 'is invalid if the lead-visitor is not an (actual) adult' do
+      subject.visitors = [child_13] + [adult]
+      subject.validate
+      expect(subject.errors[:general]).to eq([
+        'The person requesting the visit must be over the age of 18'
+      ])
+    end
+
+    it 'is invalid if there are too many adult visitors' do
+      subject.visitors = [adult] * 4
+      subject.validate
+      expect(subject.errors[:general]).to eq([
+        'You can book a maximum of 3 visitors over the age of 13 on this visit'
+      ])
+    end
+
+    it 'is invalid if there is no adult visitor (only children)' do
       subject.visitors = [child_12] * 2
       subject.validate
-      expect(subject.errors[:general]).to include(
-        'There must be at least one adult visitor'
-      )
+      expect(subject.errors[:general]).to eq([
+        'The person requesting the visit must be over the age of 18'
+      ])
+    end
+
+    it 'is invalid if there is no adult visitor (only "young adults")' do
+      subject.visitors = [child_13] * 2
+      subject.validate
+      expect(subject.errors[:general]).to eq([
+        'The person requesting the visit must be over the age of 18'
+      ])
     end
   end
 end
