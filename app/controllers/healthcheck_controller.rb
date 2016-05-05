@@ -1,6 +1,11 @@
 class HealthcheckController < ApplicationController
   def index
-    # TODO: Implement me
-    render status: true, json: {}
+    healthcheck = Healthcheck::PvbApiCheck.new('PVB API healthcheck')
+    status = healthcheck.ok? ? :ok : :bad_gateway
+
+    render status: status, json: {
+      ok: healthcheck.ok?,
+      api: healthcheck.report
+    }
   end
 end
