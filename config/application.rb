@@ -57,6 +57,5 @@ module PrisonVisits
 
     config.middleware.insert_before ActionDispatch::ParamsParser,
       HttpMethodNotAllowed
-
   end
 end
