@@ -5,6 +5,9 @@ $button-warning-color: $red;
 
 .button {
   @include button($grey-3);
+  @include media(mobile) {
+    margin: $gutter 0;
+  }
 }
 
 .button-primary {
@@ -23,4 +26,8 @@ $button-warning-color: $red;
   display: inline-block;
   line-height: 1.25;
   padding: em(7) em(0) em(5) em(0);
+  @include media(mobile) {
+    display: block;
+    text-align: center;
+  }
 }
