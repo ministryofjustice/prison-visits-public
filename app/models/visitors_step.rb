@@ -16,9 +16,6 @@ class VisitorsStep
 
   attribute :email_address, String
   attribute :phone_no, String
-  attribute :override_delivery_error, Boolean
-  attribute :delivery_error_type, String
-  attribute :delivery_error_occurred, Boolean
   attribute :visitors, Array[Visitor]
 
   delegate :max_visitors, :adult_age, to: :visitor_constraints
@@ -76,11 +73,9 @@ class VisitorsStep
 private
 
   def validate_email
-    checker = EmailChecker.new(email_address, override_delivery_error)
+    checker = EmailChecker.new(email_address)
     unless checker.valid?
       errors.add :email_address, checker.message
-      @delivery_error_occurred = checker.delivery_error_occurred?
-      @delivery_error_type = checker.error.to_sym
     end
   end
 

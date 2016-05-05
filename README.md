@@ -95,14 +95,6 @@ Make sure the secret is at least 30 characters and all random, no regular words
 or you’ll be exposed to dictionary attacks. You can use `rake secret` to
 generate a secure secret key.
 
-#### `SMTP_USERNAME`, `SMTP_PASSWORD`
-
-Now only used to configure the Sendgrid API client.
-
-#### `ENABLE_SENDGRID_VALIDATIONS` (optional)
-
-If specified it will enable the email validations that use Sendgrid in the `EmailChecker` class.
-
 #### `EMAIL_DOMAIN`
 
 This is the email domain used in the generation of email addresses shown on the site (currently only the no-reply address from which to expect bookings).

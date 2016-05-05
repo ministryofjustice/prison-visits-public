@@ -69,8 +69,6 @@ en:
       email_address: Email address
       email_address_hint: You’ll receive confirmation by email
       phone_no: Phone number
-      override_delivery_error: >-
-        Tick this box to confirm you’d like us to try sending messages to you again.
     additional_visitors:
       visitor: "Visitor %{n}"
       first_name: First name
