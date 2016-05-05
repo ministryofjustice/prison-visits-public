@@ -9,6 +9,20 @@ RSpec.describe PrisonVisits::Api do
   let(:cardiff_prison_id) { '0614760e-a773-49c0-a29c-35e743e72555' }
   let(:leeds_prison_id) { '8076d43d-429d-4e19-aac1-178ff9d112d3' }
 
+  # Note regarding re-recording VCR cassettes: these tests are date dependent.
+  # If you need to re-record the VCR data for any reason, you can follow this
+  # approach:
+  # * delete and re-record the get_slots cassette
+  # * populate bookable_slots below with the first 3 returned slots
+  # * delete and re-record all the other cassettes
+  let(:bookable_slots) {
+    [
+      "2016-05-11T13:30/14:30",
+      "2016-05-11T14:45/15:45",
+      "2016-05-12T13:30/14:30"
+    ]
+  }
+
   let(:valid_booking_params) {
     {
       prison_id: cardiff_prison_id,
@@ -29,11 +43,7 @@ RSpec.describe PrisonVisits::Api do
       }],
       contact_email_address: "ada@test.example.com",
       contact_phone_no: "01154960222",
-      slot_options: [
-        "2016-04-25T13:30/14:30", # (mon)
-        "2016-04-26T13:30/14:30", # (tue)
-        "2016-04-27T14:45/15:45"  # (wed)
-      ]
+      slot_options: bookable_slots
     }
   }
 
@@ -148,13 +158,13 @@ RSpec.describe PrisonVisits::Api do
     end
 
     it 'returns sensible looking concrete slots' do
-      expect(subject.first.iso8601).to eq("2016-04-21T13:30/14:30")
+      expect(subject.first.iso8601).to eq(bookable_slots.first)
     end
 
     it 'can request live slots from NOMIS', vcr: { cassette_name: 'get_slots-live_slots' } do
       params[:prison_id] = leeds_prison_id
       params[:use_nomis_slots] = true
-      expect(subject.first.iso8601).to eq("2016-04-22T10:30/11:30")
+      expect(subject.first.iso8601).to eq("2016-05-12T10:30/11:30")
     end
   end
 
@@ -172,7 +182,7 @@ RSpec.describe PrisonVisits::Api do
     end
 
     it 'returns a list of the requested slots' do
-      expect(subject.slots.first.iso8601).to eq("2016-04-25T13:30/14:30")
+      expect(subject.slots.first.iso8601).to eq(bookable_slots.first)
     end
 
     it 'returns the booking contact email address' do
@@ -224,7 +234,7 @@ RSpec.describe PrisonVisits::Api do
 
     it 'makes a request to the api' do
       expect(subject.create_feedback(feedback_submission)).to be_nil
-      expect(WebMock).to have_requested(:post, %r{\/api\/feedback\.json}).
+      expect(WebMock).to have_requested(:post, %r{\/api\/feedback}).
         with(body: JSON.generate(feedback: feedback_attrs))
     end
   end
