@@ -8,7 +8,6 @@ Rails.application.configure do
   config.assets.digest = true
   config.assets.raise_runtime_errors = true
 
-  config.enable_sendgrid_validations = true
   config.mx_checker = MxChecker::Dummy.new
 
   config.i18n.load_path =
