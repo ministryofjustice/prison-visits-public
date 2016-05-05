@@ -3,9 +3,7 @@ require 'rails_helper'
 RSpec.describe PrisonVisits::Api do
   subject { described_class.instance }
 
-  # This should be set to the ID of Cardiff prison on the system generating
-  # the VCR cassettes. Sadly this will vary from system to system as a result
-  # of using UUIDs for prisons.
+  # These UUIDs can be found in PVB2/prison_uuid_mappings.yml
   let(:cardiff_prison_id) { '0614760e-a773-49c0-a29c-35e743e72555' }
   let(:leeds_prison_id) { '8076d43d-429d-4e19-aac1-178ff9d112d3' }
 
