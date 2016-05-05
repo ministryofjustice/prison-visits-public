@@ -10,8 +10,6 @@ gem 'kramdown'
 gem 'lograge'
 gem 'logstash-event'
 gem 'moj_template', '0.21.0'
-gem 'netaddr'
-gem 'premailer-rails'
 gem 'puma'
 gem 'sass-rails', '~> 5.0'
 
