@@ -1,6 +1,8 @@
 require 'excon'
 
 module PrisonVisits
+  APIError = Class.new(StandardError)
+
   class Client
     TIMEOUT = 2 # seconds
 
@@ -33,6 +35,7 @@ module PrisonVisits
   private
 
     # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
     def request(method, route, params)
       # For cleanliness, strip initial / if supplied
       route = route.sub(%r{^\/}, '')
@@ -56,8 +59,25 @@ module PrisonVisits
       response = @connection.request(options)
 
       JSON.parse(response.body)
+    rescue Excon::Errors::HTTPStatusError => e
+      body = e.response.body
+
+      # API errors should be returned as JSON, but there are many scenarios
+      # where this may not be the case.
+      begin
+        error = JSON.parse(body)
+      rescue JSON::ParserError
+        # Present non-JSON bodies truncated (e.g. this could be HTML)
+        error = "(invalid-JSON) #{body[0, 80]}"
+      end
+
+      raise APIError,
+        "Unexpected status #{e.response.status} when calling #{path}: #{error}"
+    rescue Excon::Errors::Error => e
+      raise APIError, "Unexpected exception #{e.class} calling #{path}: #{e}"
     end
     # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Metrics/AbcSize
 
     # Returns excon options which put params in either the query string or body.
     def params_options(method, params)
