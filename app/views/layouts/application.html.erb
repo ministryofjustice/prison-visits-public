@@ -43,16 +43,16 @@
 
 <% content_for :content_override do %>
   <main id="wrapper" role="main">
-    <div class="container">
-      <section class="content inner cf" id="content">
+    <div class="container page-container">
+      <section id="content" class="content">
         <header>
-          <h1>
+          <h1 class="heading-xlarge">
             <%= yield :header %>
           </h1>
         </header>
 
         <% if notice.present? %>
-          <p class="validation-summary">
+          <p class="error-summary">
             <%= notice %>
           </p>
         <% end %>

@@ -1,9 +1,9 @@
 <% if object.errors.any? %>
-  <div id="error-summary" class="validation-summary group" role="alert"
+  <div id="error-summary" class="error-summary group" role="alert"
     tabindex="-1" aria-labelledby="error-heading">
-    <h2 id="error-heading">
+    <h1 id="error-summary-heading" class="heading-medium error-summary-heading">
       <%= t('.heading') %>
-    </h2>
+    </h1>
 
     <% general_errors = object.errors[:general] %>
 

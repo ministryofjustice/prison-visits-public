@@ -12,9 +12,9 @@ module FormElementsHelper
     error_container(form, name) {
       content_tag(:fieldset) {
         join(
-          content_tag(:legend) { t(".#{name}") },
+          content_tag(:legend, t(".#{name}")),
           field_error(form, name),
-          content_tag(:div) {
+          content_tag(:div, class: "form-date") {
             join(
               field_hint(name),
               capture(&blk)
@@ -28,7 +28,7 @@ module FormElementsHelper
   def field_error(form, name)
     errors = form.object.errors[name]
     return '' unless errors.any?
-    content_tag(:span, class: 'validation-message') { errors.first }
+    content_tag(:span, class: 'error-message') { errors.first }
   end
 
   def field_hint(name)
@@ -40,9 +40,9 @@ module FormElementsHelper
     end
   end
 
-  def error_container(form, name, options = { class: 'group' }, &blk)
+  def error_container(form, name, options = { class: 'form-group' }, &blk)
     if form.object.errors.include?(name)
-      klass = [options[:class], 'validation-error'].compact.join(' ')
+      klass = [options[:class], 'error'].compact.join(' ')
     else
       klass = options[:class]
     end
@@ -54,7 +54,7 @@ private
   def label_first_single_field(form, name, field_method, *options)
     error_container(form, name) {
       join(
-        form.label(name) {
+        form.label(name, class: 'form-label') {
           join(
             t(".#{name}"),
             field_error(form, name),

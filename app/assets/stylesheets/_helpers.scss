@@ -1,0 +1,16 @@
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+strong {
+  @include bold-19;
+}

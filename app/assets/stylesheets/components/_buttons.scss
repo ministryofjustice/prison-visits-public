@@ -18,3 +18,9 @@ $button-warning-color: $red;
 .button-warning {
   @include button($button-warning-color);
 }
+
+.button-link {
+  display: inline-block;
+  line-height: 1.25;
+  padding: em(7) em(0) em(5) em(0);
+}

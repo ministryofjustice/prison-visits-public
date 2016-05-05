@@ -57,5 +57,15 @@ module PrisonVisits
 
     config.middleware.insert_before ActionDispatch::ParamsParser,
       HttpMethodNotAllowed
+
+    # ActionView::Base.default_form_builder = GovukElementsFormBuilder::FormBuilder
+
+    config.assets.precompile += %w(
+      application.css
+      application-ie8.css
+      application-ie7.css
+      application-ie6.css
+      application.js
+    )
   end
 end
