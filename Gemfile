@@ -43,7 +43,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'ffaker'
   gem 'fuubar'
   gem 'launchy'
   gem 'phantomjs', require: 'phantomjs/poltergeist'
