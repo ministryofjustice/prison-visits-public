@@ -60,13 +60,39 @@
     {
       "warning_type": "Dynamic Render Path",
       "warning_code": 15,
+      "fingerprint": "b10e85bdf7d91a288f261c99794f30a93440553b5edf455d12f377afbd783d7e",
+      "message": "Render path contains parameter value",
+      "file": "app/views/visits/show.html.erb",
+      "line": 7,
+      "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => PrisonVisits::Api.instance.get_visit(params[:id]).processing_state.to_s, {})",
+      "render_path": [{"type":"controller","class":"VisitsController","method":"show","line":4,"file":"app/controllers/visits_controller.rb"}],
+      "location": {
+        "type": "template",
+        "template": "visits/show"
+      },
+      "user_input": "params[:id]",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
       "fingerprint": "34fee19bee2f2f33f7e640e0c76060bfa55f41625a80ad986d904f20ff388f34",
       "message": "Render path contains parameter value",
       "file": "app/views/visits/show.html.erb",
       "line": 7,
       "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
       "code": "render(action => PrisonVisits::Api.instance.get_visit(params[:id]).processing_state, {})",
-      "render_path": [{"type":"controller","class":"VisitsController","method":"show","line":4,"file":"app/controllers/visits_controller.rb"}],
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "VisitsController",
+          "method": "show",
+          "line": 4,
+          "file": "app/controllers/visits_controller.rb"
+        }
+      ],
       "location": {
         "type": "template",
         "template": "visits/show"
@@ -133,6 +159,6 @@
       "note": ""
     }
   ],
-  "updated": "2016-04-13 17:31:54 +0100",
+  "updated": "2016-05-06 09:38:28 +0100",
   "brakeman_version": "3.1.3"
 }
