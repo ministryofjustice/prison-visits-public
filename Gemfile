@@ -10,8 +10,6 @@ gem 'kramdown'
 gem 'lograge'
 gem 'logstash-event'
 gem 'moj_template', '0.21.0'
-gem 'netaddr'
-gem 'premailer-rails'
 gem 'puma'
 gem 'sass-rails', '~> 5.0'
 
@@ -20,7 +18,6 @@ gem 'sass-rails', '~> 5.0'
 # version
 gem 'rake', '< 11.0'
 gem 'request_store'
-gem 'sendgrid_toolkit'
 # Fixed version as workaround for bug in 0.15.5
 # https://github.com/getsentry/raven-ruby/issues/460
 gem 'sentry-raven', '0.15.4'
@@ -44,7 +41,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'ffaker'
   gem 'fuubar'
   gem 'launchy'
   gem 'phantomjs', require: 'phantomjs/poltergeist'

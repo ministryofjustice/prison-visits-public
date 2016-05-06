@@ -1,3 +1,5 @@
+require 'mail'
+
 class EmailChecker
   def initialize(original_address)
     @original_address = original_address
