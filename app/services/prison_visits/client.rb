@@ -39,7 +39,7 @@ module PrisonVisits
     def request(method, route, params)
       # For cleanliness, strip initial / if supplied
       route = route.sub(%r{^\/}, '')
-      path = "/api/#{route}.json"
+      path = "/api/#{route}"
 
       options = {
         method: method,

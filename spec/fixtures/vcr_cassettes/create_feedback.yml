@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:3000/api/feedback.json
+    uri: http://localhost:3000/api/feedback
     body:
       encoding: UTF-8
       string: '{"feedback":{"body":"the feedback","email_address":"user@example.com","referrer":"referrer","user_agent":"user
@@ -38,10 +38,10 @@ http_interactions:
       X-Request-Id:
       - unique_id
       X-Runtime:
-      - '0.267651'
+      - '0.013690'
     body:
       encoding: UTF-8
       string: "{}"
     http_version: 
-  recorded_at: Fri, 15 Apr 2016 08:54:43 GMT
+  recorded_at: Thu, 05 May 2016 15:53:30 GMT
 recorded_with: VCR 3.0.1

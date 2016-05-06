@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:3000/api/visits.json
+    uri: http://localhost:3000/api/visits
     body:
       encoding: UTF-8
-      string: '{"prison_id":"0614760e-a773-49c0-a29c-35e743e72555","prisoner":{"first_name":"Oscar","last_name":"Wilde","date_of_birth":"1980-12-31","number":"a1234bc"},"visitors":[{"first_name":"Ada","last_name":"Lovelace","date_of_birth":"1970-11-30"},{"first_name":"Charlie","last_name":"Chaplin","date_of_birth":"2005-01-02"}],"contact_email_address":"ada@test.example.com","contact_phone_no":"01154960222","slot_options":["2016-04-25T13:30/14:30","2016-04-26T13:30/14:30","2016-04-27T14:45/15:45"]}'
+      string: '{"prison_id":"0614760e-a773-49c0-a29c-35e743e72555","prisoner":{"first_name":"Oscar","last_name":"Wilde","date_of_birth":"1980-12-31","number":"a1234bc"},"visitors":[{"first_name":"Ada","last_name":"Lovelace","date_of_birth":"1970-11-30"},{"first_name":"Charlie","last_name":"Chaplin","date_of_birth":"2005-01-02"}],"contact_email_address":"ada@test.example.com","contact_phone_no":"01154960222","slot_options":["2016-05-11T13:30/14:30","2016-05-11T14:45/15:45","2016-05-12T13:30/14:30"]}'
     headers:
       User-Agent:
       - excon/0.49.0
@@ -31,21 +31,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"6085ae16bd6e2e0a51bd239f87e68736"
+      - W/"8a5580a789b235c482b46ecf1c6c1d11"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
       - unique_id
       X-Runtime:
-      - '0.210211'
+      - '0.209810'
     body:
       encoding: UTF-8
-      string: '{"visit":{"id":"e1398858-eaea-4786-a0c3-2f4aad2cae1c","processing_state":"requested","prison_id":"0614760e-a773-49c0-a29c-35e743e72555","confirm_by":"2016-04-20","contact_email_address":"ada@test.example.com","slots":["2016-04-25T13:30/14:30","2016-04-26T13:30/14:30","2016-04-27T14:45/15:45"]}}'
+      string: '{"visit":{"id":"361bb86a-e9b5-4e5a-be9f-2e94db6d3594","processing_state":"requested","prison_id":"0614760e-a773-49c0-a29c-35e743e72555","confirm_by":"2016-05-10","contact_email_address":"ada@test.example.com","slots":["2016-05-11T13:30/14:30","2016-05-11T14:45/15:45","2016-05-12T13:30/14:30"]}}'
     http_version: 
-  recorded_at: Fri, 15 Apr 2016 10:09:53 GMT
+  recorded_at: Thu, 05 May 2016 15:53:29 GMT
 - request:
     method: delete
-    uri: http://localhost:3000/api/visits/e1398858-eaea-4786-a0c3-2f4aad2cae1c.json
+    uri: http://localhost:3000/api/visits/361bb86a-e9b5-4e5a-be9f-2e94db6d3594
     body:
       encoding: US-ASCII
       string: ''
@@ -72,16 +72,16 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"7ca09123df00589c1cbdc2a55886a75e"
+      - W/"ec6f7f9a976f1613d0bd1d3bf0a2b6dc"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
       - unique_id
       X-Runtime:
-      - '0.035142'
+      - '0.016053'
     body:
       encoding: UTF-8
-      string: '{"visit":{"id":"e1398858-eaea-4786-a0c3-2f4aad2cae1c","processing_state":"withdrawn"}}'
+      string: '{"visit":{"id":"361bb86a-e9b5-4e5a-be9f-2e94db6d3594","processing_state":"withdrawn"}}'
     http_version: 
-  recorded_at: Fri, 15 Apr 2016 10:09:53 GMT
+  recorded_at: Thu, 05 May 2016 15:53:29 GMT
 recorded_with: VCR 3.0.1

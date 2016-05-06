@@ -19,7 +19,7 @@ RSpec.describe PrisonVisits::Client do
     it 'parses returned JSON errors', vcr: { cassette_name: 'client_json_error' } do
       expect {
         subject.get('/prisons/missing')
-      }.to raise_error(PrisonVisits::APIError, 'Unexpected status 404 when calling /api/prisons/missing.json: {"message"=>"Not found"}')
+      }.to raise_error(PrisonVisits::APIError, 'Unexpected status 404 when calling /api/prisons/missing: {"message"=>"Not found"}')
     end
 
     it 'handles non-JSON error gracefully' do
@@ -28,7 +28,7 @@ RSpec.describe PrisonVisits::Client do
 
       expect {
         subject.get('/flubble')
-      }.to raise_error(PrisonVisits::APIError, 'Unexpected status 500 when calling /api/flubble.json: (invalid-JSON) Server error')
+      }.to raise_error(PrisonVisits::APIError, 'Unexpected status 500 when calling /api/flubble: (invalid-JSON) Server error')
     end
 
     it 'returns an APIError if there is another (non-response) error' do
@@ -36,7 +36,7 @@ RSpec.describe PrisonVisits::Client do
 
       expect {
         subject.get('/flubble')
-      }.to raise_error(PrisonVisits::APIError, 'Unexpected exception Excon::Errors::Timeout calling /api/flubble.json: Exception from WebMock')
+      }.to raise_error(PrisonVisits::APIError, 'Unexpected exception Excon::Errors::Timeout calling /api/flubble: Exception from WebMock')
     end
   end
 end

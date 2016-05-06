@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:3000/api/validations/prisoner.json
+    uri: http://localhost:3000/api/validations/prisoner
     body:
       encoding: UTF-8
       string: '{"number":"A1459AE","date_of_birth":"1976-06-12"}'
@@ -37,10 +37,10 @@ http_interactions:
       X-Request-Id:
       - unique_id
       X-Runtime:
-      - '0.031842'
+      - '0.018072'
     body:
       encoding: UTF-8
       string: '{"validation":{"valid":true}}'
     http_version: 
-  recorded_at: Fri, 15 Apr 2016 08:54:45 GMT
+  recorded_at: Thu, 05 May 2016 15:53:29 GMT
 recorded_with: VCR 3.0.1
