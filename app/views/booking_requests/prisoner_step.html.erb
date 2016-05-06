@@ -2,8 +2,8 @@
 
 <%= render('shared/timeout_prompt') %>
 
-<div class="Grid">
-  <div class="Grid-2-3">
+<div class="grid-row">
+  <div class="column-two-thirds">
     <%= t('.information_html') %>
 
     <%= form_for(@steps.fetch(:prisoner_step),
@@ -14,7 +14,7 @@
         <%= render('hidden_slots_step') %>
       <% end %>
 
-      <h2>
+      <h2 class="heading-medium">
         <%= t('.prisoner_details') %>
       </h2>
 
@@ -25,20 +25,21 @@
           <%= t('.prisoner_details') %>
         </legend>
 
-        <%= single_field(f, :first_name, :text_field) %>
+        <%= single_field(f, :first_name, :text_field, {class: 'form-control'}) %>
 
-        <%= single_field(f, :last_name, :text_field) %>
+        <%= single_field(f, :last_name, :text_field, {class: 'form-control'}) %>
 
         <%= composite_field(f, :date_of_birth) do %>
           <%= render('dob', form: f) %>
         <% end %>
 
-        <%= single_field(f, :number, :text_field) %>
+        <%= single_field(f, :number, :text_field, {class: 'form-control'}) %>
 
         <%= single_field(f, :prison_id, :select,
               Prison.all.map { |p| [p.name, p.id] },
               { prompt: t('.prison_id_prompt') },
               { class: 'js-autocomplete' }) %>
+
 
         <div class="actions">
           <div class="primary-actions">

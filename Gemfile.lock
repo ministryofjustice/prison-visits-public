@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/ministryofjustice/govuk_elements_form_builder.git
+  revision: 088bb77d7cf543170894f1d27894d8198927260e
+  specs:
+    govuk_elements_form_builder (0.0.1)
+      rails (~> 4.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -89,9 +96,15 @@ GEM
       ruby-progressbar (~> 1.4)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    govuk_frontend_toolkit (2.0.1)
+    govuk_elements_rails (1.1.2)
+      govuk_frontend_toolkit (~> 4.6.1, >= 4.6.1)
+      rails (~> 4.1, >= 4.1.0)
+      sass (~> 3.2, >= 3.2.0)
+    govuk_frontend_toolkit (4.6.1)
       rails (>= 3.1.0)
       sass (>= 3.2.0)
+    govuk_template (0.17.0)
+      rails (>= 3.1)
     haml (4.0.7)
       tilt
     hashdiff (0.2.3)
@@ -287,7 +300,10 @@ DEPENDENCIES
   capybara
   excon
   fuubar
-  govuk_frontend_toolkit (= 2.0.1)
+  govuk_elements_form_builder!
+  govuk_elements_rails (>= 1.1.2)
+  govuk_frontend_toolkit (>= 4.6.1)
+  govuk_template (~> 0.17.0)
   high_voltage
   kramdown
   launchy
