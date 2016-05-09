@@ -41,19 +41,19 @@
     {
       "warning_type": "Dynamic Render Path",
       "warning_code": 15,
-      "fingerprint": "8c390dff3f40970d84fbba866e35c1f62e8ea4629c767e5df706bf873bc39f40",
+      "fingerprint": "2b3a1157063993c962dd2b41351e4e24a0f2be5a63f818f13ee2d8a5b964f3f2",
       "message": "Render path contains parameter value",
       "file": "app/controllers/errors_controller.rb",
-      "line": 20,
+      "line": 22,
       "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
-      "code": "render(action => { 404 => :\"404\", 406 => :\"404\", 500 => :\"500\", 503 => :\"503\" }.fetch(params.fetch(:status_code).to_i), { :status => params.fetch(:status_code).to_i, :format => :html })",
+      "code": "render(action => { 404 => :\"404\", 406 => :\"404\", 500 => :\"500\", 503 => :\"503\" }.fetch((params[:status_code] or env[\"PATH_INFO\"][(1..-1)]).to_i), { :status => ((params[:status_code] or env[\"PATH_INFO\"][(1..-1)])), :format => :html })",
       "render_path": null,
       "location": {
         "type": "method",
         "class": "ErrorsController",
         "method": "show"
       },
-      "user_input": "params.fetch(:status_code)",
+      "user_input": "params[:status_code]",
       "confidence": "Weak",
       "note": ""
     },
