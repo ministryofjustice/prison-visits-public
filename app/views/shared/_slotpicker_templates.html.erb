@@ -28,7 +28,7 @@
       <a class="BookingCalendar-dateLink" data-date="{{ date }}" href="#date-{{ date }}">
         <span class="BookingCalendar-day">{{ day }}</span>
         {{#if today}}
-          <span class="BookingCalendar-tag BookingCalendar-tag--today">t('.today')</span>
+          <span class="BookingCalendar-tag BookingCalendar-tag--today"><%= t('.today') %></span>
         {{/if}}
         {{#if newMonth}}
           <span class="BookingCalendar-tag" id="month-{{ monthIso }}">{{ monthShort }}</span>
