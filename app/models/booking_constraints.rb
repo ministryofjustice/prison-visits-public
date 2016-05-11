@@ -38,10 +38,6 @@ class BookingConstraints
       # The person requesting the visit (the lead visitor) must be over 18, and
       # corresponds to the first visitor entered.
       # Note that this is not related to the 'adult' age which varies by prison.
-      if ages.empty? || ages.first < LEAD_VISITOR_MIN_AGE
-        target.errors.add(field, :lead_visitor_age, min: LEAD_VISITOR_MIN_AGE)
-      end
-
       adults, _children = ages.partition { |a| adult?(a) }.map(&:length)
       if adults > MAX_ADULTS
         target.errors.add field, :too_many_adults,
