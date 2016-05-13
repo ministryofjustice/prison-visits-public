@@ -40,6 +40,7 @@ module PrisonVisits
       # For cleanliness, strip initial / if supplied
       route = route.sub(%r{^\/}, '')
       path = "/api/#{route}"
+      api_method = "#{method.to_s.upcase} #{path}"
 
       options = {
         method: method,
@@ -52,7 +53,7 @@ module PrisonVisits
         }
       }.deep_merge(params_options(method, params))
 
-      message = "Calling PVB API: #{method.to_s.upcase} #{path}"
+      message = "Calling PVB API: #{api_method}"
       response = Instrumentation.time_and_log(message, :api) {
         @connection.request(options)
       }
@@ -71,9 +72,9 @@ module PrisonVisits
       end
 
       raise APIError,
-        "Unexpected status #{e.response.status} when calling #{path}: #{error}"
+        "Unexpected status #{e.response.status} calling #{api_method}: #{error}"
     rescue Excon::Errors::Error => e
-      raise APIError, "Unexpected exception #{e.class} calling #{path}: #{e}"
+      raise APIError, "Exception #{e.class} calling #{api_method}: #{e}"
     end
     # rubocop:enable Metrics/MethodLength
     # rubocop:enable Metrics/AbcSize
