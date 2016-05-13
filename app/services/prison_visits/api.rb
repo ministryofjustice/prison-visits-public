@@ -32,8 +32,11 @@ module PrisonVisits
     def validate_prisoner(number:, date_of_birth:)
       result = @client.post(
         '/validations/prisoner',
-        number: number,
-        date_of_birth: date_of_birth
+        params: {
+          number: number,
+          date_of_birth: date_of_birth
+        },
+        idempotent: true
       )
       result.fetch('validation')
     end
@@ -43,16 +46,18 @@ module PrisonVisits
     )
       response = @client.get(
         '/slots',
-        prison_id: prison_id,
-        prisoner_number: prisoner_number,
-        prisoner_dob: prisoner_dob,
-        use_nomis_slots: use_nomis_slots
+        params: {
+          prison_id: prison_id,
+          prisoner_number: prisoner_number,
+          prisoner_dob: prisoner_dob,
+          use_nomis_slots: use_nomis_slots
+        }
       )
       response['slots'].map { |s| ConcreteSlot.parse(s) }
     end
 
     def request_visit(params)
-      response = @client.post('/visits', params)
+      response = @client.post('/visits', params: params)
       Visit.new(response.fetch('visit'))
     end
 
@@ -76,7 +81,7 @@ module PrisonVisits
         }
       }
 
-      @client.post('/feedback', params)
+      @client.post('/feedback', params: params)
       nil
     end
   end

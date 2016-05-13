@@ -13,19 +13,22 @@ module PrisonVisits
         persistent: true,
         connect_timeout: TIMEOUT,
         read_timeout: TIMEOUT,
-        write_timeout: TIMEOUT)
+        write_timeout: TIMEOUT,
+        # This results in up to 3 requests for idempotent methods (default: 4)
+        retry_limit: 3
+      )
     end
 
-    def get(route, params = {})
-      request(:get, route, params)
+    def get(route, params: {}, idempotent: true)
+      request(:get, route, params: params, idempotent: idempotent)
     end
 
-    def post(route, params)
-      request(:post, route, params)
+    def post(route, params:, idempotent: false)
+      request(:post, route, params: params, idempotent: idempotent)
     end
 
-    def delete(route, params = {})
-      request(:delete, route, params)
+    def delete(route, params: {}, idempotent: true)
+      request(:delete, route, params: params, idempotent: idempotent)
     end
 
     def healthcheck
@@ -36,7 +39,7 @@ module PrisonVisits
 
     # rubocop:disable Metrics/MethodLength
     # rubocop:disable Metrics/AbcSize
-    def request(method, route, params)
+    def request(method, route, params:, idempotent:)
       # For cleanliness, strip initial / if supplied
       route = route.sub(%r{^\/}, '')
       path = "/api/#{route}"
@@ -50,7 +53,8 @@ module PrisonVisits
           'Accept' => 'application/json',
           'Accept-Language' => I18n.locale,
           'X-Request-Id' => RequestStore.store[:request_id]
-        }
+        },
+        idempotent: idempotent
       }.deep_merge(params_options(method, params))
 
       message = "Calling PVB API: #{api_method}"
