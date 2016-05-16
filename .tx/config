@@ -19,12 +19,6 @@ source_file = config/locales/en/errors.yml
 source_lang = en
 type = YAML
 
-[prison-visit-booking.mailers]
-file_filter = config/locales/<lang>/mailers.yml
-source_file = config/locales/en/mailers.yml
-source_lang = en
-type = YAML
-
 [prison-visit-booking.pages]
 file_filter = config/locales/<lang>/pages.yml
 source_file = config/locales/en/pages.yml
