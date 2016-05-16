@@ -18,7 +18,7 @@ RSpec.describe PrisonVisits::Client do
   describe 'error handling' do
     it 'parses returned JSON errors', vcr: { cassette_name: 'client_json_error' } do
       expect {
-        subject.get('/prisons/missing')
+        subject.get('/prisons/missing', idempotent: false)
       }.to raise_error(PrisonVisits::APIError, 'Unexpected status 404 calling GET /api/prisons/missing: {"message"=>"Not found"}')
     end
 
@@ -32,11 +32,19 @@ RSpec.describe PrisonVisits::Client do
     end
 
     it 'returns an APIError if there is another (non-response) error' do
-      stub_request(:get, /flubble/).to_raise(Excon::Errors::Timeout, 'oops')
+      stub_request(:get, /flubble/).to_raise(Excon::Errors::Timeout)
 
       expect {
         subject.get('/flubble')
       }.to raise_error(PrisonVisits::APIError, 'Exception Excon::Errors::Timeout calling GET /api/flubble: Exception from WebMock')
+    end
+
+    it 'retries idempotent methods by default', vcr: { cassette_name: 'client_json_error_idempotent' } do
+      expect {
+        subject.get('/prisons/missing')
+      }.to raise_error(PrisonVisits::APIError, 'Unexpected status 404 calling GET /api/prisons/missing: {"message"=>"Not found"}')
+
+      expect(a_request(:get, /\w/)).to have_been_made.times(3)
     end
   end
 end
