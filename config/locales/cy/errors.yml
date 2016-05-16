@@ -4,13 +4,29 @@ cy:
       messages:
         name: nid yw'n enw dilys
         blank: 'yn ofynnol '
+        invalid: Ddim yn ddilys
+        too_short: Rhy fyr (y lleiafswm yw %{count} o nodau)
       models:
+        prisoner_step:
+          attributes:
+            number:
+              invalid: Ddim yn ddilys
+            date_of_birth:
+              inclusion: Ddim yn ddyddiad dilys
+          api:
+            prisoner_does_not_exist: does not match any prisoner
         visitors_step:
           attributes:
             general:
-              too_few_adults: 'Rhaid i o leiaf un o''r ymwelwyr fod yn oedolyn '
+              lead_visitor_age: The person requesting the visit must be over the age
+                of %{min}
               too_many_adults: Gallwch sicrhau lle i uchafswm o %{max} ymwelydd dros
                 %{age} oed ar yr ymweliad hwn
+              too_many_visitors: You can book a maximum of %{max} visitors
+        visitors_step/visitor:
+          attributes:
+            date_of_birth:
+              inclusion: Ddim yn ddyddiad dilys
   activerecord:
     errors:
       models:
