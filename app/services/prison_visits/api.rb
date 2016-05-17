@@ -41,6 +41,10 @@ module PrisonVisits
       result.fetch('validation')
     end
 
+    def validate_visitors(lead_date_of_birth:, dates_of_birth:)
+      fail 'not yet implemented'
+    end
+
     def get_slots(
       prison_id:, prisoner_number:, prisoner_dob:, use_nomis_slots: false
     )

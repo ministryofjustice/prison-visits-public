@@ -57,6 +57,7 @@ RSpec.describe StepsProcessor do
     allow(pvb_api).to receive(:get_prison).and_return(prison)
     allow(pvb_api).to receive(:get_slots).and_return(slots)
     allow(pvb_api).to receive(:validate_prisoner).and_return('valid' => true)
+    allow(pvb_api).to receive(:validate_visitors).and_return('valid' => true)
   end
 
   subject { described_class.new(HashWithIndifferentAccess.new(params), :cy) }

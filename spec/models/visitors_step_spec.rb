@@ -16,6 +16,10 @@ RSpec.describe VisitorsStep do
     BookingConstraints::VisitorConstraints.new(prison)
   }
 
+  before do
+    allow(pvb_api).to receive(:validate_visitors).and_return('valid' => true)
+  end
+
   let(:adult) {
     {
       first_name: 'John',
@@ -23,6 +27,7 @@ RSpec.describe VisitorsStep do
       date_of_birth: { day: '3', month: '4', year: '1990' }
     }
   }
+  let(:adult_dob) { Date.parse('1990-04-03') }
   let(:child_13) {
     {
       first_name:  'Jim',
@@ -32,6 +37,7 @@ RSpec.describe VisitorsStep do
       }
     }
   }
+  let(:child_13_dob) { Date.parse('2002-12-01') }
   let(:child_12) {
     {
       first_name:  'Jessica',
@@ -41,6 +47,7 @@ RSpec.describe VisitorsStep do
       }
     }
   }
+  let(:child_12_dob) { Date.parse('2002-12-02') }
   let(:blank_visitor) {
     {
       first_name: '',
@@ -176,13 +183,19 @@ RSpec.describe VisitorsStep do
       subject.visitors = []
       expect(subject).not_to be_valid
       expect(subject.errors[:general]).to eq(
-        ["The person requesting the visit must be over the age of 18"]
+        ["There must be at least 1 visitor"]
       )
     end
 
     it 'is invalid if there are too many visitors' do
       subject.visitors = [adult] * 3 + [child_12] * 4
-
+      expect(pvb_api).to receive(:validate_visitors).with(
+        lead_date_of_birth: adult_dob,
+        dates_of_birth: [adult_dob] * 3 + [child_12_dob] * 4
+      ).and_return(
+        'valid' => false,
+        'errors' => ['too_many_visitors']
+      )
       expect(subject).not_to be_valid
       expect(subject.errors).to have_key(:general)
       expect(subject.errors[:general]).to eq([
@@ -223,9 +236,16 @@ RSpec.describe VisitorsStep do
       expect(subject.errors).not_to have_key(:general)
     end
 
-    it 'is invalid if there are too many adults plus "young adults" (children above the prison adult_age) (who cannot sit on adults laps!)' do
+    it 'is invalid if there are too many visitors over the prisons adult age' do
       subject.visitors = [adult] + [child_13] * 3
-      subject.validate
+      expect(pvb_api).to receive(:validate_visitors).with(
+        lead_date_of_birth: adult_dob,
+        dates_of_birth: [adult_dob] + [child_13_dob] * 3
+      ).and_return(
+        'valid' => false,
+        'errors' => ['too_many_adults']
+      )
+      expect(subject).not_to be_valid
       expect(subject.errors[:general]).to eq([
         'You can book a maximum of 3 visitors over the age of 13 on this visit'
       ])
@@ -233,32 +253,15 @@ RSpec.describe VisitorsStep do
 
     it 'is invalid if the lead-visitor is not an (actual) adult' do
       subject.visitors = [child_13] + [adult]
-      subject.validate
-      expect(subject.errors[:general]).to eq([
-        'The person requesting the visit must be over the age of 18'
-      ])
-    end
-
-    it 'is invalid if there are too many adult visitors' do
-      subject.visitors = [adult] * 4
-      subject.validate
-      expect(subject.errors[:general]).to eq([
-        'You can book a maximum of 3 visitors over the age of 13 on this visit'
-      ])
-    end
-
-    it 'is invalid if there is no adult visitor (only children)' do
-      subject.visitors = [child_12] * 2
-      subject.validate
-      expect(subject.errors[:general]).to eq([
-        'The person requesting the visit must be over the age of 18'
-      ])
-    end
-
-    it 'is invalid if there is no adult visitor (only "young adults")' do
-      subject.visitors = [child_13] * 2
-      subject.validate
-      expect(subject.errors[:general]).to eq([
+      expect(pvb_api).to receive(:validate_visitors).with(
+        lead_date_of_birth: child_13_dob,
+        dates_of_birth: anything
+      ).and_return(
+        'valid' => false,
+        'errors' => ['lead_visitor_age']
+      )
+      expect(subject).not_to be_valid
+      expect(subject.visitors.first.errors[:date_of_birth]).to eq([
         'The person requesting the visit must be over the age of 18'
       ])
     end

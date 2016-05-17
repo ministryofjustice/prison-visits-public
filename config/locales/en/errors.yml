@@ -18,17 +18,19 @@ en:
         visitors_step:
           attributes:
             general:
-              lead_visitor_age:
-                The person requesting the visit must be over the age of %{min}
               too_many_adults:
                 You can book a maximum of %{max} visitors over the age of
                 %{age} on this visit
               too_many_visitors:
                 You can book a maximum of %{max} visitors
+              too_few_visitors:
+                There must be at least 1 visitor
         visitors_step/visitor:
           attributes:
             date_of_birth:
               inclusion: is not a valid date
+              lead_visitor_age:
+                The person requesting the visit must be over the age of %{min}
 
   activerecord:
     errors:
