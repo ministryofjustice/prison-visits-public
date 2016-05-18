@@ -4,13 +4,17 @@ RSpec.describe VisitorsStep do
   subject { described_class.new(processor: processor) }
 
   let(:processor) {
-    instance_double(StepsProcessor, booking_constraints: booking_constraints)
+    instance_double(
+      StepsProcessor,
+      booking_constraints: booking_constraints,
+      prison: prison
+    )
   }
   let(:booking_constraints) {
     instance_double(BookingConstraints, on_visitors: visitor_constraints)
   }
   let(:prison) {
-    instance_double(Prison, adult_age: 18, max_visitors: 6)
+    instance_double(Prison, id: '123', adult_age: 18, max_visitors: 6)
   }
   let(:visitor_constraints) {
     BookingConstraints::VisitorConstraints.new(prison)
@@ -190,6 +194,7 @@ RSpec.describe VisitorsStep do
     it 'is invalid if there are too many visitors' do
       subject.visitors = [adult] * 3 + [child_12] * 4
       expect(pvb_api).to receive(:validate_visitors).with(
+        prison_id: '123',
         lead_date_of_birth: adult_dob,
         dates_of_birth: [adult_dob] * 3 + [child_12_dob] * 4
       ).and_return(
@@ -215,7 +220,7 @@ RSpec.describe VisitorsStep do
 
   context 'age-related validations' do
     let(:prison) {
-      instance_double(Prison, adult_age: 13, max_visitors: 6)
+      instance_double(Prison, id: '123', adult_age: 13, max_visitors: 6)
     }
 
     it 'is valid if there is one adult visitor' do
@@ -239,6 +244,7 @@ RSpec.describe VisitorsStep do
     it 'is invalid if there are too many visitors over the prisons adult age' do
       subject.visitors = [adult] + [child_13] * 3
       expect(pvb_api).to receive(:validate_visitors).with(
+        prison_id: '123',
         lead_date_of_birth: adult_dob,
         dates_of_birth: [adult_dob] + [child_13_dob] * 3
       ).and_return(
@@ -254,6 +260,7 @@ RSpec.describe VisitorsStep do
     it 'is invalid if the lead-visitor is not an (actual) adult' do
       subject.visitors = [child_13] + [adult]
       expect(pvb_api).to receive(:validate_visitors).with(
+        prison_id: '123',
         lead_date_of_birth: child_13_dob,
         dates_of_birth: anything
       ).and_return(

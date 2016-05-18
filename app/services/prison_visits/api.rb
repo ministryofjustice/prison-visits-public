@@ -41,7 +41,7 @@ module PrisonVisits
       result.fetch('validation')
     end
 
-    def validate_visitors(lead_date_of_birth:, dates_of_birth:)
+    def validate_visitors(prison_id:, lead_date_of_birth:, dates_of_birth:)
       fail 'not yet implemented'
     end
 

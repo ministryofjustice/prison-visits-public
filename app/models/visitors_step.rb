@@ -97,6 +97,7 @@ private
     end
 
     result = PrisonVisits::Api.instance.validate_visitors(
+      prison_id: processor.prison.id,
       lead_date_of_birth: lead_visitor.date_of_birth,
       dates_of_birth: visitors.map(&:date_of_birth)
     )
