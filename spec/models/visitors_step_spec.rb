@@ -223,21 +223,26 @@ RSpec.describe VisitorsStep do
       instance_double(Prison, id: '123', adult_age: 13, max_visitors: 6)
     }
 
+    before do
+      subject.email_address = 'user@test.example.com'
+      subject.phone_no = '01154960123'
+    end
+
     it 'is valid if there is one adult visitor' do
       subject.visitors = [adult]
-      subject.validate
+      expect(subject).to be_valid
       expect(subject.errors).not_to have_key(:general)
     end
 
     it 'is valid if there are 3 adult and 3 child visitors' do
       subject.visitors = [adult] * 3 + [child_12] * 3
-      subject.validate
+      expect(subject).to be_valid
       expect(subject.errors).not_to have_key(:general)
     end
 
     it 'is valid with one adult and lots of children' do
       subject.visitors = [adult] + [child_12] * 5
-      subject.validate
+      expect(subject).to be_valid
       expect(subject.errors).not_to have_key(:general)
     end
 
