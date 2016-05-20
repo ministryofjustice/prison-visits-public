@@ -57,16 +57,6 @@ class VisitorsStep
     self.visitors = pruned.empty? ? [{}] : pruned
   end
 
-  def valid?(*)
-    # The step validation must be called after the individual visitor
-    # validations, since it adds additional errors onto the visitors, which
-    # would be clobbered by calling visitor.valid?
-    visitors_valid = visitors.map(&:valid?).all?
-    step_valid = super
-
-    visitors_valid && step_valid
-  end
-
   alias_method :validate, :valid?
 
   def additional_visitor_count
@@ -87,9 +77,22 @@ private
     end
   end
 
+  def validate_visitors
+    unless visitors.map(&:valid?).all?
+      # Mark the step as invalid unless all visitors are valid
+      invalidate_step
+
+      # Skip the validation of the visitor collection, which relies on
+      # individual visitors having valid dates of birth for example
+      return
+    end
+
+    validate_visitor_collection
+  end
+
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
-  def validate_visitors
+  def validate_visitor_collection
     # It's invalid if there are no visitors, but there's no need to call the API
     if visitors.empty?
       errors.add :general, :too_few_visitors
@@ -103,6 +106,10 @@ private
     )
 
     return if result.fetch('valid')
+
+    # Some errors result in errors being added onto a visitor, which does not
+    # make the step invalid, hence this line
+    invalidate_step
 
     if result.fetch('errors').include?('too_many_visitors')
       errors.add :general, :too_many_visitors, max: max_visitors
@@ -124,5 +131,11 @@ private
 
   def lead_visitor
     visitors.first
+  end
+
+  def invalidate_step
+    # Adding to base means that this error message is not shown to users (the
+    # error message will be shown on the invalid attribute)
+    errors.add :base, 'One or more visitors are invalid'
   end
 end

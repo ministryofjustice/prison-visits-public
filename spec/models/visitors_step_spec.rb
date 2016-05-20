@@ -216,6 +216,18 @@ RSpec.describe VisitorsStep do
       expect(subject.backfilled_visitors[1].errors).not_to be_empty
       expect(subject.errors).not_to be_empty
     end
+
+    it 'does not call validation API if a DOB is missing' do
+      adult_without_dob = adult.tap { |a| a.delete(:date_of_birth) }
+      subject.visitors = [adult_without_dob]
+
+      expect(pvb_api).not_to receive(:validate_visitors)
+      subject.validate
+      expect(subject).not_to be_valid
+      expect(subject.errors[:base]).to eq(
+        ["One or more visitors are invalid"]
+      )
+    end
   end
 
   context 'age-related validations' do
