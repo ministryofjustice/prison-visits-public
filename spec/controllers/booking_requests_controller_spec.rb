@@ -46,7 +46,7 @@ RSpec.describe BookingRequestsController do
   }
 
   let(:prison) {
-    instance_double(Prison, id: '123', adult_age: 13, max_visitors: 6)
+    instance_double(Prison, adult_age: 13, max_visitors: 6)
   }
 
   let(:slots) {
@@ -61,7 +61,6 @@ RSpec.describe BookingRequestsController do
     allow(pvb_api).to receive(:get_prison).and_return(prison)
     allow(pvb_api).to receive(:get_slots).and_return(slots)
     allow(pvb_api).to receive(:validate_prisoner).and_return('valid' => true)
-    allow(pvb_api).to receive(:validate_visitors).and_return('valid' => true)
   end
 
   context 'on the first prisoner details page' do

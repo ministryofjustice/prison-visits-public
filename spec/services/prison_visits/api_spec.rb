@@ -139,20 +139,6 @@ RSpec.describe PrisonVisits::Api do
     end
   end
 
-  describe 'validate_visitors', vcr: { cassette_name: 'validate_visitors' } do
-    subject {
-      super().validate_visitors(
-        prison_id: cardiff_prison_id,
-        lead_date_of_birth: Date.parse('1976-06-12'),
-        dates_of_birth: [Date.parse('1976-06-12')]
-      )
-    }
-
-    it 'returns the (raw) validation response' do
-      expect(subject).to eq('valid' => true)
-    end
-  end
-
   describe 'get_slots', vcr: { cassette_name: 'get_slots' } do
     let(:params) {
       {

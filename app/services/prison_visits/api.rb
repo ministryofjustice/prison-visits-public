@@ -41,20 +41,6 @@ module PrisonVisits
       result.fetch('validation')
     end
 
-    def validate_visitors(prison_id:, lead_date_of_birth:, dates_of_birth:)
-      result = @client.post(
-        '/validations/visitors',
-        params: {
-          prison_id: prison_id,
-          lead_date_of_birth: lead_date_of_birth,
-          dates_of_birth: dates_of_birth
-        },
-        idempotent: true
-      )
-
-      result.fetch('validation')
-    end
-
     def get_slots(
       prison_id:, prisoner_number:, prisoner_dob:, use_nomis_slots: false
     )
