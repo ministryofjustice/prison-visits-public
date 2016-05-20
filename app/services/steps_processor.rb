@@ -1,8 +1,6 @@
 class StepsProcessor
   STEP_NAMES = %i[ prisoner_step visitors_step slots_step confirmation_step ]
 
-  delegate :prison, to: :prisoner_step
-
   def initialize(params, locale)
     @steps = load_steps(params)
     @locale = locale
@@ -34,7 +32,7 @@ class StepsProcessor
 
   def booking_constraints
     BookingConstraints.new(
-      prison: prison,
+      prison: prisoner_step.prison,
       prisoner_number: prisoner_step.number,
       prisoner_dob: prisoner_step.date_of_birth
     )

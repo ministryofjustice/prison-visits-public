@@ -21,6 +21,11 @@ module Person
     I18n.t('formats.name.full', first: first_name, last: last_name[0])
   end
 
+  def age
+    return nil unless date_of_birth
+    AgeCalculator.new.age(date_of_birth)
+  end
+
   def minimum_date_of_birth
     MAX_AGE.years.ago.beginning_of_year.to_date
   end

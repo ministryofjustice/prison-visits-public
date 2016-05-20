@@ -51,6 +51,17 @@ RSpec.describe Person do
     end
   end
 
+  describe 'age' do
+    it 'is nil when date of birth is nil' do
+      expect(subject.age).to be_nil
+    end
+
+    it 'calculates age' do
+      subject.date_of_birth = Date.new(1995, 10, 8)
+      expect(subject.age).to eq(20)
+    end
+  end
+
   describe 'full_name' do
     it 'joins first and last name' do
       subject.first_name = 'Oscar'

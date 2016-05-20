@@ -33,6 +33,34 @@ class BookingConstraints
     end
 
     attr_reader :adult_age, :max_visitors
+
+    def validate_visitor_ages_on(target, field, ages)
+      # The person requesting the visit (the lead visitor) must be over 18, and
+      # corresponds to the first visitor entered.
+      # Note that this is not related to the 'adult' age which varies by prison.
+      if ages.empty? || ages.first < LEAD_VISITOR_MIN_AGE
+        target.errors.add(field, :lead_visitor_age, min: LEAD_VISITOR_MIN_AGE)
+      end
+
+      adults, _children = ages.partition { |a| adult?(a) }.map(&:length)
+      if adults > MAX_ADULTS
+        target.errors.add field, :too_many_adults,
+          max: MAX_ADULTS,
+          age: adult_age
+      end
+    end
+
+    def validate_visitor_number(target, field, number)
+      if number > max_visitors
+        target.errors.add field, :too_many_visitors, max: max_visitors
+      end
+    end
+
+  private
+
+    def adult?(age)
+      age >= adult_age
+    end
   end
 
   class SlotConstraints
