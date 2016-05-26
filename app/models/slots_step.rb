@@ -13,9 +13,13 @@ class SlotsStep
     allow_blank: true
   } do |record, attr, value|
     begin
-      ConcreteSlot.parse(value) # rescue ArgumentError false
+      slot = ConcreteSlot.parse(value) # rescue ArgumentError false
     rescue ArgumentError
       record.errors.add(attr, 'must start with upper case')
+    end
+
+    if slot && !record.slot_constraints.bookable_slot?(slot)
+      record.errors.add(attr, 'is not a bookable slot')
     end
   end
   # rubocop:enable Style/BracesAroundHashParameters
