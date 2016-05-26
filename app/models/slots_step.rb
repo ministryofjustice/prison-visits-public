@@ -15,7 +15,7 @@ class SlotsStep
     begin
       slot = ConcreteSlot.parse(value) # rescue ArgumentError false
     rescue ArgumentError
-      record.errors.add(attr, 'must start with upper case')
+      record.errors.add(attr, 'is not a parseable slot')
     end
 
     if slot && !record.slot_constraints.bookable_slot?(slot)
