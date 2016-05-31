@@ -1,9 +1,13 @@
-<% content_for :header do %>
-  <%= t('.title') %>
-<% end %>
+<% if @visit.processing_state.in? %i[ requested booked ] %>
+  <%= render @visit.processing_state.to_s %>
+<% else %>
+  <% content_for :header do %>
+    <%= t('.title') %>
+  <% end %>
 
-<div class="Grid">
-  <div class="Grid-2-3">
-    <%= render @visit.processing_state.to_s %>
+  <div class="Grid">
+    <div class="Grid-2-3">
+      <%= render @visit.processing_state.to_s %>
+    </div>
   </div>
-</div>
+<% end %>

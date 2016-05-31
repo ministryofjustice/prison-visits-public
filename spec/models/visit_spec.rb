@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Visit, type: :model do
-  subject { described_class.new(params) }
+  subject(:instance) { described_class.new(params) }
 
   let(:params) {
     {
@@ -29,5 +29,27 @@ RSpec.describe Visit, type: :model do
   it 'makes prison information available, via an api call' do
     expect(pvb_api).to receive(:get_prison).and_return(prison)
     expect(subject.prison_email_address).to eq('test@example.com')
+  end
+
+  describe "visitors" do
+    let(:visitors) { [allowed_visitor, not_allowed_visitor] }
+    let(:allowed_visitor) { Visitor.new(allowed: true) }
+    let(:not_allowed_visitor) { Visitor.new(allowed: false) }
+
+    before do
+      allow(instance).to receive(:visitors).and_return(visitors)
+    end
+
+    describe '#allowed_visitors' do
+      subject(:allowed_visitors) { instance.allowed_visitors }
+
+      it { is_expected.to eq([allowed_visitor]) }
+    end
+
+    describe '#rejected_visitors' do
+      subject(:rejected_visitors) { instance.rejected_visitors }
+
+      it { is_expected.to eq([not_allowed_visitor]) }
+    end
   end
 end
