@@ -48,8 +48,8 @@ ConcreteSlot = Struct.new(
     (end_at - begin_at).to_i
   end
 
-  # Arbitrarily define the sort order to correspond with the start time
+  # Sort by begin date and slot duration
   def <=>(other)
-    begin_at <=> other.begin_at
+    iso8601 <=> other.iso8601
   end
 end

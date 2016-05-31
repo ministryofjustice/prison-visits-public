@@ -203,6 +203,11 @@ RSpec.describe StepsProcessor do
       }
     }
 
+    before do
+      allow_any_instance_of(BookingConstraints::SlotConstraints).
+        to receive(:bookable_slot?).and_return(true)
+    end
+
     it 'chooses the confirmation template' do
       expect(subject.step_name).to eq(:confirmation_step)
     end
@@ -220,6 +225,17 @@ RSpec.describe StepsProcessor do
     it 'initialises the SlotsStep with the supplied attributes' do
       expect(subject.steps[:slots_step]).
         to have_attributes(option_0: '2015-01-02T09:00/10:00')
+    end
+
+    # For example if the visitor changes the prisoner
+    context 'when the slot is no longer a bookable slot' do
+      before do
+        allow_any_instance_of(BookingConstraints::SlotConstraints).
+          to receive(:bookable_slot?).and_return(false)
+      end
+
+      it { expect(subject.step_name).to eq(:slots_step) }
+      it_behaves_like 'it is incomplete'
     end
 
     it_behaves_like 'it has all steps'

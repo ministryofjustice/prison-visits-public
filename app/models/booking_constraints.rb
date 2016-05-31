@@ -46,6 +46,10 @@ class BookingConstraints
       @slots.any? { |s| s.to_date == requested_date }
     end
 
+    def bookable_slot?(requested_slot)
+      @slots.include?(requested_slot)
+    end
+
     def last_bookable_date
       @slots.sort.last.to_date
     end

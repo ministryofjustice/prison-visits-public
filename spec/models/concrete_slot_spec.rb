@@ -66,11 +66,27 @@ RSpec.describe ConcreteSlot do
   end
 
   describe 'sorting (<=>)' do
-    it 'sorts slots according to their start time' do
+    it 'sorts slots according to their start time and slot length' do
       earlier_slot = described_class.new(2015, 10, 23, 14, 0, 18, 30)
       later_slot   = described_class.new(2015, 10, 23, 17, 0, 17, 30)
+      later_but_longer = described_class.new(2015, 10, 23, 17, 0, 18, 00)
 
       expect(earlier_slot).to be < later_slot
+      expect(later_slot).to be < later_but_longer
+    end
+
+    it 'slots with the same date and slot are equal' do
+      slot1 = described_class.new(2015, 10, 23, 14, 0, 18, 30)
+      slot2 = described_class.new(2015, 10, 23, 14, 0, 18, 30)
+
+      expect(slot1).to eq(slot2)
+    end
+
+    it 'slots of the same date but different slot are not equal' do
+      slot1 = described_class.new(2015, 10, 23, 14, 0, 18, 30)
+      slot2 = described_class.new(2015, 10, 23, 14, 0, 19, 30)
+
+      expect(slot1).to_not eq(slot2)
     end
   end
 end
