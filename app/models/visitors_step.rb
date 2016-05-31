@@ -57,8 +57,6 @@ class VisitorsStep
     self.visitors = pruned.empty? ? [{}] : pruned
   end
 
-  alias_method :validate, :valid?
-
   def additional_visitor_count
     visitors.count - 1
   end

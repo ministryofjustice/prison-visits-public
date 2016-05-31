@@ -126,7 +126,7 @@ RSpec.describe VisitorsStep do
         '0' => blank_visitor,
         '1' => blank_visitor
       }
-      subject.validate
+      subject.valid?
       expect(subject.backfilled_visitors[1].errors).to be_empty
     end
   end
@@ -211,7 +211,7 @@ RSpec.describe VisitorsStep do
     it 'validates all objects even if one is invalid' do
       subject.email_address = 'invalid'
       subject.visitors = [invalid_visitor, invalid_visitor]
-      subject.validate
+      subject.valid?
       expect(subject.backfilled_visitors[0].errors).not_to be_empty
       expect(subject.backfilled_visitors[1].errors).not_to be_empty
       expect(subject.errors).not_to be_empty
@@ -222,7 +222,6 @@ RSpec.describe VisitorsStep do
       subject.visitors = [adult_without_dob]
 
       expect(pvb_api).not_to receive(:validate_visitors)
-      subject.validate
       expect(subject).not_to be_valid
       expect(subject.errors[:base]).to eq(
         ["One or more visitors are invalid"]

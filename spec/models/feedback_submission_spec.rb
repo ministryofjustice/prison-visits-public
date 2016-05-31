@@ -36,7 +36,7 @@ RSpec.describe FeedbackSubmission, type: :model do
     describe 'email_address' do
       it 'is valid when absent' do
         subject.email_address = ''
-        subject.validate
+        subject.valid?
         expect(subject.errors).not_to have_key(:email_address)
       end
 
@@ -48,7 +48,7 @@ RSpec.describe FeedbackSubmission, type: :model do
 
         it 'is valid' do
           subject.email_address = 'user@test.example.com'
-          subject.validate
+          subject.valid?
           expect(subject.errors).not_to have_key(:email_address)
         end
       end
@@ -61,7 +61,7 @@ RSpec.describe FeedbackSubmission, type: :model do
 
         it 'is invalid when not an email address' do
           subject.email_address = 'BOGUS !'
-          subject.validate
+          subject.valid?
           expect(subject.errors).to have_key(:email_address)
         end
       end
