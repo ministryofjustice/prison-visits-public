@@ -3,6 +3,9 @@ require 'maybe_date'
 class VisitorsStep
   include NonPersistedModel
 
+  MAX_ADULTS = 3
+  LEAD_VISITOR_MIN_AGE = 18
+
   class Visitor
     include NonPersistedModel
     include Person
@@ -54,11 +57,6 @@ class VisitorsStep
     self.visitors = pruned.empty? ? [{}] : pruned
   end
 
-  def valid?(*)
-    # This must be eager because we want to show errors on all objects.
-    visitors.inject([super]) { |a, e| a << e.valid? }.all?
-  end
-
   alias_method :validate, :valid?
 
   def additional_visitor_count
@@ -80,8 +78,64 @@ private
   end
 
   def validate_visitors
-    ages = visitors.map(&:age).compact
-    visitor_constraints.validate_visitor_ages_on self, :general, ages
-    visitor_constraints.validate_visitor_number self, :general, visitors.size
+    unless visitors.map(&:valid?).all?
+      # Mark the step as invalid unless all visitors are valid
+      invalidate_step
+
+      # Skip the validation of the visitor collection, which relies on
+      # individual visitors having valid dates of birth for example
+      return
+    end
+
+    validate_visitor_collection
+  end
+
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
+  def validate_visitor_collection
+    # It's invalid if there are no visitors, but there's no need to call the API
+    if visitors.empty?
+      errors.add :general, :too_few_visitors
+      return
+    end
+
+    result = PrisonVisits::Api.instance.validate_visitors(
+      prison_id: processor.prison.id,
+      lead_date_of_birth: lead_visitor.date_of_birth,
+      dates_of_birth: visitors.map(&:date_of_birth)
+    )
+
+    return if result.fetch('valid')
+
+    # Some errors result in errors being added onto a visitor, which does not
+    # make the step invalid, hence this line
+    invalidate_step
+
+    if result.fetch('errors').include?('too_many_visitors')
+      errors.add :general, :too_many_visitors, max: max_visitors
+    end
+
+    if result.fetch('errors').include?('too_many_adults')
+      errors.add :general, :too_many_adults,
+        max: MAX_ADULTS,
+        age: adult_age
+    end
+
+    if result.fetch('errors').include?('lead_visitor_age')
+      lead_visitor.errors.add :date_of_birth, :lead_visitor_age,
+        min: LEAD_VISITOR_MIN_AGE
+    end
+  end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
+
+  def lead_visitor
+    visitors.first
+  end
+
+  def invalidate_step
+    # Adding to base means that this error message is not shown to users (the
+    # error message will be shown on the invalid attribute)
+    errors.add :base, 'One or more visitors are invalid'
   end
 end
