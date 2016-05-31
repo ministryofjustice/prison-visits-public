@@ -10,6 +10,15 @@ class VisitorsStep
     attribute :first_name, String
     attribute :last_name, String
     attribute :date_of_birth, MaybeDate
+    attribute :lead, Boolean, default: false
+
+    validate :validate_lead_visitor_age, if: ->(v) { v.lead }
+
+    def validate_lead_visitor_age
+      if age < 18
+        errors.add(:date_of_birth, min: 18)
+      end
+    end
   end
 
   attribute :processor, StepsProcessor
@@ -48,6 +57,10 @@ class VisitorsStep
     pruned = ParameterPruner.new.prune(
       params.sort_by { |k, _| k.to_i }.map(&:last)
     )
+
+    if pruned.any?
+      pruned.first.merge!(lead: true)
+    end
 
     # We always want at least one visitor. Leaving the rest blank is fine, but
     # the first one must both exist and be valid.
