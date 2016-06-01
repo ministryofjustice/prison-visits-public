@@ -261,30 +261,36 @@ en:
         or safe senders list.
       request_new_visit_html: >-
         Request a <a href="%{url}">new visit</a>
-      yes_cancel: Yes, I want to cancel this visit
-    booked:
-      title: Your visit has been confirmed
-      intro_html: >-
-        Your visit to %{prison_name} is now successfully confirmed.
-      your_visit: Your visit
-      location: Location
-      google_maps: View on Google Maps
-      phone_no: Phone
-      email_address: Email
-      print_page: Print this page
-      instructions_nav_title: Visiting %{name} prison
-      check_spam_title: If you don’t get an email to confirm your visit
-      check_spam_body_html: >-
-        If you haven’t received a confirmation email, please check your spam or
-        junk folder. You need to do this on a computer or tablet (rather than a
-        smart phone).
-      rate_service_html: Take a moment to <a href="%{url}">rate this service</a>.
       cancel_title: Cancel this visit request
       cancel_intro: >-
         If you no longer want to visit on this date, you can cancel this
-        request.
+        visit.
       cancel_confirm: Yes, I want to cancel this visit
-      cancel_cta: Cancel request
+      cancel_cta: Cancel visit
+    visiting_info:
+      location: Location
+      phone_no: Phone
+      google_maps: View on Google Maps
+      email_address: Email
+      print_page: Print this page
+      instructions_nav_title: Visiting %{name} prison
+      cancel_title: Cancel this visit request
+      rate_service_html: >-
+        Take a moment to <a href="%{url}">rate this service</a>.
+    booked:
+      title: Your visit has been confirmed
+      intro_html: >-
+        The details of your visit to %{prison_name} are displayed below.
+      confirmation_email: >-
+        A copy of this information has been sent to your email address.
+        If you haven’t received this email, please check your spam or junk
+        folder. You need to do this on a computer or tablet (rather than
+        a smart phone).
+      cancel_pre_intro_html: >-
+        If you no longer want to visit on this date, you can
+        <a href="#cancel-visit">cancel this visit</a>.
+      visit_details_title: Your visit details
+      your_visit: Date and time
     rejected:
       title: Your visit request cannot take place on the dates you’ve chosen
       intro: >-
@@ -297,49 +303,23 @@ en:
         this on a computer or tablet (rather than a smart phone).
     requested:
       title: Your request is being processed
-      intro_html: >-
-        <strong>Your visit is not booked yet:</strong>
-        you’ll get an email to %{visitor_email_address} by %{confirm_by} to
-        confirm the date and time of your visit.  If you don’t get a
-        confirmation email, please call %{phone_no} or email us at
-        <a href="mailto:%{prison_email_address}">%{prison_email_address}</a>.
-      your_visit: Your visit
+      subtitle: Your visit is not booked yet
+      intro: >-
+        Your visit request hasn’t yet been processed by visit booking staff.
+        You should get a visit confirmation email within 3 working days of
+        making your request.
+      not_received: >-
+        If you don’t receive an email within 3 working days, please check your
+        spam or junk folder. You need to do this on a computer or tablet
+        (rather than a smart phone).
+      cancel_pre_intro_html: >-
+        If you no longer want to visit on this date, you can
+        <a href="#cancel-visit">cancel this visit</a>.
+      visit_details_title: Your visit request
+      your_visit: Dates requested
       option_0: "Option 1:"
       option_1: "Option 2:"
       option_2: "Option 3:"
-      location: Location
-      google_maps: View on Google Maps
-      phone_no: Phone
-      email_address: Email
-      print_page: Print this page
-      instructions_nav_title: Visiting %{name} prison
-      check_spam_title: If you don’t get an email to confirm your visit
-      check_spam_body_html: >-
-        <p>
-          Follow these steps if you don’t get an email to confirm your visit
-          within 3 working days.
-        </p>
-
-        <ul>
-          <li>
-            Check your spam / junk folder on a computer or tablet (rather than
-            a smart phone). If the confirmation email is there, mark it as ‘not
-            spam’ so that you don’t have problems with future emails.
-          </li>
-          <li>
-            Contact the prison on %{phone_no} or by email at
-            <a href="mailto:%{prison_email_address}">%{prison_email_address}</a>.
-            Please don’t contact us sooner than 3 working days, as we won’t be
-            able to comment on booking requests that are being processed.
-          </li>
-        </ul>
-      rate_service_html: Take a moment to <a href="%{url}">rate this service</a>.
-      cancel_title: Cancel this visit request
-      cancel_intro: >-
-        If you no longer want to visit on this date, you can cancel this
-        request.
-      cancel_confirm: Yes, I want to cancel this visit
-      cancel_cta: Cancel request
     cancelled:
       title: You cancelled this visit
     withdrawn:
