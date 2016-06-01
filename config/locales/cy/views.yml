@@ -103,36 +103,6 @@ cy:
       change_visit_details: 'Newid manylion yr ymweliad '
       ts_and_cs: Telerau ac amodau
       next_step: Anfon cais
-    completed:
-      title: Mae eich cais yn cael ei brosesu
-      intro_html: <strong>Nid yw eich ymweliad wedi cael ei drefnu eto:</strong> Byddwch
-        yn cael neges e-bost i'r cyfeiriad %{visitor_email_address} erbyn %{confirm_by}
-        i gadarnhau dyddiad ac amser eich ymweliad. Os na fyddwch yn cael neges e-bost
-        i gadarnhau eich ymweliad, ffoniwch %{phone_no} neu anfonwch neges e-bost
-        i <a href="mailto:%{prison_email_address}">%{prison_email_address}</a>.
-      your_visit: Eich ymweliad
-      option_0: 'Opsiwn 1:'
-      option_1: 'Opsiwn 2:'
-      option_2: 'Opsiwn 3:'
-      location: 'Lleoliad '
-      google_maps: Gweld ar Google Maps
-      phone_no: Ffôn
-      email_address: E-bost
-      print_page: Printio'r dudalen hon
-      instructions_nav_title: Ymweld â Charchar %{name}
-      check_spam_title: Os na fyddwch yn cael neges e-bost yn cadarnhau eich ymweliad
-      check_spam_body_html: "<p>\n  Dilynwch y camau isod os nad ydych yn cael neges
-        e-bost i gadarnhau eich ymweliad o fewn\n  3 diwrnod gwaith.\n</p>\n<ul>\n
-        \ <li>\n    Edrychwch yn eich ffolder negeseuon sbam / sothach ar gyfrifiadur
-        neu lechen (yn hytrach na\n    ffôn clyfar). Os yw'r e-bost sy'n cadarnhau
-        eich ymweliad yno, marciwch fel ‘dim\n    sbam’ fel na fyddwch yn cael unrhyw
-        broblemau gyda negeseuon e-bost yn y dyfodol.\n  </li>\n  <li>\n    Cysylltwch
-        â'r carchar ar %{phone_no} neu drwy e-bost yn\n    <a href=\"mailto:%{prison_email_address}\">%{prison_email_address}</a>.\n
-        \   Peidiwch â chysylltu'n gynt na 3 diwrnod gwaith, gan na fyddwch yn gallu
-        gwneud sylwadau\n    ar geisiadau i ymweld sydd wrthi'n cael eu prosesu.\n
-        \ </li>\n</ul>"
-      rate_service_html: Cymrwch funud i <a href="%{url}">ddweud wrthym pa mor fodlon
-        oeddech chi gyda'r gwasanaeth hwn </a>.
     cancel:
       link_text: 'Canslo a dileu''r holl fanylion '
       confirmation: 'Ydych chi''n siŵr eich bod yn dymuno canslo''r cais hwn i ymweld?
@@ -226,19 +196,31 @@ cy:
         mynd i'ch ffolder negeseuon sbam neu sothach, ychwanegwch <span class="no-wrap">%{email}</span>
         i'ch llyfr cyfeiriadau neu restr anfonwyr diogel.
       request_new_visit_html: Gwneud cais newydd <a href="%{url}"> i ymweld</a>
-      yes_cancel: 'Ydw, rydw i eisiau canslo''r ymweliad hwn '
-    booked:
-      title: Mae eich ymweliad wedi cael ei gadarnhau
-      intro: 'Dylech fod wedi derbyn neges e-bost yn cadarnhau dyddiad ac amser eich
-        ymweliad. '
-      not_received: Os nad ydych wedi cael neges e-bost i gadarnhau eich ymweliad,
-        edrychwch yn eich ffolder sbam neu sothach. Rhaid i chi wneud hyn ar gyfrifiadur
-        neu lechen (yn hytrach na ffôn clyfar).
-      cancel_title: 'Canslo''r ymweliad hwn '
+      cancel_title: Canslo'r cais hwn i ymweld
       cancel_intro: Os nad ydych eisiau ymweld ar y dyddiad hwn ddim mwy, gallwch
         ganslo'r ymweliad.
-      cancel_confirm: Ydw, rydw i eisiau canslo'r ymweliad hwn
+      cancel_confirm: 'Ydw, rydw i eisiau canslo''r ymweliad hwn '
       cancel_cta: 'Canslo''r ymweliad '
+    visiting_info:
+      location: 'Lleoliad '
+      phone_no: Ffôn
+      google_maps: Gweld ar Google Maps
+      email_address: E-bost
+      print_page: Printio'r dudalen hon
+      instructions_nav_title: Ymweld â Charchar %{name}
+      cancel_title: Canslo'r cais hwn i ymweld
+      rate_service_html: Cymrwch funud i <a href="%{url}">ddweud wrthym pa mor fodlon
+        oeddech chi gyda'r gwasanaeth hwn </a>.
+    booked:
+      title: Mae eich ymweliad wedi cael ei gadarnhau
+      intro_html: The details of your visit to %{prison_name} are displayed below.
+      confirmation_email: A copy of this information has been sent to your email address.
+        If you haven’t received this email, please check your spam or junk folder.
+        You need to do this on a computer or tablet (rather than a smart phone).
+      cancel_pre_intro_html: Os nad ydych eisiau ymweld ar y dyddiad hwn ddim mwy,
+        gallwch <a href="%{url}">ganslo'r ymweliad hwn</a>.
+      visit_details_title: Your visit details
+      your_visit: Dyddiad ac amser
     rejected:
       title: 'Nid yw''n bosib i''ch ymweliad ddigwydd ar y dyddiadau a ddewiswyd gennych '
       intro: 'Mae cwpl o resymau posibl dros hyn, er enghraifft, efallai nad oes lle
@@ -248,18 +230,21 @@ cy:
         cynnal eich ymweliad fel y bwriadwyd, edrychwch yn eich ffolder sbam neu sothach.
         Rhaid i chi wneud hyn ar gyfrifiadur neu lechen (yn hytrach na ffôn clyfar).
     requested:
-      title: 'Nid yw eich ymweliad wedi''i drefnu eto '
+      title: Mae eich cais yn cael ei brosesu
+      subtitle: 'Nid yw eich ymweliad wedi''i drefnu eto '
       intro: 'Nid yw''r staff sy''n prosesu ceisiadau i ymweld wedi prosesu eich cais
         hyd yma.  Dylech gael cadarnhad drwy e-bost o fanylion eich ymweliad o fewn
         3 diwrnod gwaith ar ôl cyflwyno eich cais. '
       not_received: Os na fyddwch wedi cael neges e-bost o fewn 3 diwrnod gwaith,
         edrychwch yn eich ffolder sbam neu sothach. Rhaid i chi wneud hyn ar gyfrifiadur
         neu lechen (yn hytrach na ffôn clyfar)
-      cancel_title: Canslo'r cais hwn i ymweld
-      cancel_intro: Os nad ydych eisiau ymweld ar y dyddiad hwn ddim mwy, gallwch
-        ganslo'r cais.
-      cancel_confirm: 'Ydw, rydw i eisiau canslo''r ymweliad hwn '
-      cancel_cta: Canslo'r cais
+      cancel_pre_intro_html: If you no longer want to visit on this date, you can
+        <a href="#cancel-visit">cancel this visit</a>.
+      visit_details_title: Your visit request
+      your_visit: Dates requested
+      option_0: 'Opsiwn 1:'
+      option_1: 'Opsiwn 2:'
+      option_2: 'Opsiwn 3:'
     cancelled:
       title: 'Rydych chi wedi canslo''r ymweliad hwn '
     withdrawn:
