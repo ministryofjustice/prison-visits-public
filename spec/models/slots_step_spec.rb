@@ -33,21 +33,19 @@ RSpec.describe SlotsStep, type: :model do
 
     it 'is valid if the option is a correctly formatted time range' do
       subject.option_0 = '2015-01-02T09:00/10:00'
-      subject.validate
       expect(subject).to be_valid
       expect(subject.errors).not_to have_key(:option_0)
     end
 
     it 'is invalid if the option is not a time range' do
       subject.option_0 = '2015-01-02T09:00'
-      subject.validate
       expect(subject).not_to be_valid
       expect(subject.errors).to have_key(:option_0)
     end
 
     it 'is invalid if option_0 is empty' do
       subject.option_0 = ''
-      subject.validate
+      subject.valid?
       expect(subject.errors).to have_key(:option_0)
     end
 
@@ -55,7 +53,7 @@ RSpec.describe SlotsStep, type: :model do
       subject.option_0 = '2015-01-02T09:00/11:00'
       subject.option_1 = '2015-01-02T09:00/12:00'
       subject.option_2 = '2015-01-02T09:00/13:00'
-      subject.validate
+      subject.valid?
       expect(subject.errors).to have_key(:option_0)
       expect(subject.errors).to have_key(:option_1)
       expect(subject.errors).to have_key(:option_2)
@@ -63,13 +61,13 @@ RSpec.describe SlotsStep, type: :model do
 
     it 'is valid if option_1 is empty' do
       subject.option_1 = ''
-      subject.validate
+      subject.valid?
       expect(subject.errors).not_to have_key(:option_1)
     end
 
     it 'is valid if option_2 empty' do
       subject.option_2 = ''
-      subject.validate
+      subject.valid?
       expect(subject.errors).not_to have_key(:option_2)
     end
   end
