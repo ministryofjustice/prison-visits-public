@@ -1,0 +1,60 @@
+<% content_for :header, t('.title') %>
+
+<div class="Grid">
+  <div class="Grid-2-3">
+    <p>
+      <%= t('.intro_html', prison_name: @visit.prison_name) %>
+    </p>
+
+    <p><%= t('.confirmation_email') %></p>
+
+    <p><%= t('.cancel_pre_intro_html') %></p>
+  </div>
+</div>
+
+<div class="Grid">
+  <div class="Grid-2-3">
+    <h2><%= t('.visit_details_title') %></h2>
+
+    <dl>
+      <dt><%= t('.your_visit') %></dt>
+      <dd>
+        <ul class="unstyled-list visit-times">
+          <li>
+            <strong><%= format_slot_for_public(@visit.slot_granted) %></strong>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+  </div>
+</div>
+<div class="Grid">
+  <div class="Grid-1-3">
+    <dl>
+      <dt>Allowed visitors</dt>
+      <dd>
+        <ul class="unstyled-list visit-times">
+          <% @visit.allowed_visitors.each do |visitor| %>
+            <li><strong><%= visitor.anonymized_name %></strong></li>
+          <% end %>
+        </ul>
+      </dd>
+    </dl>
+  </div>
+  <div class="Grid-1-3">
+    <% if @visit.rejected_visitors.any? %>
+      <dl>
+        <dt>Rejected visitors</dt>
+        <dd>
+        <ul class="unstyled-list visit-times">
+          <% @visit.rejected_visitors.each do |visitor| %>
+            <li><strong><%= visitor.anonymized_name %></strong></li>
+          <% end %>
+        </ul>
+        </dd>
+      </dl>
+  <% end %>
+  </div>
+</div>
+
+<%= render 'visiting_info' %>

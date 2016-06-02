@@ -1,0 +1,38 @@
+<% content_for :header, t('.title') %>
+
+<div class="Grid">
+  <div class="Grid-2-3">
+    <h2><%= t('.subtitle') %></h2>
+
+    <p><%= t('.intro') %></p>
+
+    <p><%= t('.not_received') %></p>
+
+    <p><%= t('visits.shared.avoid_spam_filtering_html',
+             email: address_book.no_reply) %></p>
+
+    <p><%= t('.cancel_pre_intro_html') %></p>
+  </div>
+</div>
+
+<div class="Grid">
+  <div class="Grid-2-3">
+    <h2><%= t('.visit_details_title') %></h2>
+
+    <dl>
+      <dt><%= t('.your_visit') %></dt>
+      <dd>
+        <ul class="unstyled-list visit-times">
+          <% @visit.slots.each_with_index do |slot, index| %>
+            <li>
+              <%= t(".option_#{index}") %>
+              <strong><%= format_slot_for_public(slot) %></strong>
+            </li>
+          <% end %>
+        </ul>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<%= render 'visiting_info' %>
