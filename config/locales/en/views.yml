@@ -42,7 +42,7 @@ en:
       date_of_birth: Prisoner date of birth
       date_of_birth_hint: eg 28 04 1996
       number: Prisoner number
-      number_hint: eg a1234bc
+      number_hint: eg A1234BC
       prison_id: Name of the prison
       prison_id_hint: eg Cardiff
       prison_id_prompt: select a prison
