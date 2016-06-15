@@ -4,6 +4,7 @@ Rails.application.config.assets.precompile += %w[
   email.css
   *.png
   favicon.ico
+  application-ie8.css
 ]
 
 Rails.application.config.assets.paths <<
