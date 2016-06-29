@@ -24,15 +24,16 @@ en:
     prisoner_step:
       title: Who are you visiting?
       information_html: |
+        <p>Remember that you:</p>
         <ul>
           <li>
-            you don’t need a Visiting Order (VO) number to request a visit
+            don’t need a Visiting Order (VO) number to request a visit
           </li>
           <li>
-            you need the dates of birth for all visitors coming with you
+            need the dates of birth for all visitors coming with you
           </li>
           <li>
-            your visit will be confirmed by email within 3 working days of
+            will have your visit confirmed by email within 3 working days of
             making your request
           </li>
         </ul>
@@ -57,7 +58,7 @@ en:
       other_visitors: Other visitors
       seating_arrangements: >-
         Seating arrangements at this prison allow 3 visitors over the age of
-        %{adult_age} plus 3 children under that age. Children may have to sit 
+        %{adult_age} plus 3 children under that age. Children may have to sit
         on your lap.
       additional_visitor_count: How many other visitors?
       next_step: Continue
@@ -84,7 +85,7 @@ en:
       next_step: Continue
       no_availability_md: |
         **Your visit cannot be booked.**
-        
+
         Unfortunately there is no availability to visit this prisoner. They may
         have run out of visiting allowance, or they may be unavailable for some
         other reason.
