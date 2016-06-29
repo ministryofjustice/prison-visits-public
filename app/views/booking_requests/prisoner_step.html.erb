@@ -4,7 +4,6 @@
 
 <div class="Grid">
   <div class="Grid-2-3">
-    <%= t('.information_html') %>
 
     <%= form_for(@steps.fetch(:prisoner_step),
                  url: booking_requests_path,
@@ -39,6 +38,8 @@
               Prison.all.map { |p| [p.name, p.id] },
               { prompt: t('.prison_id_prompt') },
               { class: 'js-autocomplete' }) %>
+
+        <%= t('.information_html') %>
 
         <div class="actions">
           <div class="primary-actions">
