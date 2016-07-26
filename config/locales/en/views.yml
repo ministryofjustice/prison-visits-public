@@ -322,6 +322,28 @@ en:
       option_1: "Option 2:"
       option_2: "Option 3:"
     cancelled:
-      title: You cancelled this visit
+      title: Your visit is cancelled
+      your_visit: Date and time of your visit
+      location: Location
+      cancelled_on:
+        Cancelled on
+      slot_unavailable:
+        The slot you had booked is no longer available.
+      visitor_banned:
+        You have been banned from visiting this prison.
+      booked_in_error:
+        Unfortunately, we made a mistake booking this visit.
+      capacity_issues:
+        We do not have enough space to sit everyone.
+      child_protection_issues:
+        There are restrictions around this prisoner.
+      prisoner_moved:
+        The prisoner has left this prison.
+      prisoner_non_association:
+        There are restrictions around this prisoner.
+      prisoner_released:
+        The prisoner has been released from prison.
+      prisoner_vos:
+        The prisoner has reached the limit of visits during this time period.
     withdrawn:
       title: You cancelled this visit request

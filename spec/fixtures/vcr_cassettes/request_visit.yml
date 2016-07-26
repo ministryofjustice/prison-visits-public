@@ -5,7 +5,7 @@ http_interactions:
     uri: http://localhost:3000/api/visits
     body:
       encoding: UTF-8
-      string: '{"prison_id":"0614760e-a773-49c0-a29c-35e743e72555","prisoner":{"first_name":"Oscar","last_name":"Wilde","date_of_birth":"1980-12-31","number":"a1234bc"},"visitors":[{"first_name":"Ada","last_name":"Lovelace","date_of_birth":"1970-11-30"},{"first_name":"Charlie","last_name":"Chaplin","date_of_birth":"2005-01-02"}],"contact_email_address":"ada@test.example.com","contact_phone_no":"01154960222","slot_options":["2016-06-07T13:30/14:30","2016-06-07T14:45/15:45","2016-06-08T13:30/14:30"]}'
+      string: '{"prison_id":"0614760e-a773-49c0-a29c-35e743e72555","prisoner":{"first_name":"Oscar","last_name":"Wilde","date_of_birth":"1980-12-31","number":"a1234bc"},"visitors":[{"first_name":"Ada","last_name":"Lovelace","date_of_birth":"1970-11-30"},{"first_name":"Charlie","last_name":"Chaplin","date_of_birth":"2005-01-02"}],"contact_email_address":"ada@test.example.com","contact_phone_no":"01154960222","slot_options":["2016-07-29T13:30/14:30","2016-07-29T14:45/15:45","2016-07-30T09:45/11:15"]}'
     headers:
       User-Agent:
       - excon/0.49.0
@@ -31,16 +31,17 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"5fd2c92d478f7e815829d35db0f9af9f"
+      - W/"6dd46cacce5f4cae56cea572803d02f5"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
       - unique_id
       X-Runtime:
-      - '0.234012'
+      - '0.215565'
     body:
       encoding: UTF-8
-      string: '{"visit":{"id":"9b464798-f5be-4148-bcda-5aa66fdec764","processing_state":"requested","prison_id":"0614760e-a773-49c0-a29c-35e743e72555","confirm_by":"2016-06-06","contact_email_address":"ada@test.example.com","slots":["2016-06-07T13:30/14:30","2016-06-07T14:45/15:45","2016-06-08T13:30/14:30"]}}'
+      string: '{"visit":{"id":"89c41be4-ee72-4997-87f7-d0d1bcb34226","processing_state":"requested","prison_id":"0614760e-a773-49c0-a29c-35e743e72555","confirm_by":"2016-07-28","contact_email_address":"ada@test.example.com","slots":["2016-07-29T13:30/14:30","2016-07-29T14:45/15:45","2016-07-30T09:45/11:15"],"slot_granted":null,"cancellation_reason":null,"created_at":"2016-07-25T13:14:34+01:00","updated_at":"2016-07-25T13:14:34+01:00","visitors":[{"anonymized_name":"Ada
+        L","allowed":true},{"anonymized_name":"Charlie C","allowed":true}]}}'
     http_version: 
-  recorded_at: Wed, 01 Jun 2016 07:29:52 GMT
+  recorded_at: Mon, 25 Jul 2016 12:14:34 GMT
 recorded_with: VCR 3.0.1
