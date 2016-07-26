@@ -2,6 +2,48 @@
 
 <div class="Grid">
   <div class="Grid-2-3">
+    <dl>
+      <dt><%= t('.your_visit') %></dt>
+      <dd>
+        <ul class="unstyled-list visit-times">
+          <li>
+            <strong><%= format_slot_for_public(@visit.slot_granted) %></strong>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+  </div>
+
+  <div class="Grid-2-3">
+    <dl>
+      <dt><%= t('.location') %></dt>
+      <dd>
+        <strong><%= @visit.prison_name %></strong>
+      </dd>
+    </dl>
+  </div>
+
+   <div class="Grid-2-3">
+    <dl>
+      <dt><%= t('.cancelled_on') %></dt>
+      <dd>
+        <strong><%= @visit.updated_at.to_s(:short) %></strong>
+      </dd>
+    </dl>
+  </div>
+
+  <div class="Grid-2-3">
+    <dl>
+      <dt><%= t('.cancellation_reason') %></dt>
+      <dd>
+        <%= t(".#{@visit.cancellation_reason}") %>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<div class="Grid">
+  <div class="Grid-2-3">
     <p><%= t('visits.shared.request_new_visit_html', url: booking_requests_path) %></p>
   </div>
 </div>
