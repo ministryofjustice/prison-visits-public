@@ -19,9 +19,6 @@ class Visit
   attribute :visitors, [Visitor], coercer: lambda { |visitors|
     visitors.map { |v| Visitor.new(v) }
   }
-  attribute :cancellation_reason, Symbol
-  attribute :created_at, DateTime
-  attribute :updated_at, DateTime
 
   VALID_STATES = %i[ requested withdrawn booked cancelled rejected ]
 
