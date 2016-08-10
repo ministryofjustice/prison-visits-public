@@ -48,6 +48,9 @@
   <main id="wrapper" role="main">
     <div class="container">
       <section class="content inner cf" id="content">
+        <div class="phase-banner">
+          <%= t('.feedback_banner_html', url: new_feedback_submission_path) %>
+        </div>
         <header>
           <h1>
             <%= yield :header %>
