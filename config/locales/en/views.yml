@@ -6,6 +6,10 @@ en:
       cookies: Cookies
       ts_and_cs: Terms and conditions
       contact_us: Contact us
+      feedback_banner_html: |
+        <p>
+          <span>This service is being improved and you may notice changes – <a href='%{url}' target='_blank' rel='external'>your feedback<span class='visuallyhidden'> (link opens in a new browser window)</span></a> is welcome.</span>
+        </p>
   booking_requests:
     hidden_inputs_for_calendars:
       option: Option %{n}
