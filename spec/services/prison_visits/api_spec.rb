@@ -15,9 +15,9 @@ RSpec.describe PrisonVisits::Api do
   # * delete and re-record all the other cassettes
   let(:bookable_slots) {
     [
-      "2016-07-29T13:30/14:30",
-      "2016-07-29T14:45/15:45",
-      "2016-07-30T09:45/11:15"
+      "2016-08-27T09:45/11:15",
+      "2016-08-27T13:30/15:00",
+      "2016-08-28T13:30/15:00"
     ]
   }
 

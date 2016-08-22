@@ -21,6 +21,11 @@ class Visit
   attribute :visitors, [Visitor], coercer: lambda { |visitors|
     visitors.map { |v| Visitor.new(v) }
   }
+
+  attribute :messages, [Message], coercer: lambda { |messages|
+    messages.map { |m| Message.new(m) }
+  }
+
   attribute :cancellation_reason, Symbol
   attribute :cancelled_at, DateTime
 
