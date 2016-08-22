@@ -9,6 +9,11 @@
     <p><%= t('visits.shared.avoid_spam_filtering_html',
              email: address_book.no_reply) %></p>
 
+    <% if @visit.messages.any? %>
+      <p><strong><%= t('.message_title') %></strong><br>
+      <%= @visit.messages.first.body %></p>
+    <% end %>
+
     <p><%= t('visits.shared.request_new_visit_html',
              url: booking_requests_path) %></p>
   </div>

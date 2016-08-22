@@ -57,4 +57,15 @@
   </div>
 </div>
 
+<% if @visit.messages.any? %>
+<div class="Grid">
+  <div class="Grid-1-2">
+    <dl>
+    <dt><%= t('.message_title') %></dt>
+    <dd><strong><%= @visit.messages.first.body %></strong></dd>
+    </dl>
+  </div>
+</div>
+<% end %>
+
 <%= render 'visiting_info' %>

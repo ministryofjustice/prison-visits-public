@@ -2,7 +2,13 @@ require 'rails_helper'
 
 RSpec.describe VisitsController, type: :controller do
   describe 'show' do
-    let(:visit) { instance_double(Visit, id: '123456789', processing_state: :rejected) }
+    let(:visit) do
+      instance_double(
+        Visit,
+        id: '123456789',
+        processing_state: :rejected,
+        messages: [])
+    end
 
     before do
       expect(pvb_api).to receive(:get_visit).with(visit.id).and_return(visit)
