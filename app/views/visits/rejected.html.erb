@@ -10,7 +10,7 @@
              email: address_book.no_reply) %></p>
 
     <% if @visit.messages.any? %>
-      <p><strong><%= t('.message_title') %></strong><br>
+      <p><strong><%= t('.message_title', prison: (@visit.prison_name)) %></strong><br>
       <%= @visit.messages.first.body %></p>
     <% end %>
 

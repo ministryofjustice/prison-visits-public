@@ -58,14 +58,14 @@
 </div>
 
 <% if @visit.messages.any? %>
-<div class="Grid">
-  <div class="Grid-1-2">
-    <dl>
-    <dt><%= t('.message_title') %></dt>
-    <dd><strong><%= @visit.messages.first.body %></strong></dd>
-    </dl>
+  <div class="grid-row">
+    <div class="column-one-half">
+      <dl>
+      <dt><%= t('.message_title', prison: (@visit.prison_name)) %></dt>
+      <dd><strong><%= @visit.messages.first.body %></strong></dd>
+      </dl>
+    </div>
   </div>
-</div>
 <% end %>
 
 <%= render 'visiting_info' %>

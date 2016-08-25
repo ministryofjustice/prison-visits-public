@@ -296,7 +296,7 @@ en:
         <a href="#cancel-visit">cancel this visit</a>.
       visit_details_title: Your visit details
       your_visit: Date and time
-      message_title: Message from the prison staff
+      message_title: Message from %{prison}
     rejected:
       title: Your visit request cannot take place on the dates you’ve chosen
       intro: >-
@@ -307,7 +307,7 @@ en:
         If you haven’t received an email to say that your visit can’t take
         place as planned, please check your spam or junk folder. You need to do
         this on a computer or tablet (rather than a smart phone).
-      message_title: Message from the prison staff
+      message_title: Message from %{prison}
     requested:
       title: Your request is being processed
       subtitle: Your visit is not booked yet
