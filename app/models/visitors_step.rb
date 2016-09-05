@@ -24,7 +24,7 @@ class VisitorsStep
   delegate :max_visitors, :adult_age, to: :visitor_constraints
 
   validates :email_address, presence: true
-  validates :phone_no, presence: true, length: { minimum: 9 }
+  validates :phone_no, phone: true
 
   validate :validate_email, :validate_visitors
 
