@@ -1,61 +1,59 @@
 <% content_for :header, t('.title') %>
-
 <%= render('shared/timeout_prompt') %>
+<%= form_for(@steps.fetch(:prisoner_step),
+  url: booking_requests_path,
+  html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
 
-<div class="Grid">
-  <div class="Grid-2-3">
+  <% if reviewing? %>
+    <%= render('hidden_visitors_step') %>
+    <%= render('hidden_slots_step') %>
+  <% end %>
+  <%= render('shared/validation', object: f.object) %>
 
-    <%= form_for(@steps.fetch(:prisoner_step),
-                 url: booking_requests_path,
-                 html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
-      <% if reviewing? %>
-        <%= render('hidden_visitors_step') %>
-        <%= render('hidden_slots_step') %>
-      <% end %>
-
-      <h2>
-        <%= t('.prisoner_details') %>
-      </h2>
-
-      <%= render('shared/validation', object: f.object) %>
-
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <div class="form-group">
+        <h3 class="bold-medium">
+          <%= t('.prisoner_details') %>
+        </h3>
+      </div>
       <fieldset>
         <legend class="visuallyhidden">
           <%= t('.prisoner_details') %>
         </legend>
-
-        <%= single_field(f, :first_name, :text_field) %>
-
-        <%= single_field(f, :last_name, :text_field) %>
-
+        <%= single_field(f, :first_name, :text_field, class: 'form-control') %>
+        <%= single_field(f, :last_name, :text_field, class: 'form-control') %>
         <%= composite_field(f, :date_of_birth) do %>
           <%= render('dob', form: f) %>
         <% end %>
-
-        <%= single_field(f, :number, :text_field) %>
-
+        <%= single_field(f, :number, :text_field, class: 'form-control') %>
         <%= single_field(f, :prison_id, :select,
-              Prison.all.map { |p| [p.name, p.id] },
-              { prompt: t('.prison_id_prompt') },
-              { class: 'js-autocomplete' }) %>
-
-        <%= t('.information_html') %>
-
-        <div class="actions">
-          <div class="primary-actions">
+        Prison.all.map { |p| [p.name, p.id] },
+        { prompt: t('.prison_id_prompt') },
+        { class: 'js-autocomplete' }) %>
+        <div class="form-group">
+          <%= t('.information_html') %>
+        </div>
+        <div class="grid-row form-group">
+          <div class="column-one-half">
             <%= f.submit(t('.next_step'), class: 'button button-primary') %>
           </div>
-          <%= render('cancel') %>
+          <div class="column-one-half">
+            <%= render('cancel') %>
+          </div>
         </div>
       </fieldset>
-    <% end %>
+    </div>
+  </div>
 
+<% end %>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <div class="bold-small"><%= t('.note_header') %></div>
     <p class="note">
-      <strong><%= t('.note_header') %></strong>
-      <br>
       <%= t('.note') %>
     </p>
-
     <%= render('contact_prison') %>
   </div>
 </div>

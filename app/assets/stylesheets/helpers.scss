@@ -1,0 +1,33 @@
+.float-left {
+  float: left !important;
+}
+.float-right {
+  float: right !important;
+}
+.push-bottom {
+  margin-bottom: $gutter;
+}
+.push-top {
+  margin-top: $gutter;
+}
+.push-bottom--half {
+  margin-bottom: $gutter-half;
+}
+.push-top--half {
+  margin-top: $gutter-half;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+
+@mixin prefix($property, $value, $vendors: webkit moz ms o) {
+  @if $vendors {
+    @each $vendor in $vendors {
+      #{"-" + $vendor + "-" + $property}: #{$value};
+    }
+  }
+  #{$property}: #{$value};
+}

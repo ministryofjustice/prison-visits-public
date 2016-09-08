@@ -29,7 +29,7 @@ en:
       title: Who are you visiting?
       information_html: |
         <p>Remember that you:</p>
-        <ul>
+        <ul class="list list-bullet">
           <li>
             don’t need a Visiting Order (VO) number to request a visit
           </li>
@@ -179,7 +179,7 @@ en:
           the following:
         </p>
 
-        <ul>
+        <ul class="list list-bullet">
           <li>
             passport, including foreign passports, and expired passports where
             the photograph is still recognisable
@@ -212,7 +212,7 @@ en:
           the following:
         </p>
 
-        <ul>
+        <ul class="list list-bullet">
           <li>
             birth or marriage certificate
           </li>
@@ -281,7 +281,7 @@ en:
       instructions_nav_title: Visiting %{name} prison
       cancel_title: Cancel this visit request
       rate_service_html: >-
-        Take a moment to <a href="%{url}">rate this service</a>.
+        Take a moment to rate this service
     booked:
       title: Your visit has been confirmed
       intro_html: >-

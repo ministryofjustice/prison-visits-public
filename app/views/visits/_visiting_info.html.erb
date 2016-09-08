@@ -1,15 +1,15 @@
-<div class="Grid">
-  <div class="Grid-1-3">
+<div class="grid-row">
+  <div class="column-one-third">
     <dl>
       <dt><%= t('.location') %></dt>
       <dd class="h3">
-        <strong>
+        <span class="bold-small">
           <%= @visit.prison_name %>
           <br/>
           <%= add_line_breaks(@visit.prison_address) %>
           <br/>
           <%= @visit.prison_postcode %>
-        </strong>
+        </span>
       </dd>
     </dl>
     <p class="map-link">
@@ -17,30 +17,29 @@
                   link_directory.google_maps(@visit.prison_postcode)) %>
     </p>
   </div>
-  <div class="Grid-1-3">
+  <div class="column-one-third">
     <dl>
       <dt><%= t('.phone_no') %></dt>
-      <dd><strong><%= @visit.prison_phone_no %></strong></dd>
-      <br/>
+      <dd><span class="bold-small"><%= @visit.prison_phone_no %></span></dd>
       <dt><%= t('.email') %></dt>
-      <dd><strong><%= mail_to(@visit.prison_email_address) %></strong></dd>
+      <dd><span class="bold-small"><%= mail_to(@visit.prison_email_address) %></span></dd>
     </dl>
   </div>
-  <div class="Grid-1-3">
+  <div class="column-one-third">
     <p class="visible--js-enabled">
       <%= link_to(t('.print_page'), '#', class: 'print-link') %>
     </p>
   </div>
 </div>
 
-<div class="Grid" id="info">
-  <div class="Grid-1-3">
+<div class="grid-row push-top" id="info">
+  <div class="column-one-third">
     <nav>
-      <h2>
+      <h2 class="heading-medium">
         <%= t('.instructions_nav_title', name: @visit.prison_name) %>
       </h2>
 
-      <ul>
+      <ul class="list list-bullet">
         <li>
           <a href="#info-what-to-bring"
             ><%= t('shared.visit_info.what_to_bring_title') %></a>
@@ -63,7 +62,7 @@
       </ul>
     </nav>
   </div>
-  <div class="Grid-2-3">
+  <div class="column-two-thirds">
     <%= render('shared/visit_info', visit: @visit) %>
 
     <%= render('cancel_form') %>

@@ -1,4 +1,33 @@
 // PVB specific
+.SlotPicker {
+  margin: 0 0 $gutter;
+}
+
+.BookingCalendar-legend {
+  margin: $gutter-half 0;
+  label.selected {
+    background-color: transparent;
+  }
+}
+
+.SlotPicker-label {
+  background: #fff;
+  @extend .block-label;
+  float: left;
+  clear: none;
+  border-color: #000;
+}
+.SlotPicker-slot {
+  left: 0;
+  top: 0.3em;
+  margin: 0;
+}
+
+.BookingCalendar-legendDesc {
+  float: none;
+  display: inline-block;
+}
+
 .SlotPicker-choices > p {
   margin: 0.5em 0;
   @include media(mobile) {

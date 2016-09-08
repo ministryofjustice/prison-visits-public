@@ -5,18 +5,15 @@
 <% content_for :head do %>
   <%= csrf_meta_tag %>
   <%= favicon_link_tag %>
-<% end %>
-
-<% content_for :stylesheets do %>
   <%= stylesheet_link_tag('application', media: 'all') %>
   <!--[if IE 8]>
     <%= stylesheet_link_tag('application-ie8', media: 'all') %>
   <![endif]-->
 <% end %>
 
-<% content_for :javascripts do %>
+<% content_for :body_end do %>
   <script>
-    moj.i18n = <%= raw(javascript_i18n.to_json) %>;
+    var i18n = <%= raw(javascript_i18n.to_json) %>;
   </script>
   <%= javascript_include_tag('application') %>
   <script>
@@ -44,28 +41,26 @@
   <%= link_to(t('.cookies_find_out_more'), cookies_path) %>
 <% end %>
 
-<% content_for :content_override do %>
-  <main id="wrapper" role="main">
-    <div class="container">
-      <section class="content inner cf" id="content">
-        <div class="phase-banner">
+<% content_for :content do %>
+  <main id="content">
+
+        <div class="phase-banner phase-banner-beta">
           <%= t('.feedback_banner_html', url: new_feedback_submission_path) %>
         </div>
         <header>
-          <h1>
+          <h1 class="heading-xlarge">
             <%= yield :header %>
           </h1>
         </header>
 
         <% if notice.present? %>
-          <p class="validation-summary">
+          <p class="error-summary">
             <%= notice %>
           </p>
         <% end %>
 
         <%= yield %>
-      </section>
-    </div>
+
   </main>
 <% end %>
 
@@ -90,4 +85,4 @@
   <% end %>
 <% end %>
 
-<%= render(template: 'layouts/moj_template') %>
+<%= render(template: 'layouts/govuk_template') %>
