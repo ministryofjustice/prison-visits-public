@@ -170,7 +170,7 @@ RSpec.describe VisitorsStep do
   describe 'valid?' do
     before do
       subject.email_address = 'user@test.example.com'
-      subject.phone_no = '01154960123'
+      subject.phone_no = '07900112233'
     end
 
     it 'is true if the step is valid and all visitors are valid' do
@@ -227,6 +227,12 @@ RSpec.describe VisitorsStep do
         ["One or more visitors are invalid"]
       )
     end
+
+    it 'is invalid if it is not a phone number' do
+      subject.phone_no = 'abcedfghijk'
+      expect(subject).to_not be_valid
+      expect(subject.errors[:phone_no]).to_not be_empty
+    end
   end
 
   context 'age-related validations' do
@@ -236,7 +242,7 @@ RSpec.describe VisitorsStep do
 
     before do
       subject.email_address = 'user@test.example.com'
-      subject.phone_no = '01154960123'
+      subject.phone_no = '07900112233'
     end
 
     it 'is valid if there is one adult visitor' do

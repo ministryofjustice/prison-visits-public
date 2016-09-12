@@ -18,7 +18,7 @@ RSpec.describe StepsProcessor do
   let(:visitors_details) {
     {
       email_address: 'ada@test.example.com',
-      phone_no: '01154960222',
+      phone_no: '07900112233',
       visitors_attributes: {
         0 => {
           first_name: 'Ada',
@@ -138,7 +138,7 @@ RSpec.describe StepsProcessor do
     let(:params) {
       {
         prisoner_step: prisoner_details,
-        visitors_step: { phone_no: '01154960222' }
+        visitors_step: { phone_no: '07900112233' }
       }
     }
 
@@ -153,7 +153,7 @@ RSpec.describe StepsProcessor do
 
     it 'initialises the VisitorsStep with the supplied attributes' do
       expect(subject.steps[:visitors_step]).
-        to have_attributes(phone_no: '01154960222')
+        to have_attributes(phone_no: '07900112233')
     end
 
     it_behaves_like 'it has all steps'
@@ -179,7 +179,7 @@ RSpec.describe StepsProcessor do
 
     it 'initialises the VisitorsStep with the supplied attributes' do
       expect(subject.steps[:visitors_step]).
-        to have_attributes(phone_no: '01154960222')
+        to have_attributes(phone_no: '07900112233')
     end
 
     it_behaves_like 'it has all steps'
@@ -219,7 +219,7 @@ RSpec.describe StepsProcessor do
 
     it 'initialises the VisitorsStep with the supplied attributes' do
       expect(subject.steps[:visitors_step]).
-        to have_attributes(phone_no: '01154960222')
+        to have_attributes(phone_no: '07900112233')
     end
 
     it 'initialises the SlotsStep with the supplied attributes' do
@@ -262,7 +262,7 @@ RSpec.describe StepsProcessor do
 
     it 'initialises the VisitorsStep with the supplied attributes' do
       expect(subject.steps[:visitors_step]).
-        to have_attributes(phone_no: '01154960222')
+        to have_attributes(phone_no: '07900112233')
     end
 
     it_behaves_like 'it has all steps'
@@ -303,7 +303,7 @@ RSpec.describe StepsProcessor do
           ),
           an_object_having_attributes(
             email_address: 'ada@test.example.com',
-            phone_no: '01154960222',
+            phone_no: '07900112233',
             visitors: [
               an_object_having_attributes(
                 first_name: 'Ada',

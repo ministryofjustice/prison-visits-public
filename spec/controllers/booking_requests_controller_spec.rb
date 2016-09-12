@@ -18,7 +18,7 @@ RSpec.describe BookingRequestsController do
   let(:visitors_details) {
     {
       email_address: 'ada@test.example.com',
-      phone_no: '01154960222',
+      phone_no: '07900112233',
       visitors_attributes: {
         0 => {
           first_name: 'Ada',
@@ -195,7 +195,7 @@ RSpec.describe BookingRequestsController do
 
       it 'initialises the VisitorsStep with the supplied attributes' do
         expect(assigns(:steps)[:visitors_step]).
-          to have_attributes(phone_no: '01154960222')
+          to have_attributes(phone_no: '07900112233')
       end
 
       it 'assigns a slots step' do
@@ -233,7 +233,7 @@ RSpec.describe BookingRequestsController do
 
       it 'initialises the VisitorsStep with the supplied attributes' do
         expect(assigns(:steps)[:visitors_step]).
-          to have_attributes(phone_no: '01154960222')
+          to have_attributes(phone_no: '07900112233')
       end
 
       it 'assigns a slots step' do
@@ -274,7 +274,7 @@ RSpec.describe BookingRequestsController do
 
       it 'initialises the VisitorsStep with the supplied attributes' do
         expect(assigns(:steps)[:visitors_step]).
-          to have_attributes(phone_no: '01154960222')
+          to have_attributes(phone_no: '07900112233')
       end
 
       it 'assigns a slots step' do
@@ -325,7 +325,7 @@ RSpec.describe BookingRequestsController do
           ),
           an_object_having_attributes(
             email_address: 'ada@test.example.com',
-            phone_no: '01154960222',
+            phone_no: '07900112233',
             visitors: [
               an_object_having_attributes(
                 first_name: 'Ada',

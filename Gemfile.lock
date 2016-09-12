@@ -127,6 +127,7 @@ GEM
     parser (2.3.0.pre.6)
       ast (~> 2.2)
     phantomjs (1.9.8.0)
+    phonelib (0.6.5)
     poltergeist (1.9.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -296,6 +297,7 @@ DEPENDENCIES
   moj_template (= 0.21.0)
   parser (~> 2.3.0.pre.6)
   phantomjs
+  phonelib
   poltergeist
   pry-byebug
   pry-rails
@@ -323,4 +325,4 @@ RUBY VERSION
    ruby 2.3.0p0
 
 BUNDLED WITH
-   1.12.1
+   1.12.5
