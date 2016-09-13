@@ -1,8 +1,8 @@
 <% content_for :header, t('.title') %>
 
-<div class="Grid">
-  <div class="Grid-2-3">
-    <h2><%= t('.subtitle') %></h2>
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <p class="lede"><%= t('.subtitle') %></p>
 
     <p><%= t('.intro') %></p>
 
@@ -15,18 +15,18 @@
   </div>
 </div>
 
-<div class="Grid">
-  <div class="Grid-2-3">
-    <h2><%= t('.visit_details_title') %></h2>
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <p class="lede"><%= t('.visit_details_title') %></p>
 
     <dl>
       <dt><%= t('.your_visit') %></dt>
       <dd>
-        <ul class="unstyled-list visit-times">
+        <ul class="list visit-times">
           <% @visit.slots.each_with_index do |slot, index| %>
             <li>
               <%= t(".option_#{index}") %>
-              <strong><%= format_slot_for_public(slot) %></strong>
+              <span class="bold-small"><%= format_slot_for_public(slot) %></span>
             </li>
           <% end %>
         </ul>

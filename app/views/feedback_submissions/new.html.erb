@@ -7,7 +7,7 @@
         url: link_directory.prison_finder) %>
 </p>
 
-<ul>
+<ul class="list list-bullet">
   <li>
     <%= t('.whether_booked') %>
   </li>
@@ -42,14 +42,14 @@
 
   <%= f.hidden_field :referrer %>
 
-  <p><strong><%= t('.no_sensitive_info') %></strong></p>
+  <p><span class="bold-small"><%= t('.no_sensitive_info') %></span></p>
 
   <fieldset>
     <legend class="visuallyhidden">
       <%= t('.feedback_form') %>
     </legend>
 
-    <%= single_field(f, :body, :text_area, cols: 50, rows: 5) %>
+    <%= single_field(f, :body, :text_area, cols: 50, rows: 5, class: 'form-control') %>
   </fieldset>
 
   <fieldset>
@@ -61,7 +61,7 @@
       <%= t('.want_reply_text') %>
     </p>
 
-    <%= single_field(f, :email_address, :email_field) %>
+    <%= single_field(f, :email_address, :email_field, class: 'form-control') %>
 
     <div class="actions">
       <%= f.submit(t('.send'), class: 'button button-primary') %>

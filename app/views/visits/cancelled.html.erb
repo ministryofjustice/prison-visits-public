@@ -1,49 +1,45 @@
 <% content_for :header, t('.title') %>
 
-<div class="Grid">
-  <div class="Grid-2-3">
+<div class="grid-row">
+  <div class="column-two-thirds">
     <dl>
       <dt><%= t('.your_visit') %></dt>
       <dd>
-        <ul class="unstyled-list visit-times">
-          <li>
-            <strong><%= format_slot_for_public(@visit.slot_granted) %></strong>
-          </li>
-        </ul>
+        <span class="bold-small"><%= format_slot_for_public(@visit.slot_granted) %></span>
       </dd>
     </dl>
   </div>
 
-  <div class="Grid-2-3">
+  <div class="column-two-thirds">
     <dl>
       <dt><%= t('.location') %></dt>
       <dd>
-        <strong><%= @visit.prison_name %></strong>
+        <span class="bold-small"><%= @visit.prison_name %></span>
       </dd>
     </dl>
   </div>
 
-   <div class="Grid-2-3">
+   <div class="column-two-thirds">
     <dl>
       <dt><%= t('.cancelled_on') %></dt>
       <dd>
-        <strong><%= @visit.cancelled_at.to_s(:short) %></strong>
+        <span class="bold-small"><%= @visit.cancelled_at.to_s(:short) %></span>
       </dd>
     </dl>
   </div>
 
-  <div class="Grid-2-3">
+  <div class="column-two-thirds">
     <dl>
       <dt><%= t('.cancellation_reason') %></dt>
       <dd>
-        <%= t(".#{@visit.cancellation_reason}") %>
+        <span class="bold-small"><%= t(".#{@visit.cancellation_reason}") %></span>
       </dd>
     </dl>
   </div>
 </div>
 
-<div class="Grid">
-  <div class="Grid-2-3">
+<div class="grid-row">
+  <div class="column-two-thirds">
     <p><%= t('visits.shared.request_new_visit_html', url: booking_requests_path) %></p>
   </div>
 </div>
