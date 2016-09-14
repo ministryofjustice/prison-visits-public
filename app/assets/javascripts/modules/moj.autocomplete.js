@@ -46,12 +46,16 @@
           val = selected.val() ? selected.text() : '',
           key, value, i, attrs, raw_attrs;
 
+      var selectID = this.$select.attr('id');
+      this.$select.attr('id', selectID+'_select');
+
       this.$text = $( '<input>' )
         .attr('type', 'text') // give it a field type
         .attr('data-input-name', this.$select.attr('name'))
         .val(val) // set value if already selected
         .data('select', this.$select) // assoc select with this input
-        .addClass('form-control');
+        .addClass('form-control')
+        .attr('id', selectID);
 
       // if required, copy across attributes - useful for using [placeholder]
       if (this.settings.copyAttr) {
