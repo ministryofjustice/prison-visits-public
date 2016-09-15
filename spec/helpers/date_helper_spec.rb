@@ -33,7 +33,7 @@ RSpec.describe DateHelper do
 
     it 'displays the date and the time and duration of a slot' do
       expect(helper.format_slot_for_public(slot)).
-        to eq('Thursday 5 November 1:30pm for 1 hr 15 mins')
+        to eq('Thursday 5 November 1:30pm for 1 hour 15 mins')
     end
   end
 

@@ -42,8 +42,8 @@ RSpec.describe ApplicationHelper do
           other: 'mins'
         },
         hour: {
-          one: 'hr',
-          other: 'hrs'
+          one: 'hour',
+          other: 'hours'
         }
       )
     end

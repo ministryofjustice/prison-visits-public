@@ -69,8 +69,8 @@ en:
     am: am
     pm: pm
     hour: # used by slot picker JavaScript
-      one: hr
-      other: hrs
+      one: hour
+      other: hours
     minute: # used by slot picker JavaScript
       one: min
       other: mins
@@ -83,8 +83,8 @@ en:
     duration:
       glue: " "
       hours:
-        one: "%{count} hr"
-        other: "%{count} hrs"
+        one: "%{count} hour"
+        other: "%{count} hours"
       minutes:
         one: "%{count} min"
         other: "%{count} mins"

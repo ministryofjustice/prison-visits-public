@@ -34,7 +34,7 @@ module FormElementsHelper
   def field_hint(name)
     text = t(".#{name}_hint", default: '')
     if text.present?
-      content_tag(:span, class: 'form-hint') { text }
+      content_tag(:span, class: 'form-hint', id: 'dobHint') { text }
     else
       ''
     end
