@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/prisons/missing
+    uri: http://localhost:3000/api/prisons/ff6eb0ca-da69-4495-ac9d-b383e01371eb
     body:
       encoding: US-ASCII
       string: ''
@@ -17,7 +17,7 @@ http_interactions:
       - unique_id
   response:
     status:
-      code: 404
+      code: 401
       message: ''
     headers:
       X-Frame-Options:
@@ -33,10 +33,10 @@ http_interactions:
       X-Request-Id:
       - unique_id
       X-Runtime:
-      - '0.012952'
+      - '0.037716'
     body:
       encoding: UTF-8
-      string: '{"message":"Not found"}'
+      string: '{"message":"get off my back"}'
     http_version: 
-  recorded_at: Thu, 05 May 2016 15:53:40 GMT
+  recorded_at: Wed, 21 Sep 2016 15:05:37 GMT
 recorded_with: VCR 3.0.1

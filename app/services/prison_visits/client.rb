@@ -1,7 +1,8 @@
 require 'excon'
 
 module PrisonVisits
-  APIError = Class.new(StandardError)
+  APIError    = Class.new(StandardError)
+  APINotFound = Class.new(StandardError)
 
   class Client
     TIMEOUT = 2 # seconds
@@ -63,6 +64,8 @@ module PrisonVisits
       }
 
       JSON.parse(response.body)
+    rescue Excon::Errors::NotFound
+      raise APINotFound, api_method
     rescue Excon::Errors::HTTPStatusError => e
       body = e.response.body
 
