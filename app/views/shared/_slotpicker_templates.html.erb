@@ -26,7 +26,10 @@
   <td class="{{ klass }}">
     <div class="BookingCalendar-content">
       <a class="BookingCalendar-dateLink" data-date="{{ date }}" href="#date-{{ date }}">
-        <span class="BookingCalendar-day">{{ day }}</span>
+        <span class="BookingCalendar-day">{{ day }} <span class="visuallyhidden">{{ fullDate }}</span></span>
+        {{#if unavailable}}
+          <span class="BookingCalendar-day--unavailable visuallyhidden"><%= t('.unavailable') %></span>
+        {{/if}}
         {{#if today}}
           <span class="BookingCalendar-tag BookingCalendar-tag--today"><%= t('.today') %></span>
         {{/if}}
@@ -52,9 +55,9 @@
       </div>
       <p class="SlotPicker-prompt"><%= t('.choose_date_and_time') %></p>
       {{#unless first}}
-      <a class="SlotPicker-icon SlotPicker-icon--promote" href="#"><%= t('.promote') %></a>
+      <a class="SlotPicker-icon SlotPicker-icon--promote" href="#"><%= t('.promote') %> {{ num }}</a>
       {{/unless}}
-      <a class="SlotPicker-icon SlotPicker-icon--remove" href="#"><%= t('.remove') %></a>
+      <a class="SlotPicker-icon SlotPicker-icon--remove" href="#"><%= t('.remove') %> {{ num }}</a>
     </div>
   </div>
   {{#if first}}

@@ -13,7 +13,8 @@
 
 // MOJ elements
 //= require moj
-//= require dist/javascripts/moj.slot-picker
+//= require modules/moj.slot-picker
+
 //= require dist/javascripts/moj.date-slider
 //= require src/moj.TimeoutPrompt
 

@@ -1,24 +1,24 @@
 <div class="BookingCalendar hidden--mobile">
+  <h2 class="bold-small">Choose a date for your visit</h2>
   <div class="BookingCalendar-header">
     <a class="BookingCalendar-nav BookingCalendar-nav--prev" href="#"></a>
     <strong class="BookingCalendar-currentMonth"></strong>
     <a class="BookingCalendar-nav BookingCalendar-nav--next" href="#"></a>
   </div>
-  <table class="BookingCalendar-dates">
-    <thead>
-      <tr>
-        <% each_day_of_week do |day| %>
-          <th><%= I18n.l(day, format: :day_of_week) %></th>
-        <% end %>
-      </tr>
-    </thead>
-  </table>
-
   <div class="BookingCalendar-mask">
     <table class="BookingCalendar-dates">
+      <caption class="visuallyhidden">Choose a date from the calendar</caption>
+      <thead>
+        <tr>
+          <% each_day_of_week do |day| %>
+            <th><%= I18n.l(day, format: :day_of_week) %></th>
+          <% end %>
+        </tr>
+      </thead>
       <tbody class="BookingCalendar-datesBody">
-        
+
       </tbody>
-  </table>
-</div>
+    </table>
+  </div>
+
 </div>
