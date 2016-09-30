@@ -1,21 +1,94 @@
-// PVB specific
 .SlotPicker {
   margin: 0 0 $gutter;
 }
+// Slot Picker Choices
+.SlotPicker-choice {
+  .SlotPicker-position {
+    background-color: $panel-colour;
+    color: $text-colour;
+  }
+  .SlotPicker-choiceInner {
+    cursor: auto;
+  }
+  .SlotPicker-icon {
+    visibility: hidden;
+  }
+  &.is-active {
+    .SlotPicker-choiceInner {
+      .SlotPicker-prompt {
+        display: block;
+      }
+      .SlotPicker-position {
+        color: $white;
+      }
+    }
+  }
+  &.is-chosen {
+    .SlotPicker-choiceInner {
+      .SlotPicker-position {
+        color: $white;
+      }
+      .SlotPicker-icon {
+        text-indent: -999px;
+        visibility: visible;
+      }
+    }
+  }
+}
 
+// Slot Picker Calendar
+.BookingCalendar {
+  .BookingCalendar-mask {
+    height: auto;
+  }
+  .BookingCalendar-dates {
+    background: $panel-colour;
+    tbody {
+      td {
+        border-color: $border-colour;
+        div {
+          border: none;
+        }
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+  .BookingCalendar-date--unavailable {
+    .BookingCalendar-dateLink {
+      color: $text-colour;
+    }
+  }
+  .BookingCalendar-tag--today {
+    background-color: $link-colour;
+  }
+}
+
+// Slot Picker Legend
 .BookingCalendar-legend {
   margin: $gutter-half 0;
   label.selected {
     background-color: transparent;
   }
+  .BookingCalendar-legendBox {
+    border-color: $border-colour;
+  }
+  .BookingCalendar-legendBox--unavailable {
+    background: $panel-colour;
+  }
 }
 
 .SlotPicker-label {
   background: #fff;
+  background-image: none;
   @extend .block-label;
   float: left;
   clear: none;
   border-color: #000;
+}
+.SlotPicker-label.is-disabled {
+  background-image: none;
 }
 .SlotPicker-slot {
   left: 0;
