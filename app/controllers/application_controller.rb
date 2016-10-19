@@ -41,7 +41,7 @@ private
 
   def set_locale
     locale = params[:locale]
-    I18n.locale = if locale && I18n.available_locales.include?(locale)
+    I18n.locale = if locale && I18n.available_locales.include?(locale.to_sym)
                     locale
                   else
                     I18n.default_locale

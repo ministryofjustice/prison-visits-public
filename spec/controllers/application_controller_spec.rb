@@ -15,5 +15,13 @@ RSpec.describe ApplicationController do
         }.to_not raise_error
       end
     end
+
+    context 'with a valid locale' do
+      it 'switches the locale' do
+        expect {
+          get :index, locale: 'cy'
+        }.to change { I18n.locale }.to(:cy)
+      end
+    end
   end
 end
