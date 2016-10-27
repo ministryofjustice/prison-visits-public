@@ -38,6 +38,19 @@
   </div>
 </div>
 
+<% if @visit.messages.any? -%>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <dl>
+        <dt><%= t('.message_title') %></dt>
+        <dd>
+        <%= @visit.messages.first.body %>
+        </dd>
+      </dl>
+    </div>
+  </div>
+<% end -%>
+
 <div class="grid-row">
   <div class="column-two-thirds">
     <p><%= t('visits.shared.request_new_visit_html', url: booking_requests_path) %></p>

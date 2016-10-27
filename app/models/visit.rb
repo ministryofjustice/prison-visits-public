@@ -1,6 +1,8 @@
 class Visit
   include NonPersistedModel
 
+  VALID_STATES = %i[ requested withdrawn booked cancelled rejected ]
+
   attribute :id
   attribute :confirm_by, Date
   attribute :slot_granted, ConcreteSlot, coercer: lambda { |slot|
@@ -19,10 +21,13 @@ class Visit
   attribute :visitors, [Visitor], coercer: lambda { |visitors|
     visitors.map { |v| Visitor.new(v) }
   }
+
+  attribute :messages, [Message], coercer: lambda { |messages|
+    messages.map { |m| Message.new(m) }
+  }
+
   attribute :cancellation_reason, Symbol
   attribute :cancelled_at, DateTime
-
-  VALID_STATES = %i[ requested withdrawn booked cancelled rejected ]
 
   delegate :address, :email_address, :name, :phone_no, :postcode,
     to: :prison, prefix: true
