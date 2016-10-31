@@ -21,7 +21,8 @@ class Visit
   }
   attribute :cancellation_reason, Symbol
   attribute :cancelled_at, DateTime
-
+  attribute :can_cancel, Boolean
+  attribute :can_withdraw, Boolean
   VALID_STATES = %i[ requested withdrawn booked cancelled rejected ]
 
   delegate :address, :email_address, :name, :phone_no, :postcode,
@@ -34,6 +35,14 @@ class Visit
 
   def rejected_visitors
     visitors.reject(&:allowed)
+  end
+
+  def can_cancel?
+    can_cancel
+  end
+
+  def can_withdraw?
+    can_withdraw
   end
 
 private

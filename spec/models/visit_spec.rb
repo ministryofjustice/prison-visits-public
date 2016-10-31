@@ -5,12 +5,16 @@ RSpec.describe Visit, type: :model do
 
   let(:params) {
     {
-      id: '1',
-      prison_id: '2',
+      id:               '1',
+      prison_id:        '2',
       processing_state: 'requested',
-      slots: ['2015-10-23T14:00/15:30']
+      slots:            ['2015-10-23T14:00/15:30'],
+      can_cancel:       can_cancel,
+      can_withdraw:     can_withdraw
     }
   }
+  let(:can_cancel)   { false }
+  let(:can_withdraw) { false }
 
   let(:prison) { Prison.new(email_address: 'test@example.com') }
 
@@ -31,6 +35,17 @@ RSpec.describe Visit, type: :model do
     expect(subject.prison_email_address).to eq('test@example.com')
   end
 
+  describe '#can_cancel?' do
+    let(:can_cancel) { true }
+
+    it { is_expected.to be_can_cancel }
+  end
+
+  describe '#can_withdraw?' do
+    let(:can_withdraw) { true }
+
+    it { is_expected.to be_can_withdraw }
+  end
   describe "visitors" do
     let(:visitors) { [allowed_visitor, not_allowed_visitor] }
     let(:allowed_visitor) { Visitor.new(allowed: true) }
