@@ -1,20 +1,22 @@
-<div id='cancel-visit'>
-  <h2 class="heading-medium"><%= t('visits.shared.cancel_title') %></h2>
+<% if @visit.can_cancel? || @visit.can_withdraw? %>
+  <div id='cancel-visit'>
+    <h2 class="heading-medium"><%= t('visits.shared.cancel_title') %></h2>
 
-  <p><%= t('visits.shared.cancel_intro') %></p>
+    <p><%= t('visits.shared.cancel_intro') %></p>
 
-  <%= form_tag(cancellations_path, html: { class: 'js-SubmitOnce' }) do %>
-    <%= hidden_field_tag(:id, @visit.id) %>
+    <%= form_tag(cancellations_path, class: 'js-SubmitOnce' ) do %>
+      <%= hidden_field_tag(:id, @visit.id) %>
 
-    <div class="form-group">
-      <label class="block-label">
-        <%= check_box_tag(:confirmed) %>
-        <%= t('visits.shared.cancel_confirm') %>
-      </label>
-    </div>
+      <div class="form-group">
+        <label class="block-label">
+          <%= check_box_tag(:confirmed) %>
+          <%= t('visits.shared.cancel_confirm') %>
+        </label>
+      </div>
 
-    <div class='form-group'>
-      <%= submit_tag(t('visits.shared.cancel_cta'), class: 'button button-primary') %>
-    </div>
-  <% end %>
-</div>
+      <div class='form-group'>
+        <%= submit_tag(t('visits.shared.cancel_cta'), class: 'button button-primary') %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
