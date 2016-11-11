@@ -9,120 +9,116 @@
   confirmation_step = @steps.fetch(:confirmation_step)
 %>
 
-<div class="divider compact">
-  <hr/>
-  <%= form_for(confirmation_step,
+
+
+
+
+<table class="check-your-answers">
+
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h2 class="heading-medium">
+            Review request details
+          </h2>
+        </th>
+        <th>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+          <%= t('.prisoner_details') %>
+        </td>
+        <td>
+          <span class="bold-small"><%= prisoner_step.full_name %></span><br/>
+          <%= t('.date_of_birth') %> <span class="bold-small"><%= format_date_of_birth(prisoner_step.date_of_birth) %></span><br/>
+          <%= t('.prisoner_number') %> <span class="bold-small"><%= prisoner_step.number %></span><br/>
+          <%= t('.prison') %> <span class="bold-small"><%= prisoner_step.prison_name %></span>
+        </td>
+        <td class="change-answer text-right">
+          <%= form_for(confirmation_step,
                url: booking_requests_path,
-               html: { class: 'js-SubmitOnce' }) do |f| %>
-    <%= render('hidden_prisoner_step') %>
-    <%= render('hidden_visitors_step') %>
-    <%= render('hidden_slots_step') %>
-    <%= hidden_field_tag('review_step', 'prisoner_step') %>
-
-    <p class="edit-link float-right">
-      <%= f.submit(t('.change_prisoner_details'), class: 'button button-secondary') %>
-    </p>
-  <% end %>
-
-  <p class="lede"><%= t('.prisoner_details') %></p>
-
-  <p>
-    <span class="bold-small"><%= prisoner_step.full_name %></span>
-    <br/>
-    <%= t('.date_of_birth') %>
-    <span class="bold-small"><%= format_date_of_birth(prisoner_step.date_of_birth) %></span>
-    <br/>
-    <%= t('.prisoner_number') %>
-    <span class="bold-small"><%= prisoner_step.number %></span>
-    <br/>
-    <%= t('.prison') %>
-    <span class="bold-small"><%= prisoner_step.prison_name %></span>
-  </p>
-
-
-</div>
-
-<div class="divider compact">
-  <hr/>
-  <%= form_for(confirmation_step,
+               html: { class: '' }) do |f| %>
+            <%= render('hidden_prisoner_step') %>
+            <%= render('hidden_visitors_step') %>
+            <%= render('hidden_slots_step') %>
+            <%= hidden_field_tag('review_step', 'prisoner_step') %>
+            <%= f.submit(t('.change_prisoner_details'), class: 'button-link') %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= t('.visitor_details') %>
+        </td>
+        <td>
+          <%= t('.confirmation_email_address') %> <span class="bold-small"><%= visitors_step.email_address %></span>
+          <% visitors_step.visitors.each_with_index do |visitor, index| %>
+            <br/>
+            <%= t('.visitor_n', n: index + 1) %> <span class="bold-small"><%= visitor.full_name %> – <%= format_date_of_birth(visitor.date_of_birth) %></span>
+          <% end %>
+        </td>
+        <td class="change-answer text-right">
+          <%= form_for(confirmation_step,
                url: booking_requests_path,
-               html: { class: 'js-SubmitOnce' }) do |f| %>
-    <%= render('hidden_prisoner_step') %>
-    <%= render('hidden_visitors_step') %>
-    <%= render('hidden_slots_step') %>
-    <%= hidden_field_tag('review_step', 'visitors_step') %>
-
-    <p class="edit-link float-right">
-      <%= f.submit(t('.change_visitor_details'), class: 'button button-secondary') %>
-    </p>
-  <% end %>
-
-  <p class="lede"><%= t('.visitor_details') %></p>
-
-  <p>
-    <%= t('.confirmation_email_address') %>
-    <span class="bold-small">
-      <%= visitors_step.email_address %>
-    </span>
-
-
-    <% visitors_step.visitors.each_with_index do |visitor, index| %>
-      <br/>
-        <%= t('.visitor_n', n: index + 1) %>
-        <span class="bold-small"><%= visitor.full_name %></span>
-        –
-        <%= format_date_of_birth(visitor.date_of_birth) %>
-    <% end %>
-  </p>
-
-
-</div>
-
-<div class="divider compact visit-details">
-  <hr/>
-  <%= form_for(confirmation_step,
+               html: { class: '' }) do |f| %>
+            <%= render('hidden_prisoner_step') %>
+            <%= render('hidden_visitors_step') %>
+            <%= render('hidden_slots_step') %>
+            <%= hidden_field_tag('review_step', 'visitors_step') %>
+            <%= f.submit(t('.change_visitor_details'), class: 'button-link') %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= t('.your_visit') %>
+        </td>
+        <td>
+          <% if slots_step.options_available? %>
+            <p><%= t('.options_available_html') %></p>
+          <% end %>
+          <%= t('.first_choice') %><br/>
+          <span class="bold-small"><%= format_slot_for_public(slots_step.slots.first) %></span>
+          <% if slots_step.additional_options? %>
+            <p>
+              <%= t('.alternatives') %>
+              <% slots_step.slots.drop(1).each do |slot| %>
+                <br/>
+                <span class="bold-small">
+                  <%= format_slot_for_public(slot) %>
+                </span>
+              <% end %>
+          <% end %>
+        </td>
+        <td class="change-answer text-right">
+          <%= form_for(confirmation_step,
                url: booking_requests_path,
-               html: { class: 'js-SubmitOnce' }) do |f| %>
-    <%= render('hidden_prisoner_step') %>
-    <%= render('hidden_visitors_step') %>
-    <%= render('hidden_slots_step') %>
-    <%= hidden_field_tag('review_step', 'slots_step') %>
+               html: { class: '' }) do |f| %>
+            <%= render('hidden_prisoner_step') %>
+            <%= render('hidden_visitors_step') %>
+            <%= render('hidden_slots_step') %>
+            <%= hidden_field_tag('review_step', 'slots_step') %>
+            <%= f.submit(t('.change_visit_details'), class: 'button-link') %>
+          <% end %>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-    <p class="edit-link float-right">
-      <%= f.submit(t('.change_visit_details'), class: 'button button-secondary') %>
-    </p>
-  <% end %>
 
-  <p class="lede"><%= t('.your_visit') %></p>
 
-  <% if slots_step.options_available? %>
-    <p><%= t('.options_available') %></p>
-  <% end %>
 
-  <p>
-    <%= t('.first_choice') %>
-    <br/>
-    <span class="bold-small">
-      <%= format_slot_for_public(slots_step.slots.first) %>
-    </span>
-  </p>
 
-  <% if slots_step.additional_options? %>
-    <p>
-      <%= t('.alternatives') %>
-      <% slots_step.slots.drop(1).each do |slot| %>
-        <br/>
-        <span class="bold-small">
-          <%= format_slot_for_public(slot) %>
-        </span>
-      <% end %>
-  <% end %>
 
-</div>
 
 <div class="divider">
-  <hr/>
-  <%= link_to(t('.ts_and_cs'), terms_and_conditions_path, class: 'font-xsmall') %>
+
+
 
   <%= form_for(confirmation_step,
                url: booking_requests_path,
@@ -141,5 +137,6 @@
         </div>
       </div>
     <% end %>
+          <%= link_to(t('.ts_and_cs'), terms_and_conditions_path, class: 'font-xsmall') %>
   </div>
 </div>
