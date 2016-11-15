@@ -3,3 +3,50 @@ table {
     vertical-align: top;
   }
 }
+
+table.check-your-answers {
+  margin-bottom: $gutter;
+  tr, td {
+    border: none;
+  }
+  td:first-child {
+    @extend .bold-small;
+    width: 33%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  table thead {
+    display: none;
+  }
+  table tr {
+    border-bottom: 2px solid $border-colour;
+    display: block;
+  }
+  table td {
+    border-bottom: 1px solid $border-colour;
+    display: block;
+    text-align: right;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  table td:before {
+    content: attr(aria-label);
+    float: left;
+    font-weight: bold;
+  }
+  table.check-your-answers {
+    thead {
+      display: block;
+    }
+    th {
+      width: 100%
+    }
+    td:first-child {
+      display: none;
+    }
+  }
+}
+
+
