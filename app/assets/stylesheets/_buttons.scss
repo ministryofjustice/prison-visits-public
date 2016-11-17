@@ -9,3 +9,18 @@
     background-color: $grey-2;
   }
 }
+.button-link {
+  background: none;
+  border: none;
+  color: $link-colour;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  &:hover {
+    color: $link-hover-colour;
+    text-decoration: none;
+  }
+  &:visited {
+    color: $link-visited-colour;
+  }
+}
