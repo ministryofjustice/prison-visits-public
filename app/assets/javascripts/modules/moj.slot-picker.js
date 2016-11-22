@@ -203,7 +203,7 @@
     },
 
     consolidate: function() {
-      var slots, i, times = [], day, days = [], previous;
+      var slots, prisoner_unavailable_slots, i, times = [], day, days = [], previous;
 
       this.settings.originalSlots = this.$slotInputs.map(function() {
         var v = $(this).val();
@@ -212,7 +212,14 @@
         }
       }).get();
 
-      slots = this.$slotInputs.first().find('option').map(function() {
+      slots = this.$slotInputs.first().find('option:not(.prisoner-unavailable)').map(function() {
+        var v = $(this).val();
+        if (v !== '') {
+          return v;
+        }
+      }).get();
+
+      prisoner_unavailable_slots = this.$slotInputs.first().find('option.prisoner-unavailable').map(function() {
         var v = $(this).val();
         if (v !== '') {
           return v;
@@ -220,6 +227,10 @@
       }).get();
 
       this.settings.bookableDates = $.map(slots, function(s) {
+        return s.substr(0, 10);
+      });
+
+      this.settings.prisonerUnavailableDates = $.map(prisoner_unavailable_slots, function(s) {
         return s.substr(0, 10);
       });
 
@@ -488,7 +499,7 @@
           monthShort: this.settings.i18n.abbrMonths[curDate.getMonth()],
           fullDate: this.dayLabel(curDate),
           unavailable: moj.Helpers.dateBookable(curDate, this.settings.bookableDates) ? false : true,
-          klass: moj.Helpers.dateBookable(curDate, this.settings.bookableDates) ? 'BookingCalendar-date--bookable' : 'BookingCalendar-date--unavailable'
+          klass: moj.Helpers.dateBookable(curDate, this.settings.bookableDates) ? 'BookingCalendar-date--bookable' : moj.Helpers.dateBookable(curDate, this.settings.prisonerUnavailableDates) ? 'BookingCalendar-date--prisoner-unavailable' : 'BookingCalendar-date--unavailable'
         });
 
         if (count === 7) {

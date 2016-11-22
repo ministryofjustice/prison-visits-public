@@ -63,6 +63,21 @@
   .BookingCalendar-tag--today {
     background-color: $link-colour;
   }
+  .BookingCalendar-date--prisoner-unavailable {
+    background: $error-colour;
+    .BookingCalendar-dateLink {
+      color: $white;
+    }
+  }
+}
+
+// DateSlider Calendar
+.DateSlider-days li.unavailable {
+  background: $panel-colour;
+}
+.DateSlider-days li.prisoner-unavailable {
+  background: $error-colour;
+  color: $white;
 }
 
 // Slot Picker Legend
@@ -76,6 +91,9 @@
   }
   .BookingCalendar-legendBox--unavailable {
     background: $panel-colour;
+  }
+  .BookingCalendar-legendBox--prisoner-unavailable {
+    background: $error-colour;
   }
 }
 

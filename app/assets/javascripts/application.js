@@ -14,8 +14,8 @@
 // MOJ elements
 //= require moj
 //= require modules/moj.slot-picker
+//= require modules/moj.date-slider
 
-//= require dist/javascripts/moj.date-slider
 //= require src/moj.TimeoutPrompt
 
 // Candidates for re-usable components
@@ -31,6 +31,5 @@
   'use strict';
   delete moj.Modules.devs;
   var selectionButtons = new GOVUK.SelectionButtons("label input[type='radio'], label input[type='checkbox']");
-  // console.log('moj', moj);
   moj.init();
 }());
