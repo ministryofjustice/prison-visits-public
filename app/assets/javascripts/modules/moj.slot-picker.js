@@ -684,6 +684,7 @@
 
   moj.Modules.SlotPicker = {
     init: function() {
+      $('.SlotPicker-input').first().find('option:even').addClass('prisoner-unavailable');
       return $('.SlotPicker').each(function() {
         $(this).data('SlotPicker', new SlotPicker($(this), $(this).data()));
       });
