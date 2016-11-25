@@ -14,7 +14,7 @@ en:
             date_of_birth:
               inclusion: is not a valid date
           api:
-            prisoner_does_not_exist: does not match any prisoner
+            prisoner_does_not_exist: No prisoner matches the details you’ve supplied, please ask the prisoner to check your details are correct
         visitors_step:
           attributes:
             general:
