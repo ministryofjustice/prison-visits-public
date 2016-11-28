@@ -8,7 +8,7 @@ en:
       contact_us: Contact us
       feedback_banner_html: |
         <p>
-          <span>This service is being improved and you may notice changes – <a href='%{url}' target='_blank' rel='external'>your feedback<span class='visuallyhidden'> (link opens in a new browser window)</span></a> is welcome.</span>
+          <span>This service is being improved and you may notice changes – <a href='%{url}' target='_blank' rel='external'>contact us<span class='visuallyhidden'> (link opens in a new browser window)</span></a> if you need help.</span>
         </p>
   booking_requests:
     hidden_inputs_for_calendars:
