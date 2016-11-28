@@ -131,31 +131,29 @@ en:
   feedback_submissions:
     new:
       title: Contact us
+      about_your_booking: About your booking
       intro_html: >-
-        You can use this form to tell us about a problem you’re having with the
-        website. You must <a href="%{url}">contact the prison</a> if your
-        question is about:
-      whether_booked: >-
-        whether your visit has been booked
-      cancelling_changing: >-
-        cancelling or changing visit details eg names of visitors, dates or
-        times
-      what_can_bring: >-
-        what you can bring when you visit, eg clothes or money
-      contact_lists: >-
-        prisoner’s contact lists or visiting allowance
-      not_able_to_help: >-
-        We’re not able to help with questions about the above.
-      no_sensitive_info: >-
-        Please don’t include any sensitive personal information (eg. prisoner
-        numbers).
+        <a href="%{url}">Contact the prison</a> if you want to:
+      contact_list_html: >-
+        <ul class="list list-bullet">
+          <li>add or remove visitors from a booking</li>
+          <li>change the date or time of a visit</li>
+          <li>ask what you can bring when you visit, such as clothes or money</li>
+          <li>check a prisoner's contact lists or visiting allowance</li>
+        </ul>
+      about_this_service: About this online service
+      problems: >-
+        If you have any feedback or problems using this service, leave a message
+        in the box below.
       feedback_form: Feedback form
-      body: Your question
+      body: Your message
+      body_hint: >-
+        Do not include sensitive personal information, such as prisoner numbers.
       want_reply_title: Do you want a reply?
       want_reply_text: >-
-        If you’d like us to get back to you, please leave your details below.
+        If you'd like us to get back to you, please leave your details below.
       email_address: Your email address
-      email_address_hint: We’ll only use this to reply to your message.
+      email_address_hint: We will only use this to reply to your message.
       send: Send
     create:
       title: Thank you for your feedback
