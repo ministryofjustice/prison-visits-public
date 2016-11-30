@@ -5,7 +5,7 @@ module PrisonVisits
   APINotFound = Class.new(StandardError)
 
   class Client
-    TIMEOUT = 2 # seconds
+    TIMEOUT = 3 # seconds
 
     def initialize(host)
       @host = host
