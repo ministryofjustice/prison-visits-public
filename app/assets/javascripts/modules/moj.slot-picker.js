@@ -130,6 +130,8 @@
       demoted.find('.SlotPicker-choiceContent').css('top', h + 'px');
 
       setTimeout(function(){promote()}, transition());
+
+      this.triggerAnalytics('Promote slot', 'click', 'slot '+(index+1));
     },
 
     renderElements: function() {
@@ -390,6 +392,8 @@
 
       this.settings.currentSlots.splice(pos, 1);
       this.markDate(slot);
+
+      this.triggerAnalytics('Remove slot', 'click', 'slot '+(pos+1));
     },
 
     shiftSlot: function(pos) {
@@ -617,6 +621,15 @@
           scrollTop: bottom - $(window).height()
         }, 350);
       }
+    },
+
+    triggerAnalytics: function(category, action, label){
+      var gaParams = {
+        'category': category,
+        'action': action,
+        'label': label
+      };
+      moj.Modules.Analytics.send(gaParams);
     }
 
   };
