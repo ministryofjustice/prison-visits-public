@@ -113,8 +113,8 @@ RSpec.describe StepsProcessor do
   context 'with complete prisoner details' do
     let(:params) { { prisoner_step: prisoner_details } }
 
-    it 'chooses the visitors_step template' do
-      expect(subject.step_name).to eq(:visitors_step)
+    it 'chooses the slots_step template' do
+      expect(subject.step_name).to eq(:slots_step)
     end
 
     it 'initialises the PrisonerStep with the supplied attributes' do
@@ -138,6 +138,7 @@ RSpec.describe StepsProcessor do
     let(:params) {
       {
         prisoner_step: prisoner_details,
+        slots_step: slots_details,
         visitors_step: { phone_no: '07900112233' }
       }
     }
@@ -164,12 +165,13 @@ RSpec.describe StepsProcessor do
     let(:params) {
       {
         prisoner_step: prisoner_details,
-        visitors_step: visitors_details
+        visitors_step: visitors_details,
+        slots_step: slots_details
       }
     }
 
     it 'chooses the slots_step template' do
-      expect(subject.step_name).to eq(:slots_step)
+      expect(subject.step_name).to eq(:confirmation_step)
     end
 
     it 'initialises the PrisonerStep with the supplied attributes' do
@@ -180,6 +182,11 @@ RSpec.describe StepsProcessor do
     it 'initialises the VisitorsStep with the supplied attributes' do
       expect(subject.steps[:visitors_step]).
         to have_attributes(phone_no: '07900112233')
+    end
+
+    it 'initialises the SlotsStep with the supplied attributes' do
+      expect(subject.steps[:slots_step]).
+        to have_attributes(option_0: '2015-01-02T09:00/10:00')
     end
 
     it_behaves_like 'it has all steps'
@@ -198,7 +205,6 @@ RSpec.describe StepsProcessor do
     let(:params) {
       {
         prisoner_step: prisoner_details,
-        visitors_step: visitors_details,
         slots_step: slots_details
       }
     }
@@ -208,18 +214,13 @@ RSpec.describe StepsProcessor do
         to receive(:bookable_slot?).and_return(true)
     end
 
-    it 'chooses the confirmation template' do
-      expect(subject.step_name).to eq(:confirmation_step)
+    it 'chooses the visitors template' do
+      expect(subject.step_name).to eq(:visitors_step)
     end
 
     it 'initialises the PrisonerStep with the supplied attributes' do
       expect(subject.steps[:prisoner_step]).
         to have_attributes(first_name: 'Oscar')
-    end
-
-    it 'initialises the VisitorsStep with the supplied attributes' do
-      expect(subject.steps[:visitors_step]).
-        to have_attributes(phone_no: '07900112233')
     end
 
     it 'initialises the SlotsStep with the supplied attributes' do
@@ -246,7 +247,6 @@ RSpec.describe StepsProcessor do
     let(:params) {
       {
         prisoner_step: prisoner_details,
-        visitors_step: visitors_details,
         slots_step: { option_0: '' }
       }
     }
@@ -258,11 +258,6 @@ RSpec.describe StepsProcessor do
     it 'initialises the PrisonerStep with the supplied attributes' do
       expect(subject.steps[:prisoner_step]).
         to have_attributes(first_name: 'Oscar')
-    end
-
-    it 'initialises the VisitorsStep with the supplied attributes' do
-      expect(subject.steps[:visitors_step]).
-        to have_attributes(phone_no: '07900112233')
     end
 
     it_behaves_like 'it has all steps'

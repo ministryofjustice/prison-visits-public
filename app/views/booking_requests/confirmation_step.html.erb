@@ -49,43 +49,6 @@
   <thead>
     <tr>
       <th>
-        <%= t('.visitor_details') %>
-      </th>
-      <th class="change-answer text-right">
-        <%= form_for(confirmation_step,
-             url: booking_requests_path,
-             html: { class: 'js-SubmitOnce' }) do |f| %>
-          <%= render('hidden_prisoner_step') %>
-          <%= render('hidden_visitors_step') %>
-          <%= render('hidden_slots_step') %>
-          <%= hidden_field_tag('review_step', 'visitors_step') %>
-          <%= f.submit(t('.change_visitor_details'), class: 'button-link') %>
-        <% end %>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= t('.confirmation_email_address') %></td>
-      <td aria-label="<%= t('.confirmation_email_address') %>"><%= visitors_step.email_address %></td>
-    </tr>
-    <% visitors_step.visitors.each_with_index do |visitor, index| %>
-      <tr>
-        <td>
-          <%= t('.visitor_n', n: index + 1) %>
-        </td>
-        <td aria-label="<%= t('.visitor_n', n: index + 1) %>">
-          <%= visitor.full_name %> – <%= format_date_of_birth(visitor.date_of_birth) %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<table class="check-your-answers">
-  <thead>
-    <tr>
-      <th>
         <%= t('.your_visit') %>
       </th>
       <th class="change-answer text-right">
@@ -119,6 +82,43 @@
           <% slots_step.slots.drop(1).each do |slot| %>
             <%= format_slot_for_public(slot) %><br/>
           <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="check-your-answers">
+  <thead>
+    <tr>
+      <th>
+        <%= t('.visitor_details') %>
+      </th>
+      <th class="change-answer text-right">
+        <%= form_for(confirmation_step,
+             url: booking_requests_path,
+             html: { class: 'js-SubmitOnce' }) do |f| %>
+          <%= render('hidden_prisoner_step') %>
+          <%= render('hidden_visitors_step') %>
+          <%= render('hidden_slots_step') %>
+          <%= hidden_field_tag('review_step', 'visitors_step') %>
+          <%= f.submit(t('.change_visitor_details'), class: 'button-link') %>
+        <% end %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= t('.confirmation_email_address') %></td>
+      <td aria-label="<%= t('.confirmation_email_address') %>"><%= visitors_step.email_address %></td>
+    </tr>
+    <% visitors_step.visitors.each_with_index do |visitor, index| %>
+      <tr>
+        <td>
+          <%= t('.visitor_n', n: index + 1) %>
+        </td>
+        <td aria-label="<%= t('.visitor_n', n: index + 1) %>">
+          <%= visitor.full_name %> – <%= format_date_of_birth(visitor.date_of_birth) %>
         </td>
       </tr>
     <% end %>
