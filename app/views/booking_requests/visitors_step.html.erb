@@ -1,62 +1,58 @@
 <% content_for :header, t('.title') %>
 <%= render('shared/timeout_prompt') %>
-<%= form_for(@steps.fetch(:visitors_step),
-url: booking_requests_path,
-html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
+<%= form_for(@steps.fetch(:visitors_step), url: booking_requests_path, html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
 
-<%= render('hidden_prisoner_step') %>
-<% if reviewing? %>
+  <%= render('hidden_prisoner_step') %>
   <%= render('hidden_slots_step') %>
-<% end %>
-<%= render('shared/validation', object: f.object) %>
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <div class="form-group">
-      <h3 class="bold-medium">
-      <%= t('.your_details') %>
-      </h3>
-    </div>
-    <fieldset>
-      <legend class="visuallyhidden">
-        <%= t('.your_details') %>
-      </legend>
-      <%= render('principal_visitor', f: f) %>
-      <div id="other-visitors">
-        <p class="lede"><%= t('.other_visitors') %></p class="lede">
-        <p>
-          <%= t('.seating_arrangements', adult_age: f.object.adult_age) %>
-        </p>
-        <script type="text/html" id="additional-visitor-selector">
-        <fieldset>
-          <legend class="visuallyhidden">
-            <%= t('.other_visitors') %>
-          </legend>
-          <div class="group group--inline">
-            <%= single_field(f, :additional_visitor_count, :select,
-            additional_visitor_selections(f.object),
-            {},
-            class: 'js-RevealAdditional form-control',
-            data: { target_els: '.additional-visitor' }) %>
+  <%= render('shared/validation', object: f.object) %>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <div class="form-group">
+        <h3 class="bold-medium">
+          <%= t('.your_details') %>
+        </h3>
+      </div>
+      <fieldset>
+        <legend class="visuallyhidden">
+          <%= t('.your_details') %>
+        </legend>
+        <%= render('principal_visitor', f: f) %>
+        <div id="other-visitors">
+          <p class="lede"><%= t('.other_visitors') %></p class="lede">
+          <p>
+            <%= t('.seating_arrangements', adult_age: f.object.adult_age) %>
+          </p>
+          <script type="text/html" id="additional-visitor-selector">
+            <fieldset>
+              <legend class="visuallyhidden">
+                <%= t('.other_visitors') %>
+              </legend>
+              <div class="group group--inline">
+                <%= single_field(f, :additional_visitor_count, :select,
+                                 additional_visitor_selections(f.object),
+                                 {},
+                                 class: 'js-RevealAdditional form-control',
+                                 data: { target_els: '.additional-visitor' }) %>
+              </div>
+            </fieldset>
+          </script>
+          <script>
+           document.write(
+             document.getElementById('additional-visitor-selector').innerHTML
+           );
+          </script>
+        </div>
+        <%= render('additional_visitors', f: f) %>
+        <div class="grid-row form-group">
+          <div class="column-one-half">
+            <%= f.submit(t('.next_step'), class: 'button button-primary') %>
           </div>
-        </fieldset>
-        </script>
-        <script>
-        document.write(
-        document.getElementById('additional-visitor-selector').innerHTML
-        );
-        </script>
-      </div>
-      <%= render('additional_visitors', f: f) %>
-      <div class="grid-row form-group">
-        <div class="column-one-half">
-          <%= f.submit(t('.next_step'), class: 'button button-primary') %>
+          <div class="column-one-half">
+            <%= render('cancel') %>
+          </div>
         </div>
-        <div class="column-one-half">
-          <%= render('cancel') %>
-        </div>
-      </div>
-    </fieldset>
+      </fieldset>
+    </div>
   </div>
-</div>
 <% end %>
 <%= render('contact_prison') %>

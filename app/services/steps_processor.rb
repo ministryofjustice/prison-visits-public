@@ -1,5 +1,6 @@
 class StepsProcessor
-  STEP_NAMES = %i[ prisoner_step visitors_step slots_step confirmation_step ]
+  STEP_NAMES = %i[ prisoner_step slots_step visitors_step confirmation_step ].
+               freeze
 
   delegate :prison, to: :prisoner_step
 
@@ -56,8 +57,8 @@ private
   def load_steps(params)
     {
       prisoner_step: load_step(PrisonerStep, params),
-      visitors_step: load_step(VisitorsStep, params),
       slots_step: load_step(SlotsStep, params),
+      visitors_step: load_step(VisitorsStep, params),
       confirmation_step: load_step(ConfirmationStep, params)
     }
   end

@@ -117,8 +117,8 @@ RSpec.describe BookingRequestsController do
           locale: 'en'
       end
 
-      it 'renders the visitors template' do
-        expect(response).to render_template('visitors_step')
+      it 'renders the slots template' do
+        expect(response).to render_template('slots_step')
       end
 
       it 'assigns a PrisonerStep' do
@@ -130,8 +130,8 @@ RSpec.describe BookingRequestsController do
           to have_attributes(first_name: 'Oscar')
       end
 
-      it 'assigns a new VisitorsStep' do
-        expect(assigns(:steps)[:visitors_step]).to be_a(VisitorsStep)
+      it 'assigns a new SlotsStep' do
+        expect(assigns(:steps)[:slots_step]).to be_a(SlotsStep)
       end
     end
   end
@@ -141,6 +141,7 @@ RSpec.describe BookingRequestsController do
       before do
         post :create,
           prisoner_step: prisoner_details,
+          slots_step: slots_details,
           visitors_step: { phone_no: '01154960222' },
           locale: 'en'
       end
@@ -172,12 +173,13 @@ RSpec.describe BookingRequestsController do
       before do
         post :create,
           prisoner_step: prisoner_details,
+          slots_step: slots_details,
           visitors_step: visitors_details,
           locale: 'en'
       end
 
-      it 'renders the slots template' do
-        expect(response).to render_template('slots_step')
+      it 'renders the confirmation template' do
+        expect(response).to render_template('confirmation_step')
       end
 
       it 'assigns a PrisonerStep' do
@@ -209,13 +211,12 @@ RSpec.describe BookingRequestsController do
       before do
         post :create,
           prisoner_step: prisoner_details,
-          visitors_step: visitors_details,
           slots_step: slots_details,
           locale: 'en'
       end
 
-      it 'renders the confirmation template' do
-        expect(response).to render_template('confirmation_step')
+      it 'renders the visitors template' do
+        expect(response).to render_template('visitors_step')
       end
 
       it 'assigns a PrisonerStep' do
@@ -229,11 +230,6 @@ RSpec.describe BookingRequestsController do
 
       it 'assigns a VisitorsStep' do
         expect(assigns(:steps)[:visitors_step]).to be_a(VisitorsStep)
-      end
-
-      it 'initialises the VisitorsStep with the supplied attributes' do
-        expect(assigns(:steps)[:visitors_step]).
-          to have_attributes(phone_no: '07900112233')
       end
 
       it 'assigns a slots step' do
