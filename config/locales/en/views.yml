@@ -56,6 +56,14 @@ en:
         If you don’t enter any information for more than 20 minutes, then your
         session will time out and you’ll need to start again.
       next_step: Continue
+    prison_unavailable:
+      title: Prison unavailable
+      private_html: |
+        <p>You can’t use this service to book a visit to someone in %{prison} as it is privately run.</p>
+        <p>For information on how to book a visit to %{prison}, go to <a href="%{url}" rel="external">prison finder</a>.</p>
+      closed_html: |
+        <p>You can no longer book visits to %{prison} as it has been shut down.</p>
+        <p>For information on how to locate a prisoner, go to <a href="https://www.gov.uk/find-prisoner" rel="external">find a prisoner</a>.</p>
     visitors_step:
       title: Your visitor details
       your_details: Your details
