@@ -83,4 +83,11 @@ RSpec.describe PrisonerStep do
     expect(pvb_api).not_to receive(:validate_prisoner)
     expect(subject.valid?).to be false
   end
+
+  describe 'when API call fails' do
+    it 'is valid' do
+      expect(pvb_api).to receive(:validate_prisoner).and_raise(PrisonVisits::APIError)
+      expect(subject.valid?).to be true
+    end
+  end
 end

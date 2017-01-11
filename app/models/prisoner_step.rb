@@ -31,6 +31,7 @@ class PrisonerStep
 private
 
   # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   def validate_prisoner
     # If date_of_birth of number are invalid, there's no need to call the API
     return if errors[:date_of_birth].any? || errors[:number].any?
@@ -47,6 +48,9 @@ private
       errors.add :number, I18n.t(error_nomatch, scope: I18N_SCOPE)
       errors.add :date_of_birth, I18n.t(error_nomatch, scope: I18N_SCOPE)
     end
+  rescue PrisonVisits::APIError => e
+    Rails.logger.error e.message
   end
   # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 end
