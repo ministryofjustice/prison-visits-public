@@ -47,6 +47,8 @@ private
       errors.add :number, I18n.t(error_nomatch, scope: I18N_SCOPE)
       errors.add :date_of_birth, I18n.t(error_nomatch, scope: I18N_SCOPE)
     end
+  rescue PrisonVisits::APIError
+
   end
   # rubocop:enable Metrics/AbcSize
 end
