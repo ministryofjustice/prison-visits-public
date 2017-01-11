@@ -49,7 +49,7 @@ private
       errors.add :date_of_birth, I18n.t(error_nomatch, scope: I18N_SCOPE)
     end
   rescue PrisonVisits::APIError => e
-    Rails.logger.error e.messageg
+    Rails.logger.error e.message
   end
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
