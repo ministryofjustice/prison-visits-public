@@ -1,5 +1,4 @@
 class BookingRequestsController < ApplicationController
-  helper FormElementsHelper
 
   def index
     @steps = processor.steps
