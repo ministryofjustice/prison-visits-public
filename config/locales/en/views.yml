@@ -57,7 +57,7 @@ en:
         session will time out and you’ll need to start again.
       next_step: Continue
     visitors_step:
-      title: Visitor 1
+      title: Your visitor details
       your_details: Your details
       other_visitors: Other visitors
       seating_arrangements: >-
@@ -67,9 +67,9 @@ en:
       additional_visitor_count: How many other visitors?
       next_step: Continue
     principal_visitor:
-      first_name: Your first name
-      last_name: Your last name
-      date_of_birth: Your date of birth
+      first_name: First name
+      last_name: Last name
+      date_of_birth: Date of birth
       date_of_birth_hint: You must be over 18 to book a visit
       email_address: Email address
       email_address_hint: You’ll receive confirmation by email
