@@ -3,11 +3,10 @@
 
 <div class="grid-row">
   <div class="column-two-thirds">
-    <% if prison.private? %>
-      <%= t('.private_html', prison: prison.name, url: link_directory.prison_finder) %>
-    <% end %>
     <% if prison.closed? %>
       <%= t('.closed_html', prison: prison.name) %>
+    <% else %>
+      <%= t('.doesnt_use_pvb_html', prison: prison.name, url: link_directory.prison_finder) %>
     <% end %>
   </div>
 </div>

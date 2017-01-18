@@ -26,27 +26,24 @@ RSpec.describe Prison do
   end
 
   describe '#enabled?' do
-    before do
-      params[:closed]  = false
-      params[:private] = false
-    end
-
-    describe 'with a closed prison' do
+    context 'when disabled' do
       before do
-        params[:closed] = true
+        params[:enabled] = false
       end
-      it_behaves_like 'disabled prison'
+
+      it 'is false' do
+        expect(subject).to_not be_enabled
+      end
     end
 
-    describe 'with a private prison' do
+    context 'when enabled' do
       before do
-        params[:closed] = true
+        params[:enabled] = true
       end
-      it_behaves_like 'disabled prison'
-    end
 
-    it "is true" do
-      expect(subject.enabled?).to be true
+      it 'is true' do
+        expect(subject).to be_enabled
+      end
     end
   end
 

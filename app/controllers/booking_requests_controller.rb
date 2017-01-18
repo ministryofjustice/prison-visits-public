@@ -31,7 +31,9 @@ class BookingRequestsController < ApplicationController
 private
 
   def prison_unavailable?
-    !processor&.prison.enabled?
+    return false unless processor.prison
+
+    !processor.prison.enabled?
   end
 
   def respond_to_request(visit, step_name)

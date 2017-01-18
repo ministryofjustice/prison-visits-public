@@ -7,6 +7,7 @@ class Prison
   attribute :postcode, String
   attribute :closed, Boolean
   attribute :private, Boolean
+  attribute :enabled, Boolean
   attribute :email_address, String
   attribute :phone_no, String
   attribute :prison_finder_url, String
@@ -22,11 +23,7 @@ class Prison
   end
 
   def enabled?
-    !closed? && !private?
-  end
-
-  def private?
-    private
+    enabled
   end
 
   def self.all
