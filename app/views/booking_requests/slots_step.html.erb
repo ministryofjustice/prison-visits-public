@@ -4,7 +4,7 @@
 
 <% if @steps.fetch(:slots_step).bookable_slots? %>
 
-<%= render('shared/slotpicker_templates') %>
+  <%= render('shared/slotpicker_templates') %>
 
 <%= form_for(@steps.fetch(:slots_step),
              url: booking_requests_path,
@@ -14,40 +14,40 @@
     <%= render('hidden_visitors_step') %>
   <% end %>
 
-  <div class="SlotPicker" data-today="<%= Time.zone.today %>">
-    <div class="grid-row visible--js-enabled">
-      <div class="column-one-half">
-        <%= render('slot_picker') %>
-      </div>
-      <%= render('hidden_inputs_for_calendars', f: f) %>
+    <div class="SlotPicker" data-today="<%= Time.zone.today %>">
+      <div class="grid-row visible--js-enabled">
+        <div class="column-one-half">
+          <%= render('slot_picker') %>
+        </div>
+        <%= render('hidden_inputs_for_calendars', f: f) %>
 
-      <div class="column-one-half">
-        <fieldset>
-          <%= render('booking_calendar', slots: f.object.slot_constraints) %>
-          <%= render('date_slider') %>
-          <%= render('booking_calendar_legend') %>
-          <%= render('slot_picker_time_slots') %>
-        </fieldset>
-      </div>
-    </div>
-  </div>
-  <div class="grid-row form-group">
-    <div class="column-two-thirds">
-      <div class="grid-row">
         <div class="column-one-half">
-          <%= f.submit(t('.next_step'), class: 'button button-primary') %>
-        </div>
-        <div class="column-one-half">
-          <%= render('cancel') %>
+          <fieldset>
+            <%= render('booking_calendar', slots: f.object.slot_constraints) %>
+            <%= render('date_slider') %>
+            <%= render('booking_calendar_legend') %>
+            <%= render('slot_picker_time_slots') %>
+          </fieldset>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
-<%= render('contact_prison') %>
+    <div class="grid-row form-group">
+      <div class="column-two-thirds">
+        <div class="grid-row">
+          <div class="column-one-half">
+            <%= f.submit(t('.next_step'), class: 'button button-primary') %>
+          </div>
+          <div class="column-one-half">
+            <%= render('cancel') %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= render('contact_prison') %>
 
 <% else %>
 
-<%= markdown t('.no_availability_md') %>
+  <%= markdown t('.no_availability_md') %>
 
 <% end %>

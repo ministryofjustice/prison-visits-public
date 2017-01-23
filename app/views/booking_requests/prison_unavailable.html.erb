@@ -1,0 +1,12 @@
+<% content_for :header, t('.title') %>
+<%= render('shared/timeout_prompt') %>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <% if prison.closed? %>
+      <%= t('.closed_html', prison: prison.name) %>
+    <% else %>
+      <%= t('.doesnt_use_pvb_html', prison: prison.name, url: link_directory.prison_finder) %>
+    <% end %>
+  </div>
+</div>
