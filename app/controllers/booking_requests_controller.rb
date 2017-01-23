@@ -13,28 +13,16 @@ class BookingRequestsController < ApplicationController
   end
 
   def create
+    @visit = processor.execute!
     @steps = processor.steps
+    @step_name = processor.step_name
 
-    if prison_unavailable?
-      render :prison_unavailable
-    else
-      @visit = processor.execute!
+    instrument_booking_request(step_name: @step_name, visit: @visit)
 
-      @step_name = processor.step_name
-
-      instrument_booking_request(step_name: @step_name, visit: @visit)
-
-      respond_to_request(@visit, @step_name)
-    end
+    respond_to_request(@visit, @step_name)
   end
 
 private
-
-  def prison_unavailable?
-    return false unless processor.prison
-
-    !processor.prison.enabled?
-  end
 
   def respond_to_request(visit, step_name)
     respond_to do |format|
@@ -60,7 +48,6 @@ private
   def prison
     @steps.fetch(:prisoner_step).prison
   end
-
   helper_method :prison
 
   def reviewing?
