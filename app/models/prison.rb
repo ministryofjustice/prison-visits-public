@@ -22,8 +22,9 @@ class Prison
     closed
   end
 
+  # TODO: Remove nil check once pvb2 related PR has been deployed
   def enabled?
-    enabled
+    enabled.nil? || enabled
   end
 
   def self.all

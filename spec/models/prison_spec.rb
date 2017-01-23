@@ -37,12 +37,24 @@ RSpec.describe Prison do
     end
 
     context 'when enabled' do
-      before do
-        params[:enabled] = true
+      context 'when set' do
+        before do
+          params[:enabled] = true
+        end
+
+        it 'is true' do
+          expect(subject).to be_enabled
+        end
       end
 
-      it 'is true' do
-        expect(subject).to be_enabled
+      context 'when not set' do
+        before do
+          params[:enabled] = nil
+        end
+
+        it 'is true' do
+          expect(subject).to be_enabled
+        end
       end
     end
   end
