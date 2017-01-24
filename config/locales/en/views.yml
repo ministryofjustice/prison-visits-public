@@ -57,13 +57,18 @@ en:
         session will time out and you’ll need to start again.
       next_step: Continue
     prison_unavailable:
-      title: Prison unavailable
+      title_prison_shutdown: >-
+        %{prison_name} prison has shutdown
+      title_pvb_unavailable: >-
+        You can't book visits to %{prison_name} prison using this service
       doesnt_use_pvb_html: |
-        <p>You can’t use this service to book a visit to someone in %{prison}.</p>
-        <p>For information on how to book a visit to %{prison}, go to <a href="%{url}" rel="external">prison finder</a> and contact the prison.</p>
-      closed_html: |
-        <p>You can no longer book visits to %{prison} as it has been shut down.</p>
-        <p>For information on how to locate a prisoner, go to <a href="https://www.gov.uk/find-prisoner" rel="external">find a prisoner</a>.</p>
+        <p>%{prison_name} manages its own visitor bookings.</p>
+        <p>For information on how to book a visit to %{prison_name}, go to <a href="%{url}" rel="external">prison finder</a></p>
+      private_html: |
+        <p>%{prison_name} is privately run and manages its own visitor bookings.</p>
+        <p>For information on how to book a visit to %{prison_name}, go to <a href="%{url}" rel="external">prison finder</a></p>
+      shutdown_html: |
+        <p>For information on how to find prisoners who used to be in %{prison_name} prison, go to <a href="https://www.gov.uk/find-prisoner" rel="external">find a prisoner</a>.</p>
     visitors_step:
       title: Your visitor details
       your_details: Your details
