@@ -1,0 +1,20 @@
+<% content_for :header do %>
+  <% if prison.closed? %>
+    <%= t('.title_prison_shutdown', prison_name: prison.name) %>
+  <% else %>
+    <% t('.title_pvb_unavailable', prison_name: prison.name) %>
+  <% end %>
+<% end %>
+<%= render('shared/timeout_prompt') %>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <% if prison.closed? %>
+      <%= t('.shutdown_html', prison_name: prison.name) %>
+    <% elsif prison.private? %>
+      <%= t('.private_html', prison_name: prison.name, url: link_directory.prison_finder) %>
+    <% else %>
+      <%= t('.doesnt_use_pvb_html', prison_name: prison.name, url: link_directory.prison_finder) %>
+    <% end %>
+  </div>
+</div>
