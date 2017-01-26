@@ -204,8 +204,8 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
     scrub_rb (1.0.1)
-    sentry-raven (0.15.4)
-      faraday (>= 0.7.6)
+    sentry-raven (2.3.0)
+      faraday (>= 0.7.6, < 1.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     simplecov (0.13.0)
@@ -277,7 +277,7 @@ DEPENDENCIES
   launchy
   lograge
   logstash-event
-  parser (~> 2.3.0.pre.6)
+  parser
   phantomjs
   phonelib
   poltergeist
@@ -291,12 +291,12 @@ DEPENDENCIES
   rubocop
   rubocop-rspec
   sass-rails (~> 5.0)
-  sentry-raven (= 0.15.4)
+  sentry-raven
   shoulda-matchers
   simplecov
   simplecov-rcov
   string_scrubber
-  uglifier (>= 1.3.0)
+  uglifier
   uri_template
   vcr
   virtus
