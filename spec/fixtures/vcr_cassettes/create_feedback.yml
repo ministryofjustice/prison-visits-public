@@ -9,7 +9,7 @@ http_interactions:
         agent"}}'
     headers:
       User-Agent:
-      - excon/0.49.0
+      - excon/0.54.0
       Accept:
       - application/json
       Accept-Language:
