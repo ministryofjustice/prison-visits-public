@@ -860,7 +860,7 @@
         className += obj.chosen === true ? ' chosen' : '';
         className += obj.available === 0 ? ' disabled' : '';
 
-        var tmpl = '<label class="block-label block-label-new selection-button-radio slot' + className + '" for="slot-step-' + obj.day + '-' + i + '">' +
+        var tmpl = '<label class="block-label selection-button-radio slot' + className + '" for="slot-step-' + obj.day + '-' + i + '">' +
           '<input aria-labelledby="slot-step-' + obj.day + '-' + i + '" ' + disabled + ' id="slot-step-' + obj.day + '-' + i + '" type="radio" name="slot_step_0" value="' + obj.slot + '">' +
           '<span class="slot--time">' + time + ' (' + duration + ')</span>' +
           '<br/>' +
