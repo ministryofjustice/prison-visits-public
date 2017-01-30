@@ -1,0 +1,208 @@
+.calendar {
+  background-color: $white;
+  @include core-19;
+}
+
+#month-wrap {
+  background-color: $white;
+  border-top: 1px solid $border-colour;
+  border-bottom: 1px solid $border-colour;
+  position: relative;
+}
+
+#bn_prev, #bn_next {
+  height: 16px;
+  position: absolute;
+  top: 15px;
+  width: 16px;
+  img.bn_img {
+    height: 100%;
+    margin: 0
+  }
+  @include media(mobile){
+    img.bn_img {
+      display: none;
+    }
+  }
+}
+
+#bn_prev {
+  left: 15px;
+  @include media(mobile){
+    background: image-url('triangle-left.svg') no-repeat 0 0;
+    left: 0;
+  }
+}
+
+#bn_next {
+  right: 15px;
+  text-align: right;
+  @include media(mobile){
+    background: image-url('triangle-right.svg') no-repeat 0 0;
+    right: 0;
+  }
+}
+
+#month {
+  font-size: 1.2em;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+[aria-hidden="true"] {
+  display: none;
+}
+
+table.booking-calendar {
+  border-bottom: 1px solid $border-colour;
+  margin-top: 15px;
+  text-align: center;
+  margin-bottom: 15px;
+  th, td {
+    font-size: 1em;
+  }
+  th {
+    border: none;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  td {
+    padding: 10px 0;
+    text-align: center;
+    background-color: $white;
+    border: none;
+    height: 45px;
+    line-height: 1;
+
+    .cell-date {
+      @include border-radius(100%);
+      padding: 10px;
+      display: block;
+      height: 25px;
+      width: 25px;
+      line-height: 25px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      @include media(mobile){
+        height: 20px;
+        width: 20px;
+        line-height: 20px;
+      }
+    }
+
+    &.today {
+      font-weight: bold;
+    }
+
+    &.available, &.unavailable, &.empty, &.disabled {
+      &.focus .cell-date {
+        background-color: $focus-colour;
+        color: $black;
+      }
+    }
+
+    &.available, &.unavailable {
+      cursor: pointer;
+    }
+
+    &.unavailable {
+      .cell-date {
+        text-decoration: line-through;
+      }
+    }
+
+    &.disabled {
+      color: $panel-colour;
+    }
+
+    &.empty, &.disabled {
+      color: $panel-colour;
+    }
+
+    &.selected {
+      .cell-date {
+        background-color: $link-colour;
+        color: $white;
+      }
+
+      &.focus .cell-date {
+        background-color: $link-colour;
+        color: $white;
+      }
+    }
+
+    &.chosen {
+      .cell-date:after {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-color: $link-colour;
+        margin: 0 auto;
+        @include border-radius(100%);
+        position: absolute;
+        left: 50%;
+        margin-left: -5px;
+        bottom: 0;
+      }
+    }
+  }
+}
+// Slot selection
+.slot-selection {
+  border-bottom: 1px solid $border-colour;
+  border-top: 1px solid $border-colour;
+  padding: 20px 0;
+  min-height: 436px;
+  box-sizing: border-box;
+  @include media(mobile) {
+    border: none;
+    min-height: auto;
+  }
+  .block-label-new {
+    margin-bottom: 25px;
+  }
+  // Disabled state
+  .selection-button-radio.disabled, .selection-button-radio.chosen {
+    &:before, &:after {
+      border-color: $panel-colour;
+    }
+    &:after {
+      display: none;
+    }
+  }
+  .slot {
+    .slot--message {
+      @include core-16;
+      color: $green;
+    }
+    &.disabled {
+      .slot--time {
+        text-decoration: line-through;
+      }
+      .slot--message {
+        color: $error-colour;
+      }
+    }
+    &.chosen {
+      .slot--message {
+        color: $text-colour;
+      }
+    }
+  }
+}
+
+// Slot chosen
+.date-box.slot-selected {
+  padding-bottom: 30px;
+  padding-top: 30px;
+    .date-box__day {
+      @extend .bold-small;
+    }
+    .date-box__slot {
+      @extend .font-small;
+    }
+}

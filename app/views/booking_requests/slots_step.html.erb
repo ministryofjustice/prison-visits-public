@@ -6,35 +6,50 @@
 
   <%= render('shared/slotpicker_templates') %>
 
-<%= form_for(@steps.fetch(:slots_step),
+  <%= form_for(@steps.fetch(:slots_step),
              url: booking_requests_path,
              html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
-  <%= render('hidden_prisoner_step') %>
-  <% if reviewing? %>
-    <%= render('hidden_visitors_step') %>
-  <% end %>
+    <%= render('hidden_prisoner_step') %>
+    <% if reviewing? %>
+      <%= render('hidden_visitors_step') %>
+    <% end %>
 
-    <div class="SlotPicker" data-today="<%= Time.zone.today %>">
-      <div class="grid-row visible--js-enabled">
-        <div class="column-one-half">
-          <%= render('slot_picker') %>
-        </div>
-        <%= render('hidden_inputs_for_calendars', f: f) %>
+    <%= render('hidden_inputs_for_calendars', f: f) %>
 
-        <div class="column-one-half">
+    <div class="grid-row visible--js-enabled">
+      <div class="column-two-thirds">
+        <h3 class="text-secondary push-bottom--half">Choose a date for your visit</h3>
+        <%= render('booking_calendar', slots: f.object.slot_constraints) %>
+      </div>
+      <div class="column-one-third">
+        <h3 id="slots" class="text-secondary push-bottom--half">Choose a time for your visit</h3>
+        <div class="slot-selection">
           <fieldset>
-            <%= render('booking_calendar', slots: f.object.slot_constraints) %>
-            <%= render('date_slider') %>
-            <%= render('booking_calendar_legend') %>
-            <%= render('slot_picker_time_slots') %>
+            <legend class="visuallyhidden">Please choose a slot for your visit</legend>
+            <div id="js-slotAvailability" aria-describedby="slots" aria-live="assertive" aria-atomic="true" aria-relevant="additions removals"></div>
           </fieldset>
         </div>
       </div>
     </div>
-    <div class="grid-row form-group">
+
+    <div class="grid-row">
+      <div class="column-one-third">
+        <div id="js-slotTarget" aria-hidden="true">
+          <h3 class="text-secondary push-bottom--half">Your selection</h3>
+          <div class="date-box slot-selected" aria-live="assertive" aria-atomic="true" aria-relevant="text">
+            <span class="date-box__number">1</span>
+            <span class="date-box__day"></span>
+            <br/>
+            <span class="date-box__slot"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-row push-top">
       <div class="column-two-thirds">
         <div class="grid-row">
-          <div class="column-one-half">
+          <div class="column-one-half push-bottom">
             <%= f.submit(t('.next_step'), class: 'button button-primary') %>
           </div>
           <div class="column-one-half">
@@ -43,7 +58,9 @@
         </div>
       </div>
     </div>
+
   <% end %>
+
   <%= render('contact_prison') %>
 
 <% else %>

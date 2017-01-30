@@ -1,24 +1,27 @@
-<div class="BookingCalendar hidden--mobile">
-  <h2 class="bold-small">Choose a date for your visit</h2>
-  <div class="BookingCalendar-header">
-    <a class="BookingCalendar-nav BookingCalendar-nav--prev" href="#"></a>
-    <strong class="BookingCalendar-currentMonth"></strong>
-    <a class="BookingCalendar-nav BookingCalendar-nav--next" href="#"></a>
-  </div>
-  <div class="BookingCalendar-mask">
-    <table class="BookingCalendar-dates">
-      <caption class="visuallyhidden">Choose a date from the calendar</caption>
-      <thead>
-        <tr>
-          <% each_day_of_week do |day| %>
-            <th><%= I18n.l(day, format: :day_of_week) %></th>
-          <% end %>
-        </tr>
-      </thead>
-      <tbody class="BookingCalendar-datesBody">
+<div id="slot_0" class="js-bookingCalendar calendar" data-target-id="dateValue" data-slot-source="slots_step_option_0" data-slot-list="js-slotAvailability" data-slot-target="js-slotTarget">
 
-      </tbody>
-    </table>
+  <div id="month-wrap">
+    <div id="bn_prev" role="button" aria-labelledby="bn_prev-label" tabindex="0"><img class="bn_img" src="<%= image_path('triangle-left.png') %>" alt="<<"/></div>
+    <div id="month" class="bold-medium" role="heading" aria-live="assertive" aria-atomic="true"></div>
+    <div id="bn_next" role="button" aria-labelledby="bn_next-label" tabindex="0"><img class="bn_img" src="<%= image_path('triangle-right.png') %>" alt=">>"/></div>
   </div>
+
+  <table id="js-calendarTable" class="booking-calendar" role="grid" aria-activedescendant="errMsg" aria-labelledby="month" tabindex="0">
+    <thead>
+      <tr id="weekdays">
+        <% each_day_of_week do |day| %>
+          <th id="<%= I18n.l(day, format: :day_of_week) %>">
+            <abbr title="<%= I18n.l(day, format: :day_of_week) %>"><%= I18n.l(day, format: :day_of_week) %></abbr>
+          </th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td id="errMsg" colspan="7">Javascript must be enabled</td></tr>
+    </tbody>
+  </table>
+
+  <div id="bn_prev-label" class="visuallyhidden">Go to previous month</div>
+  <div id="bn_next-label" class="visuallyhidden">Go to next month</div>
 
 </div>

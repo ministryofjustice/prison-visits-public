@@ -16,14 +16,14 @@ table.check-your-answers {
 }
 
 @media screen and (max-width: 768px) {
-  table thead {
+  table.responsive thead {
     display: none;
   }
-  table tr {
+  table.responsive tr {
     border-bottom: 2px solid $border-colour;
     display: block;
   }
-  table td {
+  table.responsive td {
     border-bottom: 1px solid $border-colour;
     display: block;
     text-align: right;
@@ -31,17 +31,20 @@ table.check-your-answers {
       border-bottom: none;
     }
   }
-  table td:before {
+  table.responsive td:before {
     content: attr(aria-label);
     float: left;
     font-weight: bold;
   }
-  table.check-your-answers {
+  table.responsive.check-your-answers {
     thead {
       display: block;
     }
     th {
       width: 100%
+    }
+    tr {
+      border: none;
     }
     td:first-child {
       display: none;
