@@ -1,6 +1,6 @@
 module CalendarHelper
   def each_day_of_week(time = Time.zone.today)
-    first = time.beginning_of_week
+    first = time.beginning_of_week(start_day = :sunday)
     7.times.each do |offset|
       yield(first + offset.day)
     end
