@@ -75,8 +75,12 @@
       });
 
       // bind radio button handler
-      this.$slotList.on('change', 'input[type=radio][name=slot_step_0]', function(e) { // THIS NEEDS TO CHANGE THE NAME FOR THE SLOT STEP!!!
-        return self.handleSlotChosen(e);
+      this.$slotList.on('change', 'input[type=radio][name=slot_step_0]', function(e) { // THIS MAY NEED TO CHANGE THE NAME FOR THE SLOT STEP!!!
+        var slot = $(e.currentTarget).val();
+
+        self.updateSource(slot);
+        self.updateSelectedSlot(slot);
+        self.handleSlotChosen(slot);
       });
     },
 
@@ -116,6 +120,11 @@
 
       // update the table's activedescdendant to point to the current day
       this.$grid.attr('aria-activedescendant', this.$grid.find('.today').attr('id'));
+
+      if (this.selectedSlot && this.selectedDate) {
+        this.updateSlots(this.selectedDate);
+        this.handleSlotChosen(this.selectedSlot);
+      }
     },
 
     /**
@@ -160,9 +169,15 @@
         var slot = slots[i].val(),
           originalAvailability = slots[i].attr('disabled') ? 0 : 1,
           message = slots[i].data('message') || '',
-          chosen = slots[i].data('slot-chosen') || false;
+          chosen = slots[i].data('slot-chosen') || false,
+          active = slots[i].is(':selected');
 
         day = this.splitDateAndSlot(slot)[0];
+
+        if (active) {
+          this.updateSelectedDate(day);
+          this.updateSelectedSlot(slot);
+        }
 
         // Check if this is a new date in the array and push into days
         // If not a new day then just push the timeslot
@@ -208,7 +223,6 @@
         }
         previous = day;
       }
-      console.log(days);
       return days;
     },
 
@@ -331,7 +345,6 @@
         this.$grid.attr('aria-activedescendant', day);
         $('#' + day).addClass('focus').attr('aria-selected', 'true');
       }
-
     },
 
     /**
@@ -366,7 +379,6 @@
         this.$grid.attr('aria-activedescendant', day);
         $('#' + day).addClass('focus').attr('aria-selected', 'true');
       }
-
     },
 
     toggleBtnMonth: function(btn, attr) {
@@ -391,7 +403,6 @@
       this.popGrid();
 
       this.$monthObj.html(this.settings.i18n.months[this.month] + ' ' + this.year);
-
     },
 
     /**
@@ -412,7 +423,6 @@
       this.popGrid();
 
       this.$monthObj.html(this.settings.i18n.months[this.month] + ' ' + this.year);
-
     },
 
     handlePrevClick: function(e) {
@@ -433,7 +443,6 @@
 
       e.stopPropagation();
       return false;
-
     },
 
     handleNextClick: function(e) {
@@ -454,7 +463,6 @@
 
       e.stopPropagation();
       return false;
-
     },
 
     handlePrevKeyDown: function(e) {
@@ -493,7 +501,6 @@
       }
 
       return true;
-
     },
 
     handleNextKeyDown: function(e) {
@@ -519,7 +526,6 @@
       }
 
       return true;
-
     },
 
     handleGridKeyDown: function(e) {
@@ -551,7 +557,7 @@
               $curDay.addClass('selected').attr('aria-selected', 'true');
               // update the target box
               var date = this.year + '-' + (this.month < 9 ? '0' : '') + (this.month + 1) + '-' + ($curDay.text() <= 9 ? '0' : '') + $curDay.text();
-              this.updateSelected(date);
+              this.updateSelectedDate(date);
               this.updateSlots(date);
             } else {
               return false;
@@ -757,7 +763,6 @@
       }
 
       return true;
-
     },
 
     handleGridKeyPress: function(e) {
@@ -785,7 +790,6 @@
       }
 
       return true;
-
     },
 
     handleGridClick: function(id, e) {
@@ -803,7 +807,7 @@
 
       // update the target box
       var date = this.year + '-' + (this.month <= 9 ? '0' : '') + (this.month + 1) + '-' + ($curDay.text() <= 9 ? '0' : '') + $curDay.text();
-      this.updateSelected(date);
+      this.updateSelectedDate(date);
       this.updateSlots(date);
 
       // dismiss the dialog box
@@ -811,7 +815,6 @@
 
       e.stopPropagation();
       return false;
-
     },
 
     handleGridFocus: function(e) {
@@ -825,18 +828,24 @@
       }
 
       return true;
-
     },
 
     handleGridBlur: function(e) {
       $('#' + this.$grid.attr('aria-activedescendant')).removeClass('focus').attr('aria-selected', 'false');
 
       return true;
-
     },
 
-    updateSelected: function(date) {
+    updateSelectedDate: function(date) {
       this.selectedDate = date;
+    },
+
+    updateSelectedSlot: function(slot) {
+      this.selectedSlot = slot;
+    },
+
+    updateSource: function(slot) {
+      this.$slotSource.val(slot);
     },
 
     updateSlots: function(date) {
@@ -853,15 +862,16 @@
         var className = '',
           time = self.formatTime(obj.time),
           duration = self.formatTimeDuration(obj.time),
-          disabled;
-        if (obj.chosen === true || obj.available === 0) {
-          disabled = 'disabled';
-        }
+          disabled,
+          checked;
+
         className += obj.chosen === true ? ' chosen' : '';
         className += obj.available === 0 ? ' disabled' : '';
+        disabled = (obj.chosen === true || obj.available === 0) ? 'disabled' : null;
+        checked = obj.slot === self.selectedSlot ? 'checked' : null;
 
         var tmpl = '<label class="block-label selection-button-radio slot' + className + '" for="slot-step-' + obj.day + '-' + i + '">' +
-          '<input aria-labelledby="slot-step-' + obj.day + '-' + i + '" ' + disabled + ' id="slot-step-' + obj.day + '-' + i + '" type="radio" name="slot_step_0" value="' + obj.slot + '">' +
+          '<input ' + checked + ' aria-labelledby="slot-step-' + obj.day + '-' + i + '" ' + disabled + ' id="slot-step-' + obj.day + '-' + i + '" type="radio" name="slot_step_0" value="' + obj.slot + '">' +
           '<span class="slot--time">' + time + ' (' + duration + ')</span>' +
           '<br/>' +
           '<span class="slot--message">' + obj.message + '</span>' +
@@ -878,17 +888,13 @@
       }
     },
 
-    handleSlotChosen: function(e) {
-      var slot = $(e.currentTarget).val(),
-        dateObj = this.formatSlot(slot);
+    handleSlotChosen: function(slot) {
+      var dateObj = this.formatSlot(slot);
 
       this.$slotTarget.attr('aria-hidden', false);
-
       this.$slotTarget.find('.date-box__day').text(dateObj.day + ' ' + dateObj.formattedDate);
       this.$slotTarget.find('.date-box__date').text(dateObj.formattedDate);
       this.$slotTarget.find('.date-box__slot').text(dateObj.time + ' (' + dateObj.duration + ')');
-
-      this.updateSource(slot);
     },
 
     formatSlot: function(slot) {
@@ -905,10 +911,6 @@
         'time': this.formatTime(time),
         'duration': this.formatTimeDuration(time)
       }
-    },
-
-    updateSource: function(slot) {
-      this.$slotSource.val(slot);
     },
 
     calcNumDays: function(year, month) {
@@ -975,7 +977,6 @@
   moj.Modules.bookingCalendar = {
     init: function() {
       return $('.js-bookingCalendar').each(function() {
-        console.log($(this));
         $(this).data('bookingCalendar', new bookingCalendar($(this), $(this).data()));
       });
     }
