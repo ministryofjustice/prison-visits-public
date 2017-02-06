@@ -28,6 +28,10 @@ class PrisonerStep
     @_prison ||= prison_id.present? ? Prison.find_by_id(prison_id) : nil
   end
 
+  def accessible_dob
+    @accessible_dob ||= AccessibleDate.parse(date_of_birth)
+  end
+
 private
 
   # rubocop:disable Metrics/AbcSize

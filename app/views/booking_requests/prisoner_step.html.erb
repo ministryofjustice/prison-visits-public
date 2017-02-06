@@ -21,16 +21,19 @@
         <legend class="visuallyhidden">
           <%= t('.prisoner_details') %>
         </legend>
-        <%= single_field(f, :first_name, :text_field, class: 'form-control') %>
-        <%= single_field(f, :last_name, :text_field, class: 'form-control') %>
-        <%= composite_field(f, :date_of_birth) do %>
-          <%= render('dob', form: f) %>
+        <%= f.text_field :first_name %>
+        <%= f.text_field :last_name %>
+
+        <%= f.fields_for :date_of_birth, f.object.accessible_dob do |d| %>
+          <%= d.text_field :day %>
+          <%= d.text_field :month %>
+          <%= d.text_field :year %>
         <% end %>
-        <%= single_field(f, :number, :text_field, class: 'form-control') %>
-        <%= single_field(f, :prison_id, :select,
-        Prison.all.map { |p| [p.name, p.id] },
-        { prompt: t('.prison_id_prompt') },
-        { class: 'js-autocomplete' }) %>
+
+
+        <%= f.text_field :number %>
+        <%= f.collection_select :prison_id, Prison.all, :id, :name, {prompt: true}, {class: "js-autocomplete"} %>
+
         <div class="form-group">
           <%= t('.information_html') %>
         </div>

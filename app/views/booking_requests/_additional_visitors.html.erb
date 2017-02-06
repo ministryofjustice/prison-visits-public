@@ -3,9 +3,9 @@
     <hr>
     <h3 class="heading-medium"><%= t('.visitor', n: vf.index + 1) %></h3>
 
-    <%= single_field(vf, :first_name, :text_field, class: 'form-control') %>
+    <%= vf.text_field :first_name %>
 
-    <%= single_field(vf, :last_name, :text_field, class: 'form-control') %>
+    <%= vf.text_field :last_name %>
 
     <%= composite_field(vf, :date_of_birth) do %>
       <%= render('dob', form: vf) %>

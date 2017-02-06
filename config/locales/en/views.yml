@@ -1,4 +1,19 @@
 en:
+  helpers:
+    label:
+      prisoner_step:
+        first_name: Prisoner first name
+        last_name: Prisoner last name
+        date_of_birth: Prisoner date of birth
+        number: Prisoner number
+        prison_id: Name of the prison
+      principal_visitor:
+        first_name: testtt
+    hint:
+      prisoner_step:
+        date_of_birth: eg 28 04 1996
+        number: eg A1234BC
+        prison_id: eg Cardiff
   layouts:
     application:
       cookies_intro: GOV.UK uses cookies to make the site simpler.

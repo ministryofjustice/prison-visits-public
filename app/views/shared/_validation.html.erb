@@ -1,5 +1,5 @@
 <% if object.errors.any? %>
-  <div id="error-summary" class="error-summary group" role="alert"
+<!--   <div id="error-summary" class="error-summary group" role="alert"
     tabindex="-1" aria-labelledby="error-heading">
     <h2 id="error-heading" class="heading-medium error-summary-heading">
       <%= t('.heading') %>
@@ -18,5 +18,10 @@
     <p>
       <%= t('.see_below') %>
     </p>
-  </div>
+  </div> -->
+
+
+  <%= GovukElementsErrorsHelper.error_summary object,
+    "You need to fix the errors on this page before continuing.",
+    "See highlighted errors below." %>
 <% end %>
