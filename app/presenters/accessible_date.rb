@@ -13,9 +13,9 @@ class AccessibleDate
       new(date_or_hash)
     else
       new(
-        day:   date_or_hash.day,
-        month: date_or_hash.month,
-        year:  date_or_hash.year
+        day:   date_or_hash&.day,
+        month: date_or_hash&.month,
+        year:  date_or_hash&.year
       )
     end
   end

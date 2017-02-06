@@ -44,5 +44,12 @@ RSpec.describe AccessibleDate, type: :model do
       end
 
     end
+
+    describe 'with a nil value' do
+      let(:date_or_hash) { nil }
+      it 'returns nothing' do
+        expect(described_class.parse(date_or_hash)).to be_instance_of(described_class)
+      end
+    end
   end
 end
