@@ -14,8 +14,8 @@ module PrisonVisits
     config.phase = 'live'
     config.product_type = 'service'
 
-    config.autoload_paths += %w[ app/mailers/concerns app/presenters ]
-    config.eager_load_paths += %w[ app/presenters ]
+    config.autoload_paths += %w[ app/mailers/concerns ]
+
     config.action_view.default_form_builder = GovukElementsFormBuilder::FormBuilder
 
     config.i18n.load_path =
