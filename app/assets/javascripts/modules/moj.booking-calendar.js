@@ -1,33 +1,34 @@
 (function() {
   'use strict';
 
-  var bookingCalendar = function($el, options) {
-    this.settings = $.extend({}, this.defaults, options);
-    this.cacheEls($el);
-    this.initialize();
-    this.bindEvents();
-    return this;
-  };
+  moj.Modules.bookingCalendar = {
+    el: '.js-bookingCalendar',
 
-  bookingCalendar.prototype = {
-
-    defaults: {
+    settings: {
       i18n: moj.i18n
+    },
+
+    init: function() {
+      this.cacheEls();
+      this.bindEvents();
+      if (this.$el.length > 0) {
+        moj.Events.on('render', $.proxy(this.initialize, this));
+      }
     },
 
     /**
      * Cache the DOM elements
      * @param  {object} $el
      */
-    cacheEls: function($el) {
-      this.$el = $el;
+    cacheEls: function() {
+      this.$el = $(this.el); //$('.js-bookingCalendar');
       this.$monthObj = this.$el.find('#month');
       this.$prev = this.$el.find('#bn_prev');
       this.$next = this.$el.find('#bn_next');
       this.$grid = this.$el.find('#js-calendarTable');
-      this.$slotSource = $('#' + this.settings.slotSource);
-      this.$slotList = $('#' + this.settings.slotList);
-      this.$slotTarget = $('#' + this.settings.slotTarget);
+      this.$slotSource = $('#' + this.$el.data('slotSource'));
+      this.$slotList = $('#' + this.$el.data('slotList'));
+      this.$slotTarget = $('#' + this.$el.data('slotTarget'));
     },
 
     /**
@@ -141,7 +142,7 @@
 
     /**
      * @param  {array} inputArray
-     * @return {array} Of unique values
+     * @return {array} of unique values
      */
     getUnique: function(inputArray) {
       var outputArray = [];
@@ -567,9 +568,6 @@
           }
         case this.keys.esc:
           {
-            // dismiss the dialog box
-            // this.hideDlg();
-
             e.stopPropagation();
             return false;
           }
@@ -810,9 +808,6 @@
       this.updateSelectedDate(date);
       this.updateSlots(date);
 
-      // dismiss the dialog box
-      // this.hideDlg();
-
       e.stopPropagation();
       return false;
     },
@@ -971,15 +966,8 @@
       }
 
       return out;
-    },
-  };
-
-  moj.Modules.bookingCalendar = {
-    init: function() {
-      return $('.js-bookingCalendar').each(function() {
-        $(this).data('bookingCalendar', new bookingCalendar($(this), $(this).data()));
-      });
     }
+
   };
 
 }());
