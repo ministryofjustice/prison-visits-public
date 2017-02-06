@@ -15,7 +15,12 @@ AllCops:
     - 'lib/tasks/brakeman.rake'
     - 'lib/tasks/elasticsearch.rake'
     - 'spec/dummy/db/**/*'
-  RunRailsCops: true
+
+  DisplayCopNames: true
+
+
+Rails:
+  Enabled: true
 
 # private/protected/public
 Style/AccessModifierIndentation:
@@ -127,5 +132,95 @@ Rails/Delegate:
 Rails/TimeZone:
   Exclude:
     - 'spec/**/*'
+
+Devtools/NamedSubject:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SpaceInsidePercentLiteralDelimiters:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Performance/TimesMap:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/BeEql:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/LeadingSubject:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/NotToNot:
+  Enabled: false
+
+RSpec/RepeatedExample:
+  Enabled: false
+
+RSpec/SubjectStub:
+  Enabled: false
+
+RSpec/VerifiedDoubles:
+  Enabled: false
+
+Rails/DynamicFindBy:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false
+
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+Rails/OutputSafety:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: false
+
+Style/IndentArray:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/NumericLiteralPrefix:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/SignalException:
+  Enabled: false
 
 require: rubocop-rspec

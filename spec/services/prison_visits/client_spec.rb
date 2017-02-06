@@ -36,7 +36,7 @@ RSpec.describe PrisonVisits::Client do
 
       expect {
         subject.get('/flubble')
-      }.to raise_error(PrisonVisits::APIError, 'Exception Excon::Errors::Timeout calling GET /api/flubble: Exception from WebMock')
+      }.to raise_error(PrisonVisits::APIError, 'Exception Excon::Error::Timeout calling GET /api/flubble: Exception from WebMock')
     end
 
     it 'retries idempotent methods by default', vcr: { cassette_name: 'client_json_error_idempotent' } do
