@@ -24,10 +24,7 @@
         <%= f.text_field :first_name %>
         <%= f.text_field :last_name %>
 
-        <% date =  f.object.date_of_birth || Date.today %>
-        <% accessible_date = AccessibleDate.new(day: date.day, month: date.month, year: date.year) %>
-        <% accessible_date = AccessibleDate.new(day: date.day, month: date.month, year: date.year) %>
-        <%= f.fields_for :date_of_birth,  do |d| %>
+        <%= f.fields_for :date_of_birth, f.object.accessible_dob do |d| %>
           <%= d.text_field :day %>
           <%= d.text_field :month %>
           <%= d.text_field :year %>
