@@ -4,7 +4,7 @@ class AccessibleDate
   attr_accessor :day, :month, :year
 
   validate :parsable?
-  validates :year, :month, :day, { presence: true, if: :any_date_part? }
+  validates :year, :month, :day, presence: true, if: :any_date_part?
 
   def self.parse(date_or_hash)
     if date_or_hash.is_a?(Hash)

@@ -93,7 +93,7 @@ RSpec.describe PrisonerStep do
 
   describe '#accessible_dob' do
     it 'return an accessible date' do
-       expect(subject.accessible_dob).to be_instance_of(AccessibleDate)
+      expect(subject.accessible_dob).to be_instance_of(AccessibleDate)
     end
   end
 end

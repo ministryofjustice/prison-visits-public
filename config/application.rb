@@ -16,7 +16,8 @@ module PrisonVisits
 
     config.autoload_paths += %w[ app/mailers/concerns ]
 
-    config.action_view.default_form_builder = GovukElementsFormBuilder::FormBuilder
+    config.action_view.default_form_builder =
+      GovukElementsFormBuilder::FormBuilder
 
     config.i18n.load_path =
       Dir[Rails.root.join('config', 'locales', '{en,cy}', '*.yml').to_s]

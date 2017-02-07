@@ -1,5 +1,4 @@
 class BookingRequestsController < ApplicationController
-
   def index
     @steps = processor.steps
     @step_name = processor.step_name

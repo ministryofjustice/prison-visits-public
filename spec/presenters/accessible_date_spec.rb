@@ -33,7 +33,6 @@ RSpec.describe AccessibleDate, type: :model do
         expect(described_class.parse(today)).
           to be_instance_of(described_class)
       end
-
     end
 
     describe 'with a hash' do
@@ -42,7 +41,6 @@ RSpec.describe AccessibleDate, type: :model do
       it 'returns an accessible date' do
         expect(described_class.parse(date_or_hash)).to be_instance_of(described_class)
       end
-
     end
 
     describe 'with a nil value' do
