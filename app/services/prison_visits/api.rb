@@ -59,7 +59,7 @@ module PrisonVisits
       prison_id:, prisoner_number:, prisoner_dob:, use_nomis_slots: false
     )
       response = @client.get(
-        '/slots',
+        '/available_slots',
         params: {
           prison_id: prison_id,
           prisoner_number: prisoner_number,
