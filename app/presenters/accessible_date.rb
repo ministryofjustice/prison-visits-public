@@ -1,5 +1,3 @@
-require_relative '../../lib/maybe_date'
-
 class AccessibleDate
   include ActiveModel::Model
 
