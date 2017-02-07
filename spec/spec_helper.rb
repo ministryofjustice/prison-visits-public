@@ -66,7 +66,6 @@ VCR.configure do |config|
   }
   config.hook_into :webmock
   config.configure_rspec_metadata!
-
   config.ignore_request do |request|
     # Ignore capybara requests within feature tests
     request.uri =~ /__identify__/
