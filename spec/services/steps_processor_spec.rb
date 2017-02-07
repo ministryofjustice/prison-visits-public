@@ -47,9 +47,9 @@ RSpec.describe StepsProcessor do
 
   let(:slots) {
     [
-      ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0),
-      ConcreteSlot.new(2015, 1, 3, 9, 0, 10, 0),
-      ConcreteSlot.new(2015, 1, 4, 9, 0, 10, 0)
+      CalendarSlot.new(slot: ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0)),
+      CalendarSlot.new(slot: ConcreteSlot.new(2015, 1, 3, 9, 0, 10, 0)),
+      CalendarSlot.new(slot: ConcreteSlot.new(2015, 1, 4, 9, 0, 10, 0))
     ]
   }
 
@@ -210,7 +210,7 @@ RSpec.describe StepsProcessor do
     }
 
     before do
-      allow_any_instance_of(BookingConstraints::SlotConstraints).
+      allow_any_instance_of(SlotConstraints).
         to receive(:bookable_slot?).and_return(true)
     end
 
@@ -231,7 +231,7 @@ RSpec.describe StepsProcessor do
     # For example if the visitor changes the prisoner
     context 'when the slot is no longer a bookable slot' do
       before do
-        allow_any_instance_of(BookingConstraints::SlotConstraints).
+        allow_any_instance_of(SlotConstraints).
           to receive(:bookable_slot?).and_return(false)
       end
 
