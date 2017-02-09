@@ -1,14 +1,16 @@
 <div class="hidden--js-enabled">
   <% 3.times do |i| %>
-     <%=
-       single_field(
-         f, :"option_#{i}", :select,
-         f.object.slot_constraints.map { |s|
-           [format_slot_begin_time_for_public(s), s.iso8601]
-         },
-         { include_blank: true },
-         class: 'SlotPicker-input'
-       )
-     %>
+    <% if f.object.next_option_to_fill == i.to_s %>
+      <%=
+        single_field(
+          f, :"option_#{i}", :select,
+          slot_options_reflecting_existing_selections(f.object),
+          { include_blank: true },
+          class: 'SlotPicker-input'
+        )
+      %>
+    <% else %>
+      <%= hidden_field_tag("slots_step[option_#{i}]", @steps.fetch(:slots_step).send("option_#{i}")) %>
+    <% end %>
   <% end %>
 </div>

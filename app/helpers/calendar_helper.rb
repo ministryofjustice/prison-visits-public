@@ -44,4 +44,24 @@ module CalendarHelper
   def bookable(slots, day)
     slots.bookable_date?(day) ? 'bookable' : 'unavailable'
   end
+
+  def slot_options_reflecting_existing_selections(slot_step_object)
+    existing_selections = slot_step_object.options
+
+    slot_step_object.slot_constraints.map { |s|
+      displayed = s.iso8601
+
+      if existing_selections.include?(displayed)
+        html_options = {
+          'data-slot-chosen' => true,
+          'data-message' => 'Already chosen',
+          'disabled' => 'disabled'
+        }
+      else
+        html_options = {}
+      end
+
+      [format_slot_begin_time_for_public(s), displayed, html_options]
+    }
+  end
 end

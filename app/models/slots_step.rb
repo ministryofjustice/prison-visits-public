@@ -50,4 +50,10 @@ class SlotsStep
 
     @constraints ||= processor.booking_constraints.on_slots(show_live_slots)
   end
+
+  def next_option_to_fill
+    return "0" if option_0.blank?
+    return "1" if option_1.blank?
+    return "2" if option_2.blank?
+  end
 end
