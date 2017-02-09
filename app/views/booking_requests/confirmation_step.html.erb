@@ -52,15 +52,17 @@
         <%= t('.your_visit') %>
       </th>
       <th class="change-answer text-right">
-        <%= form_for(confirmation_step,
+        <% 3.times do |i| %>
+          <%= form_for(confirmation_step,
                url: booking_requests_path,
                html: { class: 'js-SubmitOnce' }) do |f| %>
             <%= render('hidden_prisoner_step') %>
             <%= render('hidden_visitors_step') %>
-            <%= render('hidden_slots_step') %>
+            <%= render('hidden_slots_step', review_slot: i.to_s) %>
             <%= hidden_field_tag('review_step', 'slots_step') %>
-            <%= f.submit(t('.change_visit_details'), class: 'button-link') %>
+            <%= f.submit(t('.change_visit_details')+" - time slot #{i+1}", class: 'button-link') %>
           <% end %>
+        <% end %>
       </th>
     </tr>
   </thead>

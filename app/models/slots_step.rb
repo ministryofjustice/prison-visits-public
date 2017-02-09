@@ -1,6 +1,8 @@
 class SlotsStep
   include NonPersistedModel
 
+  attr_accessor :review_slot
+
   attribute :processor, StepsProcessor
 
   attribute :option_0, String
@@ -52,6 +54,7 @@ class SlotsStep
   end
 
   def next_option_to_fill
+    return review_slot if review_slot
     return "0" if option_0.blank?
     return "1" if option_1.blank?
     return "2" if option_2.blank?
