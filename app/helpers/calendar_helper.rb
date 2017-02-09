@@ -1,6 +1,6 @@
 module CalendarHelper
   def each_day_of_week(time = Time.zone.today)
-    first = time.beginning_of_week(start_day = :sunday)
+    first = time.beginning_of_week(:sunday)
     7.times.each do |offset|
       yield(first + offset.day)
     end
@@ -48,20 +48,18 @@ module CalendarHelper
   def slot_options_reflecting_existing_selections(slot_step_object)
     existing_selections = slot_step_object.options
 
-    slot_step_object.slot_constraints.map { |s|
+    slot_step_object.slot_constraints.map do |s|
       displayed = s.iso8601
+      options = existing_selections.include?(displayed) ? chosen_options : {}
+      [format_slot_begin_time_for_public(s), displayed, options]
+    end
+  end
 
-      if existing_selections.include?(displayed)
-        html_options = {
-          'data-slot-chosen' => true,
-          'data-message' => 'Already chosen',
-          'disabled' => 'disabled'
-        }
-      else
-        html_options = {}
-      end
-
-      [format_slot_begin_time_for_public(s), displayed, html_options]
+  def chosen_options
+    {
+      'data-slot-chosen' => true,
+      'data-message' => 'Already chosen',
+      'disabled' => 'disabled'
     }
   end
 end

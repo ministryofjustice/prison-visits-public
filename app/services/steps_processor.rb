@@ -51,7 +51,8 @@ private
   end
 
   def incomplete_step?(name)
-    !@steps_submitted.include?(name) || steps[name].invalid? || steps[name].options_available?
+    !@steps_submitted.include?(name) || steps[name].invalid? ||
+      steps[name].options_available?
   end
 
   def load_steps(params)
