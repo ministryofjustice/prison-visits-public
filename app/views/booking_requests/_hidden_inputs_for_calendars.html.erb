@@ -13,4 +13,6 @@
       <%= hidden_field_tag("slots_step[option_#{i}]", @steps.fetch(:slots_step).send("option_#{i}")) %>
     <% end %>
   <% end %>
+
+  <%= hidden_field_tag('slots_step[current_slot]', @steps.fetch(:slots_step).next_option_to_fill) %>
 </div>

@@ -1,7 +1,7 @@
 class SlotsStep
   include NonPersistedModel
 
-  attr_accessor :review_slot
+  attr_accessor :review_slot, :current_slot
 
   attribute :processor, StepsProcessor
 
@@ -31,7 +31,11 @@ class SlotsStep
   delegate :bookable_slots?, to: :slot_constraints
 
   def options_available?
-    options.length < 3
+    options.length < 3 && !skip_additional_slots?
+  end
+
+  def skip_additional_slots?
+    send("option_#{current_slot}").blank?
   end
 
   def additional_options?

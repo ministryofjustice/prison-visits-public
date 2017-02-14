@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe SlotsStep, type: :model do
-  describe 'validation of options' do
-    subject(:instance) { described_class.new }
+  subject(:instance) { described_class.new }
 
+  describe 'validation of options' do
     let(:slot) { ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0) }
 
     let(:prisoner_step) {
@@ -69,6 +69,28 @@ RSpec.describe SlotsStep, type: :model do
       subject.option_2 = ''
       subject.valid?
       expect(subject.errors).not_to have_key(:option_2)
+    end
+  end
+
+  context 'Optionally skipping slots' do
+    context 'Option 0 filled' do
+      before { subject.option_0 = '2015-01-02T09:00/10:00' }
+
+      context 'Current slot is 0' do
+        before { subject.current_slot = '0' }
+
+        it 'Is not skipping additional options' do
+          expect(subject.skip_additional_slots?).to eq(false)
+        end
+      end
+
+      context 'Current slot is 1' do
+        before { subject.current_slot = '1' }
+
+        it 'Is skipping additional options' do
+          expect(subject.skip_additional_slots?).to eq(true)
+        end
+      end
     end
   end
 end
