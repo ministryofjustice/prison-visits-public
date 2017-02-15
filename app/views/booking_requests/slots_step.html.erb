@@ -10,7 +10,7 @@
              url: booking_requests_path,
              html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
     <%= render('hidden_prisoner_step') %>
-    <% if reviewing? || true %>
+    <% if reviewing? %>
       <%= render('hidden_visitors_step') %>
     <% end %>
 
