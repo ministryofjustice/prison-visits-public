@@ -9,9 +9,9 @@
     },
 
     init: function() {
-      this.cacheEls();
-      this.bindEvents();
-      if (this.$el.length > 0) {
+      if ($(this.el) && $(this.el).length > 0) {
+        this.cacheEls();
+        this.bindEvents();
         moj.Events.on('render', $.proxy(this.initialize, this));
       }
     },
@@ -29,6 +29,7 @@
       this.$slotSource = $('#' + this.$el.data('slotSource'));
       this.$slotList = $('#' + this.$el.data('slotList'));
       this.$slotTarget = $('#' + this.$el.data('slotTarget'));
+      this.slotNumber = parseInt(this.$el.attr('id').split('_')[1]) + 1;
     },
 
     /**
@@ -858,12 +859,13 @@
           time = self.formatTime(obj.time),
           duration = self.formatTimeDuration(obj.time),
           disabled,
-          checked;
+          checked = obj.slot === self.selectedSlot ? 'checked' : null;
 
-        className += obj.chosen === true ? ' chosen' : '';
-        className += obj.available === 0 ? ' disabled' : '';
-        disabled = (obj.chosen === true || obj.available === 0) ? 'disabled' : null;
-        checked = obj.slot === self.selectedSlot ? 'checked' : null;
+        if (!checked) {
+          className += obj.chosen === true ? ' chosen' : '';
+          className += obj.available === 0 ? ' disabled' : '';
+          disabled = (obj.chosen === true || obj.available === 0) ? 'disabled' : null;
+        }
 
         var tmpl = '<label class="block-label selection-button-radio slot' + className + '" for="slot-step-' + obj.day + '-' + i + '">' +
           '<input ' + checked + ' aria-labelledby="slot-step-' + obj.day + '-' + i + '" ' + disabled + ' id="slot-step-' + obj.day + '-' + i + '" type="radio" name="slot_step_0" value="' + obj.slot + '">' +
@@ -887,6 +889,7 @@
       var dateObj = this.formatSlot(slot);
 
       this.$slotTarget.attr('aria-hidden', false);
+      this.$slotTarget.find('.date-box__number').text(this.slotNumber);
       this.$slotTarget.find('.date-box__day').text(dateObj.day + ' ' + dateObj.formattedDate);
       this.$slotTarget.find('.date-box__date').text(dateObj.formattedDate);
       this.$slotTarget.find('.date-box__slot').text(dateObj.time + ' (' + dateObj.duration + ')');
