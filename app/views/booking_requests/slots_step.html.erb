@@ -4,7 +4,13 @@
 
 <% if @steps.fetch(:slots_step).bookable_slots? %>
 
-  <%= render('shared/slotpicker_templates') %>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <!-- Only show if it's the first slot -->
+      <p>Choose up to 3 dates and time slots for your visit. If your first choice isn’t available, we’ll try your other choices.</p>
+
+    </div>
+  </div>
 
   <%= form_for(@steps.fetch(:slots_step),
              url: booking_requests_path,
@@ -14,15 +20,24 @@
       <%= render('hidden_visitors_step') %>
     <% end %>
 
+    <% @steps.fetch(:slots_step).slots.any? do %>
+      <p>Your choices:</p>
+      <ul class="list list-number">
+        <% @steps.fetch(:slots_step).slots.each_with_index do |slot, index| %>
+          <li><%= format_slot_for_public(slot) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
     <%= render('hidden_inputs_for_calendars', f: f) %>
 
-    <div class="grid-row visible--js-enabled">
+    <div class="grid-row visible--js-enabled push-top">
       <div class="column-two-thirds">
-        <h3 class="text-secondary push-bottom--half">Choose a date for your visit</h3>
+        <h2 class="text-secondary push-bottom--half">Choose your preferred date:</h2>
         <%= render('booking_calendar', slots: f.object.slot_constraints, option_num: f.object.next_slot_to_fill) %>
       </div>
       <div class="column-one-third">
-        <h3 id="slots" class="text-secondary push-bottom--half">Choose a time for your visit</h3>
+        <h2 id="slots" class="text-secondary push-bottom--half">Choose a time:</h2>
         <div class="slot-selection">
           <fieldset>
             <legend class="visuallyhidden">Please choose a slot for your visit</legend>
@@ -37,7 +52,7 @@
         <div id="js-slotTarget" aria-hidden="true">
           <h3 class="text-secondary push-bottom--half">Your selection</h3>
           <div class="date-box slot-selected" aria-live="assertive" aria-atomic="true" aria-relevant="text">
-            <span class="date-box__number">1</span>
+            <span class="date-box__number"></span>
             <span class="date-box__day"></span>
             <br/>
             <span class="date-box__slot"></span>
@@ -50,7 +65,11 @@
       <div class="column-two-thirds">
         <div class="grid-row">
           <div class="column-one-half push-bottom">
-            <%= f.submit(t('.next_step'), class: 'button button-primary') %>
+            <% if reviewing? %>
+              <%= f.submit('Confirm amend', class: 'button button-primary') %>
+            <% else %>
+              <%= f.submit('Add another choice', class: 'button button-primary') %>
+            <% end %>
           </div>
           <div class="column-one-half">
             <%= render('cancel') %>
