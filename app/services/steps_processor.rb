@@ -11,9 +11,6 @@ class StepsProcessor
     # Compute now to avoid keeping @params
     @steps_submitted = STEP_NAMES.select { |s| params.key?(s) }
     @review_step = STEP_NAMES.find { |s| s.to_s == params[:review_step].to_s }
-
-    puts 'PARAMS:'
-    pp params
   end
 
   def step_name

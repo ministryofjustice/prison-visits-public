@@ -132,7 +132,7 @@ RSpec.describe SlotsStep, type: :model do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.option_1 = '2015-01-03T09:00/10:00'
-        subject.currently_filling = '2' # TODO: Always send this as hidden field
+        subject.currently_filling = '2'
       end
 
       it_behaves_like :options_are_not_available

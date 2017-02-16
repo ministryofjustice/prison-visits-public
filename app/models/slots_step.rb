@@ -31,13 +31,20 @@ class SlotsStep
   delegate :bookable_slots?, to: :slot_constraints
 
   def options_available?
-    if review_slot && currently_filling && review_slot == currently_filling
-      false
-    elsif currently_filling && send("option_#{currently_filling}").blank?
+    if just_reviewed_slot? || currently_filling_slot_left_blank?
       false
     else
-      next_slot_to_fill.nil? ? false : true
+      next_slot_to_fill ? true : false
     end
+  end
+
+  def just_reviewed_slot?
+    review_slot.present? && currently_filling.present? &&
+      review_slot == currently_filling
+  end
+
+  def currently_filling_slot_left_blank?
+    currently_filling.present? && send("option_#{currently_filling}").blank?
   end
 
   def additional_options?
@@ -60,7 +67,7 @@ class SlotsStep
   end
 
   def next_slot_to_fill
-    return review_slot if review_slot
+    return review_slot if review_slot.present?
     return '0' if option_0.blank?
     return '1' if option_1.blank?
     return '2' if option_2.blank?

@@ -2,7 +2,9 @@
 <%= hidden_field_tag('slots_step[option_1]', @steps.fetch(:slots_step).option_1) %>
 <%= hidden_field_tag('slots_step[option_2]', @steps.fetch(:slots_step).option_2) %>
 
-<%= hidden_field_tag('slots_step[current_slot]', @steps.fetch(:slots_step).next_option_to_fill) %>
+<% if local_assigns.has_key?(:currently_filling) %>
+  <%= hidden_field_tag('slots_step[currently_filling]', currently_filling) %>
+<% end %>
 
 <% if local_assigns.has_key?(:review_slot) %>
   <%= hidden_field_tag('slots_step[review_slot]', review_slot) %>

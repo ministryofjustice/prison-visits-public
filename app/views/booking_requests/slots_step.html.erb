@@ -19,7 +19,7 @@
     <div class="grid-row visible--js-enabled">
       <div class="column-two-thirds">
         <h3 class="text-secondary push-bottom--half">Choose a date for your visit</h3>
-        <%= render('booking_calendar', slots: f.object.slot_constraints, option_num: f.object.next_option_to_fill) %>
+        <%= render('booking_calendar', slots: f.object.slot_constraints, option_num: f.object.next_slot_to_fill) %>
       </div>
       <div class="column-one-third">
         <h3 id="slots" class="text-secondary push-bottom--half">Choose a time for your visit</h3>
