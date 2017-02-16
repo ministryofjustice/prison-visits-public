@@ -56,10 +56,12 @@ module CalendarHelper
   end
 
   def chosen_options
-    {
+    options = {
       'data-slot-chosen' => true,
-      'data-message' => 'Already chosen',
-      'disabled' => 'disabled'
+      'data-message' => 'Already chosen'
     }
+
+    options.merge('disabled' => 'disabled') unless reviewing?
+    options
   end
 end
