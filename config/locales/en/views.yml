@@ -94,6 +94,14 @@ en:
       date_of_birth: Date of birth
     slots_step:
       title: When do you want to visit?
+      info_html: <p>Choose up to 3 dates and time slots for your visit. If your first choice isn’t available, we’ll try your other choices.</p>
+      your_choices: Your choices
+      choose_date_0: Choose your preferred date
+      choose_date_1: Choose another date
+      choose_date_2: Choose another date
+      choose_time: Choose a time
+      your_selection: Your selection
+      no_more_to_add: No more to add
       choose_alternatives: >-
         Choose two alternative dates in case your first choice isn’t available.
       option_0: Option 1

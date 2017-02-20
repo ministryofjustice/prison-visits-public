@@ -6,9 +6,10 @@
 
   <div class="grid-row">
     <div class="column-two-thirds">
-      <!-- Only show if it's the first slot -->
-      <p>Choose up to 3 dates and time slots for your visit. If your first choice isn’t available, we’ll try your other choices.</p>
-
+      <% slot_number = @steps.fetch(:slots_step).next_slot_to_fill %>
+      <% if slot_number == "0" %>
+        <%= t(".info_html") %>
+      <% end %>
     </div>
   </div>
 
@@ -21,26 +22,32 @@
     <% end %>
 
     <% @steps.fetch(:slots_step).slots.any? do %>
-      <p>Your choices:</p>
-      <ul class="list list-number">
-        <% @steps.fetch(:slots_step).slots.each_with_index do |slot, index| %>
-          <li><%= format_slot_for_public(slot) %></li>
-        <% end %>
-      </ul>
+      <div class="grid-row">
+        <div class="column-one-half">
+          <p><%= t('.your_choices') %>:</p>
+          <div class="govuk-box-highlight text-left">
+            <ul class="list list-number push-left">
+              <% @steps.fetch(:slots_step).slots.each_with_index do |slot, index| %>
+                <li><%= format_slot_for_public(slot) %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
     <% end %>
 
     <%= render('hidden_inputs_for_calendars', f: f) %>
 
     <div class="grid-row visible--js-enabled push-top">
       <div class="column-two-thirds">
-        <h2 class="text-secondary push-bottom--half">Choose your preferred date:</h2>
+        <h2 class="push-bottom--half"><%= t(".choose_date_#{slot_number}") %>:</h2>
         <%= render('booking_calendar', slots: f.object.slot_constraints, option_num: f.object.next_slot_to_fill) %>
       </div>
       <div class="column-one-third">
-        <h2 id="slots" class="text-secondary push-bottom--half">Choose a time:</h2>
+        <h2 id="slots" class="push-bottom--half"><%= t(".choose_time") %>:</h2>
         <div class="slot-selection">
           <fieldset>
-            <legend class="visuallyhidden">Please choose a slot for your visit</legend>
+            <legend class="visuallyhidden"><%= t(".choose_time") %></legend>
             <div id="js-slotAvailability" aria-describedby="slots" aria-live="assertive" aria-atomic="true" aria-relevant="additions removals"></div>
           </fieldset>
         </div>
@@ -50,7 +57,7 @@
     <div class="grid-row">
       <div class="column-one-third">
         <div id="js-slotTarget" aria-hidden="true">
-          <h3 class="text-secondary push-bottom--half">Your selection</h3>
+          <h3 class="push-bottom--half"><%= t('.your_selection') %>:</h3>
           <div class="date-box slot-selected" aria-live="assertive" aria-atomic="true" aria-relevant="text">
             <span class="date-box__number"></span>
             <span class="date-box__day"></span>
@@ -63,20 +70,26 @@
 
     <div class="grid-row push-top">
       <div class="column-two-thirds">
+        <% if reviewing? %>
+          <%= f.submit('Confirm amend', class: 'button button-primary') %>
+        <% else %>
+          <%= f.submit('Add another choice', class: 'button button-primary') %>
+          <p class="push-top"><a href="#"><%= t('.no_more_to_add') %></a></p>
+        <% end %>
+
+      </div>
+    </div>
+
+    <div class="grid-row push-top">
+      <div class="column-two-thirds">
         <div class="grid-row">
-          <div class="column-one-half push-bottom">
-            <% if reviewing? %>
-              <%= f.submit('Confirm amend', class: 'button button-primary') %>
-            <% else %>
-              <%= f.submit('Add another choice', class: 'button button-primary') %>
-            <% end %>
-          </div>
           <div class="column-one-half">
             <%= render('cancel') %>
           </div>
         </div>
       </div>
     </div>
+
 
   <% end %>
 
