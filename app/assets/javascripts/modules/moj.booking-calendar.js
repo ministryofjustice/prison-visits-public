@@ -82,7 +82,13 @@
 
         self.updateSource(slot);
         self.updateSelectedSlot(slot);
-        self.handleSlotChosen(slot);
+        self.handleSlotChosen();
+      });
+
+      this.$slotTarget.on('click', '.date-box__action', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        self.removeSlot();
       });
     },
 
@@ -125,7 +131,7 @@
 
       if (this.selectedSlot && this.selectedDate) {
         this.updateSlots(this.selectedDate);
-        this.handleSlotChosen(this.selectedSlot);
+        this.handleSlotChosen();
       }
     },
 
@@ -885,14 +891,34 @@
       }
     },
 
-    handleSlotChosen: function(slot) {
-      var dateObj = this.formatSlot(slot);
+    handleSlotChosen: function() {
+      var html = '';
+
+      if (this.selectedSlot) {
+        var dateObj = this.formatSlot(this.selectedSlot);
+
+        html = '<div class="date-box slot-selected" aria-live="assertive" aria-atomic="true" aria-relevant="text">' +
+          '<span class="date-box__number">' + this.slotNumber + '</span>' +
+          '<span class="date-box__day">' + dateObj.day + ' ' + dateObj.formattedDate + '</span>' +
+          '<br/>' +
+          '<span class="date-box__slot">' + dateObj.time + ' (' + dateObj.duration + ')' + '</span>' +
+          '<br/>' +
+          '<a href="#" class="date-box__action">Remove slot</a>' +
+          '</div>';
+      }
 
       this.$slotTarget.attr('aria-hidden', false);
-      this.$slotTarget.find('.date-box__number').text(this.slotNumber);
-      this.$slotTarget.find('.date-box__day').text(dateObj.day + ' ' + dateObj.formattedDate);
-      this.$slotTarget.find('.date-box__date').text(dateObj.formattedDate);
-      this.$slotTarget.find('.date-box__slot').text(dateObj.time + ' (' + dateObj.duration + ')');
+      this.$slotTarget.find('.date-box-wrapper').html(html);
+    },
+
+    removeSlot: function() {
+      this.$slotSource.val(null);
+      this.$slotList.empty();
+      this.selectedSlot = null;
+      this.selectedDate = null;
+      this.popGrid();
+      this.handleSlotChosen();
+      this.$slotTarget.attr('aria-hidden', true);
     },
 
     formatSlot: function(slot) {
