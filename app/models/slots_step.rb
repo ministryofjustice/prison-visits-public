@@ -1,7 +1,7 @@
 class SlotsStep
   include NonPersistedModel
 
-  attr_accessor :review_slot, :currently_filling
+  attr_accessor :review_slot, :currently_filling, :skip_remaining_slots
 
   attribute :processor, StepsProcessor
 
@@ -31,7 +31,8 @@ class SlotsStep
   delegate :bookable_slots?, to: :slot_constraints
 
   def options_available?
-    if just_reviewed_slot? || currently_filling_slot_left_blank?
+    if skip_remaining_slots || just_reviewed_slot? ||
+       currently_filling_slot_left_blank?
       false
     else
       next_slot_to_fill ? true : false

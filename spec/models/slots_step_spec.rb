@@ -106,6 +106,17 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :next_to_fill_is, 1
     end
 
+    context 'After posting from Slot 1 page from save and skip link' do
+      before do
+        subject.option_0 = '2015-01-02T09:00/10:00'
+        subject.currently_filling = '0'
+        subject.skip_remaining_slots = true
+      end
+
+      it_behaves_like :options_are_not_available
+      it_behaves_like :next_to_fill_is, 1
+    end
+
     context 'After posting from Slot 2 page' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
