@@ -31,7 +31,7 @@ class SlotsStep
   delegate :bookable_slots?, to: :slot_constraints
 
   def options_available?
-    if skip_remaining_slots || just_reviewed_slot? ||
+    if skip_remaining_slots.present? || just_reviewed_slot? ||
        currently_filling_slot_left_blank?
       false
     else

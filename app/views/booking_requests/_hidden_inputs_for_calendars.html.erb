@@ -16,5 +16,5 @@
 
   <%= hidden_field_tag('slots_step[currently_filling]', @steps.fetch(:slots_step).next_slot_to_fill) %>
   <%= hidden_field_tag('slots_step[review_slot]', @steps.fetch(:slots_step).review_slot) %>
-  <%= hidden_field_tag('slots_step[skip_remaining_slots]', @steps.fetch(:slots_step).skip_remaining_slots %>
+  <%= hidden_field_tag('slots_step[skip_remaining_slots]', @steps.fetch(:slots_step).skip_remaining_slots) %>
 </div>

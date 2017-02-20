@@ -110,7 +110,7 @@ RSpec.describe SlotsStep, type: :model do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.currently_filling = '0'
-        subject.skip_remaining_slots = true
+        subject.skip_remaining_slots = 'true'
       end
 
       it_behaves_like :options_are_not_available
