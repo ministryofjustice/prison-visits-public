@@ -40,7 +40,7 @@ private
     respond_to do |format|
       format.html do
         if step_name == :completed
-          redirect_to visit_path(visit.id, locale: I18n.locale)
+          redirect_to visit_path(visit.human_id, locale: I18n.locale)
         else
           render step_name
         end
