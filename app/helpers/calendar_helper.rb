@@ -61,7 +61,7 @@ module CalendarHelper
       'data-message' => 'Already chosen'
     }
 
-    options.merge('disabled' => 'disabled') unless reviewing?
+    options['disabled'] = 'disabled' unless reviewing?
     options
   end
 end

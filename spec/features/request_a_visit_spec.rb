@@ -1,28 +1,38 @@
 require 'rails_helper'
 
+VCR.configure do |config|
+  config.default_cassette_options = {
+    match_requests_on: %i[ method uri host path body ]
+  }
+end
+
 RSpec.feature 'Booking a visit', js: true do
   before do skip 'Features specs not yet fixed' end
 
   include FeaturesHelper
 
-  let!(:prison) { create(:prison, name: 'Reading Gaol') }
-
   # Whitespace on email to test stripping
   let(:visitor_email) { ' ado@test.example.com ' }
 
-  scenario 'happy path' do
+  scenario 'happy path', vcr: { cassette_name: :request_a_visit_happy_path } do
     visit booking_requests_path(locale: 'en')
 
-    enter_prisoner_information \
-      prison_name: 'Reading Gaol', first_name: 'Oscar', last_name: 'Wilde'
+    enter_prisoner_information
     click_button 'Continue'
+
+    # save_and_open_page
+    select_next_available_slot
+    click_button 'Add another choice'
+
+    select_next_available_slot
+    click_button 'Add another choice'
+
+    select_next_available_slot
+    click_button 'Add another choice'
 
     enter_visitor_information email_address: visitor_email
     select '1', from: 'How many other visitors?'
     enter_visitor_information index: 1
-    click_button 'Continue'
-
-    select_slots
     click_button 'Continue'
 
     expect(page).to have_text('Check your request')
@@ -35,6 +45,7 @@ RSpec.feature 'Booking a visit', js: true do
       to receive_email.
       with_subject(/\AVisit request for Oscar Wilde on \w+ \d+ \w+\z/).
       and_body(/Prisoner:\s*Oscar Wilde/)
+
     expect(visitor_email.strip).
       to receive_email.
       with_subject(/we’ve received your visit request for \w+ \d+ \w+\z/).

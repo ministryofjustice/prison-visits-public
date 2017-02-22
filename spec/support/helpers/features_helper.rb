@@ -3,9 +3,9 @@ module FeaturesHelper
     options = {
       first_name: 'Oscar',
       last_name: 'Wilde',
-      date_of_birth: Date.new(1980, 12, 31),
-      number: 'a1234bc',
-      prison_name: 'Reading Gaol'
+      date_of_birth: Date.new(1960, 6, 1),
+      number: 'A1410AE',
+      prison_name: 'Leicester'
     }.merge(options)
 
     fill_in 'Prisoner first name', with: options.fetch(:first_name)
@@ -53,10 +53,12 @@ module FeaturesHelper
     end
   end
 
+  def select_next_available_slot
+    select_nth_slot 0
+  end
+
   def select_nth_slot(n)
-    all(".BookingCalendar-date--bookable .BookingCalendar-dateLink")[n].
-      trigger('click')
-    first('.SlotPicker-slot').trigger('click')
+    all("select.SlotPicker-input option")[n + 1].select_option
   end
 
   def select_prison(name)
