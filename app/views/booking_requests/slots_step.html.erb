@@ -24,13 +24,15 @@
     <% @steps.fetch(:slots_step).slots.any? do %>
       <div class="grid-row">
         <div class="column-one-half">
-          <p><%= t('.your_choices') %>:</p>
-          <div class="govuk-box-highlight text-left">
-            <ul class="list list-number push-left">
+          <div class="text-left">
+            <div class="">
+            <p><%= t('.your_choices') %>:</p>
+            <ul class="list list-number">
               <% @steps.fetch(:slots_step).slots.each_with_index do |slot, index| %>
                 <li><%= format_slot_for_public(slot) %></li>
               <% end %>
             </ul>
+            </div>
           </div>
         </div>
       </div>
