@@ -10,4 +10,9 @@
   <%= hidden_field_tag('slots_step[review_slot]', review_slot) %>
 <% end %>
 
-<%= hidden_field_tag('slots_step[skip_remaining_slots]', @steps.fetch(:slots_step).skip_remaining_slots) %>
+<% if local_assigns.has_key?(:skip_remaining_slots) %>
+  <%= hidden_field_tag('slots_step[skip_remaining_slots]', skip_remaining_slots) %>
+<% else %>
+  <%= hidden_field_tag('slots_step[skip_remaining_slots]', @steps.fetch(:slots_step).skip_remaining_slots) %>
+<% end %>
+

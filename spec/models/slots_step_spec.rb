@@ -172,5 +172,16 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :options_are_not_available
       it_behaves_like :next_to_fill_is, 1
     end
+
+    context 'After posting from review page with absent slots' do
+      before do
+        subject.option_0 = '2015-01-02T09:00/10:00'
+        subject.option_1 = '2015-01-05T09:00/10:00'
+        subject.option_2 = ''
+        subject.skip_remaining_slots = 'true'
+      end
+
+      it_behaves_like :options_are_not_available
+    end
   end
 end
