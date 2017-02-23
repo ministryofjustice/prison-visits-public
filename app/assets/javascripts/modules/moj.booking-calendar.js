@@ -103,7 +103,7 @@
       var firstDate = this.availableSlots[0].date.split('-');
       this.curMonth = new Date(firstDate[0], parseInt(firstDate[1]) - 1, firstDate[2]).getMonth();
       this.month = this.curMonth;
-      this.currentDate = true;
+      this.currentDate = false;
       this.date = this.dateObj.getDate();
       this.keys = {
         tab: 9,
@@ -204,7 +204,8 @@
             'slot': slot,
             'available': originalAvailability,
             'message': message,
-            'chosen': chosen
+            'chosen': chosen,
+            'selected': active
           });
           $.each(times, function(i, obj) {
             statuses.push(obj.available);
@@ -219,7 +220,8 @@
             'slot': slot,
             'available': originalAvailability,
             'message': message,
-            'chosen': chosen
+            'chosen': chosen,
+            'selected': active
           });
           $.each(times, function(i, obj) {
             statuses.push(obj.available);
@@ -897,28 +899,37 @@
       if (this.selectedSlot) {
         var dateObj = this.formatSlot(this.selectedSlot);
 
-        html = '<div class="date-box slot-selected" aria-live="assertive" aria-atomic="true" aria-relevant="text">' +
-          '<span class="date-box__number">' + this.slotNumber + '</span>' +
-          '<span class="date-box__day">' + dateObj.day + ' ' + dateObj.formattedDate + '</span>' +
-          '<br/>' +
-          '<span class="date-box__slot">' + dateObj.time + ' (' + dateObj.duration + ')' + '</span>' +
-          '<br/>' +
-          '<a href="#" class="date-box__action">Remove slot</a>' +
-          '</div>';
+        // html = '<div class="date-box slot-selected" aria-live="assertive" aria-atomic="true" aria-relevant="text">' +
+        //   '<span class="date-box__number">' + this.slotNumber + '</span>' +
+        //   '<span class="date-box__day">' + dateObj.day + ' ' + dateObj.formattedDate + '</span>' +
+        //   '<br/>' +
+        //   '<span class="date-box__slot">' + dateObj.time + ' (' + dateObj.duration + ')' + '</span>' +
+        //   '<br/>' +
+        //   '<a href="#" class="date-box__action">Remove slot</a>' +
+        //   '</div>';
+
+        this.$slotTarget.find('.date-box__day').text(dateObj.day + ' ' + dateObj.formattedDate);
+        this.$slotTarget.find('.date-box__slot').text(dateObj.time + ' (' + dateObj.duration + ')');
+      } else {
+        this.$slotTarget.find('.date-box__day').text('');
+        this.$slotTarget.find('.date-box__slot').text('');
       }
 
-      this.$slotTarget.attr('aria-hidden', false);
-      this.$slotTarget.find('.date-box-wrapper').html(html);
+      // this.$slotTarget.attr('aria-hidden', false);
     },
 
     removeSlot: function() {
+
+      this.$slotSource.find('option:selected').prop("selected", false).data('message', null).data('slot-chosen', null);
       this.$slotSource.val(null);
       this.$slotList.empty();
+      // debugger;
+      this.availableSlots = this.getAvailableSlots();
       this.selectedSlot = null;
       this.selectedDate = null;
       this.popGrid();
       this.handleSlotChosen();
-      this.$slotTarget.attr('aria-hidden', true);
+      // this.initialize();
     },
 
     formatSlot: function(slot) {

@@ -27,7 +27,7 @@
           <div class="text-left">
             <div class="">
             <p><%= t('.your_choices') %>:</p>
-            <ul class="list list-number">
+            <ul class="list">
               <% @steps.fetch(:slots_step).slots.each_with_index do |slot, index| %>
                 <li><%= format_slot_for_public(slot) %></li>
               <% end %>
@@ -58,9 +58,18 @@
 
     <div class="grid-row">
       <div class="column-one-third">
-        <div id="js-slotTarget" aria-hidden="true">
+        <div id="js-slotTarget">
           <h3 class="push-bottom--half"><%= t('.your_selection') %>:</h3>
-          <div class="date-box-wrapper"></div>
+          <div class="date-box slot-selected" aria-live="assertive" aria-atomic="true" aria-relevant="text">
+            <span class="date-box__number"><%= slot_number.to_i + 1 %></span>
+            <span class="date-box__day"></span>
+            <br>
+            <span class="date-box__slot"></span>
+            <% if slot_number.to_i > 0 && reviewing? %>
+            <br>
+            <a href="#" class="date-box__action">Remove slot</a>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
