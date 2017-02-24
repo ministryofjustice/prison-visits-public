@@ -3,6 +3,7 @@
   border: 1px solid $border-colour;
   min-height: 60px;
   overflow: hidden;
+  margin-bottom: $gutter-half;
   position: relative;
   padding: 10px 10px 10px 70px;
   @include core-16;
@@ -28,8 +29,5 @@
       background: #1B567D;
       color: $white;
     }
-  }
-  @include media(mobile) {
-    margin-bottom: $gutter;
   }
 }

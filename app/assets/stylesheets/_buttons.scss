@@ -16,11 +16,19 @@
   cursor: pointer;
   padding: 0;
   text-decoration: underline;
+  @include prefix(box-shadow, none);
+  &:link {
+    color: $link-colour;
+  }
   &:hover {
+    background-color: transparent;
     color: $link-hover-colour;
     text-decoration: none;
   }
   &:visited {
     color: $link-visited-colour;
+  }
+  &:active, &:focus {
+    background-color: $focus-colour;
   }
 }

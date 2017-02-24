@@ -102,10 +102,10 @@ en:
       choose_time: Choose a time
       your_selection: Your selection
       remove_slot: Remove slot
-      no_more_to_add: Go to your details
+      no_more_to_add: No more to add
       submit_0: Add another choice
       submit_1: Add another choice
-      submit_2: Go to your details
+      submit_2: Continue
       confirm_amend: Confirm amend
       choose_alternatives: >-
         Choose two alternative dates in case your first choice isn’t available.
@@ -139,7 +139,7 @@ en:
         available.
       first_choice: "First choice"
       alternatives: "Alternatives"
-      change_visit_details: Change visit details
+      change_visit_details: Change date and time slot
       ts_and_cs: Terms & conditions
       next_step: Send request
     cancel:

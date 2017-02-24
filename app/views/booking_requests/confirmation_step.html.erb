@@ -48,49 +48,69 @@
 <table class="check-your-answers">
   <thead>
     <tr>
-      <th>
-        <%= t('.your_visit') %>
-      </th>
-      <th class="change-answer text-right">
-        <% 3.times do |i| %>
-          <%= form_for(confirmation_step,
-               url: booking_requests_path,
-               html: { class: 'js-SubmitOnce' }) do |f| %>
-            <%= render('hidden_prisoner_step') %>
-            <%= render('hidden_visitors_step') %>
-            <%= render('hidden_slots_step', review_slot: i.to_s) %>
-            <%= hidden_field_tag('review_step', 'slots_step') %>
-            <%= f.submit(t('.change_visit_details')+" - time slot #{i+1}", class: 'button-link') %>
-          <% end %>
-        <% end %>
-      </th>
+      <th>Visit details</th>
     </tr>
   </thead>
   <tbody>
-    <% if slots_step.options_available? %>
-      <tr>
-        <td></td>
-        <td><%= t('.options_available_html') %></td>
-      </tr>
-    <% end %>
     <tr>
-      <td><%= t('.first_choice') %></td>
-      <td aria-label="<%= t('.first_choice') %>"><%= format_slot_for_public(slots_step.slots.first) %></td>
-    </tr>
-    <% if slots_step.additional_options? %>
-      <tr>
-        <td><%= t('.alternatives') %></td>
-        <td aria-label="<%= t('.alternatives') %>">
-          <% slots_step.slots.drop(1).each do |slot| %>
-            <%= format_slot_for_public(slot) %><br/>
+      <td>
+        <%= form_for(confirmation_step,
+             url: booking_requests_path,
+             html: { class: 'js-SubmitOnce' }) do |f| %>
+          <%= render('hidden_prisoner_step') %>
+          <%= render('hidden_visitors_step') %>
+          <%= render('hidden_slots_step', review_slot: "0") %>
+          <%= hidden_field_tag('review_step', 'slots_step') %>
+          <div class="date-box">
+            <span class="date-box__number">1</span>
+            <span class="date-box__day"><%= format_date_without_year(slots_step.slots.first) %></span>
+            <br>
+            <span class="date-box__slot"><%= format_time_12hr(slots_step.slots.first.begin_at) %> (<%= format_duration(slots_step.slots.first.duration) %>)</span>
+            <br/>
+            <%= f.submit(t('.change_visit_details'), class: 'button-link') %>
+          </div>
+        <% end %>
+
+        <% if slots_step.additional_options? %>
+          <% slots_step.slots.drop(1).each_with_index do |slot,i| %>
+            <%= form_for(confirmation_step,
+                 url: booking_requests_path,
+                 html: { class: 'js-SubmitOnce' }) do |f| %>
+              <%= render('hidden_prisoner_step') %>
+              <%= render('hidden_visitors_step') %>
+              <%= render('hidden_slots_step', review_slot: (i + 1).to_s) %>
+              <%= hidden_field_tag('review_step', 'slots_step') %>
+              <div class="date-box">
+                <span class="date-box__number"><%= i + 2 %></span>
+                <span class="date-box__day"><%= format_date_without_year(slots_step.slots[i+1]) %></span>
+                <br>
+                <span class="date-box__slot"><%= format_time_12hr(slots_step.slots[i+1].begin_at) %> (<%= format_duration(slots_step.slots[i+1].duration) %>)</span>
+                <br/>
+                <%= f.submit(t('.change_visit_details'), class: 'button-link') %>
+              </div>
+            <% end %>
           <% end %>
-        </td>
-      </tr>
-    <% end %>
+        <% end %>
+
+        <% if slots_step.options.length < 3 %>
+          <p><%= t('.options_available_html') %></p>
+          <%= form_for(confirmation_step,
+                 url: booking_requests_path,
+                 html: { class: 'js-SubmitOnce' }) do |f| %>
+              <%= render('hidden_prisoner_step') %>
+              <%= render('hidden_visitors_step') %>
+              <%= render('hidden_slots_step', review_slot: slots_step.next_slot_to_add) %>
+              <%= hidden_field_tag('review_step', 'slots_step') %>
+              <%= f.submit("Add another choice", class: 'button-link') %>
+          <% end %>
+        <% end %>
+
+      </td>
+    </tr>
   </tbody>
 </table>
 
-<table class="check-your-answers">
+<table class="responsive check-your-answers">
   <thead>
     <tr>
       <th>
@@ -141,7 +161,7 @@
         <%= f.submit(t('.next_step'), class: 'button button-primary') %>
       </div>
       <div class="column-one-half text-right">
-        <%= render('cancel') %>
+        <p><%= render('cancel') %><p>
       </div>
     </div>
   <% end %>

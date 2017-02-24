@@ -260,7 +260,8 @@
       // insert the days of the month.
       for (curDay = 1; curDay <= numDays; curDay++) {
 
-        var cellDate, className = 'disabled';
+        var cellDate, className = 'disabled',
+          ariaSelected = false;
 
         cellDate = this.year + '-' + (this.month <= 9 ? '0' : '') + (this.month + 1) + '-' + (curDay <= 9 ? '0' : '') + curDay;
 
@@ -272,17 +273,18 @@
         }
 
         if (cellDate === this.selectedDate) {
-          className += ' selected'
+          className += ' selected';
+          ariaSelected = true;
         }
 
         if (curDay == this.date && this.currentDate == true) {
 
           gridCells += '\t\t<td id="day' + curDay + '" class="today ' + className + ' " headers="row' +
-            rowCount + ' ' + this.settings.i18n.days[weekday] + '" role="gridcell" aria-selected="false"><span class="cell-date">' + curDay + '</span></td>';
+            rowCount + ' ' + this.settings.i18n.days[weekday] + '" role="gridcell" aria-selected="' + ariaSelected + '"><span class="cell-date">' + curDay + '</span></td>';
 
         } else {
           gridCells += '\t\t<td id="day' + curDay + '" class="' + className + '" headers="row' +
-            rowCount + ' ' + this.settings.i18n.days[weekday] + '" role="gridcell" aria-selected="false"><span class="cell-date">' + curDay + '</span></td>';
+            rowCount + ' ' + this.settings.i18n.days[weekday] + '" role="gridcell" aria-selected="' + ariaSelected + '"><span class="cell-date">' + curDay + '</span></td>';
         }
 
 

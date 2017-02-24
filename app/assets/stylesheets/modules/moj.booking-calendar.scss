@@ -140,13 +140,13 @@ table.booking-calendar {
         display: block;
         width: 10px;
         height: 10px;
-        background-color: $link-colour;
+        background-color: $border-colour;
         margin: 0 auto;
         @include border-radius(100%);
         position: absolute;
         left: 50%;
         margin-left: -5px;
-        bottom: 0;
+        bottom: 3px;
       }
     }
   }

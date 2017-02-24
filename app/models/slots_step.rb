@@ -73,4 +73,10 @@ class SlotsStep
     return '1' if option_1.blank?
     return '2' if option_2.blank?
   end
+
+  def next_slot_to_add
+    return '0' if option_0.blank?
+    return '1' if option_1.blank?
+    return '2' if option_2.blank?
+  end
 end
