@@ -80,26 +80,26 @@
 
     <div class="grid-row push-top">
       <div class="column-two-thirds">
-        <% if reviewing? %>
-          <p><%= f.submit(t(".confirm_amend"), class: 'button button-primary') %></p>
-        <% else %>
-          <%= f.submit(t(".submit_#{slot_number}"), class: 'button button-primary') %>
-          <p class="push-top"><a class="button button-link" id="js-skipSlot" href="#"><%= t('.no_more_to_add') %></a></p>
-        <% end %>
-
+        <div class="grid-row">
+          <div class="column-one-half">
+            <% if reviewing? %>
+              <p><%= f.submit(t(".confirm_amend"), class: 'button button-primary') %></p>
+            <% else %>
+              <%= f.submit(t(".submit_#{slot_number}"), class: 'button button-primary') %>
+              <p class="push-top"><a class="button button-link" id="js-skipSlot" href="#"><%= t('.no_more_to_add') %></a></p>
+            <% end %>
+          </div>
+        <div class="column-one-half text-right">
+          <%= render('cancel') %>
+        </div>
       </div>
     </div>
-
-    <div class="grid-row">
-      <div class="column-two-thirds">
-        <%= render('cancel') %>
-      </div>
-    </div>
-
 
   <% end %>
 
-  <%= render('contact_prison') %>
+    <div class="column-two-thirds">
+      <%= render('contact_prison') %>
+    </div>
 
 <% else %>
 

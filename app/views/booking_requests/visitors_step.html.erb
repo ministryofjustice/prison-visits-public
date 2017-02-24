@@ -40,9 +40,9 @@
         <%= render('additional_visitors', f: f) %>
         <div class="grid-row form-group">
           <div class="column-one-half">
-            <%= f.submit(t('.next_step'), class: 'button button-primary') %>
+            <p><%= f.submit(t('.next_step'), class: 'button button-primary') %></p>
           </div>
-          <div class="column-one-half">
+          <div class="column-one-half text-right">
             <%= render('cancel') %>
           </div>
         </div>
