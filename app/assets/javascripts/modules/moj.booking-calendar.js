@@ -915,7 +915,7 @@
         this.$slotTarget.find('.date-box__slot').text('');
       }
 
-      // this.$slotTarget.attr('aria-hidden', false);
+      this.$slotTarget.attr('aria-hidden', false);
     },
 
     removeSlot: function() {

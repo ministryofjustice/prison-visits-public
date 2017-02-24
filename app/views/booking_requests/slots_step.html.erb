@@ -23,16 +23,20 @@
 
     <% @steps.fetch(:slots_step).slots.any? do %>
       <div class="grid-row">
-        <div class="column-one-half">
-          <div class="text-left">
-            <div class="">
-            <p><%= t('.your_choices') %>:</p>
-            <ul class="list">
-              <% @steps.fetch(:slots_step).slots.each_with_index do |slot, index| %>
-                <li><%= format_slot_for_public(slot) %></li>
-              <% end %>
-            </ul>
-            </div>
+        <div class="column-full">
+          <p><%= t('.your_choices') %>:</p>
+          <div class="grid-row">
+            <% @steps.fetch(:slots_step).slots.each_with_index do |slot, index| %>
+              <% className = (index == slot_number.to_i)? 'active' : '' %>
+              <div class="column-one-third">
+                <div class="date-box date-box--small <%= className %>" aria-live="assertive" aria-atomic="true" aria-relevant="text">
+                  <span class="date-box__number"><%= index + 1 %></span>
+                  <span class="date-box__day"><%= format_date_without_year(slot) %></span>
+                  <br>
+                  <span class="date-box__slot"><%= format_time_12hr(slot.begin_at) %> (<%= format_duration(slot.duration) %>)</span>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -58,16 +62,16 @@
 
     <div class="grid-row">
       <div class="column-one-third">
-        <div id="js-slotTarget">
+        <div id="js-slotTarget" aria-hidden="true">
           <h3 class="push-bottom--half"><%= t('.your_selection') %>:</h3>
-          <div class="date-box slot-selected" aria-live="assertive" aria-atomic="true" aria-relevant="text">
+          <div class="date-box active" aria-live="assertive" aria-atomic="true" aria-relevant="text">
             <span class="date-box__number"><%= slot_number.to_i + 1 %></span>
             <span class="date-box__day"></span>
             <br>
             <span class="date-box__slot"></span>
             <% if slot_number.to_i > 0 && reviewing? %>
             <br>
-            <a href="#" class="date-box__action">Remove slot</a>
+            <a href="#" class="date-box__action"><%= t(".remove_slot") %></a>
             <% end %>
           </div>
         </div>
@@ -77,9 +81,9 @@
     <div class="grid-row push-top">
       <div class="column-two-thirds">
         <% if reviewing? %>
-          <%= f.submit('Confirm amend', class: 'button button-primary') %>
+          <%= f.submit(t(".confirm_amend"), class: 'button button-primary') %>
         <% else %>
-          <%= f.submit('Add another choice', class: 'button button-primary') %>
+          <%= f.submit(t(".submit_#{slot_number}"), class: 'button button-primary') %>
           <p class="push-top"><a id="js-skipSlot" href="#"><%= t('.no_more_to_add') %></a></p>
         <% end %>
 
