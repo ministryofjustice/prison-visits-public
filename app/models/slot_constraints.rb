@@ -1,5 +1,5 @@
 class SlotConstraints
-  delegate :map, to: :@slot_availabilities
+  delegate :map, to: :@slot_calendars
 
   def initialize(slot_calendars)
     @slot_calendars = slot_calendars
