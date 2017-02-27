@@ -94,6 +94,7 @@ en:
       date_of_birth: Date of birth
     slots_step:
       title: When do you want to visit?
+      slot1_error: You must choose at least one date and time slot.
       info_html: <p>Choose up to 3 dates and time slots for your visit. If your first choice isn’t available, we’ll try your other choices.</p>
       your_choices: Your choices
       choose_date_0: Choose your preferred date

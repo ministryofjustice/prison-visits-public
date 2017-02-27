@@ -29,7 +29,7 @@
       this.$slotSource = $('#' + this.$el.data('slotSource'));
       this.$slotList = $('#' + this.$el.data('slotList'));
       this.$slotTarget = $('#' + this.$el.data('slotTarget'));
-      this.slotNumber = parseInt(this.$el.attr('id').split('_')[1]) + 1;
+      this.slotNumber = this.$el.data('slotNumber'); //parseInt(this.$el.attr('id').split('_')[1]) + 1;
     },
 
     /**
@@ -175,9 +175,9 @@
 
       for (i = 0; i < slots.length; i++) {
         var slot = slots[i].val(),
-          originalAvailability = slots[i].attr('disabled') ? 0 : 1,
           message = slots[i].data('message') || '',
           chosen = slots[i].data('slot-chosen') || false,
+          originalAvailability = slots[i].attr('disabled') ? 0 : (chosen) ? 0 : 1,
           active = slots[i].is(':selected');
 
         day = this.splitDateAndSlot(slot)[0];
