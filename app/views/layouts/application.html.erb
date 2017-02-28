@@ -11,6 +11,16 @@
   <![endif]-->
 <% end %>
 
+<% content_for :proposition_header do %>
+  <div class="header-proposition">
+    <div class="content">
+      <nav id="proposition-menu" class="header__menu" role="navigation">
+        <a href="/" id="proposition-name" class="header__menu__proposition-name"><%= t('app_title') %></a>
+      </nav>
+    </div>
+  </div>
+<% end %>
+
 <% content_for :body_end do %>
   <script>
     var i18n = <%= raw(javascript_i18n.to_json) %>;
