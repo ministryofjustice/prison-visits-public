@@ -29,7 +29,7 @@
       this.$slotSource = $('#' + this.$el.data('slotSource'));
       this.$slotList = $('#' + this.$el.data('slotList'));
       this.$slotTarget = $('#' + this.$el.data('slotTarget'));
-      this.slotNumber = this.$el.data('slotNumber'); //parseInt(this.$el.attr('id').split('_')[1]) + 1;
+      this.slotNumber = this.$el.data('slotNumber');
     },
 
     /**
@@ -246,7 +246,7 @@
         curDay = 1,
         rowCount = 1,
         $tbody = this.$grid.find('tbody'),
-        gridCells = '\t<tr id="row0">\n';
+        gridCells = '\t<tr role="row" id="row0">\n';
 
       // clear the grid
       $tbody.empty();
@@ -277,21 +277,14 @@
           ariaSelected = true;
         }
 
-        if (curDay == this.date && this.currentDate == true) {
-
-          gridCells += '\t\t<td id="day' + curDay + '" class="today ' + className + ' " headers="row' +
-            rowCount + ' ' + this.settings.i18n.days[weekday] + '" role="gridcell" aria-selected="' + ariaSelected + '"><span class="cell-date">' + curDay + '</span></td>';
-
-        } else {
-          gridCells += '\t\t<td id="day' + curDay + '" class="' + className + '" headers="row' +
-            rowCount + ' ' + this.settings.i18n.days[weekday] + '" role="gridcell" aria-selected="' + ariaSelected + '"><span class="cell-date">' + curDay + '</span></td>';
-        }
-
+        gridCells += '\t\t<td id="day' + curDay + '" class="' + className + '" aria-label="' +
+          curDay + ', ' + this.settings.i18n.days[weekday] + ' ' + this.settings.i18n.months[this.month] +
+          ' ' + this.year + '" role="gridcell" aria-selected="' + ariaSelected + '"><span aria-label="Press the ENTER key to select the date" class="cell-date">' + curDay + '</span></td>';
 
         if (weekday == 6 && curDay < numDays) {
           // This was the last day of the week, close it out
           // and begin a new one
-          gridCells += '\t</tr>\n\t<tr id="row' + rowCount + '">\n';
+          gridCells += '\t</tr>\n\t<tr role="row" id="row' + rowCount + '">\n';
           rowCount++;
           weekday = 0;
         } else {
@@ -566,11 +559,12 @@
 
             if (dayIndex >= 0) {
               this.$grid.find('.selected').removeClass('selected').attr('aria-selected', 'false');
-              $curDay.addClass('selected').attr('aria-selected', 'true');
+              $curDay.addClass('selected').attr('aria-selected', 'true').find('.cell-date');
               // update the target box
               var date = this.year + '-' + (this.month < 9 ? '0' : '') + (this.month + 1) + '-' + ($curDay.text() <= 9 ? '0' : '') + $curDay.text();
               this.updateSelectedDate(date);
               this.updateSlots(date);
+              this.$slotList.find('input').eq(0).focus();
             } else {
               return false;
             }
@@ -809,7 +803,7 @@
       }
 
       this.$grid.find('.focus, .selected').removeClass('focus selected').attr('aria-selected', 'false');
-      $cell.addClass('focus selected').attr('aria-selected', 'true');
+      $cell.addClass('focus selected').attr('aria-selected', 'true').find('.cell-date');
       this.$grid.attr('aria-activedescendant', $cell.attr('id'));
 
       var $curDay = $('#' + this.$grid.attr('aria-activedescendant'));
@@ -827,8 +821,9 @@
       var active = this.$grid.attr('aria-activedescendant');
 
       if ($('#' + active).attr('id') == undefined) {
-        var lastDay = 'day' + this.calcNumDays(this.year, this.month);
+        var lastDay = 'day1';
         $('#' + lastDay).addClass('focus').attr('aria-selected', 'true');
+        this.$grid.attr('aria-activedescendant', 'day1');
       } else {
         $('#' + active).addClass('focus').attr('aria-selected', 'true');
       }
@@ -866,7 +861,7 @@
 
       $.each(slot, function(i, obj) {
         var className = '',
-          time = self.formatTime(obj.time),
+          time = self.formatTime(obj.time.split('/')[0]),
           duration = self.formatTimeDuration(obj.time),
           disabled,
           checked = obj.slot === self.selectedSlot ? 'checked' : null;
@@ -878,7 +873,7 @@
         }
 
         var tmpl = '<label class="block-label selection-button-radio slot' + className + '" for="slot-step-' + obj.day + '-' + i + '">' +
-          '<input ' + checked + ' aria-labelledby="slot-step-' + obj.day + '-' + i + '" ' + disabled + ' id="slot-step-' + obj.day + '-' + i + '" type="radio" name="slot_step_0" value="' + obj.slot + '">' +
+          '<input ' + checked + ' aria-label="Choose time slot ' + time + ' for ' + duration + '" ' + disabled + ' id="slot-step-' + obj.day + '-' + i + '" type="radio" name="slot_step_0" value="' + obj.slot + '">' +
           '<span class="slot--time">' + time + ' (' + duration + ')</span>' +
           '<br/>' +
           '<span class="slot--message">' + obj.message + '</span>' +
@@ -901,15 +896,6 @@
       if (this.selectedSlot) {
         var dateObj = this.formatSlot(this.selectedSlot);
 
-        // html = '<div class="date-box slot-selected" aria-live="assertive" aria-atomic="true" aria-relevant="text">' +
-        //   '<span class="date-box__number">' + this.slotNumber + '</span>' +
-        //   '<span class="date-box__day">' + dateObj.day + ' ' + dateObj.formattedDate + '</span>' +
-        //   '<br/>' +
-        //   '<span class="date-box__slot">' + dateObj.time + ' (' + dateObj.duration + ')' + '</span>' +
-        //   '<br/>' +
-        //   '<a href="#" class="date-box__action">Remove slot</a>' +
-        //   '</div>';
-
         this.$slotTarget.find('.date-box__day').text(dateObj.day + ' ' + dateObj.formattedDate);
         this.$slotTarget.find('.date-box__slot').text(dateObj.time + ' (' + dateObj.duration + ')');
       } else {
@@ -931,7 +917,6 @@
       this.selectedDate = null;
       this.popGrid();
       this.handleSlotChosen();
-      // this.initialize();
     },
 
     formatSlot: function(slot) {
@@ -945,7 +930,7 @@
           'year': date.getFullYear()
         },
         'formattedDate': date.getDate() + ' ' + this.settings.i18n.months[date.getMonth()],
-        'time': this.formatTime(time),
+        'time': this.formatTime(time.split('/')[0]),
         'duration': this.formatTimeDuration(time)
       }
     },
@@ -963,7 +948,13 @@
     },
 
     formatTime: function(time) {
-      return time.split('/')[0];
+      var hours = time.split(':')[0],
+        minutes = time.split(':')[1],
+        ampm = hours >= 12 ? 'pm' : 'am';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      var strTime = hours + ':' + minutes + '' + ampm;
+      return strTime;
     },
 
     formatTimeDuration: function(time) {
@@ -1008,6 +999,21 @@
       }
 
       return out;
+    },
+
+    ordinal_suffix_of: function(i) {
+      var j = i % 10,
+        k = i % 100;
+      if (j == 1 && k != 11) {
+        return i + "st";
+      }
+      if (j == 2 && k != 12) {
+        return i + "nd";
+      }
+      if (j == 3 && k != 13) {
+        return i + "rd";
+      }
+      return i + "th";
     }
 
   };

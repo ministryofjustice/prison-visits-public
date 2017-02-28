@@ -177,7 +177,6 @@ table.booking-calendar {
   .slot {
     .slot--message {
       @include core-16;
-      color: $green;
     }
     &.disabled {
       .slot--time {
