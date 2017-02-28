@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <% @steps.fetch(:slots_step).slots.any? do %>
+    <% @steps.fetch(:slots_step).valid_options.any? do %>
       <div class="grid-row">
         <div class="column-full">
           <p><%= t('.your_choices') %>:</p>
