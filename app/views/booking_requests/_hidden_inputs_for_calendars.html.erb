@@ -1,4 +1,5 @@
 <div class="hidden--js-enabled">
+  <% #byebug; :wtf %>
   <% 3.times do |i| %>
     <% if f.object.next_slot_to_fill == i.to_s %>
       <%=
@@ -10,11 +11,13 @@
         )
       %>
     <% else %>
-      <%= hidden_field_tag("slots_step[option_#{i}]", @steps.fetch(:slots_step).send("option_#{i}")) %>
+      <% if f.object.valid_options.map(&:to_s).include?(f.object.send("option_#{i}")) %>
+        <%= hidden_field_tag("slots_step[option_#{i}]", f.object.send("option_#{i}")) %>
+      <% end %>
     <% end %>
   <% end %>
 
-  <%= hidden_field_tag('slots_step[currently_filling]', @steps.fetch(:slots_step).next_slot_to_fill) %>
-  <%= hidden_field_tag('slots_step[review_slot]', @steps.fetch(:slots_step).review_slot) %>
-  <%= hidden_field_tag('slots_step[skip_remaining_slots]', @steps.fetch(:slots_step).skip_remaining_slots) %>
+  <%= hidden_field_tag('slots_step[currently_filling]', f.object.next_slot_to_fill) %>
+  <%= hidden_field_tag('slots_step[review_slot]', f.object.review_slot) %>
+  <%= hidden_field_tag('slots_step[skip_remaining_slots]', f.object.skip_remaining_slots?) %>
 </div>

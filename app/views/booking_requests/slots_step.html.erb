@@ -17,7 +17,8 @@
              url: booking_requests_path,
              html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
     <%= render('hidden_prisoner_step') %>
-    <% if reviewing? %>
+
+    <% if @steps.fetch(:visitors_step)&.valid? %>
       <%= render('hidden_visitors_step') %>
     <% end %>
 
@@ -26,7 +27,7 @@
         <div class="column-full">
           <p><%= t('.your_choices') %>:</p>
           <div class="grid-row">
-            <% @steps.fetch(:slots_step).slots.each_with_index do |slot, index| %>
+            <% @steps.fetch(:slots_step).valid_options.each.with_index do |slot, index| %>
               <% className = (index == slot_number.to_i)? 'active' : '' %>
               <div class="column-one-third">
                 <div class="date-box date-box--small <%= className %>" aria-live="assertive" aria-atomic="true" aria-relevant="text">

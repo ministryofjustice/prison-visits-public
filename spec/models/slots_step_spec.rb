@@ -184,4 +184,119 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :options_are_not_available
     end
   end
+
+  context '#valid_options' do
+    let(:slot) { ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0) }
+
+    let(:processor) {
+      instance_double(StepsProcessor,
+        booking_constraints: booking_constraints,
+        prisoner_step: prisoner_step)
+    }
+
+    let(:prisoner_step) {
+      instance_double(PrisonerStep, first_name: 'John')
+    }
+
+    let(:booking_constraints) {
+      instance_double(
+        BookingConstraints,
+        on_slots: BookingConstraints::SlotConstraints.new([slot])
+      )
+    }
+
+    before do
+      allow(instance).
+        to receive(:processor).and_return(processor)
+
+      allow(processor).to receive(:booking_constraints).
+        and_return(booking_constraints)
+
+      subject.option_0 = option_0
+      subject.option_1 = option_1
+      subject.option_2 = option_2
+
+      subject.valid?
+    end
+
+    context 'no valid options' do
+      let(:option_0) { 'foobar' }
+      let(:option_1) { nil }
+      let(:option_2) { nil }
+
+      it 'return empty array' do
+        expect(subject.valid_options).to eq([])
+      end
+    end
+
+    context 'some valid options' do
+      let(:option_0) { slot.to_s }
+      let(:option_1) { 'foobar' }
+      let(:option_2) { nil }
+
+      it 'returns the valid slot' do
+        expect(subject.valid_options).to eq([slot])
+      end
+    end
+  end
+
+  context '#next_slot_to_fill' do
+    context 'review slot is set' do
+      before do subject.review_slot = review_slot end
+      let(:review_slot) { 'foo' }
+
+      it 'returns review slot' do
+        expect(subject.next_slot_to_fill).to eq review_slot
+      end
+    end
+
+    context '3 valid slots' do
+      before do
+        subject.option_0 = '2015-01-02T09:00/10:00'
+        subject.option_1 = '2015-01-05T09:00/10:00'
+        subject.option_2 = '2015-01-06T09:00/10:00'
+      end
+
+      it 'returns nil' do
+        expect(subject.next_slot_to_fill).to eq(nil)
+      end
+    end
+
+    context 'less than 3 valid slots' do
+      before do
+        subject.option_0 = '2015-01-02T09:00/10:00'
+        subject.option_1 = '2015-01-05T09:00/10:00'
+      end
+
+      it 'returns the number of slots' do
+        expect(subject.next_slot_to_fill).to eq('2')
+      end
+    end
+  end
+
+  context '#skip_remaining_slots?' do
+    context 'no errors' do
+      context 'user sets skip_remaining_slots' do
+        before do subject.skip_remaining_slots = 'true' end
+
+        it 'returns true' do
+          expect(subject.skip_remaining_slots?).to eq(true)
+        end
+      end
+
+      context 'user does not set skip_remaining_slots' do
+        it 'returns false' do
+          expect(subject.skip_remaining_slots?).to eq(false)
+        end
+      end
+    end
+
+    context 'errors' do
+      before do subject.option_0 = 'goofy' end
+
+      it 'returns false' do
+        expect(subject.skip_remaining_slots?).to eq(false)
+      end
+    end
+  end
 end

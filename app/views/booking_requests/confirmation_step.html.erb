@@ -54,43 +54,24 @@
   <tbody>
     <tr>
       <td>
-        <%= form_for(confirmation_step,
-             url: booking_requests_path,
-             html: { class: 'js-SubmitOnce' }) do |f| %>
-          <%= render('hidden_prisoner_step') %>
-          <%= render('hidden_visitors_step') %>
-          <%= render('hidden_slots_step', review_slot: "0") %>
-          <%= hidden_field_tag('review_step', 'slots_step') %>
-          <div class="date-box">
-            <span class="date-box__number">1</span>
-            <span class="date-box__day"><%= format_date_without_year(slots_step.slots.first) %></span>
-            <br>
-            <span class="date-box__slot"><%= format_time_12hr(slots_step.slots.first.begin_at) %> (<%= format_duration(slots_step.slots.first.duration) %>)</span>
-            <br/>
-            <%= f.submit(t('.change_visit_details'), class: 'button-link') %>
-          </div>
-        <% end %>
-
-        <% if slots_step.additional_options? %>
-          <% slots_step.slots.drop(1).each_with_index do |slot,i| %>
-            <%= form_for(confirmation_step,
-                 url: booking_requests_path,
-                 html: { class: 'js-SubmitOnce' }) do |f| %>
-              <%= render('hidden_prisoner_step') %>
-              <%= render('hidden_visitors_step') %>
-              <%= render('hidden_slots_step', review_slot: (i + 1).to_s) %>
-              <%= hidden_field_tag('review_step', 'slots_step') %>
-              <div class="date-box">
-                <span class="date-box__number"><%= i + 2 %></span>
-                <span class="date-box__day"><%= format_date_without_year(slots_step.slots[i+1]) %></span>
-                <br>
-                <span class="date-box__slot"><%= format_time_12hr(slots_step.slots[i+1].begin_at) %> (<%= format_duration(slots_step.slots[i+1].duration) %>)</span>
-                <br/>
-                <%= f.submit(t('.change_visit_details'), class: 'button-link') %>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
+        <% slots_step.slots.each.with_index do |slot,i| %>
+          <%= form_for(confirmation_step,
+                       url: booking_requests_path,
+                       html: { class: 'js-SubmitOnce' }) do |f| %>
+                       <%= render('hidden_prisoner_step') %>
+                       <%= render('hidden_visitors_step') %>
+                       <%= render('hidden_slots_step', review_slot: i.to_s) %>
+                       <%= hidden_field_tag('review_step', 'slots_step') %>
+                       <div class="date-box">
+                         <span class="date-box__number"><%= i + 1 %></span>
+                         <span class="date-box__day"><%= format_date_without_year(slots_step.slots[i]) %></span>
+                         <br>
+                         <span class="date-box__slot"><%= format_time_12hr(slots_step.slots[i].begin_at) %> (<%= format_duration(slots_step.slots[i].duration) %>)</span>
+                         <br/>
+                         <%= f.submit(t('.change_visit_details'), class: 'button-link') %>
+                       </div>
+                     <% end %>
+                   <% end %>
 
         <% if slots_step.options.length < 3 %>
           <p><%= t('.options_available_html') %></p>
@@ -99,7 +80,7 @@
                  html: { class: 'js-SubmitOnce' }) do |f| %>
               <%= render('hidden_prisoner_step') %>
               <%= render('hidden_visitors_step') %>
-              <%= render('hidden_slots_step', review_slot: slots_step.next_slot_to_add) %>
+              <%= render('hidden_slots_step') %>
               <%= hidden_field_tag('review_step', 'slots_step') %>
               <%= f.submit("Add another choice", class: 'button-link') %>
           <% end %>
