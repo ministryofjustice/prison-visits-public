@@ -7,7 +7,7 @@ VCR.configure do |config|
 end
 
 RSpec.feature 'Booking a visit', js: true do
-  before do skip 'Features specs not yet fixed' end
+  # before do skip 'Features specs not yet fixed' end
 
   include FeaturesHelper
 
@@ -20,15 +20,23 @@ RSpec.feature 'Booking a visit', js: true do
     enter_prisoner_information
     click_button 'Continue'
 
-    # save_and_open_page
-    select_next_available_slot
+
+    # 2017-03-01T14:15/16:15
+    slot = all("table.booking-calendar td.available")[0]
+    slot.click
+    first('#slot-step-2017-03-01-0', visible: false).trigger('click')
     click_button 'Add another choice'
 
-    select_next_available_slot
+    slot = all("table.booking-calendar td.available")[1]
+    slot.click
+
+    first('#slot-step-2017-03-04-0', visible: false).trigger('click')
     click_button 'Add another choice'
 
-    select_next_available_slot
-    click_button 'Add another choice'
+    slot = all("table.booking-calendar td.available")[2]
+    slot.click
+    first('#slot-step-2017-03-07-0', visible: false).trigger('click')
+    click_button 'Continue'
 
     enter_visitor_information email_address: visitor_email
     select '1', from: 'How many other visitors?'

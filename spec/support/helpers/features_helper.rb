@@ -58,7 +58,7 @@ module FeaturesHelper
   end
 
   def select_nth_slot(n)
-    all("select.SlotPicker-input option")[n + 1].select_option
+    first("table.booking-calendar td.available").click
   end
 
   def select_prison(name)
