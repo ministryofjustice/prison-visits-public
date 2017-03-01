@@ -24,7 +24,7 @@ module FeaturesHelper
       date_of_birth: Date.new(1970, 11, 30),
       prison_name: 'Reading Gaol',
       email_address: 'user@test.example.com',
-      phone_no: '01154960222',
+      phone_no: '07771232323',
       index: 0
     }.merge(options)
 
@@ -32,8 +32,8 @@ module FeaturesHelper
 
     within "#visitor-#{index}" do
       if index.zero?
-        fill_in 'Your first name', with: options.fetch(:first_name)
-        fill_in 'Your last name', with: options.fetch(:last_name)
+        fill_in 'First name', with: options.fetch(:first_name)
+        fill_in 'Last name', with: options.fetch(:last_name)
         fill_in 'Email address', with: options.fetch(:email_address)
         fill_in 'Phone number', with: options.fetch(:phone_no)
       else
@@ -59,6 +59,11 @@ module FeaturesHelper
 
   def select_nth_slot(n)
     first("table.booking-calendar td.available").click
+  end
+
+  def select_first_available_slot
+    first("table.booking-calendar td.available").click
+    first('#js-slotAvailability input[type="radio"]', visible: false).trigger('click')
   end
 
   def select_prison(name)

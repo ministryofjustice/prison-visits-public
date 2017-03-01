@@ -20,22 +20,13 @@ RSpec.feature 'Booking a visit', js: true do
     enter_prisoner_information
     click_button 'Continue'
 
-
-    # 2017-03-01T14:15/16:15
-    slot = all("table.booking-calendar td.available")[0]
-    slot.click
-    first('#slot-step-2017-03-01-0', visible: false).trigger('click')
+    select_first_available_slot
     click_button 'Add another choice'
 
-    slot = all("table.booking-calendar td.available")[1]
-    slot.click
-
-    first('#slot-step-2017-03-04-0', visible: false).trigger('click')
+    select_first_available_slot
     click_button 'Add another choice'
 
-    slot = all("table.booking-calendar td.available")[2]
-    slot.click
-    first('#slot-step-2017-03-07-0', visible: false).trigger('click')
+    select_first_available_slot
     click_button 'Continue'
 
     enter_visitor_information email_address: visitor_email
@@ -48,45 +39,36 @@ RSpec.feature 'Booking a visit', js: true do
     click_button 'Send request'
 
     expect(page).to have_text('Your request is being processed')
-
-    expect(prison.email_address).
-      to receive_email.
-      with_subject(/\AVisit request for Oscar Wilde on \w+ \d+ \w+\z/).
-      and_body(/Prisoner:\s*Oscar Wilde/)
-
-    expect(visitor_email.strip).
-      to receive_email.
-      with_subject(/we’ve received your visit request for \w+ \d+ \w+\z/).
-      and_body(/Prisoner:\s*Oscar W/)
-
-    visit = Visit.last
-    expect(visit.visitors.length).to eq(2)
   end
 
-  scenario 'validation errors' do
+  scenario 'validation errors', vcr: { cassette_name: :request_a_visit_validation_errors } do
     visit booking_requests_path(locale: 'en')
     click_button 'Continue'
+
     expect(page).to have_text('Prisoner first name is required')
 
-    enter_prisoner_information prison_name: 'Reading Gaol'
+    enter_prisoner_information
     click_button 'Continue'
+
+    select_first_available_slot
+    click_link 'No more to add'
 
     enter_visitor_information date_of_birth: Date.new(2014, 11, 30)
     click_button 'Continue'
 
-    expect(page).to have_text('There must be at least one adult visitor')
+    expect(page).to have_text('The person requesting the visit must be over the age of 18')
   end
 
-  scenario 'review and edit' do
+  scenario 'review and edit', vcr: { cassette_name: :request_a_visit_review_and_edit } do
     visit booking_requests_path(locale: 'en')
 
     enter_prisoner_information
     click_button 'Continue'
 
-    enter_visitor_information
-    click_button 'Continue'
+    select_first_available_slot
+    click_link 'No more to add'
 
-    select_slots 1
+    enter_visitor_information
     click_button 'Continue'
 
     expect(page).to have_text('Check your request')
@@ -101,20 +83,20 @@ RSpec.feature 'Booking a visit', js: true do
 
     click_button 'Change visitor details'
 
-    fill_in 'Your last name', with: 'Colquhoun'
+    fill_in 'Last name', with: 'Colquhoun'
     click_button 'Continue'
 
     expect(page).to have_text('Check your request')
     expect(page).to have_text('Colquhoun')
 
-    click_button 'Change visit details'
+    # Add an alternative slot
+    click_button 'Add another choice'
 
-    select_nth_slot 2
-    click_button 'Continue'
+    select_first_available_slot
+    click_button 'Confirm amend'
 
     expect(page).to have_text('Check your request')
-    expect(page).to have_text('First choice')
-    expect(page).to have_text('Alternatives')
+    expect(page).to have_css('.slot-confirmation', count: 2)
 
     click_button 'Send request'
 
