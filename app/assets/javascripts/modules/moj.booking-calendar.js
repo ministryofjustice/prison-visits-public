@@ -261,6 +261,7 @@
       for (curDay = 1; curDay <= numDays; curDay++) {
 
         var cellDate, className = 'disabled',
+          ariaLabel = 'This date is unavailable',
           ariaSelected = false;
 
         cellDate = this.year + '-' + (this.month <= 9 ? '0' : '') + (this.month + 1) + '-' + (curDay <= 9 ? '0' : '') + curDay;
@@ -269,6 +270,7 @@
           if (this.availableSlots[i].date === cellDate) {
             className = (this.availableSlots[i].availability === 1) ? 'available' : 'unavailable';
             className += (this.availableSlots[i].chosen === true) ? ' chosen' : '';
+            ariaLabel = 'Press the ENTER key to select the date';
           }
         }
 
@@ -279,7 +281,8 @@
 
         gridCells += '\t\t<td id="day' + curDay + '" class="' + className + '" aria-label="' +
           curDay + ', ' + this.settings.i18n.days[weekday] + ' ' + this.settings.i18n.months[this.month] +
-          ' ' + this.year + '" role="gridcell" aria-selected="' + ariaSelected + '"><span aria-label="Press the ENTER key to select the date" class="cell-date">' + curDay + '</span></td>';
+          ' ' + this.year + '" role="gridcell" aria-selected="' + ariaSelected + '">' +
+          '<span aria-label="' + ariaLabel + '" class="cell-date">' + curDay + '</span></td>';
 
         if (weekday == 6 && curDay < numDays) {
           // This was the last day of the week, close it out
