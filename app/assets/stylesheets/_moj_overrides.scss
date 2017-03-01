@@ -1,0 +1,39 @@
+#global-header {
+  .header-wrapper {
+    .header-global {
+      .header-logo {
+        width: 100%;
+      }
+    }
+    .header-proposition {
+      .content {
+        margin: 0 $gutter-half;
+      }
+      #proposition-name {
+        display: inline-block;
+        line-height: 1em;
+        &:hover {
+          border-bottom: 1px solid white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  @include media(desktop) {
+    .header-wrapper {
+      .header-global {
+        float: left;
+        width: 34%;
+      }
+
+      .header-proposition {
+        float: left;
+        padding-top: 8px;
+        width: 66%;
+        .content {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
