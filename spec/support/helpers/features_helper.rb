@@ -31,14 +31,12 @@ module FeaturesHelper
     index = options.fetch(:index)
 
     within "#visitor-#{index}" do
+      fill_in 'First name', with: options.fetch(:first_name)
+      fill_in 'Last name', with: options.fetch(:last_name)
+
       if index.zero?
-        fill_in 'First name', with: options.fetch(:first_name)
-        fill_in 'Last name', with: options.fetch(:last_name)
         fill_in 'Email address', with: options.fetch(:email_address)
         fill_in 'Phone number', with: options.fetch(:phone_no)
-      else
-        fill_in 'First name', with: options.fetch(:first_name)
-        fill_in 'Last name', with: options.fetch(:last_name)
       end
 
       fill_in 'Day', with: options.fetch(:date_of_birth).mday
@@ -57,7 +55,7 @@ module FeaturesHelper
     select_nth_slot 0
   end
 
-  def select_nth_slot(n)
+  def select_nth_slot(_n)
     first("table.booking-calendar td.available").click
   end
 
