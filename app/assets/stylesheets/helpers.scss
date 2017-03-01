@@ -29,13 +29,6 @@
   text-align: right !important;
 }
 
-.js-visible {
-  display: none;
-  .js-enabled & {
-    display: block;
-  }
-}
-
 @mixin prefix($property, $value, $vendors: webkit moz ms o) {
   @if $vendors {
     @each $vendor in $vendors {
