@@ -90,7 +90,7 @@
               <p><%= f.submit(t(".confirm_amend"), class: 'button button-primary') %></p>
             <% else %>
               <%= f.submit(t(".submit_#{slot_number}"), class: 'button button-primary') %>
-              <p class="push-top"><a class="" id="js-skipSlot" href="#"><%= t('.no_more_to_add') %></a></p>
+              <p class="push-top"><a class="js-visible" id="js-skipSlot" href="#"><%= t('.no_more_to_add') %></a></p>
             <% end %>
           </div>
         <div class="column-one-half">
