@@ -7,7 +7,7 @@
           f, :"option_#{i}", :select,
           slot_options_reflecting_existing_selections(f.object),
           { include_blank: t("remove_slot", scope: 'booking_requests.slots_step') },
-          class: 'SlotPicker-input'
+          class: 'form-control'
         )
       %>
     <% else %>
