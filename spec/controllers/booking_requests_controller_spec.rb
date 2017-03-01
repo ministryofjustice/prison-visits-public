@@ -297,7 +297,9 @@ RSpec.describe BookingRequestsController do
         double(BookingRequestCreator)
       }
 
-      let(:visit) { Visit.new(id: '1', processing_state: 'requested') }
+      let(:visit) do
+        Visit.new(id: '1', human_id: 'ABCDEFGH', processing_state: 'requested')
+      end
 
       before do
         allow(BookingRequestCreator).to receive(:new).
@@ -308,7 +310,7 @@ RSpec.describe BookingRequestsController do
 
       it 'renders the completed template' do
         post :create, params
-        expect(response).to redirect_to(visit_path(visit.id, locale: 'en'))
+        expect(response).to redirect_to(visit_path(visit.human_id, locale: 'en'))
       end
 
       it 'tells BookingRequestCreator to create a Visit record' do

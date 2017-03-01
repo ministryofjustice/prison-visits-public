@@ -171,6 +171,7 @@ en:
     create:
       title: Thank you for your feedback
   shared:
+    visit_id: "Visit ID: %{id}"
     slotpicker_templates:
       one_slot_available: >-
         Only one time is available on this day, select it to continue

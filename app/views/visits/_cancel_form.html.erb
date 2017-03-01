@@ -5,7 +5,7 @@
     <p><%= t('visits.shared.cancel_intro') %></p>
 
     <%= form_tag(cancellations_path, class: 'js-SubmitOnce' ) do %>
-      <%= hidden_field_tag(:id, @visit.id) %>
+      <%= hidden_field_tag(:id, @visit.human_id) %>
 
       <div class="form-group">
         <label class="block-label">

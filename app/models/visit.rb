@@ -1,7 +1,8 @@
 class Visit
   include NonPersistedModel
 
-  attribute :id
+  attribute :id, String
+  attribute :human_id, String
   attribute :confirm_by, Date
   attribute :slot_granted, ConcreteSlot, coercer: lambda { |slot|
     slot.nil? ? nil : ConcreteSlot.parse(slot)
