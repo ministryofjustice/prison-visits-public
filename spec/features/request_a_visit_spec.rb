@@ -7,8 +7,6 @@ VCR.configure do |config|
 end
 
 RSpec.feature 'Booking a visit', js: true do
-  # before do skip 'Features specs not yet fixed' end
-
   include FeaturesHelper
 
   # Whitespace on email to test stripping

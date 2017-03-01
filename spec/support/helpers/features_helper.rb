@@ -45,20 +45,6 @@ module FeaturesHelper
     end
   end
 
-  def select_slots(how_many = 3)
-    how_many.times do |n|
-      select_nth_slot n
-    end
-  end
-
-  def select_next_available_slot
-    select_nth_slot 0
-  end
-
-  def select_nth_slot(_n)
-    first("table.booking-calendar td.available").click
-  end
-
   def select_first_available_slot
     first("table.booking-calendar td.available").click
     first('#js-slotAvailability input[type="radio"]', visible: false).trigger('click')
@@ -67,5 +53,9 @@ module FeaturesHelper
   def select_prison(name)
     find('input[data-input-name="prisoner_step[prison_id]"]').
       set(name)
+  end
+
+  def check_yes_i_want_to_cancel
+    find("#confirmed", visible: false).trigger('click')
   end
 end
