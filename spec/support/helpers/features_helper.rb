@@ -45,8 +45,11 @@ module FeaturesHelper
     end
   end
 
-  def select_first_available_slot
+  def select_first_available_date
     first("table.booking-calendar td.available").click
+  end
+
+  def select_first_available_slot
     first('#js-slotAvailability input[type="radio"]', visible: false).trigger('click')
   end
 

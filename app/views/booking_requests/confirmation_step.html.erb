@@ -62,7 +62,7 @@
                        <%= render('hidden_visitors_step') %>
                        <%= render('hidden_slots_step', review_slot: i.to_s) %>
                        <%= hidden_field_tag('review_step', 'slots_step') %>
-                       <div class="date-box">
+                       <div class="date-box date-box-<%= i + 1 %>">
                          <span class="date-box__number"><%= i + 1 %></span>
                          <span class="date-box__day"><%= format_date_without_year(slots_step.slots[i]) %></span>
                          <br>

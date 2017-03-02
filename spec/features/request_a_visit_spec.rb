@@ -18,12 +18,18 @@ RSpec.feature 'Booking a visit', js: true do
     enter_prisoner_information
     click_button 'Continue'
 
+    # Slot 1
+    select_first_available_date
     select_first_available_slot
     click_button 'Add another choice'
 
+    # Slot 2
+    select_first_available_date
     select_first_available_slot
     click_button 'Add another choice'
 
+    # Slot 3
+    select_first_available_date
     select_first_available_slot
     click_button 'Continue'
 
@@ -39,6 +45,95 @@ RSpec.feature 'Booking a visit', js: true do
     expect(page).to have_text('Your request is being processed')
   end
 
+  scenario 'remove middle slot', vcr: { cassette_name: :request_a_visit_remove_middle_slot } do
+    visit booking_requests_path(locale: 'en')
+
+    enter_prisoner_information
+    click_button 'Continue'
+
+    # Slot 1
+    select_first_available_date
+    select_first_available_slot
+    click_button 'Add another choice'
+
+    # Slot 2
+    select_first_available_date
+    select_first_available_slot
+    click_button 'Add another choice'
+
+    # Slot 3
+    select_first_available_date
+    select_first_available_slot
+    click_button 'Continue'
+
+    enter_visitor_information email_address: visitor_email
+    select '1', from: 'How many other visitors?'
+    enter_visitor_information index: 1
+    click_button 'Continue'
+
+    within('.date-box-2') do
+      click_button "Change date and time slot"
+    end
+
+    click_link 'Remove slot'
+    click_button "Confirm amend"
+
+    expect(page).to have_css('.date-box-1')
+    expect(page).to have_css('.date-box-2')
+    expect(page).not_to have_css('.date-box-3')
+  end
+
+  scenario 'change prison', vcr: { cassette_name: :request_a_visit_change_prison } do
+    visit booking_requests_path(locale: 'en')
+
+    enter_prisoner_information
+    click_button 'Continue'
+
+    # Slot 1
+    select_first_available_date
+    select_first_available_slot
+    click_button 'Add another choice'
+
+    # Slot 2
+    select_first_available_date
+    select_first_available_slot
+    click_button 'Add another choice'
+
+    # Slot 3
+    select_first_available_date
+    select_first_available_slot
+    click_button 'Continue'
+
+    enter_visitor_information email_address: visitor_email
+    select '1', from: 'How many other visitors?'
+    enter_visitor_information index: 1
+    click_button 'Continue'
+
+    click_button 'Change prisoner details'
+
+    select_prison 'Usk'
+    click_button 'Continue'
+
+    # We should be presented with slots page as they should have been cleared
+    expect(page).to have_text('When do you want to visit')
+  end
+
+  scenario 'skip slots', vcr: { cassette_name: :request_a_visit_skip_slots } do
+    visit booking_requests_path(locale: 'en')
+
+    enter_prisoner_information
+    click_button 'Continue'
+
+    select_first_available_date
+    select_first_available_slot
+    click_button 'Add another choice'
+
+    # Invoke skip by making no date or slot selection
+    click_button 'Add another choice'
+
+    expect(page).to have_text('Your visitor details')
+  end
+
   scenario 'validation errors', vcr: { cassette_name: :request_a_visit_validation_errors } do
     visit booking_requests_path(locale: 'en')
     click_button 'Continue'
@@ -48,8 +143,50 @@ RSpec.feature 'Booking a visit', js: true do
     enter_prisoner_information
     click_button 'Continue'
 
+    # Slot 1
+    select_first_available_date
+    click_button 'Add another choice'
+    expect(page).to have_text('You must choose at least one date and time slot')
+
+    select_first_available_date
     select_first_available_slot
     click_link 'No more to add'
+
+    enter_visitor_information date_of_birth: Date.new(2014, 11, 30)
+    click_button 'Continue'
+
+    expect(page).to have_text('The person requesting the visit must be over the age of 18')
+  end
+
+  # pending until slot 2 & 3 validation is in place
+  xscenario 'slot validation errors', vcr: { cassette_name: :request_a_visit_slot_validation_errors } do
+    visit booking_requests_path(locale: 'en')
+    enter_prisoner_information
+    click_button 'Continue'
+
+    # Slot 1
+    select_first_available_date
+    click_button 'Add another choice'
+    expect(page).to have_text('You must choose at least one date and time slot')
+
+    select_first_available_slot
+    click_button 'Add another choice'
+
+    # Slot 2
+    select_first_available_date
+    click_button 'Add another choice'
+    expect(page).to have_text('You must choose at least one date and time slot')
+
+    select_first_available_slot
+    click_button 'Add another choice'
+
+    # Slot 3
+    select_first_available_date
+    click_link 'Continue'
+    expect(page).to have_text('You must choose at least one date and time slot')
+
+    select_first_available_slot
+    click_link 'Continue'
 
     enter_visitor_information date_of_birth: Date.new(2014, 11, 30)
     click_button 'Continue'
@@ -63,6 +200,7 @@ RSpec.feature 'Booking a visit', js: true do
     enter_prisoner_information
     click_button 'Continue'
 
+    select_first_available_date
     select_first_available_slot
     click_link 'No more to add'
 
@@ -90,6 +228,7 @@ RSpec.feature 'Booking a visit', js: true do
     # Add an alternative slot
     click_button 'Add another choice'
 
+    select_first_available_date
     select_first_available_slot
     click_button 'Confirm amend'
 
