@@ -19,6 +19,7 @@ en:
     booking_calendar_legend:
       visit_days: Visit Days
       non_visit_days: Non-visit Days
+      non_prisoner_days: Prisoner unavailable
     slot_picker_time_slots:
       visit_in_the_past: It is not possible to book a visit in the past.
       visit_today: It is not possible to book a visit on this day.
