@@ -53,8 +53,8 @@ private
   end
 
   def instrument_booking_request(step_name:, visit: nil)
-    Instrumentation.append_to_log booking_step_rendered: step_name
-    Instrumentation.append_to_log visit_id: visit.id if visit
+    PVB::Instrumentation.append_to_log booking_step_rendered: step_name
+    PVB::Instrumentation.append_to_log visit_id: visit.id if visit
   end
 
   def prison

@@ -6,17 +6,15 @@ module PrisonVisits
 
   class Client
     TIMEOUT = 3 # seconds
+    EXCON_INSTRUMENT_NAME = 'pvb_api'.freeze
 
     def initialize(host)
       @host = host
       @connection = Excon.new(
-        host,
-        persistent: true,
-        connect_timeout: TIMEOUT,
-        read_timeout: TIMEOUT,
-        write_timeout: TIMEOUT,
-        # This results in up to 3 requests for idempotent methods (default: 4)
-        retry_limit: 3
+        host, persistent: true, connect_timeout: TIMEOUT,
+        read_timeout: TIMEOUT, write_timeout: TIMEOUT, retry_limit: 3,
+        instrumentor: ActiveSupport::Notifications,
+        instrumentor_name: EXCON_INSTRUMENT_NAME
       )
     end
 
@@ -61,11 +59,7 @@ module PrisonVisits
         idempotent: idempotent
       }.deep_merge(params_options(method, params))
 
-      message = "Calling PVB API: #{api_method}"
-      response = Instrumentation.time_and_log(message, :api) {
-        @connection.request(options)
-      }
-
+      response = @connection.request(options)
       JSON.parse(response.body)
     rescue Excon::Errors::NotFound
       raise APINotFound, api_method

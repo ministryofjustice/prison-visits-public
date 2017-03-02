@@ -24,7 +24,14 @@ gem 'rake', '< 11.0'
 gem 'request_store'
 # Fixed version as workaround for bug in 0.15.5
 # https://github.com/getsentry/raven-ruby/issues/460
-gem 'sentry-raven'
+gem 'sentry-raven',
+  git: 'https://github.com/StupidCodeFactory/raven-ruby.git',
+  branch: 'allow-faraday-customisation'
+# gem 'pvb-instrumentation', path: '../pvb-instrumentation'
+gem 'pvb-instrumentation',
+    git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
+    ref: '7e1e60d299174fb542a1eff73d20b7fcdc36309e'
+
 gem 'string_scrubber'
 gem 'uglifier'
 gem 'uri_template'
