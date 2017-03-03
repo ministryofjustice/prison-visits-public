@@ -1,4 +1,5 @@
 require 'pvb/instrumentation'
+require 'pvp/instrumentation/mx_checker'
 
 PVB::Instrumentation.configure do |config|
   config.logger = Rails.logger
@@ -21,4 +22,8 @@ PVB::Instrumentation.configure do |config|
 
   config.register(
     'faraday.raven', PVB::Instrumentation::Faraday::Request)
+
+  config.register(
+    'mx', PVP::Instrumentation::MxChecker)
+
 end
