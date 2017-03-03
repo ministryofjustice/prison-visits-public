@@ -16,6 +16,8 @@ en:
       none: None
     booking_calendar:
       today: Today
+      go_to_previous_month: Go to previous month
+      go_to_next_month: Go to next month
     booking_calendar_legend:
       visit_days: Visit Days
       non_visit_days: Non-visit Days
@@ -137,6 +139,7 @@ en:
       prison: "Prison"
       change_prisoner_details: Change prisoner details
       visitor_details: Visitor details
+      visit_details: Visit details
       confirmation_email_address: "Confirmation email"
       visitor_n: "Visitor %{n}"
       change_visitor_details: Change visitor details

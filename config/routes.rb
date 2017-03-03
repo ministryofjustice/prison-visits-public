@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+  if defined?(JasmineRails) && Rails.env.test?
+    mount JasmineRails::Engine => '/specs'
+  end
+
   get '/', to: redirect(ENV.fetch('GOVUK_START_PAGE', '/en/request'))
 
   match 'exception', to: 'errors#test', via: %i[ get post ]
