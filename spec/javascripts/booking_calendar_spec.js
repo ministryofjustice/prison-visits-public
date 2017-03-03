@@ -193,6 +193,9 @@ describe('Modules.bookingCalendar', function() {
       it('should create a table cell with id `day9`', function() {
         expect($('#js-calendarTable #day9').length).toBe(1);
       });
+      it('should hide the selected date box', function() {
+        expect($('#js-slotTarget').attr('aria-hidden')).toBe('true');
+      });
     });
 
     describe('choosing a slot', function() {
@@ -211,10 +214,16 @@ describe('Modules.bookingCalendar', function() {
         });
       });
       describe('choose a slot', function() {
-        it('should update the chosen slot date box', function() {
+        beforeEach(function() {
           $('#slot-step-2017-02-11-0').trigger('click');
+        });
+
+        it('should update the chosen slot date box', function() {
           var box = $('.date-box.slot-selected');
           expect(box.find('.date-box__day')[0].outerText).toBe('Saturday 11 February');
+        });
+        it('should show the selected date box', function() {
+          expect($('#js-slotTarget').attr('aria-hidden')).toBe('false');
         });
       });
     });

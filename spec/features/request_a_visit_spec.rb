@@ -75,8 +75,7 @@ RSpec.feature 'Booking a visit', js: true do
       click_button "Change date and time slot"
     end
 
-    click_link 'Remove slot'
-    click_button "Confirm amend"
+    click_link 'Or remove slot'
 
     expect(page).to have_css('.date-box-1')
     expect(page).to have_css('.date-box-2')
@@ -230,7 +229,7 @@ RSpec.feature 'Booking a visit', js: true do
 
     select_first_available_date
     select_first_available_slot
-    click_button 'Confirm amend'
+    click_button 'Save changes'
 
     expect(page).to have_text('Check your request')
     expect(page).to have_css('.slot-confirmation', count: 2)
