@@ -14,7 +14,7 @@ class SlotsStep
   attribute :option_2, String
 
   before_validation :reorder_options
-  #
+
   # rubocop:disable Style/BracesAroundHashParameters
   # (you're wrong rubocop, it's a syntax error if omitted)
   validates_each :option_0, :option_1, :option_2, {
