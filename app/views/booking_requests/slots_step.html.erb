@@ -19,7 +19,7 @@
     <div class="grid-row">
       <div class="column-two-thirds">
         <% slot_number = @steps.fetch(:slots_step).next_slot_to_fill %>
-        <% if slot_number == "0" %>
+        <% if slot_number == "0" && !reviewing? %>
           <%= t(".info_html") %>
         <% end %>
       </div>
@@ -51,12 +51,23 @@
 
     <div class="grid-row visible--js-enabled push-top">
       <div class="column-two-thirds">
-        <h2 class="push-bottom--half"><%= t(".choose_date_#{slot_number}") %>:</h2>
+        <h2 class="push-bottom--half">
+        <% if reviewing? %>
+          <%= t(".choose_new_date") %>:</h2>
+        <% else %>
+          <%= t(".choose_date_#{slot_number}") %>:</h2>
+        <% end %>
         <%= t('.keyboard_directions_html') %>
         <%= render('booking_calendar', slots: f.object.slot_constraints, slot_number: (slot_number.to_i + 1), option_num: f.object.next_slot_to_fill) %>
       </div>
       <div class="column-one-third">
-        <h2 id="slots" class="push-bottom--half"><%= t(".choose_time") %>:</h2>
+        <h2 id="slots" class="push-bottom--half">
+        <% if reviewing? %>
+          <%= t(".choose_new_time") %>:</h2>
+        <% else %>
+          <%= t(".choose_time") %>:</h2>
+        <% end %>
+
         <div class="slot-selection">
           <fieldset>
             <legend class="visuallyhidden"><%= t(".choose_time") %></legend>
@@ -69,16 +80,12 @@
     <div class="grid-row">
       <div class="column-one-third">
         <div id="js-slotTarget" aria-hidden="true">
-          <h3 class="push-bottom--half"><%= t('.your_selection') %>:</h3>
+          <h3 class="push-bottom--half"><%= t(".your_selection_#{reviewing?}") %>:</h3>
           <div class="date-box active" aria-live="assertive" aria-atomic="true" aria-relevant="text">
             <span class="date-box__number"><%= slot_number.to_i + 1 %></span>
             <span class="date-box__day"></span>
             <br>
             <span class="date-box__slot"></span>
-            <% if slot_number.to_i > 0 && reviewing? %>
-            <br>
-            <a href="#" class="date-box__action"><%= t(".remove_slot") %></a>
-            <% end %>
           </div>
         </div>
       </div>
@@ -87,25 +94,34 @@
     <div class="grid-row push-top">
       <div class="column-two-thirds">
         <div class="grid-row">
-          <div class="column-one-half">
+          <div class="column-one-half push-bottom">
             <% if reviewing? %>
-              <p><%= f.submit(t(".confirm_amend"), class: 'button button-primary') %></p>
+              <p><%= f.submit(t(".confirm_amend"), id: 'js-slotSubmit', class: 'button button-primary') %></p>
             <% else %>
               <%= f.submit(t(".submit_#{slot_number}"), class: 'button button-primary') %>
-              <p class="push-top"><a class="visible--js-enabled" id="js-skipSlot" href="#"><%= t('.no_more_to_add') %></a></p>
             <% end %>
           </div>
-        <div class="column-one-half">
-          <%= render('cancel') %>
+          <div class="column-one-half">
+            <% if reviewing? %>
+              <p><%= f.submit("Cancel", id: 'js-slotCancel', class: 'button button-secondary visible--js-enabled') %></p>
+            <% else %>
+              <p class=""><a class="visible--js-enabled" id="js-skipSlot" href="#"><%= t('.no_more_to_add') %></a></p>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
+    <% if slot_number.to_i > 0 && reviewing? %>
+      <a class="visible--js-enabled" id="js-deleteSlot" href="#"><%= t(".remove_slot") %></a>
+    <% end %>
 
   <% end %>
 
+  <div class="grid-row push-top">
     <div class="column-two-thirds">
       <%= render('contact_prison') %>
     </div>
+  </div>
 
 <% else %>
 

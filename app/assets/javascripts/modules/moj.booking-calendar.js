@@ -21,7 +21,7 @@
      * @param  {object} $el
      */
     cacheEls: function() {
-      this.$el = $(this.el); //$('.js-bookingCalendar');
+      this.$el = $(this.el);
       this.$monthObj = this.$el.find('#month');
       this.$prev = this.$el.find('#bn_prev');
       this.$next = this.$el.find('#bn_next');
@@ -30,6 +30,10 @@
       this.$slotList = $('#' + this.$el.data('slotList'));
       this.$slotTarget = $('#' + this.$el.data('slotTarget'));
       this.slotNumber = this.$el.data('slotNumber');
+      this.$deleteBtn = $('#' + this.$el.data('slotDelete'));
+      this.$submitBtn = $('#' + this.$el.data('slotSubmit'));
+      this.$cancelBtn = $('#' + this.$el.data('slotCancel'));
+      this.$skipBtn = $('#' + this.$el.data('slotSkip'));
     },
 
     /**
@@ -77,18 +81,36 @@
       });
 
       // bind radio button handler
-      this.$slotList.on('change', 'input[type=radio][name=slot_step_0]', function(e) { // THIS MAY NEED TO CHANGE THE NAME FOR THE SLOT STEP!!!
+      this.$slotList.on('change', 'input[type=radio][name=slot_step_0]', function(e) {
         var slot = $(e.currentTarget).val();
-
         self.updateSource(slot);
         self.updateSelectedSlot(slot);
         self.handleSlotChosen();
+        self.enableSubmit();
       });
 
-      this.$slotTarget.on('click', '.date-box__action', function(e) {
+      this.$deleteBtn.on('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         self.removeSlot();
+        var form = $(this).parents('form');
+        form.submit();
+      });
+
+      this.$cancelBtn.on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        self.updateSource(self.previouslySelectedSlot);
+        var form = $(this).parents('form');
+        form.submit();
+      });
+
+      this.$skipBtn.on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var form = $(this).parents('form');
+        $('#slots_step_skip_remaining_slots').val(true);
+        form.submit();
       });
     },
 
@@ -96,6 +118,8 @@
      * Set the default values and current month and show the grid
      */
     initialize: function() {
+      this.previouslySelectedSlot = this.$slotSource.val();
+      this.$submitBtn.attr('disabled', true);
       this.availableSlots = this.getAvailableSlots();
       this.dateObj = new Date();
       this.curYear = this.dateObj.getFullYear();
@@ -182,10 +206,10 @@
 
         day = this.splitDateAndSlot(slot)[0];
 
-        if (active) {
-          this.updateSelectedDate(day);
-          this.updateSelectedSlot(slot);
-        }
+        // if (active) {
+        //   this.updateSelectedDate(day);
+        //   this.updateSelectedSlot(slot);
+        // }
 
         // Check if this is a new date in the array and push into days
         // If not a new day then just push the timeslot
@@ -910,16 +934,11 @@
     },
 
     removeSlot: function() {
-
-      this.$slotSource.find('option:selected').prop("selected", false).data('message', null).data('slot-chosen', null);
       this.$slotSource.val(null);
-      this.$slotList.empty();
-      // debugger;
-      this.availableSlots = this.getAvailableSlots();
-      this.selectedSlot = null;
-      this.selectedDate = null;
-      this.popGrid();
-      this.handleSlotChosen();
+    },
+
+    enableSubmit: function() {
+      this.$submitBtn.attr('disabled', false);
     },
 
     formatSlot: function(slot) {

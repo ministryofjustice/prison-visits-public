@@ -1,4 +1,4 @@
-.button-secondary {
+.button.button-secondary {
   background-color: $grey-3;
   color: $black;
   @include prefix(box-shadow, 0 2px 0 $grey-1);
@@ -7,6 +7,10 @@
   }
   &:active, &:focus {
     background-color: $grey-2;
+  }
+  &[disabled="disabled"] {
+    background-color: $grey-3 !important;
+    color: $black;
   }
 }
 .button-link {

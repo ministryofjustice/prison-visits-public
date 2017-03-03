@@ -33,12 +33,4 @@
   var selectionButtons = new GOVUK.SelectionButtons("label input[type='radio'], label input[type='checkbox']");
   // console.log('moj', moj);
   moj.init();
-
-  $('#js-skipSlot').on('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    var form = $(this).parents('form');
-    $('#slots_step_skip_remaining_slots').val(true);
-    form.submit();
-  });
 }());
