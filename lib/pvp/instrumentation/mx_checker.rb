@@ -4,9 +4,14 @@ module PVP
       include PVB::Instrumentation::Instrument
 
       def process
-        ap self
+        RequestStore.store[category] = payload[:path].split('/').last
       end
 
+      private
+
+      def category
+        payload[:name]
+      end
     end
   end
 end

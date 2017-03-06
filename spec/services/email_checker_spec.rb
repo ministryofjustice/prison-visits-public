@@ -61,7 +61,7 @@ RSpec.describe EmailChecker do
     end
 
     it 'instruments the request' do
-      expect(ActiveSupport::Notifications).to receive(:instrument).with(:mx)
+      expect(ActiveSupport::Notifications).to receive(:instrument).with(:mx, category: :mx)
       subject.valid?
     end
 
