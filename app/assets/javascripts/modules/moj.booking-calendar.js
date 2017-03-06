@@ -119,7 +119,9 @@
      */
     initialize: function() {
       this.previouslySelectedSlot = this.$slotSource.val();
-      this.$submitBtn.attr('disabled', true);
+      if (this.slotNumber > 1) {
+        this.$submitBtn.attr('disabled', true);
+      }
       this.availableSlots = this.getAvailableSlots();
       this.dateObj = new Date();
       this.curYear = this.dateObj.getFullYear();

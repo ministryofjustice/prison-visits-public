@@ -98,7 +98,7 @@
             <% if reviewing? %>
               <p><%= f.submit(t(".confirm_amend"), id: 'js-slotSubmit', class: 'button button-primary') %></p>
             <% else %>
-              <%= f.submit(t(".submit_#{slot_number}"), class: 'button button-primary') %>
+              <%= f.submit(t(".submit_#{slot_number}"), id: 'js-slotSubmit', class: 'button button-primary') %>
             <% end %>
           </div>
           <div class="column-one-half">
