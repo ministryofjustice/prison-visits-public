@@ -29,8 +29,8 @@ gem 'sentry-raven',
   branch: 'allow-faraday-customisation'
 # gem 'pvb-instrumentation', path: '../pvb-instrumentation'
 gem 'pvb-instrumentation',
-    git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
-    ref: 'c7fb0fc2599c6507a321b93052a35c1538605040'
+  git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
+  ref: 'c7fb0fc2599c6507a321b93052a35c1538605040'
 
 gem 'string_scrubber'
 gem 'uglifier'
