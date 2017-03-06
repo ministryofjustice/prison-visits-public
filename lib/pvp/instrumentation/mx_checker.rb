@@ -4,13 +4,19 @@ module PVP
       include PVB::Instrumentation::Instrument
 
       def process
-        RequestStore.store[category] = payload[:path].split('/').last
+        PVB::Instrumentation.append_to_log(category => event.duration)
+        logger.info(
+          format(
+            'Validating email address MX record: - %.2fms',
+            event.duration
+          )
+        )
       end
 
       private
 
       def category
-        payload[:name]
+        event.payload[:category]
       end
     end
   end

@@ -56,7 +56,7 @@ private
   end
 
   def mx_records?
-    ActiveSupport::Notifications.instrument(:mx) do
+    ActiveSupport::Notifications.instrument(:mx, category: :mx) do
       Rails.configuration.mx_checker.records?(domain)
     end
   end
