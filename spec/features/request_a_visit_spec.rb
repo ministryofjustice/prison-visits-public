@@ -128,7 +128,7 @@ RSpec.feature 'Booking a visit', js: true do
     click_button 'Add another choice'
 
     # Invoke skip by making no date or slot selection
-    click_button 'Add another choice'
+    click_link 'No more to add'
 
     expect(page).to have_text('Your visitor details')
   end
