@@ -30,7 +30,7 @@ gem 'sentry-raven',
 # gem 'pvb-instrumentation', path: '../pvb-instrumentation'
 gem 'pvb-instrumentation',
     git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
-    ref: '7e1e60d299174fb542a1eff73d20b7fcdc36309e'
+    ref: 'c7fb0fc2599c6507a321b93052a35c1538605040'
 
 gem 'string_scrubber'
 gem 'uglifier'
