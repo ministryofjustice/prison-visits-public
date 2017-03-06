@@ -13,7 +13,7 @@ module PVP
         )
       end
 
-      private
+    private
 
       def category
         event.payload[:category]

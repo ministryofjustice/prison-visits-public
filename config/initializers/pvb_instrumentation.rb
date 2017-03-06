@@ -10,20 +10,24 @@ PVB::Instrumentation.configure do |config|
 
   config.register(
     "#{PrisonVisits::Client::EXCON_INSTRUMENT_NAME}.retry",
-    PVB::Instrumentation::Excon::Retry)
+    PVB::Instrumentation::Excon::Retry
+  )
 
   config.register(
     "#{PrisonVisits::Client::EXCON_INSTRUMENT_NAME}.response",
-    PVB::Instrumentation::Excon::Response)
+    PVB::Instrumentation::Excon::Response
+  )
 
   config.register(
     "#{PrisonVisits::Client::EXCON_INSTRUMENT_NAME}.error",
-    PVB::Instrumentation::Excon::Error)
+    PVB::Instrumentation::Excon::Error
+  )
 
   config.register(
-    'faraday.raven', PVB::Instrumentation::Faraday::Request)
+    'faraday.raven', PVB::Instrumentation::Faraday::Request
+  )
 
   config.register(
-    'mx', PVP::Instrumentation::MxChecker)
-
+    'mx', PVP::Instrumentation::MxChecker
+  )
 end

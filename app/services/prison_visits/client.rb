@@ -12,9 +12,9 @@ module PrisonVisits
       @host = host
       @connection = Excon.new(
         host, persistent: true, connect_timeout: TIMEOUT,
-        read_timeout: TIMEOUT, write_timeout: TIMEOUT, retry_limit: 3,
-        instrumentor: ActiveSupport::Notifications,
-        instrumentor_name: EXCON_INSTRUMENT_NAME
+              read_timeout: TIMEOUT, write_timeout: TIMEOUT, retry_limit: 3,
+              instrumentor: ActiveSupport::Notifications,
+              instrumentor_name: EXCON_INSTRUMENT_NAME
       )
     end
 
