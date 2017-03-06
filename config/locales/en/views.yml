@@ -22,6 +22,8 @@ en:
     booking_calendar_legend:
       visit_days: Visit Days
       non_visit_days: Non-visit Days
+    chosen_options:
+      already_chosen: Already chosen
     slot_picker_time_slots:
       visit_in_the_past: It is not possible to book a visit in the past.
       visit_today: It is not possible to book a visit on this day.

@@ -58,7 +58,7 @@ module CalendarHelper
   def chosen_options
     options = {
       'data-slot-chosen' => true,
-      'data-message' => 'Already chosen'
+      'data-message' => I18n.t('booking_requests.chosen_options.already_chosen')
     }
 
     options['disabled'] = 'disabled' unless reviewing?
