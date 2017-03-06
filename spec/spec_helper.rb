@@ -61,7 +61,8 @@ require 'vcr'
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.default_cassette_options = {
-    match_requests_on: %i[ method uri host path body headers ]
+    match_requests_on: %i[ method uri host path body headers ],
+    erb: true
   }
   config.hook_into :webmock
   config.configure_rspec_metadata!

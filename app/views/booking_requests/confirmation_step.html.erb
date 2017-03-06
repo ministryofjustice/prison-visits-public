@@ -9,7 +9,7 @@
   confirmation_step = @steps.fetch(:confirmation_step)
 %>
 
-<table class="check-your-answers">
+<table class="responsive check-your-answers">
   <thead>
     <tr>
       <th><%= t('.prisoner_details') %></th>
@@ -48,47 +48,50 @@
 <table class="check-your-answers">
   <thead>
     <tr>
-      <th>
-        <%= t('.your_visit') %>
-      </th>
-      <th class="change-answer text-right">
-        <%= form_for(confirmation_step,
-               url: booking_requests_path,
-               html: { class: 'js-SubmitOnce' }) do |f| %>
-            <%= render('hidden_prisoner_step') %>
-            <%= render('hidden_visitors_step') %>
-            <%= render('hidden_slots_step') %>
-            <%= hidden_field_tag('review_step', 'slots_step') %>
-            <%= f.submit(t('.change_visit_details'), class: 'button-link') %>
-          <% end %>
-      </th>
+      <th><%= I18n.t('booking_requests.confirmation_step.visit_details') %></th>
     </tr>
   </thead>
   <tbody>
-    <% if slots_step.options_available? %>
-      <tr>
-        <td></td>
-        <td><%= t('.options_available_html') %></td>
-      </tr>
-    <% end %>
     <tr>
-      <td><%= t('.first_choice') %></td>
-      <td aria-label="<%= t('.first_choice') %>"><%= format_slot_for_public(slots_step.slots.first) %></td>
-    </tr>
-    <% if slots_step.additional_options? %>
-      <tr>
-        <td><%= t('.alternatives') %></td>
-        <td aria-label="<%= t('.alternatives') %>">
-          <% slots_step.slots.drop(1).each do |slot| %>
-            <%= format_slot_for_public(slot) %><br/>
+      <td>
+        <% slots_step.slots.each.with_index do |slot,i| %>
+          <%= form_for(confirmation_step,
+                       url: booking_requests_path,
+                       html: { class: 'js-SubmitOnce slot-confirmation' }) do |f| %>
+                       <%= render('hidden_prisoner_step') %>
+                       <%= render('hidden_visitors_step') %>
+                       <%= render('hidden_slots_step', review_slot: i.to_s) %>
+                       <%= hidden_field_tag('review_step', 'slots_step') %>
+                       <div class="date-box date-box-<%= i + 1 %>">
+                         <span class="date-box__number"><%= i + 1 %></span>
+                         <span class="date-box__day"><%= format_date_without_year(slots_step.slots[i]) %></span>
+                         <br>
+                         <span class="date-box__slot"><%= format_time_12hr(slots_step.slots[i].begin_at) %> (<%= format_duration(slots_step.slots[i].duration) %>)</span>
+                         <br/>
+                         <%= f.submit(t('.change_visit_details'), class: 'button-link') %>
+                       </div>
+                     <% end %>
+                   <% end %>
+
+        <% if slots_step.options.length < 3 %>
+          <p><%= t('.options_available_html') %></p>
+          <%= form_for(confirmation_step,
+                 url: booking_requests_path,
+                 html: { class: 'js-SubmitOnce' }) do |f| %>
+              <%= render('hidden_prisoner_step') %>
+              <%= render('hidden_visitors_step') %>
+              <%= render('hidden_slots_step') %>
+              <%= hidden_field_tag('review_step', 'slots_step') %>
+              <%= f.submit("Add another choice", class: 'button-link') %>
           <% end %>
-        </td>
-      </tr>
-    <% end %>
+        <% end %>
+
+      </td>
+    </tr>
   </tbody>
 </table>
 
-<table class="check-your-answers">
+<table class="responsive check-your-answers">
   <thead>
     <tr>
       <th>
@@ -134,9 +137,9 @@
     <%= render('hidden_slots_step') %>
     <%= hidden_field_tag('confirmation_step[confirmed]', true) %>
 
-    <div class="grid-row form-group push-top">
+    <div class="grid-row push-top">
       <div class="column-one-half">
-        <%= f.submit(t('.next_step'), class: 'button button-primary') %>
+        <p><%= f.submit(t('.next_step'), class: 'button button-primary') %></p>
       </div>
       <div class="column-one-half text-right">
         <%= render('cancel') %>

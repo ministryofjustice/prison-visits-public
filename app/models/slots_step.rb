@@ -3,9 +3,17 @@ class SlotsStep
 
   attribute :processor, StepsProcessor
 
+  attribute :review_slot, String
+  attribute :currently_filling, String
+  attribute :skip_remaining_slots, Boolean, coercer: lambda { |val|
+    val == 'true'
+  }
+
   attribute :option_0, String
   attribute :option_1, String
   attribute :option_2, String
+
+  before_validation :reorder_options
 
   # rubocop:disable Style/BracesAroundHashParameters
   # (you're wrong rubocop, it's a syntax error if omitted)
@@ -28,8 +36,33 @@ class SlotsStep
 
   delegate :bookable_slots?, to: :slot_constraints
 
+  def reorder_options
+    if option_0.present? && option_1.blank? && option_2.present?
+      self.option_1 = option_2
+      self.option_2 = nil
+    end
+  end
+
+  def skip_remaining_slots?
+    errors.empty? && skip_remaining_slots
+  end
+
   def options_available?
-    options.length < 3
+    if skip_remaining_slots? || just_reviewed_slot? ||
+       currently_filling_slot_left_blank?
+      false
+    else
+      next_slot_to_fill ? true : false
+    end
+  end
+
+  def just_reviewed_slot?
+    review_slot.present? && currently_filling.present? &&
+      review_slot == currently_filling
+  end
+
+  def currently_filling_slot_left_blank?
+    currently_filling.present? && send("option_#{currently_filling}").blank?
   end
 
   def additional_options?
@@ -38,6 +71,14 @@ class SlotsStep
 
   def slots
     options.map { |s| ConcreteSlot.parse(s) }
+  end
+
+  def valid_options
+    [:option_0, :option_1, :option_2].
+      reject { |o| errors.keys.include?(o) }.
+      map { |o| send(o) }.
+      reject(&:blank?).
+      map { |o| ConcreteSlot.parse(o) }
   end
 
   def options
@@ -49,5 +90,12 @@ class SlotsStep
     show_live_slots = processor.prisoner_step.first_name == 'Rickie'
 
     @constraints ||= processor.booking_constraints.on_slots(show_live_slots)
+  end
+
+  def next_slot_to_fill
+    return review_slot if review_slot.present?
+    slots_select_count = valid_options.size
+    return nil if slots_select_count == 3
+    slots_select_count.to_s
   end
 end

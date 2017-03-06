@@ -1,0 +1,33 @@
+.date-box {
+  background: $white;
+  border: 1px solid $border-colour;
+  min-height: 60px;
+  overflow: hidden;
+  margin-bottom: $gutter-half;
+  position: relative;
+  padding: 10px 10px 10px 70px;
+  @include core-16;
+  @include prefix(box-sizing, border-box);
+  .date-box__number {
+    background: $border-colour;
+    font-size: 38px;
+    font-weight: bold;
+    height: 100%;
+    left: 10px;
+    line-height: 60px;
+    margin: -10px 0 0 -10px;
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    width: 55px;
+  }
+  .date-box__day {
+    @include bold-19;
+  }
+  &.active {
+    .date-box__number {
+      background: #1B567D;
+      color: $white;
+    }
+  }
+}

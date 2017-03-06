@@ -1,0 +1,172 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/api/visits/061c604a-6e3e-4b29-97e4-331e8b0194aa
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.55.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      X-Request-Id:
+      - 7bbb8f47-b1c7-4799-bc65-840f392454bc
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"d038e838e37b85d3dbbb4ce8bd278c45"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7bbb8f47-b1c7-4799-bc65-840f392454bc
+      X-Runtime:
+      - '0.042751'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"visit":{"id":"061c604a-6e3e-4b29-97e4-331e8b0194aa","processing_state":"requested","prison_id":"bf29bf0f-a046-43d1-911b-59ac58730eff","confirm_by":"2017-03-06","contact_email_address":"user@test.example.com","slots":["2017-03-07T14:15/16:15","2017-03-08T14:15/16:15"],"slot_granted":null,"cancellation_reason":null,"cancelled_at":null,"can_cancel":false,"can_withdraw":true,"visitors":[{"anonymized_name":"Ada
+        C","allowed":true}],"messages":[]}}'
+    http_version: 
+  recorded_at: Wed, 01 Mar 2017 15:33:57 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/prisons/bf29bf0f-a046-43d1-911b-59ac58730eff
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.55.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      X-Request-Id:
+      - 7bbb8f47-b1c7-4799-bc65-840f392454bc
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"88ed65c0a22bbad8f9685f70f2325c38"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7bbb8f47-b1c7-4799-bc65-840f392454bc
+      X-Runtime:
+      - '0.017771'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"prison":{"id":"bf29bf0f-a046-43d1-911b-59ac58730eff","name":"Leicester","address":"116
+        Welford Road","postcode":"LE2 7AJ","email_address":"socialvisitsleiceste@hmps.gsi.gov.uk","phone_no":"0116
+        228 3128","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/leicester","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
+    http_version: 
+  recorded_at: Wed, 01 Mar 2017 15:33:57 GMT
+- request:
+    method: delete
+    uri: http://localhost:3000/api/visits/061c604a-6e3e-4b29-97e4-331e8b0194aa
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.55.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      X-Request-Id:
+      - 9b38b1bf-56bc-466a-93a9-2d819e2fd175
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"3fda35e02140c13050c90fff68062fb7"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 9b38b1bf-56bc-466a-93a9-2d819e2fd175
+      X-Runtime:
+      - '0.102672'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"visit":{"id":"061c604a-6e3e-4b29-97e4-331e8b0194aa","processing_state":"withdrawn","prison_id":"bf29bf0f-a046-43d1-911b-59ac58730eff","confirm_by":"2017-03-06","contact_email_address":"user@test.example.com","slots":["2017-03-07T14:15/16:15","2017-03-08T14:15/16:15"],"slot_granted":null,"cancellation_reason":null,"cancelled_at":null,"can_cancel":false,"can_withdraw":false,"visitors":[{"anonymized_name":"Ada
+        C","allowed":true}],"messages":[]}}'
+    http_version: 
+  recorded_at: Wed, 01 Mar 2017 15:33:58 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/visits/061c604a-6e3e-4b29-97e4-331e8b0194aa
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.55.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      X-Request-Id:
+      - ba8f36e7-9f97-4ca6-8a51-c80815ed726e
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"3fda35e02140c13050c90fff68062fb7"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - ba8f36e7-9f97-4ca6-8a51-c80815ed726e
+      X-Runtime:
+      - '0.027943'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"visit":{"id":"061c604a-6e3e-4b29-97e4-331e8b0194aa","processing_state":"withdrawn","prison_id":"bf29bf0f-a046-43d1-911b-59ac58730eff","confirm_by":"2017-03-06","contact_email_address":"user@test.example.com","slots":["2017-03-07T14:15/16:15","2017-03-08T14:15/16:15"],"slot_granted":null,"cancellation_reason":null,"cancelled_at":null,"can_cancel":false,"can_withdraw":false,"visitors":[{"anonymized_name":"Ada
+        C","allowed":true}],"messages":[]}}'
+    http_version: 
+  recorded_at: Wed, 01 Mar 2017 15:33:58 GMT
+recorded_with: VCR 3.0.3

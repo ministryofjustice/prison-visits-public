@@ -3,7 +3,7 @@
 <%= form_for(@steps.fetch(:visitors_step), url: booking_requests_path, html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
 
   <%= render('hidden_prisoner_step') %>
-  <%= render('hidden_slots_step') %>
+  <%= render('hidden_slots_step', currently_filling: @steps.fetch(:slots_step).currently_filling, skip_remaining_slots: 'true') %>
   <%= render('shared/validation', object: f.object) %>
   <div class="grid-row">
     <div class="column-two-thirds">
@@ -40,10 +40,7 @@
         <%= render('additional_visitors', f: f) %>
         <div class="grid-row form-group">
           <div class="column-one-half">
-            <%= f.submit(t('.next_step'), class: 'button button-primary') %>
-          </div>
-          <div class="column-one-half">
-            <%= render('cancel') %>
+            <p><%= f.submit(t('.next_step'), class: 'button button-primary') %></p>
           </div>
         </div>
       </fieldset>

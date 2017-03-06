@@ -18,5 +18,10 @@
     <p>
       <%= t('.see_below') %>
     </p>
+
+    <% if (defined? custom_message) %>
+      <p class="error-message"><%= custom_message %></p>
+    <% end %>
+
   </div>
 <% end %>

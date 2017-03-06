@@ -66,6 +66,10 @@ class VisitorsStep
       processor.booking_constraints.on_visitors
   end
 
+  def options_available?
+    false
+  end
+
 private
 
   def validate_email

@@ -2,49 +2,126 @@
 
 <%= render('shared/timeout_prompt') %>
 
+
 <% if @steps.fetch(:slots_step).bookable_slots? %>
 
-  <%= render('shared/slotpicker_templates') %>
-
-<%= form_for(@steps.fetch(:slots_step),
+  <%= form_for(@steps.fetch(:slots_step),
              url: booking_requests_path,
              html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
-  <%= render('hidden_prisoner_step') %>
-  <% if reviewing? %>
-    <%= render('hidden_visitors_step') %>
-  <% end %>
+    <%= render('hidden_prisoner_step') %>
 
-    <div class="SlotPicker" data-today="<%= Time.zone.today %>">
-      <div class="grid-row visible--js-enabled">
-        <div class="column-one-half">
-          <%= render('slot_picker') %>
+    <% if @steps.fetch(:visitors_step)&.valid? %>
+      <%= render('hidden_visitors_step') %>
+    <% end %>
+
+    <%= render('shared/validation', object: f.object, custom_message: t('.slot1_error')) %>
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <% slot_number = @steps.fetch(:slots_step).next_slot_to_fill %>
+        <% if slot_number == "0" && !reviewing? %>
+          <%= t(".info_html") %>
+        <% end %>
+      </div>
+    </div>
+
+    <% @steps.fetch(:slots_step).valid_options.any? do %>
+      <div class="grid-row">
+        <div class="column-full">
+          <p><%= t('.your_choices') %>:</p>
+          <div class="grid-row">
+            <% @steps.fetch(:slots_step).valid_options.each.with_index do |slot, index| %>
+              <% className = (index == slot_number.to_i)? 'active' : '' %>
+              <div class="column-one-third">
+                <div class="date-box date-box--small <%= className %>" aria-live="assertive" aria-atomic="true" aria-relevant="text">
+                  <span class="date-box__number"><%= index + 1 %></span>
+                  <span class="date-box__day"><%= format_date_without_year(slot) %></span>
+                  <br>
+                  <span class="date-box__slot"><%= format_time_12hr(slot.begin_at) %> (<%= format_duration(slot.duration) %>)</span>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <%= render('hidden_inputs_for_calendars', f: f) %>
+      </div>
+    <% end %>
 
-        <div class="column-one-half">
+    <%= render('hidden_inputs_for_calendars', f: f) %>
+
+
+    <div class="grid-row visible--js-enabled push-top">
+      <div class="column-two-thirds">
+        <h2 class="push-bottom--half">
+        <% if reviewing? %>
+          <%= t(".choose_new_date") %>:</h2>
+        <% else %>
+          <%= t(".choose_date_#{slot_number}") %>:</h2>
+        <% end %>
+        <%= t('.keyboard_directions_html') %>
+        <%= render('booking_calendar', slots: f.object.slot_constraints, slot_number: (slot_number.to_i + 1), option_num: f.object.next_slot_to_fill) %>
+      </div>
+      <div class="column-one-third">
+        <h2 id="slots" class="push-bottom--half">
+        <% if reviewing? %>
+          <%= t(".choose_new_time") %>:</h2>
+        <% else %>
+          <%= t(".choose_time") %>:</h2>
+        <% end %>
+
+        <div class="slot-selection">
           <fieldset>
-            <%= render('booking_calendar', slots: f.object.slot_constraints) %>
-            <%= render('date_slider') %>
-            <%= render('booking_calendar_legend') %>
-            <%= render('slot_picker_time_slots') %>
+            <legend class="visuallyhidden"><%= t(".choose_time") %></legend>
+            <div id="js-slotAvailability" aria-describedby="slots" aria-live="assertive" aria-atomic="true" aria-relevant="additions removals"></div>
           </fieldset>
         </div>
       </div>
     </div>
-    <div class="grid-row form-group">
-      <div class="column-two-thirds">
-        <div class="grid-row">
-          <div class="column-one-half">
-            <%= f.submit(t('.next_step'), class: 'button button-primary') %>
-          </div>
-          <div class="column-one-half">
-            <%= render('cancel') %>
+
+    <div class="grid-row">
+      <div class="column-one-third">
+        <div id="js-slotTarget" aria-hidden="true">
+          <h3 class="push-bottom--half"><%= t(".your_selection_#{reviewing?}") %>:</h3>
+          <div class="date-box active" aria-live="assertive" aria-atomic="true" aria-relevant="text">
+            <span class="date-box__number"><%= slot_number.to_i + 1 %></span>
+            <span class="date-box__day"></span>
+            <br>
+            <span class="date-box__slot"></span>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="grid-row push-top">
+      <div class="column-two-thirds">
+        <div class="grid-row">
+          <div class="column-one-half push-bottom">
+            <% if reviewing? %>
+              <p><%= f.submit(t(".confirm_amend"), id: 'js-slotSubmit', class: 'button button-primary') %></p>
+            <% else %>
+              <%= f.submit(t(".submit_#{slot_number}"), id: 'js-slotSubmit', class: 'button button-primary') %>
+            <% end %>
+          </div>
+          <div class="column-one-half">
+            <% if reviewing? %>
+              <p><%= f.submit("Cancel", id: 'js-slotCancel', class: 'button button-secondary visible--js-enabled') %></p>
+            <% else %>
+              <p class=""><a class="visible--js-enabled" id="js-skipSlot" href="#"><%= t('.no_more_to_add') %></a></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% if slot_number.to_i > 0 && reviewing? %>
+      <a class="visible--js-enabled" id="js-deleteSlot" href="#"><%= t(".remove_slot") %></a>
+    <% end %>
+
   <% end %>
-  <%= render('contact_prison') %>
+
+  <div class="grid-row push-top">
+    <div class="column-two-thirds">
+      <%= render('contact_prison') %>
+    </div>
+  </div>
 
 <% else %>
 

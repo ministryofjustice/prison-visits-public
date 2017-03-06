@@ -38,3 +38,11 @@ $ie-version: 8;
     box-sizing: border-box;
   }
 }
+
+.js-enabled {
+  .block-label {
+    input {
+      @include opacity(1);
+    }
+  }
+}

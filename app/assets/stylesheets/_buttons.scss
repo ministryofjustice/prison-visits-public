@@ -1,4 +1,4 @@
-.button-secondary {
+.button.button-secondary {
   background-color: $grey-3;
   color: $black;
   @include prefix(box-shadow, 0 2px 0 $grey-1);
@@ -8,6 +8,10 @@
   &:active, &:focus {
     background-color: $grey-2;
   }
+  &[disabled="disabled"] {
+    background-color: $grey-3 !important;
+    color: $black;
+  }
 }
 .button-link {
   background: none;
@@ -16,11 +20,19 @@
   cursor: pointer;
   padding: 0;
   text-decoration: underline;
+  @include prefix(box-shadow, none);
+  &:link {
+    color: $link-colour;
+  }
   &:hover {
+    background-color: transparent;
     color: $link-hover-colour;
     text-decoration: none;
   }
   &:visited {
     color: $link-visited-colour;
+  }
+  &:active, &:focus {
+    background-color: $focus-colour;
   }
 }

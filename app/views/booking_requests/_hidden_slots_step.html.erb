@@ -1,3 +1,18 @@
-<%= hidden_field_tag('slots_step[option_0]', @steps.fetch(:slots_step).option_0) %>
-<%= hidden_field_tag('slots_step[option_1]', @steps.fetch(:slots_step).option_1) %>
-<%= hidden_field_tag('slots_step[option_2]', @steps.fetch(:slots_step).option_2) %>
+<% @steps.fetch(:slots_step).valid_options.each.with_index do |val, index| %>
+  <%= hidden_field_tag "slots_step[option_#{index}]", val.to_s %>
+<% end %>
+
+<% if local_assigns.has_key?(:currently_filling) %>
+  <%= hidden_field_tag('slots_step[currently_filling]', currently_filling) %>
+<% end %>
+
+<% if local_assigns.has_key?(:review_slot) %>
+  <%= hidden_field_tag('slots_step[review_slot]', review_slot) %>
+<% end %>
+
+<% if local_assigns.has_key?(:skip_remaining_slots) %>
+  <%= hidden_field_tag('slots_step[skip_remaining_slots]', skip_remaining_slots) %>
+<% else %>
+  <%= hidden_field_tag('slots_step[skip_remaining_slots]', @steps.fetch(:slots_step).skip_remaining_slots) %>
+<% end %>
+

@@ -16,9 +16,14 @@ en:
       none: None
     booking_calendar:
       today: Today
+      go_to_previous_month: Go to previous month
+      go_to_next_month: Go to next month
+      javascript_enabled: Javascript must be enabled
     booking_calendar_legend:
       visit_days: Visit Days
       non_visit_days: Non-visit Days
+    chosen_options:
+      already_chosen: Already chosen
     slot_picker_time_slots:
       visit_in_the_past: It is not possible to book a visit in the past.
       visit_today: It is not possible to book a visit on this day.
@@ -94,6 +99,29 @@ en:
       date_of_birth: Date of birth
     slots_step:
       title: When do you want to visit?
+      slot1_error: You must choose at least one date and time slot.
+      info_html: <p>Choose up to 3 dates and time slots for your visit. If your first choice isn’t available, we’ll try your other choices.</p>
+      keyboard_directions_html: |
+        <ul class="visuallyhidden">
+          <li>Press the LEFT and RIGHT arrow keys to navigate the row by week day.</li>
+          <li>Press the HOME and END keys to jump to the beginning or end of the current month.</li>
+          <li>Press the UP and DOWN arrow keys to navigate between weeks on the same week day.</li>
+        </ul>
+      your_choices: Your choices
+      choose_date_0: Choose your preferred date
+      choose_date_1: Choose another date
+      choose_date_2: Choose another date
+      choose_new_date: Choose a new date
+      choose_time: Choose a time
+      choose_new_time: Choose a new time
+      your_selection_false: Your selection
+      your_selection_true: Your new selection
+      remove_slot: Or remove slot
+      no_more_to_add: No more to add
+      submit_0: Add another choice
+      submit_1: Add another choice
+      submit_2: Continue
+      confirm_amend: Save changes
       choose_alternatives: >-
         Choose two alternative dates in case your first choice isn’t available.
       option_0: Option 1
@@ -117,6 +145,7 @@ en:
       prison: "Prison"
       change_prisoner_details: Change prisoner details
       visitor_details: Visitor details
+      visit_details: Visit details
       confirmation_email_address: "Confirmation email"
       visitor_n: "Visitor %{n}"
       change_visitor_details: Change visitor details
@@ -126,7 +155,7 @@ en:
         available.
       first_choice: "First choice"
       alternatives: "Alternatives"
-      change_visit_details: Change visit details
+      change_visit_details: Change date and time slot
       ts_and_cs: Terms & conditions
       next_step: Send request
     cancel:

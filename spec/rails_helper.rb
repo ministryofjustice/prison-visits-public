@@ -9,6 +9,8 @@ require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'webmock/rspec'
 
+require 'resolv'
+
 WebMock.disable_net_connect!(allow: 'codeclimate.com', allow_localhost: true)
 
 Capybara.javascript_driver = :poltergeist

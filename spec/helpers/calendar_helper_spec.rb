@@ -6,13 +6,13 @@ RSpec.describe CalendarHelper do
 
     let(:expected_dates) {
       [
+        Time.new(2016, 4, 3),
         Time.new(2016, 4, 4),
         Time.new(2016, 4, 5),
         Time.new(2016, 4, 6),
         Time.new(2016, 4, 7),
         Time.new(2016, 4, 8),
-        Time.new(2016, 4, 9),
-        Time.new(2016, 4, 10)
+        Time.new(2016, 4, 9)
       ]
     }
 

@@ -3,9 +3,9 @@ module FeaturesHelper
     options = {
       first_name: 'Oscar',
       last_name: 'Wilde',
-      date_of_birth: Date.new(1980, 12, 31),
-      number: 'a1234bc',
-      prison_name: 'Reading Gaol'
+      date_of_birth: Date.new(1960, 6, 1),
+      number: 'A1410AE',
+      prison_name: 'Leicester'
     }.merge(options)
 
     fill_in 'Prisoner first name', with: options.fetch(:first_name)
@@ -24,21 +24,19 @@ module FeaturesHelper
       date_of_birth: Date.new(1970, 11, 30),
       prison_name: 'Reading Gaol',
       email_address: 'user@test.example.com',
-      phone_no: '01154960222',
+      phone_no: '07771232323',
       index: 0
     }.merge(options)
 
     index = options.fetch(:index)
 
     within "#visitor-#{index}" do
+      fill_in 'First name', with: options.fetch(:first_name)
+      fill_in 'Last name', with: options.fetch(:last_name)
+
       if index.zero?
-        fill_in 'Your first name', with: options.fetch(:first_name)
-        fill_in 'Your last name', with: options.fetch(:last_name)
         fill_in 'Email address', with: options.fetch(:email_address)
         fill_in 'Phone number', with: options.fetch(:phone_no)
-      else
-        fill_in 'First name', with: options.fetch(:first_name)
-        fill_in 'Last name', with: options.fetch(:last_name)
       end
 
       fill_in 'Day', with: options.fetch(:date_of_birth).mday
@@ -47,20 +45,20 @@ module FeaturesHelper
     end
   end
 
-  def select_slots(how_many = 3)
-    how_many.times do |n|
-      select_nth_slot n
-    end
+  def select_first_available_date
+    first("table.booking-calendar td.available").click
   end
 
-  def select_nth_slot(n)
-    all(".BookingCalendar-date--bookable .BookingCalendar-dateLink")[n].
-      trigger('click')
-    first('.SlotPicker-slot').trigger('click')
+  def select_first_available_slot
+    first('#js-slotAvailability input[type="radio"]', visible: false).trigger('click')
   end
 
   def select_prison(name)
     find('input[data-input-name="prisoner_step[prison_id]"]').
       set(name)
+  end
+
+  def check_yes_i_want_to_cancel
+    find("#confirmed", visible: false).trigger('click')
   end
 end

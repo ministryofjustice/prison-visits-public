@@ -1,14 +1,22 @@
 <div class="hidden--js-enabled">
   <% 3.times do |i| %>
-     <%=
-       single_field(
-         f, :"option_#{i}", :select,
-         f.object.slot_constraints.map { |s|
-           [format_slot_begin_time_for_public(s), s.iso8601]
-         },
-         { include_blank: true },
-         class: 'SlotPicker-input'
-       )
-     %>
+    <% if f.object.next_slot_to_fill == i.to_s %>
+      <%=
+        single_field(
+          f, :"option_#{i}", :select,
+          slot_options_reflecting_existing_selections(f.object),
+          { include_blank: t("remove_slot", scope: 'booking_requests.slots_step') },
+          class: 'form-control'
+        )
+      %>
+    <% else %>
+      <% if f.object.valid_options.map(&:to_s).include?(f.object.send("option_#{i}")) %>
+        <%= hidden_field_tag("slots_step[option_#{i}]", f.object.send("option_#{i}")) %>
+      <% end %>
+    <% end %>
   <% end %>
+
+  <%= hidden_field_tag('slots_step[currently_filling]', f.object.next_slot_to_fill) %>
+  <%= hidden_field_tag('slots_step[review_slot]', f.object.review_slot) %>
+  <%= hidden_field_tag('slots_step[skip_remaining_slots]', f.object.skip_remaining_slots?) %>
 </div>
