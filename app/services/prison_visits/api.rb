@@ -59,15 +59,19 @@ module PrisonVisits
       prison_id:, prisoner_number:, prisoner_dob:, use_nomis_slots: false
     )
       response = @client.get(
-        '/available_slots',
+        '/slots',
         params: {
-          prison_id: prison_id,
-          prisoner_number: prisoner_number,
-          prisoner_dob: prisoner_dob,
-          use_nomis_slots: use_nomis_slots
+          prison_id: prison_id, prisoner_number: prisoner_number,
+          prisoner_dob: prisoner_dob, use_nomis_slots: use_nomis_slots,
+          start_date: Time.zone.today.to_date, end_date: 28.days.from_now.to_date
         }
       )
-      response['slots'].map { |s| ConcreteSlot.parse(s) }
+      response['slots'].map do |raw_slot|
+        CalendarSlot.new(
+          slot: ConcreteSlot.parse(raw_slot.first),
+          unavailability_reasons: raw_slot.last
+        )
+      end
     end
 
     def request_visit(params)

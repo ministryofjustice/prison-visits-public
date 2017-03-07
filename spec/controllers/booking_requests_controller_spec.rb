@@ -51,9 +51,9 @@ RSpec.describe BookingRequestsController do
 
   let(:slots) {
     [
-      ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0),
-      ConcreteSlot.new(2015, 1, 3, 9, 0, 10, 0),
-      ConcreteSlot.new(2015, 1, 4, 9, 0, 10, 0)
+      CalendarSlot.new(slot: ConcreteSlot.new(2015, 1, 2, 9, 0, 10, 0)),
+      CalendarSlot.new(slot: ConcreteSlot.new(2015, 1, 3, 9, 0, 10, 0)),
+      CalendarSlot.new(slot: ConcreteSlot.new(2015, 1, 4, 9, 0, 10, 0))
     ]
   }
 

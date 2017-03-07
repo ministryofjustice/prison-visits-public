@@ -36,8 +36,8 @@ RSpec.describe CalendarHelper do
       #    a = today; b = end of booking window;
       #    c = end of month concluding window; d = end of week
       #
-      slots = BookingConstraints::SlotConstraints.new([
-        ConcreteSlot.new(2015, 12, 26, 9, 0, 10, 0)
+      slots = SlotConstraints.new([
+        CalendarSlot.new(slot: ConcreteSlot.new(2015, 12, 26, 9, 0, 10, 0))
       ])
       travel_to Date.new(2015, 11, 26) do # Thursday
         weeks = helper.weeks(slots)

@@ -74,13 +74,13 @@ Style/TrivialAccessors:
   AllowPredicates: true
 
 Metrics/LineLength:
-  Max: 80
+  Max: 90
   Exclude:
     - 'spec/**/*'
 
 # Don't worry about long methods in specs.
 Metrics/MethodLength:
-  Max: 12
+  Max: 15
   Exclude:
     - 'spec/**/*'
     - 'app/helpers/form_elements_helper.rb'
@@ -133,7 +133,7 @@ Rails/TimeZone:
   Exclude:
     - 'spec/**/*'
 
-Devtools/NamedSubject:
+RSpec/NamedSubject:
   Enabled: false
 
 Metrics/ModuleLength:
