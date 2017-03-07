@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/visits/93082f13-9194-4a9a-8f0f-cd2aa6add176
+    uri: http://localhost:3000/api/visits/FOOBAR
     body:
       encoding: US-ASCII
       string: ''
@@ -41,7 +41,7 @@ http_interactions:
       string: '{"visit":{"id":"93082f13-9194-4a9a-8f0f-cd2aa6add176","processing_state":"cancelled","prison_id":"5f4f2131-32d6-44be-b715-76bcb561f985","confirm_by":"2017-02-20","contact_email_address":"Loughran@example.com","slots":["2017-03-20T09:15/11:15","2017-03-15T14:00/16:00","2017-03-28T14:00/16:00"],"slot_granted":"2017-03-15T14:00/16:00","cancellation_reason":"visitor_banned","cancelled_at":"2017-03-01T13:28:29+00:00","can_cancel":false,"can_withdraw":false,"visitors":[{"anonymized_name":"Meghann
         W","allowed":true},{"anonymized_name":"Tommie W","allowed":true},{"anonymized_name":"Jaime
         S","allowed":true},{"anonymized_name":"Meghann K","allowed":true},{"anonymized_name":"Sally
-        L","allowed":true}],"messages":[]}}'
+        L","allowed":true}],"messages":[],"human_id":"FOOBAR"}}'
     http_version: 
   recorded_at: Wed, 01 Mar 2017 16:40:39 GMT
 - request:

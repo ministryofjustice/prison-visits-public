@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/visits/f74bc736-cdcf-4e03-92e3-df4897b569ac
+    uri: http://localhost:3000/api/visits/FOOBAR
     body:
       encoding: US-ASCII
       string: ''
@@ -40,7 +40,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"visit":{"id":"f74bc736-cdcf-4e03-92e3-df4897b569ac","processing_state":"withdrawn","prison_id":"f18ca4d5-8cdc-4aa0-97e6-83d04e1e983c","confirm_by":"2017-02-22","contact_email_address":"Kennedy@example.com","slots":["2017-03-19T13:45/15:45","2017-03-15T13:45/15:45","2017-03-09T13:45/15:45"],"slot_granted":null,"cancellation_reason":null,"cancelled_at":null,"can_cancel":false,"can_withdraw":false,"visitors":[{"anonymized_name":"Sally
         W","allowed":true},{"anonymized_name":"Jaime S","allowed":true},{"anonymized_name":"Adalberto
-        K","allowed":true}],"messages":[]}}'
+        K","allowed":true}],"messages":[],"human_id":"FOOBAR"}}'
     http_version: 
   recorded_at: Wed, 01 Mar 2017 16:37:44 GMT
 - request:
