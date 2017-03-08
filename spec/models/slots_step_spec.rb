@@ -201,7 +201,7 @@ RSpec.describe SlotsStep, type: :model do
     let(:booking_constraints) {
       instance_double(
         BookingConstraints,
-        on_slots: BookingConstraints::SlotConstraints.new([slot])
+        on_slots: BookingConstraints::SlotConstraints.new([CalendarSlot.new(slot: slot)])
       )
     }
 
