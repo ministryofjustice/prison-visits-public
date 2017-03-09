@@ -38,9 +38,9 @@ RSpec.feature 'Booking a visit', js: true do
     enter_visitor_information index: 1
     click_button 'Continue'
 
-    expect(page).to have_text('Check your request')
+    expect(page).to have_text('Check your visit details')
 
-    click_button 'Send request'
+    click_button 'Send visit request'
 
     expect(page).to have_text('Your request is being processed')
   end
@@ -206,14 +206,14 @@ RSpec.feature 'Booking a visit', js: true do
     enter_visitor_information
     click_button 'Continue'
 
-    expect(page).to have_text('Check your request')
+    expect(page).to have_text('Check your visit details')
 
     click_button 'Change prisoner details'
 
     fill_in 'Prisoner last name', with: 'Featherstone-Haugh'
     click_button 'Continue'
 
-    expect(page).to have_text('Check your request')
+    expect(page).to have_text('Check your visit details')
     expect(page).to have_text('Featherstone-Haugh')
 
     click_button 'Change visitor details'
@@ -221,7 +221,7 @@ RSpec.feature 'Booking a visit', js: true do
     fill_in 'Last name', with: 'Colquhoun'
     click_button 'Continue'
 
-    expect(page).to have_text('Check your request')
+    expect(page).to have_text('Check your visit details')
     expect(page).to have_text('Colquhoun')
 
     # Add an alternative slot
@@ -231,10 +231,10 @@ RSpec.feature 'Booking a visit', js: true do
     select_first_available_slot
     click_button 'Save changes'
 
-    expect(page).to have_text('Check your request')
+    expect(page).to have_text('Check your visit details')
     expect(page).to have_css('.slot-confirmation', count: 2)
 
-    click_button 'Send request'
+    click_button 'Send visit request'
 
     expect(page).to have_text('Your request is being processed')
   end
