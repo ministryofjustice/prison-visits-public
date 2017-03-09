@@ -1,8 +1,8 @@
 class SlotConstraints
-  delegate :map, to: :@slot_calendars
+  delegate :map, to: :@calendar_slots
 
-  def initialize(slot_calendars)
-    @slot_calendars = slot_calendars
+  def initialize(calendar_slots)
+    @calendar_slots = calendar_slots
   end
 
   def bookable_date?(requested_date)
@@ -28,6 +28,6 @@ class SlotConstraints
 private
 
   def bookable_slots
-    @bookable_slots ||= @slot_calendars.select(&:bookable?)
+    @bookable_slots ||= @calendar_slots.select(&:bookable?)
   end
 end
