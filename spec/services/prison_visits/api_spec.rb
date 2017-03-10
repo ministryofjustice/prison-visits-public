@@ -4,9 +4,9 @@ RSpec.describe PrisonVisits::Api do
   subject { described_class.instance }
 
   # These UUIDs can be found in PVB2/prison_uuid_mappings.yml
-  let(:cardiff_prison_id) { '0614760e-a773-49c0-a29c-35e743e72555' }
-  let(:leeds_prison_id) { '8076d43d-429d-4e19-aac1-178ff9d112d3' }
-
+  let(:cardiff_prison_id)   { '0614760e-a773-49c0-a29c-35e743e72555' }
+  let(:leeds_prison_id)     { '8076d43d-429d-4e19-aac1-178ff9d112d3' }
+  let(:leicester_prison_id) { 'bf29bf0f-a046-43d1-911b-59ac58730eff' }
   # Note regarding re-recording VCR cassettes: these tests are date dependent.
   # If you need to re-record the VCR data for any reason, you can follow this
   # approach:
@@ -156,27 +156,25 @@ RSpec.describe PrisonVisits::Api do
   describe 'get_slots', vcr: { cassette_name: 'get_slots' } do
     let(:params) {
       {
-        prison_id: cardiff_prison_id,
-        prisoner_number: 'a1234bc',
-        prisoner_dob: Date.parse('1970-01-01')
+        prison_id:       leicester_prison_id,
+        prisoner_number: 'A1410AE',
+        prisoner_dob:    Date.parse('1960-06-01')
       }
     }
+
+    let(:bookable_slot) do
+      '2017-02-15T14:15/16:15'
+    end
 
     subject { super().get_slots(params) }
 
     it 'returns an array of concrete slots' do
       expect(subject).to be_kind_of(Array)
-      expect(subject.first).to be_kind_of(ConcreteSlot)
+      expect(subject.first).to be_kind_of(CalendarSlot)
     end
 
     it 'returns sensible looking concrete slots' do
-      expect(subject.first.iso8601).to eq(bookable_slots.first)
-    end
-
-    it 'can request live slots from NOMIS', vcr: { cassette_name: 'get_slots-live_slots' } do
-      params[:prison_id] = leeds_prison_id
-      params[:use_nomis_slots] = true
-      expect(subject.first.iso8601).to eq("2016-05-12T10:30/11:30")
+      expect(subject.first.slot.iso8601).to eq(bookable_slot)
     end
   end
 

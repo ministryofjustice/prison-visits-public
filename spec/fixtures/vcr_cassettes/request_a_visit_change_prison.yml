@@ -14,7 +14,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - eb809de8-ac9d-4084-b061-c1c4a2bac5bd
+      - 98343023-af91-4d4e-ac70-8370f4993694
   response:
     status:
       code: 200
@@ -29,29 +29,29 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"45bfa68000e5779f0e4b0f52abc870ba"
+      - W/"89bafffb7a24d2a36b1099f3ea505d29"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - eb809de8-ac9d-4084-b061-c1c4a2bac5bd
+      - 98343023-af91-4d4e-ac70-8370f4993694
       X-Runtime:
-      - '0.046709'
+      - '0.038491'
     body:
       encoding: ASCII-8BIT
-      string: '{"prisons":[{"id":"a81df211-95a1-47bc-9db4-866d54040121","name":"Acklington","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a81df211-95a1-47bc-9db4-866d54040121"},{"id":"f48d069a-64e2-493a-b256-fa5a35517418","name":"Altcourse","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/f48d069a-64e2-493a-b256-fa5a35517418"},{"id":"73590df1-c04c-4e7c-aabe-1af1537fa141","name":"Ashfield","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/73590df1-c04c-4e7c-aabe-1af1537fa141"},{"id":"83308aa4-4e64-4261-aaf8-a4bfd2f45808","name":"Askham
-        Grange","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/83308aa4-4e64-4261-aaf8-a4bfd2f45808"},{"id":"18f53a03-bf7c-4f28-a825-a758c9c3b989","name":"Aylesbury","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/18f53a03-bf7c-4f28-a825-a758c9c3b989"},{"id":"8d01337b-d3bd-463b-8e90-7427c81c7ceb","name":"Bedford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8d01337b-d3bd-463b-8e90-7427c81c7ceb"},{"id":"54393fca-8762-40dd-bc79-b4446682e6a5","name":"Belmarsh","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/54393fca-8762-40dd-bc79-b4446682e6a5"},{"id":"e42525b2-1d73-43d8-bbd7-d2f2befbce8e","name":"Birmingham","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/e42525b2-1d73-43d8-bbd7-d2f2befbce8e"},{"id":"064cb1e8-1ebe-4527-8f8e-d4ebfcb2cc10","name":"Blantyre
-        House","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/064cb1e8-1ebe-4527-8f8e-d4ebfcb2cc10"},{"id":"2f1e5335-90a0-4bb0-9b74-0cb3f67dfad8","name":"Brinsford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/2f1e5335-90a0-4bb0-9b74-0cb3f67dfad8"},{"id":"f4ad82a9-dc51-4dec-bd7c-54a05daff300","name":"Bristol","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/f4ad82a9-dc51-4dec-bd7c-54a05daff300"},{"id":"e5a76c9d-d565-4b4b-8d10-58ce3b05f730","name":"Brixton","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e5a76c9d-d565-4b4b-8d10-58ce3b05f730"},{"id":"3ba78f1a-af9f-491c-b7b6-364fc1616bf6","name":"Bronzefield","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/3ba78f1a-af9f-491c-b7b6-364fc1616bf6"},{"id":"b0e51c73-358f-4fa6-b11d-4292d709fae3","name":"Buckley
+      string: '{"prisons":[{"id":"a81df211-95a1-47bc-9db4-866d54040121","name":"Acklington","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a81df211-95a1-47bc-9db4-866d54040121"},{"id":"f48d069a-64e2-493a-b256-fa5a35517418","name":"Altcourse","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/f48d069a-64e2-493a-b256-fa5a35517418"},{"id":"73590df1-c04c-4e7c-aabe-1af1537fa141","name":"Ashfield","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/73590df1-c04c-4e7c-aabe-1af1537fa141"},{"id":"83308aa4-4e64-4261-aaf8-a4bfd2f45808","name":"Askham
+        Grange","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/83308aa4-4e64-4261-aaf8-a4bfd2f45808"},{"id":"18f53a03-bf7c-4f28-a825-a758c9c3b989","name":"Aylesbury","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/18f53a03-bf7c-4f28-a825-a758c9c3b989"},{"id":"8d01337b-d3bd-463b-8e90-7427c81c7ceb","name":"Bedford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8d01337b-d3bd-463b-8e90-7427c81c7ceb"},{"id":"54393fca-8762-40dd-bc79-b4446682e6a5","name":"Belmarsh","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/54393fca-8762-40dd-bc79-b4446682e6a5"},{"id":"e42525b2-1d73-43d8-bbd7-d2f2befbce8e","name":"Birmingham","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e42525b2-1d73-43d8-bbd7-d2f2befbce8e"},{"id":"064cb1e8-1ebe-4527-8f8e-d4ebfcb2cc10","name":"Blantyre
+        House","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/064cb1e8-1ebe-4527-8f8e-d4ebfcb2cc10"},{"id":"2f1e5335-90a0-4bb0-9b74-0cb3f67dfad8","name":"Brinsford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/2f1e5335-90a0-4bb0-9b74-0cb3f67dfad8"},{"id":"f4ad82a9-dc51-4dec-bd7c-54a05daff300","name":"Bristol","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/f4ad82a9-dc51-4dec-bd7c-54a05daff300"},{"id":"e5a76c9d-d565-4b4b-8d10-58ce3b05f730","name":"Brixton","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e5a76c9d-d565-4b4b-8d10-58ce3b05f730"},{"id":"3ba78f1a-af9f-491c-b7b6-364fc1616bf6","name":"Bronzefield","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/3ba78f1a-af9f-491c-b7b6-364fc1616bf6"},{"id":"b0e51c73-358f-4fa6-b11d-4292d709fae3","name":"Buckley
         Hall","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/b0e51c73-358f-4fa6-b11d-4292d709fae3"},{"id":"11b3613e-105c-48da-9f98-85678059785f","name":"Bullingdon
         (Convicted Only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/11b3613e-105c-48da-9f98-85678059785f"},{"id":"8c920312-ea31-45a2-aec8-e18d642567d6","name":"Bullingdon
         (Remand Only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8c920312-ea31-45a2-aec8-e18d642567d6"},{"id":"ff6eb0ca-da69-4495-ac9d-b383e01371eb","name":"Bure","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/ff6eb0ca-da69-4495-ac9d-b383e01371eb"},{"id":"0614760e-a773-49c0-a29c-35e743e72555","name":"Cardiff","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/0614760e-a773-49c0-a29c-35e743e72555"},{"id":"4d4c2f39-a7a1-4295-9cd1-f4ab416f4508","name":"Channings
         Wood","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/4d4c2f39-a7a1-4295-9cd1-f4ab416f4508"},{"id":"6114c49b-0fb2-403d-bac3-b960767adf0d","name":"Chelmsford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/6114c49b-0fb2-403d-bac3-b960767adf0d"},{"id":"a207122a-8ac8-4afe-821f-35a421a2fb52","name":"Coldingley","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a207122a-8ac8-4afe-821f-35a421a2fb52"},{"id":"4464d460-6307-4085-bd76-7ea8d64f3c86","name":"Cookham
-        Wood","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/4464d460-6307-4085-bd76-7ea8d64f3c86"},{"id":"21c6d486-280d-4426-a1e4-7b264613dcc7","name":"Dartmoor","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/21c6d486-280d-4426-a1e4-7b264613dcc7"},{"id":"8ac45e51-d07a-4fea-a21f-945275cb7aed","name":"Deerbolt","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8ac45e51-d07a-4fea-a21f-945275cb7aed"},{"id":"6fb6bdb0-8f88-4e04-900e-30bf0f6fe091","name":"Doncaster","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/6fb6bdb0-8f88-4e04-900e-30bf0f6fe091"},{"id":"a2b7ccc6-a5b4-498c-8b91-7432f28ec87f","name":"Downview","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a2b7ccc6-a5b4-498c-8b91-7432f28ec87f"},{"id":"4b806557-96fb-493b-90b4-b6257db84820","name":"Drake
+        Wood","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/4464d460-6307-4085-bd76-7ea8d64f3c86"},{"id":"21c6d486-280d-4426-a1e4-7b264613dcc7","name":"Dartmoor","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/21c6d486-280d-4426-a1e4-7b264613dcc7"},{"id":"8ac45e51-d07a-4fea-a21f-945275cb7aed","name":"Deerbolt","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8ac45e51-d07a-4fea-a21f-945275cb7aed"},{"id":"6fb6bdb0-8f88-4e04-900e-30bf0f6fe091","name":"Doncaster","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/6fb6bdb0-8f88-4e04-900e-30bf0f6fe091"},{"id":"a2b7ccc6-a5b4-498c-8b91-7432f28ec87f","name":"Downview","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a2b7ccc6-a5b4-498c-8b91-7432f28ec87f"},{"id":"4b806557-96fb-493b-90b4-b6257db84820","name":"Drake
         Hall","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/4b806557-96fb-493b-90b4-b6257db84820"},{"id":"a534c5dc-4268-4eff-b128-f4913a67c190","name":"Durham","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a534c5dc-4268-4eff-b128-f4913a67c190"},{"id":"c6ddc317-f44e-4bec-9001-dd79f5a5fe25","name":"East
         Sutton Park","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/c6ddc317-f44e-4bec-9001-dd79f5a5fe25"},{"id":"e69eec52-2861-49a1-aa6d-a06c1d838eab","name":"Eastwood
         Park","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e69eec52-2861-49a1-aa6d-a06c1d838eab"},{"id":"6816c616-98c1-445e-8efd-28475268845e","name":"Elmley","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/6816c616-98c1-445e-8efd-28475268845e"},{"id":"0e034353-5939-467e-b618-5e5b81a4a2a2","name":"Erlestoke","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/0e034353-5939-467e-b618-5e5b81a4a2a2"},{"id":"5131fed0-d864-4118-a4b4-820f82be87c4","name":"Everthorpe","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/5131fed0-d864-4118-a4b4-820f82be87c4"},{"id":"3e887c54-aa3f-4bb6-ab52-aa15d74f846c","name":"Exeter","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/3e887c54-aa3f-4bb6-ab52-aa15d74f846c"},{"id":"1d00db07-80c4-4312-85d7-b3aba49ecca6","name":"Featherstone","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/1d00db07-80c4-4312-85d7-b3aba49ecca6"},{"id":"fd135d8f-fd86-432a-a186-acc884ea07d9","name":"Feltham
         (Young Adults 18-21 only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/fd135d8f-fd86-432a-a186-acc884ea07d9"},{"id":"6478a2c8-fcdd-4cd4-8356-44386b4f026e","name":"Feltham
         (Young People 15-18 only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/6478a2c8-fcdd-4cd4-8356-44386b4f026e"},{"id":"994d7962-667c-476a-916e-cfd0b1b07bb9","name":"Ford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/994d7962-667c-476a-916e-cfd0b1b07bb9"},{"id":"023800e5-d8ec-4a69-8009-7f00f887ac56","name":"Forest
-        Bank","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/023800e5-d8ec-4a69-8009-7f00f887ac56"},{"id":"95942bd0-f52d-4bb2-859a-22a9f1902170","name":"Foston
+        Bank","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/023800e5-d8ec-4a69-8009-7f00f887ac56"},{"id":"95942bd0-f52d-4bb2-859a-22a9f1902170","name":"Foston
         Hall","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/95942bd0-f52d-4bb2-859a-22a9f1902170"},{"id":"bba2e2ab-2bf3-4d07-ab2c-180c1810ac2a","name":"Frankland","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/bba2e2ab-2bf3-4d07-ab2c-180c1810ac2a"},{"id":"5416648c-f847-4ed5-b946-164137b83c16","name":"Full
         Sutton","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/5416648c-f847-4ed5-b946-164137b83c16"},{"id":"c63b86f0-164a-46b5-a60b-838fdcd8e654","name":"Garth","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/c63b86f0-164a-46b5-a60b-838fdcd8e654"},{"id":"e82d733f-1b30-4443-ae00-3a8faa59d972","name":"Gartree","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e82d733f-1b30-4443-ae00-3a8faa59d972"},{"id":"645137e2-c759-43e7-9658-e5721cafd19b","name":"Glen
         Parva","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/645137e2-c759-43e7-9658-e5721cafd19b"},{"id":"a34dab65-8122-4d1a-9202-8ec6b6253972","name":"Grendon","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a34dab65-8122-4d1a-9202-8ec6b6253972"},{"id":"e9026566-9534-410a-b95c-10afab815eff","name":"Guys
@@ -71,15 +71,15 @@ http_interactions:
         Social Visits","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/c11cc98d-6234-4f16-8f8c-2dea50686fc2"},{"id":"480e61ef-069a-445e-ac9b-38d208e90dba","name":"Long
         Lartin","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/480e61ef-069a-445e-ac9b-38d208e90dba"},{"id":"4ea7b4bd-b088-4b9b-a1aa-4791cc1ceed5","name":"Low
         Newton","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/4ea7b4bd-b088-4b9b-a1aa-4791cc1ceed5"},{"id":"979a524f-6719-419d-9bf4-c9ed2514b345","name":"Lowdham
-        Grange","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/979a524f-6719-419d-9bf4-c9ed2514b345"},{"id":"2e49e71e-6f1c-4b75-8d98-4e9719ef25b5","name":"Maidstone","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/2e49e71e-6f1c-4b75-8d98-4e9719ef25b5"},{"id":"b73b5c8a-879b-43d3-ae2e-7aa19b745832","name":"Manchester","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/b73b5c8a-879b-43d3-ae2e-7aa19b745832"},{"id":"51826eb7-2430-4c0d-8c99-98a767c001d8","name":"Moorland
+        Grange","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/979a524f-6719-419d-9bf4-c9ed2514b345"},{"id":"2e49e71e-6f1c-4b75-8d98-4e9719ef25b5","name":"Maidstone","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/2e49e71e-6f1c-4b75-8d98-4e9719ef25b5"},{"id":"b73b5c8a-879b-43d3-ae2e-7aa19b745832","name":"Manchester","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/b73b5c8a-879b-43d3-ae2e-7aa19b745832"},{"id":"51826eb7-2430-4c0d-8c99-98a767c001d8","name":"Moorland
         Closed","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/51826eb7-2430-4c0d-8c99-98a767c001d8"},{"id":"332fc3de-2744-469e-b97b-b2100a68eaa1","name":"Morton
         Hall","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/332fc3de-2744-469e-b97b-b2100a68eaa1"},{"id":"3d523cf8-4391-4190-b8cc-26b794af4502","name":"New
         Hall","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/3d523cf8-4391-4190-b8cc-26b794af4502"},{"id":"e118f115-ba46-4901-a7d0-9dd5dca3a25e","name":"North
-        Sea Camp","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e118f115-ba46-4901-a7d0-9dd5dca3a25e"},{"id":"ed268add-b610-44e4-91b4-4e303eb63ab7","name":"Northumberland","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/ed268add-b610-44e4-91b4-4e303eb63ab7"},{"id":"0c4a9a66-e892-479b-9881-9e85229f21ca","name":"Norwich
+        Sea Camp","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e118f115-ba46-4901-a7d0-9dd5dca3a25e"},{"id":"ed268add-b610-44e4-91b4-4e303eb63ab7","name":"Northumberland","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/ed268add-b610-44e4-91b4-4e303eb63ab7"},{"id":"0c4a9a66-e892-479b-9881-9e85229f21ca","name":"Norwich
         (A, B, C, E, M only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/0c4a9a66-e892-479b-9881-9e85229f21ca"},{"id":"c861eb28-60ca-4686-97fb-578792cc3365","name":"Norwich
         (Britannia House)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/c861eb28-60ca-4686-97fb-578792cc3365"},{"id":"ca2af3e4-574d-4b5c-ae33-f780851e1641","name":"Norwich
-        (F, G, H, L only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/ca2af3e4-574d-4b5c-ae33-f780851e1641"},{"id":"cdf64ca2-fb20-427e-bd34-0226d858d92c","name":"Nottingham","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/cdf64ca2-fb20-427e-bd34-0226d858d92c"},{"id":"6b8a2731-9729-4bc6-a4d5-66cbe27b124f","name":"Oakwood","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/6b8a2731-9729-4bc6-a4d5-66cbe27b124f"},{"id":"bf02ceac-2957-408c-83d8-0ced05e2da5b","name":"Onley","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/bf02ceac-2957-408c-83d8-0ced05e2da5b"},{"id":"c4c676e7-91b2-4c43-897f-017d3eff18e6","name":"Parc","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/c4c676e7-91b2-4c43-897f-017d3eff18e6"},{"id":"5f4f2131-32d6-44be-b715-76bcb561f985","name":"Pentonville","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/5f4f2131-32d6-44be-b715-76bcb561f985"},{"id":"a247b47c-04a8-421b-af25-b7c90d115050","name":"Peterborough","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/a247b47c-04a8-421b-af25-b7c90d115050"},{"id":"8564f563-41d6-43bf-9073-826d10ff6229","name":"Portland","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8564f563-41d6-43bf-9073-826d10ff6229"},{"id":"8fcf570c-3562-4b01-9a0b-26b1c461c50d","name":"Prescoed","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8fcf570c-3562-4b01-9a0b-26b1c461c50d"},{"id":"dc4b9a8e-a599-442e-9797-3f73ab3a1205","name":"Preston","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/dc4b9a8e-a599-442e-9797-3f73ab3a1205"},{"id":"004cfe9e-2da2-4db2-8d6e-9a2853f957f1","name":"Ranby","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/004cfe9e-2da2-4db2-8d6e-9a2853f957f1"},{"id":"104411ba-3b6b-496e-b28d-902029b90bee","name":"Risley","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/104411ba-3b6b-496e-b28d-902029b90bee"},{"id":"f977ed70-3ad8-4a2f-99f9-9ce13fb5755f","name":"Rochester","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/f977ed70-3ad8-4a2f-99f9-9ce13fb5755f"},{"id":"54c87209-d7fd-4824-b724-2bda32e43c66","name":"Rye
-        Hill","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/54c87209-d7fd-4824-b724-2bda32e43c66"},{"id":"be40f125-e57f-45e9-a09e-56d4198a9279","name":"Send","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/be40f125-e57f-45e9-a09e-56d4198a9279"},{"id":"e1811066-0ec3-4cf8-bb4c-6e516505eb39","name":"Spring
+        (F, G, H, L only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/ca2af3e4-574d-4b5c-ae33-f780851e1641"},{"id":"cdf64ca2-fb20-427e-bd34-0226d858d92c","name":"Nottingham","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/cdf64ca2-fb20-427e-bd34-0226d858d92c"},{"id":"6b8a2731-9729-4bc6-a4d5-66cbe27b124f","name":"Oakwood","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/6b8a2731-9729-4bc6-a4d5-66cbe27b124f"},{"id":"bf02ceac-2957-408c-83d8-0ced05e2da5b","name":"Onley","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/bf02ceac-2957-408c-83d8-0ced05e2da5b"},{"id":"c4c676e7-91b2-4c43-897f-017d3eff18e6","name":"Parc","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/c4c676e7-91b2-4c43-897f-017d3eff18e6"},{"id":"5f4f2131-32d6-44be-b715-76bcb561f985","name":"Pentonville","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/5f4f2131-32d6-44be-b715-76bcb561f985"},{"id":"a247b47c-04a8-421b-af25-b7c90d115050","name":"Peterborough","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a247b47c-04a8-421b-af25-b7c90d115050"},{"id":"8564f563-41d6-43bf-9073-826d10ff6229","name":"Portland","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8564f563-41d6-43bf-9073-826d10ff6229"},{"id":"8fcf570c-3562-4b01-9a0b-26b1c461c50d","name":"Prescoed","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8fcf570c-3562-4b01-9a0b-26b1c461c50d"},{"id":"dc4b9a8e-a599-442e-9797-3f73ab3a1205","name":"Preston","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/dc4b9a8e-a599-442e-9797-3f73ab3a1205"},{"id":"004cfe9e-2da2-4db2-8d6e-9a2853f957f1","name":"Ranby","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/004cfe9e-2da2-4db2-8d6e-9a2853f957f1"},{"id":"104411ba-3b6b-496e-b28d-902029b90bee","name":"Risley","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/104411ba-3b6b-496e-b28d-902029b90bee"},{"id":"f977ed70-3ad8-4a2f-99f9-9ce13fb5755f","name":"Rochester","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/f977ed70-3ad8-4a2f-99f9-9ce13fb5755f"},{"id":"54c87209-d7fd-4824-b724-2bda32e43c66","name":"Rye
+        Hill","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/54c87209-d7fd-4824-b724-2bda32e43c66"},{"id":"be40f125-e57f-45e9-a09e-56d4198a9279","name":"Send","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/be40f125-e57f-45e9-a09e-56d4198a9279"},{"id":"e1811066-0ec3-4cf8-bb4c-6e516505eb39","name":"Spring
         Hill","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e1811066-0ec3-4cf8-bb4c-6e516505eb39"},{"id":"07d7656b-3508-4487-81e3-2e0473d7530b","name":"Stafford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/07d7656b-3508-4487-81e3-2e0473d7530b"},{"id":"cfb09d82-c423-4423-93cf-48566ed4fcc3","name":"Standford
         Hill","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/cfb09d82-c423-4423-93cf-48566ed4fcc3"},{"id":"d518d142-a77a-4a43-bffa-67bfa153b43a","name":"Stocken","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/d518d142-a77a-4a43-bffa-67bfa153b43a"},{"id":"e267e824-23e1-418c-9840-25292cac3684","name":"Stoke
         Heath","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e267e824-23e1-418c-9840-25292cac3684"},{"id":"09bb3094-0e0f-4b40-9ba9-bcc132d54d1d","name":"Styal","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/09bb3094-0e0f-4b40-9ba9-bcc132d54d1d"},{"id":"f18ca4d5-8cdc-4aa0-97e6-83d04e1e983c","name":"Sudbury","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/f18ca4d5-8cdc-4aa0-97e6-83d04e1e983c"},{"id":"d7a1e575-ef4e-4bb1-90d5-24690e7abb26","name":"Swaleside","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/d7a1e575-ef4e-4bb1-90d5-24690e7abb26"},{"id":"7f71f041-11d0-4df2-958c-819940504fd3","name":"Swansea","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/7f71f041-11d0-4df2-958c-819940504fd3"},{"id":"8043fea1-5d62-4089-8e5f-3d82810e4cca","name":"Swinfen
@@ -91,7 +91,7 @@ http_interactions:
         (Remand only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a37cdb69-690c-482e-9a21-9379f7ccc35d"},{"id":"a85c970a-c3fd-4974-9b2d-e1c0a2afd586","name":"Wolds","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a85c970a-c3fd-4974-9b2d-e1c0a2afd586"},{"id":"4855bb0f-b053-42a7-9564-c89fc8a2ddf0","name":"Woodhill","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/4855bb0f-b053-42a7-9564-c89fc8a2ddf0"},{"id":"945accc1-c6aa-49ca-9df3-b48693cd937e","name":"Wormwood
         Scrubs","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/945accc1-c6aa-49ca-9df3-b48693cd937e"},{"id":"8484479f-f7f5-4002-a748-38d68b1bf43d","name":"Wymott","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8484479f-f7f5-4002-a748-38d68b1bf43d"}]}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:45 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:27 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/prisons/bf29bf0f-a046-43d1-911b-59ac58730eff
@@ -106,7 +106,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 85b159f6-4dc3-4c47-a66f-15073252f357
+      - 2445016a-e6c2-48e8-9d7a-038798e492c0
   response:
     status:
       code: 200
@@ -125,16 +125,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 85b159f6-4dc3-4c47-a66f-15073252f357
+      - 2445016a-e6c2-48e8-9d7a-038798e492c0
       X-Runtime:
-      - '0.015607'
+      - '0.017550'
     body:
       encoding: ASCII-8BIT
       string: '{"prison":{"id":"bf29bf0f-a046-43d1-911b-59ac58730eff","name":"Leicester","address":"116
         Welford Road","postcode":"LE2 7AJ","email_address":"socialvisitsleiceste@hmps.gsi.gov.uk","phone_no":"0116
         228 3128","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/leicester","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:45 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:27 GMT
 - request:
     method: post
     uri: http://localhost:3000/api/validations/prisoner
@@ -149,7 +149,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 85b159f6-4dc3-4c47-a66f-15073252f357
+      - 2445016a-e6c2-48e8-9d7a-038798e492c0
       Content-Type:
       - application/json
   response:
@@ -170,17 +170,17 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 85b159f6-4dc3-4c47-a66f-15073252f357
+      - 2445016a-e6c2-48e8-9d7a-038798e492c0
       X-Runtime:
-      - '0.008763'
+      - '0.078271'
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:46 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:27 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&use_nomis_slots=false
+    uri: http://localhost:3000/api/slots?end_date=2017-04-05&prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&start_date=2017-03-08&use_nomis_slots=false
     body:
       encoding: US-ASCII
       string: ''
@@ -192,7 +192,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 85b159f6-4dc3-4c47-a66f-15073252f357
+      - 2445016a-e6c2-48e8-9d7a-038798e492c0
   response:
     status:
       code: 200
@@ -207,18 +207,18 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"535b8c542841ed4eebdc02224b397e1d"
+      - W/"aa334a5ecde339f90afeb48b994a7209"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 85b159f6-4dc3-4c47-a66f-15073252f357
+      - 2445016a-e6c2-48e8-9d7a-038798e492c0
       X-Runtime:
-      - '0.018281'
+      - '0.395341'
     body:
       encoding: ASCII-8BIT
-      string: '{"slots":["2017-03-08T14:15/16:15","2017-03-09T14:15/16:15","2017-03-11T14:15/16:15","2017-03-12T14:15/16:15","2017-03-14T14:15/16:15","2017-03-15T14:15/16:15","2017-03-16T14:15/16:15","2017-03-18T14:15/16:15","2017-03-19T14:15/16:15","2017-03-21T14:15/16:15","2017-03-22T14:15/16:15","2017-03-23T14:15/16:15","2017-03-25T14:15/16:15","2017-03-26T14:15/16:15","2017-03-28T14:15/16:15","2017-03-29T14:15/16:15","2017-03-30T14:15/16:15"]}'
+      string: '{"slots":{"2017-03-14T14:15/16:15":[],"2017-03-15T14:15/16:15":[],"2017-03-16T14:15/16:15":[],"2017-03-18T14:15/16:15":[],"2017-03-19T14:15/16:15":[],"2017-03-21T14:15/16:15":[],"2017-03-22T14:15/16:15":[],"2017-03-23T14:15/16:15":[],"2017-03-25T14:15/16:15":[],"2017-03-26T14:15/16:15":[],"2017-03-28T14:15/16:15":[],"2017-03-29T14:15/16:15":[],"2017-03-30T14:15/16:15":[],"2017-04-01T14:15/16:15":[],"2017-04-02T14:15/16:15":[],"2017-04-04T14:15/16:15":[],"2017-04-05T14:15/16:15":[]}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:46 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:27 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/prisons/bf29bf0f-a046-43d1-911b-59ac58730eff
@@ -233,7 +233,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - dfd7e657-5f98-46b3-bc6f-e71e17dcd4d8
+      - e4bb7385-78f6-4ebd-8606-e8517fbf2dec
   response:
     status:
       code: 200
@@ -252,16 +252,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - dfd7e657-5f98-46b3-bc6f-e71e17dcd4d8
+      - e4bb7385-78f6-4ebd-8606-e8517fbf2dec
       X-Runtime:
-      - '0.016309'
+      - '0.020166'
     body:
       encoding: ASCII-8BIT
       string: '{"prison":{"id":"bf29bf0f-a046-43d1-911b-59ac58730eff","name":"Leicester","address":"116
         Welford Road","postcode":"LE2 7AJ","email_address":"socialvisitsleiceste@hmps.gsi.gov.uk","phone_no":"0116
         228 3128","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/leicester","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:46 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:28 GMT
 - request:
     method: post
     uri: http://localhost:3000/api/validations/prisoner
@@ -276,7 +276,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - dfd7e657-5f98-46b3-bc6f-e71e17dcd4d8
+      - e4bb7385-78f6-4ebd-8606-e8517fbf2dec
       Content-Type:
       - application/json
   response:
@@ -297,17 +297,17 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - dfd7e657-5f98-46b3-bc6f-e71e17dcd4d8
+      - e4bb7385-78f6-4ebd-8606-e8517fbf2dec
       X-Runtime:
-      - '0.008762'
+      - '0.190391'
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:46 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:28 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&use_nomis_slots=false
+    uri: http://localhost:3000/api/slots?end_date=2017-04-05&prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&start_date=2017-03-08&use_nomis_slots=false
     body:
       encoding: US-ASCII
       string: ''
@@ -319,7 +319,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - dfd7e657-5f98-46b3-bc6f-e71e17dcd4d8
+      - e4bb7385-78f6-4ebd-8606-e8517fbf2dec
   response:
     status:
       code: 200
@@ -334,18 +334,18 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"535b8c542841ed4eebdc02224b397e1d"
+      - W/"aa334a5ecde339f90afeb48b994a7209"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - dfd7e657-5f98-46b3-bc6f-e71e17dcd4d8
+      - e4bb7385-78f6-4ebd-8606-e8517fbf2dec
       X-Runtime:
-      - '0.016278'
+      - '0.264621'
     body:
       encoding: ASCII-8BIT
-      string: '{"slots":["2017-03-08T14:15/16:15","2017-03-09T14:15/16:15","2017-03-11T14:15/16:15","2017-03-12T14:15/16:15","2017-03-14T14:15/16:15","2017-03-15T14:15/16:15","2017-03-16T14:15/16:15","2017-03-18T14:15/16:15","2017-03-19T14:15/16:15","2017-03-21T14:15/16:15","2017-03-22T14:15/16:15","2017-03-23T14:15/16:15","2017-03-25T14:15/16:15","2017-03-26T14:15/16:15","2017-03-28T14:15/16:15","2017-03-29T14:15/16:15","2017-03-30T14:15/16:15"]}'
+      string: '{"slots":{"2017-03-14T14:15/16:15":[],"2017-03-15T14:15/16:15":[],"2017-03-16T14:15/16:15":[],"2017-03-18T14:15/16:15":[],"2017-03-19T14:15/16:15":[],"2017-03-21T14:15/16:15":[],"2017-03-22T14:15/16:15":[],"2017-03-23T14:15/16:15":[],"2017-03-25T14:15/16:15":[],"2017-03-26T14:15/16:15":[],"2017-03-28T14:15/16:15":[],"2017-03-29T14:15/16:15":[],"2017-03-30T14:15/16:15":[],"2017-04-01T14:15/16:15":[],"2017-04-02T14:15/16:15":[],"2017-04-04T14:15/16:15":[],"2017-04-05T14:15/16:15":[]}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:46 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:28 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/prisons/bf29bf0f-a046-43d1-911b-59ac58730eff
@@ -360,7 +360,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - dd9082fd-790f-4bf6-af5d-045cc8a45a03
+      - 8b4b8afa-f21e-4d28-8b79-32a0adf992cc
   response:
     status:
       code: 200
@@ -379,16 +379,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - dd9082fd-790f-4bf6-af5d-045cc8a45a03
+      - 8b4b8afa-f21e-4d28-8b79-32a0adf992cc
       X-Runtime:
-      - '0.016330'
+      - '0.019751'
     body:
       encoding: ASCII-8BIT
       string: '{"prison":{"id":"bf29bf0f-a046-43d1-911b-59ac58730eff","name":"Leicester","address":"116
         Welford Road","postcode":"LE2 7AJ","email_address":"socialvisitsleiceste@hmps.gsi.gov.uk","phone_no":"0116
         228 3128","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/leicester","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:46 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:28 GMT
 - request:
     method: post
     uri: http://localhost:3000/api/validations/prisoner
@@ -403,7 +403,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - dd9082fd-790f-4bf6-af5d-045cc8a45a03
+      - 8b4b8afa-f21e-4d28-8b79-32a0adf992cc
       Content-Type:
       - application/json
   response:
@@ -424,17 +424,17 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - dd9082fd-790f-4bf6-af5d-045cc8a45a03
+      - 8b4b8afa-f21e-4d28-8b79-32a0adf992cc
       X-Runtime:
-      - '0.009302'
+      - '0.079276'
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:46 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:28 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&use_nomis_slots=false
+    uri: http://localhost:3000/api/slots?end_date=2017-04-05&prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&start_date=2017-03-08&use_nomis_slots=false
     body:
       encoding: US-ASCII
       string: ''
@@ -446,7 +446,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - dd9082fd-790f-4bf6-af5d-045cc8a45a03
+      - 8b4b8afa-f21e-4d28-8b79-32a0adf992cc
   response:
     status:
       code: 200
@@ -461,18 +461,18 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"535b8c542841ed4eebdc02224b397e1d"
+      - W/"aa334a5ecde339f90afeb48b994a7209"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - dd9082fd-790f-4bf6-af5d-045cc8a45a03
+      - 8b4b8afa-f21e-4d28-8b79-32a0adf992cc
       X-Runtime:
-      - '0.018785'
+      - '0.834484'
     body:
       encoding: ASCII-8BIT
-      string: '{"slots":["2017-03-08T14:15/16:15","2017-03-09T14:15/16:15","2017-03-11T14:15/16:15","2017-03-12T14:15/16:15","2017-03-14T14:15/16:15","2017-03-15T14:15/16:15","2017-03-16T14:15/16:15","2017-03-18T14:15/16:15","2017-03-19T14:15/16:15","2017-03-21T14:15/16:15","2017-03-22T14:15/16:15","2017-03-23T14:15/16:15","2017-03-25T14:15/16:15","2017-03-26T14:15/16:15","2017-03-28T14:15/16:15","2017-03-29T14:15/16:15","2017-03-30T14:15/16:15"]}'
+      string: '{"slots":{"2017-03-14T14:15/16:15":[],"2017-03-15T14:15/16:15":[],"2017-03-16T14:15/16:15":[],"2017-03-18T14:15/16:15":[],"2017-03-19T14:15/16:15":[],"2017-03-21T14:15/16:15":[],"2017-03-22T14:15/16:15":[],"2017-03-23T14:15/16:15":[],"2017-03-25T14:15/16:15":[],"2017-03-26T14:15/16:15":[],"2017-03-28T14:15/16:15":[],"2017-03-29T14:15/16:15":[],"2017-03-30T14:15/16:15":[],"2017-04-01T14:15/16:15":[],"2017-04-02T14:15/16:15":[],"2017-04-04T14:15/16:15":[],"2017-04-05T14:15/16:15":[]}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:46 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:29 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/prisons/bf29bf0f-a046-43d1-911b-59ac58730eff
@@ -487,7 +487,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 539203f3-77ac-4d64-8996-4cc37ad85155
+      - e9dae481-9d96-4ce8-ab94-b2f83d960ee1
   response:
     status:
       code: 200
@@ -506,16 +506,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 539203f3-77ac-4d64-8996-4cc37ad85155
+      - e9dae481-9d96-4ce8-ab94-b2f83d960ee1
       X-Runtime:
-      - '0.018449'
+      - '0.022700'
     body:
       encoding: ASCII-8BIT
       string: '{"prison":{"id":"bf29bf0f-a046-43d1-911b-59ac58730eff","name":"Leicester","address":"116
         Welford Road","postcode":"LE2 7AJ","email_address":"socialvisitsleiceste@hmps.gsi.gov.uk","phone_no":"0116
         228 3128","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/leicester","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:47 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:29 GMT
 - request:
     method: post
     uri: http://localhost:3000/api/validations/prisoner
@@ -530,7 +530,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 539203f3-77ac-4d64-8996-4cc37ad85155
+      - e9dae481-9d96-4ce8-ab94-b2f83d960ee1
       Content-Type:
       - application/json
   response:
@@ -551,17 +551,17 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 539203f3-77ac-4d64-8996-4cc37ad85155
+      - e9dae481-9d96-4ce8-ab94-b2f83d960ee1
       X-Runtime:
-      - '0.008597'
+      - '0.743385'
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:47 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:30 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&use_nomis_slots=false
+    uri: http://localhost:3000/api/slots?end_date=2017-04-05&prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&start_date=2017-03-08&use_nomis_slots=false
     body:
       encoding: US-ASCII
       string: ''
@@ -573,7 +573,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 539203f3-77ac-4d64-8996-4cc37ad85155
+      - e9dae481-9d96-4ce8-ab94-b2f83d960ee1
   response:
     status:
       code: 200
@@ -588,18 +588,18 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"535b8c542841ed4eebdc02224b397e1d"
+      - W/"aa334a5ecde339f90afeb48b994a7209"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 539203f3-77ac-4d64-8996-4cc37ad85155
+      - e9dae481-9d96-4ce8-ab94-b2f83d960ee1
       X-Runtime:
-      - '0.015383'
+      - '0.824249'
     body:
       encoding: ASCII-8BIT
-      string: '{"slots":["2017-03-08T14:15/16:15","2017-03-09T14:15/16:15","2017-03-11T14:15/16:15","2017-03-12T14:15/16:15","2017-03-14T14:15/16:15","2017-03-15T14:15/16:15","2017-03-16T14:15/16:15","2017-03-18T14:15/16:15","2017-03-19T14:15/16:15","2017-03-21T14:15/16:15","2017-03-22T14:15/16:15","2017-03-23T14:15/16:15","2017-03-25T14:15/16:15","2017-03-26T14:15/16:15","2017-03-28T14:15/16:15","2017-03-29T14:15/16:15","2017-03-30T14:15/16:15"]}'
+      string: '{"slots":{"2017-03-14T14:15/16:15":[],"2017-03-15T14:15/16:15":[],"2017-03-16T14:15/16:15":[],"2017-03-18T14:15/16:15":[],"2017-03-19T14:15/16:15":[],"2017-03-21T14:15/16:15":[],"2017-03-22T14:15/16:15":[],"2017-03-23T14:15/16:15":[],"2017-03-25T14:15/16:15":[],"2017-03-26T14:15/16:15":[],"2017-03-28T14:15/16:15":[],"2017-03-29T14:15/16:15":[],"2017-03-30T14:15/16:15":[],"2017-04-01T14:15/16:15":[],"2017-04-02T14:15/16:15":[],"2017-04-04T14:15/16:15":[],"2017-04-05T14:15/16:15":[]}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:47 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:31 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/prisons/bf29bf0f-a046-43d1-911b-59ac58730eff
@@ -614,7 +614,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 898215f1-c5dc-4c2e-bbcb-12ba467468dc
+      - 60c99505-20c0-49e1-a48c-924c84711080
   response:
     status:
       code: 200
@@ -633,16 +633,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 898215f1-c5dc-4c2e-bbcb-12ba467468dc
+      - 60c99505-20c0-49e1-a48c-924c84711080
       X-Runtime:
-      - '0.015742'
+      - '0.017616'
     body:
       encoding: ASCII-8BIT
       string: '{"prison":{"id":"bf29bf0f-a046-43d1-911b-59ac58730eff","name":"Leicester","address":"116
         Welford Road","postcode":"LE2 7AJ","email_address":"socialvisitsleiceste@hmps.gsi.gov.uk","phone_no":"0116
         228 3128","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/leicester","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:47 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:31 GMT
 - request:
     method: post
     uri: http://localhost:3000/api/validations/prisoner
@@ -657,7 +657,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 898215f1-c5dc-4c2e-bbcb-12ba467468dc
+      - 60c99505-20c0-49e1-a48c-924c84711080
       Content-Type:
       - application/json
   response:
@@ -678,17 +678,17 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 898215f1-c5dc-4c2e-bbcb-12ba467468dc
+      - 60c99505-20c0-49e1-a48c-924c84711080
       X-Runtime:
-      - '0.009011'
+      - '0.726943'
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:47 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:32 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&use_nomis_slots=false
+    uri: http://localhost:3000/api/slots?end_date=2017-04-05&prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&start_date=2017-03-08&use_nomis_slots=false
     body:
       encoding: US-ASCII
       string: ''
@@ -700,7 +700,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 898215f1-c5dc-4c2e-bbcb-12ba467468dc
+      - 60c99505-20c0-49e1-a48c-924c84711080
   response:
     status:
       code: 200
@@ -715,18 +715,18 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"535b8c542841ed4eebdc02224b397e1d"
+      - W/"aa334a5ecde339f90afeb48b994a7209"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 898215f1-c5dc-4c2e-bbcb-12ba467468dc
+      - 60c99505-20c0-49e1-a48c-924c84711080
       X-Runtime:
-      - '0.016287'
+      - '0.520151'
     body:
       encoding: ASCII-8BIT
-      string: '{"slots":["2017-03-08T14:15/16:15","2017-03-09T14:15/16:15","2017-03-11T14:15/16:15","2017-03-12T14:15/16:15","2017-03-14T14:15/16:15","2017-03-15T14:15/16:15","2017-03-16T14:15/16:15","2017-03-18T14:15/16:15","2017-03-19T14:15/16:15","2017-03-21T14:15/16:15","2017-03-22T14:15/16:15","2017-03-23T14:15/16:15","2017-03-25T14:15/16:15","2017-03-26T14:15/16:15","2017-03-28T14:15/16:15","2017-03-29T14:15/16:15","2017-03-30T14:15/16:15"]}'
+      string: '{"slots":{"2017-03-14T14:15/16:15":[],"2017-03-15T14:15/16:15":[],"2017-03-16T14:15/16:15":[],"2017-03-18T14:15/16:15":[],"2017-03-19T14:15/16:15":[],"2017-03-21T14:15/16:15":[],"2017-03-22T14:15/16:15":[],"2017-03-23T14:15/16:15":[],"2017-03-25T14:15/16:15":[],"2017-03-26T14:15/16:15":[],"2017-03-28T14:15/16:15":[],"2017-03-29T14:15/16:15":[],"2017-03-30T14:15/16:15":[],"2017-04-01T14:15/16:15":[],"2017-04-02T14:15/16:15":[],"2017-04-04T14:15/16:15":[],"2017-04-05T14:15/16:15":[]}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:47 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:32 GMT
 - request:
     method: post
     uri: http://localhost:3000/api/validations/visitors
@@ -741,7 +741,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 898215f1-c5dc-4c2e-bbcb-12ba467468dc
+      - 60c99505-20c0-49e1-a48c-924c84711080
       Content-Type:
       - application/json
   response:
@@ -762,14 +762,14 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 898215f1-c5dc-4c2e-bbcb-12ba467468dc
+      - 60c99505-20c0-49e1-a48c-924c84711080
       X-Runtime:
-      - '0.009675'
+      - '0.012557'
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:47 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:33 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/prisons/bf29bf0f-a046-43d1-911b-59ac58730eff
@@ -784,7 +784,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 896d85f4-b22d-4613-87f4-28dcee8e0a83
+      - 5bc60499-ced7-4972-bccf-73be9c3ec4fc
   response:
     status:
       code: 200
@@ -803,16 +803,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 896d85f4-b22d-4613-87f4-28dcee8e0a83
+      - 5bc60499-ced7-4972-bccf-73be9c3ec4fc
       X-Runtime:
-      - '0.016181'
+      - '0.018285'
     body:
       encoding: ASCII-8BIT
       string: '{"prison":{"id":"bf29bf0f-a046-43d1-911b-59ac58730eff","name":"Leicester","address":"116
         Welford Road","postcode":"LE2 7AJ","email_address":"socialvisitsleiceste@hmps.gsi.gov.uk","phone_no":"0116
         228 3128","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/leicester","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:47 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:33 GMT
 - request:
     method: post
     uri: http://localhost:3000/api/validations/prisoner
@@ -827,7 +827,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 896d85f4-b22d-4613-87f4-28dcee8e0a83
+      - 5bc60499-ced7-4972-bccf-73be9c3ec4fc
       Content-Type:
       - application/json
   response:
@@ -848,17 +848,17 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 896d85f4-b22d-4613-87f4-28dcee8e0a83
+      - 5bc60499-ced7-4972-bccf-73be9c3ec4fc
       X-Runtime:
-      - '0.008327'
+      - '0.691682'
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:47 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:33 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&use_nomis_slots=false
+    uri: http://localhost:3000/api/slots?end_date=2017-04-05&prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&start_date=2017-03-08&use_nomis_slots=false
     body:
       encoding: US-ASCII
       string: ''
@@ -870,7 +870,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 896d85f4-b22d-4613-87f4-28dcee8e0a83
+      - 5bc60499-ced7-4972-bccf-73be9c3ec4fc
   response:
     status:
       code: 200
@@ -885,18 +885,18 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"535b8c542841ed4eebdc02224b397e1d"
+      - W/"aa334a5ecde339f90afeb48b994a7209"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 896d85f4-b22d-4613-87f4-28dcee8e0a83
+      - 5bc60499-ced7-4972-bccf-73be9c3ec4fc
       X-Runtime:
-      - '0.018800'
+      - '0.692581'
     body:
       encoding: ASCII-8BIT
-      string: '{"slots":["2017-03-08T14:15/16:15","2017-03-09T14:15/16:15","2017-03-11T14:15/16:15","2017-03-12T14:15/16:15","2017-03-14T14:15/16:15","2017-03-15T14:15/16:15","2017-03-16T14:15/16:15","2017-03-18T14:15/16:15","2017-03-19T14:15/16:15","2017-03-21T14:15/16:15","2017-03-22T14:15/16:15","2017-03-23T14:15/16:15","2017-03-25T14:15/16:15","2017-03-26T14:15/16:15","2017-03-28T14:15/16:15","2017-03-29T14:15/16:15","2017-03-30T14:15/16:15"]}'
+      string: '{"slots":{"2017-03-14T14:15/16:15":[],"2017-03-15T14:15/16:15":[],"2017-03-16T14:15/16:15":[],"2017-03-18T14:15/16:15":[],"2017-03-19T14:15/16:15":[],"2017-03-21T14:15/16:15":[],"2017-03-22T14:15/16:15":[],"2017-03-23T14:15/16:15":[],"2017-03-25T14:15/16:15":[],"2017-03-26T14:15/16:15":[],"2017-03-28T14:15/16:15":[],"2017-03-29T14:15/16:15":[],"2017-03-30T14:15/16:15":[],"2017-04-01T14:15/16:15":[],"2017-04-02T14:15/16:15":[],"2017-04-04T14:15/16:15":[],"2017-04-05T14:15/16:15":[]}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:47 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:34 GMT
 - request:
     method: post
     uri: http://localhost:3000/api/validations/visitors
@@ -911,7 +911,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 896d85f4-b22d-4613-87f4-28dcee8e0a83
+      - 5bc60499-ced7-4972-bccf-73be9c3ec4fc
       Content-Type:
       - application/json
   response:
@@ -932,14 +932,14 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 896d85f4-b22d-4613-87f4-28dcee8e0a83
+      - 5bc60499-ced7-4972-bccf-73be9c3ec4fc
       X-Runtime:
-      - '0.010630'
+      - '0.011699'
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:47 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:34 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/prisons
@@ -954,7 +954,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 896d85f4-b22d-4613-87f4-28dcee8e0a83
+      - 5bc60499-ced7-4972-bccf-73be9c3ec4fc
   response:
     status:
       code: 200
@@ -969,29 +969,29 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"45bfa68000e5779f0e4b0f52abc870ba"
+      - W/"89bafffb7a24d2a36b1099f3ea505d29"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 896d85f4-b22d-4613-87f4-28dcee8e0a83
+      - 5bc60499-ced7-4972-bccf-73be9c3ec4fc
       X-Runtime:
-      - '0.028957'
+      - '0.042494'
     body:
       encoding: ASCII-8BIT
-      string: '{"prisons":[{"id":"a81df211-95a1-47bc-9db4-866d54040121","name":"Acklington","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a81df211-95a1-47bc-9db4-866d54040121"},{"id":"f48d069a-64e2-493a-b256-fa5a35517418","name":"Altcourse","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/f48d069a-64e2-493a-b256-fa5a35517418"},{"id":"73590df1-c04c-4e7c-aabe-1af1537fa141","name":"Ashfield","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/73590df1-c04c-4e7c-aabe-1af1537fa141"},{"id":"83308aa4-4e64-4261-aaf8-a4bfd2f45808","name":"Askham
-        Grange","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/83308aa4-4e64-4261-aaf8-a4bfd2f45808"},{"id":"18f53a03-bf7c-4f28-a825-a758c9c3b989","name":"Aylesbury","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/18f53a03-bf7c-4f28-a825-a758c9c3b989"},{"id":"8d01337b-d3bd-463b-8e90-7427c81c7ceb","name":"Bedford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8d01337b-d3bd-463b-8e90-7427c81c7ceb"},{"id":"54393fca-8762-40dd-bc79-b4446682e6a5","name":"Belmarsh","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/54393fca-8762-40dd-bc79-b4446682e6a5"},{"id":"e42525b2-1d73-43d8-bbd7-d2f2befbce8e","name":"Birmingham","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/e42525b2-1d73-43d8-bbd7-d2f2befbce8e"},{"id":"064cb1e8-1ebe-4527-8f8e-d4ebfcb2cc10","name":"Blantyre
-        House","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/064cb1e8-1ebe-4527-8f8e-d4ebfcb2cc10"},{"id":"2f1e5335-90a0-4bb0-9b74-0cb3f67dfad8","name":"Brinsford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/2f1e5335-90a0-4bb0-9b74-0cb3f67dfad8"},{"id":"f4ad82a9-dc51-4dec-bd7c-54a05daff300","name":"Bristol","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/f4ad82a9-dc51-4dec-bd7c-54a05daff300"},{"id":"e5a76c9d-d565-4b4b-8d10-58ce3b05f730","name":"Brixton","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e5a76c9d-d565-4b4b-8d10-58ce3b05f730"},{"id":"3ba78f1a-af9f-491c-b7b6-364fc1616bf6","name":"Bronzefield","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/3ba78f1a-af9f-491c-b7b6-364fc1616bf6"},{"id":"b0e51c73-358f-4fa6-b11d-4292d709fae3","name":"Buckley
+      string: '{"prisons":[{"id":"a81df211-95a1-47bc-9db4-866d54040121","name":"Acklington","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a81df211-95a1-47bc-9db4-866d54040121"},{"id":"f48d069a-64e2-493a-b256-fa5a35517418","name":"Altcourse","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/f48d069a-64e2-493a-b256-fa5a35517418"},{"id":"73590df1-c04c-4e7c-aabe-1af1537fa141","name":"Ashfield","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/73590df1-c04c-4e7c-aabe-1af1537fa141"},{"id":"83308aa4-4e64-4261-aaf8-a4bfd2f45808","name":"Askham
+        Grange","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/83308aa4-4e64-4261-aaf8-a4bfd2f45808"},{"id":"18f53a03-bf7c-4f28-a825-a758c9c3b989","name":"Aylesbury","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/18f53a03-bf7c-4f28-a825-a758c9c3b989"},{"id":"8d01337b-d3bd-463b-8e90-7427c81c7ceb","name":"Bedford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8d01337b-d3bd-463b-8e90-7427c81c7ceb"},{"id":"54393fca-8762-40dd-bc79-b4446682e6a5","name":"Belmarsh","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/54393fca-8762-40dd-bc79-b4446682e6a5"},{"id":"e42525b2-1d73-43d8-bbd7-d2f2befbce8e","name":"Birmingham","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e42525b2-1d73-43d8-bbd7-d2f2befbce8e"},{"id":"064cb1e8-1ebe-4527-8f8e-d4ebfcb2cc10","name":"Blantyre
+        House","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/064cb1e8-1ebe-4527-8f8e-d4ebfcb2cc10"},{"id":"2f1e5335-90a0-4bb0-9b74-0cb3f67dfad8","name":"Brinsford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/2f1e5335-90a0-4bb0-9b74-0cb3f67dfad8"},{"id":"f4ad82a9-dc51-4dec-bd7c-54a05daff300","name":"Bristol","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/f4ad82a9-dc51-4dec-bd7c-54a05daff300"},{"id":"e5a76c9d-d565-4b4b-8d10-58ce3b05f730","name":"Brixton","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e5a76c9d-d565-4b4b-8d10-58ce3b05f730"},{"id":"3ba78f1a-af9f-491c-b7b6-364fc1616bf6","name":"Bronzefield","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/3ba78f1a-af9f-491c-b7b6-364fc1616bf6"},{"id":"b0e51c73-358f-4fa6-b11d-4292d709fae3","name":"Buckley
         Hall","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/b0e51c73-358f-4fa6-b11d-4292d709fae3"},{"id":"11b3613e-105c-48da-9f98-85678059785f","name":"Bullingdon
         (Convicted Only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/11b3613e-105c-48da-9f98-85678059785f"},{"id":"8c920312-ea31-45a2-aec8-e18d642567d6","name":"Bullingdon
         (Remand Only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8c920312-ea31-45a2-aec8-e18d642567d6"},{"id":"ff6eb0ca-da69-4495-ac9d-b383e01371eb","name":"Bure","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/ff6eb0ca-da69-4495-ac9d-b383e01371eb"},{"id":"0614760e-a773-49c0-a29c-35e743e72555","name":"Cardiff","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/0614760e-a773-49c0-a29c-35e743e72555"},{"id":"4d4c2f39-a7a1-4295-9cd1-f4ab416f4508","name":"Channings
         Wood","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/4d4c2f39-a7a1-4295-9cd1-f4ab416f4508"},{"id":"6114c49b-0fb2-403d-bac3-b960767adf0d","name":"Chelmsford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/6114c49b-0fb2-403d-bac3-b960767adf0d"},{"id":"a207122a-8ac8-4afe-821f-35a421a2fb52","name":"Coldingley","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a207122a-8ac8-4afe-821f-35a421a2fb52"},{"id":"4464d460-6307-4085-bd76-7ea8d64f3c86","name":"Cookham
-        Wood","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/4464d460-6307-4085-bd76-7ea8d64f3c86"},{"id":"21c6d486-280d-4426-a1e4-7b264613dcc7","name":"Dartmoor","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/21c6d486-280d-4426-a1e4-7b264613dcc7"},{"id":"8ac45e51-d07a-4fea-a21f-945275cb7aed","name":"Deerbolt","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8ac45e51-d07a-4fea-a21f-945275cb7aed"},{"id":"6fb6bdb0-8f88-4e04-900e-30bf0f6fe091","name":"Doncaster","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/6fb6bdb0-8f88-4e04-900e-30bf0f6fe091"},{"id":"a2b7ccc6-a5b4-498c-8b91-7432f28ec87f","name":"Downview","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a2b7ccc6-a5b4-498c-8b91-7432f28ec87f"},{"id":"4b806557-96fb-493b-90b4-b6257db84820","name":"Drake
+        Wood","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/4464d460-6307-4085-bd76-7ea8d64f3c86"},{"id":"21c6d486-280d-4426-a1e4-7b264613dcc7","name":"Dartmoor","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/21c6d486-280d-4426-a1e4-7b264613dcc7"},{"id":"8ac45e51-d07a-4fea-a21f-945275cb7aed","name":"Deerbolt","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8ac45e51-d07a-4fea-a21f-945275cb7aed"},{"id":"6fb6bdb0-8f88-4e04-900e-30bf0f6fe091","name":"Doncaster","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/6fb6bdb0-8f88-4e04-900e-30bf0f6fe091"},{"id":"a2b7ccc6-a5b4-498c-8b91-7432f28ec87f","name":"Downview","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a2b7ccc6-a5b4-498c-8b91-7432f28ec87f"},{"id":"4b806557-96fb-493b-90b4-b6257db84820","name":"Drake
         Hall","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/4b806557-96fb-493b-90b4-b6257db84820"},{"id":"a534c5dc-4268-4eff-b128-f4913a67c190","name":"Durham","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a534c5dc-4268-4eff-b128-f4913a67c190"},{"id":"c6ddc317-f44e-4bec-9001-dd79f5a5fe25","name":"East
         Sutton Park","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/c6ddc317-f44e-4bec-9001-dd79f5a5fe25"},{"id":"e69eec52-2861-49a1-aa6d-a06c1d838eab","name":"Eastwood
         Park","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e69eec52-2861-49a1-aa6d-a06c1d838eab"},{"id":"6816c616-98c1-445e-8efd-28475268845e","name":"Elmley","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/6816c616-98c1-445e-8efd-28475268845e"},{"id":"0e034353-5939-467e-b618-5e5b81a4a2a2","name":"Erlestoke","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/0e034353-5939-467e-b618-5e5b81a4a2a2"},{"id":"5131fed0-d864-4118-a4b4-820f82be87c4","name":"Everthorpe","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/5131fed0-d864-4118-a4b4-820f82be87c4"},{"id":"3e887c54-aa3f-4bb6-ab52-aa15d74f846c","name":"Exeter","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/3e887c54-aa3f-4bb6-ab52-aa15d74f846c"},{"id":"1d00db07-80c4-4312-85d7-b3aba49ecca6","name":"Featherstone","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/1d00db07-80c4-4312-85d7-b3aba49ecca6"},{"id":"fd135d8f-fd86-432a-a186-acc884ea07d9","name":"Feltham
         (Young Adults 18-21 only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/fd135d8f-fd86-432a-a186-acc884ea07d9"},{"id":"6478a2c8-fcdd-4cd4-8356-44386b4f026e","name":"Feltham
         (Young People 15-18 only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/6478a2c8-fcdd-4cd4-8356-44386b4f026e"},{"id":"994d7962-667c-476a-916e-cfd0b1b07bb9","name":"Ford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/994d7962-667c-476a-916e-cfd0b1b07bb9"},{"id":"023800e5-d8ec-4a69-8009-7f00f887ac56","name":"Forest
-        Bank","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/023800e5-d8ec-4a69-8009-7f00f887ac56"},{"id":"95942bd0-f52d-4bb2-859a-22a9f1902170","name":"Foston
+        Bank","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/023800e5-d8ec-4a69-8009-7f00f887ac56"},{"id":"95942bd0-f52d-4bb2-859a-22a9f1902170","name":"Foston
         Hall","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/95942bd0-f52d-4bb2-859a-22a9f1902170"},{"id":"bba2e2ab-2bf3-4d07-ab2c-180c1810ac2a","name":"Frankland","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/bba2e2ab-2bf3-4d07-ab2c-180c1810ac2a"},{"id":"5416648c-f847-4ed5-b946-164137b83c16","name":"Full
         Sutton","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/5416648c-f847-4ed5-b946-164137b83c16"},{"id":"c63b86f0-164a-46b5-a60b-838fdcd8e654","name":"Garth","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/c63b86f0-164a-46b5-a60b-838fdcd8e654"},{"id":"e82d733f-1b30-4443-ae00-3a8faa59d972","name":"Gartree","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e82d733f-1b30-4443-ae00-3a8faa59d972"},{"id":"645137e2-c759-43e7-9658-e5721cafd19b","name":"Glen
         Parva","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/645137e2-c759-43e7-9658-e5721cafd19b"},{"id":"a34dab65-8122-4d1a-9202-8ec6b6253972","name":"Grendon","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a34dab65-8122-4d1a-9202-8ec6b6253972"},{"id":"e9026566-9534-410a-b95c-10afab815eff","name":"Guys
@@ -1011,15 +1011,15 @@ http_interactions:
         Social Visits","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/c11cc98d-6234-4f16-8f8c-2dea50686fc2"},{"id":"480e61ef-069a-445e-ac9b-38d208e90dba","name":"Long
         Lartin","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/480e61ef-069a-445e-ac9b-38d208e90dba"},{"id":"4ea7b4bd-b088-4b9b-a1aa-4791cc1ceed5","name":"Low
         Newton","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/4ea7b4bd-b088-4b9b-a1aa-4791cc1ceed5"},{"id":"979a524f-6719-419d-9bf4-c9ed2514b345","name":"Lowdham
-        Grange","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/979a524f-6719-419d-9bf4-c9ed2514b345"},{"id":"2e49e71e-6f1c-4b75-8d98-4e9719ef25b5","name":"Maidstone","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/2e49e71e-6f1c-4b75-8d98-4e9719ef25b5"},{"id":"b73b5c8a-879b-43d3-ae2e-7aa19b745832","name":"Manchester","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/b73b5c8a-879b-43d3-ae2e-7aa19b745832"},{"id":"51826eb7-2430-4c0d-8c99-98a767c001d8","name":"Moorland
+        Grange","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/979a524f-6719-419d-9bf4-c9ed2514b345"},{"id":"2e49e71e-6f1c-4b75-8d98-4e9719ef25b5","name":"Maidstone","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/2e49e71e-6f1c-4b75-8d98-4e9719ef25b5"},{"id":"b73b5c8a-879b-43d3-ae2e-7aa19b745832","name":"Manchester","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/b73b5c8a-879b-43d3-ae2e-7aa19b745832"},{"id":"51826eb7-2430-4c0d-8c99-98a767c001d8","name":"Moorland
         Closed","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/51826eb7-2430-4c0d-8c99-98a767c001d8"},{"id":"332fc3de-2744-469e-b97b-b2100a68eaa1","name":"Morton
         Hall","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/332fc3de-2744-469e-b97b-b2100a68eaa1"},{"id":"3d523cf8-4391-4190-b8cc-26b794af4502","name":"New
         Hall","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/3d523cf8-4391-4190-b8cc-26b794af4502"},{"id":"e118f115-ba46-4901-a7d0-9dd5dca3a25e","name":"North
-        Sea Camp","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e118f115-ba46-4901-a7d0-9dd5dca3a25e"},{"id":"ed268add-b610-44e4-91b4-4e303eb63ab7","name":"Northumberland","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/ed268add-b610-44e4-91b4-4e303eb63ab7"},{"id":"0c4a9a66-e892-479b-9881-9e85229f21ca","name":"Norwich
+        Sea Camp","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e118f115-ba46-4901-a7d0-9dd5dca3a25e"},{"id":"ed268add-b610-44e4-91b4-4e303eb63ab7","name":"Northumberland","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/ed268add-b610-44e4-91b4-4e303eb63ab7"},{"id":"0c4a9a66-e892-479b-9881-9e85229f21ca","name":"Norwich
         (A, B, C, E, M only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/0c4a9a66-e892-479b-9881-9e85229f21ca"},{"id":"c861eb28-60ca-4686-97fb-578792cc3365","name":"Norwich
         (Britannia House)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/c861eb28-60ca-4686-97fb-578792cc3365"},{"id":"ca2af3e4-574d-4b5c-ae33-f780851e1641","name":"Norwich
-        (F, G, H, L only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/ca2af3e4-574d-4b5c-ae33-f780851e1641"},{"id":"cdf64ca2-fb20-427e-bd34-0226d858d92c","name":"Nottingham","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/cdf64ca2-fb20-427e-bd34-0226d858d92c"},{"id":"6b8a2731-9729-4bc6-a4d5-66cbe27b124f","name":"Oakwood","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/6b8a2731-9729-4bc6-a4d5-66cbe27b124f"},{"id":"bf02ceac-2957-408c-83d8-0ced05e2da5b","name":"Onley","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/bf02ceac-2957-408c-83d8-0ced05e2da5b"},{"id":"c4c676e7-91b2-4c43-897f-017d3eff18e6","name":"Parc","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/c4c676e7-91b2-4c43-897f-017d3eff18e6"},{"id":"5f4f2131-32d6-44be-b715-76bcb561f985","name":"Pentonville","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/5f4f2131-32d6-44be-b715-76bcb561f985"},{"id":"a247b47c-04a8-421b-af25-b7c90d115050","name":"Peterborough","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/a247b47c-04a8-421b-af25-b7c90d115050"},{"id":"8564f563-41d6-43bf-9073-826d10ff6229","name":"Portland","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8564f563-41d6-43bf-9073-826d10ff6229"},{"id":"8fcf570c-3562-4b01-9a0b-26b1c461c50d","name":"Prescoed","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8fcf570c-3562-4b01-9a0b-26b1c461c50d"},{"id":"dc4b9a8e-a599-442e-9797-3f73ab3a1205","name":"Preston","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/dc4b9a8e-a599-442e-9797-3f73ab3a1205"},{"id":"004cfe9e-2da2-4db2-8d6e-9a2853f957f1","name":"Ranby","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/004cfe9e-2da2-4db2-8d6e-9a2853f957f1"},{"id":"104411ba-3b6b-496e-b28d-902029b90bee","name":"Risley","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/104411ba-3b6b-496e-b28d-902029b90bee"},{"id":"f977ed70-3ad8-4a2f-99f9-9ce13fb5755f","name":"Rochester","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/f977ed70-3ad8-4a2f-99f9-9ce13fb5755f"},{"id":"54c87209-d7fd-4824-b724-2bda32e43c66","name":"Rye
-        Hill","closed":false,"private":true,"prison_url":"http://localhost:3000/api/prisons/54c87209-d7fd-4824-b724-2bda32e43c66"},{"id":"be40f125-e57f-45e9-a09e-56d4198a9279","name":"Send","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/be40f125-e57f-45e9-a09e-56d4198a9279"},{"id":"e1811066-0ec3-4cf8-bb4c-6e516505eb39","name":"Spring
+        (F, G, H, L only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/ca2af3e4-574d-4b5c-ae33-f780851e1641"},{"id":"cdf64ca2-fb20-427e-bd34-0226d858d92c","name":"Nottingham","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/cdf64ca2-fb20-427e-bd34-0226d858d92c"},{"id":"6b8a2731-9729-4bc6-a4d5-66cbe27b124f","name":"Oakwood","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/6b8a2731-9729-4bc6-a4d5-66cbe27b124f"},{"id":"bf02ceac-2957-408c-83d8-0ced05e2da5b","name":"Onley","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/bf02ceac-2957-408c-83d8-0ced05e2da5b"},{"id":"c4c676e7-91b2-4c43-897f-017d3eff18e6","name":"Parc","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/c4c676e7-91b2-4c43-897f-017d3eff18e6"},{"id":"5f4f2131-32d6-44be-b715-76bcb561f985","name":"Pentonville","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/5f4f2131-32d6-44be-b715-76bcb561f985"},{"id":"a247b47c-04a8-421b-af25-b7c90d115050","name":"Peterborough","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a247b47c-04a8-421b-af25-b7c90d115050"},{"id":"8564f563-41d6-43bf-9073-826d10ff6229","name":"Portland","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8564f563-41d6-43bf-9073-826d10ff6229"},{"id":"8fcf570c-3562-4b01-9a0b-26b1c461c50d","name":"Prescoed","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8fcf570c-3562-4b01-9a0b-26b1c461c50d"},{"id":"dc4b9a8e-a599-442e-9797-3f73ab3a1205","name":"Preston","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/dc4b9a8e-a599-442e-9797-3f73ab3a1205"},{"id":"004cfe9e-2da2-4db2-8d6e-9a2853f957f1","name":"Ranby","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/004cfe9e-2da2-4db2-8d6e-9a2853f957f1"},{"id":"104411ba-3b6b-496e-b28d-902029b90bee","name":"Risley","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/104411ba-3b6b-496e-b28d-902029b90bee"},{"id":"f977ed70-3ad8-4a2f-99f9-9ce13fb5755f","name":"Rochester","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/f977ed70-3ad8-4a2f-99f9-9ce13fb5755f"},{"id":"54c87209-d7fd-4824-b724-2bda32e43c66","name":"Rye
+        Hill","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/54c87209-d7fd-4824-b724-2bda32e43c66"},{"id":"be40f125-e57f-45e9-a09e-56d4198a9279","name":"Send","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/be40f125-e57f-45e9-a09e-56d4198a9279"},{"id":"e1811066-0ec3-4cf8-bb4c-6e516505eb39","name":"Spring
         Hill","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e1811066-0ec3-4cf8-bb4c-6e516505eb39"},{"id":"07d7656b-3508-4487-81e3-2e0473d7530b","name":"Stafford","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/07d7656b-3508-4487-81e3-2e0473d7530b"},{"id":"cfb09d82-c423-4423-93cf-48566ed4fcc3","name":"Standford
         Hill","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/cfb09d82-c423-4423-93cf-48566ed4fcc3"},{"id":"d518d142-a77a-4a43-bffa-67bfa153b43a","name":"Stocken","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/d518d142-a77a-4a43-bffa-67bfa153b43a"},{"id":"e267e824-23e1-418c-9840-25292cac3684","name":"Stoke
         Heath","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/e267e824-23e1-418c-9840-25292cac3684"},{"id":"09bb3094-0e0f-4b40-9ba9-bcc132d54d1d","name":"Styal","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/09bb3094-0e0f-4b40-9ba9-bcc132d54d1d"},{"id":"f18ca4d5-8cdc-4aa0-97e6-83d04e1e983c","name":"Sudbury","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/f18ca4d5-8cdc-4aa0-97e6-83d04e1e983c"},{"id":"d7a1e575-ef4e-4bb1-90d5-24690e7abb26","name":"Swaleside","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/d7a1e575-ef4e-4bb1-90d5-24690e7abb26"},{"id":"7f71f041-11d0-4df2-958c-819940504fd3","name":"Swansea","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/7f71f041-11d0-4df2-958c-819940504fd3"},{"id":"8043fea1-5d62-4089-8e5f-3d82810e4cca","name":"Swinfen
@@ -1031,7 +1031,7 @@ http_interactions:
         (Remand only)","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a37cdb69-690c-482e-9a21-9379f7ccc35d"},{"id":"a85c970a-c3fd-4974-9b2d-e1c0a2afd586","name":"Wolds","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/a85c970a-c3fd-4974-9b2d-e1c0a2afd586"},{"id":"4855bb0f-b053-42a7-9564-c89fc8a2ddf0","name":"Woodhill","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/4855bb0f-b053-42a7-9564-c89fc8a2ddf0"},{"id":"945accc1-c6aa-49ca-9df3-b48693cd937e","name":"Wormwood
         Scrubs","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/945accc1-c6aa-49ca-9df3-b48693cd937e"},{"id":"8484479f-f7f5-4002-a748-38d68b1bf43d","name":"Wymott","closed":false,"private":false,"prison_url":"http://localhost:3000/api/prisons/8484479f-f7f5-4002-a748-38d68b1bf43d"}]}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:47 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:34 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/prisons/664ca96b-b4c9-4602-8fbe-cef5218c455e
@@ -1046,7 +1046,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 3b18c524-dafb-4464-8c3f-3d27e367b225
+      - 48677f6c-c25c-419a-9c8c-857cd430b90a
   response:
     status:
       code: 200
@@ -1065,16 +1065,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3b18c524-dafb-4464-8c3f-3d27e367b225
+      - 48677f6c-c25c-419a-9c8c-857cd430b90a
       X-Runtime:
-      - '0.018248'
+      - '0.018778'
     body:
       encoding: ASCII-8BIT
       string: '{"prison":{"id":"664ca96b-b4c9-4602-8fbe-cef5218c455e","name":"Usk","address":"47
         Maryport Street","postcode":"NP15 1XP","email_address":"socialvisits.usk@hmps.gsi.gov.uk","phone_no":"01291
         671730","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/usk-prescoed-usk","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:48 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:35 GMT
 - request:
     method: post
     uri: http://localhost:3000/api/validations/prisoner
@@ -1089,7 +1089,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 3b18c524-dafb-4464-8c3f-3d27e367b225
+      - 48677f6c-c25c-419a-9c8c-857cd430b90a
       Content-Type:
       - application/json
   response:
@@ -1110,17 +1110,17 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3b18c524-dafb-4464-8c3f-3d27e367b225
+      - 48677f6c-c25c-419a-9c8c-857cd430b90a
       X-Runtime:
-      - '0.008896'
+      - '0.226997'
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:48 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:35 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/available_slots?prison_id=664ca96b-b4c9-4602-8fbe-cef5218c455e&prisoner_dob=1960-06-01&prisoner_number=A1410AE&use_nomis_slots=false
+    uri: http://localhost:3000/api/slots?end_date=2017-04-05&prison_id=664ca96b-b4c9-4602-8fbe-cef5218c455e&prisoner_dob=1960-06-01&prisoner_number=A1410AE&start_date=2017-03-08&use_nomis_slots=false
     body:
       encoding: US-ASCII
       string: ''
@@ -1132,7 +1132,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 3b18c524-dafb-4464-8c3f-3d27e367b225
+      - 48677f6c-c25c-419a-9c8c-857cd430b90a
   response:
     status:
       code: 200
@@ -1147,18 +1147,18 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"ac50c2d3ac5dd99c8102867d8808b488"
+      - W/"d096b699357ebcaef1224a3fda177c2e"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3b18c524-dafb-4464-8c3f-3d27e367b225
+      - 48677f6c-c25c-419a-9c8c-857cd430b90a
       X-Runtime:
-      - '0.016834'
+      - '1.081960'
     body:
       encoding: ASCII-8BIT
-      string: '{"slots":["2017-03-08T14:00/16:00","2017-03-08T17:00/19:00","2017-03-09T14:00/16:00","2017-03-10T14:00/16:00","2017-03-10T17:00/19:00","2017-03-11T14:00/16:00","2017-03-12T14:00/16:00","2017-03-13T17:00/19:00","2017-03-14T14:00/16:00","2017-03-15T14:00/16:00","2017-03-15T17:00/19:00","2017-03-16T14:00/16:00","2017-03-17T14:00/16:00","2017-03-17T17:00/19:00","2017-03-18T14:00/16:00","2017-03-19T14:00/16:00","2017-03-20T17:00/19:00","2017-03-21T14:00/16:00","2017-03-22T14:00/16:00","2017-03-22T17:00/19:00","2017-03-23T14:00/16:00","2017-03-24T14:00/16:00","2017-03-24T17:00/19:00","2017-03-25T14:00/16:00","2017-03-26T14:00/16:00","2017-03-27T17:00/19:00","2017-03-28T14:00/16:00","2017-03-29T14:00/16:00","2017-03-29T17:00/19:00","2017-03-30T14:00/16:00"]}'
+      string: '{"slots":{"2017-03-14T14:00/16:00":[],"2017-03-15T14:00/16:00":[],"2017-03-15T17:00/19:00":[],"2017-03-16T14:00/16:00":[],"2017-03-17T14:00/16:00":[],"2017-03-17T17:00/19:00":[],"2017-03-18T14:00/16:00":[],"2017-03-19T14:00/16:00":[],"2017-03-20T17:00/19:00":[],"2017-03-21T14:00/16:00":[],"2017-03-22T14:00/16:00":[],"2017-03-22T17:00/19:00":[],"2017-03-23T14:00/16:00":[],"2017-03-24T14:00/16:00":[],"2017-03-24T17:00/19:00":[],"2017-03-25T14:00/16:00":[],"2017-03-26T14:00/16:00":[],"2017-03-27T17:00/19:00":[],"2017-03-28T14:00/16:00":[],"2017-03-29T14:00/16:00":[],"2017-03-29T17:00/19:00":[],"2017-03-30T14:00/16:00":[],"2017-03-31T14:00/16:00":[],"2017-03-31T17:00/19:00":[],"2017-04-01T14:00/16:00":[],"2017-04-02T14:00/16:00":[],"2017-04-03T17:00/19:00":[],"2017-04-04T14:00/16:00":[],"2017-04-05T14:00/16:00":[],"2017-04-05T17:00/19:00":[]}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:48 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:36 GMT
 - request:
     method: post
     uri: http://localhost:3000/api/validations/visitors
@@ -1173,7 +1173,7 @@ http_interactions:
       Accept-Language:
       - en
       X-Request-Id:
-      - 3b18c524-dafb-4464-8c3f-3d27e367b225
+      - 48677f6c-c25c-419a-9c8c-857cd430b90a
       Content-Type:
       - application/json
   response:
@@ -1194,12 +1194,12 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3b18c524-dafb-4464-8c3f-3d27e367b225
+      - 48677f6c-c25c-419a-9c8c-857cd430b90a
       X-Runtime:
-      - '0.010354'
+      - '0.022938'
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
     http_version: 
-  recorded_at: Thu, 02 Mar 2017 14:42:48 GMT
+  recorded_at: Wed, 08 Mar 2017 16:01:36 GMT
 recorded_with: VCR 3.0.3

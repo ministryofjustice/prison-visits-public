@@ -34,28 +34,4 @@ class BookingConstraints
 
     attr_reader :adult_age, :max_visitors
   end
-
-  class SlotConstraints
-    delegate :map, to: :@slots
-
-    def initialize(slots)
-      @slots = slots
-    end
-
-    def bookable_date?(requested_date)
-      @slots.any? { |s| s.to_date == requested_date }
-    end
-
-    def bookable_slot?(requested_slot)
-      @slots.include?(requested_slot)
-    end
-
-    def last_bookable_date
-      @slots.sort.last.to_date
-    end
-
-    def bookable_slots?
-      @slots.any?
-    end
-  end
 end
