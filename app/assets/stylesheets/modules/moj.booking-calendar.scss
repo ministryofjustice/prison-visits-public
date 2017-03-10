@@ -92,11 +92,16 @@ table.booking-calendar {
       line-height: 25px;
       margin: 0 auto;
       text-align: center;
+      text-decoration: none;
       position: relative;
+      color: $black;
       @include media(mobile){
         height: 20px;
         width: 20px;
         line-height: 20px;
+      }
+      &:focus {
+        outline: none;
       }
     }
 
@@ -121,11 +126,14 @@ table.booking-calendar {
       }
     }
 
-    &.disabled {
+    &.disabled .cell-date {
       color: $panel-colour;
+      &:focus {
+        color: $black;
+      }
     }
 
-    &.empty, &.disabled {
+    &.empty .cell-date, &.disabled .cell-date {
       color: $panel-colour;
     }
 

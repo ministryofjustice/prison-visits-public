@@ -288,13 +288,15 @@
 
         var cellDate, className = 'disabled',
           ariaLabel = 'This date is unavailable',
-          ariaSelected = false;
+          ariaSelected = false,
+          readonly = true;
 
         cellDate = this.year + '-' + (this.month <= 9 ? '0' : '') + (this.month + 1) + '-' + (curDay <= 9 ? '0' : '') + curDay;
 
         for (var i = 0; i < this.availableSlots.length; i++) {
           if (this.availableSlots[i].date === cellDate) {
             className = (this.availableSlots[i].availability === 1) ? 'available' : 'unavailable';
+            readonly = (this.availableSlots[i].availability === 1) ? false : true;
             className += (this.availableSlots[i].chosen === true) ? ' chosen' : '';
             ariaLabel = 'Press the ENTER key to select the date';
           }
@@ -306,7 +308,7 @@
         }
 
         gridCells += '\t\t<td id="day' + curDay + '" class="' + className + '" role="gridcell" aria-selected="' + ariaSelected + '">' +
-          '<a aria-label="' + curDay + ', ' + this.settings.i18n.days[weekday] + ' ' + this.settings.i18n.months[this.month] +
+          '<a readonly="' + readonly + '" tabindex="-1" href="javascript:void(0)" rel="nofollow" aria-label="' + curDay + ', ' + this.settings.i18n.days[weekday] + ' ' + this.settings.i18n.months[this.month] +
           ' ' + this.year + ' - ' + ariaLabel + '" class="cell-date">' + curDay + '</a></td>';
 
         if (weekday == 6 && curDay < numDays) {
@@ -562,7 +564,8 @@
     },
 
     handleGridKeyDown: function(e) {
-
+      // e.preventDefault();
+      // e.stopPropagation();
       var $rows = this.$grid.find('tbody tr');
       var $curDay = $('#' + this.$grid.attr('aria-activedescendant'));
       var $days = this.$grid.find('td').not('.empty');
