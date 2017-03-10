@@ -29,7 +29,6 @@ gem 'pvb-instrumentation',
   git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
   ref: '639bd30e211846a0d76c1d869b376fa2b4c30568'
 
-
 gem 'string_scrubber'
 gem 'uglifier'
 gem 'uri_template'
