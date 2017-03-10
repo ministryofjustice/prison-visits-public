@@ -12,6 +12,9 @@ RSpec.feature 'Booking a visit', js: true do
   # Whitespace on email to test stripping
   let(:visitor_email) { ' ado@test.example.com ' }
 
+  before { travel_to Date.parse('2017-03-08') }
+  after  { travel_back }
+
   scenario 'happy path', vcr: { cassette_name: :request_a_visit_happy_path } do
     visit booking_requests_path(locale: 'en')
 
