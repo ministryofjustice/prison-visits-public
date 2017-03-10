@@ -137,7 +137,7 @@ en:
 
         Please try again in a few days time.
     confirmation_step:
-      title: Check your request
+      title: Check your visit details
       prisoner_details: Prisoner details
       prisoner_name: Prisoner name
       date_of_birth: "Date of birth"
@@ -145,7 +145,7 @@ en:
       prison: "Prison"
       change_prisoner_details: Change prisoner details
       visitor_details: Visitor details
-      visit_details: Visit details
+      visit_details: Requested dates and times
       confirmation_email_address: "Confirmation email"
       visitor_n: "Visitor %{n}"
       change_visitor_details: Change visitor details
@@ -156,8 +156,8 @@ en:
       first_choice: "First choice"
       alternatives: "Alternatives"
       change_visit_details: Change date and time slot
-      ts_and_cs: Terms & conditions
-      next_step: Send request
+      ts_and_cs: 
+      next_step: Send visit request
     cancel:
       link_text: Cancel and delete all details
       confirmation: >-
