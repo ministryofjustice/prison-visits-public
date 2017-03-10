@@ -305,10 +305,9 @@
           ariaSelected = true;
         }
 
-        gridCells += '\t\t<td id="day' + curDay + '" class="' + className + '" aria-label="' +
-          curDay + ', ' + this.settings.i18n.days[weekday] + ' ' + this.settings.i18n.months[this.month] +
-          ' ' + this.year + '" role="gridcell" aria-selected="' + ariaSelected + '">' +
-          '<span aria-label="' + ariaLabel + '" class="cell-date">' + curDay + '</span></td>';
+        gridCells += '\t\t<td id="day' + curDay + '" class="' + className + '" role="gridcell" aria-selected="' + ariaSelected + '">' +
+          '<a aria-label="' + curDay + ', ' + this.settings.i18n.days[weekday] + ' ' + this.settings.i18n.months[this.month] +
+          ' ' + this.year + ' - ' + ariaLabel + '" class="cell-date">' + curDay + '</a></td>';
 
         if (weekday == 6 && curDay < numDays) {
           // This was the last day of the week, close it out
