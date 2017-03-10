@@ -1,3 +1,10 @@
+.booking-calendar-instructions {
+  height: 0;
+  overflow: hidden;
+  &:focus {
+    height: auto;
+  }
+}
 .calendar {
   background-color: $white;
   @include core-19;
