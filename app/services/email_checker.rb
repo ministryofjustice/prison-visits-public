@@ -56,7 +56,7 @@ private
   end
 
   def mx_records?
-    Instrumentation.time_and_log('Validating email address MX record', :mx) do
+    ActiveSupport::Notifications.instrument(:mx, category: :mx) do
       Rails.configuration.mx_checker.records?(domain)
     end
   end

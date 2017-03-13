@@ -60,6 +60,11 @@ RSpec.describe EmailChecker do
       end
     end
 
+    it 'instruments the request' do
+      expect(ActiveSupport::Notifications).to receive(:instrument).with(:mx, category: :mx)
+      subject.valid?
+    end
+
     context 'when MX check fails' do
       before do
         allow(Rails.configuration.mx_checker).

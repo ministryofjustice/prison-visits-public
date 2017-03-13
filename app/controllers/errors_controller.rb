@@ -13,7 +13,7 @@ class ErrorsController < ApplicationController
   before_action :set_html_format, only: :show
 
   def show
-    Instrumentation.append_to_log(original_fullpath: request.original_fullpath)
+    append_to_log(original_fullpath: request.original_fullpath)
 
     status_code = env['PATH_INFO'][1..-1]
 
