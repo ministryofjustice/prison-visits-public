@@ -307,8 +307,8 @@
           ariaSelected = true;
         }
 
-        gridCells += '\t\t<td id="day' + curDay + '" class="' + className + '" role="gridcell" aria-selected="' + ariaSelected + '">' +
-          '<a readonly="' + readonly + '" tabindex="-1" href="javascript:void(0)" rel="nofollow" aria-label="' + curDay + ', ' + this.settings.i18n.days[weekday] + ' ' + this.settings.i18n.months[this.month] +
+        gridCells += '\t\t<td id="day' + curDay + '" class="' + className + '" role="gridcell">' +
+        '<a aria-selected="' + ariaSelected + '" readonly="' + readonly + '" tabindex="-1" href="javascript:void(0)" rel="nofollow" aria-label="' + curDay + ', ' + this.settings.i18n.days[weekday] + ' ' + this.settings.i18n.months[this.month] +
           ' ' + this.year + ' - ' + ariaLabel + '" class="cell-date">' + curDay + '</a></td>';
 
         if (weekday == 6 && curDay < numDays) {
@@ -378,7 +378,7 @@
         var day = 'day' + (numDays - offset);
 
         this.$grid.attr('aria-activedescendant', day);
-        $('#' + day).addClass('focus').attr('aria-selected', 'true');
+        $('#' + day).addClass('focus').find('.cell-date').attr('aria-selected', 'true');
       }
     },
 
@@ -412,7 +412,7 @@
         var day = 'day' + offset;
 
         this.$grid.attr('aria-activedescendant', day);
-        $('#' + day).addClass('focus').attr('aria-selected', 'true');
+        $('#' + day).addClass('focus').find('.cell-date').attr('aria-selected', 'true');
       }
     },
 
@@ -589,8 +589,8 @@
             var dayIndex = $emptyDays.index($curDay);
 
             if (dayIndex >= 0) {
-              this.$grid.find('.selected').removeClass('selected').attr('aria-selected', 'false');
-              $curDay.addClass('selected').attr('aria-selected', 'true').find('.cell-date');
+              this.$grid.find('.selected').removeClass('selected').find('.cell-date').attr('aria-selected', 'false');
+              $curDay.addClass('selected').find('.cell-date').attr('aria-selected', 'true');
               // update the target box
               var date = this.year + '-' + (this.month < 9 ? '0' : '') + (this.month + 1) + '-' + ($curDay.text() <= 9 ? '0' : '') + $curDay.text();
               this.updateSelectedDate(date);
@@ -620,8 +620,8 @@
             if (dayIndex >= 0) {
               $prevDay = $days.eq(dayIndex);
 
-              $curDay.removeClass('focus').attr('aria-selected', 'false');
-              $prevDay.addClass('focus').attr('aria-selected', 'true');
+              $curDay.removeClass('focus').find('.cell-date').attr('aria-selected', 'false');
+              $prevDay.addClass('focus').find('.cell-date').attr('aria-selected', 'true');
 
               this.$grid.attr('aria-activedescendant', $prevDay.attr('id'));
             } else {
@@ -643,8 +643,8 @@
 
             if (dayIndex < $days.length) {
               $nextDay = $days.eq(dayIndex);
-              $curDay.removeClass('focus').attr('aria-selected', 'false');
-              $nextDay.addClass('focus').attr('aria-selected', 'true');
+              $curDay.removeClass('focus').find('.cell-date').attr('aria-selected', 'false');
+              $nextDay.addClass('focus').find('.cell-date').attr('aria-selected', 'true');
 
               this.$grid.attr('aria-activedescendant', $nextDay.attr('id'));
             } else {
@@ -668,8 +668,8 @@
             if (dayIndex >= 0) {
               $prevDay = $days.eq(dayIndex);
 
-              $curDay.removeClass('focus').attr('aria-selected', 'false');
-              $prevDay.addClass('focus').attr('aria-selected', 'true');
+              $curDay.removeClass('focus').find('.cell-date').attr('aria-selected', 'false');
+              $prevDay.addClass('focus').find('.cell-date').attr('aria-selected', 'true');
 
               this.$grid.attr('aria-activedescendant', $prevDay.attr('id'));
             } else {
@@ -695,8 +695,8 @@
             if (dayIndex < $days.length) {
               $prevDay = $days.eq(dayIndex);
 
-              $curDay.removeClass('focus').attr('aria-selected', 'false');
-              $prevDay.addClass('focus').attr('aria-selected', 'true');
+              $curDay.removeClass('focus').find('.cell-date').attr('aria-selected', 'false');
+              $prevDay.addClass('focus').find('.cell-date').attr('aria-selected', 'true');
 
               this.$grid.attr('aria-activedescendant', $prevDay.attr('id'));
             } else {
@@ -727,9 +727,9 @@
 
             if ($('#' + active).attr('id') == undefined) {
               var lastDay = 'day' + this.calcNumDays(this.year, this.month);
-              $('#' + lastDay).addClass('focus').attr('aria-selected', 'true');
+              $('#' + lastDay).addClass('focus').find('.cell-date').attr('aria-selected', 'true');
             } else {
-              $('#' + active).addClass('focus').attr('aria-selected', 'true');
+              $('#' + active).addClass('focus').find('.cell-date').attr('aria-selected', 'true');
             }
 
             e.stopPropagation();
@@ -752,9 +752,9 @@
 
             if ($('#' + active).attr('id') == undefined) {
               var lastDay = 'day' + this.calcNumDays(this.year, this.month);
-              $('#' + lastDay).addClass('focus').attr('aria-selected', 'true');
+              $('#' + lastDay).addClass('focus').find('.cell-date').attr('aria-selected', 'true');
             } else {
-              $('#' + active).addClass('focus').attr('aria-selected', 'true');
+              $('#' + active).addClass('focus').find('.cell-date').attr('aria-selected', 'true');
             }
 
             e.stopPropagation();
@@ -767,9 +767,9 @@
               return true;
             }
 
-            $curDay.removeClass('focus').attr('aria-selected', 'false');
+            $curDay.removeClass('focus').find('.cell-date').attr('aria-selected', 'false');
 
-            $('#day1').addClass('focus').attr('aria-selected', 'true');
+            $('#day1').addClass('focus').find('.cell-date').attr('aria-selected', 'true');
 
             this.$grid.attr('aria-activedescendant', 'day1');
 
@@ -785,9 +785,9 @@
 
             var lastDay = 'day' + this.calcNumDays(this.year, this.month);
 
-            $curDay.removeClass('focus').attr('aria-selected', 'false');
+            $curDay.removeClass('focus').find('.cell-date').attr('aria-selected', 'false');
 
-            $('#' + lastDay).addClass('focus').attr('aria-selected', 'true');
+            $('#' + lastDay).addClass('focus').find('.cell-date').attr('aria-selected', 'true');
 
             this.$grid.attr('aria-activedescendant', lastDay);
 
@@ -833,8 +833,8 @@
         return true;
       }
 
-      this.$grid.find('.focus, .selected').removeClass('focus selected').attr('aria-selected', 'false');
-      $cell.addClass('focus selected').attr('aria-selected', 'true').find('.cell-date');
+      this.$grid.find('.focus, .selected').removeClass('focus selected').find('.cell-date').attr('aria-selected', 'false');
+      $cell.addClass('focus selected').find('.cell-date').attr('aria-selected', 'true');
       this.$grid.attr('aria-activedescendant', $cell.attr('id'));
 
       var $curDay = $('#' + this.$grid.attr('aria-activedescendant'));
@@ -853,17 +853,17 @@
 
       if ($('#' + active).attr('id') == undefined) {
         var lastDay = 'day1';
-        $('#' + lastDay).addClass('focus').attr('aria-selected', 'true');
+        $('#' + lastDay).addClass('focus').find('.cell-date').attr('aria-selected', 'true');
         this.$grid.attr('aria-activedescendant', 'day1');
       } else {
-        $('#' + active).addClass('focus').attr('aria-selected', 'true');
+        $('#' + active).addClass('focus').find('.cell-date').attr('aria-selected', 'true');
       }
 
       return true;
     },
 
     handleGridBlur: function(e) {
-      $('#' + this.$grid.attr('aria-activedescendant')).removeClass('focus').attr('aria-selected', 'false');
+      $('#' + this.$grid.attr('aria-activedescendant')).removeClass('focus').find('.cell-date').attr('aria-selected', 'false');
 
       return true;
     },
