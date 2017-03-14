@@ -7,30 +7,31 @@ cy:
         invalid: Ddim yn ddilys
         too_short: Rhy fyr (y lleiafswm yw %{count} o nodau)
       models:
+        booking_response:
+          attributes:
+            visit:
+              already_processed: 'methu prosesu '
+              visitors_invalid: nid yw dewis yr ymwelydd yn ddilys
         prisoner_step:
           attributes:
             number:
               invalid: Ddim yn ddilys
             date_of_birth:
               inclusion: Ddim yn ddyddiad dilys
-          api:
-            prisoner_does_not_exist: does not match any prisoner
         visitors_step:
           attributes:
             general:
+              lead_visitor_age: Mae'n rhaid i'r sawl sy'n gwneud cais am ymweliad
+                fod dros %{min} oed
               too_many_adults: Gallwch sicrhau lle i uchafswm o %{max} ymwelydd dros
                 %{age} oed ar yr ymweliad hwn
-              too_many_visitors: You can book a maximum of %{max} visitors
-              too_few_visitors: There must be at least 1 visitor
-        visitors_step/visitor:
-          attributes:
-            date_of_birth:
-              inclusion: Ddim yn ddyddiad dilys
-              lead_visitor_age: The person requesting the visit must be over the age
-                of %{min}
   activerecord:
     errors:
+      messages:
+        blank: 'yn ofynnol '
       models:
+        rejection:
+          invalid_reason: Nid yw %{reason} ar y rhestr
         prison:
           duplicate_unbookable_date: 'Nid yw''n bosib clicio ddwywaith ar ddyddiad
             sydd ddim ar gael  '
@@ -38,12 +39,16 @@ cy:
             ddim ar gael
   email_checker:
     errors:
-      unparseable: nid yw'n gyfeiriad dilys
-      domain_dot: 'nid yw''n gyfeiriad dilys oherwydd mae''n dechrau neu''n gorffen
+      unparseable: nid yw hwn yn gyfeiriad dilys
+      domain_dot: 'nid yw hwn yn gyfeiriad dilys oherwydd mae''n dechrau neu''n gorffen
         gyda dot '
-      malformed: nid yw'n gyfeiriad dilys
-      no_mx_record: nid yw'n ymddangos yn ddilys
-      spam_reported: mae angen edrych oherwydd bod negeseuon blaenorol wedi'u nodi
-        fel sbam. Edrychwch yn eich ffolder sbam hefyd
-      bounced: 'angen edrych oherwydd bod negeseuon wedi cael eu hanfon yn ôl yn y
-        gorffennol '
+      malformed: nid yw hwn yn gyfeiriad dilys
+      no_mx_record: nid yw hwn yn ymddangos yn ddilys
+      spam_reported: mae angen edrych ar hyn oherwydd bod negeseuon blaenorol wedi'u
+        nodi fel sbam. Edrychwch yn eich ffolder sbam hefyd
+      bounced: 'mae angen edrych ar hyn oherwydd bod negeseuon wedi cael eu hanfon
+        yn ôl yn y gorffennol '
+  booking_response:
+    errors:
+      must_reject_or_accept_visit: Rhaid i chi naill ai derbyn ymweliad drwy ddewis
+        dyddiad, neu ddewis o leiaf un rheswm dros wrthod ymweliad

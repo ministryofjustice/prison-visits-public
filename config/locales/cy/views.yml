@@ -71,17 +71,16 @@ cy:
       option_1: Opsiwn 2
       option_2: Opsiwn 3
       next_step: Parhau
-      no_availability_md: '**Your visit cannot be booked.**
+      no_availability_md: '**Nid yw''n bosib trefnu eich ymweliad.**
 
 
-        Unfortunately there is no availability to visit this prisoner. They may
-
-        have run out of visiting allowance, or they may be unavailable for some
-
-        other reason.
+        Yn anffodus, nid oes unrhyw ymweliadau ar gael gyda''r carcharor hwn.  Efallai
+        nad oes ganddynt lwfans ymweld ar ôl, neu efallai nad ydynt ar gael am reswm
+        arall.
 
 
-        Please try again in a few days time.
+        Rhowch gynnig arall arni mewn ychydig o ddiwrnodau.
+
 
 '
     confirmation_step:
@@ -151,7 +150,7 @@ cy:
       heading: Rhaid i chi gywiro'r camgymeriadau ar y dudalen hon cyn mynd ymlaen
       see_below: 'Gweler y camgymeriadau isod. '
     visit_info:
-      what_to_bring_title: Beth ddylech ddod efo chi pan fyddwch yn ymweld
+      what_to_bring_title: Beth sydd angen i chi ddod efo chi pan fyddwch yn ymweld
       id_requirements_html: "<p>\n  Gwnewch yn siŵr eich bod yn dod â cherdyn neu
         ddogfen adnabod gyda chi.  Gall hyn fod yn UN\n o’r pethau canlynol :\n</p>\n\n<ul>\n
         \ <li>\n    pasbort, gan gynnwys pasbortau tramor, a phasbortau sydd wedi
@@ -174,7 +173,7 @@ cy:
         cysylltwch â’r carchar. '
       bringing_child_title: 'Os ydych chi''n dod â phlentyn rhywun arall '
       bringing_child_body: Bydd arnoch angen llythyr gan rieni'r plentyn hwnnw yn
-        rhoi caniatâd i chi fynd â'u plentyn.
+        rhoi caniatâd i chi ddod gyda'u plentyn nhw.
       what_to_expect_title: Beth i'w ddisgwyl pan fyddwch yn ymweld â charchar
       what_to_expect_body: Byddwch yn cael eich chwilio cyn mynd i mewn i'r ystafell
         ymweld.  Efallai y bydd staff y carchar yn edrych yn eich pocedi, yn cyffwrdd
@@ -213,13 +212,13 @@ cy:
         oeddech chi gyda'r gwasanaeth hwn </a>.
     booked:
       title: Mae eich ymweliad wedi cael ei gadarnhau
-      intro_html: The details of your visit to %{prison_name} are displayed below.
-      confirmation_email: A copy of this information has been sent to your email address.
-        If you haven’t received this email, please check your spam or junk folder.
-        You need to do this on a computer or tablet (rather than a smart phone).
+      intro_html: Mae manylion eich ymweliad â Charchar %{prison_name} i'w gweld isod.
+      confirmation_email: 'Anfonwyd copi o''r wybodaeth hon atoch drwy e-bost. Os
+        nad ydych wedi cael yr e-bost hwn, edrychwch yn eich ffolder sbam neu sothach.
+        Rhaid i chi wneud hyn ar gyfrifiadur neu lechen (yn hytrach na ffôn clyfar). '
       cancel_pre_intro_html: Os nad ydych eisiau ymweld ar y dyddiad hwn ddim mwy,
         gallwch <a href="%{url}">ganslo'r ymweliad hwn</a>.
-      visit_details_title: Your visit details
+      visit_details_title: Manylion eich ymweliad
       your_visit: Dyddiad ac amser
     rejected:
       title: 'Nid yw''n bosib i''ch ymweliad ddigwydd ar y dyddiadau a ddewiswyd gennych '
@@ -238,10 +237,10 @@ cy:
       not_received: Os na fyddwch wedi cael neges e-bost o fewn 3 diwrnod gwaith,
         edrychwch yn eich ffolder sbam neu sothach. Rhaid i chi wneud hyn ar gyfrifiadur
         neu lechen (yn hytrach na ffôn clyfar)
-      cancel_pre_intro_html: If you no longer want to visit on this date, you can
-        <a href="#cancel-visit">cancel this visit</a>.
-      visit_details_title: Your visit request
-      your_visit: Dates requested
+      cancel_pre_intro_html: Os nad ydych eisiau ymweld ar y dyddiad hwn ddim mwy,
+        gallwch <a href="#cancel-visit">ganslo'r ymweliad</a>.
+      visit_details_title: 'Eich cais i ymweld '
+      your_visit: Dyddiadau rydych wedi gofyn amdanynt
       option_0: 'Opsiwn 1:'
       option_1: 'Opsiwn 2:'
       option_2: 'Opsiwn 3:'
