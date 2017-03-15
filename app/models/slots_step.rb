@@ -86,10 +86,7 @@ class SlotsStep
   end
 
   def slot_constraints
-    # Temporary Easter egg to switch on live slot availability :)
-    show_live_slots = processor.prisoner_step.first_name == 'Rickie'
-
-    @constraints ||= processor.booking_constraints.on_slots(show_live_slots)
+    @constraints ||= processor.booking_constraints.on_slots
   end
 
   def next_slot_to_fill

@@ -180,7 +180,7 @@ http_interactions:
   recorded_at: Thu, 02 Mar 2017 13:36:12 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&use_nomis_slots=false
+    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE
     body:
       encoding: US-ASCII
       string: ''
@@ -307,7 +307,7 @@ http_interactions:
   recorded_at: Thu, 02 Mar 2017 13:36:13 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&use_nomis_slots=false
+    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE
     body:
       encoding: US-ASCII
       string: ''
@@ -434,7 +434,7 @@ http_interactions:
   recorded_at: Thu, 02 Mar 2017 13:36:13 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&use_nomis_slots=false
+    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE
     body:
       encoding: US-ASCII
       string: ''
@@ -561,7 +561,7 @@ http_interactions:
   recorded_at: Thu, 02 Mar 2017 13:36:13 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&use_nomis_slots=false
+    uri: http://localhost:3000/api/available_slots?prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE
     body:
       encoding: US-ASCII
       string: ''

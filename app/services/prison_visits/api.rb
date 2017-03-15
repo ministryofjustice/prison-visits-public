@@ -55,14 +55,12 @@ module PrisonVisits
       result.fetch('validation')
     end
 
-    def get_slots(
-      prison_id:, prisoner_number:, prisoner_dob:, use_nomis_slots: false
-    )
+    def get_slots(prison_id:, prisoner_number:, prisoner_dob:)
       response = @client.get(
         '/slots',
         params: {
           prison_id: prison_id, prisoner_number: prisoner_number,
-          prisoner_dob: prisoner_dob, use_nomis_slots: use_nomis_slots,
+          prisoner_dob: prisoner_dob,
           start_date: Time.zone.today.to_date, end_date: 28.days.from_now.to_date
         }
       )
