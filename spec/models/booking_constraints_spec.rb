@@ -46,9 +46,9 @@ RSpec.describe BookingConstraints, type: :model do
         with(
           prison_id: prison.id,
           prisoner_number: prisoner_number,
-          prisoner_dob: prisoner_dob,
-          use_nomis_slots: false
+          prisoner_dob: prisoner_dob
         )
+
       subject
     end
 
