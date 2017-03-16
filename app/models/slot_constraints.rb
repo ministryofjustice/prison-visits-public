@@ -1,5 +1,6 @@
 class SlotConstraints
-  delegate :map, to: :@calendar_slots
+  include Enumerable
+  delegate :each, to: :@calendar_slots
 
   def initialize(calendar_slots)
     @calendar_slots = calendar_slots
@@ -25,9 +26,13 @@ class SlotConstraints
     bookable_slots.any?
   end
 
+  def unavailability_reasons(slot)
+    find { |calendar_slot| calendar_slot.slot == slot }.unavailability_reasons
+  end
+
 private
 
   def bookable_slots
-    @bookable_slots ||= @calendar_slots.select(&:bookable?)
+    @bookable_slots ||= select(&:bookable?)
   end
 end

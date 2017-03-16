@@ -45,23 +45,45 @@ module CalendarHelper
     slots.bookable_date?(day) ? 'bookable' : 'unavailable'
   end
 
-  def slot_options_reflecting_existing_selections(slot_step_object)
-    existing_selections = slot_step_object.options
-
-    slot_step_object.slot_constraints.map do |s|
-      displayed = s.iso8601
-      options = existing_selections.include?(displayed) ? chosen_options : {}
-      [format_slot_begin_time_for_public(s), displayed, options]
+  def slot_options_reflecting_existing_selections(slots_step, reviewing)
+    slots_step.slot_constraints.map do |slot|
+      [
+        format_slot_begin_time_for_public(slot),
+        slot.iso8601,
+        selection_options(slots_step, slot, reviewing)
+      ]
     end
   end
 
-  def chosen_options
+  def selection_options(slots_step, slot, reviewing)
+    if slots_step.options.include?(slot.iso8601)
+      return slot_selected_options(reviewing)
+    end
+
+    slot_constraints = slots_step.slot_constraints
+    unless slot_constraints.bookable_slot?(slot)
+      return unavailable_reason_options(slot_constraints, slot)
+    end
+
+    {}
+  end
+
+  def unavailable_reason_options(slot_constraints, slot)
+    reason = slot_constraints.unavailability_reasons(slot).first
+
+    {
+      'disabled' => 'disabled',
+      'data-message' => I18n.t(reason, scope: [:booking_requests, :chosen_options])
+    }
+  end
+
+  def slot_selected_options(reviewing)
     options = {
       'data-slot-chosen' => true,
       'data-message' => I18n.t('booking_requests.chosen_options.already_chosen')
     }
 
-    options['disabled'] = 'disabled' unless reviewing?
+    options['disabled'] = 'disabled' unless reviewing
     options
   end
 end

@@ -78,4 +78,86 @@ RSpec.describe CalendarHelper do
       expect(bookable(prison, day)).to eq('bookable')
     end
   end
+
+  describe 'selection_options' do
+    let(:slot0) { ConcreteSlot.parse('2015-01-02T09:00/10:00') }
+    let(:slot1) { ConcreteSlot.parse('2015-01-03T09:00/10:00') }
+    let(:slot2) { ConcreteSlot.parse('2015-01-04T09:00/10:00') }
+    let(:slots_step) do
+      SlotsStep.new(
+        option_0: slot0.to_s
+      )
+    end
+
+    let(:constraints) do
+      SlotConstraints.new([
+        CalendarSlot.new(slot: slot0,
+                         unavailability_reasons: []),
+        CalendarSlot.new(slot: slot1,
+                         unavailability_reasons: [unavailability_reason]),
+        CalendarSlot.new(slot: slot2,
+                         unavailability_reasons: [])
+      ])
+    end
+    let(:unavailability_reason) { anything }
+
+    before do
+      allow(slots_step).to receive(:slot_constraints).and_return(constraints)
+    end
+
+    subject { helper.selection_options(slots_step, slot, reviewing) }
+
+    context 'for a selected slot' do
+      let(:slot) { slot0 }
+
+      context 'under review' do
+        let(:reviewing) { true }
+
+        it do
+          is_expected.to eq('data-message' => 'Already chosen',
+                            'data-slot-chosen' => true)
+        end
+      end
+
+      context 'not under review' do
+        let(:reviewing) { false }
+
+        it do
+          is_expected.to eq('data-message' => 'Already chosen',
+                            'data-slot-chosen' => true,
+                            'disabled' => 'disabled')
+        end
+      end
+
+      context 'for a not selected slot' do
+        let(:slot) { slot2 }
+        let(:reviewing) { anything }
+
+        it { is_expected.to eq({}) }
+      end
+
+      context 'when the slot is unavailable' do
+        let(:slot) { slot1 }
+        let(:reviewing) { anything }
+
+        context "when is 'prisoner_unavailable'" do
+          let(:unavailability_reason) { 'prisoner_unavailable' }
+
+          it do
+            is_expected.to eq('disabled' => 'disabled',
+                              'data-message' => 'Prisoner unavailable')
+          end
+        end
+
+        context "when is 'prison_unavailable'" do
+          let(:unavailability_reason) { 'prison_unavailable' }
+
+          it do
+            is_expected.to eq('disabled' => 'disabled',
+                              'data-message' => 'Fully booked')
+          end
+        end
+      end
+    end
+  end
 end
