@@ -73,30 +73,30 @@ RSpec.describe SlotsStep, type: :model do
   end
 
   shared_examples :options_are_available do
-    it 'Options are available' do
+    it 'options are available' do
       expect(subject.options_available?).to eq(true)
     end
   end
 
   shared_examples :options_are_not_available do
-    it 'Options are not available' do
+    it 'options are not available' do
       expect(subject.options_available?).to eq(false)
     end
   end
 
   shared_examples :next_to_fill_is do |option_num|
-    it "Next to fill is #{option_num}" do
+    it "next to fill is #{option_num}" do
       expect(subject.next_slot_to_fill).to eq(option_num.to_s)
     end
   end
 
   context '#options_available?' do
-    context 'After posting from Prisoner page' do
+    context 'after posting from Prisoner page' do
       it_behaves_like :options_are_available
       it_behaves_like :next_to_fill_is, 0
     end
 
-    context 'After posting from Slot 1 page' do
+    context 'after posting from Slot 1 page' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.currently_filling = '0'
@@ -106,7 +106,7 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :next_to_fill_is, 1
     end
 
-    context 'After posting from Slot 1 page from save and skip link' do
+    context 'after posting from Slot 1 page from save and skip link' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.currently_filling = '0'
@@ -117,7 +117,7 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :next_to_fill_is, 1
     end
 
-    context 'After posting from Slot 2 page' do
+    context 'after posting from Slot 2 page' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.option_1 = '2015-01-03T09:00/10:00'
@@ -128,7 +128,7 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :next_to_fill_is, 2
     end
 
-    context 'After posting from Slot 3 page having not filled slot 3' do
+    context 'after posting from Slot 3 page having not filled slot 3' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.option_1 = '2015-01-03T09:00/10:00'
@@ -139,7 +139,7 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :next_to_fill_is, 2
     end
 
-    context 'After posting from visitor page' do
+    context 'after posting from visitor page' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.option_1 = '2015-01-03T09:00/10:00'
@@ -150,7 +150,7 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :next_to_fill_is, 2
     end
 
-    context 'After posting from Review slot 2 link on review page' do
+    context 'after posting from Review slot 2 link on review page' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.option_1 = '2015-01-03T09:00/10:00'
@@ -161,7 +161,7 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :next_to_fill_is, 1
     end
 
-    context 'After posting from Slot 2 page when reviewing' do
+    context 'after posting from Slot 2 page when reviewing' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.option_1 = '2015-01-05T09:00/10:00'
@@ -173,7 +173,7 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :next_to_fill_is, 1
     end
 
-    context 'After posting from review page with absent slots' do
+    context 'after posting from review page with absent slots' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.option_1 = '2015-01-05T09:00/10:00'
@@ -244,7 +244,9 @@ RSpec.describe SlotsStep, type: :model do
 
   context '#next_slot_to_fill' do
     context 'review slot is set' do
-      before do subject.review_slot = review_slot end
+      before do
+        subject.review_slot = review_slot
+      end
       let(:review_slot) { 'foo' }
 
       it 'returns review slot' do
@@ -279,7 +281,9 @@ RSpec.describe SlotsStep, type: :model do
   context '#skip_remaining_slots?' do
     context 'no errors' do
       context 'user sets skip_remaining_slots' do
-        before do subject.skip_remaining_slots = 'true' end
+        before do
+          subject.skip_remaining_slots = 'true'
+        end
 
         it 'returns true' do
           expect(subject.skip_remaining_slots?).to eq(true)
@@ -294,7 +298,9 @@ RSpec.describe SlotsStep, type: :model do
     end
 
     context 'errors' do
-      before do subject.option_0 = 'goofy' end
+      before do
+        subject.option_0 = 'goofy'
+      end
 
       it 'returns false' do
         expect(subject.skip_remaining_slots?).to eq(false)
