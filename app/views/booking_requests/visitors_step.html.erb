@@ -1,5 +1,10 @@
 <% content_for :header, t('.title') %>
 <%= render('shared/timeout_prompt') %>
+
+<% if @steps[:slots_step].unable_to_add_more_slots? %>
+  <p>Sorry visitor, there are no more options for you</p>
+<% end %>
+
 <%= form_for(@steps.fetch(:visitors_step), url: booking_requests_path, html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
 
   <%= render('hidden_prisoner_step') %>
