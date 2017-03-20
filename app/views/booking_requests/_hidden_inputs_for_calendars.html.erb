@@ -4,7 +4,7 @@
       <%=
         single_field(
           f, :"option_#{i}", :select,
-          slot_options_reflecting_existing_selections(f.object),
+          slot_options_reflecting_existing_selections(f.object, reviewing?),
           { include_blank: t("remove_slot", scope: 'booking_requests.slots_step') },
           class: 'form-control'
         )
