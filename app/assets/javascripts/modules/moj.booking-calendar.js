@@ -332,8 +332,8 @@
       $tbody.append(gridCells);
 
 
-      var maxDate = this.makeDateObj(this.findLastAvailableDay().date).getMonth() === this.month;
-      var minDate = this.makeDateObj(this.findFirstAvailableDay().date).getMonth() === this.month;
+      var maxDate = this.makeDateObj(this.findLastAvailableDay().date).getMonth() <= this.month;
+      var minDate = this.makeDateObj(this.findFirstAvailableDay().date).getMonth() >= this.month;
 
       this.toggleBtnMonth(this.$next, maxDate);
       this.toggleBtnMonth(this.$prev, minDate);
