@@ -54,6 +54,10 @@
 
     <%= render('hidden_inputs_for_calendars', f: f) %>
 
+    <div class="booking-calendar-instructions" tabindex="0">
+      <%= t('.keyboard_directions_html') %>
+    </div>
+
 
     <div class="grid-row visible--js-enabled push-top">
       <div class="column-two-thirds">
@@ -63,8 +67,7 @@
         <% else %>
           <%= t(".choose_date_#{slot_number}") %>:</h2>
         <% end %>
-        <%= t('.keyboard_directions_html') %>
-        <%= render('booking_calendar', slots: slots_step.slot_constraints, slot_number: slot_number.to_i + 1, option_num: slot_number) %>
+        <%= render('booking_calendar', slots: f.object.slot_constraints, slot_number: (slot_number.to_i + 1), option_num: f.object.next_slot_to_fill) %>
       </div>
       <div class="column-one-third">
         <h2 id="slots" class="push-bottom--half">

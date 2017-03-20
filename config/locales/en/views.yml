@@ -107,9 +107,8 @@ en:
       prisoner_changed: As you've changed the prisoner details, you need to choose new visit slots.
       info_html: <p>Choose up to 3 dates and time slots for your visit. If your first choice isn’t available, we’ll try your other choices.</p>
       keyboard_directions_html: |
-        <ul class="visuallyhidden">
+        <ul>
           <li>Press the LEFT and RIGHT arrow keys to navigate the row by week day.</li>
-          <li>Press the HOME and END keys to jump to the beginning or end of the current month.</li>
           <li>Press the UP and DOWN arrow keys to navigate between weeks on the same week day.</li>
         </ul>
       your_choices: Your choices
@@ -157,7 +156,11 @@ en:
         available.
       first_choice: "First choice"
       alternatives: "Alternatives"
+<<<<<<< HEAD
       change_visit_details: Change %{number} slot date and time
+=======
+      change_visit_details: Change date and time slot
+>>>>>>> 00e4941... Keyboard instructions visible on focus
       ts_and_cs:
       next_step: Send visit request
       add_another_choice: Add another choice
