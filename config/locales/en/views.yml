@@ -102,9 +102,8 @@ en:
       slot1_error: You must choose at least one date and time slot.
       info_html: <p>Choose up to 3 dates and time slots for your visit. If your first choice isn’t available, we’ll try your other choices.</p>
       keyboard_directions_html: |
-        <ul class="visuallyhidden">
+        <ul>
           <li>Press the LEFT and RIGHT arrow keys to navigate the row by week day.</li>
-          <li>Press the HOME and END keys to jump to the beginning or end of the current month.</li>
           <li>Press the UP and DOWN arrow keys to navigate between weeks on the same week day.</li>
         </ul>
       your_choices: Your choices
@@ -156,7 +155,7 @@ en:
       first_choice: "First choice"
       alternatives: "Alternatives"
       change_visit_details: Change date and time slot
-      ts_and_cs: 
+      ts_and_cs:
       next_step: Send visit request
     cancel:
       link_text: Cancel and delete all details
