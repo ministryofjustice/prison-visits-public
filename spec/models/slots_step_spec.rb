@@ -13,15 +13,15 @@ RSpec.describe SlotsStep, type: :model do
 
   let(:processor) do
     instance_double(StepsProcessor,
-                    booking_constraints: booking_constraints,
-                    prisoner_step: prisoner_step)
+      booking_constraints: booking_constraints,
+      prisoner_step: prisoner_step)
   end
 
   let(:calendar_slots) do
     [
       CalendarSlot.new(slot: slot0),
       CalendarSlot.new(slot: slot1),
-      CalendarSlot.new(slot: slot2),
+      CalendarSlot.new(slot: slot2)
     ]
   end
 
@@ -128,7 +128,7 @@ RSpec.describe SlotsStep, type: :model do
       end
 
       it_behaves_like :options_are_not_available
-      end
+    end
 
     context 'after posting from Slot 2 page' do
       before do
@@ -328,8 +328,8 @@ RSpec.describe SlotsStep, type: :model do
 
     let(:processor) do
       instance_double(StepsProcessor,
-                      booking_constraints: booking_constraints,
-                      prisoner_step: prisoner_step)
+        booking_constraints: booking_constraints,
+        prisoner_step: prisoner_step)
     end
 
     before do
@@ -400,7 +400,7 @@ RSpec.describe SlotsStep, type: :model do
           [
             CalendarSlot.new(slot: slot0, unavailability_reasons: []),
             CalendarSlot.new(slot: slot1, unavailability_reasons: []),
-            CalendarSlot.new(slot: slot2, unavailability_reasons: [anything]),
+            CalendarSlot.new(slot: slot2, unavailability_reasons: [anything])
           ]
         end
 
