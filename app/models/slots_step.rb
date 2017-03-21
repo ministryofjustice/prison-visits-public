@@ -90,6 +90,7 @@ class SlotsStep
   end
 
   def next_slot_to_fill
+    return '0' if unbookable_slots_selected?
     return review_slot if review_slot.present?
     slots_select_count = valid_options.size
     return nil if slots_select_count == 3
@@ -108,5 +109,11 @@ class SlotsStep
 
   def unable_to_add_more_slots?
     !skip_remaining_slots && !available_bookable_slots?
+  end
+
+  def unbookable_slots_selected?
+    options.map { |o| ConcreteSlot.parse(o) }.any? do |slot|
+      !slot_constraints.bookable_slot?(slot)
+    end
   end
 end
