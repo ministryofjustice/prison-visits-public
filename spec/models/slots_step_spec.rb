@@ -259,7 +259,9 @@ RSpec.describe SlotsStep, type: :model do
     context 'review slot is set' do
       before do
         subject.review_slot = review_slot
+        allow(subject).to receive(:valid?).and_return(true)
       end
+
       let(:review_slot) { 'foo' }
 
       it 'returns review slot' do
@@ -269,9 +271,9 @@ RSpec.describe SlotsStep, type: :model do
 
     context '3 valid slots' do
       before do
-        subject.option_0 = '2015-01-02T09:00/10:00'
-        subject.option_1 = '2015-01-05T09:00/10:00'
-        subject.option_2 = '2015-01-06T09:00/10:00'
+        subject.option_0 = slot0.iso8601
+        subject.option_1 = slot1.iso8601
+        subject.option_2 = slot2.iso8601
       end
 
       it 'returns nil' do
@@ -281,12 +283,26 @@ RSpec.describe SlotsStep, type: :model do
 
     context 'less than 3 valid slots' do
       before do
-        subject.option_0 = '2015-01-02T09:00/10:00'
-        subject.option_1 = '2015-01-05T09:00/10:00'
+        subject.option_0 = slot0.iso8601
+        subject.option_1 = slot1.iso8601
       end
 
       it 'returns the number of slots' do
         expect(subject.next_slot_to_fill).to eq('2')
+      end
+    end
+
+    context 'with an unbookable selection' do
+      let(:unbookable) { '2017-01-01T11:00/12:00' }
+
+      before do
+        subject.option_0 = slot0.iso8601
+        subject.option_1 = slot1.iso8601
+        subject.option_2 = unbookable
+      end
+
+      it "returns '0'" do
+        expect(subject.next_slot_to_fill).to eq('0')
       end
     end
   end
@@ -318,6 +334,42 @@ RSpec.describe SlotsStep, type: :model do
       it 'returns false' do
         expect(subject.skip_remaining_slots?).to eq(false)
       end
+    end
+  end
+
+  context '#unbookable_slots_selected?' do
+    subject { instance.unbookable_slots_selected? }
+
+    context 'with no slots selected' do
+      before do
+        instance.option_0 = nil
+        instance.option_1 = nil
+        instance.option_2 = nil
+      end
+
+      it { is_expected.to eq(false) }
+    end
+
+    context 'with some unbookable slots selected' do
+      let(:unbookable) { '2017-01-01T10:00/11:00' }
+
+      before do
+        instance.option_0 = unbookable
+        instance.option_1 = slot1.iso8601
+        instance.option_2 = slot2.iso8601
+      end
+
+      it { is_expected.to eq(true) }
+    end
+
+    context 'with all slots selected bookable' do
+      before do
+        instance.option_0 = slot0.iso8601
+        instance.option_1 = slot1.iso8601
+        instance.option_2 = slot2.iso8601
+      end
+
+      it { is_expected.to eq(false) }
     end
   end
 
