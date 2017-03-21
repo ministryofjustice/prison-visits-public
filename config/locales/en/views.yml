@@ -162,6 +162,7 @@ en:
       change_visit_details: Change date and time slot
       ts_and_cs:
       next_step: Send visit request
+      add_another_choice: Add another choice
     cancel:
       link_text: Cancel and delete all details
       confirmation: >-
