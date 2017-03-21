@@ -156,11 +156,7 @@ en:
         available.
       first_choice: "First choice"
       alternatives: "Alternatives"
-<<<<<<< HEAD
       change_visit_details: Change %{number} slot date and time
-=======
-      change_visit_details: Change date and time slot
->>>>>>> 00e4941... Keyboard instructions visible on focus
       ts_and_cs:
       next_step: Send visit request
       add_another_choice: Add another choice
