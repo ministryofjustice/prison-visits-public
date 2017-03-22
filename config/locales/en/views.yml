@@ -80,7 +80,7 @@ en:
       title: Your visitor details
       your_details: Your details
       warning: Warning
-      no_more_slots: Sorry visitor, there are no more options for you.
+      no_more_slots: You have chosen all available dates for this prisoner.
       other_visitors: Other visitors
       seating_arrangements: >-
         Seating arrangements at this prison allow 3 visitors over the age of
@@ -104,6 +104,7 @@ en:
     slots_step:
       title: When do you want to visit?
       slot1_error: You must choose at least one date and time slot.
+      prisoner_changed: As you've changed the prisoner details, you need to choose new visit slots.
       info_html: <p>Choose up to 3 dates and time slots for your visit. If your first choice isn’t available, we’ll try your other choices.</p>
       keyboard_directions_html: |
         <ul class="visuallyhidden">
@@ -132,14 +133,11 @@ en:
       option_1: Option 2
       option_2: Option 3
       next_step: Continue
+      no_availability_title: You can't book a visit right now
       no_availability_md: |
-        **Your visit cannot be booked.**
+        This may be because the prisoner has run out of visiting allowance or the prison has no available visit slots.
 
-        Unfortunately there is no availability to visit this prisoner. They may
-        have run out of visiting allowance, or they may be unavailable for some
-        other reason.
-
-        Please try again in a few days time.
+        These calendars are updated daily, so please try again later.
     confirmation_step:
       title: Check your visit details
       prisoner_details: Prisoner details

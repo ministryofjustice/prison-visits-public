@@ -1,4 +1,3 @@
-<% content_for :header, t('.title') %>
 
 <%= render('shared/timeout_prompt') %>
 
@@ -6,6 +5,7 @@
 <% slot_number = slots_step.next_slot_to_fill %>
 
 <% if slots_step.bookable_slots? %>
+<% content_for :header, t('.title') %>
 
 
   <%= form_for(slots_step,
@@ -18,7 +18,7 @@
     <% end %>
 
     <% if slots_step.unbookable_slots_selected? %>
-      Your selected slots are no longer valid, please select new ones.
+      <p><%= t(".prisoner_changed") %></p>
     <% else %>
       <%= render 'shared/validation', object: slots_step, custom_message: t('.slot1_error') %>
     <% end %>
@@ -130,7 +130,7 @@
   </div>
 
 <% else %>
-
+  <% content_for :header, t('.no_availability_title') %>
   <%= markdown t('.no_availability_md') %>
 
 <% end %>
