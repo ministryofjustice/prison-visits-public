@@ -79,6 +79,8 @@ en:
     visitors_step:
       title: Your visitor details
       your_details: Your details
+      warning: Warning
+      no_more_slots: Sorry visitor, there are no more options for you.
       other_visitors: Other visitors
       seating_arrangements: >-
         Seating arrangements at this prison allow 3 visitors over the age of
@@ -158,8 +160,9 @@ en:
       first_choice: "First choice"
       alternatives: "Alternatives"
       change_visit_details: Change date and time slot
-      ts_and_cs: 
+      ts_and_cs:
       next_step: Send visit request
+      add_another_choice: Add another choice
     cancel:
       link_text: Cancel and delete all details
       confirmation: >-
