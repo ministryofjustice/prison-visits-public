@@ -27,6 +27,9 @@
 //= require modules/moj.AgeLabel.js
 //= require modules/moj.booking-calendar
 
+/* !!!TEMPORARY!!! */
+//= require modules/moj.fill-prisoner-details
+
 (function() {
   'use strict';
   delete moj.Modules.devs;
