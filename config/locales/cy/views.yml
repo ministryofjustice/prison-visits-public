@@ -8,17 +8,22 @@ cy:
       contact_us: Cysylltwch â ni
       feedback_banner_html: "<p>\n  <span>Mae'r gwasanaeth hwn yn cael ei wella ac
         efallai y byddwch yn sylwi ar newidiadau – <a href='%{url}' target='_blank'
-        rel='external'>cysylltwch â ni<span class='visuallyhidden'> (link opens in
-        a new browser window)</span></a> os oes arnoch angen cymorth.</span>\n</p>\n"
+        rel='external'>cysylltwch â ni<span class='visuallyhidden'> (dolen yn agor
+        mewn ffenestr bori newydd)</span></a> os oes arnoch angen cymorth.</span>\n</p>\n"
   booking_requests:
     hidden_inputs_for_calendars:
       option: Opsiwn %{n}
       none: Dim
     booking_calendar:
       today: Heddiw
+      go_to_previous_month: 'Mynd yn ôl i''r mis blaenorol '
+      go_to_next_month: Mynd ymlaen i'r mis nesaf
+      javascript_enabled: Rhaid i JavaScript fod wedi'i alluogi
     booking_calendar_legend:
       visit_days: 'Diwrnodau y gellir ymweld '
       non_visit_days: Diwrnodau na ellir ymweld
+    chosen_options:
+      already_chosen: Wedi dewis yn barod
     slot_picker_time_slots:
       visit_in_the_past: Nid yw'n bosib trefnu ymweliad yn y gorffennol.
       visit_today: 'Nid yw''n bosib trefnu ymweliad ar y diwrnod hwn. '
@@ -47,30 +52,30 @@ cy:
         eich sesiwn yn dod i ben a bydd angen i chi ddechrau eto. '
       next_step: Parhau
     prison_unavailable:
-      title_prison_shutdown: Mae carchar %{prison_name} wedi cau
+      title_prison_shutdown: 'Mae carchar %{prison_name} wedi cau '
       title_pvb_unavailable: Nid yw'n bosib trefnu ymweliad â rhywun yng ngharchar
         %{prison_name} gan ddefnyddio'r gwasanaeth hwn
       doesnt_use_pvb_html: 'Mae carchar <p>%{prison_name} yn garchar preifat, ac mae''n
         rheoli ei geisiadau i ymweld drosto ei hun.</p>
 
-        <p>I gael gwybodaeth am sut i drefnu ymweliad â rhywun yng ngharchar %{prison_name},
+        <p>I gael gwybodaeth am sut i drefnu i ymweld â rhywun yng ngharchar %{prison_name},
         ewch i <a href="%{url}" rel="external">prison finder</a></p>
 
 '
       private_html: 'Mae carchar <p>%{prison_name} yn garchar preifat, ac mae''n rheoli
         ei geisiadau i ymweld drosto ei hun.</p>
 
-        <p>I gael gwybodaeth am sut i drefnu ymweliad â rhywun yng ngharchar %{prison_name},
+        <p>I gael gwybodaeth am sut i drefnu i ymweld â rhywun yng ngharchar %{prison_name},
         ewch i <a href="%{url}" rel="external">prison finder</a></p>
 
 '
       shutdown_html: '<p>I gael gwybodaeth am sut i ddod o hyd i garcharorion oedd
         yn arfer bod yng ngharchar %{prison_name}, ewch i <a href="https://www.gov.uk/find-prisoner"
-        rel="external">dod o hyd i garcharor</a>.</p>
+        rel="external">i ddod o hyd i garcharor</a>.</p>
 
 '
     visitors_step:
-      title: Manylion eich ymwelydd
+      title: ' Eich manylion ymwelydd'
       your_details: 'Eich manylion '
       other_visitors: 'Ymwelwyr eraill '
       seating_arrangements: Mae'r cynllun eistedd yn y carchar hwn yn caniatáu 3 ymwelydd
@@ -93,6 +98,30 @@ cy:
       date_of_birth: Dyddiad geni
     slots_step:
       title: 'Pa bryd hoffech chi ymweld? '
+      slot1_error: Rhaid i chi ddewis o leiaf un dyddiad ac amser ar gyfer eich ymweliad
+      info_html: <p>Dewiswch hyd at 3 dyddiad ac amser ar gyfer eich ymweliad. Os
+        nad yw eich dewis cyntaf ar gael, byddwn yn ceisio sicrhau un o'ch dewisiadau
+        eraill.</p>
+      keyboard_directions_html: "<ul class=\"visuallyhidden\">\n  <li>Pwyswch y botymau
+        saeth i'r DDE ac i'r CHWITH i symud ar y rhes yn ôl diwrnod yr wythnos.</li>\n
+        \ <li>Pwyswch y botymau HAFAN a DIWEDD i neidio i ddechrau neu ddiwedd y mis
+        cyfredol.</li>\n  <li>Pwyswch y botymau saeth i FYNY ac i LAWR i symud o un
+        wythnos i'r llall ar yr un diwrnod o'r wythnos.</li>\n</ul>\n"
+      your_choices: Eich dewisiadau
+      choose_date_0: 'Dewiswch y dyddiad sydd orau gennych '
+      choose_date_1: 'Dewiswch ddyddiad arall '
+      choose_date_2: 'Dewiswch ddyddiad arall '
+      choose_new_date: 'Dewiswch ddyddiad newydd '
+      choose_time: 'Dewiswch amser  '
+      choose_new_time: 'Dewiswch amser newydd '
+      your_selection_false: Eich dewis
+      your_selection_true: Eich dewis newydd
+      remove_slot: 'Neu dynnu''r dewis '
+      no_more_to_add: Dim mwy i'w hychwanegu
+      submit_0: Ychwanegu dewis arall
+      submit_1: Ychwanegu dewis arall
+      submit_2: Parhau
+      confirm_amend: Cadw newidiadau
       choose_alternatives: 'Dewiswch ddau ddyddiad gwahanol, rhag ofn na fydd eich
         dewis cyntaf ar gael. '
       option_0: Opsiwn 1
@@ -112,7 +141,7 @@ cy:
 
 '
     confirmation_step:
-      title: 'Gwiriwch eich cais '
+      title: Gwiriwch fanylion eich ymweliad
       prisoner_details: Manylion y carcharor
       prisoner_name: Enw'r carcharor
       date_of_birth: Dyddiad geni
@@ -120,6 +149,7 @@ cy:
       prison: Carchar
       change_prisoner_details: Newid manylion y carcharor
       visitor_details: Manylion yr ymwelydd
+      visit_details: Dyddiadau ac amseroedd y gofynnwyd amdanynt
       confirmation_email_address: Cadarnhad drwy e-bost
       visitor_n: Ymwelydd %{n}
       change_visitor_details: Newid manylion yr ymwelydd
@@ -128,9 +158,9 @@ cy:
         yw eich dewis cyntaf ar gael. '
       first_choice: Dewis cyntaf
       alternatives: Dyddiadau eraill
-      change_visit_details: 'Newid manylion yr ymweliad '
-      ts_and_cs: Telerau ac amodau
-      next_step: Anfon cais
+      change_visit_details: Newid dyddiad ac amser eich ymweliad
+      ts_and_cs: null
+      next_step: Anfon cais i ymweld
     cancel:
       link_text: 'Canslo a dileu''r holl fanylion '
       confirmation: 'Ydych chi''n siŵr eich bod yn dymuno canslo''r cais hwn i ymweld?
@@ -144,7 +174,7 @@ cy:
   feedback_submissions:
     new:
       title: Cysylltwch â ni
-      about_your_booking: Am eich cais
+      about_your_booking: Am eich ymweliad
       intro_html: '<a href="%{url}">Cysylltwch â''r carchar </a> os oes arnoch eisiau:'
       contact_list_html: "<ul class=\"list list-bullet\">\n  <li>ychwanegu neu dynnu
         ymwelwyr o ymweliad</li>\n  <li>newid dyddiad neu amser ymweliad</li>\n  <li>gofyn
@@ -165,6 +195,7 @@ cy:
     create:
       title: 'Diolch am eich adborth '
   shared:
+    visit_id: 'Rhif yr ymweliad: %{id}'
     slotpicker_templates:
       one_slot_available: 'Dim ond un slot amser sydd ar gael ar y diwrnod hwn, dewiswch
         hwn i fynd ymlaen '
@@ -287,7 +318,7 @@ cy:
       prisoner_moved: 'Mae''r carcharor wedi gadael y carchar hwn. '
       prisoner_non_association: 'Mae cyfyngiadau''n berthnasol i''r carcharor hwn. '
       prisoner_released: 'Mae''r carcharor wedi cael ei ryddhau o''r carchar. '
-      prisoner_vos: Mae'r carcharor wedi defnyddio ei lwfans ymweld ar gyfer y cyfnod
-        hwn.
+      prisoner_vos: Mae'r carcharor wedi defnyddio ei lwfans ymweld i gyd ar gyfer
+        y cyfnod hwn.
     withdrawn:
       title: Rydych chi wedi canslo'r cais hwn i ymweld
