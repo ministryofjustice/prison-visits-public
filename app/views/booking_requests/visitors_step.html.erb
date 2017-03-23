@@ -10,6 +10,8 @@
   </div>
 <% end %>
 
+<a class="button push-bottom js-prisonerDetails" data-visitor="1" data-prisoner="[{&quot;visitors_step_visitors_attributes_0_first_name&quot;:&quot;Ollie&quot;,&quot;visitors_step_visitors_attributes_0_last_name&quot;:&quot;Smith&quot;,&quot;visitors_step[visitors_attributes][0]_date_of_birth_day&quot;:&quot;25&quot;,&quot;visitors_step[visitors_attributes][0]_date_of_birth_month&quot;:&quot;2&quot;,&quot;visitors_step[visitors_attributes][0]_date_of_birth_year&quot;:&quot;1985&quot;,&quot;visitors_step_email_address&quot;:&quot;pvbtesting@gmail.com&quot;,&quot;visitors_step_phone_no&quot;:&quot;02071234567&quot;}]">Add visitor details</a>
+
 <%= form_for(@steps.fetch(:visitors_step), url: booking_requests_path, html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
 
   <%= render('hidden_prisoner_step') %>
