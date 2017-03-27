@@ -110,11 +110,12 @@ en:
           <li>Choose a date</li>
           <li>Choose a time</li>
         </ul>
-        <p>Choose up to 3 dates and time slots for your visit. If your first choice isn’t available, we’ll try your other choices.</p>
+        <p>You can choose up to 3 options. Start with your first choice.</p>
       keyboard_directions_html: |
         <ul>
           <li>Press the LEFT and RIGHT arrow keys to navigate the row by week day.</li>
           <li>Press the UP and DOWN arrow keys to navigate between weeks on the same week day.</li>
+          <li>Press ENTER to select a date.</li>
         </ul>
       your_choices: Your choices
       choose_date_0: Choose your preferred date
