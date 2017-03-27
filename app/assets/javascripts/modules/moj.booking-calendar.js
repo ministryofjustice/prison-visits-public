@@ -298,7 +298,7 @@
             className = (this.availableSlots[i].availability === 1) ? 'available' : 'unavailable';
             readonly = (this.availableSlots[i].availability === 1) ? false : true;
             className += (this.availableSlots[i].chosen === true) ? ' chosen' : '';
-            ariaLabel = 'Press the ENTER key to select the date';
+            ariaLabel = '';
             ariaSelected = 'aria-selected="false"'
           }
         }
@@ -893,6 +893,7 @@
 
       $.each(slot, function(i, obj) {
         var className = '',
+          selectedDate = self.formatSlot(obj.slot),
           time = self.formatTime(obj.time.split('/')[0]),
           duration = self.formatTimeDuration(obj.time),
           disabled,
@@ -905,7 +906,7 @@
         }
 
         var tmpl = '<label class="block-label selection-button-radio slot' + className + '" for="slot-step-' + obj.day + '-' + i + '">' +
-          '<input ' + checked + ' aria-label="Choose time slot ' + time + ' for ' + duration + '" ' + disabled + ' id="slot-step-' + obj.day + '-' + i + '" type="radio" name="slot_step_0" value="' + obj.slot + '">' +
+          '<input ' + checked + ' aria-label="' + selectedDate.formattedDate + ' selected." ' + disabled + ' id="slot-step-' + obj.day + '-' + i + '" type="radio" name="slot_step_0" value="' + obj.slot + '">' +
           '<span class="slot--time">' + time + ' (' + duration + ')</span>' +
           '<br/>' +
           '<span class="slot--message">' + obj.message + '</span>' +
