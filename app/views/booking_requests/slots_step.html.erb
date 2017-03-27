@@ -60,25 +60,32 @@
       <% end %>
 
       <div class="slot-selection">
-        <legend class="visuallyhidden"><%= t(".choose_time") %></legend>
-        <div id="js-slotAvailability" aria-describedby="slots" aria-live="assertive" aria-atomic="true" aria-relevant="additions removals"></div>
+        <form>
+          <legend class="visuallyhidden"><%= t(".choose_time") %></legend>
+          <div id="js-slotAvailability" aria-describedby="slots" aria-live="assertive" aria-atomic="true" aria-relevant="additions removals"></div>
+        </form>
       </div>
     </div>
   </div>
 
-    <div class="grid-row">
-      <div class="column-one-third">
-        <div id="js-slotTarget" aria-hidden="true">
-          <h3 class="push-bottom--half"><%= t(".your_selection_#{reviewing?}") %>:</h3>
-          <div class="date-box active" aria-live="assertive" aria-atomic="true" aria-relevant="text">
-            <span class="date-box__number"><%= slot_number.to_i + 1 %></span>
-            <span class="date-box__day"></span>
-            <br>
-            <span class="date-box__slot"></span>
-          </div>
+  <div class="grid-row desktop-only">
+    <div class="column-two-thirds"><hr></div>
+    <div class="column-one-third"><hr></div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-one-third">
+      <div id="js-slotTarget" aria-hidden="true">
+        <h3 class="push-bottom--half"><%= t(".your_selection_#{reviewing?}") %>:</h3>
+        <div class="date-box active" aria-live="assertive" aria-atomic="true" aria-relevant="text">
+          <span class="date-box__number"><%= slot_number.to_i + 1 %></span>
+          <span class="date-box__day"></span>
+          <br>
+          <span class="date-box__slot"></span>
         </div>
       </div>
     </div>
+  </div>
 
   <%= form_for(@steps.fetch(:slots_step),
              url: booking_requests_path,

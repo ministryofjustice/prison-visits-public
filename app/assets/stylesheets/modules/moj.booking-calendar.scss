@@ -62,7 +62,6 @@
 }
 
 table.booking-calendar {
-  border-bottom: 1px solid $border-colour;
   margin-top: 15px;
   text-align: center;
   margin-bottom: 15px;
@@ -168,16 +167,19 @@ table.booking-calendar {
       }
     }
   }
+  @include media(mobile) {
+    border-bottom: 1px solid $border-colour;
+  }
 }
 // Slot selection
 .slot-selection {
-  border-bottom: 1px solid $border-colour;
   border-top: 1px solid $border-colour;
   padding: 20px 0;
   min-height: 436px;
   box-sizing: border-box;
   @include media(mobile) {
-    border: none;
+    border-bottom: 1px solid $border-colour;
+    border-top: none;
     min-height: auto;
   }
   .block-label {
