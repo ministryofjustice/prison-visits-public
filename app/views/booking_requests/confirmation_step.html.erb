@@ -16,7 +16,7 @@
       <th class="change-answer text-right">
         <%= form_for(confirmation_step,
              url: booking_requests_path,
-             html: { class: 'js-SubmitOnce' }) do |f| %>
+             html: { id: 'change_prisoner_details', class: 'js-SubmitOnce' }) do |f| %>
           <%= render('hidden_prisoner_step') %>
           <%= render('hidden_visitors_step') %>
           <%= render('hidden_slots_step') %>
@@ -57,7 +57,7 @@
         <% slots_step.slots.each.with_index do |slot,i| %>
           <%= form_for(confirmation_step,
                        url: booking_requests_path,
-                       html: { class: 'js-SubmitOnce slot-confirmation' }) do |f| %>
+                       html: { id: "change_slot_#{i}_details", class: 'js-SubmitOnce slot-confirmation' }) do |f| %>
                        <%= render('hidden_prisoner_step') %>
                        <%= render('hidden_visitors_step') %>
                        <%= render('hidden_slots_step', review_slot: i.to_s) %>
@@ -77,7 +77,7 @@
           <p><%= t('.options_available_html') %></p>
           <%= form_for(confirmation_step,
                  url: booking_requests_path,
-                 html: { class: 'js-SubmitOnce' }) do |f| %>
+                 html: { id: "add_slot", class: 'js-SubmitOnce' }) do |f| %>
               <%= render('hidden_prisoner_step') %>
               <%= render('hidden_visitors_step') %>
               <%= render('hidden_slots_step') %>
@@ -100,7 +100,7 @@
       <th class="change-answer text-right">
         <%= form_for(confirmation_step,
              url: booking_requests_path,
-             html: { class: 'js-SubmitOnce' }) do |f| %>
+             html: { id: "change_visitor_details", class: 'js-SubmitOnce' }) do |f| %>
           <%= render('hidden_prisoner_step') %>
           <%= render('hidden_visitors_step') %>
           <%= render('hidden_slots_step') %>
