@@ -105,12 +105,17 @@ en:
       title: When do you want to visit?
       slot1_error: You must choose at least one date and time slot.
       prisoner_changed: As you've changed the prisoner details, you need to choose new visit slots.
-      info_html: <p>Choose up to 3 dates and time slots for your visit. If your first choice isn’t available, we’ll try your other choices.</p>
+      info_html: >-
+        <ul class="list list-number">
+          <li>Choose a date</li>
+          <li>Choose a time</li>
+        </ul>
+        <p>You can choose up to 3 options. Start with your first choice.</p>
       keyboard_directions_html: |
-        <ul class="visuallyhidden">
+        <ul>
           <li>Press the LEFT and RIGHT arrow keys to navigate the row by week day.</li>
-          <li>Press the HOME and END keys to jump to the beginning or end of the current month.</li>
           <li>Press the UP and DOWN arrow keys to navigate between weeks on the same week day.</li>
+          <li>Press ENTER to select a date.</li>
         </ul>
       your_choices: Your choices
       choose_date_0: Choose your preferred date
