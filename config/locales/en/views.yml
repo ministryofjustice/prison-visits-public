@@ -79,6 +79,8 @@ en:
     visitors_step:
       title: Your visitor details
       your_details: Your details
+      warning: Warning
+      no_more_slots: You have chosen all available dates for this prisoner.
       other_visitors: Other visitors
       seating_arrangements: >-
         Seating arrangements at this prison allow 3 visitors over the age of
@@ -102,12 +104,18 @@ en:
     slots_step:
       title: When do you want to visit?
       slot1_error: You must choose at least one date and time slot.
-      info_html: <p>Choose up to 3 dates and time slots for your visit. If your first choice isn’t available, we’ll try your other choices.</p>
+      prisoner_changed: As you've changed the prisoner details, you need to choose new visit slots.
+      info_html: >-
+        <ul class="list list-number">
+          <li>Choose a date</li>
+          <li>Choose a time</li>
+        </ul>
+        <p>You can choose up to 3 options. Start with your first choice.</p>
       keyboard_directions_html: |
-        <ul class="visuallyhidden">
+        <ul>
           <li>Press the LEFT and RIGHT arrow keys to navigate the row by week day.</li>
-          <li>Press the HOME and END keys to jump to the beginning or end of the current month.</li>
           <li>Press the UP and DOWN arrow keys to navigate between weeks on the same week day.</li>
+          <li>Press ENTER to select a date.</li>
         </ul>
       your_choices: Your choices
       choose_date_0: Choose your preferred date
@@ -130,14 +138,11 @@ en:
       option_1: Option 2
       option_2: Option 3
       next_step: Continue
+      no_availability_title: You can't book a visit right now
       no_availability_md: |
-        **Your visit cannot be booked.**
+        This may be because the prisoner has run out of visiting allowance or the prison has no available visit slots.
 
-        Unfortunately there is no availability to visit this prisoner. They may
-        have run out of visiting allowance, or they may be unavailable for some
-        other reason.
-
-        Please try again in a few days time.
+        These calendars are updated daily, so please try again later.
     confirmation_step:
       title: Check your visit details
       prisoner_details: Prisoner details
@@ -158,8 +163,9 @@ en:
       first_choice: "First choice"
       alternatives: "Alternatives"
       change_visit_details: Change date and time slot
-      ts_and_cs: 
+      ts_and_cs:
       next_step: Send visit request
+      add_another_choice: Add another choice
     cancel:
       link_text: Cancel and delete all details
       confirmation: >-

@@ -30,8 +30,6 @@ class SlotConstraints
     find { |calendar_slot| calendar_slot.slot == slot }.unavailability_reasons
   end
 
-private
-
   def bookable_slots
     @bookable_slots ||= select(&:bookable?)
   end

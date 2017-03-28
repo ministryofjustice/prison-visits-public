@@ -1,3 +1,10 @@
+.booking-calendar-instructions {
+  height: 0;
+  overflow: hidden;
+  &:focus {
+    height: auto;
+  }
+}
 .calendar {
   background-color: $white;
   @include core-19;
@@ -55,7 +62,6 @@
 }
 
 table.booking-calendar {
-  border-bottom: 1px solid $border-colour;
   margin-top: 15px;
   text-align: center;
   margin-bottom: 15px;
@@ -85,11 +91,17 @@ table.booking-calendar {
       line-height: 25px;
       margin: 0 auto;
       text-align: center;
+      text-decoration: none;
       position: relative;
+      color: $black;
+      font-weight: bold;
       @include media(mobile){
         height: 20px;
         width: 20px;
         line-height: 20px;
+      }
+      &:focus {
+        outline: none;
       }
     }
 
@@ -114,12 +126,17 @@ table.booking-calendar {
       }
     }
 
-    &.disabled {
-      color: $panel-colour;
+    &.disabled .cell-date {
+      color: #52595a;
+      font-weight: normal;
+      &:focus {
+        color: $black;
+      }
     }
 
-    &.empty, &.disabled {
-      color: $panel-colour;
+    &.empty .cell-date, &.disabled .cell-date {
+      color: #52595a;
+      font-weight: normal;
     }
 
     &.selected {
@@ -150,16 +167,19 @@ table.booking-calendar {
       }
     }
   }
+  @include media(mobile) {
+    border-bottom: 1px solid $border-colour;
+  }
 }
 // Slot selection
 .slot-selection {
-  border-bottom: 1px solid $border-colour;
   border-top: 1px solid $border-colour;
   padding: 20px 0;
   min-height: 436px;
   box-sizing: border-box;
   @include media(mobile) {
-    border: none;
+    border-bottom: 1px solid $border-colour;
+    border-top: none;
     min-height: auto;
   }
   .block-label {
