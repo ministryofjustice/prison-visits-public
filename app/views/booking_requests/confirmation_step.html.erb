@@ -68,7 +68,7 @@
                          <br>
                          <span class="date-box__slot"><%= format_time_12hr(slots_step.slots[i].begin_at) %> (<%= format_duration(slots_step.slots[i].duration) %>)</span>
                          <br/>
-                         <%= f.submit(t('.change_visit_details', number: i+1), class: 'button-link', role: 'link') %>
+                         <%= f.submit(t('.change_visit_details', number: text_ordinalize(i+1)), class: 'button-link', role: 'link') %>
                        </div>
                      <% end %>
                    <% end %>
