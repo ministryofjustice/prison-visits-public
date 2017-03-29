@@ -73,7 +73,7 @@
                      <% end %>
                    <% end %>
 
-        <% if slots_step.options.length < 3 %>
+        <% if slots_step.available_bookable_slots? && slots_step.options.length < 3 %>
           <p><%= t('.options_available_html') %></p>
           <%= form_for(confirmation_step,
                  url: booking_requests_path,
@@ -82,7 +82,7 @@
               <%= render('hidden_visitors_step') %>
               <%= render('hidden_slots_step') %>
               <%= hidden_field_tag('review_step', 'slots_step') %>
-              <%= f.submit("Add another choice", class: 'button-link') %>
+              <%= f.submit(t('.add_another_choice'), class: 'button-link') %>
           <% end %>
         <% end %>
 

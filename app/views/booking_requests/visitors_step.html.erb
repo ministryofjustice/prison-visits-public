@@ -1,5 +1,15 @@
 <% content_for :header, t('.title') %>
 <%= render('shared/timeout_prompt') %>
+
+<% if @steps[:slots_step].unable_to_add_more_slots? %>
+  <div class="notice push-top push-bottom">
+    <i class="icon icon-information">
+      <span class="visuallyhidden"><%= t('.warning') %></span>
+    </i>
+    <strong class="bold-small"><%= t('.no_more_slots') %></strong>
+  </div>
+<% end %>
+
 <%= form_for(@steps.fetch(:visitors_step), url: booking_requests_path, html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
 
   <%= render('hidden_prisoner_step') %>

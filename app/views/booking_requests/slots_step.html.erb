@@ -1,11 +1,14 @@
-<% content_for :header, t('.title') %>
 
 <%= render('shared/timeout_prompt') %>
 
+<% slots_step = @steps.fetch(:slots_step) %>
+<% slot_number = slots_step.next_slot_to_fill %>
 
-<% if @steps.fetch(:slots_step).bookable_slots? %>
+<% if slots_step.bookable_slots? %>
+<% content_for :header, t('.title') %>
 
-  <%= form_for(@steps.fetch(:slots_step),
+
+  <%= form_for(slots_step,
              url: booking_requests_path,
              html: { class: 'js-SubmitOnce', autocomplete: 'off' }) do |f| %>
     <%= render('hidden_prisoner_step') %>
@@ -14,24 +17,27 @@
       <%= render('hidden_visitors_step') %>
     <% end %>
 
-    <%= render('shared/validation', object: f.object, custom_message: t('.slot1_error')) %>
+    <% if slots_step.unbookable_slots_selected? %>
+      <p><%= t(".prisoner_changed") %></p>
+    <% else %>
+      <%= render 'shared/validation', object: slots_step, custom_message: t('.slot1_error') %>
+    <% end %>
 
     <div class="grid-row">
       <div class="column-two-thirds">
-        <% slot_number = @steps.fetch(:slots_step).next_slot_to_fill %>
-        <% if slot_number == "0" && !reviewing? %>
+        <% if slots_step.next_slot_to_fill == "0" && !reviewing? %>
           <%= t(".info_html") %>
         <% end %>
       </div>
     </div>
 
-    <% @steps.fetch(:slots_step).valid_options.any? do %>
+    <% slots_step.valid_options.any? do %>
       <div class="grid-row">
         <div class="column-full">
           <p><%= t('.your_choices') %>:</p>
           <div class="grid-row">
-            <% @steps.fetch(:slots_step).valid_options.each.with_index do |slot, index| %>
-              <% className = (index == slot_number.to_i)? 'active' : '' %>
+            <% slots_step.valid_options.each.with_index do |slot, index| %>
+              <% className = (index == slot_number.to_i) ? 'active' : '' %>
               <div class="column-one-third">
                 <div class="date-box date-box--small <%= className %>" aria-live="assertive" aria-atomic="true" aria-relevant="text">
                   <span class="date-box__number"><%= index + 1 %></span>
@@ -58,7 +64,7 @@
           <%= t(".choose_date_#{slot_number}") %>:</h2>
         <% end %>
         <%= t('.keyboard_directions_html') %>
-        <%= render('booking_calendar', slots: f.object.slot_constraints, slot_number: (slot_number.to_i + 1), option_num: f.object.next_slot_to_fill) %>
+        <%= render('booking_calendar', slots: slots_step.slot_constraints, slot_number: slot_number.to_i + 1, option_num: slot_number) %>
       </div>
       <div class="column-one-third">
         <h2 id="slots" class="push-bottom--half">
@@ -124,7 +130,7 @@
   </div>
 
 <% else %>
-
+  <% content_for :header, t('.no_availability_title') %>
   <%= markdown t('.no_availability_md') %>
 
 <% end %>
