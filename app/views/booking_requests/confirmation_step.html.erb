@@ -16,12 +16,12 @@
       <th class="change-answer text-right">
         <%= form_for(confirmation_step,
              url: booking_requests_path,
-             html: { class: 'js-SubmitOnce' }) do |f| %>
+             html: { id: 'change_prisoner_details', class: 'js-SubmitOnce' }) do |f| %>
           <%= render('hidden_prisoner_step') %>
           <%= render('hidden_visitors_step') %>
           <%= render('hidden_slots_step') %>
           <%= hidden_field_tag('review_step', 'prisoner_step') %>
-          <%= f.submit(t('.change_prisoner_details'), class: 'button-link') %>
+          <%= f.submit(t('.change_prisoner_details'), class: 'button-link', role: 'link') %>
         <% end %>
       </th>
     </tr>
@@ -57,7 +57,7 @@
         <% slots_step.slots.each.with_index do |slot,i| %>
           <%= form_for(confirmation_step,
                        url: booking_requests_path,
-                       html: { class: 'js-SubmitOnce slot-confirmation' }) do |f| %>
+                       html: { id: "change_slot_#{i}_details", class: 'js-SubmitOnce slot-confirmation' }) do |f| %>
                        <%= render('hidden_prisoner_step') %>
                        <%= render('hidden_visitors_step') %>
                        <%= render('hidden_slots_step', review_slot: i.to_s) %>
@@ -68,7 +68,7 @@
                          <br>
                          <span class="date-box__slot"><%= format_time_12hr(slots_step.slots[i].begin_at) %> (<%= format_duration(slots_step.slots[i].duration) %>)</span>
                          <br/>
-                         <%= f.submit(t('.change_visit_details'), class: 'button-link') %>
+                         <%= f.submit(t('.change_visit_details', number: text_ordinalize(i+1)), class: 'button-link', role: 'link') %>
                        </div>
                      <% end %>
                    <% end %>
@@ -77,12 +77,12 @@
           <p><%= t('.options_available_html') %></p>
           <%= form_for(confirmation_step,
                  url: booking_requests_path,
-                 html: { class: 'js-SubmitOnce' }) do |f| %>
+                 html: { id: "add_slot", class: 'js-SubmitOnce' }) do |f| %>
               <%= render('hidden_prisoner_step') %>
               <%= render('hidden_visitors_step') %>
               <%= render('hidden_slots_step') %>
               <%= hidden_field_tag('review_step', 'slots_step') %>
-              <%= f.submit("Add another choice", class: 'button-link') %>
+              <%= f.submit("Add another choice", class: 'button-link', role: 'link') %>
           <% end %>
         <% end %>
 
@@ -100,12 +100,12 @@
       <th class="change-answer text-right">
         <%= form_for(confirmation_step,
              url: booking_requests_path,
-             html: { class: 'js-SubmitOnce' }) do |f| %>
+             html: { id: "change_visitor_details", class: 'js-SubmitOnce' }) do |f| %>
           <%= render('hidden_prisoner_step') %>
           <%= render('hidden_visitors_step') %>
           <%= render('hidden_slots_step') %>
           <%= hidden_field_tag('review_step', 'visitors_step') %>
-          <%= f.submit(t('.change_visitor_details'), class: 'button-link') %>
+          <%= f.submit(t('.change_visitor_details'), class: 'button-link', role: 'link') %>
         <% end %>
       </th>
     </tr>

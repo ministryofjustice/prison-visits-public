@@ -26,4 +26,14 @@ module ApplicationHelper
   def add_line_breaks(str)
     safe_join(str.split(/\n/), '<br />'.html_safe)
   end
+
+  def text_ordinalize(value)
+    ordinalize_mapping[value] || value.ordinalize
+  end
+
+  private
+
+  def ordinalize_mapping
+    [nil, I18n.t('formats.slot.first'), I18n.t('formats.slot.second'), I18n.t('formats.slot.third') ]
+  end
 end
