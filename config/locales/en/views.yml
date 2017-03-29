@@ -25,7 +25,7 @@ en:
     chosen_options:
       already_chosen: Already chosen
       prison_unavailable: Fully booked
-      prisoner_unavailable: Prisoner unavailable
+      prisoner_unavailable: Not available
     slot_picker_time_slots:
       visit_in_the_past: It is not possible to book a visit in the past.
       visit_today: It is not possible to book a visit on this day.

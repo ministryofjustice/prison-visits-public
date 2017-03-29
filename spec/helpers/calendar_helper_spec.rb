@@ -145,7 +145,7 @@ RSpec.describe CalendarHelper do
 
           it do
             is_expected.to eq('disabled' => 'disabled',
-                              'data-message' => 'Prisoner unavailable')
+                              'data-message' => 'Not available')
           end
         end
 
