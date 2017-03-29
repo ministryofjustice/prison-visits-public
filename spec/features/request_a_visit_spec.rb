@@ -79,7 +79,7 @@ RSpec.feature 'Booking a visit', js: true do
     click_button 'Continue'
 
     within('.date-box-2') do
-      click_button "Change slot 2 date and time"
+      click_button "Change second slot date and time"
     end
 
     click_link 'Or remove slot'

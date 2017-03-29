@@ -157,7 +157,7 @@ en:
         available.
       first_choice: "First choice"
       alternatives: "Alternatives"
-      change_visit_details: Change slot %{number} date and time
+      change_visit_details: Change %{number} slot date and time
       ts_and_cs:
       next_step: Send visit request
     cancel:
