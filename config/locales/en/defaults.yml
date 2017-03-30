@@ -76,6 +76,9 @@ en:
       other: mins
   formats:
     slot:
+      first: first
+      second: second
+      third: third
       public:
         full: "%{date} %{time} for %{duration}"
         begin_only: "%{date} %{time}"
