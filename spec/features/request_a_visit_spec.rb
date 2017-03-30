@@ -144,7 +144,7 @@ RSpec.feature 'Booking a visit', js: true do
     visit booking_requests_path(locale: 'en')
     click_button 'Continue'
 
-    expect(page).to have_text('Prisoner first name is required')
+    expect(page).to have_text('Enter a first name')
 
     enter_prisoner_information
     click_button 'Continue'
