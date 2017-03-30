@@ -2,21 +2,31 @@ en:
   activemodel:
     errors:
       messages:
-        name: is not a valid name
+        name: Enter a name using letters only
         blank: is required
         invalid: is invalid
         too_short: is too short (minimum is %{count} characters)
       models:
         prisoner_step:
           attributes:
+            first_name: 
+              blank: Enter a first name
+            last_name:
+              blank: Enter a last name
             number:
-              invalid: is invalid
+              invalid: Enter a prisoner number. It should be 7 characters starting with a letter.
             date_of_birth:
-              inclusion: is not a valid date
+              inclusion: Enter a date of birth
+            prison_id:
+              blank: Enter a prison name
           api:
             prisoner_does_not_exist: No prisoner matches the details you’ve supplied, please ask the prisoner to check your details are correct
         visitors_step:
           attributes:
+            email_address:
+              blank: Enter a valid email address
+            phone_no:
+              invalid: Enter a valid phone number
             general:
               too_many_adults:
                 You can book a maximum of %{max} visitors over the age of
@@ -27,11 +37,16 @@ en:
                 There must be at least 1 visitor
         visitors_step/visitor:
           attributes:
+            first_name:
+              blank: Enter a first name
+            last_name:
+              blank: Enter a last name 
             date_of_birth:
-              inclusion: is not a valid date
+              blank: Enter a date of birth
+              inclusion: Enter a date of birth
               lead_visitor_age:
                 The person requesting the visit must be over the age of %{min}
-
+ 
   activerecord:
     errors:
       models:
@@ -41,9 +56,9 @@ en:
 
   email_checker:
     errors:
-      unparseable: "is not a valid address"
+      unparseable: "Enter a valid email address"
       domain_dot: "is not a valid address because it ends with a dot or starts with a dot"
-      malformed: "is not a valid address"
+      malformed: "Enter a valid email address"
       no_mx_record: "does not appear to be valid"
       spam_reported: >-
         needs to be checked as past messages were marked as spam.
