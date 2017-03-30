@@ -26,6 +26,7 @@
 //= require modules/moj.checkbox-summary
 //= require modules/moj.AgeLabel.js
 //= require modules/moj.booking-calendar
+//= require modules/moj.set-dimension
 
 (function() {
   'use strict';

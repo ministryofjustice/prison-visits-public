@@ -22,7 +22,7 @@
     <dl>
       <dt><%= t('.your_visit') %></dt>
       <dd>
-        <ul class="list visit-times">
+        <ul class="list visit-times js-SetDimension" data-dimensionValue="[{&quot;name&quot;: &quot;dimension1&quot;,&quot;value&quot;: &quot;<%= @visit.slots.count %>&quot;}]">
           <% @visit.slots.each_with_index do |slot, index| %>
             <li>
               <%= t(".option_#{index}") %>
