@@ -27,26 +27,19 @@
           <p>
             <%= t('.seating_arrangements', adult_age: f.object.adult_age) %>
           </p>
-          <script type="text/html" id="additional-visitor-selector">
-            <fieldset>
-              <legend class="visuallyhidden">
-                <%= t('.other_visitors') %>
-              </legend>
-              <div class="group group--inline">
-                <%= single_field(f, :additional_visitor_count, :select,
-                                 additional_visitor_selections(f.object),
-                                 {},
-                                 class: 'js-RevealAdditional form-control',
-                                 data: { target_els: '.additional-visitor' }) %>
-              </div>
-            </fieldset>
-          </script>
-          <script>
-           document.write(
-             document.getElementById('additional-visitor-selector').innerHTML
-           );
-          </script>
         </div>
+          <fieldset class="visible--js-enabled">
+            <legend class="visuallyhidden">
+              <%= t('.other_visitors') %>
+            </legend>
+            <div class="group group--inline">
+              <%= single_field(f, :additional_visitor_count, :select,
+                               additional_visitor_selections(f.object),
+                               {},
+                               class: 'js-RevealAdditional form-control',
+                               data: { target_els: '.additional-visitor' }) %>
+            </div>
+          </fieldset>
         <%= render('additional_visitors', f: f) %>
         <div class="grid-row form-group">
           <div class="column-one-half">

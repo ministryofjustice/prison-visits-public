@@ -4,10 +4,7 @@
   moj.Modules.bookingCalendar = {
     el: '.js-bookingCalendar',
 
-    settings: {
-      i18n: moj.i18n
-    },
-
+    i18n: {},
     init: function() {
       if ($(this.el) && $(this.el).length > 0) {
         this.cacheEls();
@@ -34,6 +31,7 @@
       this.$submitBtn = $('#' + this.$el.data('slotSubmit'));
       this.$cancelBtn = $('#' + this.$el.data('slotCancel'));
       this.$skipBtn = $('#' + this.$el.data('slotSkip'));
+      this.i18n = this.$el.data('i18n');
     },
 
     /**
@@ -147,7 +145,7 @@
       };
 
       // display the current month
-      this.$monthObj.html(this.settings.i18n.months[this.month] + ' ' + this.year);
+      this.$monthObj.html(this.i18n.months[this.month] + ' ' + this.year);
 
       // populate the calendar grid
       this.popGrid();
@@ -306,7 +304,7 @@
         }
 
         gridCells += '\t\t<td id="day' + curDay + '" class="' + className + '" aria-label="' +
-          curDay + ', ' + this.settings.i18n.days[weekday] + ' ' + this.settings.i18n.months[this.month] +
+          curDay + ', ' + this.i18n.days[weekday] + ' ' + this.i18n.months[this.month] +
           ' ' + this.year + '" role="gridcell" aria-selected="' + ariaSelected + '">' +
           '<span aria-label="' + ariaLabel + '" class="cell-date">' + curDay + '</span></td>';
 
@@ -404,7 +402,7 @@
       // populate the calendar grid
       this.popGrid();
 
-      this.$monthObj.html(this.settings.i18n.months[this.month] + ' ' + this.year);
+      this.$monthObj.html(this.i18n.months[this.month] + ' ' + this.year);
 
       // if offset was specified, set focus on the first day + specified offset
       if (offset != null) {
@@ -436,7 +434,7 @@
       // populate the calendar grid
       this.popGrid();
 
-      this.$monthObj.html(this.settings.i18n.months[this.month] + ' ' + this.year);
+      this.$monthObj.html(this.i18n.months[this.month] + ' ' + this.year);
     },
 
     /**
@@ -456,7 +454,7 @@
       // populate the calendar grid
       this.popGrid();
 
-      this.$monthObj.html(this.settings.i18n.months[this.month] + ' ' + this.year);
+      this.$monthObj.html(this.i18n.months[this.month] + ' ' + this.year);
     },
 
     handlePrevClick: function(e) {
@@ -947,13 +945,13 @@
       var date = this.makeDateObj(this.splitDateAndSlot(slot)[0]),
         time = this.splitDateAndSlot(slot)[1];
       return {
-        'day': this.settings.i18n.days[date.getDay()],
+        'day': this.i18n.days[date.getDay()],
         'date': {
           'day': date.getDate(),
           'monthIndex': date.getMonth(),
           'year': date.getFullYear()
         },
-        'formattedDate': date.getDate() + ' ' + this.settings.i18n.months[date.getMonth()],
+        'formattedDate': date.getDate() + ' ' + this.i18n.months[date.getMonth()],
         'time': this.formatTime(time.split('/')[0]),
         'duration': this.formatTimeDuration(time)
       }
@@ -1007,18 +1005,18 @@
       if (duration.getUTCHours()) {
         out += duration.getUTCHours() + ' ';
         if (duration.getUTCHours() > 1) {
-          out += this.settings.i18n.hour.other;
+          out += this.i18n.hour.other;
         } else {
-          out += this.settings.i18n.hour.one;
+          out += this.i18n.hour.one;
         }
       }
 
       if (duration.getMinutes()) {
         out += ' ' + duration.getMinutes() + ' ';
         if (duration.getMinutes() > 1) {
-          out += this.settings.i18n.minute.other;
+          out += this.i18n.minute.other;
         } else {
-          out += this.settings.i18n.minute.one;
+          out += this.i18n.minute.one;
         }
       }
 

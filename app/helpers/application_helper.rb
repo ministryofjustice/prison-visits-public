@@ -7,6 +7,12 @@ module ApplicationHelper
     Kramdown::Document.new(source).to_html.html_safe
   end
 
+  def ga_tracking_data
+    data = { ga_tracking_id: config_item(:ga_id) }
+    data[:hit_type_page] = @step_name if @step_name
+    data
+  end
+
   def javascript_i18n
     {
       days: I18n.t('date.day_names'),

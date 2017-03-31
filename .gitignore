@@ -14,7 +14,7 @@
 
 /spec/examples.txt
 /coverage/*
-
+.env
 .transifexrc
 *.DS_Store
 .byebug_history

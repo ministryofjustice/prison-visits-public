@@ -34,12 +34,6 @@
 
   };
 
-  for (var attrname in i18n) {
-    moji18n[attrname] = i18n[attrname];
-  }
-
-  moj.i18n = moji18n;
-
   window.moj = moj;
 }());
 
