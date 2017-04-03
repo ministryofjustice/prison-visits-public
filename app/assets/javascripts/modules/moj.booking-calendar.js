@@ -854,10 +854,10 @@
 
       if ($('#' + active).attr('id') == undefined) {
         var lastDay = 'day1';
-        $('#' + lastDay).addClass('focus').find('.cell-date').attr('aria-selected', 'true');
+        $('#' + lastDay).find('.cell-date').attr('aria-selected', 'true');
         this.$grid.attr('aria-activedescendant', 'day1');
       } else {
-        $('#' + active).addClass('focus').find('.cell-date').attr('aria-selected', 'true');
+        $('#' + active).find('.cell-date').attr('aria-selected', 'true');
       }
 
       return true;
