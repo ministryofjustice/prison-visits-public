@@ -596,7 +596,7 @@
               var date = this.year + '-' + (this.month < 9 ? '0' : '') + (this.month + 1) + '-' + ($curDay.text() <= 9 ? '0' : '') + $curDay.text();
               this.updateSelectedDate(date);
               this.updateSlots(date);
-              this.$slotList.find('input').eq(0).focus();
+              // this.$slotList.find('input').eq(0).focus();
             } else {
               return false;
             }
