@@ -897,16 +897,16 @@
           time = self.formatTime(obj.time.split('/')[0]),
           duration = self.formatTimeDuration(obj.time),
           disabled,
-          checked = obj.slot === self.selectedSlot ? 'checked' : null;
+          checked = obj.slot === self.selectedSlot ? 'checked' : '';
 
         if (!checked) {
           className += obj.chosen === true ? ' chosen' : '';
           className += obj.available === 0 ? ' disabled' : '';
-          disabled = (obj.chosen === true || obj.available === 0) ? 'disabled' : null;
+          disabled = (obj.chosen === true || obj.available === 0) ? 'disabled' : '';
         }
 
         var tmpl = '<label class="block-label selection-button-radio slot' + className + '" for="slot-step-' + obj.day + '-' + i + '">' +
-          '<input ' + checked + ' aria-label="' + selectedDate.formattedDate + ' selected." ' + disabled + ' id="slot-step-' + obj.day + '-' + i + '" type="radio" name="slot_step_0" value="' + obj.slot + '">' +
+          '<input ' + checked + ' ' + disabled + ' id="slot-step-' + obj.day + '-' + i + '" type="radio" name="slot_step_0" value="' + obj.slot + '">' +
           '<span class="slot--time">' + time + ' (' + duration + ')</span>' +
           '<br/>' +
           '<span class="slot--message">' + obj.message + '</span>' +
