@@ -175,6 +175,7 @@ table.booking-calendar {
 .slot-selection {
   border-top: 1px solid $border-colour;
   padding: 20px 0;
+  margin-bottom: $gutter-half;
   min-height: 436px;
   box-sizing: border-box;
   @include media(mobile) {
