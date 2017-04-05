@@ -1,5 +1,5 @@
 <% if @visit.can_cancel? || @visit.can_withdraw? %>
-  <div>
+  <div id='cancel-visit'>
     <h2 class="heading-medium"><%= t('visits.shared.cancel_title') %></h2>
 
     <p><%= t('visits.shared.cancel_intro') %></p>
