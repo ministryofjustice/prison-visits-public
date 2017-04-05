@@ -365,7 +365,7 @@ en:
           <li>The prison will check your visit details and either approve or reject your booking.</li>
           <li>You'll get a confirmation email with their decision within 3 working days.</li>
           <li>If you don't get an email, <a href="#contact-prison">contact the prison</a>.</li>
-          <li>If you no longer want the visit on this date, you can <a href="#cancel-visit">cancel this visit</a>.</li>
+          <li>If you no longer want the visit on this date, you can <a href="#cancel-visit-section">cancel this visit</a>.</li>
         </ul>
       not_received: >-
         If you don’t receive an email within 3 working days, please check your

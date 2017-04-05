@@ -13,7 +13,7 @@ RSpec.feature 'Maintaining a visit', js: true do
     visit visit_path(id: 'FOOBAR', locale: 'en')
     expect(page).to have_text('Your visit is not booked yet')
 
-    within '#cancel-visit' do
+    within '#cancel-visit-section' do
       find('.summary').click
     end
 
