@@ -49,7 +49,7 @@ RSpec.feature 'Booking a visit', js: true do
 
     click_button 'Send visit request'
 
-    expect(page).to have_text('Your request is being processed')
+    expect(page).to have_text('Visit request sent')
   end
 
   scenario 'remove middle slot', vcr: { cassette_name: :request_a_visit_remove_middle_slot } do
@@ -243,6 +243,6 @@ RSpec.feature 'Booking a visit', js: true do
 
     click_button 'Send visit request'
 
-    expect(page).to have_text('Your request is being processed')
+    expect(page).to have_text('Visit request sent')
   end
 end

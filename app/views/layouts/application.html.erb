@@ -1,5 +1,9 @@
 <% content_for :page_title do %>
-  <%= page_title(yield(:header)) %>
+  <% if content_for?(:pagetitle) %>
+    <%= page_title(yield(:pagetitle)) %>
+  <% else %>
+    <%= page_title(yield(:header)) %>
+  <% end %>
 <% end %>
 
 <% content_for :head do %>

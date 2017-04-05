@@ -1,0 +1,10 @@
+.icon-tick {
+  width: 31px;
+  height: 23px;
+  background-image: image-url('tick.png');
+  @include media(mobile){
+    background-image: image-url('tick.svg');
+    background-size: 100%;
+    height: 20px;
+  }
+}

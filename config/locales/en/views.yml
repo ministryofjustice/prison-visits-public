@@ -353,24 +353,34 @@ en:
         place as planned, please check your spam or junk folder. You need to do
         this on a computer or tablet (rather than a smart phone).
     requested:
-      title: Your request is being processed
-      subtitle: Your visit is not booked yet
-      intro: >-
-        Your visit request hasn’t yet been processed by visit booking staff.
-        You should get a visit confirmation email within 3 working days of
-        making your request.
+      title: Visit request sent
+      tick: Tick
+      visit_id_html: >-
+        <p class="lede">Your visit ID: <span class="bold-medium">%{id}</span></p>
+        <p>Make a note of your visit ID<br>in case you need to contact the prison</p>
+      subtitle: Your visit is not booked yet - you should hear from the prison by %{date}
+      what_happens_next: What happens next?
+      info_html: >-
+        <ul class="list list-bullet">
+          <li>The prison will check your visit details and either approve or reject your booking.</li>
+          <li>You'll get a confirmation email with their decision within 3 working days.</li>
+          <li>If you don't get an email, <a href="#contact-prison">contact the prison</a>.</li>
+          <li>If you no longer want the visit on this date, you can <a href="#cancel-visit">cancel this visit</a>.</li>
+        </ul>
       not_received: >-
         If you don’t receive an email within 3 working days, please check your
         spam or junk folder. You need to do this on a computer or tablet
         (rather than a smart phone).
+      prison_details: Prison details
+      cancel_visit: Cancel this visit
       cancel_pre_intro_html: >-
         If you no longer want to visit on this date, you can
         <a href="#cancel-visit">cancel this visit</a>.
-      visit_details_title: Your visit request
-      your_visit: Dates requested
-      option_0: "Option 1:"
-      option_1: "Option 2:"
-      option_2: "Option 3:"
+      visit_details_title: Your visit details
+      requested_date: Requested date and times
+      google_maps: View on google maps
+      phone_no: Phone number
+      email: Email
     cancelled:
       title: Your visit is cancelled
       your_visit: Date and time of your visit

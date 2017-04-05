@@ -13,10 +13,14 @@ RSpec.feature 'Maintaining a visit', js: true do
     visit visit_path(id: 'FOOBAR', locale: 'en')
     expect(page).to have_text('Your visit is not booked yet')
 
-    click_link 'cancel this visit'
+    within '#cancel-visit' do
+      find('.summary').click
+    end
 
     check_yes_i_want_to_cancel
-    click_button 'Cancel visit'
+    within '.js-SubmitOnce' do
+      click_button 'Cancel visit'
+    end
     expect(page).to have_text('You cancelled this visit request')
   end
 
