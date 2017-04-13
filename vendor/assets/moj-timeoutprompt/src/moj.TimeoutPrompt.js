@@ -1,8 +1,5 @@
 // Timeout prompt for MOJ
-// Dependencies: moj, jQuery, lodash
-
-_.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
-
+// Dependencies: moj, jQuery
 (function () {
 
   'use strict';
@@ -20,7 +17,7 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
       timeoutMinutes: 17,
       respondMinutes: 3,
       exitPath: '/abandon',
-      template: '.TimeoutPrompt-template'
+      alert: '.TimeoutPrompt-alert'
     },
 
     timeout: null,
@@ -40,10 +37,14 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 
     cacheEls: function($el) {
       this.$el = $el;
-      this.$template = $el.find(this.settings.template);
-      this.$alert = $(this.getTemplate(this.$template));
+      this.$alert = this.alertPrompt();
     },
 
+    alertPrompt: function() {
+      var prompt = this.$el.find(this.settings.alert);
+      var s = prompt.find('#timeoutTitle span').html(this.settings.respondMinutes);
+      return prompt;
+    },
     bindEvents: function() {
       this.$el.find('.TimeoutPrompt-extend').on('click', $.proxy(this.removeAlert, this));
     },
@@ -59,20 +60,8 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
       );
     },
 
-    getTemplate: function($tmpl) {
-      var template;
-
-      if ($tmpl.length) {
-        template = _.template($tmpl.html());
-
-        return template({
-          respondTime: this.settings.respondMinutes
-        });
-      }
-    },
-
     showAlert: function (ms) {
-      this.$alert.appendTo(this.$el).focus();
+      this.$alert.removeClass('visuallyhidden').focus();
       this.respond = setTimeout($.proxy(this.redirect, this), ms, this.settings.exitPath);
       this.bindEvents();
     },
@@ -82,7 +71,7 @@ _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
     },
 
     removeAlert: function () {
-      this.$alert.remove();
+      this.$alert.addClass('visuallyhidden');
       clearTimeout(this.timeout);
       this.refreshSession();
     },

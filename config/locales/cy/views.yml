@@ -238,7 +238,7 @@ cy:
         anghyfreithlon i'r carchar.  Mae rhagor o wybodaeth ar beth allwch ddod efo
         chi ar dudalen Carchar <a href="%{url}">%{prison}.
     timeout_prompt:
-      title: Bydd eich sesiwn yn dod i ben mewn %{minutes_left} munud
+      title: Bydd eich sesiwn yn dod i ben mewn <span></span> munud
       continue_question: 'Hoffech chi fynd ymlaen? '
       yes_continue: Hoffwn
   visits:

@@ -291,7 +291,7 @@ en:
         <a href="%{url}">%{prison} prison page</a> has more information about
         what you can bring.
     timeout_prompt:
-      title: Your session will expire in %{minutes_left} minutes
+      title_html: Your session will expire in <span></span> minutes
       continue_question: Would you like to continue?
       yes_continue: "Yes"
   visits:
