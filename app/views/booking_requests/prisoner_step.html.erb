@@ -31,9 +31,6 @@
         Prison.all.map { |p| [p.name, p.id] },
         { prompt: t('.prison_id_prompt') },
         { class: 'js-autocomplete' }) %>
-        <div class="form-group">
-          <%= t('.information_html') %>
-        </div>
         <div class="grid-row form-group">
           <div class="column-one-half">
             <%= f.submit(t('.next_step'), class: 'button button-primary') %>

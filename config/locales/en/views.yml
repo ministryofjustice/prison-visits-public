@@ -34,33 +34,19 @@ en:
       required_notice: You can only book a visit 3 working days in advance.
     prisoner_step:
       title: Who are you visiting?
-      information_html: |
-        <p>Remember that you:</p>
-        <ul class="list list-bullet">
-          <li>
-            don’t need a Visiting Order (VO) number to request a visit
-          </li>
-          <li>
-            need the dates of birth for all visitors coming with you
-          </li>
-          <li>
-            will have your visit confirmed by email within 3 working days of
-            making your request
-          </li>
-        </ul>
       prisoner_details: Prisoner details
       first_name: Prisoner first name
       last_name: Prisoner last name
       date_of_birth: Prisoner date of birth
-      date_of_birth_hint: eg 28 04 1996
+      date_of_birth_hint: For example, 28 04 1996
       number: Prisoner number
-      number_hint: eg A1234BC
-      prison_id: Name of the prison
-      prison_id_hint: eg Cardiff
+      number_hint: For example, A1234BC
+      prison_id: Prison name
+      prison_id_hint: For example, Cardiff
       prison_id_prompt: select a prison
       note_header: Please note
       note: >-
-        If you don’t enter any information for more than 20 minutes, then your
+        If you don’t enter any information for more than 20 minutes, your
         session will time out and you’ll need to start again.
       next_step: Continue
     prison_unavailable:
