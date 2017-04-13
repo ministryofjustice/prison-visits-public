@@ -31,12 +31,6 @@ cy:
       required_notice: 'Dim ond 3 diwrnod gwaith ymlaen llaw y gallwch drefnu ymweliad. '
     prisoner_step:
       title: Â phwy ydych chi am ymweld?
-      information_html: "<p>Cofiwch:</p>\n<ul class=\"list list-bullet\">\n  <li>\n
-        \   nid oes arnoch angen rhif Gorchymyn Ymweld (VO) i wneud cais am ymweliad\n
-        \ </li>\n  <li>\n    mae arnoch angen dyddiad geni pob ymwelydd sy'n dod efo
-        chi\n  </li>\n  <li>\n    byddwn yn cadarnhau eich ymweliad drwy anfon neges
-        e-bost atoch o fewn 3 diwrnod gwaith o'r dyddiad gwneud eich cais\n  </li>\n</ul>
-        \n\n"
       prisoner_details: Manylion y carcharor
       first_name: Enw cyntaf y carcharor
       last_name: Cyfenw'r carcharor
