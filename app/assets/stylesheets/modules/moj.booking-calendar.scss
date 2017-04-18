@@ -181,7 +181,7 @@ table.booking-calendar {
   @include media(mobile) {
     border-bottom: 1px solid $border-colour;
     border-top: none;
-    min-height: auto;
+    min-height: 0;
   }
   .block-label {
     margin-bottom: 25px;
