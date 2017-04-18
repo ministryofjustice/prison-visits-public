@@ -52,7 +52,7 @@ module PrisonVisits
 
     config.api_host = ENV.fetch('PRISON_VISITS_API', 'http://localhost:3000/')
 
-    config.lograge.enabled = true
+    config.lograge.enabled = !(ENV.fetch('ENABLE_LOGRAGE', true) == 'false')
     config.lograge.custom_options = lambda do |event|
       event.payload[:custom_log_items]
     end
