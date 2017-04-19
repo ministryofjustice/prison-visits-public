@@ -7,6 +7,7 @@
 
 // GOVUK modules
 //= require govuk_toolkit
+//= require vendor/polyfills/bind
 //= require govuk/selection-buttons
 
 // MOJ elements
