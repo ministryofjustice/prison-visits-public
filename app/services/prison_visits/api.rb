@@ -38,8 +38,6 @@ module PrisonVisits
         },
         idempotent: true
       )
-      Rails.logger.error result.inspect
-      raise 'why?'
       result.fetch('validation')
     end
 
