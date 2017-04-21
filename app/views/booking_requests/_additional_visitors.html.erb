@@ -1,8 +1,7 @@
 <%= f.fields_for :visitors, f.object.backfilled_visitors.drop(1) do |vf| %>
   <div class="additional-visitor" id="visitor-<%= vf.index %>">
-    <hr>
     <h3 class="heading-medium"><%= t('.visitor', n: vf.index + 1) %></h3>
-
+    <div>
     <%= single_field(vf, :first_name, :text_field, class: 'form-control') %>
 
     <%= single_field(vf, :last_name, :text_field, class: 'form-control') %>
@@ -10,5 +9,13 @@
     <%= composite_field(vf, :date_of_birth) do %>
       <%= render('dob', form: vf) %>
     <% end %>
+    </div>
+
+    <button
+      class="button button-secondary additional-visitor--remove js-HideAdditionalButton visible--js-enabled"
+      type="button"><%= t('.remove_visitor', number: vf.index + 1) %>
+    </button>
+    <hr>
+
   </div>
 <% end %>

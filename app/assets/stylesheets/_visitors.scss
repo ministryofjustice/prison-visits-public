@@ -1,0 +1,5 @@
+.additional-visitor:not(.additional-visitor--last) {
+  .additional-visitor--remove {
+    @extend .visuallyhidden;
+  }
+}
