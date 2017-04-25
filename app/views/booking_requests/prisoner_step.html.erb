@@ -13,9 +13,9 @@
   <div class="grid-row">
     <div class="column-two-thirds">
       <div class="form-group">
-        <h3 class="bold-medium">
+        <h2 class="bold-medium">
           <%= t('.prisoner_details') %>
-        </h3>
+        </h2>
       </div>
       <fieldset>
         <legend class="visuallyhidden">
@@ -24,7 +24,7 @@
         <%= single_field(f, :first_name, :text_field, class: 'form-control') %>
         <%= single_field(f, :last_name, :text_field, class: 'form-control') %>
         <%= composite_field(f, :date_of_birth) do %>
-          <%= render('dob', form: f) %>
+          <%= render('dob', form: f, field: :date_of_birth) %>
         <% end %>
         <%= single_field(f, :number, :text_field, class: 'form-control') %>
         <%= single_field(f, :prison_id, :select,
