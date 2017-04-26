@@ -25,8 +25,8 @@
 
     cacheEls: function() {
       this.$select = $(this.el).find('.js-RevealAdditionalSelect');
-      this.$addButton = $('.js-RevealAdditionalButton');
-      this.$removeButton = $('.js-HideAdditionalButton');
+      this.$addButton = $(this.el).find('.js-RevealAdditionalButton');
+      this.$removeButton = $(this.el).find('.js-HideAdditionalButton');
     },
 
     render: function() {

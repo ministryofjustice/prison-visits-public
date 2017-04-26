@@ -18,7 +18,7 @@
   <div class="grid-row">
     <div class="column-two-thirds">
       <p><%= t('.info') %></p>
-      <fieldset>
+      <fieldset class="js-RevealAdditional">
         <legend class="visuallyhidden">
           <%= t('.your_details') %>
         </legend>
@@ -33,7 +33,7 @@
             <legend class="visuallyhidden">
               <%= t('.other_visitors') %>
             </legend>
-            <div class="js-RevealAdditional visuallyhidden">
+            <div class="visuallyhidden">
               <%= single_field(f, :additional_visitor_count, :select,
                                additional_visitor_selections(f.object),
                                {},
