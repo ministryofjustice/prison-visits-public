@@ -17,7 +17,8 @@
   <%= render('shared/validation', object: f.object) %>
   <div class="grid-row">
     <div class="column-two-thirds">
-      <fieldset>
+      <p><%= t('.info') %></p>
+      <fieldset class="js-RevealAdditional">
         <legend class="visuallyhidden">
           <%= t('.your_details') %>
         </legend>
@@ -32,19 +33,20 @@
             <legend class="visuallyhidden">
               <%= t('.other_visitors') %>
             </legend>
-            <div class="group group--inline">
+            <div class="visuallyhidden">
               <%= single_field(f, :additional_visitor_count, :select,
                                additional_visitor_selections(f.object),
                                {},
-                               class: 'js-RevealAdditional form-control',
-                               data: { target_els: '.additional-visitor' }) %>
+                               class: 'js-RevealAdditionalSelect form-control',
+                               data: { target_els: '.additional-visitor', max_visitors: @steps.fetch(:visitors_step).max_visitors }) %>
             </div>
           </fieldset>
         <%= render('additional_visitors', f: f) %>
-        <div class="grid-row form-group">
-          <div class="column-one-half">
-            <p><%= f.submit(t('.next_step'), class: 'button button-primary') %></p>
-          </div>
+        <div class="form-group">
+          <button class="button button-secondary js-RevealAdditionalButton" type="button"><%= t('.add_visitor') %></button>
+        </div>
+        <div class="form-group">
+          <p><%= f.submit(t('.next_step'), class: 'button button-primary') %></p>
         </div>
       </fieldset>
     </div>

@@ -63,7 +63,8 @@ en:
       shutdown_html: |
         <p>For information on how to find prisoners who used to be in %{prison_name} prison, go to <a href="https://www.gov.uk/find-prisoner" rel="external">find a prisoner</a>.</p>
     visitors_step:
-      title: Your visitor details
+      title: Visitor details
+      info: The details you enter here must match the ID you show at the prison.
       your_details: Your details
       warning: Warning
       no_more_slots: You have chosen all available dates for this prisoner.
@@ -73,6 +74,7 @@ en:
         %{adult_age} plus 3 children under that age. Children may have to sit
         on your lap.
       additional_visitor_count: How many other visitors?
+      add_visitor: Add another visitor
       next_step: Continue
     principal_visitor:
       first_name: First name
@@ -87,6 +89,7 @@ en:
       first_name: First name
       last_name: Last name
       date_of_birth: Date of birth
+      remove_visitor: Remove visitor %{number}
     slots_step:
       title: When do you want to visit?
       slot1_error: You must choose at least one date and time slot.

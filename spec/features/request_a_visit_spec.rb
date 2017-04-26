@@ -137,7 +137,7 @@ RSpec.feature 'Booking a visit', js: true do
     # Invoke skip by making no date or slot selection
     click_link 'No more to add'
 
-    expect(page).to have_text('Your visitor details')
+    expect(page).to have_text('Visitor details')
   end
 
   scenario 'validation errors', vcr: { cassette_name: :request_a_visit_validation_errors } do
