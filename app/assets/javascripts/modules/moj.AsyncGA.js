@@ -6,10 +6,13 @@
     el: '.js-AsyncGA',
     init: function() {
 
-      var gaTrackingId = $(this.el).data('ga-tracking-id');
-      var hitTypePage  = $(this.el).data('hit-type-page');
+      var gaTrackingId = $(this.el).eq(0).data('ga-tracking-id');
+      var hitTypePage = $(this.el).eq(0).data('hit-type-page');
 
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      window.ga = window.ga || function() {
+        (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
       window.ga('create', gaTrackingId, 'service.gov.uk');
 
       if (hitTypePage) {
