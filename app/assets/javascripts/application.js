@@ -14,6 +14,10 @@
 //= require moj
 //= require src/moj.TimeoutPrompt
 
+// MUST be last loaded
+//= require modules/moj.sentry
+
+
 // Candidates for re-usable components
 //= require modules/moj.analytics
 //= require modules/moj.autocomplete
@@ -23,6 +27,7 @@
 //= require modules/moj.booking-calendar
 //= require modules/moj.set-dimension
 //= require modules/moj.AsyncGA
+
 
 (function() {
   'use strict';

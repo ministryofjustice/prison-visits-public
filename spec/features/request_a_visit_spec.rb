@@ -19,7 +19,7 @@ RSpec.feature 'Booking a visit', js: true do
     travel_back
   end
 
-  scenario 'happy path', vcr: { cassette_name: :request_a_visit_happy_path } do
+  scenario 'happy path', vcr: { cassette_name: :request_a_visit_happy_path, allow_playback_repeats: true } do
     visit booking_requests_path(locale: 'en')
 
     enter_prisoner_information
@@ -41,7 +41,7 @@ RSpec.feature 'Booking a visit', js: true do
     click_button 'Continue'
 
     enter_visitor_information email_address: visitor_email
-    select '1', from: 'How many other visitors?'
+    click_button 'Add another visitor'
     enter_visitor_information index: 1
     click_button 'Continue'
 
@@ -74,7 +74,7 @@ RSpec.feature 'Booking a visit', js: true do
     click_button 'Continue'
 
     enter_visitor_information email_address: visitor_email
-    select '1', from: 'How many other visitors?'
+    click_button 'Add another visitor'
     enter_visitor_information index: 1
     click_button 'Continue'
 
@@ -111,7 +111,7 @@ RSpec.feature 'Booking a visit', js: true do
     click_button 'Continue'
 
     enter_visitor_information email_address: visitor_email
-    select '1', from: 'How many other visitors?'
+    click_button 'Add another visitor'
     enter_visitor_information index: 1
     click_button 'Continue'
 

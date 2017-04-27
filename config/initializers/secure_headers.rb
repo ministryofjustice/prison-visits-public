@@ -7,6 +7,7 @@ SecureHeaders::Configuration.default do |config|
     script_src: [
       "'self'",
       'www.google-analytics.com',
+      ENV['RAVEN_JS_URL'],
       "'unsafe-eval'",
       "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='",  # govuk
       "'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g='",  # govuk

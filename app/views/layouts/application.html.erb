@@ -1,4 +1,4 @@
-<% content_for :page_title do %>
+  <% content_for :page_title do %>
   <% if content_for?(:pagetitle) %>
     <%= page_title(yield(:pagetitle)) %>
   <% else %>
@@ -34,6 +34,7 @@
    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   <% end %>
 
+  <%= javascript_include_tag(ENV['RAVEN_JS_URL']) %>
   <%= javascript_include_tag('application') %>
 <% end %>
 
