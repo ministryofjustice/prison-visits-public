@@ -136,7 +136,9 @@
   </div>
 
 <% else %>
-  <% content_for :header, t('.no_availability_title') %>
-  <%= markdown t('.no_availability_md') %>
+  <div class="js-AsyncGA" data-hit-type-page="no_slots_available">
+    <% content_for :header, t('.no_availability_title') %>
+    <%= markdown t('.no_availability_md') %>
+  </div>
 
 <% end %>
