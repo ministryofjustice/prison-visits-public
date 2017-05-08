@@ -136,7 +136,7 @@
   </div>
 
 <% else %>
-  <div class="js-AsyncGA" data-hit-type-page="no_slots_available">
+  <div class="js-AsyncGA" data-ga-tracking-id="<%= config_item :ga_id %>" data-hit-type-page="no_slots_available">
     <% content_for :header, t('.no_availability_title') %>
     <%= markdown t('.no_availability_md') %>
   </div>
