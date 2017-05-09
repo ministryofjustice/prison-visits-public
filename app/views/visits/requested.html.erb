@@ -65,3 +65,9 @@
   </div>
 
 </details>
+
+<% if @request_completed %>
+  <div class="visuallyhidden js-AsyncGA"
+    data-ga-tracking-id="<%= config_item :ga_id %>"
+    data-page-view="request_completed_slots_<%= @visit.slots.size %>"></div>
+<% end %>
