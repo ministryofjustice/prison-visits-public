@@ -21,7 +21,6 @@
 //= require modules/moj.submit-once
 //= require modules/moj.RevealAdditional
 //= require modules/moj.booking-calendar
-//= require modules/moj.set-dimension
 //= require modules/moj.AsyncGA
 
 (function() {

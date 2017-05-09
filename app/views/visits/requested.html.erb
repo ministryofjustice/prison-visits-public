@@ -19,7 +19,7 @@
 <h3 class="bold-medium push-top"><%= t('.visit_details_title') %></h3>
 <p class="bold-small"><%= t('.requested_date') %></p>
 
-<div class="grid-row js-SetDimension" data-dimensionValue="[{&quot;name&quot;: &quot;dimension1&quot;,&quot;value&quot;: &quot;<%= @visit.slots.count %>&quot;}]">
+<div class="grid-row">
   <% @visit.slots.each_with_index do |slot, index| %>
     <div class="column-one-third">
       <div class="date-box">
