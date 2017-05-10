@@ -4,6 +4,7 @@
 //= require jquery-ui-autocomplete
 //= require modernizr-custom
 //= require dest/respond.min
+//= require raven
 
 // GOVUK modules
 //= require govuk_toolkit
@@ -13,10 +14,6 @@
 // MOJ elements
 //= require moj
 //= require src/moj.TimeoutPrompt
-
-// MUST be last loaded
-//= require modules/moj.sentry
-
 
 // Candidates for re-usable components
 //= require modules/moj.analytics

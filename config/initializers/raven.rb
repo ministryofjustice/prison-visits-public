@@ -10,7 +10,3 @@ else
   # (Rails logger is not initialized yet)
   STDOUT.puts '[WARN] Sentry is not configured (SENTRY_DSN)'
 end
-
-unless ENV['RAVEN_JS_URL']
-  STDOUT.puts '[WARN] Raven JS URL is not configured (RAVEN_JS_URL)'
-end
