@@ -5,8 +5,8 @@
     el: '.js-Sentry',
     init: function() {
       this.raven = Raven;
-      this.sentry_dsn = $(this.el).data('sentry-dsn');
-      this.raven.config(this.sentry_dsn).install();
+      this.sentry_js_dsn = $(this.el).data('sentry-js-dsn');
+      this.raven.config(this.sentry_js_dsn).install();
       var self = this;
 
       // Capture any uncaught errors

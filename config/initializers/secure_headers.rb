@@ -18,6 +18,6 @@ SecureHeaders::Configuration.default do |config|
   # So we can send JS errors to Sentry
   # Strip off leading <pub_key>@ and trailing /<proj_num> so we have a clean
   # domain name
-  match = (Rails.configuration.sentry_dsn || '').match(%r{@(.+)\/})
+  match = (Rails.configuration.sentry_js_dsn || '').match(%r{@(.+)\/})
   config.csp[:connect_src] = [match[1]] if match
 end
