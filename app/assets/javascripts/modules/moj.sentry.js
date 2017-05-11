@@ -5,7 +5,14 @@
     el: '.js-Sentry',
     init: function() {
       this.raven = Raven;
-      this.raven.config('https://sentry.service.dsd.io/59').install()
+      this.sentry_dsn = $(this.el).data('sentry-dsn');
+      this.raven.config(this.sentry_dsn).install();
+      var self = this;
+
+      // Capture any uncaught errors
+      window.onerror = function(error) {
+        self.raven.captureException(error);
+      }
     }
   }
 }());
