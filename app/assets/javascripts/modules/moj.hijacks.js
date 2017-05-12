@@ -20,6 +20,11 @@
         .on('click', 'a[rel*=external], a[rel*=help]', function (e) {
           e.preventDefault();
           window.open($(this).attr('href'));
+        })
+
+        .on('click', '.no-link', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
         });
 
     }
