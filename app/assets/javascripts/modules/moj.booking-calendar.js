@@ -307,8 +307,8 @@
         }
 
         gridCells += '\t\t<td id="day' + curDay + '" class="' + className + '" role="gridcell">' +
-          '<a ' + ariaSelected + ' aria-readonly="' + readonly + '" tabindex="-1" href="javascript:void(0)" rel="nofollow" aria-label="' + curDay + ', ' + this.i18n.days[weekday] + ' ' + this.i18n.months[this.month] +
-          ' ' + this.year + ' - ' + ariaLabel + '" class="cell-date">' + curDay + '</a></td>';
+          '<a ' + ariaSelected + ' aria-readonly="' + readonly + '" tabindex="-1" href="#" rel="nofollow" aria-label="' + curDay + ', ' + this.i18n.days[weekday] + ' ' + this.i18n.months[this.month] +
+          ' ' + this.year + ' - ' + ariaLabel + '" class="cell-date no-link">' + curDay + '</a></td>';
 
         if (weekday == 6 && curDay < numDays) {
           // This was the last day of the week, close it out
@@ -369,7 +369,7 @@
       // populate the calendar grid
       this.popGrid();
 
-      this.$monthObj.html(this.settings.i18n.months[this.month] + ' ' + this.year);
+      this.$monthObj.html(this.i18n.months[this.month] + ' ' + this.year);
 
       // if offset was specified, set focus on the last day - specified offset
       if (offset != null) {
