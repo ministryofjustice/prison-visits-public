@@ -10,7 +10,7 @@
 #   - lib/source2.js
 #
 src_files:
-  - https://cdn.ravenjs.com/3.14.2/raven.min.js
+  - assets/javascripts/raven-3.14.2.min.js
   - assets/application.js
   - assets/jasmine-jquery.js
 

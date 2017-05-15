@@ -28,7 +28,6 @@
 //= require modules/moj.set-dimension
 //= require modules/moj.AsyncGA
 
-
 (function() {
   'use strict';
   if (!$('body').hasClass('js-enabled')) {
