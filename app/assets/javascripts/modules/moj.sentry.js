@@ -7,11 +7,11 @@
       this.raven = Raven;
       this.sentry_js_dsn = $(this.el).data('sentry-js-dsn');
       this.raven.config(this.sentry_js_dsn).install();
-      var self = this;
+      var sentry_module = this;
 
       // Capture any uncaught errors
       window.onerror = function(error) {
-        self.raven.captureException(error);
+        sentry_module.raven.captureException(error);
       }
     }
   }
