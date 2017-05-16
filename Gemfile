@@ -9,18 +9,18 @@ gem 'kramdown'
 gem 'lograge'
 gem 'logstash-event'
 gem 'phonelib'
-gem 'puma', '~> 3.6.2'
-gem 'sass-rails', '~> 5.0'
-gem 'govuk_template', '~> 0.17.0'
-gem 'govuk_frontend_toolkit', '>= 5.0.2'
-gem 'govuk_elements_rails', '>= 2.2.1'
+gem 'puma'
+gem 'sass-rails'
+gem 'govuk_template'
+gem 'govuk_frontend_toolkit'
+gem 'govuk_elements_rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 # Fixed version as workaround for Rails version 4.2 expecting method
 # 'last_comment' to be defined. Review once we are using a different Rails
 # version
-gem 'rake', '< 12.0'
+gem 'rake'
 gem 'request_store'
 # Fixed version as workaround for bug in 0.15.5
 # https://github.com/getsentry/raven-ruby/issues/460
@@ -41,7 +41,6 @@ group :development, :test do
   gem 'byebug'
   gem 'jasmine-jquery-rails'
   gem 'jasmine'
-  gem 'parser', '~> 2.4.0.0'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.6'

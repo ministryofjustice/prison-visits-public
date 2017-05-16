@@ -10,9 +10,9 @@ RSpec.describe ErrorHandler do
       }
     end
 
-    subject { described_class.call(env) }
-
     let(:show_action) { double('Show action', call: true) }
+
+    subject { described_class.call(env) }
 
     before do
       expect(ErrorsController).

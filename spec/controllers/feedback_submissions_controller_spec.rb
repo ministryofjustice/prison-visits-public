@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe FeedbackSubmissionsController, type: :controller do
   context 'new' do
     let(:params) { { locale: 'en' } }
+
     it 'responds with success' do
       get :new, params
       expect(response).to be_success

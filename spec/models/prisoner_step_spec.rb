@@ -29,16 +29,19 @@ RSpec.describe PrisonerStep do
 
     context 'without a prison_id' do
       let(:prison_id) { nil }
+
       it { is_expected.to be_nil }
     end
 
     context 'with a blank prison_id (ie not selecting a prison)' do
       let(:prison_id) { '' }
+
       it { is_expected.to be_nil }
     end
 
     context 'with a valid prison_id' do
       let(:prison_id) { '123' }
+
       before do
         expect(pvb_api).to receive(:get_prison).and_return(prison)
       end

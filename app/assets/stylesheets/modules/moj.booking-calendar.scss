@@ -183,10 +183,6 @@ table.booking-calendar {
     border-top: none;
     min-height: 0;
   }
-  .block-label {
-    margin-bottom: 25px;
-  }
-  // Disabled state
   .selection-button-radio.disabled, .selection-button-radio.chosen {
     &:before, &:after {
       border-color: $panel-colour;

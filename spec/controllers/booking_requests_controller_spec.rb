@@ -67,6 +67,7 @@ RSpec.describe BookingRequestsController do
 
   context 'with an enabled prison' do
     let(:enabled) { true }
+
     context 'on the first prisoner details page' do
       before do
         get :index, locale: 'en'
