@@ -68,7 +68,7 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
   config.ignore_request do |request|
     # Ignore capybara requests within feature tests
-    request.uri =~ /__identify__/
+    request.uri =~ /__identify__|session/
   end
 end
 

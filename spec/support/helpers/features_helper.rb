@@ -50,15 +50,16 @@ module FeaturesHelper
   end
 
   def select_first_available_slot
-    first('#js-slotAvailability input[type="radio"]', visible: false).trigger('click')
+    first('#js-slotAvailability input[type="radio"]', visible: false).click
   end
 
   def select_prison(name)
-    find('input[data-input-name="prisoner_step[prison_id]"]').
-      set(name)
+    field = find('#prisoner_step_prison_id')
+    field.set(name)
+    field.native.send_keys(:return)
   end
 
   def check_yes_i_want_to_cancel
-    find("#confirmed", visible: false).trigger('click')
+    find("#confirmed", visible: false).click
   end
 end

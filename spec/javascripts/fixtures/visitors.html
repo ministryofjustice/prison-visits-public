@@ -1,208 +1,327 @@
 <div class="grid-row">
   <div class="column-two-thirds">
     <p>The details you enter here must match the ID you show at the prison.</p>
-    <fieldset>
+    <fieldset class="js-RevealAdditional">
       <legend class="visuallyhidden">
         Your details
       </legend>
 
       <div id="visitor-0">
-        <div class="form-group"><label class="form-label" for="visitors_step_visitors_attributes_0_first_name">First name</label><input class="form-control" type="text" name="visitors_step[visitors_attributes][0][first_name]" id="visitors_step_visitors_attributes_0_first_name"></div>
-        <div class="form-group"><label class="form-label" for="visitors_step_visitors_attributes_0_last_name">Last name</label><input class="form-control" type="text" name="visitors_step[visitors_attributes][0][last_name]" id="visitors_step_visitors_attributes_0_last_name"></div>
-        <div class="form-group"><fieldset><legend>Date of birth</legend><div class="form-date"><span class="form-hint" id="dobHint">You must be over 18 to book a visit</span>
-        <div class="datefield form-group form-group-day">
-          <label for="visitors_step[visitors_attributes][0]_date_of_birth_day">
-            Day
-          </label>
-          <input class="form-control" value="" type="number" min="1" max="31" name="visitors_step[visitors_attributes][0][date_of_birth][day]" id="visitors_step[visitors_attributes][0]_date_of_birth_day" aria-describedby="dobHint">
+        <div class="form-group">
+          <label class="form-label" for="visitors_step_visitors_attributes_0_first_name">First name</label>
+          <input class="form-control" type="text" name="visitors_step[visitors_attributes][0][first_name]" id="visitors_step_visitors_attributes_0_first_name" />
         </div>
-        <div class="datefield form-group form-group-month">
-          <label for="visitors_step[visitors_attributes][0]_date_of_birth_month">
-            Month
-          </label>
-          <input class="form-control" value="" type="number" min="1" max="12" name="visitors_step[visitors_attributes][0][date_of_birth][month]" id="visitors_step[visitors_attributes][0]_date_of_birth_month" aria-describedby="dobHint">
+
+        <div class="form-group">
+          <label class="form-label" for="visitors_step_visitors_attributes_0_last_name">Last name</label>
+          <input class="form-control" type="text" name="visitors_step[visitors_attributes][0][last_name]" id="visitors_step_visitors_attributes_0_last_name" />
         </div>
-        <div class="datefield form-group form-group-year">
-          <label for="visitors_step[visitors_attributes][0]_date_of_birth_year">
-            Year
-          </label>
-          <input class="form-control" value="" type="number" min="1897" max="2017" name="visitors_step[visitors_attributes][0][date_of_birth][year]" id="visitors_step[visitors_attributes][0]_date_of_birth_year" aria-describedby="dobHint">
+
+        <div class="form-group">
+          <fieldset>
+            <legend>Date of birth</legend>
+            <div class="form-date"><span class="form-hint" id="date_of_birth_hint">You must be over 18 to book a visit</span>
+              <div class="datefield form-group form-group-day">
+                <label for="visitors_step[visitors_attributes][0]_date_of_birth_day">
+                  Day
+                </label>
+                <input class="form-control" value="" type="number" min="1" max="31" name="visitors_step[visitors_attributes][0][date_of_birth][day]" id="visitors_step[visitors_attributes][0]_date_of_birth_day" aria-describedby="date_of_birth_hint" />
+              </div>
+              <div class="datefield form-group form-group-month">
+                <label for="visitors_step[visitors_attributes][0]_date_of_birth_month">
+                  Month
+                </label>
+                <input class="form-control" value="" type="number" min="1" max="12" name="visitors_step[visitors_attributes][0][date_of_birth][month]" id="visitors_step[visitors_attributes][0]_date_of_birth_month" aria-describedby="date_of_birth_hint" />
+              </div>
+              <div class="datefield form-group form-group-year">
+                <label for="visitors_step[visitors_attributes][0]_date_of_birth_year">
+                  Year
+                </label>
+                <input class="form-control" value="" type="number" min="1897" max="2017" name="visitors_step[visitors_attributes][0][date_of_birth][year]" id="visitors_step[visitors_attributes][0]_date_of_birth_year" aria-describedby="date_of_birth_hint" />
+              </div>
+
+            </div>
+          </fieldset>
         </div>
-      </div></fieldset></div>
-      <div class="form-group"><label class="form-label" for="visitors_step_email_address">Email address<span class="form-hint" id="dobHint">You’ll receive confirmation by email</span></label><input class="form-control" type="text" name="visitors_step[email_address]" id="visitors_step_email_address"></div>
-      <div class="form-group"><label class="form-label" for="visitors_step_phone_no">Phone number</label><input class="form-control" type="text" name="visitors_step[phone_no]" id="visitors_step_phone_no"></div>
-    </div>
-    <div id="other-visitors">
-      <p class="lede">Other visitors</p>
-      <p>
-        Seating arrangements at this prison allow 3 visitors over the age of 18 plus 3 children under that age. Children may have to sit on your lap.
-      </p>
-    </div>
-    <fieldset class="visible--js-enabled">
-      <legend class="visuallyhidden">
-        Other visitors
-      </legend>
-      <div class="js-RevealAdditional visuallyhidden">
-        <div class="form-group"><label class="form-label" for="visitors_step_additional_visitor_count">How many other visitors?</label><select class="js-RevealAdditionalSelect form-control" data-target-els=".additional-visitor" data-max-visitors="6" name="visitors_step[additional_visitor_count]" id="visitors_step_additional_visitor_count"><option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option></select></div>
+        <div class="form-group">
+          <label class="form-label" for="visitors_step_email_address">Email address<span class="form-hint" id="email_address_hint">You’ll receive confirmation by email</span></label>
+          <input class="form-control" type="text" name="visitors_step[email_address]" id="visitors_step_email_address" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="visitors_step_phone_no">Phone number</label>
+          <input class="form-control" type="text" name="visitors_step[phone_no]" id="visitors_step_phone_no" />
+        </div>
+      </div>
+
+      <div id="other-visitors">
+        <p class="lede">Other visitors</p class="lede">
+        <p>
+          Seating arrangements at this prison allow 3 visitors over the age of 18 plus 3 children under that age. Children may have to sit on your lap.
+        </p>
+      </div>
+      <fieldset class="visible--js-enabled">
+        <legend class="visuallyhidden">
+          Other visitors
+        </legend>
+        <div class="visuallyhidden">
+          <div class="form-group">
+            <label class="form-label" for="visitors_step_additional_visitor_count">How many other visitors?</label>
+            <select class="js-RevealAdditionalSelect form-control" data-target-els=".additional-visitor" data-max-visitors="6" name="visitors_step[additional_visitor_count]" id="visitors_step_additional_visitor_count">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="additional-visitor" id="visitor-1">
+        <h3 class="heading-medium">Visitor 2</h3>
+        <div>
+          <div class="form-group">
+            <label class="form-label" for="visitors_step_visitors_attributes_1_first_name">First name</label>
+            <input class="form-control" type="text" name="visitors_step[visitors_attributes][1][first_name]" id="visitors_step_visitors_attributes_1_first_name" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="visitors_step_visitors_attributes_1_last_name">Last name</label>
+            <input class="form-control" type="text" name="visitors_step[visitors_attributes][1][last_name]" id="visitors_step_visitors_attributes_1_last_name" />
+          </div>
+
+          <div class="form-group">
+            <fieldset>
+              <legend>Date of birth</legend>
+              <div class="form-date">
+                <div class="datefield form-group form-group-day">
+                  <label for="visitors_step[visitors_attributes][1]_date_of_birth_day">
+                    Day
+                  </label>
+                  <input class="form-control" value="" type="number" min="1" max="31" name="visitors_step[visitors_attributes][1][date_of_birth][day]" id="visitors_step[visitors_attributes][1]_date_of_birth_day" aria-describedby="date_of_birth_hint" />
+                </div>
+                <div class="datefield form-group form-group-month">
+                  <label for="visitors_step[visitors_attributes][1]_date_of_birth_month">
+                    Month
+                  </label>
+                  <input class="form-control" value="" type="number" min="1" max="12" name="visitors_step[visitors_attributes][1][date_of_birth][month]" id="visitors_step[visitors_attributes][1]_date_of_birth_month" aria-describedby="date_of_birth_hint" />
+                </div>
+                <div class="datefield form-group form-group-year">
+                  <label for="visitors_step[visitors_attributes][1]_date_of_birth_year">
+                    Year
+                  </label>
+                  <input class="form-control" value="" type="number" min="1897" max="2017" name="visitors_step[visitors_attributes][1][date_of_birth][year]" id="visitors_step[visitors_attributes][1]_date_of_birth_year" aria-describedby="date_of_birth_hint" />
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <button class="button button-link additional-visitor--remove js-HideAdditionalButton visible--js-enabled" type="button">Remove visitor 2
+        </button>
+        <hr>
+
+      </div>
+
+      <div class="additional-visitor" id="visitor-2">
+        <h3 class="heading-medium">Visitor 3</h3>
+        <div>
+          <div class="form-group">
+            <label class="form-label" for="visitors_step_visitors_attributes_2_first_name">First name</label>
+            <input class="form-control" type="text" name="visitors_step[visitors_attributes][2][first_name]" id="visitors_step_visitors_attributes_2_first_name" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="visitors_step_visitors_attributes_2_last_name">Last name</label>
+            <input class="form-control" type="text" name="visitors_step[visitors_attributes][2][last_name]" id="visitors_step_visitors_attributes_2_last_name" />
+          </div>
+
+          <div class="form-group">
+            <fieldset>
+              <legend>Date of birth</legend>
+              <div class="form-date">
+                <div class="datefield form-group form-group-day">
+                  <label for="visitors_step[visitors_attributes][2]_date_of_birth_day">
+                    Day
+                  </label>
+                  <input class="form-control" value="" type="number" min="1" max="31" name="visitors_step[visitors_attributes][2][date_of_birth][day]" id="visitors_step[visitors_attributes][2]_date_of_birth_day" aria-describedby="date_of_birth_hint" />
+                </div>
+                <div class="datefield form-group form-group-month">
+                  <label for="visitors_step[visitors_attributes][2]_date_of_birth_month">
+                    Month
+                  </label>
+                  <input class="form-control" value="" type="number" min="1" max="12" name="visitors_step[visitors_attributes][2][date_of_birth][month]" id="visitors_step[visitors_attributes][2]_date_of_birth_month" aria-describedby="date_of_birth_hint" />
+                </div>
+                <div class="datefield form-group form-group-year">
+                  <label for="visitors_step[visitors_attributes][2]_date_of_birth_year">
+                    Year
+                  </label>
+                  <input class="form-control" value="" type="number" min="1897" max="2017" name="visitors_step[visitors_attributes][2][date_of_birth][year]" id="visitors_step[visitors_attributes][2]_date_of_birth_year" aria-describedby="date_of_birth_hint" />
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <button class="button button-link additional-visitor--remove js-HideAdditionalButton visible--js-enabled" type="button">Remove visitor 3
+        </button>
+        <hr>
+
+      </div>
+
+      <div class="additional-visitor" id="visitor-3">
+        <h3 class="heading-medium">Visitor 4</h3>
+        <div>
+          <div class="form-group">
+            <label class="form-label" for="visitors_step_visitors_attributes_3_first_name">First name</label>
+            <input class="form-control" type="text" name="visitors_step[visitors_attributes][3][first_name]" id="visitors_step_visitors_attributes_3_first_name" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="visitors_step_visitors_attributes_3_last_name">Last name</label>
+            <input class="form-control" type="text" name="visitors_step[visitors_attributes][3][last_name]" id="visitors_step_visitors_attributes_3_last_name" />
+          </div>
+
+          <div class="form-group">
+            <fieldset>
+              <legend>Date of birth</legend>
+              <div class="form-date">
+                <div class="datefield form-group form-group-day">
+                  <label for="visitors_step[visitors_attributes][3]_date_of_birth_day">
+                    Day
+                  </label>
+                  <input class="form-control" value="" type="number" min="1" max="31" name="visitors_step[visitors_attributes][3][date_of_birth][day]" id="visitors_step[visitors_attributes][3]_date_of_birth_day" aria-describedby="date_of_birth_hint" />
+                </div>
+                <div class="datefield form-group form-group-month">
+                  <label for="visitors_step[visitors_attributes][3]_date_of_birth_month">
+                    Month
+                  </label>
+                  <input class="form-control" value="" type="number" min="1" max="12" name="visitors_step[visitors_attributes][3][date_of_birth][month]" id="visitors_step[visitors_attributes][3]_date_of_birth_month" aria-describedby="date_of_birth_hint" />
+                </div>
+                <div class="datefield form-group form-group-year">
+                  <label for="visitors_step[visitors_attributes][3]_date_of_birth_year">
+                    Year
+                  </label>
+                  <input class="form-control" value="" type="number" min="1897" max="2017" name="visitors_step[visitors_attributes][3][date_of_birth][year]" id="visitors_step[visitors_attributes][3]_date_of_birth_year" aria-describedby="date_of_birth_hint" />
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <button class="button button-link additional-visitor--remove js-HideAdditionalButton visible--js-enabled" type="button">Remove visitor 4
+        </button>
+        <hr>
+
+      </div>
+
+      <div class="additional-visitor" id="visitor-4">
+        <h3 class="heading-medium">Visitor 5</h3>
+        <div>
+          <div class="form-group">
+            <label class="form-label" for="visitors_step_visitors_attributes_4_first_name">First name</label>
+            <input class="form-control" type="text" name="visitors_step[visitors_attributes][4][first_name]" id="visitors_step_visitors_attributes_4_first_name" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="visitors_step_visitors_attributes_4_last_name">Last name</label>
+            <input class="form-control" type="text" name="visitors_step[visitors_attributes][4][last_name]" id="visitors_step_visitors_attributes_4_last_name" />
+          </div>
+
+          <div class="form-group">
+            <fieldset>
+              <legend>Date of birth</legend>
+              <div class="form-date">
+                <div class="datefield form-group form-group-day">
+                  <label for="visitors_step[visitors_attributes][4]_date_of_birth_day">
+                    Day
+                  </label>
+                  <input class="form-control" value="" type="number" min="1" max="31" name="visitors_step[visitors_attributes][4][date_of_birth][day]" id="visitors_step[visitors_attributes][4]_date_of_birth_day" aria-describedby="date_of_birth_hint" />
+                </div>
+                <div class="datefield form-group form-group-month">
+                  <label for="visitors_step[visitors_attributes][4]_date_of_birth_month">
+                    Month
+                  </label>
+                  <input class="form-control" value="" type="number" min="1" max="12" name="visitors_step[visitors_attributes][4][date_of_birth][month]" id="visitors_step[visitors_attributes][4]_date_of_birth_month" aria-describedby="date_of_birth_hint" />
+                </div>
+                <div class="datefield form-group form-group-year">
+                  <label for="visitors_step[visitors_attributes][4]_date_of_birth_year">
+                    Year
+                  </label>
+                  <input class="form-control" value="" type="number" min="1897" max="2017" name="visitors_step[visitors_attributes][4][date_of_birth][year]" id="visitors_step[visitors_attributes][4]_date_of_birth_year" aria-describedby="date_of_birth_hint" />
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <button class="button button-link additional-visitor--remove js-HideAdditionalButton visible--js-enabled" type="button">Remove visitor 5
+        </button>
+        <hr>
+
+      </div>
+
+      <div class="additional-visitor" id="visitor-5">
+        <h3 class="heading-medium">Visitor 6</h3>
+        <div>
+          <div class="form-group">
+            <label class="form-label" for="visitors_step_visitors_attributes_5_first_name">First name</label>
+            <input class="form-control" type="text" name="visitors_step[visitors_attributes][5][first_name]" id="visitors_step_visitors_attributes_5_first_name" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="visitors_step_visitors_attributes_5_last_name">Last name</label>
+            <input class="form-control" type="text" name="visitors_step[visitors_attributes][5][last_name]" id="visitors_step_visitors_attributes_5_last_name" />
+          </div>
+
+          <div class="form-group">
+            <fieldset>
+              <legend>Date of birth</legend>
+              <div class="form-date">
+                <div class="datefield form-group form-group-day">
+                  <label for="visitors_step[visitors_attributes][5]_date_of_birth_day">
+                    Day
+                  </label>
+                  <input class="form-control" value="" type="number" min="1" max="31" name="visitors_step[visitors_attributes][5][date_of_birth][day]" id="visitors_step[visitors_attributes][5]_date_of_birth_day" aria-describedby="date_of_birth_hint" />
+                </div>
+                <div class="datefield form-group form-group-month">
+                  <label for="visitors_step[visitors_attributes][5]_date_of_birth_month">
+                    Month
+                  </label>
+                  <input class="form-control" value="" type="number" min="1" max="12" name="visitors_step[visitors_attributes][5][date_of_birth][month]" id="visitors_step[visitors_attributes][5]_date_of_birth_month" aria-describedby="date_of_birth_hint" />
+                </div>
+                <div class="datefield form-group form-group-year">
+                  <label for="visitors_step[visitors_attributes][5]_date_of_birth_year">
+                    Year
+                  </label>
+                  <input class="form-control" value="" type="number" min="1897" max="2017" name="visitors_step[visitors_attributes][5][date_of_birth][year]" id="visitors_step[visitors_attributes][5]_date_of_birth_year" aria-describedby="date_of_birth_hint" />
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <button class="button button-link additional-visitor--remove js-HideAdditionalButton visible--js-enabled" type="button">Remove visitor 6
+        </button>
+        <hr>
+
+      </div>
+
+      <div class="form-group">
+        <button class="button button-secondary js-RevealAdditionalButton" type="button">Add another visitor</button>
+      </div>
+      <div class="form-group">
+        <p>
+          <input type="submit" name="commit" value="Continue" class="button button-primary" />
+        </p>
       </div>
     </fieldset>
-
-    <div class="additional-visitor additional-visitor--last" id="visitor-1" style="display: block;">
-      <h3 class="heading-medium">Visitor 2</h3>
-      <div>
-        <div class="form-group"><label class="form-label" for="visitors_step_visitors_attributes_1_first_name">First name</label><input class="form-control" type="text" name="visitors_step[visitors_attributes][1][first_name]" id="visitors_step_visitors_attributes_1_first_name"></div>
-        <div class="form-group"><label class="form-label" for="visitors_step_visitors_attributes_1_last_name">Last name</label><input class="form-control" type="text" name="visitors_step[visitors_attributes][1][last_name]" id="visitors_step_visitors_attributes_1_last_name"></div>
-        <div class="form-group"><fieldset><legend>Date of birth</legend><div class="form-date">
-        <div class="datefield form-group form-group-day">
-          <label for="visitors_step[visitors_attributes][1]_date_of_birth_day">
-            Day
-          </label>
-          <input class="form-control" value="" type="number" min="1" max="31" name="visitors_step[visitors_attributes][1][date_of_birth][day]" id="visitors_step[visitors_attributes][1]_date_of_birth_day" aria-describedby="dobHint">
-        </div>
-        <div class="datefield form-group form-group-month">
-          <label for="visitors_step[visitors_attributes][1]_date_of_birth_month">
-            Month
-          </label>
-          <input class="form-control" value="" type="number" min="1" max="12" name="visitors_step[visitors_attributes][1][date_of_birth][month]" id="visitors_step[visitors_attributes][1]_date_of_birth_month" aria-describedby="dobHint">
-        </div>
-        <div class="datefield form-group form-group-year">
-          <label for="visitors_step[visitors_attributes][1]_date_of_birth_year">
-            Year
-          </label>
-          <input class="form-control" value="" type="number" min="1897" max="2017" name="visitors_step[visitors_attributes][1][date_of_birth][year]" id="visitors_step[visitors_attributes][1]_date_of_birth_year" aria-describedby="dobHint">
-        </div>
-      </div></fieldset></div>    </div>
-      <button class="button button-secondary additional-visitor--remove js-HideAdditionalButton visible--js-enabled" type="button">Remove visitor 2
-      </button>
-      <hr>
-    </div>
-    <div class="additional-visitor" id="visitor-2" style="display: none;">
-      <h3 class="heading-medium">Visitor 3</h3>
-      <div>
-        <div class="form-group"><label class="form-label" for="visitors_step_visitors_attributes_2_first_name">First name</label><input class="form-control" type="text" name="visitors_step[visitors_attributes][2][first_name]" id="visitors_step_visitors_attributes_2_first_name"></div>
-        <div class="form-group"><label class="form-label" for="visitors_step_visitors_attributes_2_last_name">Last name</label><input class="form-control" type="text" name="visitors_step[visitors_attributes][2][last_name]" id="visitors_step_visitors_attributes_2_last_name"></div>
-        <div class="form-group"><fieldset><legend>Date of birth</legend><div class="form-date">
-        <div class="datefield form-group form-group-day">
-          <label for="visitors_step[visitors_attributes][2]_date_of_birth_day">
-            Day
-          </label>
-          <input class="form-control" value="" type="number" min="1" max="31" name="visitors_step[visitors_attributes][2][date_of_birth][day]" id="visitors_step[visitors_attributes][2]_date_of_birth_day" aria-describedby="dobHint">
-        </div>
-        <div class="datefield form-group form-group-month">
-          <label for="visitors_step[visitors_attributes][2]_date_of_birth_month">
-            Month
-          </label>
-          <input class="form-control" value="" type="number" min="1" max="12" name="visitors_step[visitors_attributes][2][date_of_birth][month]" id="visitors_step[visitors_attributes][2]_date_of_birth_month" aria-describedby="dobHint">
-        </div>
-        <div class="datefield form-group form-group-year">
-          <label for="visitors_step[visitors_attributes][2]_date_of_birth_year">
-            Year
-          </label>
-          <input class="form-control" value="" type="number" min="1897" max="2017" name="visitors_step[visitors_attributes][2][date_of_birth][year]" id="visitors_step[visitors_attributes][2]_date_of_birth_year" aria-describedby="dobHint">
-        </div>
-      </div></fieldset></div>    </div>
-      <button class="button button-secondary additional-visitor--remove js-HideAdditionalButton visible--js-enabled" type="button">Remove visitor 3
-      </button>
-      <hr>
-    </div>
-    <div class="additional-visitor" id="visitor-3" style="display: none;">
-      <h3 class="heading-medium">Visitor 4</h3>
-      <div>
-        <div class="form-group"><label class="form-label" for="visitors_step_visitors_attributes_3_first_name">First name</label><input class="form-control" type="text" name="visitors_step[visitors_attributes][3][first_name]" id="visitors_step_visitors_attributes_3_first_name"></div>
-        <div class="form-group"><label class="form-label" for="visitors_step_visitors_attributes_3_last_name">Last name</label><input class="form-control" type="text" name="visitors_step[visitors_attributes][3][last_name]" id="visitors_step_visitors_attributes_3_last_name"></div>
-        <div class="form-group"><fieldset><legend>Date of birth</legend><div class="form-date">
-        <div class="datefield form-group form-group-day">
-          <label for="visitors_step[visitors_attributes][3]_date_of_birth_day">
-            Day
-          </label>
-          <input class="form-control" value="" type="number" min="1" max="31" name="visitors_step[visitors_attributes][3][date_of_birth][day]" id="visitors_step[visitors_attributes][3]_date_of_birth_day" aria-describedby="dobHint">
-        </div>
-        <div class="datefield form-group form-group-month">
-          <label for="visitors_step[visitors_attributes][3]_date_of_birth_month">
-            Month
-          </label>
-          <input class="form-control" value="" type="number" min="1" max="12" name="visitors_step[visitors_attributes][3][date_of_birth][month]" id="visitors_step[visitors_attributes][3]_date_of_birth_month" aria-describedby="dobHint">
-        </div>
-        <div class="datefield form-group form-group-year">
-          <label for="visitors_step[visitors_attributes][3]_date_of_birth_year">
-            Year
-          </label>
-          <input class="form-control" value="" type="number" min="1897" max="2017" name="visitors_step[visitors_attributes][3][date_of_birth][year]" id="visitors_step[visitors_attributes][3]_date_of_birth_year" aria-describedby="dobHint">
-        </div>
-      </div></fieldset></div>    </div>
-      <button class="button button-secondary additional-visitor--remove js-HideAdditionalButton visible--js-enabled" type="button">Remove visitor 4
-      </button>
-      <hr>
-    </div>
-    <div class="additional-visitor" id="visitor-4" style="display: none;">
-      <h3 class="heading-medium">Visitor 5</h3>
-      <div>
-        <div class="form-group"><label class="form-label" for="visitors_step_visitors_attributes_4_first_name">First name</label><input class="form-control" type="text" name="visitors_step[visitors_attributes][4][first_name]" id="visitors_step_visitors_attributes_4_first_name"></div>
-        <div class="form-group"><label class="form-label" for="visitors_step_visitors_attributes_4_last_name">Last name</label><input class="form-control" type="text" name="visitors_step[visitors_attributes][4][last_name]" id="visitors_step_visitors_attributes_4_last_name"></div>
-        <div class="form-group"><fieldset><legend>Date of birth</legend><div class="form-date">
-        <div class="datefield form-group form-group-day">
-          <label for="visitors_step[visitors_attributes][4]_date_of_birth_day">
-            Day
-          </label>
-          <input class="form-control" value="" type="number" min="1" max="31" name="visitors_step[visitors_attributes][4][date_of_birth][day]" id="visitors_step[visitors_attributes][4]_date_of_birth_day" aria-describedby="dobHint">
-        </div>
-        <div class="datefield form-group form-group-month">
-          <label for="visitors_step[visitors_attributes][4]_date_of_birth_month">
-            Month
-          </label>
-          <input class="form-control" value="" type="number" min="1" max="12" name="visitors_step[visitors_attributes][4][date_of_birth][month]" id="visitors_step[visitors_attributes][4]_date_of_birth_month" aria-describedby="dobHint">
-        </div>
-        <div class="datefield form-group form-group-year">
-          <label for="visitors_step[visitors_attributes][4]_date_of_birth_year">
-            Year
-          </label>
-          <input class="form-control" value="" type="number" min="1897" max="2017" name="visitors_step[visitors_attributes][4][date_of_birth][year]" id="visitors_step[visitors_attributes][4]_date_of_birth_year" aria-describedby="dobHint">
-        </div>
-      </div></fieldset></div>    </div>
-      <button class="button button-secondary additional-visitor--remove js-HideAdditionalButton visible--js-enabled" type="button">Remove visitor 5
-      </button>
-      <hr>
-    </div>
-    <div class="additional-visitor" id="visitor-5" style="display: none;">
-      <h3 class="heading-medium">Visitor 6</h3>
-      <div>
-        <div class="form-group"><label class="form-label" for="visitors_step_visitors_attributes_5_first_name">First name</label><input class="form-control" type="text" name="visitors_step[visitors_attributes][5][first_name]" id="visitors_step_visitors_attributes_5_first_name"></div>
-        <div class="form-group"><label class="form-label" for="visitors_step_visitors_attributes_5_last_name">Last name</label><input class="form-control" type="text" name="visitors_step[visitors_attributes][5][last_name]" id="visitors_step_visitors_attributes_5_last_name"></div>
-        <div class="form-group"><fieldset><legend>Date of birth</legend><div class="form-date">
-        <div class="datefield form-group form-group-day">
-          <label for="visitors_step[visitors_attributes][5]_date_of_birth_day">
-            Day
-          </label>
-          <input class="form-control" value="" type="number" min="1" max="31" name="visitors_step[visitors_attributes][5][date_of_birth][day]" id="visitors_step[visitors_attributes][5]_date_of_birth_day" aria-describedby="dobHint">
-        </div>
-        <div class="datefield form-group form-group-month">
-          <label for="visitors_step[visitors_attributes][5]_date_of_birth_month">
-            Month
-          </label>
-          <input class="form-control" value="" type="number" min="1" max="12" name="visitors_step[visitors_attributes][5][date_of_birth][month]" id="visitors_step[visitors_attributes][5]_date_of_birth_month" aria-describedby="dobHint">
-        </div>
-        <div class="datefield form-group form-group-year">
-          <label for="visitors_step[visitors_attributes][5]_date_of_birth_year">
-            Year
-          </label>
-          <input class="form-control" value="" type="number" min="1897" max="2017" name="visitors_step[visitors_attributes][5][date_of_birth][year]" id="visitors_step[visitors_attributes][5]_date_of_birth_year" aria-describedby="dobHint">
-        </div>
-      </div></fieldset></div>    </div>
-      <button class="button button-secondary additional-visitor--remove js-HideAdditionalButton visible--js-enabled" type="button">Remove visitor 6
-      </button>
-      <hr>
-    </div>
-    <div class="form-group">
-      <button class="button button-secondary js-RevealAdditionalButton" type="button">Add another visitor</button>
-    </div>
-    <div class="form-group">
-      <p><input type="submit" name="commit" value="Continue" class="button button-primary"></p>
-    </div>
-  </fieldset>
-</div>
+  </div>
 </div>

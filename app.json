@@ -23,6 +23,9 @@
     "SENTRY_DSN": {
       "required": true
     },
+    "SENTRY_JS_DSN": {
+      "required": true
+    },
     "STAFF_SERVICE_URL": {
       "required": true
     }
