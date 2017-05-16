@@ -19,12 +19,12 @@ SecureHeaders::Configuration.default do |config|
   sentry_js_dsn = Rails.configuration.sentry_js_dsn
 
   if sentry_js_dsn
-    if sentry_js_dsn =~ URI::regexp(['http', 'https'])
-      config.csp[:connect_src] = [URI::parse(sentry_js_dsn).host]
+    if sentry_js_dsn =~ URI.regexp(%w[http https])
+      config.csp[:connect_src] = [URI.parse(sentry_js_dsn).host]
     else
-      raise '[FATAL] Sentry JS DSN (SENTRY_JS_DSN) is an invalid URI ' +
-        '(we were expecting a valid URI with an http or https scheme): ' +
-        sentry_js_dsn
+      raise '[FATAL] Sentry JS DSN (SENTRY_JS_DSN) is an invalid URI ' \
+            '(we were expecting a valid URI with an http or https scheme): ' +
+            sentry_js_dsn
     end
   else
     STDOUT.puts '[WARN] Sentry JS DSN is not set (SENTRY_JS_DSN)'
