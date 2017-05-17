@@ -9,10 +9,6 @@
       this.raven.config(this.sentry_js_dsn).install();
       var sentry_module = this;
 
-      // Capture any uncaught errors
-      window.onerror = function(error) {
-        sentry_module.raven.captureException(error);
-      }
     }
   }
 }());
