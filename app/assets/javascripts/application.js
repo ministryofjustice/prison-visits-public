@@ -29,9 +29,9 @@
 
 (function() {
   'use strict';
-  if (!$('body').hasClass('js-enabled')) {
-    $('body').addClass('js-enabled');
-  }
+  // if (!$('body').hasClass('js-enabled')) {
+  //   $('body').addClass('js-enabled');
+  // }
   delete moj.Modules.devs;
   var selectionButtons = new GOVUK.SelectionButtons("label input[type='radio'], label input[type='checkbox']");
   moj.init();
