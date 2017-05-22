@@ -20,7 +20,7 @@ gem 'jquery-ui-rails'
 # Fixed version as workaround for Rails version 4.2 expecting method
 # 'last_comment' to be defined. Review once we are using a different Rails
 # version
-gem 'rake', '< 11.0'
+gem 'rake', '< 12.0'
 gem 'request_store'
 # Fixed version as workaround for bug in 0.15.5
 # https://github.com/getsentry/raven-ruby/issues/460
