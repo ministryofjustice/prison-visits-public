@@ -5,11 +5,7 @@
     el: '.js-Sentry',
     init: function() {
       this.raven = Raven;
-      this.sentry_js_dsn = $(this.el).data('sentry-js-dsn');
-      this.raven.config(this.sentry_js_dsn).install();
-    },
-    handleException: function(error) {
-      this.raven.captureException(error);
+      this.raven.config('https://sentry.service.dsd.io/59').install()
     }
   }
 }());
