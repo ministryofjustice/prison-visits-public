@@ -30,7 +30,7 @@ gem 'pvb-instrumentation',
   ref: '639bd30e211846a0d76c1d869b376fa2b4c30568'
 
 gem 'string_scrubber'
-gem 'uglifier'
+gem 'uglifier', '~> 2.7.2'
 gem 'uri_template'
 gem 'virtus'
 gem 'zendesk_api'
