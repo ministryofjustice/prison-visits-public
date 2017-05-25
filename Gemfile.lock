@@ -138,7 +138,7 @@ GEM
     multipart-post (2.0.0)
     nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
-    parser (2.3.3.1)
+    parser (2.4.0.0)
       ast (~> 2.2)
     phantomjs (2.1.1.0)
     phonelib (0.6.9)
@@ -301,7 +301,7 @@ DEPENDENCIES
   launchy
   lograge
   logstash-event
-  parser (~> 2.3.0.pre.6)
+  parser (~> 2.4.0.0)
   phonelib
   pry-byebug
   pry-rails
