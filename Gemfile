@@ -44,7 +44,7 @@ group :development, :test do
   gem 'parser', '~> 2.3.0.pre.6'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 3.6'
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'shoulda-matchers'
