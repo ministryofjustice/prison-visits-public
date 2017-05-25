@@ -1,4 +1,4 @@
-module Dob
+module DateOfBirth
   extend ActiveSupport::Concern
 
   MAX_AGE = 120

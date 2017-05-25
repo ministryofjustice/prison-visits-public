@@ -20,7 +20,7 @@ module Person
   end
 
   def minimum_date_of_birth
-    Dob::MAX_AGE.years.ago.beginning_of_year.to_date
+    DateOfBirth::MAX_AGE.years.ago.beginning_of_year.to_date
   end
 
   def maximum_date_of_birth

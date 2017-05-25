@@ -2,7 +2,7 @@ require 'maybe_date'
 
 class FeedbackSubmission
   include NonPersistedModel
-  include Dob
+  include DateOfBirth
 
   attribute :body, String
   attribute :prisoner_number, String
