@@ -20,11 +20,11 @@ gem 'jquery-ui-rails'
 # Fixed version as workaround for Rails version 4.2 expecting method
 # 'last_comment' to be defined. Review once we are using a different Rails
 # version
-gem 'rake', '< 11.0'
+gem 'rake', '< 12.0'
 gem 'request_store'
 # Fixed version as workaround for bug in 0.15.5
 # https://github.com/getsentry/raven-ruby/issues/460
-gem 'sentry-raven', '~> 2.4.0'
+gem 'sentry-raven', '~> 2.5.1'
 gem 'pvb-instrumentation',
   git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
   ref: '639bd30e211846a0d76c1d869b376fa2b4c30568'
@@ -44,7 +44,7 @@ group :development, :test do
   gem 'parser', '~> 2.3.0.pre.6'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 3.6'
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'shoulda-matchers'
