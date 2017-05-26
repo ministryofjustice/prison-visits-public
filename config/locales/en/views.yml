@@ -64,7 +64,13 @@ en:
         <p>For information on how to find prisoners who used to be in %{prison_name} prison, go to <a href="https://www.gov.uk/find-prisoner" rel="external">find a prisoner</a>.</p>
     visitors_step:
       title: Visitor details
-      info: The details you enter here must match the ID you show at the prison.
+      info_html: |
+        <p>You must:</p>
+        <ul class="list list-bullet">
+        <li>show ID that matches these details</li>
+        <li>be on the prisoner’s contact list</li>
+        <li>not be banned from visiting the prisoner</li>
+        </ul>
       your_details: Your details
       warning: Warning
       no_more_slots: You have chosen all available dates for this prisoner.
@@ -82,7 +88,7 @@ en:
       date_of_birth: Date of birth
       date_of_birth_hint: You must be over 18 to book a visit
       email_address: Email address
-      email_address_hint: You’ll receive confirmation by email
+      email_address_hint: We'll send email confirmation to this address
       phone_no: Phone number
     additional_visitors:
       visitor: "Visitor %{n}"
