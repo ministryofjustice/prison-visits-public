@@ -1,26 +1,33 @@
 require 'rails_helper'
 
 RSpec.feature 'Submit feedback', js: true do
-  before do skip 'Features specs not yet fixed' end
-
   include FeaturesHelper
 
-  scenario 'submitting feedback' do
+  before do
+    allow(PrisonVisits::Api.instance).to receive(:create_feedback)
+  end
+
+  scenario 'submitting feedback', vcr: { cassette_name: :submit_feedback } do
     text = 'How many times did the Batmobile catch a flat?'
     email_address = 'user@test.example.com'
+    prisoner_number = 'A1234BC'
+    prisoner_dob_day = 1
+    prisoner_dob_month = 1
+    prisoner_dob_year = 1999
+    prison_name = 'Leeds'
 
     visit booking_requests_path(locale: 'en')
     click_link 'Contact us'
 
-    fill_in 'Your question', with: text
+    fill_in 'Your message', with: text
+    fill_in 'Prisoner number', with: prisoner_number
+    fill_in 'Day', with: prisoner_dob_day
+    fill_in 'Month', with: prisoner_dob_month
+    fill_in 'Year', with: prisoner_dob_year
+    fill_in 'Prison name', with: prison_name
     fill_in 'Your email address', with: email_address
 
-    expect(ZendeskTicketsJob).to receive(:perform_later) do |fb|
-      expect(fb.body).to eq(text)
-      expect(fb.email_address).to eq(email_address)
-      expect(fb.user_agent).to match('Mozilla')
-      expect(fb.referrer).to match(booking_requests_path(locale: 'en'))
-    end
+    expect(PrisonVisits::Api.instance).to receive(:create_feedback)
 
     click_button 'Send'
 

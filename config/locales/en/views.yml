@@ -189,6 +189,11 @@ en:
       body: Your message
       body_hint: >-
         Do not include sensitive personal information, such as prisoner numbers.
+      date_of_birth: Prisoner date of birth
+      date_of_birth_hint: For example, 28 04 1996
+      prisoner_number: Prisoner number
+      prisoner_number_hint: For example, A1234BC
+      prison_id: Prison name
       want_reply_title: Do you want a reply?
       want_reply_text: >-
         If you'd like us to get back to you, please leave your details below.
