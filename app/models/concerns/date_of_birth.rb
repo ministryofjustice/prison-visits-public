@@ -8,7 +8,7 @@ module DateOfBirth
       allow_blank: true,
       inclusion: {
         in: ->(d) { d.minimum_date_of_birth..d.maximum_date_of_birth },
-        message: "Must be less than #{MAX_AGE} years ago"
+        message: I18n.t('concerns.date_of_birth.range', max: MAX_AGE)
       }
   end
 
