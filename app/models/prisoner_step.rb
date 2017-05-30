@@ -43,7 +43,7 @@ private
       number: number,
       date_of_birth: date_of_birth
     )
-
+    Rails.logger.error result
     return if result.fetch('valid')
 
     error_nomatch = 'prisoner_does_not_exist'
