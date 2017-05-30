@@ -15,7 +15,7 @@ gem 'govuk_template'
 gem 'govuk_frontend_toolkit'
 gem 'govuk_elements_rails'
 gem 'jquery-rails', '~> 4.2.0'
-gem 'jquery-ui-rails', '~> 5.0.5'
+gem 'jquery-ui-rails', '~> 6.0.1'
 
 # Fixed version as workaround for Rails version 4.2 expecting method
 # 'last_comment' to be defined. Review once we are using a different Rails
