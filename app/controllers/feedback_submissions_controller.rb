@@ -19,14 +19,7 @@ private
   def feedback_params
     params.
       require(:feedback_submission).
-      permit(
-        :referrer,
-        :body,
-        :prisoner_number,
-        :prison_id,
-        :email_address,
-        date_of_birth: [:day, :month, :year]
-      ).
+      permit(:referrer, :body, :email_address).
       merge(user_agent: http_user_agent)
   end
 end
