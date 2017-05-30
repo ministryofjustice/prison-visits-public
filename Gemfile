@@ -13,7 +13,7 @@ gem 'puma', '~> 3.6.2'
 gem 'sass-rails', '~> 5.0'
 gem 'govuk_template', '~> 0.17.0'
 gem 'govuk_frontend_toolkit', '>= 5.0.2'
-gem 'govuk_elements_rails', '>= 2.2.1'
+gem 'govuk_elements_rails', '>= 3.0.2'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
