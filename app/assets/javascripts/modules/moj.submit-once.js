@@ -23,7 +23,14 @@
     },
 
     disable: function () {
-      this.$submit[this.$submit[0].tagName === 'INPUT' ? 'val' : 'text'](this.options.alt);
+      switch(this.$submit[0].tagName) {
+        case 'INPUT':
+        case 'BUTTON':
+          this.$submit.val(this.options.alt);
+          break;
+        default:
+          this.$submit.text(this.options.alt);
+      }
       this.$submit.prop('disabled', true);
     }
   };

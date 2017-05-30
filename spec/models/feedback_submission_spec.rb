@@ -29,6 +29,7 @@ RSpec.describe FeedbackSubmission, type: :model do
     context 'body' do
       describe 'is blank' do
         let(:body) { nil }
+
         it { expect(subject.errors[:body]).to be_present }
       end
     end

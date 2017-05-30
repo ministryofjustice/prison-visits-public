@@ -19,11 +19,6 @@ RSpec.describe VisitorsStep do
   let(:visitor_constraints) {
     BookingConstraints::VisitorConstraints.new(prison)
   }
-
-  before do
-    allow(pvb_api).to receive(:validate_visitors).and_return('valid' => true)
-  end
-
   let(:adult) {
     {
       first_name: 'John',
@@ -66,6 +61,10 @@ RSpec.describe VisitorsStep do
       date_of_birth: { day: '3', month: '4', year: '1990' }
     }
   }
+
+  before do
+    allow(pvb_api).to receive(:validate_visitors).and_return('valid' => true)
+  end
 
   around do |example|
     travel_to Date.new(2015, 12, 1) do

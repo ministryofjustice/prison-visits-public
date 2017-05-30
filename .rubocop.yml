@@ -23,12 +23,12 @@ Rails:
   Enabled: true
 
 # private/protected/public
-Style/AccessModifierIndentation:
+Layout/AccessModifierIndentation:
   EnforcedStyle: outdent
 
 # Just indent parameters by two spaces. It's less volatile if methods change,
 # and there's less busy work lining things up.
-Style/AlignParameters:
+Layout/AlignParameters:
   EnforcedStyle: with_fixed_indentation
 
 Style/AsciiComments:
@@ -48,11 +48,11 @@ Style/CollectionMethods:
     reduce: 'inject'
 
 # Chain methods with trailing dots.
-Style/DotPosition:
+Layout/DotPosition:
   EnforcedStyle: trailing
 
 # The holidays file has extra spaces for ease of reading and comparison
-Style/ExtraSpacing:
+Layout/ExtraSpacing:
   Exclude:
     - 'config/initializers/holidays.rb'
 
@@ -113,6 +113,9 @@ IfUnlessModifier:
 Lint/AssignmentInCondition:
   AllowSafeAssignment: false
 
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
 # Just a preference to use %w[] over %w()
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
@@ -145,7 +148,7 @@ Metrics/BlockLength:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Style/SpaceInsidePercentLiteralDelimiters:
+Layout/SpaceInsidePercentLiteralDelimiters:
   Enabled: false
 
 RSpec/MessageSpies:
@@ -208,7 +211,7 @@ Rails/OutputSafety:
 Style/ConditionalAssignment:
   Enabled: false
 
-Style/IndentArray:
+Layout/IndentArray:
   Enabled: false
 
 Style/MutableConstant:
@@ -221,6 +224,9 @@ Style/NumericPredicate:
   Enabled: false
 
 Style/SignalException:
+  Enabled: false
+
+Style/FormatStringToken:
   Enabled: false
 
 require: rubocop-rspec

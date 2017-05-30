@@ -73,7 +73,7 @@ module CalendarHelper
 
     {
       'disabled' => 'disabled',
-      'data-message' => I18n.t(reason, scope: [:booking_requests, :chosen_options])
+      'data-message' => I18n.t(reason, scope: %i[booking_requests chosen_options])
     }
   end
 

@@ -1,5 +1,7 @@
 class CalendarSlot
-  include NonPersistedModel, Comparable
+  include NonPersistedModel
+  include Comparable
+
   delegate :begin_at, :iso8601, :to_date, to: :slot
   attribute :slot, ConcreteSlot
   attribute :unavailability_reasons, Array[String], default: []

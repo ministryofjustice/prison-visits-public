@@ -28,6 +28,7 @@ RSpec.describe VisitsController, type: :controller do
 
     context 'with a non existent visit' do
       let(:visit_id) { 'i_dont_exsit' }
+
       before do
         expect(pvb_api).to receive(:get_visit).with(visit_id).and_raise(PrisonVisits::APINotFound)
       end

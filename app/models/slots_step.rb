@@ -74,7 +74,7 @@ class SlotsStep
   end
 
   def valid_options
-    [:option_0, :option_1, :option_2].
+    %i[option_0 option_1 option_2].
       reject { |o| errors.keys.include?(o) }.
       map { |o| send(o) }.
       reject(&:blank?).

@@ -903,12 +903,14 @@
           disabled = (obj.chosen === true || obj.available === 0) ? 'disabled' : '';
         }
 
-        var tmpl = '<label class="block-label selection-button-radio slot' + className + '" for="slot-step-' + obj.day + '-' + i + '">' +
+        var tmpl = '<div class="multiple-choice">' +
           '<input ' + checked + ' ' + disabled + ' id="slot-step-' + obj.day + '-' + i + '" type="radio" name="slot_step_0" value="' + obj.slot + '">' +
+          '<label class="selection-button-radio slot' + className + '" for="slot-step-' + obj.day + '-' + i + '">' +
           '<span class="slot--time">' + time + ' (' + duration + ')</span>' +
           '<br/>' +
           '<span class="slot--message">' + obj.message + '</span>' +
-          '</label>';
+          '</label>' +
+          '</div>';
         $list.append(tmpl);
       });
 

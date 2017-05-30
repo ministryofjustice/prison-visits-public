@@ -9,7 +9,7 @@ end
 RSpec.describe Prison do
   subject { described_class.new(params) }
 
-  let(:params) { Hash.new }
+  let(:params) { {} }
 
   describe 'all' do
     it 'fetches a list of prisons from API' do

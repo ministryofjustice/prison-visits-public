@@ -7,9 +7,9 @@
     <%= form_tag(cancellations_path, class: 'js-SubmitOnce' ) do %>
       <%= hidden_field_tag(:id, @visit.human_id) %>
 
-      <div class="form-group">
-        <label class="block-label">
-          <%= check_box_tag(:confirmed) %>
+      <div class="form-group multiple-choice push-bottom">
+        <%= check_box_tag(:confirmed) %>
+        <label for="<%= :confirmed %>">
           <%= t('visits.shared.cancel_confirm') %>
         </label>
       </div>
