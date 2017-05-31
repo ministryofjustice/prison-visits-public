@@ -193,8 +193,6 @@ en:
         in the box below.
       feedback_form: Feedback form
       body: Your message
-      body_hint: >-
-        Do not include sensitive personal information, such as prisoner numbers.
       date_of_birth: Prisoner date of birth
       date_of_birth_hint: For example, 28 04 1996
       prisoner_number: Prisoner number

@@ -37,7 +37,7 @@
         Prison.all.map { |p| [p.name, p.id] },
         { prompt: t('.prison_id_prompt') },
         { class: 'js-autocomplete' }) %>
-        <%= single_field(f, :email_address, :email_field, class: 'form-control') %>
+        <%= single_field(f, :email_address, :text_field, class: 'form-control') %>
         <div class="actions">
           <%= f.submit(t('.send'), class: 'button button-primary') %>
         </div>
