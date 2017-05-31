@@ -14,7 +14,7 @@ gem 'sass-rails'
 gem 'govuk_template'
 gem 'govuk_frontend_toolkit'
 gem 'govuk_elements_rails'
-gem 'jquery-rails', '~> 4.2.0'
+gem 'jquery-rails', '~> 4.3.1'
 gem 'jquery-ui-rails', '~> 5.0.5'
 
 # Fixed version as workaround for Rails version 4.2 expecting method
