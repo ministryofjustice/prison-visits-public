@@ -54,7 +54,7 @@ group :test do
   gem 'capybara'
   gem 'fuubar'
   gem 'launchy'
-  gem 'selenium-webdriver', '2.53.4'
+  gem 'selenium-webdriver', '~> 2.53.4'
   gem 'simplecov'
   gem 'simplecov-rcov'
   gem 'vcr'

@@ -315,7 +315,7 @@ DEPENDENCIES
   rubocop-rspec
   sass-rails
   secure_headers
-  selenium-webdriver (= 2.53.4)
+  selenium-webdriver (~> 2.53.4)
   sentry-raven (~> 2.5.1)
   shoulda-matchers
   simplecov
@@ -332,4 +332,4 @@ RUBY VERSION
    ruby 2.3.0p0
 
 BUNDLED WITH
-   1.14.5
+   1.14.6
