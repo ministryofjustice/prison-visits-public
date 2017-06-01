@@ -1,8 +1,6 @@
 module Person
   extend ActiveSupport::Concern
 
-  MAX_AGE = 120
-
   included do
     validates :first_name, presence: true, name: true
     validates :last_name, presence: true, name: true
@@ -22,7 +20,7 @@ module Person
   end
 
   def minimum_date_of_birth
-    MAX_AGE.years.ago.beginning_of_year.to_date
+    DateOfBirth::MAX_AGE.years.ago.beginning_of_year.to_date
   end
 
   def maximum_date_of_birth
