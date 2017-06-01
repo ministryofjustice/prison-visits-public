@@ -65,7 +65,3 @@ en:
         Check your spam folder too
       bounced: >-
         needs to be checked as messages have been returned in the past
-
-  concerns:
-    date_of_birth:
-      range: Must be less than %{max} years ago

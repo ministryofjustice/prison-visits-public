@@ -15,6 +15,7 @@
         @feedback,
         url: feedback_submissions_path,
         html: {
+          novalidate: 'novalidate',
           class: 'js-SubmitOnce',
           autocomplete: 'off'
         }
@@ -29,15 +30,7 @@
         <%= single_field(f, :body, :text_area, cols: 50, rows: 5, class: 'form-control') %>
       </fieldset>
       <fieldset>
-        <%= single_field(f, :prisoner_number, :text_field, class: 'form-control') %>
-        <%= composite_field(f, :date_of_birth) do %>
-          <%= render('booking_requests/dob', form: f, field: :date_of_birth) %>
-        <% end %>
-        <%= single_field(f, :prison_id, :select,
-        Prison.all.map { |p| [p.name, p.id] },
-        { prompt: t('.prison_id_prompt') },
-        { class: 'js-autocomplete' }) %>
-        <%= single_field(f, :email_address, :text_field, class: 'form-control') %>
+        <%= single_field(f, :email_address, :email_field, class: 'form-control') %>
         <div class="actions">
           <%= f.submit(t('.send'), class: 'button button-primary') %>
         </div>
