@@ -25,7 +25,7 @@ private
         :prisoner_number,
         :prison_id,
         :email_address,
-        date_of_birth: [:day, :month, :year]
+        date_of_birth: %i[day month year]
       ).
       merge(user_agent: http_user_agent)
   end
