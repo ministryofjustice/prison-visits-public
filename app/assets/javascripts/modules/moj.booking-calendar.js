@@ -74,11 +74,10 @@
         return self.handleGridBlur(e);
       });
 
-      this.$grid.delegate('td:not(.empty, .disabled)', 'click', function(e) {
+      this.$grid.delegate('td', 'click', function(e) {
         return self.handleGridClick(this, e);
       });
 
-      // bind radio button handler
       this.$slotList.on('change', 'input[type=radio][name=slot_step_0]', function(e) {
         var slot = $(e.currentTarget).val();
         self.updateSource(slot);
@@ -594,8 +593,18 @@
               var date = this.year + '-' + (this.month < 9 ? '0' : '') + (this.month + 1) + '-' + ($curDay.text() <= 9 ? '0' : '') + $curDay.text();
               this.updateSelectedDate(date);
               this.updateSlots(date);
-              // this.$slotList.find('input').eq(0).focus();
+              moj.Modules.Analytics.send({
+                'category': 'Calendar',
+                'action': 'Keydown',
+                'label': this.$el.data('availableMessage')
+              });
             } else {
+              this.$slotList.html(this.$el.data('unavailableMessage'));
+              moj.Modules.Analytics.send({
+                'category': 'Calendar',
+                'action': 'Keydown',
+                'label': this.$el.data('unavailableMessage')
+              });
               return false;
             }
 
@@ -836,12 +845,28 @@
       $cell.addClass('focus selected').find('.cell-date').attr('aria-selected', 'true');
       this.$grid.attr('aria-activedescendant', $cell.attr('id'));
 
+      if ($cell.is('.disabled')) {
+        this.$slotList.html(this.$el.data('unavailableMessage'));
+        moj.Modules.Analytics.send({
+          'category': 'Calendar',
+          'action': 'Click',
+          'label': this.$el.data('unavailableMessage')
+        });
+        return true;
+      }
+
       var $curDay = $('#' + this.$grid.attr('aria-activedescendant'));
 
       // update the target box
       var date = this.year + '-' + (this.month <= 9 ? '0' : '') + (this.month + 1) + '-' + ($curDay.text() <= 9 ? '0' : '') + $curDay.text();
       this.updateSelectedDate(date);
       this.updateSlots(date);
+
+      moj.Modules.Analytics.send({
+        'category': 'Calendar',
+        'action': 'Click',
+        'label': this.$el.data('availableMessage')
+      });
 
       e.stopPropagation();
       return false;

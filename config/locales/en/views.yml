@@ -19,6 +19,8 @@ en:
       go_to_previous_month: Go to previous month
       go_to_next_month: Go to next month
       javascript_enabled: Javascript must be enabled
+      day_available: Visits available
+      day_unavailable: No visits available
     booking_calendar_legend:
       visit_days: Visit Days
       non_visit_days: Non-visit Days
@@ -102,7 +104,7 @@ en:
       prisoner_changed: As you've changed the prisoner details, you need to choose new visit slots.
       info_html: >-
         <ul class="list list-number">
-          <li>Choose a date</li>
+          <li>Choose a date (available dates are in <span class="bold-small">bold</span>)</li>
           <li>Choose a time</li>
         </ul>
         <p>You can choose up to 3 options. Start with your first choice.</p>

@@ -9,7 +9,9 @@
      data-slot-cancel="js-slotCancel"
      data-slot-skip="js-skipSlot"
      data-i18n=<%= javascript_i18n.to_json %>
-     data-slot-number="<%= slot_number %>">
+     data-slot-number="<%= slot_number %>"
+     data-available-message="<%= t('.day_available') %>"
+     data-unavailable-message="<%= t('.day_unavailable') %>">
 
   <div id="month-wrap">
     <div id="bn_prev" role="button" aria-labelledby="bn_prev-label" tabindex="0"><img class="bn_img" src="<%= image_path('triangle-left.png') %>" alt="<%= I18n.t('booking_requests.booking_calendar.go_to_previous_month') %>"/></div>
