@@ -2,7 +2,6 @@ require 'maybe_date'
 
 class FeedbackSubmission
   include NonPersistedModel
-  include DateOfBirth
 
   attribute :body, String
   attribute :prisoner_number, String
@@ -13,6 +12,7 @@ class FeedbackSubmission
   attribute :user_agent, String
 
   validates :body, presence: true
+  validates :date_of_birth, allow_blank: true, age: true
   validate :email_format
 
   validates :prisoner_number, allow_blank: true, format: {

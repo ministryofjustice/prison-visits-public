@@ -66,6 +66,7 @@ en:
       bounced: >-
         needs to be checked as messages have been returned in the past
 
-  concerns:
-    date_of_birth:
-      range: Must be less than %{max} years ago
+  age_validator:
+    errors:
+      invalid_date: is an invalid date
+      range: must be less than %{max} years ago

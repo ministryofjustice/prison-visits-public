@@ -10,8 +10,8 @@
           form.object.date_of_birth.send(field_name) : ''
         %>"
       type="number"
-      min="<%= form.object.minimum_date_of_birth.send(field_name) %>"
-      max="<%= form.object.maximum_date_of_birth.send(field_name) %>"
+      min="<%= minimum_date_of_birth.send(field_name) %>"
+      max="<%= maximum_date_of_birth.send(field_name) %>"
       name="<%= form.object_name %>[date_of_birth][<%= field_name %>]"
       id="<%= form.object_name %>_date_of_birth_<%= field_name %>"
       aria-describedby="<%= field %>_hint"
