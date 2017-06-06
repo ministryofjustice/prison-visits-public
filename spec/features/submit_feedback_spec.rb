@@ -4,8 +4,7 @@ RSpec.feature 'Submit feedback', js: true do
   include FeaturesHelper
 
   normalised_body = lambda do |r1, r2|
-    r1.body.gsub(%r{127.0.0.1:\d+\/}, '127.0.0.1:9999/') ==
-      r2.body.gsub(%r{127.0.0.1:\d+\/}, '127.0.0.1:9999/')
+    r1.body.gsub(%r{:\d+\/}, ':9999/') == r2.body.gsub(%r{:\d+\/}, ':9999/')
   end
 
   custom_matchers = [:method, :uri, :host, :path, :valid_uuid, normalised_body]
