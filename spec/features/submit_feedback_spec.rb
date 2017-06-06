@@ -4,9 +4,11 @@ RSpec.feature 'Submit feedback', js: true do
   include FeaturesHelper
 
   normalised_body = lambda do |r1, r2|
-    puts ">>>>> r1 body: #{r1.body}"
-    puts ">>>>> r2 body: #{r2.body}"
-    r1.body.gsub(%r{:\d+\/}, ':9999/') == r2.body.gsub(%r{:\d+\/}, ':9999/')
+    normalised = [r1.body, r2.body].map { |req|
+      req.sub(/,"referrer":.+$/, '}')
+    }
+
+    normalised.first == normalised.last
   end
 
   custom_matchers = [:method, :uri, :host, :path, :valid_uuid, normalised_body]
