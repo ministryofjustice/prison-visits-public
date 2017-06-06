@@ -59,6 +59,10 @@ end
 require 'vcr'
 
 VCR.configure do |config|
+  config.register_request_matcher :valid_uuid do |r1, _r2|
+    UUID.validate(r1.headers["X-Request-Id"].first)
+  end
+
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.default_cassette_options = {
     match_requests_on: %i[ method uri host path body headers ],

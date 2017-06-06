@@ -8,13 +8,13 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
       - en
       X-Request-Id:
-      - efd3f3bb-b53c-4490-a1fa-85ae16bcfecd
+      - myRequestID123
   response:
     status:
       code: 200
@@ -33,7 +33,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - efd3f3bb-b53c-4490-a1fa-85ae16bcfecd
+      - myRequestID123
       X-Runtime:
       - '0.022271'
     body:
@@ -52,13 +52,13 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
       - en
       X-Request-Id:
-      - efd3f3bb-b53c-4490-a1fa-85ae16bcfecd
+      - myRequestID123
   response:
     status:
       code: 200
@@ -77,7 +77,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - efd3f3bb-b53c-4490-a1fa-85ae16bcfecd
+      - myRequestID123
       X-Runtime:
       - '0.017456'
     body:
@@ -95,13 +95,13 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
       - en
       X-Request-Id:
-      - 786168b6-fc38-4e78-a661-6601965a9501
+      - myRequestID123
   response:
     status:
       code: 200
@@ -120,7 +120,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 786168b6-fc38-4e78-a661-6601965a9501
+      - myRequestID123
       X-Runtime:
       - '0.033523'
     body:
@@ -139,13 +139,13 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
       - en
       X-Request-Id:
-      - c440c17f-0e47-4740-9698-87d3ee85c460
+      - myRequestID123
   response:
     status:
       code: 200
@@ -164,7 +164,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c440c17f-0e47-4740-9698-87d3ee85c460
+      - myRequestID123
       X-Runtime:
       - '0.021157'
     body:
@@ -183,13 +183,13 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
       - en
       X-Request-Id:
-      - c440c17f-0e47-4740-9698-87d3ee85c460
+      - myRequestID123
   response:
     status:
       code: 200
@@ -208,7 +208,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c440c17f-0e47-4740-9698-87d3ee85c460
+      - myRequestID123
       X-Runtime:
       - '0.021581'
     body:

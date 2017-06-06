@@ -3,11 +3,17 @@ require 'rails_helper'
 RSpec.feature 'Submit feedback', js: true do
   include FeaturesHelper
 
-  before do
-    allow(PrisonVisits::Api.instance).to receive(:create_feedback)
+  normalised_body = lambda do |r1, r2|
+    r1.body.gsub(%r{127.0.0.1:\d+\/}, '127.0.0.1:9999/') ==
+      r2.body.gsub(%r{127.0.0.1:\d+\/}, '127.0.0.1:9999/')
   end
 
-  scenario 'including prisoner details', vcr: { cassette_name: :submit_feedback } do
+  custom_matchers = [:method, :uri, :host, :path, :valid_uuid, normalised_body]
+
+  scenario 'including prisoner details', vcr: {
+    match_requests_on: custom_matchers,
+    cassette_name: :submit_feedback
+  } do
     text = 'How many times did the Batmobile catch a flat?'
     email_address = 'user@test.example.com'
     prisoner_number = 'A1234BC'
@@ -27,14 +33,15 @@ RSpec.feature 'Submit feedback', js: true do
     fill_in 'Prison name', with: prison_name
     fill_in 'Your email address', with: email_address
 
-    expect(PrisonVisits::Api.instance).to receive(:create_feedback)
-
     click_button 'Send'
 
     expect(page).to have_text('Thank you for your feedback')
   end
 
-  scenario 'no prisoner details', vcr: { cassette_name: :submit_feedback_no_prisoner_details } do
+  scenario 'no prisoner details', vcr: {
+    match_requests_on: custom_matchers,
+    cassette_name: :submit_feedback_no_prisoner_details
+  } do
     text = 'How many times did the Batmobile catch a flat?'
     email_address = 'user@test.example.com'
 
@@ -43,8 +50,6 @@ RSpec.feature 'Submit feedback', js: true do
 
     fill_in 'Your message', with: text
     fill_in 'Your email address', with: email_address
-
-    expect(PrisonVisits::Api.instance).to receive(:create_feedback)
 
     click_button 'Send'
 
