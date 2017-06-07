@@ -3,10 +3,6 @@ require 'rails_helper'
 RSpec.feature 'Maintaining a visit', js: true do
   include FeaturesHelper
 
-  before do
-    RequestStore.store[:request_id] = 'myRequestID123'
-  end
-
   scenario 'viewing and withdrawing a visit request', vcr: {
     cassette_name: :maintianing_a_visit_viewing_and_withdrawing
   } do
