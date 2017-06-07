@@ -78,6 +78,7 @@ VCR.configure do |config|
     # Ignore capybara requests within feature tests
     request.uri =~ /__identify__|session/
   end
+  config.debug_logger = STDOUT
 end
 
 def pvb_api
