@@ -13,11 +13,8 @@ class FeedbackSubmission
 
   validates :body, presence: true
   validates :date_of_birth, allow_blank: true, age: true
+  validates :prisoner_number, allow_blank: true, prisoner_number: true
   validate :email_format
-
-  validates :prisoner_number, allow_blank: true, format: {
-    with: /\A[a-z]\d{4}[a-z]{2}\z/i
-  }
 
   def email_address=(val)
     stripped = val.try(:strip)

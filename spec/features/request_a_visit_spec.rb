@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.feature 'Booking a visit', js: true do
   include FeaturesHelper
 
-  custom_matchers = %i[ method uri host path valid_uuid ]
-
   # Whitespace on email to test stripping
   let(:visitor_email) { ' ado@test.example.com ' }
 
@@ -16,7 +14,6 @@ RSpec.feature 'Booking a visit', js: true do
   end
 
   scenario 'happy path', vcr: {
-    match_requests_on: custom_matchers,
     cassette_name: :request_a_visit_happy_path,
     allow_playback_repeats: true
   } do
@@ -53,7 +50,6 @@ RSpec.feature 'Booking a visit', js: true do
   end
 
   scenario 'remove middle slot', vcr: {
-    match_requests_on: custom_matchers,
     cassette_name: :request_a_visit_remove_middle_slot
   } do
     visit booking_requests_path(locale: 'en')
@@ -93,7 +89,6 @@ RSpec.feature 'Booking a visit', js: true do
   end
 
   scenario 'change prison', vcr: {
-    match_requests_on: custom_matchers,
     cassette_name: :request_a_visit_change_prison
   } do
     visit booking_requests_path(locale: 'en')
@@ -131,7 +126,6 @@ RSpec.feature 'Booking a visit', js: true do
   end
 
   scenario 'skip slots', vcr: {
-    match_requests_on: custom_matchers,
     cassette_name: :request_a_visit_skip_slots
   } do
     visit booking_requests_path(locale: 'en')
@@ -150,7 +144,6 @@ RSpec.feature 'Booking a visit', js: true do
   end
 
   scenario 'validation errors', vcr: {
-    match_requests_on: custom_matchers,
     cassette_name: :request_a_visit_validation_errors
   } do
     visit booking_requests_path(locale: 'en')
@@ -177,7 +170,6 @@ RSpec.feature 'Booking a visit', js: true do
   end
 
   scenario 'slot validation errors', vcr: {
-    match_requests_on: custom_matchers,
     cassette_name: :request_a_visit_slot_validation_errors
   } do
     visit booking_requests_path(locale: 'en')
@@ -210,7 +202,6 @@ RSpec.feature 'Booking a visit', js: true do
   end
 
   scenario 'review and edit', vcr: {
-    match_requests_on: custom_matchers,
     cassette_name: :request_a_visit_review_and_edit
   } do
     visit booking_requests_path(locale: 'en')

@@ -56,8 +56,7 @@ RSpec.describe MaybeDate do
       context 'returning values corresponding to an invalid date' do
         let(:values) { %w[2015 12 32] }
 
-        it 'returns an UncoercedDate object' do
-          expect(result.class).to eq(UncoercedDate)
+        it 'returns an uncoerced date object' do
           expect(result.year).to eq(2015)
           expect(result.month).to eq(12)
           expect(result.day).to eq(32)
