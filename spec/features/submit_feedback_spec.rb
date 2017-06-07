@@ -8,6 +8,8 @@ RSpec.feature 'Submit feedback', js: true do
       req.sub(/,"referrer":.+$/, '}')
     }
 
+    puts ">>>>> #{normalised.first}"
+    puts ">>>>> #{normalised.last}"
     normalised.first == normalised.last
   end
 
