@@ -1,19 +1,19 @@
-<% %i[day month year].each do |field_name| %>
-  <div class="datefield form-group form-group-<%= field_name %>">
-    <label for="<%= form.object_name %>_date_of_birth_<%= field_name %>">
-      <%= t(field_name, scope: 'date.fields') %>
+<% %i[day month year].each do |date_part| %>
+  <div class="datefield form-group form-group-<%= date_part %>">
+    <label for="<%= form.object_name %>_<%= field %>_<%= date_part %>">
+      <%= t(date_part, scope: 'date.fields') %>
     </label>
     <input
       class="form-control"
       value="<%=
-        form.object.date_of_birth ?
-          form.object.date_of_birth.send(field_name) : ''
+        form.object.send(field) ?
+          form.object.send(field).send(date_part) : ''
         %>"
       type="number"
-      min="<%= minimum_date_of_birth.send(field_name) %>"
-      max="<%= maximum_date_of_birth.send(field_name) %>"
-      name="<%= form.object_name %>[date_of_birth][<%= field_name %>]"
-      id="<%= form.object_name %>_date_of_birth_<%= field_name %>"
+      min="<%= minimum_date_of_birth.send(date_part) %>"
+      max="<%= maximum_date_of_birth.send(date_part) %>"
+      name="<%= form.object_name %>[<%= field %>][<%= date_part %>]"
+      id="<%= form.object_name %>_<%= field %>_<%= date_part %>"
       aria-describedby="<%= field %>_hint"
     />
   </div>

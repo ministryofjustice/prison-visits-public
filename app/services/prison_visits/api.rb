@@ -92,7 +92,7 @@ module PrisonVisits
         feedback: {
           body: feedback_submission.body,
           prisoner_number: feedback_submission.prisoner_number,
-          date_of_birth: feedback_submission.date_of_birth,
+          prisoner_date_of_birth: feedback_submission.prisoner_date_of_birth,
           prison_id: feedback_submission.prison_id,
           email_address: feedback_submission.email_address,
           referrer: feedback_submission.referrer,

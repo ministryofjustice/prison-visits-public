@@ -5,7 +5,7 @@ http_interactions:
     uri: http://localhost:3000/api/feedback
     body:
       encoding: UTF-8
-      string: '{"feedback":{"body":"the feedback","prisoner_number":"A1234BC","date_of_birth":"1999-01-01","prison_id":"abc123","email_address":"user@example.com","referrer":"referrer","user_agent":"user
+      string: '{"feedback":{"body":"the feedback","prisoner_number":"A1234BC","prisoner_date_of_birth":"1999-01-01","prison_id":"abc123","email_address":"user@example.com","referrer":"referrer","user_agent":"user
         agent"}}'
     headers:
       User-Agent:

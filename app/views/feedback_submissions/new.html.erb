@@ -30,8 +30,8 @@
       </fieldset>
       <fieldset>
         <%= single_field(f, :prisoner_number, :text_field, class: 'form-control') %>
-        <%= composite_field(f, :date_of_birth) do %>
-          <%= render('booking_requests/dob', form: f, field: :date_of_birth) %>
+        <%= composite_field(f, :prisoner_date_of_birth) do %>
+          <%= render('booking_requests/dob', form: f, field: :prisoner_date_of_birth) %>
         <% end %>
         <%= single_field(f, :prison_id, :select,
         Prison.all.map { |p| [p.name, p.id] },

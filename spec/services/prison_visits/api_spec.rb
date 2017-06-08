@@ -234,7 +234,7 @@ RSpec.describe PrisonVisits::Api do
       {
         body: 'the feedback',
         prisoner_number: 'A1234BC',
-        date_of_birth: '1999-01-01',
+        prisoner_date_of_birth: '1999-01-01',
         prison_id: 'abc123',
         email_address: 'user@example.com',
         referrer: 'referrer',

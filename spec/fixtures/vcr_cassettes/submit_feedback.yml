@@ -207,7 +207,7 @@ http_interactions:
     uri: http://localhost:3000/api/feedback
     body:
       encoding: UTF-8
-      string: '{"feedback":{"body":"How many times did the Batmobile catch a flat?","prisoner_number":"A1234BC","date_of_birth":"1999-01-01","prison_id":"8076d43d-429d-4e19-aac1-178ff9d112d3","email_address":"user@test.example.com","referrer":"http://127.0.0.1:51206/en/request","user_agent":"Mozilla/5.0
+      string: '{"feedback":{"body":"How many times did the Batmobile catch a flat?","prisoner_number":"A1234BC","prisoner_date_of_birth":"1999-01-01","prison_id":"8076d43d-429d-4e19-aac1-178ff9d112d3","email_address":"user@test.example.com","referrer":"http://127.0.0.1:51206/en/request","user_agent":"Mozilla/5.0
         (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0"}}'
     headers:
       User-Agent:

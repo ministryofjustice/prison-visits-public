@@ -5,7 +5,7 @@ RSpec.describe FeedbackSubmission, type: :model do
   let(:body) { 'Feedback' }
   let(:email_address) { nil }
   let(:prisoner_number) { nil }
-  let(:date_of_birth) { nil }
+  let(:prisoner_date_of_birth) { nil }
   let(:prison_id) { nil }
 
   subject(:instance) do
@@ -13,7 +13,7 @@ RSpec.describe FeedbackSubmission, type: :model do
       body: body,
       email_address: email_address,
       prisoner_number: prisoner_number,
-      date_of_birth: date_of_birth,
+      prisoner_date_of_birth: prisoner_date_of_birth,
       prison_id: prison_id
     )
   end
@@ -97,23 +97,23 @@ RSpec.describe FeedbackSubmission, type: :model do
       end
     end
 
-    describe 'date_of_birth' do
+    describe 'prisoner_date_of_birth' do
       context 'is blank' do
-        let(:date_of_birth) { nil }
+        let(:prisoner_date_of_birth) { nil }
 
-        it { expect(subject.errors[:date_of_birth]).not_to be_present }
+        it { expect(subject.errors[:prisoner_date_of_birth]).not_to be_present }
       end
 
       context 'is a valid date' do
-        let(:date_of_birth) { '1999-01-01' }
+        let(:prisoner_date_of_birth) { '1999-01-01' }
 
-        it { expect(subject.errors[:date_of_birth]).not_to be_present }
+        it { expect(subject.errors[:prisoner_date_of_birth]).not_to be_present }
       end
 
       context 'is an invalid date' do
-        let(:date_of_birth) { '1800-12-25' }
+        let(:prisoner_date_of_birth) { '1800-12-25' }
 
-        it { expect(subject.errors[:date_of_birth]).to be_present }
+        it { expect(subject.errors[:prisoner_date_of_birth]).to be_present }
       end
     end
 
