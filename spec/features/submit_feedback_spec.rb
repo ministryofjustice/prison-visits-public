@@ -8,8 +8,6 @@ RSpec.feature 'Submit feedback', js: true do
       req.sub(/,"referrer":.+$/, '}')
     }
 
-    puts ">>>>> #{normalised.first}"
-    puts ">>>>> #{normalised.last}"
     normalised.first == normalised.last
   end
 
@@ -25,7 +23,7 @@ RSpec.feature 'Submit feedback', js: true do
     prisoner_dob_day = 1
     prisoner_dob_month = 1
     prisoner_dob_year = 1999
-    prison_name = 'Acklington'
+    prison_name = 'Leeds'
 
     visit booking_requests_path(locale: 'en')
     click_link 'Contact us'
