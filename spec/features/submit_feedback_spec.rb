@@ -35,7 +35,6 @@ RSpec.feature 'Submit feedback', js: true do
     fill_in 'Year', with: prisoner_dob_year
     select_prison prison_name, '#feedback_submission_prison_id'
     fill_in 'Your email address', with: email_address
-    sleep 3
 
     click_button 'Send'
 

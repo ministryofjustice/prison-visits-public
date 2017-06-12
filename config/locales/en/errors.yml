@@ -13,8 +13,6 @@ en:
               blank: Enter a first name
             last_name:
               blank: Enter a last name
-            number:
-              invalid: Enter a prisoner number. It should be 7 characters starting with a letter.
             date_of_birth:
               inclusion: Enter a date of birth
             prison_id:
@@ -70,3 +68,7 @@ en:
     errors:
       invalid_date: is an invalid date
       range: must be less than %{max} years ago
+
+  prisoner_number_validator:
+    errors:
+      format: Enter a prisoner number. It should be 7 characters starting with a letter.
