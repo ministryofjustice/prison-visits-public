@@ -41,6 +41,14 @@ module DateHelper
     )
   end
 
+  def minimum_date_of_birth
+    AgeValidator::MAX_AGE.years.ago.beginning_of_year.to_date
+  end
+
+  def maximum_date_of_birth
+    Time.zone.today.end_of_year
+  end
+
 private
 
   def format_duration(secs)

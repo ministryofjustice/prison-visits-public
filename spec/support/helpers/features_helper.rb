@@ -53,8 +53,8 @@ module FeaturesHelper
     first('#js-slotAvailability input[type="radio"]', visible: false).click
   end
 
-  def select_prison(name)
-    field = find('#prisoner_step_prison_id')
+  def select_prison(name, field_id = '#prisoner_step_prison_id')
+    field = find(field_id)
     field.set(name)
     field.native.send_keys(:return)
   end

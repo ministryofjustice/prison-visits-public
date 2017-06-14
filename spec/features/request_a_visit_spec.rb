@@ -1,11 +1,5 @@
 require 'rails_helper'
 
-VCR.configure do |config|
-  config.default_cassette_options = {
-    match_requests_on: %i[ method uri host path body ]
-  }
-end
-
 RSpec.feature 'Booking a visit', js: true do
   include FeaturesHelper
 
@@ -19,7 +13,10 @@ RSpec.feature 'Booking a visit', js: true do
     travel_back
   end
 
-  scenario 'happy path', vcr: { cassette_name: :request_a_visit_happy_path, allow_playback_repeats: true } do
+  scenario 'happy path', vcr: {
+    cassette_name: :request_a_visit_happy_path,
+    allow_playback_repeats: true
+  } do
     visit booking_requests_path(locale: 'en')
 
     enter_prisoner_information
@@ -52,7 +49,9 @@ RSpec.feature 'Booking a visit', js: true do
     expect(page).to have_text('Visit request sent')
   end
 
-  scenario 'remove middle slot', vcr: { cassette_name: :request_a_visit_remove_middle_slot } do
+  scenario 'remove middle slot', vcr: {
+    cassette_name: :request_a_visit_remove_middle_slot
+  } do
     visit booking_requests_path(locale: 'en')
 
     enter_prisoner_information
@@ -89,7 +88,9 @@ RSpec.feature 'Booking a visit', js: true do
     expect(page).not_to have_css('.date-box-3')
   end
 
-  scenario 'change prison', vcr: { cassette_name: :request_a_visit_change_prison } do
+  scenario 'change prison', vcr: {
+    cassette_name: :request_a_visit_change_prison
+  } do
     visit booking_requests_path(locale: 'en')
 
     enter_prisoner_information
@@ -124,7 +125,9 @@ RSpec.feature 'Booking a visit', js: true do
     expect(page).to have_text('When do you want to visit')
   end
 
-  scenario 'skip slots', vcr: { cassette_name: :request_a_visit_skip_slots } do
+  scenario 'skip slots', vcr: {
+    cassette_name: :request_a_visit_skip_slots
+  } do
     visit booking_requests_path(locale: 'en')
 
     enter_prisoner_information
@@ -140,7 +143,9 @@ RSpec.feature 'Booking a visit', js: true do
     expect(page).to have_text('Visitor details')
   end
 
-  scenario 'validation errors', vcr: { cassette_name: :request_a_visit_validation_errors } do
+  scenario 'validation errors', vcr: {
+    cassette_name: :request_a_visit_validation_errors
+  } do
     visit booking_requests_path(locale: 'en')
     click_button 'Continue'
 
@@ -164,8 +169,9 @@ RSpec.feature 'Booking a visit', js: true do
     expect(page).to have_text('The person requesting the visit must be over the age of 18')
   end
 
-  # pending until slot 2 & 3 validation is in place
-  xscenario 'slot validation errors', vcr: { cassette_name: :request_a_visit_slot_validation_errors } do
+  scenario 'slot validation errors', vcr: {
+    cassette_name: :request_a_visit_slot_validation_errors
+  } do
     visit booking_requests_path(locale: 'en')
     enter_prisoner_information
     click_button 'Continue'
@@ -175,24 +181,19 @@ RSpec.feature 'Booking a visit', js: true do
     click_button 'Add another choice'
     expect(page).to have_text('You must choose at least one date and time slot')
 
+    select_first_available_date
     select_first_available_slot
     click_button 'Add another choice'
 
     # Slot 2
     select_first_available_date
-    click_button 'Add another choice'
-    expect(page).to have_text('You must choose at least one date and time slot')
-
     select_first_available_slot
     click_button 'Add another choice'
 
     # Slot 3
     select_first_available_date
-    click_link 'Continue'
-    expect(page).to have_text('You must choose at least one date and time slot')
-
     select_first_available_slot
-    click_link 'Continue'
+    click_button 'Continue'
 
     enter_visitor_information date_of_birth: Date.new(2014, 11, 30)
     click_button 'Continue'
@@ -200,7 +201,9 @@ RSpec.feature 'Booking a visit', js: true do
     expect(page).to have_text('The person requesting the visit must be over the age of 18')
   end
 
-  scenario 'review and edit', vcr: { cassette_name: :request_a_visit_review_and_edit } do
+  scenario 'review and edit', vcr: {
+    cassette_name: :request_a_visit_review_and_edit
+  } do
     visit booking_requests_path(locale: 'en')
 
     enter_prisoner_information

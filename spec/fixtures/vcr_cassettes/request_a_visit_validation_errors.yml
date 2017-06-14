@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -100,7 +100,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -192,7 +192,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -235,7 +235,7 @@ http_interactions:
       string: '{"number":"A1410AE","date_of_birth":"1960-06-01"}'
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -278,7 +278,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -319,7 +319,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -362,7 +362,7 @@ http_interactions:
       string: '{"number":"A1410AE","date_of_birth":"1960-06-01"}'
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -405,7 +405,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -446,7 +446,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -489,7 +489,7 @@ http_interactions:
       string: '{"number":"A1410AE","date_of_birth":"1960-06-01"}'
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -532,7 +532,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -573,7 +573,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -616,7 +616,7 @@ http_interactions:
       string: '{"number":"A1410AE","date_of_birth":"1960-06-01"}'
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -659,7 +659,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -700,7 +700,7 @@ http_interactions:
       string: '{"prison_id":"bf29bf0f-a046-43d1-911b-59ac58730eff","lead_date_of_birth":"2014-11-30","dates_of_birth":["2014-11-30"]}'
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:

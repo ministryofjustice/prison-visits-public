@@ -1,12 +1,19 @@
+require 'maybe_date'
+
 class FeedbackSubmission
   include NonPersistedModel
 
   attribute :body, String
+  attribute :prisoner_number, String
+  attribute :prisoner_date_of_birth, MaybeDate
+  attribute :prison_id, String
   attribute :email_address, String
   attribute :referrer, String
   attribute :user_agent, String
 
   validates :body, presence: true
+  validates :prisoner_date_of_birth, allow_blank: true, age: true
+  validates :prisoner_number, allow_blank: true, prisoner_number: true
   validate :email_format
 
   def email_address=(val)

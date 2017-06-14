@@ -12,9 +12,7 @@ class PrisonerStep
   attribute :number, String
   attribute :prison_id, Integer
 
-  validates :number, format: {
-    with: /\A[a-z]\d{4}[a-z]{2}\z/i
-  }
+  validates :number, prisoner_number: true
   validates :prison_id, presence: true
 
   validate :validate_prisoner

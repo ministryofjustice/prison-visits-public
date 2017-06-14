@@ -59,4 +59,5 @@ group :test do
   gem 'simplecov-rcov'
   gem 'vcr'
   gem 'webmock'
+  gem 'uuid'
 end

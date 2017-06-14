@@ -5,11 +5,11 @@ http_interactions:
     uri: http://localhost:3000/api/feedback
     body:
       encoding: UTF-8
-      string: '{"feedback":{"body":"the feedback","email_address":"user@example.com","referrer":"referrer","user_agent":"user
+      string: '{"feedback":{"body":"the feedback","prisoner_number":"A1234BC","prisoner_date_of_birth":"1999-01-01","prison_id":"abc123","email_address":"user@example.com","referrer":"referrer","user_agent":"user
         agent"}}'
     headers:
       User-Agent:
-      - excon/0.55.0
+      - excon/0.56.0
       Accept:
       - application/json
       Accept-Language:
@@ -21,14 +21,8 @@ http_interactions:
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
       Content-Type:
       - application/json; charset=utf-8
       Etag:
@@ -38,10 +32,25 @@ http_interactions:
       X-Request-Id:
       - unique_id
       X-Runtime:
-      - '0.013690'
+      - '0.032214'
+      Content-Security-Policy:
+      - default-src 'self'; font-src 'self' data:; img-src 'self' data:; script-src
+        'self' www.google-analytics.com www.gstatic.com 'unsafe-eval' 'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='
+        'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g=' 'sha256-9GTWoKmlaDM3V+GStWlXFaD4tf+wPfBN2ds2eySQ9aE='
+        ; style-src 'self' www.gstatic.com
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - sameorigin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: "{}"
     http_version: 
-  recorded_at: Thu, 05 May 2016 15:53:30 GMT
-recorded_with: VCR 3.0.1
+  recorded_at: Mon, 05 Jun 2017 13:36:29 GMT
+recorded_with: VCR 3.0.3
