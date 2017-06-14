@@ -195,8 +195,8 @@ en:
         in the box below.
       feedback_form: Feedback form
       body: Your message
-      date_of_birth: Prisoner date of birth
-      date_of_birth_hint: For example, 28 04 1996
+      prisoner_date_of_birth: Prisoner date of birth
+      prisoner_date_of_birth_hint: For example, 28 04 1996
       prisoner_number: Prisoner number
       prisoner_number_hint: For example, A1234BC
       prison_id: Prison name
