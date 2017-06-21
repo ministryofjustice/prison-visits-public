@@ -6,7 +6,7 @@
       "required": true
     },
     "PRISON_VISITS_API": {
-      "required": true
+      "value": "https://pvb-staff-pr-869.herokuapp.com/"
     },
     "RACK_ENV": {
       "required": true
@@ -27,7 +27,7 @@
       "required": true
     },
     "STAFF_SERVICE_URL": {
-      "required": true
+      "value": "https://pvb-staff-pr-869.herokuapp.com/"
     }
   },
   "formation": {
