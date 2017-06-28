@@ -388,6 +388,9 @@ en:
       phone_no: Phone number
       email: Email
       other_services: Other services you might be interested in
+      get_help_with_visits: Get help with the cost of prison visits
+      get_help_details_html: >-
+        <p>If you’re visiting a family member, partner or someone who doesn’t have other visitors, and you get certain benefits, you may be able to <a href="https://www.gov.uk/help-with-prison-visits">get help with the cost of prison visits</a>.</p>
       money_to_prisoners: Send money to someone in prison
       mtp_details_html: >-
         <p>If you have a bank account, you can <a href="https://www.gov.uk/send-prisoner-money">send money to a prisoner</a> online.</p>
