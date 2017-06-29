@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 
-gem 'rails', '~> 4.2.9'
+gem 'rails', '~> 5.1'
 
 gem 'excon'
 gem 'high_voltage'
@@ -27,7 +27,7 @@ gem 'request_store'
 gem 'sentry-raven', '~> 2.5.3'
 gem 'pvb-instrumentation',
   git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
-  ref: '639bd30e211846a0d76c1d869b376fa2b4c30568'
+  ref: '1ce6072971c05fc5656377ed65e64ce60c59bd2d'
 
 gem 'string_scrubber'
 gem 'uglifier', '~> 2.7.2'
@@ -60,4 +60,5 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'uuid'
+  gem 'rails-controller-testing'
 end

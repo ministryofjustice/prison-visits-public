@@ -43,4 +43,8 @@ private
     RequestStore.store[:request_id] = request.uuid
     Raven.extra_context(request_id: request.uuid)
   end
+
+  def env
+    request.env
+  end
 end

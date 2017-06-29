@@ -60,7 +60,7 @@ RSpec.describe StepsProcessor do
     allow(pvb_api).to receive(:validate_visitors).and_return('valid' => true)
   end
 
-  subject { described_class.new(HashWithIndifferentAccess.new(params), :cy) }
+  subject { described_class.new(ActionController::Parameters.new(params), :cy) }
 
   shared_examples 'it has all steps' do
     it 'has a PrisonerStep' do

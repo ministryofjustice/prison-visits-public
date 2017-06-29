@@ -17,12 +17,12 @@ RSpec.describe VisitsController, type: :controller do
       end
 
       it 'calls the get visit API' do
-        get :show, id: visit.human_id, locale: 'en'
+        get :show, params: { id: visit.human_id, locale: 'en' }
         expect(assigns(:visit)).to eq(visit)
       end
 
       it 'rendering views' do
-        expect { get :show, id: visit.human_id, locale: 'en' }.to_not raise_error
+        expect { get :show, params: { id: visit.human_id, locale: 'en' } }.to_not raise_error
       end
     end
 
@@ -34,7 +34,7 @@ RSpec.describe VisitsController, type: :controller do
       end
 
       it 'renders a 404' do
-        get :show, id: visit_id, locale: 'en'
+        get :show, params: { id: visit_id, locale: 'en' }
         expect(response).to render_template('404')
         expect(response).to be_not_found
       end
