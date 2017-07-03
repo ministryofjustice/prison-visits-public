@@ -1,0 +1,10 @@
+/log/*
+!/log/.keep
+tmp
+./spec
+coverage
+.env
+.transifexrc
+*.DS_Store
+.byebug_history
+tags

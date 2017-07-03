@@ -38,7 +38,7 @@ RSpec.feature 'Maintaining a visit', js: true do
     expect(page).to have_text('Your visit request cannot take place')
 
     click_link 'new visit'
-    expect(current_path).to eq(booking_requests_path(locale: 'en'))
+    expect(page).to have_css('h1', text: 'Who are you visiting?')
   end
 
   scenario 'viewing a withdrawn visit and trying again', vcr: {
@@ -48,7 +48,7 @@ RSpec.feature 'Maintaining a visit', js: true do
     expect(page).to have_text('You cancelled this visit request')
 
     click_link 'new visit'
-    expect(current_path).to eq(booking_requests_path(locale: 'en'))
+    expect(page).to have_css('h1', text: 'Who are you visiting?')
   end
 
   scenario 'viewing a cancelled visit and trying again', vcr: {
@@ -58,6 +58,6 @@ RSpec.feature 'Maintaining a visit', js: true do
     expect(page).to have_text('Your visit is cancelled')
 
     click_link 'new visit'
-    expect(current_path).to eq(booking_requests_path(locale: 'en'))
+    expect(page).to have_css('h1', text: 'Who are you visiting?')
   end
 end
