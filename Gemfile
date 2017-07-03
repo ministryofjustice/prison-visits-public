@@ -61,4 +61,5 @@ group :test do
   gem 'webmock'
   gem 'uuid'
   gem 'rails-controller-testing'
+  gem 'capybara-screenshot'
 end
