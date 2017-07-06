@@ -27,7 +27,7 @@ gem 'request_store'
 gem 'sentry-raven', '~> 2.5.3'
 gem 'pvb-instrumentation',
   git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
-  ref: '1ce6072971c05fc5656377ed65e64ce60c59bd2d'
+  ref: 'a264627211f2bf68f4e388200b2a050fe9081504'
 
 gem 'string_scrubber'
 gem 'uglifier', '~> 2.7.2'

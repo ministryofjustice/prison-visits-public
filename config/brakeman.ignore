@@ -4,9 +4,10 @@
       "warning_type": "Dynamic Render Path",
       "warning_code": 15,
       "fingerprint": "2cfcec33a7914a0b4681b677144c19afe8aced6c9c52a33411833ed445bc93c3",
+      "check_name": "Render",
       "message": "Render path contains parameter value",
       "file": "app/controllers/visits_controller.rb",
-      "line": 4,
+      "line": 5,
       "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
       "code": "render(action => PrisonVisits::Api.instance.get_visit(params[:id]).processing_state.to_s, {})",
       "render_path": null,
@@ -18,8 +19,28 @@
       "user_input": "params[:id]",
       "confidence": "Weak",
       "note": "The processing_state is validated against an array, so it's safe."
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "c87d771314887bf3eed3520cc68295c20852561cefe90dccddb8f07174352b81",
+      "check_name": "Render",
+      "message": "Render path contains request value",
+      "file": "app/controllers/errors_controller.rb",
+      "line": 23,
+      "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => { 404 => :\"404\", 406 => :\"404\", 422 => :\"503\", 500 => :\"500\", 503 => :\"503\" }.fetch(request.env[\"PATH_INFO\"][(1..-1)].to_i), { :status => request.env[\"PATH_INFO\"][(1..-1)], :format => :html })",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ErrorsController",
+        "method": "show"
+      },
+      "user_input": "request.env[\"PATH_INFO\"][(1..-1)]",
+      "confidence": "Weak",
+      "note": ""
     }
   ],
-  "updated": "2016-06-01 18:29:50 +0100",
-  "brakeman_version": "3.1.3"
+  "updated": "2017-07-06 09:53:12 +0100",
+  "brakeman_version": "3.6.2"
 }
