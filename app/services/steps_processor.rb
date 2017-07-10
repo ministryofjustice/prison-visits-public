@@ -1,5 +1,5 @@
 class StepsProcessor
-  STEP_NAMES = %i[ prisoner_step slots_step visitors_step confirmation_step ].
+  STEP_NAMES = %w[ prisoner_step slots_step visitors_step confirmation_step ].
                freeze
 
   delegate :prison, to: :prisoner_step
@@ -51,6 +51,7 @@ private
   end
 
   def incomplete_step?(name)
+    pp steps
     !@steps_submitted.include?(name) || steps[name].invalid? ||
       steps[name].options_available?
   end
@@ -66,7 +67,42 @@ private
 
   def load_step(step_klass, params)
     step_name = step_klass.name.underscore
-    step_params = params.to_unsafe_h.fetch(step_name, {})
-    step_klass.new(step_params.merge(processor: self))
+    filtered_params = require_params_for_step(step_name, params) || {}
+    step_klass.new(filtered_params.merge(processor: self))
+  end
+
+  def require_params_for_step(a_step, params)
+    return {} if params.keys.empty?
+    case a_step
+    when 'prisoner_step'
+      prisoner_step_params(params)
+    when 'slots_step' && params['slots_step'].present?
+      slots_step_params(params)
+    when 'visitors_step'
+    when 'confirmation_step'
+    end
+  end
+
+  def prisoner_step_params(params)
+    params.require('prisoner_step').permit(
+      :processor,
+      :first_name,
+      :last_name,
+      :date_of_birth,
+      :number,
+      :prison_id
+    )
+  end
+
+  def slots_step_params(params)
+    params.require('slots_step').permit(
+      :processor,
+      :review_slot,
+      :currently_filling,
+      :skip_remaining_slots,
+      :option_0,
+      :option_1,
+      :option_2
+    )
   end
 end

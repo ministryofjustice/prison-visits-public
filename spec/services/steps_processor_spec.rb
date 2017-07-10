@@ -87,7 +87,7 @@ RSpec.describe StepsProcessor do
     let(:params) { {} }
 
     it 'chooses the prisoner_step template' do
-      expect(subject.step_name).to eq(:prisoner_step)
+      expect(subject.step_name).to eq('prisoner_step')
     end
 
     it_behaves_like 'it has all steps'
