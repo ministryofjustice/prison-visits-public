@@ -23,7 +23,7 @@ RSpec.describe VisitorsStep do
     {
       first_name: 'John',
       last_name: 'Johnson',
-      date_of_birth: { day: '3', month: '4', year: '1990' }
+      date_of_birth: { 'day' => '3', 'month' => '4', 'year' => '1990' }
     }
   }
   let(:adult_dob) { Date.parse('1990-04-03') }
@@ -32,7 +32,7 @@ RSpec.describe VisitorsStep do
       first_name:  'Jim',
       last_name:  'Johnson',
       date_of_birth:  {
-        day:  '1', month:  '12', year:  '2002' # 13 today
+        'day' => '1', 'month' => '12', 'year' =>  '2002' # 13 today
       }
     }
   }
@@ -42,7 +42,7 @@ RSpec.describe VisitorsStep do
       first_name:  'Jessica',
       last_name:  'Johnson',
       date_of_birth:  {
-        day:  '2', month:  '12', year:  '2002' # 13 tomorrow
+        'day' =>  '2', 'month' =>  '12', 'year' =>  '2002' # 13 tomorrow
       }
     }
   }
@@ -51,14 +51,14 @@ RSpec.describe VisitorsStep do
     {
       first_name: '',
       last_name: '',
-      date_of_birth: { day: '', month: '', year: '' }
+      date_of_birth: { 'day' => '', 'month' => '', 'year' => '' }
     }
   }
   let(:invalid_visitor) {
     {
       first_name: '',
       last_name: 'Johnson',
-      date_of_birth: { day: '3', month: '4', year: '1990' }
+      date_of_birth: { 'day' => '3', 'month' => '4', 'year' => '1990' }
     }
   }
 

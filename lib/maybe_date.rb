@@ -20,7 +20,7 @@ class MaybeDate < Virtus::Attribute
 private
 
   def coerce_with_values_at(value)
-    ymd = value.values_at(:year, :month, :day).map(&:to_i)
+    ymd = value.values_at('year', 'month', 'day').map(&:to_i)
     return nil if ymd == [0, 0, 0]
 
     begin
