@@ -1,6 +1,6 @@
 class StepsProcessor
-  STEP_NAMES = %w[ prisoner_step slots_step visitors_step confirmation_step ].
-               freeze
+  STEP_NAMES = %i[ prisoner_step slots_step visitors_step confirmation_step ].
+                 freeze
 
   delegate :prison, to: :prisoner_step
 
@@ -73,29 +73,48 @@ private
 
   def require_params_for_step(a_step, params)
     return {} if params.keys.empty?
-    case a_step
-    when 'prisoner_step'
+    case [a_step, params[a_step].present?]
+    when ['prisoner_step', true ]
       prisoner_step_params(params)
-    when 'slots_step' && params['slots_step'].present?
+    when [ 'slots_step', true ]
       slots_step_params(params)
-    when 'visitors_step'
-    when 'confirmation_step'
+    when [ 'visitors_step', true ]
+      visitor_step_params(params)
+    when [ 'confirmation_step', true ]
+      confirmation_step_params(params)
     end
   end
 
+  def visitor_step_params(params)
+    params.require(:visitors_step).permit(
+      :processor,
+      :email_address,
+      :phone_no,
+      visitors: [
+        :first_name,
+        :last_name,
+        date_of_birth: [:day, :month, :year]
+      ]
+    )
+  end
+
+  def confirmation_step_params(params)
+    params.require(:comfirmation_step).permit(confirmed: [])
+  end
+
   def prisoner_step_params(params)
-    params.require('prisoner_step').permit(
+    params.require(:prisoner_step).permit(
       :processor,
       :first_name,
       :last_name,
-      :date_of_birth,
       :number,
-      :prison_id
+      :prison_id,
+      date_of_birth: [:day, :month, :year]
     )
   end
 
   def slots_step_params(params)
-    params.require('slots_step').permit(
+    params.require(:slots_step).permit(
       :processor,
       :review_slot,
       :currently_filling,

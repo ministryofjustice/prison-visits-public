@@ -35,9 +35,9 @@ RSpec.describe StepsProcessor do
 
   let(:slots_details) {
     {
-      option_0: '2015-01-02T09:00/10:00',
-      option_1: '2015-01-03T09:00/10:00',
-      option_2: '2015-01-04T09:00/10:00'
+      'option_0' => '2015-01-02T09:00/10:00',
+      'option_1' => '2015-01-03T09:00/10:00',
+      'option_2' => '2015-01-04T09:00/10:00'
     }
   }
 
@@ -138,8 +138,8 @@ RSpec.describe StepsProcessor do
     let(:params) {
       {
         prisoner_step: prisoner_details,
-        slots_step: slots_details,
-        visitors_step: { phone_no: '07900112233' }
+        slots_step:    slots_details,
+        visitors_step: { 'phone_no' => '07900112233' }
       }
     }
 
