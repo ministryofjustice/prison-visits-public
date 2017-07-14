@@ -10,6 +10,10 @@
                        visitor.first_name) %>
   <%= hidden_field_tag("visitors_step[visitors_attributes][#{i}][last_name]",
                        visitor.last_name) %>
-  <%= hidden_field_tag("visitors_step[visitors_attributes][#{i}][date_of_birth]",
-                       visitor.date_of_birth) %>
+  <%= hidden_field_tag("visitors_step[visitors_attributes][#{i}][date_of_birth][day]",
+                       visitor.date_of_birth.day) %>
+  <%= hidden_field_tag("visitors_step[visitors_attributes][#{i}][date_of_birth][month]",
+                       visitor.date_of_birth.month) %>
+  <%= hidden_field_tag("visitors_step[visitors_attributes][#{i}][date_of_birth][year]",
+                       visitor.date_of_birth.year) %>
 <% end %>
