@@ -1,7 +1,7 @@
 class StepsProcessor
   STEP_NAMES = %i[ prisoner_step slots_step visitors_step confirmation_step ].
                  freeze
-
+  MAX_VISITORS_COUNT = 6
   delegate :prison, to: :prisoner_step
 
   def initialize(params, locale)
@@ -41,7 +41,7 @@ class StepsProcessor
     )
   end
 
-private
+  private
 
   def incomplete_step_name
     # Memoize this method, since otherwise potentially expensive step
@@ -51,7 +51,6 @@ private
   end
 
   def incomplete_step?(name)
-    pp steps
     !@steps_submitted.include?(name) || steps[name].invalid? ||
       steps[name].options_available?
   end
@@ -90,16 +89,20 @@ private
       :processor,
       :email_address,
       :phone_no,
-      visitors: [
-        :first_name,
-        :last_name,
-        date_of_birth: [:day, :month, :year]
+      visitors_attributes: [
+        0.upto(MAX_VISITORS_COUNT - 1).map do |i|
+          { i => [
+              :first_name,
+              :last_name,
+              date_of_birth: [:day, :month, :year]
+            ] }
+        end
       ]
     )
   end
 
   def confirmation_step_params(params)
-    params.require(:comfirmation_step).permit(confirmed: [])
+    params.require(:confirmation_step).permit(confirmed: [])
   end
 
   def prisoner_step_params(params)
