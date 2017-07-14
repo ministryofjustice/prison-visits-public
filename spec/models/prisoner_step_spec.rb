@@ -6,15 +6,15 @@ RSpec.describe PrisonerStep do
   let(:prison_id) { '123' }
   let(:params) {
     {
-      first_name: 'Joe',
-      last_name: 'Bloggs',
-      date_of_birth: {
-        day: '31',
-        month: '12',
-        year: '1970'
+      'first_name' => 'Joe',
+      'last_name' => 'Bloggs',
+      'date_of_birth' => {
+        'day' => '31',
+        'month' => '12',
+        'year' => '1970'
       },
-      number: 'a1234bc',
-      prison_id: prison_id
+      'number' => 'a1234bc',
+      'prison_id' => prison_id
     }
   }
 
@@ -55,7 +55,7 @@ RSpec.describe PrisonerStep do
   end
 
   it 'does not fail if the date is invalid (anti-regression)' do
-    params[:date_of_birth][:month] = '13'
+    params['date_of_birth']['month'] = '13'
 
     dob = subject.date_of_birth
 
@@ -82,7 +82,7 @@ RSpec.describe PrisonerStep do
   end
 
   it 'does not call the PVB API if the date is invalid' do
-    params[:date_of_birth][:month] = '13'
+    params['date_of_birth']['month'] = '13'
     expect(pvb_api).not_to receive(:validate_prisoner)
     expect(subject.valid?).to be false
   end

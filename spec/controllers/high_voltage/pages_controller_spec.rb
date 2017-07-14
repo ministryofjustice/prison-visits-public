@@ -5,7 +5,7 @@ RSpec.describe HighVoltage::PagesController do
 
   %w[ cookies terms_and_conditions unsubscribe ].each do |page_name|
     it "renders #{page_name} successfully" do
-      get :show, id: page_name
+      get :show, params: { id: page_name }
       expect(response).to have_http_status(:ok)
     end
   end

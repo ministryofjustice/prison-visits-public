@@ -1,7 +1,7 @@
 class StepsProcessor
   STEP_NAMES = %i[ prisoner_step slots_step visitors_step confirmation_step ].
-               freeze
-
+                 freeze
+  MAX_VISITORS_COUNT = 6
   delegate :prison, to: :prisoner_step
 
   def initialize(params, locale)
@@ -41,7 +41,7 @@ class StepsProcessor
     )
   end
 
-private
+  private
 
   def incomplete_step_name
     # Memoize this method, since otherwise potentially expensive step
@@ -66,7 +66,65 @@ private
 
   def load_step(step_klass, params)
     step_name = step_klass.name.underscore
-    step_params = params.fetch(step_name, {})
-    step_klass.new(step_params.merge(processor: self))
+    filtered_params = require_params_for_step(step_name, params) || {}
+    step_klass.new(filtered_params.merge(processor: self))
+  end
+
+  def require_params_for_step(a_step, params)
+    return {} if params.keys.empty?
+    case [a_step, params[a_step].present?]
+    when ['prisoner_step', true ]
+      prisoner_step_params(params)
+    when [ 'slots_step', true ]
+      slots_step_params(params)
+    when [ 'visitors_step', true ]
+      visitor_step_params(params)
+    when [ 'confirmation_step', true ]
+      confirmation_step_params(params)
+    end
+  end
+
+  def visitor_step_params(params)
+    params.require(:visitors_step).permit(
+      :processor,
+      :email_address,
+      :phone_no,
+      visitors_attributes: [
+        0.upto(MAX_VISITORS_COUNT - 1).map do |i|
+          { i => [
+              :first_name,
+              :last_name,
+              date_of_birth: [:day, :month, :year]
+            ] }
+        end
+      ]
+    )
+  end
+
+  def confirmation_step_params(params)
+    params.require(:confirmation_step).permit(confirmed: [])
+  end
+
+  def prisoner_step_params(params)
+    params.require(:prisoner_step).permit(
+      :processor,
+      :first_name,
+      :last_name,
+      :number,
+      :prison_id,
+      date_of_birth: [:day, :month, :year]
+    )
+  end
+
+  def slots_step_params(params)
+    params.require(:slots_step).permit(
+      :processor,
+      :review_slot,
+      :currently_filling,
+      :skip_remaining_slots,
+      :option_0,
+      :option_1,
+      :option_2
+    )
   end
 end

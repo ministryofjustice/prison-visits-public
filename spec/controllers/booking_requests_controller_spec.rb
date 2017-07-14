@@ -70,7 +70,7 @@ RSpec.describe BookingRequestsController do
 
     context 'on the first prisoner details page' do
       before do
-        get :index, locale: 'en'
+        get :index, params: { locale: 'en' }
       end
 
       it 'assigns a new PrisonerStep' do
@@ -85,7 +85,7 @@ RSpec.describe BookingRequestsController do
     context 'with an unknown format' do
       subject do
         lambda {
-          get :index, locale: 'en', format: 'random'
+          get :index, params: { locale: 'en', format: 'random' }
         }
       end
 
@@ -95,9 +95,10 @@ RSpec.describe BookingRequestsController do
     context 'after submitting prisoner details' do
       context 'with missing prisoner details' do
         before do
-          post :create,
+          post :create, params: {
             prisoner_step: { first_name: 'Oscar' },
             locale: 'en'
+          }
         end
 
         it 'renders the prisoner template' do
@@ -116,9 +117,10 @@ RSpec.describe BookingRequestsController do
 
       context 'with complete prisoner details' do
         before do
-          post :create,
+          post :create, params: {
             prisoner_step: prisoner_details,
             locale: 'en'
+          }
         end
 
         it 'renders the slots template' do
@@ -143,11 +145,12 @@ RSpec.describe BookingRequestsController do
     context 'after submitting visitor details' do
       context 'with missing visitor details' do
         before do
-          post :create,
+          post :create, params: {
             prisoner_step: prisoner_details,
             slots_step: slots_details,
             visitors_step: { phone_no: '01154960222' },
             locale: 'en'
+          }
         end
 
         it 'renders the visitors template' do
@@ -175,11 +178,12 @@ RSpec.describe BookingRequestsController do
 
       context 'with complete visitor details' do
         before do
-          post :create,
+          post :create, params: {
             prisoner_step: prisoner_details,
             slots_step: slots_details,
             visitors_step: visitors_details,
             locale: 'en'
+          }
         end
 
         it 'renders the confirmation template' do
@@ -213,10 +217,11 @@ RSpec.describe BookingRequestsController do
     context 'after submitting slot details' do
       context 'with at least one slot' do
         before do
-          post :create,
+          post :create, params: {
             prisoner_step: prisoner_details,
             slots_step: slots_details,
             locale: 'en'
+          }
         end
 
         it 'renders the visitors template' do
@@ -248,11 +253,12 @@ RSpec.describe BookingRequestsController do
 
       context 'with no slots selected' do
         before do
-          post :create,
+          post :create, params: {
             prisoner_step: prisoner_details,
             visitors_step: visitors_details,
             slots_step: { option_0: '' },
             locale: 'en'
+          }
         end
 
         it 'renders the slots template' do
@@ -310,7 +316,7 @@ RSpec.describe BookingRequestsController do
       end
 
       it 'renders the completed template' do
-        post :create, params
+        post :create, params: params
         expect(response).to redirect_to(visit_path(visit.human_id, locale: 'en'))
       end
 
@@ -343,7 +349,7 @@ RSpec.describe BookingRequestsController do
             ),
             :en
           )
-        post :create, params
+        post :create, params: params
       end
     end
   end
@@ -352,7 +358,7 @@ RSpec.describe BookingRequestsController do
     let(:enabled) { false }
 
     it 'redirect to the prison disabled page' do
-      post :create, locale: 'en', prisoner_step: prisoner_details
+      post :create, params: { locale: 'en', prisoner_step: prisoner_details }
       expect(response).to render_template('prison_unavailable')
     end
   end

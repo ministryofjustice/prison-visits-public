@@ -5,12 +5,12 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
     let(:params) { { locale: 'en' } }
 
     it 'responds with success' do
-      get :new, params
+      get :new, params: params
       expect(response).to be_success
     end
 
     it 'renders the new template' do
-      get :new, params
+      get :new, params: params
       expect(response).to render_template('new')
     end
   end
@@ -30,14 +30,14 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
       }
 
       it 'renders the create template' do
-        post :create, params
+        post :create, params: params
         expect(response).to render_template('create')
       end
 
       it 'sends to the API' do
         expect_any_instance_of(PrisonVisits::Api).
           to receive(:create_feedback).with(instance_of(FeedbackSubmission))
-        post :create, params
+        post :create, params: params
       end
     end
 
@@ -52,18 +52,18 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
       }
 
       it 'responds with success' do
-        post :create, params
+        post :create, params: params
         expect(response).to be_success
       end
 
       it 'does not send to the API' do
         expect_any_instance_of(PrisonVisits::Api).
           to_not receive(:create_feedback)
-        post :create, params
+        post :create, params: params
       end
 
       it 're-renders the new template' do
-        post :create, params
+        post :create, params: params
         expect(response).to render_template('new')
       end
     end

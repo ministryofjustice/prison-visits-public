@@ -54,14 +54,13 @@ module PrisonVisits
 
     config.api_host = ENV.fetch('PRISON_VISITS_API', 'http://localhost:3000/')
 
-    config.lograge.enabled = true
+    config.lograge.enabled = Rails.env.production?
     config.lograge.custom_options = lambda do |event|
       event.payload[:custom_log_items]
     end
 
     config.email_domain = ENV.fetch('EMAIL_DOMAIN', 'localhost')
 
-    config.middleware.insert_before ActionDispatch::ParamsParser,
-      HttpMethodNotAllowed
+    config.middleware.insert_before Rack::Head, HttpMethodNotAllowed
   end
 end

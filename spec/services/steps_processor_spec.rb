@@ -35,9 +35,9 @@ RSpec.describe StepsProcessor do
 
   let(:slots_details) {
     {
-      option_0: '2015-01-02T09:00/10:00',
-      option_1: '2015-01-03T09:00/10:00',
-      option_2: '2015-01-04T09:00/10:00'
+      'option_0' => '2015-01-02T09:00/10:00',
+      'option_1' => '2015-01-03T09:00/10:00',
+      'option_2' => '2015-01-04T09:00/10:00'
     }
   }
 
@@ -60,7 +60,7 @@ RSpec.describe StepsProcessor do
     allow(pvb_api).to receive(:validate_visitors).and_return('valid' => true)
   end
 
-  subject { described_class.new(HashWithIndifferentAccess.new(params), :cy) }
+  subject { described_class.new(ActionController::Parameters.new(params), :cy) }
 
   shared_examples 'it has all steps' do
     it 'has a PrisonerStep' do
@@ -138,8 +138,8 @@ RSpec.describe StepsProcessor do
     let(:params) {
       {
         prisoner_step: prisoner_details,
-        slots_step: slots_details,
-        visitors_step: { phone_no: '07900112233' }
+        slots_step:    slots_details,
+        visitors_step: { 'phone_no' => '07900112233' }
       }
     }
 
@@ -154,7 +154,7 @@ RSpec.describe StepsProcessor do
 
     it 'initialises the VisitorsStep with the supplied attributes' do
       expect(subject.steps[:visitors_step]).
-        to have_attributes(phone_no: '07900112233')
+        to have_attributes('phone_no' => '07900112233')
     end
 
     it_behaves_like 'it has all steps'
@@ -181,7 +181,7 @@ RSpec.describe StepsProcessor do
 
     it 'initialises the VisitorsStep with the supplied attributes' do
       expect(subject.steps[:visitors_step]).
-        to have_attributes(phone_no: '07900112233')
+        to have_attributes('phone_no' => '07900112233')
     end
 
     it 'initialises the SlotsStep with the supplied attributes' do
@@ -225,7 +225,7 @@ RSpec.describe StepsProcessor do
 
     it 'initialises the SlotsStep with the supplied attributes' do
       expect(subject.steps[:slots_step]).
-        to have_attributes(option_0: '2015-01-02T09:00/10:00')
+        to have_attributes('option_0' => '2015-01-02T09:00/10:00')
     end
 
     # For example if the visitor changes the prisoner
