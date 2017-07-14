@@ -61,7 +61,6 @@ module PrisonVisits
 
     config.email_domain = ENV.fetch('EMAIL_DOMAIN', 'localhost')
 
-    config.middleware.insert_before ActionDispatch::ParamsParser,
-      HttpMethodNotAllowed
+    config.middleware.insert_before Rack::Head, HttpMethodNotAllowed
   end
 end
