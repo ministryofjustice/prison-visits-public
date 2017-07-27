@@ -53,10 +53,9 @@ module FeaturesHelper
     first('#js-slotAvailability input[type="radio"]', visible: false).click
   end
 
-  def select_prison(name, field_id = '#prisoner_step_prison_id')
-    field = find(field_id)
-    field.set(name)
-    field.native.send_keys(:return)
+  def select_prison(name)
+    fill_in 'Prison name', with: name
+    find('.ui-autocomplete a', text: name).click
   end
 
   def check_yes_i_want_to_cancel
