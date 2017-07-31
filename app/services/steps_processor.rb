@@ -66,7 +66,7 @@ private
 
   def load_step(step_klass, params)
     step_name = step_klass.name.underscore
-    step_params = params.to_unsafe_h.fetch(step_name, {})
+    step_params = params.fetch(step_name, {})
     step_klass.new(step_params.merge(processor: self))
   end
 end
