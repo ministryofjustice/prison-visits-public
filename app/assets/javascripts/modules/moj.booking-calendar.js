@@ -124,7 +124,7 @@
       this.curYear = this.dateObj.getFullYear();
       this.year = this.curYear;
       var firstDate = this.availableSlots[0].date.split('-');
-      this.curMonth = new Date(firstDate[0], parseInt(firstDate[1]) - 1, firstDate[2]).getMonth();
+      this.curMonth = new Date(firstDate[0], parseInt(firstDate[1], 10) - 1, firstDate[2]).getMonth();
       this.month = this.curMonth;
       this.currentDate = false;
       this.date = this.dateObj.getDate();
