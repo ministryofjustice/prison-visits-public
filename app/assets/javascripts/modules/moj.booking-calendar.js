@@ -1025,7 +1025,7 @@
 
     makeDateObj: function(date) {
       var dateArr = date.split('-');
-      return new Date(dateArr[0], parseInt(dateArr[1]) - 1, dateArr[2]);
+      return new Date(dateArr[0], parseInt(dateArr[1], 10) - 1, dateArr[2]);
     },
 
     duration: function(start, end) {
