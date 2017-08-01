@@ -60,7 +60,7 @@ RSpec.describe StepsProcessor do
     allow(pvb_api).to receive(:validate_visitors).and_return('valid' => true)
   end
 
-  subject { described_class.new(ActionController::Parameters.new(params), :cy) }
+  subject { described_class.new(params, :cy) }
 
   shared_examples 'it has all steps' do
     it 'has a PrisonerStep' do
@@ -95,7 +95,10 @@ RSpec.describe StepsProcessor do
   end
 
   context 'with incomplete prisoner details' do
-    let(:params) { { prisoner_step: { first_name: 'Oscar' } } }
+    let(:params) do
+      ActiveSupport::HashWithIndifferentAccess.
+        new(prisoner_step: { first_name: 'Oscar' })
+    end
 
     it 'chooses the prisoner_step template' do
       expect(subject.step_name).to eq(:prisoner_step)
@@ -111,7 +114,10 @@ RSpec.describe StepsProcessor do
   end
 
   context 'with complete prisoner details' do
-    let(:params) { { prisoner_step: prisoner_details } }
+    let(:params) do
+      ActiveSupport::HashWithIndifferentAccess.
+        new(prisoner_step: prisoner_details)
+    end
 
     it 'chooses the slots_step template' do
       expect(subject.step_name).to eq(:slots_step)
@@ -135,13 +141,13 @@ RSpec.describe StepsProcessor do
   end
 
   context 'with incomplete visitor details' do
-    let(:params) {
-      {
+    let(:params) do
+      ActiveSupport::HashWithIndifferentAccess.new(
         prisoner_step: prisoner_details,
         slots_step: slots_details,
         visitors_step: { phone_no: '07900112233' }
-      }
-    }
+      )
+    end
 
     it 'chooses the visitors_step template' do
       expect(subject.step_name).to eq(:visitors_step)
@@ -162,13 +168,13 @@ RSpec.describe StepsProcessor do
   end
 
   context 'with complete visitor details' do
-    let(:params) {
-      {
+    let(:params) do
+      ActiveSupport::HashWithIndifferentAccess.new(
         prisoner_step: prisoner_details,
         visitors_step: visitors_details,
         slots_step: slots_details
-      }
-    }
+      )
+    end
 
     it 'chooses the slots_step template' do
       expect(subject.step_name).to eq(:confirmation_step)
@@ -202,12 +208,12 @@ RSpec.describe StepsProcessor do
   end
 
   context 'with at least one slot' do
-    let(:params) {
-      {
+    let(:params) do
+      ActiveSupport::HashWithIndifferentAccess.new(
         prisoner_step: prisoner_details,
         slots_step: slots_details
-      }
-    }
+      )
+    end
 
     before do
       allow_any_instance_of(SlotConstraints).
@@ -244,12 +250,12 @@ RSpec.describe StepsProcessor do
   end
 
   context 'with no slots selected' do
-    let(:params) {
-      {
+    let(:params) do
+      ActiveSupport::HashWithIndifferentAccess.new(
         prisoner_step: prisoner_details,
         slots_step: { option_0: '' }
-      }
-    }
+      )
+    end
 
     it 'chooses the slots_step template' do
       expect(subject.step_name).to eq(:slots_step)
@@ -265,14 +271,14 @@ RSpec.describe StepsProcessor do
   end
 
   context 'after confirming' do
-    let(:params) {
-      {
+    let(:params) do
+      ActiveSupport::HashWithIndifferentAccess.new(
         prisoner_step: prisoner_details,
         visitors_step: visitors_details,
         slots_step: slots_details,
         confirmation_step: { confirmed: 'true' }
-      }
-    }
+      )
+    end
 
     let(:booking_request_creator) {
       double(BookingRequestCreator)
