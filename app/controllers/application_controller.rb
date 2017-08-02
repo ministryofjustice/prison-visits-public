@@ -7,15 +7,9 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :store_request_id
 
-  before_action :log_params
-
   helper LinksHelper
 
 private
-
-  def log_params
-    STDOUT.puts params.to_unsafe_h.inspect
-  end
 
   def http_referrer
     request.headers['REFERER']
