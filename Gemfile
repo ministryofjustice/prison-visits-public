@@ -24,7 +24,7 @@ gem 'rake'
 gem 'request_store'
 # Fixed version as workaround for bug in 0.15.5
 # https://github.com/getsentry/raven-ruby/issues/460
-gem 'sentry-raven', '~> 2.6.2'
+gem 'sentry-raven', '~> 2.6.3'
 gem 'pvb-instrumentation',
   git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
   ref: 'a264627211f2bf68f4e388200b2a050fe9081504'
