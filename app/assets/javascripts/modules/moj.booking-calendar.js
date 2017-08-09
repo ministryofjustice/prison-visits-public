@@ -943,9 +943,6 @@
 
       var inputs = $("label input[type='radio']").length;
 
-      if (inputs > 0) {
-        var selectionButtons = new GOVUK.SelectionButtons("label input[type='radio']");
-      }
     },
 
     handleSlotChosen: function() {
