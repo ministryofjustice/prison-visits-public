@@ -42,7 +42,7 @@ build:
           if [[ $WERCKER_RESULT == "passed" ]]; then
 
             INTEGRATION_TEST_BRANCH=wercker-integration-tests
-             curl "https://app.wercker.com/api/v3/runs" \
+            curl "https://app.wercker.com/api/v3/runs" \
               -H "Content-Type: application/json" \
               -H "Authorization: Bearer $WERCKER_API_TOKEN" \
               -X POST \
