@@ -1,4 +1,4 @@
-FROM ministryofjustice/ruby:2.3.0-webapp-onbuild
+FROM ministryofjustice/ruby:2.4.1-webapp-onbuild
 
 EXPOSE 3000
 RUN gem update bundler --no-doc

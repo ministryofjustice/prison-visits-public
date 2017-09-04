@@ -13,7 +13,7 @@ require 'resolv'
 WebMock.disable_net_connect!(allow: 'codeclimate.com', allow_localhost: true)
 
 Capybara.javascript_driver = :selenium
-Capybara.default_max_wait_time = 120
+Capybara.default_max_wait_time = 30
 Capybara.wait_on_first_by_default = true
 Capybara.asset_host = 'http://localhost:4000'
 
@@ -26,6 +26,7 @@ RSpec.configure do |config|
   config.before(:each) do
     I18n.locale = I18n.default_locale
   end
+
 end
 
 Shoulda::Matchers.configure do |config|
