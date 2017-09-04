@@ -47,12 +47,11 @@ module FeaturesHelper
 
   def select_first_available_date
     expect(page).to have_css('table.booking-calendar td.available')
-    first("table.booking-calendar td.available", visible: false).click
+    first("table.booking-calendar td.available").click
   end
 
   def select_first_available_slot
-    expect(page).to have_css('#js-slotAvailability input[type="radio"]')
-    first('#js-slotAvailability input[type="radio"]', visible: false).click
+    first('#js-slotAvailability input[type="radio"]').click
   end
 
   def select_prison(name)
