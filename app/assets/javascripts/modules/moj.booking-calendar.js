@@ -288,7 +288,7 @@
           ariaSelected = '',
           readonly = true;
 
-        cellDate = this.year + '-' + (this.month <= 9 ? '0' : '') + (this.month + 1) + '-' + (curDay <= 9 ? '0' : '') + curDay;
+        cellDate = this.year + '-' + (this.month <= 8 ? '0' : '') + (this.month + 1) + '-' + (curDay <= 9 ? '0' : '') + curDay;
 
         for (var i = 0; i < this.availableSlots.length; i++) {
           if (this.availableSlots[i].date === cellDate) {
