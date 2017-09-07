@@ -7,6 +7,7 @@ Rails.application.config.assets.precompile += %w[
   favicon.ico
   application-ie8.css
   gov.uk_logotype_crown.svg
+  application_ie.js
 ]
 
 Rails.application.config.assets.paths <<

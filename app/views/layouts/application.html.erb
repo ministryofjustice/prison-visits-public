@@ -36,7 +36,15 @@
    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   <% end %>
 
-  <%= javascript_include_tag('application') %>
+  <!--[if lte IE 8]>
+    <%= javascript_include_tag('application_ie') %>
+  <![endif]-->
+
+  <!--[if gte IE 9]><!-->
+    <%= javascript_include_tag('application') %>
+  <!--<![endif]-->
+
+
 <% end %>
 
 <% content_for :cookie_message do %>
