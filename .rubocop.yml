@@ -196,6 +196,9 @@ RSpec/SubjectStub:
 RSpec/VerifiedDoubles:
   Enabled: false
 
+RSpec/ExpectInHook:
+  Enabled: false
+
 Rails/DynamicFindBy:
   Enabled: false
 
