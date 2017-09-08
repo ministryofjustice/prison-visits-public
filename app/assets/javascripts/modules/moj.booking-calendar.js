@@ -858,7 +858,7 @@
       var $curDay = $('#' + this.$grid.attr('aria-activedescendant'));
 
       // update the target box
-      var date = this.year + '-' + (this.month <= 9 ? '0' : '') + (this.month + 1) + '-' + ($curDay.text() <= 9 ? '0' : '') + $curDay.text();
+      var date = this.year + '-' + (this.month <= 8 ? '0' : '') + (this.month + 1) + '-' + ($curDay.text() <= 9 ? '0' : '') + $curDay.text();
       this.updateSelectedDate(date);
       this.updateSlots(date);
 
