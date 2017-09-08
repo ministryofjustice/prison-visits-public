@@ -2,6 +2,9 @@
   "name": "prison-visits-public",
   "scripts": {},
   "env": {
+    "GA_TRACKING_ID": {
+      "required": true
+    },
     "LANG": {
       "required": true
     },

@@ -14,7 +14,7 @@
         (ga.q = ga.q || []).push(arguments)
       };
       ga.l = +new Date;
-      window.ga('create', gaTrackingId, 'service.gov.uk');
+      window.ga('create', gaTrackingId, document.domain);
 
       if (hitTypePage) {
         window.ga('send', 'pageview', location.pathname + '#' + hitTypePage);
