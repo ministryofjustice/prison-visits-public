@@ -1,0 +1,41 @@
+FROM ruby:2.3.0
+
+ENV APP_HOME /pipeline/source
+
+RUN mkdir -p $APP_HOME
+
+ADD Gemfile* /pipeline/source/
+
+WORKDIR $APP_HOME
+
+RUN apt-get update -y; true && \
+    apt-get install -y ca-certificates openssl netcat xvfb nodejs jq curl && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN wget https://ftp.mozilla.org/pub/firefox/releases/55.0.3/linux-x86_64/en-US/firefox-55.0.3.tar.bz2 \
+    -O /tmp/firefox-55.0.3.tar.bz2 && \
+    tar -xvjf /tmp/firefox-55.0.3.tar.bz2 && \
+    mv firefox /opt/firefox && \
+    ln -s /opt/firefox/firefox /usr/local/bin && \
+    rm -rf /tmp/firefox-55.0.3.tar.bz2
+
+RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz \
+         -O /tmp/geckodriver-v0.18.0-linux64.tar.gz && \
+         tar -xvzf /tmp/geckodriver-v0.18.0-linux64.tar.gz && \
+         mv geckodriver /usr/local/bin/ && \
+         rm -f /tmp/geckodriver-v0.18.0-linux64.tar.gz
+
+RUN curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 \
+         -o /tmp/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
+         tar -xvjf /tmp/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
+         mv phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin/ && \
+         rm -rf /tmp/phantomjs-2.1.1-linux-x86_64.tar.bz2 phantomjs-2.1.1-linux-x86_64
+
+
+# RUN gem update --system
+RUN gem install bundler --no-doc
+
+RUN bundle install --jobs 4
+
+CMD ["bundle exec"]
