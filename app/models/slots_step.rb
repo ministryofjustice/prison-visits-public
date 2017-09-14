@@ -65,10 +65,6 @@ class SlotsStep
     currently_filling.present? && send("option_#{currently_filling}").blank?
   end
 
-  def additional_options?
-    options.length > 1
-  end
-
   def slots
     options.map { |s| ConcreteSlot.parse(s) }
   end

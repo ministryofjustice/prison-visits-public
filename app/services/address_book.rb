@@ -3,10 +3,6 @@ class AddressBook
     @domain = domain
   end
 
-  def feedback
-    "feedback@#{@domain}"
-  end
-
   def no_reply
     "no-reply@#{@domain}"
   end
