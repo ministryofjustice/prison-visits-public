@@ -1,5 +1,5 @@
 module PrisonVisits
-  # rubocop:disable Style/AccessorMethodName
+  # rubocop:disable Naming/AccessorMethodName
   # (in the context of a HTTP API, get_prisons is not bad style)
   class Api
     class << self
@@ -104,5 +104,5 @@ module PrisonVisits
       nil
     end
   end
-  # rubocop:enable Style/AccessorMethodName
+  # rubocop:enable Naming/AccessorMethodName
 end
