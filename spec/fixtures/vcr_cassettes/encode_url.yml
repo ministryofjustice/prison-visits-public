@@ -1,0 +1,150 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/api/visits/much+ado+about+nothing
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.58.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      X-Request-Id:
+      - 5cd2ef1a-4b7e-11e7-a919-92ebcb67fe33
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 5cd2ef1a-4b7e-11e7-a919-92ebcb67fe33
+      X-Runtime:
+      - '0.013046'
+      Content-Security-Policy:
+      - 'default-src ''self''; connect-src ''self''; font-src ''self'' data:; img-src
+        ''self'' data: www.google-analytics.com; script-src ''self'' www.google-analytics.com
+        www.gstatic.com docs.google.com ''unsafe-eval'' ''sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU=''
+        ''sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g='' ''sha256-9GTWoKmlaDM3V+GStWlXFaD4tf+wPfBN2ds2eySQ9aE=''
+        ; style-src ''self'' www.gstatic.com'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - sameorigin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not found"}'
+    http_version: 
+  recorded_at: Thu, 28 Sep 2017 08:47:53 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/visits/much+ado+about+nothing
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.58.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      X-Request-Id:
+      - 5cd2ef1a-4b7e-11e7-a919-92ebcb67fe33
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 5cd2ef1a-4b7e-11e7-a919-92ebcb67fe33
+      X-Runtime:
+      - '0.011035'
+      Content-Security-Policy:
+      - 'default-src ''self''; connect-src ''self''; font-src ''self'' data:; img-src
+        ''self'' data: www.google-analytics.com; script-src ''self'' www.google-analytics.com
+        www.gstatic.com docs.google.com ''unsafe-eval'' ''sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU=''
+        ''sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g='' ''sha256-9GTWoKmlaDM3V+GStWlXFaD4tf+wPfBN2ds2eySQ9aE=''
+        ; style-src ''self'' www.gstatic.com'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - sameorigin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not found"}'
+    http_version: 
+  recorded_at: Thu, 28 Sep 2017 08:47:53 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/visits/much+ado+about+nothing
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.58.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      X-Request-Id:
+      - 5cd2ef1a-4b7e-11e7-a919-92ebcb67fe33
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 5cd2ef1a-4b7e-11e7-a919-92ebcb67fe33
+      X-Runtime:
+      - '0.017099'
+      Content-Security-Policy:
+      - 'default-src ''self''; connect-src ''self''; font-src ''self'' data:; img-src
+        ''self'' data: www.google-analytics.com; script-src ''self'' www.google-analytics.com
+        www.gstatic.com docs.google.com ''unsafe-eval'' ''sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU=''
+        ''sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g='' ''sha256-9GTWoKmlaDM3V+GStWlXFaD4tf+wPfBN2ds2eySQ9aE=''
+        ; style-src ''self'' www.gstatic.com'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - sameorigin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not found"}'
+    http_version: 
+  recorded_at: Thu, 28 Sep 2017 08:47:53 GMT
+recorded_with: VCR 3.0.3

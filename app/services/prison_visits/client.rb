@@ -42,9 +42,7 @@ module PrisonVisits
     # rubocop:disable Metrics/MethodLength
     # rubocop:disable Metrics/AbcSize
     def request(method, route, params:, idempotent:)
-      # For cleanliness, strip initial / if supplied
-      route = route.sub(%r{^\/}, '')
-      path = "/api/#{route}"
+      path = "/api/#{sanitise_route(route)}"
       api_method = "#{method.to_s.upcase} #{path}"
 
       options = {
@@ -95,6 +93,16 @@ module PrisonVisits
           headers: { 'Content-Type' => 'application/json' }
         }
       end
+    end
+
+    def sanitise_route(route)
+      uri_parts = route.split('/')
+      uri_parts = uri_parts.map { |part| CGI.escape(part) }.join('/')
+      strip_initial_forward_slash(uri_parts)
+    end
+
+    def strip_initial_forward_slash(path)
+      path.sub(%r{^\/}, '')
     end
   end
 end
