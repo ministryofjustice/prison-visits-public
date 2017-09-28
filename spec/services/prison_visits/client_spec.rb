@@ -46,6 +46,12 @@ RSpec.describe PrisonVisits::Client do
       expect(a_request(:get, /\w/)).to have_been_made.times(3)
     end
 
+    it 'encodes the URL', vcr: { cassette_name: 'encode_url' } do
+      expect {
+        subject.get('/visits/much ado about nothing')
+      }.to raise_error(PrisonVisits::APINotFound, 'GET /api/visits/much+ado+about+nothing')
+    end
+
     context 'Resource Not Found', vcr: { cassette_name: 'client_not_found' } do
       it "raises a PrisonVisits::APINotFound" do
         expect {
