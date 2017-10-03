@@ -21,6 +21,7 @@ class Visit
     visitors.map { |v| Visitor.new(v) }
   }
   attribute :cancellation_reason, Symbol
+  attribute :cancellation_reasons, Array[Symbol]
   attribute :cancelled_at, DateTime
   attribute :can_cancel, Boolean
   attribute :can_withdraw, Boolean
