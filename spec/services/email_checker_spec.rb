@@ -49,6 +49,12 @@ RSpec.describe EmailChecker do
 
       it_behaves_like 'an invalid address', 'unparseable'
     end
+
+    context 'with two consecutive dots in the domain' do
+      let(:address) { 'user@example.co..uk' }
+
+      it_behaves_like 'an invalid address', 'domain_dot'
+    end
   end
 
   context 'with valid address' do
