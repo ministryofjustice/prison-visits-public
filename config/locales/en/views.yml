@@ -400,6 +400,9 @@ en:
       title: Your visit is cancelled
       your_visit: Date and time of your visit
       location: Location
+      cancellation_reason:
+        one: Cancellation reason
+        other: Cancellation reasons
       cancelled_on:
         Cancelled on
       slot_unavailable:

@@ -30,9 +30,13 @@
 
   <div class="column-two-thirds">
     <dl>
-      <dt><%= t('.cancellation_reason') %></dt>
+      <dt><%= t('.cancellation_reason', count: @visit.cancellation_reasons.size) %></dt>
       <dd>
-        <span class="bold-small"><%= t(".#{@visit.cancellation_reason}") %></span>
+        <ul class='list list-bullet'>
+          <% @visit.cancellation_reasons.each do |reason| %>
+            <li class="bold-small"><%= t(".#{reason}") %></li>
+          <% end %>
+        </ul>
       </dd>
     </dl>
   </div>
