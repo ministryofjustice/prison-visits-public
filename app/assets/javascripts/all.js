@@ -31,5 +31,5 @@
   delete moj.Modules.devs;
   moj.Modules.Sentry.capture(function() {
     moj.init();
-  }
+  })
 }());
