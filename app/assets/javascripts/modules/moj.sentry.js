@@ -10,6 +10,12 @@
     },
     handleException: function(error) {
       this.raven.captureException(error);
+    },
+    capture: function(cb) {
+      Raven.context(function() {
+        cb();
+      })
     }
+
   }
 }());

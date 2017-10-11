@@ -29,5 +29,7 @@
     $('body').addClass('js-enabled');
   }
   delete moj.Modules.devs;
-  moj.init();
+  moj.Modules.Sentry.capture(function() {
+    moj.init();
+  }
 }());
