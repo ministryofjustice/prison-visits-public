@@ -1,4 +1,5 @@
 require 'maybe_date'
+require 'email_address_validation'
 
 class FeedbackSubmission
   include NonPersistedModel
@@ -26,7 +27,8 @@ private
   def email_format
     return if email_address.blank?
 
-    email_checker = EmailChecker.new(email_address)
+    # email_checker = EmailChecker.new(email_address)
+    email_checker = EmailAddressValidation::Checker.new(email_address)
 
     unless email_checker.valid?
       errors.add(:email_address, 'has incorrect format')
