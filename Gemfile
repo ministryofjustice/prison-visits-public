@@ -9,7 +9,7 @@ gem 'kramdown'
 gem 'lograge'
 gem 'logstash-event'
 gem 'phonelib'
-gem 'puma'
+gem 'puma', '3.9.1' # To test if production issues still happen with previous version
 gem 'sass-rails'
 gem 'govuk_template'
 gem 'govuk_frontend_toolkit'
