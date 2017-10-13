@@ -52,7 +52,7 @@ RSpec.describe FeedbackSubmission, type: :model do
 
       context 'when the email checker returns true' do
         before do
-          allow_any_instance_of(EmailChecker).
+          allow_any_instance_of(EmailAddressValidation::Checker).
             to receive(:valid?).and_return(true)
         end
 
@@ -65,7 +65,7 @@ RSpec.describe FeedbackSubmission, type: :model do
 
       context 'when the email checker returns false' do
         before do
-          allow_any_instance_of(EmailChecker).
+          allow_any_instance_of(EmailAddressValidation::Checker).
             to receive(:valid?).and_return(false)
         end
 

@@ -17,7 +17,7 @@ RSpec.describe BookingRequestsController do
 
   let(:visitors_details) {
     {
-      email_address: 'ada@test.example.com',
+      email_address: 'ada@hotmail.com',
       phone_no: '07900112233',
       visitors_attributes: {
         0 => {
@@ -332,7 +332,7 @@ RSpec.describe BookingRequestsController do
               number: 'a1234bc'
             ),
             an_object_having_attributes(
-              email_address: 'ada@test.example.com',
+              email_address: 'ada@hotmail.com',
               phone_no: '07900112233',
               visitors: [
                 an_object_having_attributes(
