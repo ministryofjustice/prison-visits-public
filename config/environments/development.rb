@@ -8,9 +8,11 @@ Rails.application.configure do
   config.assets.digest = true
   config.assets.raise_runtime_errors = true
 
-  config.mx_checker = MxChecker::Dummy.new
-
   config.i18n.load_path =
     Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
   config.staff_url = 'http://localhost:3000'
+
+  EmailAddressValidation.configure do |config|
+    config.mx_checker = MxChecker::Dummy.new
+  end
 end

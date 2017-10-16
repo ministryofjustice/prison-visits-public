@@ -16,6 +16,9 @@ Rails.application.configure do
   config.lograge.logger = ActiveSupport::Logger.new \
     "#{Rails.root}/log/logstash_#{Rails.env}.json"
 
-  config.mx_checker = MxChecker.new
   config.staff_url = ENV.fetch('STAFF_SERVICE_URL')
+
+  EmailAddressValidation.configure do |config|
+    config.mx_checker = MxChecker.new
+  end
 end
