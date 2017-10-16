@@ -10,9 +10,11 @@ Rails.application.configure do
   config.active_support.test_order = :random
   config.active_support.deprecation = :stderr
 
-  config.mx_checker = MxChecker::Dummy.new
-
   config.i18n.load_path =
     Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
   config.staff_url = 'http://localhost:3000'
+
+  EmailAddressValidation.configure do |config|
+    config.mx_checker = MxChecker::Dummy.new
+  end
 end

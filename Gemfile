@@ -17,8 +17,6 @@ gem 'govuk_elements_rails'
 gem 'jquery-rails', '~> 4.2.0'
 gem 'jquery-ui-rails', '~> 6.0.1'
 
-gem "email_address_validation", :path => "/Users/kathpobee-norris/MOJ/email_address_validation/"
-
 # Fixed version as workaround for Rails version 4.2 expecting method
 # 'last_comment' to be defined. Review once we are using a different Rails
 # version
@@ -30,6 +28,9 @@ gem 'sentry-raven', '~> 2.7.0'
 gem 'pvb-instrumentation',
   git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
   ref: 'a264627211f2bf68f4e388200b2a050fe9081504'
+
+gem 'email_address_validation',
+  git: 'https://github.com/ministryofjustice/email_address_validation'
 
 gem 'string_scrubber'
 gem 'uglifier', '~> 2.7.2'
