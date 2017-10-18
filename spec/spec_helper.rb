@@ -1,7 +1,7 @@
 require 'simplecov'
 require 'simplecov-rcov'
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
-SimpleCov.minimum_coverage 98.96
+SimpleCov.minimum_coverage 98.91
 
 # Minimal auto-load for quicker specs. This avoids loading the whole of Rails
 # solely for dependency resolution.
