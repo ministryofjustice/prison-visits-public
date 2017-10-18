@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/ministryofjustice/email_address_validation
   revision: 6ba244a046b37bed02dca25271849513b200f056
+  ref: 6ba244a046b37bed02dca25271849513b200f056
   specs:
     email_address_validation (0.1.0)
       activesupport (~> 5.1.4)

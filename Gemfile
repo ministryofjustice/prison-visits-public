@@ -30,7 +30,8 @@ gem 'pvb-instrumentation',
   ref: 'a264627211f2bf68f4e388200b2a050fe9081504'
 
 gem 'email_address_validation',
-  git: 'https://github.com/ministryofjustice/email_address_validation'
+  git: 'https://github.com/ministryofjustice/email_address_validation',
+  ref: '6ba244a046b37bed02dca25271849513b200f056'
 
 gem 'string_scrubber'
 gem 'uglifier', '~> 2.7.2'
