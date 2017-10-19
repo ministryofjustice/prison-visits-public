@@ -39,6 +39,7 @@ gem 'uri_template'
 gem 'virtus'
 gem 'zendesk_api'
 gem 'secure_headers'
+gem 'gc_tracer'
 
 group :development, :test do
   gem 'brakeman'
