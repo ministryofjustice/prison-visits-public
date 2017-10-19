@@ -6,22 +6,6 @@ module CalendarHelper
     end
   end
 
-  def today?(day)
-    day == Time.zone.today
-  end
-
-  def future?(day)
-    day > Time.zone.today
-  end
-
-  def first_day_of_month?(day)
-    day.beginning_of_month == day
-  end
-
-  def tagged?(day)
-    today?(day) || first_day_of_month?(day)
-  end
-
   def weeks(slots)
     begin_on = Time.zone.today.beginning_of_week
     end_on = slots.last_bookable_date.end_of_month.end_of_week

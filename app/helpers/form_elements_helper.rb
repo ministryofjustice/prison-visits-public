@@ -1,3 +1,4 @@
+# :nocov:
 module FormElementsHelper
   def single_field(form, name, field_method, *options)
     case field_method

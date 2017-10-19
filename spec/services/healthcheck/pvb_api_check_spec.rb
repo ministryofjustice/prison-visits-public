@@ -5,7 +5,7 @@ RSpec.describe Healthcheck::PvbApiCheck do
 
   context 'with a healthy API' do
     before do
-      allow_any_instance_of(PrisonVisits::Api).
+      allow(PrisonVisits::Api.instance).
         to receive(:healthy?).
         and_return(true)
     end
@@ -20,20 +20,40 @@ RSpec.describe Healthcheck::PvbApiCheck do
     end
   end
 
-  context 'with a unhealthy API' do
-    before do
-      allow_any_instance_of(PrisonVisits::Api).
-        to receive(:healthy?).
-        and_return(false)
+  context 'with an unhealthy API' do
+    context 'that raises an error' do
+      before do
+        allow(PrisonVisits::Api.instance).
+          to receive(:healthy?).
+          and_raise(StandardError, 'some other exception')
+      end
+
+      it { is_expected.to_not be_ok }
+
+      it 'reports the error' do
+        expect(subject.report).to eq(
+          description: 'PVB API Check',
+          ok: false,
+          error: 'some other exception'
+        )
+      end
     end
 
-    it { is_expected.to_not be_ok }
+    context 'that reports the status' do
+      before do
+        allow(PrisonVisits::Api.instance).
+          to receive(:healthy?).
+          and_return(false)
+      end
 
-    it 'reports the status' do
-      expect(subject.report).to eq(
-        description: 'PVB API Check',
-        ok: false
-      )
+      it { is_expected.to_not be_ok }
+
+      it 'reports the status' do
+        expect(subject.report).to eq(
+          description: 'PVB API Check',
+          ok: false
+        )
+      end
     end
   end
 end
