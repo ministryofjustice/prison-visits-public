@@ -9,8 +9,8 @@ gem 'kramdown'
 gem 'lograge'
 gem 'logstash-event'
 gem 'phonelib'
-gem 'puma', '3.9.1' # To test if production issues still happen with previous version
-gem 'sass-rails'
+gem 'puma'
+gem 'sass-rails', require: false
 gem 'govuk_template'
 gem 'govuk_frontend_toolkit'
 gem 'govuk_elements_rails'
@@ -34,7 +34,7 @@ gem 'email_address_validation',
   ref: '6ba244a046b37bed02dca25271849513b200f056'
 
 gem 'string_scrubber'
-gem 'uglifier', '~> 2.7.2'
+gem 'uglifier', '~> 2.7.2', require: false
 gem 'uri_template'
 gem 'virtus'
 gem 'secure_headers'
