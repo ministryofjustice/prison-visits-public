@@ -37,7 +37,6 @@ gem 'string_scrubber'
 gem 'uglifier', '~> 2.7.2'
 gem 'uri_template'
 gem 'virtus'
-gem 'zendesk_api'
 gem 'secure_headers'
 gem 'gc_tracer'
 
