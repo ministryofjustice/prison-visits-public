@@ -61,7 +61,7 @@ module PrisonVisits
 
     config.email_domain = ENV.fetch('EMAIL_DOMAIN', 'localhost')
 
-    config.max_threads = ENV.fetch('RAILS_MAX_THREADS', 5)
+    config.max_threads = ENV.fetch('RAILS_MAX_THREADS', 15)
 
     config.middleware.insert_before Rack::Head, HttpMethodNotAllowed
   end
