@@ -33,7 +33,7 @@ module PrisonVisits
     def healthcheck
       @connection.head(
         path: 'healthcheck',
-        persistent: false
+        idempotent: true
       )
     end
 
