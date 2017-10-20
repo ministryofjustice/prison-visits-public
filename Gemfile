@@ -3,6 +3,7 @@ ruby '2.4.2'
 
 gem 'rails', '~> 5.1'
 
+gem 'connection_pool'
 gem 'excon'
 gem 'high_voltage'
 gem 'kramdown'

@@ -85,6 +85,7 @@ GEM
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.1)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.2)
@@ -320,6 +321,7 @@ DEPENDENCIES
   byebug
   capybara
   capybara-screenshot
+  connection_pool
   email_address_validation!
   excon
   fuubar
