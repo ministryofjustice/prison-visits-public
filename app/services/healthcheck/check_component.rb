@@ -13,6 +13,7 @@ module Healthcheck
         begin
           yield
         rescue StandardError => err
+          Raven.capute(err)
           { error: err.to_s, ok: false }
         end.merge(description: description)
     end
