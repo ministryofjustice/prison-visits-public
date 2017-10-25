@@ -11,10 +11,6 @@ module PrisonVisits
       end
     end
 
-    def healthy?
-      pool.with { |client| client.healthcheck.status == 200 }
-    end
-
     def get_prisons
       result = pool.with { |client| client.get('/prisons') }
 

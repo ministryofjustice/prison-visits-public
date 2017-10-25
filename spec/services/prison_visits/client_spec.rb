@@ -14,6 +14,12 @@ RSpec.describe PrisonVisits::Client do
     RequestStore.store[:request_id] = '5cd2ef1a-4b7e-11e7-a919-92ebcb67fe33'
   end
 
+  describe '#healthcheck' do
+    it 'calls the healthcheck endpoint', vcr: { cassette_name: 'healthcheck' } do
+      expect(subject.healthcheck.status). to eq(200)
+    end
+  end
+
   describe 'error handling' do
     it 'parses returned JSON errors', vcr: { cassette_name: 'client_json_error' } do
       expect {
