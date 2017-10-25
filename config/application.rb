@@ -61,7 +61,10 @@ module PrisonVisits
 
     config.email_domain = ENV.fetch('EMAIL_DOMAIN', 'localhost')
 
-    config.max_threads = ENV.fetch('RAILS_MAX_THREADS', 15)
+    # right now we have 4 puma worker with each 5 threads
+    # so potentially we can request 20 http connection from the pool
+    # so we need at least 4 * 5 connections in the pool
+    config.max_threads = ENV.fetch('RAILS_MAX_THREADS', 22)
 
     config.middleware.insert_before Rack::Head, HttpMethodNotAllowed
   end
