@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: head
+    uri: http://localhost:3000/healthcheck
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.59.0
+  response:
+    status:
+      code: 200
+      message: Service Unavailable
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Id:
+      - a15ebb68-f696-4e96-b13e-3a8740ba5a8a
+      X-Runtime:
+      - '0.429570'
+      Content-Security-Policy:
+      - 'default-src ''self''; connect-src ''self''; font-src ''self'' data:; img-src
+        ''self'' data: www.google-analytics.com; script-src ''self'' www.google-analytics.com
+        www.gstatic.com docs.google.com ''unsafe-eval'' ''sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU=''
+        ''sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g='' ''sha256-9GTWoKmlaDM3V+GStWlXFaD4tf+wPfBN2ds2eySQ9aE=''
+        ; style-src ''self'' www.gstatic.com'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - sameorigin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    http_version: 
+  recorded_at: Wed, 25 Oct 2017 08:45:02 GMT
+recorded_with: VCR 3.0.3

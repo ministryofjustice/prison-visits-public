@@ -9,8 +9,9 @@ RSpec.describe HealthcheckController, type: :controller do
 
   context 'when everything is OK' do
     before do
-      allow_any_instance_of(PrisonVisits::Api).
-        to receive(:healthy?).and_return(true)
+      allow_any_instance_of(PrisonVisits::Client).
+        to receive(:healthcheck).
+        and_return(double(status: 200))
     end
 
     it { is_expected.to be_success }
@@ -30,8 +31,9 @@ RSpec.describe HealthcheckController, type: :controller do
 
   context 'when the healthcheck is not OK' do
     before do
-      allow_any_instance_of(PrisonVisits::Api).
-        to receive(:healthy?).and_return(false)
+      allow_any_instance_of(PrisonVisits::Client).
+        to receive(:healthcheck).
+        and_return(double(status: 502))
     end
 
     it { is_expected.to have_http_status(:bad_gateway) }

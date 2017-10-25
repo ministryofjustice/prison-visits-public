@@ -8,10 +8,10 @@ module PrisonVisits
     TIMEOUT = 3 # seconds
     EXCON_INSTRUMENT_NAME = 'pvb_api'.freeze
 
-    def initialize(host)
+    def initialize(host, persistent: true)
       @host = host
       @connection = Excon.new(
-        host, persistent: true, connect_timeout: TIMEOUT,
+        host, persistent: persistent, connect_timeout: TIMEOUT,
               read_timeout: TIMEOUT, write_timeout: TIMEOUT, retry_limit: 3,
               instrumentor: ActiveSupport::Notifications,
               instrumentor_name: EXCON_INSTRUMENT_NAME
@@ -31,10 +31,7 @@ module PrisonVisits
     end
 
     def healthcheck
-      @connection.head(
-        path: 'healthcheck',
-        persistent: false
-      )
+      @connection.head(path: 'healthcheck')
     end
 
   private
