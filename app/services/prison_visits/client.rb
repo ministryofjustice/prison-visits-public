@@ -42,6 +42,7 @@ module PrisonVisits
     end
 
     def post(route, params:, idempotent: false)
+      @first_time_try = true
       request(:post, route, params: params, idempotent: idempotent)
     end
 
@@ -75,6 +76,14 @@ module PrisonVisits
 
       response = @connection.request(options)
       JSON.parse(response.body)
+    rescue Excon::Error::Socket => e
+      if @first_time_try && !idempotent
+        @first_time_try = false
+        @connection.reset
+        retry
+      else
+        raise APIError, "Exception #{e.class} calling #{api_method}: #{e}"
+      end
     rescue Excon::Errors::NotFound
       raise APINotFound, api_method
     rescue Excon::Errors::HTTPStatusError => e

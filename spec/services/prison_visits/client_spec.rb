@@ -21,6 +21,26 @@ RSpec.describe PrisonVisits::Client do
   end
 
   describe 'error handling' do
+    let(:socket_error) { Excon::Error::Socket.new(Excon::Error.new('end of file reached (EOFError)')) }
+
+    it 'retries socket errors once for non idempotent requests' do
+      stub_request(:post, /something/).
+        to_raise(socket_error).then.
+        to_return(body: '{ "foo": 1 }')
+
+      expect(subject.post('/something', params: { foo: 1 })).to eq("foo" => 1)
+    end
+
+    it 're-raises if a socket error happens more than once' do
+      stub_request(:post, /something/).
+        to_raise(socket_error).then.
+        to_raise(socket_error)
+
+      expect {
+        subject.post('/something', params: { foo: 1 })
+      }.to raise_error(PrisonVisits::APIError)
+    end
+
     it 'parses returned JSON errors', vcr: { cassette_name: 'client_json_error' } do
       expect {
         subject.get('/prisons/ff6eb0ca-da69-4495-ac9d-b383e01371eb', idempotent: false)
