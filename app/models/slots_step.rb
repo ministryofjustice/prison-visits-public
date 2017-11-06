@@ -34,7 +34,7 @@ class SlotsStep
 
   validates :option_0, presence: true
 
-  delegate :bookable_slots?, to: :slot_constraints
+  delegate :bookable_slots?, :unavailability_reasons, to: :slot_constraints
 
   def reorder_options
     if option_0.present? && option_1.blank? && option_2.present?

@@ -85,13 +85,13 @@ RSpec.describe SlotConstraints do
   end
 
   describe '#bookable_slot?' do
-    describe 'with at least ont bookable slot' do
+    describe 'with at least one bookable slot' do
       it 'is true' do
         expect(subject.bookable_slots?).to be true
       end
     end
 
-    describe 'with at least ont bookable slot' do
+    describe 'with at least one bookable slot' do
       describe 'with no bookable slot' do
         let(:slots) do
           [unbookable_slot]
@@ -100,6 +100,52 @@ RSpec.describe SlotConstraints do
         it 'is false' do
           expect(subject.bookable_slots?).to be false
         end
+      end
+    end
+  end
+
+  describe '#unavailability_reasons' do
+    let(:unbookable_slot_0) do
+      CalendarSlot.new(
+        slot: ConcreteSlot.parse('2017-02-15T14:15/16:15'),
+        unavailability_reasons: ['prisoner_unavailable']
+      )
+    end
+
+    let(:unbookable_slot_1) do
+      CalendarSlot.new(
+        slot: ConcreteSlot.parse('2017-02-17T14:15/16:15'),
+        unavailability_reasons: ['slot_unavailable']
+      )
+    end
+
+    let(:unbookable_slot_2) do
+      CalendarSlot.new(
+        slot: ConcreteSlot.parse('2017-02-16T14:15/16:15'),
+        unavailability_reasons: ['prisoner_unavailable']
+      )
+    end
+
+    let(:unbookable_slot_3) do
+      CalendarSlot.new(
+        slot: ConcreteSlot.parse('2017-02-19T14:15/16:15'),
+        unavailability_reasons: ['slot_unavailable']
+      )
+    end
+
+    let(:slots) do
+      [unbookable_slot_0, unbookable_slot_1, unbookable_slot_2, unbookable_slot_3]
+    end
+
+    context 'when a specific slot is provided' do
+      it 'checks whether that slot has any unavailability reasons' do
+        expect(subject.unavailability_reasons(unbookable_slot_0)).to eq ['prisoner_unavailable']
+      end
+    end
+
+    context 'when checking all dates within a booking window' do
+      it 'checks all dates for unavailability reasons' do
+        expect(subject.unavailability_reasons).to eq %w[prisoner_unavailable slot_unavailable]
       end
     end
   end
