@@ -137,8 +137,12 @@
 
 <% else %>
   <div class="js-AsyncGA" data-ga-tracking-id="<%= config_item :ga_id %>" data-hit-type-page="no_slots_available">
-    <% content_for :header, t('.no_availability_title') %>
-    <%= markdown t('.no_availability_md') %>
+    <% if slots_step.unavailability_reasons.include?('prisoner_unavailable') %>
+      <% content_for :header, t('.prisoner_availability_title') %>
+      <%= markdown t('.prisoner_availability_md') %>
+    <% else %>
+      <% content_for :header, t('.no_availability_title') %>
+      <%= markdown t('.no_availability_md') %>
+    <% end %>
   </div>
-
 <% end %>

@@ -136,11 +136,16 @@ en:
       option_1: Option 2
       option_2: Option 3
       next_step: Continue
+      prisoner_availability_title: You can't book a visit right now
+      prisoner_availability_md: |
+        This is because the person you want to visit has run out of visit allowance.
+
+        You can arrange another visit after their visit allowance is renewed.
       no_availability_title: You can't book a visit right now
       no_availability_md: |
-        This may be because the prisoner has run out of visiting allowance or the prison has no available visit slots.
+        This is because the prison has no available visit slots for the next 28 days.
 
-        These calendars are updated daily, so please try again later.
+        Our calendars are updated daily, so please try again later.
     confirmation_step:
       title: Check your visit details
       prisoner_details: Prisoner details
