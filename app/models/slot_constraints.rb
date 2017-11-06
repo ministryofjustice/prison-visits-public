@@ -26,8 +26,12 @@ class SlotConstraints
     bookable_slots.any?
   end
 
-  def unavailability_reasons(slot)
-    find { |calendar_slot| calendar_slot.slot == slot }.unavailability_reasons
+  def unavailability_reasons(slot = nil)
+    if slot
+      find { |calendar_slot| calendar_slot.slot == slot }.unavailability_reasons
+    else
+      flat_map(&:unavailability_reasons).uniq
+    end
   end
 
   def bookable_slots
