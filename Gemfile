@@ -39,7 +39,6 @@ gem 'uglifier', '~> 2.7.2', require: false
 gem 'uri_template'
 gem 'virtus'
 gem 'secure_headers'
-gem 'gc_tracer'
 
 group :development, :test do
   gem 'brakeman'
