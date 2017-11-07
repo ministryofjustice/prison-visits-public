@@ -12,6 +12,8 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
   config.log_formatter = ::Logger::Formatter.new
 
+  config.force_ssl = true
+
   config.lograge.formatter = Lograge::Formatters::Logstash.new
   config.lograge.logger = ActiveSupport::Logger.new \
     "#{Rails.root}/log/logstash_#{Rails.env}.json"
