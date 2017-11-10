@@ -24,7 +24,7 @@ RSpec.describe AgeValidator do
     subject.validate_each(model, :date_of_birth, value)
   end
 
-  context "error if not a date" do
+  context "when error if not a date" do
     let(:value) { 'Random String' }
 
     it 'one error message' do
@@ -36,7 +36,7 @@ RSpec.describe AgeValidator do
     end
   end
 
-  context "error if too old" do
+  context "when error if too old" do
     let(:value) { Date.new(1700, 1, 1) }
 
     it 'one error message' do
@@ -48,7 +48,7 @@ RSpec.describe AgeValidator do
     end
   end
 
-  context "allows legitimate date of birth" do
+  context "when it allows legitimate date of birth" do
     let(:value) { Time.zone.today - 10 }
 
     it 'no error message' do

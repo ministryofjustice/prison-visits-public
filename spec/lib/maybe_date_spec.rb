@@ -10,7 +10,7 @@ RSpec.describe MaybeDate do
   describe '#coerce' do
     let(:result) { subject.coerce(value) }
 
-    context 'value is nil' do
+    context 'when the value is nil' do
       let(:value) { nil }
 
       it 'returns nil' do
@@ -18,7 +18,7 @@ RSpec.describe MaybeDate do
       end
     end
 
-    context 'value is a Date' do
+    context 'when the value is a Date' do
       let(:value) { Date.new(2000, 1, 1) }
 
       it 'returns the value unchanged' do
@@ -26,7 +26,7 @@ RSpec.describe MaybeDate do
       end
     end
 
-    context 'value is a String' do
+    context 'when the value is a String' do
       let(:value) { '2000-01-01' }
 
       it 'returns the string parsed to a date' do
@@ -34,10 +34,10 @@ RSpec.describe MaybeDate do
       end
     end
 
-    context 'value responds to values_at' do
+    context 'when the value responds to values_at' do
       let(:value) { double('Thing', values_at: values) }
 
-      context 'returning zero values' do
+      context 'when returning zero values' do
         let(:values) { %w[0 0 0] }
 
         it 'returns nil' do
@@ -45,7 +45,7 @@ RSpec.describe MaybeDate do
         end
       end
 
-      context 'returning values corresponding to a valid date' do
+      context 'when the returning values corresponding to a valid date' do
         let(:values) { %w[2015 12 31] }
 
         it 'returns the date' do
@@ -53,7 +53,7 @@ RSpec.describe MaybeDate do
         end
       end
 
-      context 'returning values corresponding to an invalid date' do
+      context 'when the returning values corresponding to an invalid date' do
         let(:values) { %w[2015 12 32] }
 
         it 'returns an uncoerced date object' do

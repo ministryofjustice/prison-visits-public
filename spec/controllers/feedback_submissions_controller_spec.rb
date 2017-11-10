@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe FeedbackSubmissionsController, type: :controller do
-  context 'new' do
+  context 'when new' do
     let(:params) { { locale: 'en' } }
 
     it 'responds with success' do
@@ -15,7 +15,7 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
     end
   end
 
-  context 'create' do
+  context 'when creating' do
     context 'with a successful feedback submission' do
       before do
         allow_any_instance_of(PrisonVisits::Api).to receive(:create_feedback)

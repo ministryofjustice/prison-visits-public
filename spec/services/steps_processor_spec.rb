@@ -131,7 +131,7 @@ RSpec.describe StepsProcessor do
     it_behaves_like 'it has all steps'
     it_behaves_like 'it is incomplete'
 
-    context 'and the intention to go to the prisoner step' do
+    context 'with the intention to go to the prisoner step' do
       let(:params) { super().merge(review_step: :prisoner_step) }
 
       it 'chooses the prisoner_step template' do
@@ -198,7 +198,7 @@ RSpec.describe StepsProcessor do
     it_behaves_like 'it has all steps'
     it_behaves_like 'it is incomplete'
 
-    context 'and the intention to go to the prisoner step' do
+    context 'with the intention to go to the prisoner step' do
       let(:params) { super().merge(review_step: :prisoner_step) }
 
       it 'chooses the prisoner_step template' do
@@ -270,7 +270,7 @@ RSpec.describe StepsProcessor do
     it_behaves_like 'it is incomplete'
   end
 
-  context 'after confirming' do
+  context 'when confirmed' do
     let(:params) do
       ActiveSupport::HashWithIndifferentAccess.new(
         prisoner_step: prisoner_details,

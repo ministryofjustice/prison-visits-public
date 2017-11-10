@@ -21,7 +21,7 @@ RSpec.describe Healthcheck::PvbApiCheck do
   end
 
   context 'with an unhealthy API' do
-    context 'that raises an error' do
+    context 'when it raises an error' do
       before do
         allow_any_instance_of(PrisonVisits::Client).
           to receive(:healthcheck).
@@ -39,7 +39,7 @@ RSpec.describe Healthcheck::PvbApiCheck do
       end
     end
 
-    context 'that reports the status' do
+    context 'with a status report' do
       before do
         allow_any_instance_of(PrisonVisits::Client).
           to receive(:healthcheck).

@@ -35,7 +35,7 @@ RSpec.describe FeedbackSubmission, type: :model do
       subject.valid?
     end
 
-    context 'body' do
+    context 'when body' do
       describe 'is blank' do
         let(:body) { nil }
 
@@ -78,19 +78,19 @@ RSpec.describe FeedbackSubmission, type: :model do
     end
 
     describe 'prisoner_number' do
-      context 'is blank' do
+      context "when it's blank" do
         let(:prisoner_number) { nil }
 
         it { expect(subject.errors[:prisoner_number]).not_to be_present }
       end
 
-      context 'is incorrect format' do
+      context 'when it has an incorrect format' do
         let(:prisoner_number) { 'Goofy78' }
 
         it { expect(subject.errors[:prisoner_number]).to be_present }
       end
 
-      context 'is correct format' do
+      context 'when it has the correct format' do
         let(:prisoner_number) { 'A1234BC' }
 
         it { expect(subject.errors[:prisoner_number]).not_to be_present }
@@ -98,19 +98,19 @@ RSpec.describe FeedbackSubmission, type: :model do
     end
 
     describe 'prisoner_date_of_birth' do
-      context 'is blank' do
+      context 'when it is blank' do
         let(:prisoner_date_of_birth) { nil }
 
         it { expect(subject.errors[:prisoner_date_of_birth]).not_to be_present }
       end
 
-      context 'is a valid date' do
+      context 'when it has a valid date' do
         let(:prisoner_date_of_birth) { '1999-01-01' }
 
         it { expect(subject.errors[:prisoner_date_of_birth]).not_to be_present }
       end
 
-      context 'is an invalid date' do
+      context 'when it has an invalid date' do
         let(:prisoner_date_of_birth) { '1800-12-25' }
 
         it { expect(subject.errors[:prisoner_date_of_birth]).to be_present }
@@ -118,7 +118,7 @@ RSpec.describe FeedbackSubmission, type: :model do
     end
 
     describe 'prison_id' do
-      context 'is blank' do
+      context 'when it is blank' do
         let(:prison_id) { nil }
 
         it { expect(subject.errors[:prison_id]).not_to be_present }
