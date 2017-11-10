@@ -234,7 +234,7 @@ RSpec.describe VisitorsStep do
     end
   end
 
-  context 'age-related validations' do
+  context 'with age-related validations' do
     let(:prison) {
       instance_double(Prison, id: '123', adult_age: 13, max_visitors: 6)
     }

@@ -107,10 +107,10 @@ RSpec.describe CalendarHelper do
 
     subject { helper.selection_options(slots_step, slot, reviewing) }
 
-    context 'for a selected slot' do
+    context 'with a selected slot' do
       let(:slot) { slot0 }
 
-      context 'under review' do
+      context 'when under review' do
         let(:reviewing) { true }
 
         it do
@@ -119,7 +119,7 @@ RSpec.describe CalendarHelper do
         end
       end
 
-      context 'not under review' do
+      context 'when not under review' do
         let(:reviewing) { false }
 
         it do
@@ -129,7 +129,7 @@ RSpec.describe CalendarHelper do
         end
       end
 
-      context 'for a not selected slot' do
+      context 'with no selected slot' do
         let(:slot) { slot2 }
         let(:reviewing) { anything }
 

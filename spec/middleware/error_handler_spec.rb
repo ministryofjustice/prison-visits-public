@@ -40,7 +40,7 @@ RSpec.describe ErrorHandler do
       end
     end
 
-    context 'error handling' do
+    context 'when handling an error' do
       let(:error) { StandardError.new }
 
       before do

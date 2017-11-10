@@ -27,7 +27,7 @@ RSpec.describe PrisonerStep do
   describe '#prison' do
     subject { instance.prison }
 
-    context 'without a prison_id' do
+    context 'with no prison_id' do
       let(:prison_id) { nil }
 
       it { is_expected.to be_nil }

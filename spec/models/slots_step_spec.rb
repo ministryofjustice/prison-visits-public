@@ -76,7 +76,7 @@ RSpec.describe SlotsStep, type: :model do
     end
   end
 
-  context '#options_available?' do
+  context 'with #options_available?' do
     shared_examples :options_are_available do
       it 'options are available' do
         expect(subject.options_available?).to eq(true)
@@ -89,11 +89,11 @@ RSpec.describe SlotsStep, type: :model do
       end
     end
 
-    context 'after posting from Prisoner page' do
+    context 'when posted from Prisoner page' do
       it_behaves_like :options_are_available
     end
 
-    context 'after posting from Slot 1 page' do
+    context 'when posted from Slot 1 page' do
       before do
         subject.option_0 = slot0.iso8601
         subject.currently_filling = '0'
@@ -120,7 +120,7 @@ RSpec.describe SlotsStep, type: :model do
       end
     end
 
-    context 'after posting from Slot 1 page from save and skip link' do
+    context 'when posting from Slot 1 page from save and skip link' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.currently_filling = '0'
@@ -130,7 +130,7 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :options_are_not_available
     end
 
-    context 'after posting from Slot 2 page' do
+    context 'when posting from Slot 2 page' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.option_1 = '2015-01-03T09:00/10:00'
@@ -157,7 +157,7 @@ RSpec.describe SlotsStep, type: :model do
       end
     end
 
-    context 'after posting from Slot 3 page having not filled slot 3' do
+    context 'when posting from Slot 3 page having not filled slot 3' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.option_1 = '2015-01-03T09:00/10:00'
@@ -167,7 +167,7 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :options_are_not_available
     end
 
-    context 'after posting from visitor page' do
+    context 'when posting from visitor page' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.option_1 = '2015-01-03T09:00/10:00'
@@ -177,7 +177,7 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :options_are_not_available
     end
 
-    context 'after posting from Review slot 2 link on review page' do
+    context 'when posting from Review slot 2 link on review page' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.option_1 = '2015-01-03T09:00/10:00'
@@ -187,7 +187,7 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :options_are_available
     end
 
-    context 'after posting from Slot 2 page when reviewing' do
+    context 'when posting from Slot 2 page when reviewing' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.option_1 = '2015-01-05T09:00/10:00'
@@ -198,7 +198,7 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like :options_are_not_available
     end
 
-    context 'after posting from review page with absent slots' do
+    context 'when posting from review page with absent slots' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
         subject.option_1 = '2015-01-05T09:00/10:00'
@@ -210,7 +210,7 @@ RSpec.describe SlotsStep, type: :model do
     end
   end
 
-  context '#valid_options' do
+  context 'with #valid_options' do
     let(:booking_constraints) do
       instance_double(
         BookingConstraints,
@@ -234,7 +234,7 @@ RSpec.describe SlotsStep, type: :model do
       subject.valid?
     end
 
-    context 'no valid options' do
+    context 'when no valid options' do
       let(:option_0) { 'foobar' }
       let(:option_1) { nil }
       let(:option_2) { nil }
@@ -244,7 +244,7 @@ RSpec.describe SlotsStep, type: :model do
       end
     end
 
-    context 'some valid options' do
+    context 'with some valid options' do
       let(:option_0) { slot0.to_s }
       let(:option_1) { 'foobar' }
       let(:option_2) { nil }
@@ -255,8 +255,8 @@ RSpec.describe SlotsStep, type: :model do
     end
   end
 
-  context '#next_slot_to_fill' do
-    context 'review slot is set' do
+  context ' when #next_slot_to_fill' do
+    context 'when review slot is set' do
       before do
         subject.review_slot = review_slot
         allow(subject).to receive(:valid?).and_return(true)
@@ -269,7 +269,7 @@ RSpec.describe SlotsStep, type: :model do
       end
     end
 
-    context '3 valid slots' do
+    context 'with 3 valid slots' do
       before do
         subject.option_0 = slot0.iso8601
         subject.option_1 = slot1.iso8601
@@ -281,7 +281,7 @@ RSpec.describe SlotsStep, type: :model do
       end
     end
 
-    context 'less than 3 valid slots' do
+    context 'with less than 3 valid slots' do
       before do
         subject.option_0 = slot0.iso8601
         subject.option_1 = slot1.iso8601
@@ -307,9 +307,9 @@ RSpec.describe SlotsStep, type: :model do
     end
   end
 
-  context '#skip_remaining_slots?' do
-    context 'no errors' do
-      context 'user sets skip_remaining_slots' do
+  context 'when #skip_remaining_slots?' do
+    context 'with no errors' do
+      context 'when user sets skip_remaining_slots' do
         before do
           subject.skip_remaining_slots = 'true'
         end
@@ -319,14 +319,14 @@ RSpec.describe SlotsStep, type: :model do
         end
       end
 
-      context 'user does not set skip_remaining_slots' do
+      context 'when user does not set skip_remaining_slots' do
         it 'returns false' do
           expect(subject.skip_remaining_slots?).to eq(false)
         end
       end
     end
 
-    context 'errors' do
+    context 'with errors' do
       before do
         subject.option_0 = 'goofy'
       end
@@ -337,7 +337,7 @@ RSpec.describe SlotsStep, type: :model do
     end
   end
 
-  context '#unbookable_slots_selected?' do
+  context 'with #unbookable_slots_selected?' do
     subject { instance.unbookable_slots_selected? }
 
     context 'with no slots selected' do
@@ -373,7 +373,7 @@ RSpec.describe SlotsStep, type: :model do
     end
   end
 
-  context '#available_bookable_slots?' do
+  context ' when #available_bookable_slots?' do
     let(:booking_constraints) do
       instance_double(BookingConstraints, on_slots: SlotConstraints.new(calendar_slots))
     end

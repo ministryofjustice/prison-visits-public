@@ -68,7 +68,7 @@ RSpec.describe BookingRequestsController do
   context 'with an enabled prison' do
     let(:enabled) { true }
 
-    context 'on the first prisoner details page' do
+    context 'when on the first prisoner details page' do
       before do
         get :index, params: { locale: 'en' }
       end
@@ -92,7 +92,7 @@ RSpec.describe BookingRequestsController do
       it { is_expected.to raise_error(ActionController::UnknownFormat) }
     end
 
-    context 'after submitting prisoner details' do
+    context 'when submitting prisoner details' do
       context 'with missing prisoner details' do
         before do
           post :create, params: {
@@ -142,7 +142,7 @@ RSpec.describe BookingRequestsController do
       end
     end
 
-    context 'after submitting visitor details' do
+    context 'when submitting visitor details' do
       context 'with missing visitor details' do
         before do
           post :create, params: {
@@ -214,7 +214,7 @@ RSpec.describe BookingRequestsController do
       end
     end
 
-    context 'after submitting slot details' do
+    context 'when submitting slot details' do
       context 'with at least one slot' do
         before do
           post :create, params: {
@@ -289,7 +289,7 @@ RSpec.describe BookingRequestsController do
       end
     end
 
-    context 'after confirming' do
+    context 'when confirming' do
       let(:params) {
         {
           prisoner_step: prisoner_details,

@@ -9,7 +9,7 @@ RSpec.describe VisitsController, type: :controller do
         processing_state: :rejected)
     end
 
-    context "without errors" do
+    context "with no errors" do
       render_views
 
       before do
