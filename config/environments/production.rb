@@ -12,7 +12,7 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
   config.log_formatter = ::Logger::Formatter.new
 
-  config.force_ssl = true
+  config.force_ssl = true if ENV.key?('HEROKU_APP_NAME')
 
   config.lograge.formatter = Lograge::Formatters::Logstash.new
   config.lograge.logger = ActiveSupport::Logger.new \
