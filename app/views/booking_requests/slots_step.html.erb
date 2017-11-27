@@ -7,11 +7,6 @@
 <% if slots_step.bookable_slots? %>
 <% content_for :header, t('.title') %>
 
-<div class="push-bottom panel panel-border-narrow panel--blue">
-  <p class="bold-small">Please note:</p>
-  <p>The visit slot availability displayed may not be accurate as prison calendars are down for maintenance until Monday 27 December. We recommend you wait until then to request a visit. If you request a visit now, it may take longer than normal to be processed.</p>
-</div>
-
   <%= render('shared/validation', object: @steps.fetch(:slots_step), custom_message: t('.slot1_error')) %>
 
   <div class="grid-row">
