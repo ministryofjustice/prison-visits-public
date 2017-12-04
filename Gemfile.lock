@@ -293,7 +293,7 @@ GEM
     useragent (0.16.8)
     uuid (2.3.8)
       macaddr (~> 1.0)
-    vcr (3.0.3)
+    vcr (4.0.0)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
