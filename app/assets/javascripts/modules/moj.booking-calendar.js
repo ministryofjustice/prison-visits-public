@@ -331,11 +331,24 @@
       $tbody.append(gridCells);
 
 
-      var maxDate = this.makeDateObj(this.findLastAvailableDay().date).getMonth() <= this.month;
-      var minDate = this.makeDateObj(this.findFirstAvailableDay().date).getMonth() >= this.month;
+      var maxDate = this.makeDateObj(this.findLastAvailableDay().date).getMonth();
+      var minDate = this.makeDateObj(this.findFirstAvailableDay().date).getMonth();
 
-      this.toggleBtnMonth(this.$next, maxDate);
-      this.toggleBtnMonth(this.$prev, minDate);
+      if(this.month == 11 && maxDate == 0){
+        this.toggleBtnMonth(this.$next, false);
+      } else if(maxDate > this.month) {
+        this.toggleBtnMonth(this.$next, false);
+      } else {
+        this.toggleBtnMonth(this.$next, true);
+      }
+
+      if(this.month == 0 && minDate == 11){
+        this.toggleBtnMonth(this.$prev, false);
+      } else if(minDate < this.month) {
+        this.toggleBtnMonth(this.$prev, false);
+      } else {
+        this.toggleBtnMonth(this.$prev, true);
+      }
     },
 
     findLastAvailableDay: function() {
