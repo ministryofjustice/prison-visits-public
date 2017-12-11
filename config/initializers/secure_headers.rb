@@ -2,11 +2,12 @@ SecureHeaders::Configuration.default do |config|
   config.csp = {
     default_src: ["'self'"],
     font_src: ["'self'", 'data:'],
-    img_src: ["'self'", 'data:', 'www.google-analytics.com'],
+    img_src: ["'self'", 'data:', 'www.google-analytics.com', 'stats.g.doubleclick.net'],
     style_src: ["'self'"],
     script_src: [
       "'self'",
       'www.google-analytics.com',
+      'stats.g.doubleclick.net',
       "'unsafe-eval'",
       "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='",  # govuk
       "'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g='",  # govuk
