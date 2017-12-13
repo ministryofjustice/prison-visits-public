@@ -1,7 +1,6 @@
 require 'rails_helper'
 require 'age_validator'
 require 'maybe_date'
-
 RSpec.describe AgeValidator do
   subject do
     described_class.new(attributes: [:date_of_birth])
@@ -10,11 +9,9 @@ RSpec.describe AgeValidator do
   let(:model) {
     Class.new {
       include NonPersistedModel
-
       def self.model_name
         ActiveModel::Name.new(self, nil, 'thing')
       end
-
       attribute :date_of_birth, MaybeDate
       validates :date_of_birth, presence: true, age: true
     }.new
