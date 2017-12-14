@@ -18,7 +18,10 @@ Rails.application.configure do
   config.lograge.logger = ActiveSupport::Logger.new \
     "#{Rails.root}/log/logstash_#{Rails.env}.json"
 
-  config.staff_url = ENV.fetch('STAFF_SERVICE_URL')
+  staff_url = ENV.fetch('STAFF_SERVICE_URL')
+  
+  config.action_controller.default_url_options = { host: staff_url.hostname }
+  config.action_controller.asset_host = staff_url.hostname
 
   EmailAddressValidation.configure do |config|
     config.mx_checker = MxChecker.new
