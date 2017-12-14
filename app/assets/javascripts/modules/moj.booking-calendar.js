@@ -121,9 +121,9 @@
       }
       this.availableSlots = this.getAvailableSlots();
       this.dateObj = new Date();
-      this.curYear = this.dateObj.getFullYear();
-      this.year = this.curYear;
       var firstDate = this.availableSlots[0].date.split('-');
+      this.curYear = firstDate[0];
+      this.year = this.curYear;
       this.curMonth = new Date(firstDate[0], parseInt(firstDate[1], 10) - 1, firstDate[2]).getMonth();
       this.month = this.curMonth;
       this.currentDate = false;
@@ -142,7 +142,6 @@
         right: 39,
         down: 40
       };
-
       // display the current month
       this.$monthObj.html(this.i18n.months[this.month] + ' ' + this.year);
 
