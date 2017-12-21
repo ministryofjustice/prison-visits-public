@@ -19,7 +19,7 @@ Rails.application.configure do
     "#{Rails.root}/log/logstash_#{Rails.env}.json"
 
   staff_url = ENV.fetch('STAFF_SERVICE_URL')
-  
+
   config.action_controller.default_url_options = { host: staff_url.hostname }
   config.action_controller.asset_host = staff_url.hostname
 
