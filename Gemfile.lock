@@ -100,7 +100,7 @@ GEM
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
-    fuubar (2.2.0)
+    fuubar (2.3.0)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
     globalid (0.4.0)
