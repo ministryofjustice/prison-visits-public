@@ -31,6 +31,9 @@
     },
     "STAFF_SERVICE_URL": {
       "required": true
+    },
+    "SERVICE_URL": {
+      "required": true
     }
   },
   "formation": {
