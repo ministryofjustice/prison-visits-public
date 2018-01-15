@@ -20,7 +20,7 @@ RSpec.describe ApplicationController do
       it 'switches the locale' do
         expect {
           get :index, params: { locale: 'cy' }
-        }.to change { I18n.locale }.to(:cy)
+        }.to change(I18n, :locale).to(:cy)
       end
     end
   end
