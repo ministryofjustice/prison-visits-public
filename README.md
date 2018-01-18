@@ -1,3 +1,6 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/030196c789926bb3382f/maintainability)](https://codeclimate.com/github/ministryofjustice/prison-visits-public/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/030196c789926bb3382f/test_coverage)](https://codeclimate.com/github/ministryofjustice/prison-visits-public/test_coverage)
+
 # Visit someone in prison
 
 This application contains the public interface for booking a prison visit.
