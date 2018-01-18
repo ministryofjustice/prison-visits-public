@@ -55,7 +55,6 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'simplecov'
-  gem 'simplecov-rcov'
   gem 'vcr'
   gem 'webmock'
   gem 'uuid'
