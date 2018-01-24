@@ -1,25 +1,19 @@
 class SlotsStep
   include NonPersistedModel
 
-  attribute :processor, StepsProcessor
+  attribute :processor, :steps_processor
 
-  attribute :review_slot, String
-  attribute :currently_filling, String
-  attribute :skip_remaining_slots, Boolean, coercer: lambda { |val|
-    val == 'true'
-  }
-
-  attribute :option_0, String
-  attribute :option_1, String
-  attribute :option_2, String
+  attribute :review_slot, :string
+  attribute :currently_filling, :string
+  attribute :skip_remaining_slots, :boolean
+  attribute :option_0, :string
+  attribute :option_1, :string
+  attribute :option_2, :string
 
   before_validation :reorder_options
 
-  # rubocop:disable Style/BracesAroundHashParameters
-  # (you're wrong rubocop, it's a syntax error if omitted)
-  validates_each :option_0, :option_1, :option_2, {
-    allow_blank: true
-  } do |record, attr, value|
+  validates_each :option_0, :option_1, :option_2,
+    allow_blank: true do |record, attr, value|
     begin
       slot = ConcreteSlot.parse(value) # rescue ArgumentError false
     rescue ArgumentError
@@ -30,7 +24,6 @@ class SlotsStep
       record.errors.add(attr, 'is not a bookable slot')
     end
   end
-  # rubocop:enable Style/BracesAroundHashParameters
 
   validates :option_0, presence: true
 
@@ -44,7 +37,7 @@ class SlotsStep
   end
 
   def skip_remaining_slots?
-    errors.empty? && skip_remaining_slots
+    errors.empty? && skip_remaining_slots == true
   end
 
   def options_available?

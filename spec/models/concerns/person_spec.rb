@@ -6,9 +6,11 @@ RSpec.describe Person do
     Class.new {
       include NonPersistedModel
       include described_module
-      attribute :first_name, String
-      attribute :last_name, String
-      attribute :date_of_birth, Date
+
+      attribute :first_name, :string
+      attribute :last_name, :string
+      attribute :date_of_birth, :date
+
       def self.model_name
         ActiveModel::Name.new(self, nil, 'thing')
       end

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.2'
 
-gem 'rails', '~> 5.1'
+gem 'rails', '~> 5.2.0.beta2'
 
 gem 'connection_pool'
 gem 'excon'
@@ -27,12 +27,11 @@ gem 'pvb-instrumentation',
 
 gem 'email_address_validation',
   git: 'https://github.com/ministryofjustice/email_address_validation',
-  ref: '6ba244a046b37bed02dca25271849513b200f056'
+  ref: 'c19178437958c53fa41fcd54b4ecebe9f8e6a2cf'
 
 gem 'string_scrubber'
 gem 'uglifier', '~> 2.7.2', require: false
 gem 'uri_template'
-gem 'virtus'
 gem 'secure_headers'
 
 group :development, :test do

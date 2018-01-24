@@ -6,7 +6,7 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
 
     it 'responds with success' do
       get :new, params: params
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'renders the new template' do
@@ -53,7 +53,7 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
 
       it 'responds with success' do
         post :create, params: params
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it 'does not send to the API' do

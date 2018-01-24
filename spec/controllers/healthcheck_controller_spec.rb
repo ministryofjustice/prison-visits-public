@@ -14,7 +14,7 @@ RSpec.describe HealthcheckController, type: :controller do
         and_return(double(status: 200))
     end
 
-    it { is_expected.to be_success }
+    it { is_expected.to be_successful }
 
     it 'returns the healthcheck data as JSON' do
       index_request

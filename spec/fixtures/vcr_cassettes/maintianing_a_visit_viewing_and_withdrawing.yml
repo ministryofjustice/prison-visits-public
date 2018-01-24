@@ -38,7 +38,7 @@ http_interactions:
       - '0.042751'
     body:
       encoding: ASCII-8BIT
-      string: '{"visit":{"id":"061c604a-6e3e-4b29-97e4-331e8b0194aa","processing_state":"requested","prison_id":"bf29bf0f-a046-43d1-911b-59ac58730eff","confirm_by":"2017-03-06","contact_email_address":"user@test.example.com","slots":["2017-03-07T14:15/16:15","2017-03-08T14:15/16:15"],"slot_granted":null,"cancellation_reason":null,"cancelled_at":null,"can_cancel":false,"can_withdraw":true,"visitors":[{"anonymized_name":"Ada
+      string: '{"visit":{"id":"061c604a-6e3e-4b29-97e4-331e8b0194aa","processing_state":"requested","prison_id":"bf29bf0f-a046-43d1-911b-59ac58730eff","confirm_by":"2017-03-06","contact_email_address":"user@test.example.com","slots":["2017-03-07T14:15/16:15","2017-03-08T14:15/16:15"],"slot_granted":null,"cancelled_at":null,"can_cancel":false,"can_withdraw":true,"visitors":[{"anonymized_name":"Ada
         C","allowed":true}],"messages":[],"human_id":"FOOBAR"}}'
     http_version: 
   recorded_at: Wed, 01 Mar 2017 15:33:57 GMT
@@ -123,7 +123,7 @@ http_interactions:
       - '0.102672'
     body:
       encoding: ASCII-8BIT
-      string: '{"visit":{"id":"061c604a-6e3e-4b29-97e4-331e8b0194aa","processing_state":"withdrawn","prison_id":"bf29bf0f-a046-43d1-911b-59ac58730eff","confirm_by":"2017-03-06","contact_email_address":"user@test.example.com","slots":["2017-03-07T14:15/16:15","2017-03-08T14:15/16:15"],"slot_granted":null,"cancellation_reason":null,"cancelled_at":null,"can_cancel":false,"can_withdraw":false,"visitors":[{"anonymized_name":"Ada
+      string: '{"visit":{"id":"061c604a-6e3e-4b29-97e4-331e8b0194aa","processing_state":"withdrawn","prison_id":"bf29bf0f-a046-43d1-911b-59ac58730eff","confirm_by":"2017-03-06","contact_email_address":"user@test.example.com","slots":["2017-03-07T14:15/16:15","2017-03-08T14:15/16:15"],"slot_granted":null,"cancelled_at":null,"can_cancel":false,"can_withdraw":false,"visitors":[{"anonymized_name":"Ada
         C","allowed":true}],"messages":[],"human_id":"FOOBAR"}}'
     http_version: 
   recorded_at: Wed, 01 Mar 2017 15:33:58 GMT
@@ -165,7 +165,7 @@ http_interactions:
       - '0.027943'
     body:
       encoding: ASCII-8BIT
-      string: '{"visit":{"id":"061c604a-6e3e-4b29-97e4-331e8b0194aa","processing_state":"withdrawn","prison_id":"bf29bf0f-a046-43d1-911b-59ac58730eff","confirm_by":"2017-03-06","contact_email_address":"user@test.example.com","slots":["2017-03-07T14:15/16:15","2017-03-08T14:15/16:15"],"slot_granted":null,"cancellation_reason":null,"cancelled_at":null,"can_cancel":false,"can_withdraw":false,"visitors":[{"anonymized_name":"Ada
+      string: '{"visit":{"id":"061c604a-6e3e-4b29-97e4-331e8b0194aa","processing_state":"withdrawn","prison_id":"bf29bf0f-a046-43d1-911b-59ac58730eff","confirm_by":"2017-03-06","contact_email_address":"user@test.example.com","slots":["2017-03-07T14:15/16:15","2017-03-08T14:15/16:15"],"slot_granted":null,"cancelled_at":null,"can_cancel":false,"can_withdraw":false,"visitors":[{"anonymized_name":"Ada
         C","allowed":true}],"messages":[],"human_id":"FOOBAR"}}'
     http_version: 
   recorded_at: Wed, 01 Mar 2017 15:33:58 GMT
