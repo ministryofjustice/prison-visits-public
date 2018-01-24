@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 ruby '2.4.2'
 
 gem 'rails', '~> 5.1'
+gem 'active_model_attributes', # Delete when using Rails 5.2
+  git: 'https://github.com/alan/active_model_attributes.git',
+  ref: 'd690c5fd73bb3fec56a7e906cf014e0b4f41d31f'
 
 gem 'connection_pool'
 gem 'excon'
@@ -27,12 +30,11 @@ gem 'pvb-instrumentation',
 
 gem 'email_address_validation',
   git: 'https://github.com/ministryofjustice/email_address_validation',
-  ref: '6ba244a046b37bed02dca25271849513b200f056'
+  ref: 'c19178437958c53fa41fcd54b4ecebe9f8e6a2cf'
 
 gem 'string_scrubber'
 gem 'uglifier', '~> 2.7.2', require: false
 gem 'uri_template'
-gem 'virtus'
 gem 'secure_headers'
 
 group :development, :test do

@@ -1,4 +1,3 @@
-require 'maybe_date'
 require 'email_address_validation'
 
 class VisitorsStep
@@ -7,20 +6,12 @@ class VisitorsStep
   MAX_ADULTS = 3
   LEAD_VISITOR_MIN_AGE = 18
 
-  class Visitor
-    include NonPersistedModel
-    include Person
+  attribute :processor, :steps_processor
 
-    attribute :first_name, String
-    attribute :last_name, String
-    attribute :date_of_birth, MaybeDate
-  end
-
-  attribute :processor, StepsProcessor
-
-  attribute :email_address, String
-  attribute :phone_no, String
-  attribute :visitors, Array[Visitor]
+  attribute :email_address, :string
+  attribute :phone_no, :string
+  attribute :visitors, :visitor_list, default: -> { VisitorList.new }
+  attribute :additional_visitor_count, :integer
 
   delegate :max_visitors, :adult_age, to: :visitor_constraints
 
@@ -42,7 +33,7 @@ class VisitorsStep
     existing = visitors
     num_needed = max_visitors - existing.count
     backfill = num_needed.times.map { Visitor.new }
-    existing + backfill
+    existing.to_a + backfill
   end
 
   def visitors_attributes=(params)
@@ -97,15 +88,15 @@ private
   # rubocop:disable Metrics/MethodLength
   def validate_visitor_collection
     # It's invalid if there are no visitors, but there's no need to call the API
-    if visitors.empty?
+    if visitors.none?
       errors.add :general, :too_few_visitors
       return
     end
 
     result = PrisonVisits::Api.instance.validate_visitors(
       prison_id: processor.prison.id,
-      lead_date_of_birth: lead_visitor.date_of_birth,
-      dates_of_birth: visitors.map(&:date_of_birth)
+      lead_date_of_birth: lead_visitor.date_of_birth.to_date,
+      dates_of_birth: visitors.map { |v| v.date_of_birth.to_date }
     )
 
     return if result.fetch('valid')

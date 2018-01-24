@@ -38,7 +38,7 @@ http_interactions:
       - '0.022271'
     body:
       encoding: ASCII-8BIT
-      string: '{"visit":{"id":"0cd7d165-0463-4024-aacf-849475a4c9fc","processing_state":"booked","prison_id":"5f4f2131-32d6-44be-b715-76bcb561f985","confirm_by":"2017-02-15","contact_email_address":"Loughran@example.com","slots":["2017-03-26T14:00/16:00","2017-03-15T09:15/11:15","2017-03-27T14:00/16:00"],"slot_granted":"2017-03-26T14:00/16:00","cancellation_reason":null,"cancelled_at":null,"can_cancel":true,"can_withdraw":false,"visitors":[{"anonymized_name":"Sally
+      string: '{"visit":{"id":"0cd7d165-0463-4024-aacf-849475a4c9fc","processing_state":"booked","prison_id":"5f4f2131-32d6-44be-b715-76bcb561f985","confirm_by":"2017-02-15","contact_email_address":"Loughran@example.com","slots":["2017-03-26T14:00/16:00","2017-03-15T09:15/11:15","2017-03-27T14:00/16:00"],"slot_granted":"2017-03-26T14:00/16:00","cancelled_at":null,"can_cancel":true,"can_withdraw":false,"visitors":[{"anonymized_name":"Sally
         L","allowed":true},{"anonymized_name":"Franklyn S","allowed":true},{"anonymized_name":"Tommie
         L","allowed":true},{"anonymized_name":"Meghann L","allowed":true},{"anonymized_name":"Adalberto
         M","allowed":true},{"anonymized_name":"Tommie K","allowed":true}],"messages":[],"human_id":"FOOBAR"}}'
@@ -125,7 +125,7 @@ http_interactions:
       - '0.033523'
     body:
       encoding: ASCII-8BIT
-      string: '{"visit":{"id":"0cd7d165-0463-4024-aacf-849475a4c9fc","processing_state":"cancelled","prison_id":"5f4f2131-32d6-44be-b715-76bcb561f985","confirm_by":"2017-02-15","contact_email_address":"Loughran@example.com","slots":["2017-03-26T14:00/16:00","2017-03-15T09:15/11:15","2017-03-27T14:00/16:00"],"slot_granted":"2017-03-26T14:00/16:00","cancellation_reason":"visitor_cancelled","cancelled_at":"2017-03-01T16:25:13+00:00","can_cancel":false,"can_withdraw":false,"visitors":[{"anonymized_name":"Sally
+      string: '{"visit":{"id":"0cd7d165-0463-4024-aacf-849475a4c9fc","processing_state":"cancelled","prison_id":"5f4f2131-32d6-44be-b715-76bcb561f985","confirm_by":"2017-02-15","contact_email_address":"Loughran@example.com","slots":["2017-03-26T14:00/16:00","2017-03-15T09:15/11:15","2017-03-27T14:00/16:00"],"slot_granted":"2017-03-26T14:00/16:00","cancelled_at":"2017-03-01T16:25:13+00:00","can_cancel":false,"can_withdraw":false,"visitors":[{"anonymized_name":"Sally
         L","allowed":true},{"anonymized_name":"Franklyn S","allowed":true},{"anonymized_name":"Tommie
         L","allowed":true},{"anonymized_name":"Meghann L","allowed":true},{"anonymized_name":"Adalberto
         M","allowed":true},{"anonymized_name":"Tommie K","allowed":true}],"messages":[],"human_id":"FOOBAR"}}'
@@ -169,7 +169,7 @@ http_interactions:
       - '0.021157'
     body:
       encoding: ASCII-8BIT
-      string: '{"visit":{"id":"0cd7d165-0463-4024-aacf-849475a4c9fc","processing_state":"cancelled","prison_id":"5f4f2131-32d6-44be-b715-76bcb561f985","confirm_by":"2017-02-15","contact_email_address":"Loughran@example.com","slots":["2017-03-26T14:00/16:00","2017-03-15T09:15/11:15","2017-03-27T14:00/16:00"],"slot_granted":"2017-03-26T14:00/16:00","cancellation_reason":"visitor_cancelled","cancelled_at":"2017-03-01T16:25:13+00:00","can_cancel":false,"can_withdraw":false,"visitors":[{"anonymized_name":"Sally
+      string: '{"visit":{"id":"0cd7d165-0463-4024-aacf-849475a4c9fc","processing_state":"cancelled","prison_id":"5f4f2131-32d6-44be-b715-76bcb561f985","confirm_by":"2017-02-15","contact_email_address":"Loughran@example.com","slots":["2017-03-26T14:00/16:00","2017-03-15T09:15/11:15","2017-03-27T14:00/16:00"],"slot_granted":"2017-03-26T14:00/16:00","cancellation_reasons":["visitor_cancelled"],"cancelled_at":"2017-03-01T16:25:13+00:00","can_cancel":false,"can_withdraw":false,"visitors":[{"anonymized_name":"Sally
         L","allowed":true},{"anonymized_name":"Franklyn S","allowed":true},{"anonymized_name":"Tommie
         L","allowed":true},{"anonymized_name":"Meghann L","allowed":true},{"anonymized_name":"Adalberto
         M","allowed":true},{"anonymized_name":"Tommie K","allowed":true}],"messages":[],"human_id":"FOOBAR"}}'

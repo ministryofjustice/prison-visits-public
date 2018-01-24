@@ -40,7 +40,7 @@ http_interactions:
       - '0.191558'
     body:
       encoding: UTF-8
-      string: '{"visit":{"id":"ad616b73-0e6b-444b-a82e-7341a35e385e","processing_state":"requested","prison_id":"0614760e-a773-49c0-a29c-35e743e72555","confirm_by":"2016-07-28","contact_email_address":"ada@test.example.com","slots":["2016-07-29T13:30/14:30","2016-07-29T14:45/15:45","2016-07-30T09:45/11:15"],"slot_granted":null,"cancellation_reason":null,"created_at":"2016-07-25T13:14:19+01:00","updated_at":"2016-07-25T13:14:19+01:00","visitors":[{"anonymized_name":"Ada
+      string: '{"visit":{"id":"ad616b73-0e6b-444b-a82e-7341a35e385e","processing_state":"requested","prison_id":"0614760e-a773-49c0-a29c-35e743e72555","confirm_by":"2016-07-28","contact_email_address":"ada@test.example.com","slots":["2016-07-29T13:30/14:30","2016-07-29T14:45/15:45","2016-07-30T09:45/11:15"],"slot_granted":null,"created_at":"2016-07-25T13:14:19+01:00","updated_at":"2016-07-25T13:14:19+01:00","visitors":[{"anonymized_name":"Ada
         L","allowed":true},{"anonymized_name":"Charlie C","allowed":true}]}}'
     http_version: 
   recorded_at: Mon, 25 Jul 2016 12:14:20 GMT
@@ -82,7 +82,7 @@ http_interactions:
       - '0.017468'
     body:
       encoding: UTF-8
-      string: '{"visit":{"id":"ad616b73-0e6b-444b-a82e-7341a35e385e","processing_state":"requested","prison_id":"0614760e-a773-49c0-a29c-35e743e72555","confirm_by":"2016-07-28","contact_email_address":"ada@test.example.com","slots":["2016-07-29T13:30/14:30","2016-07-29T14:45/15:45","2016-07-30T09:45/11:15"],"slot_granted":null,"cancellation_reason":null,"created_at":"2016-07-25T13:14:19+01:00","updated_at":"2016-07-25T13:14:19+01:00","visitors":[{"anonymized_name":"Ada
+      string: '{"visit":{"id":"ad616b73-0e6b-444b-a82e-7341a35e385e","processing_state":"requested","prison_id":"0614760e-a773-49c0-a29c-35e743e72555","confirm_by":"2016-07-28","contact_email_address":"ada@test.example.com","slots":["2016-07-29T13:30/14:30","2016-07-29T14:45/15:45","2016-07-30T09:45/11:15"],"slot_granted":null,"created_at":"2016-07-25T13:14:19+01:00","updated_at":"2016-07-25T13:14:19+01:00","visitors":[{"anonymized_name":"Ada
         L","allowed":true},{"anonymized_name":"Charlie C","allowed":true}]}}'
     http_version: 
   recorded_at: Mon, 25 Jul 2016 12:14:20 GMT

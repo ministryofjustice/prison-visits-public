@@ -1,4 +1,3 @@
-require 'spec_helper'
 require 'rails_helper'
 
 RSpec.describe FeedbackSubmission, type: :model do
@@ -105,13 +104,13 @@ RSpec.describe FeedbackSubmission, type: :model do
       end
 
       context 'when it has a valid date' do
-        let(:prisoner_date_of_birth) { '1999-01-01' }
+        let(:prisoner_date_of_birth) { Date.parse('1999-01-01') }
 
         it { expect(subject.errors[:prisoner_date_of_birth]).not_to be_present }
       end
 
       context 'when it has an invalid date' do
-        let(:prisoner_date_of_birth) { '1800-12-25' }
+        let(:prisoner_date_of_birth) { Date.parse('1800-12-25') }
 
         it { expect(subject.errors[:prisoner_date_of_birth]).to be_present }
       end

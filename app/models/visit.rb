@@ -1,31 +1,24 @@
 class Visit
   include NonPersistedModel
 
-  attribute :id, String
-  attribute :human_id, String
-  attribute :confirm_by, Date
-  attribute :slot_granted, ConcreteSlot, coercer: lambda { |slot|
-    slot.nil? ? nil : ConcreteSlot.parse(slot)
-  }
-  attribute :contact_email_address
-  attribute :slots, [ConcreteSlot], coercer: lambda { |slots|
-    slots.map { |s| ConcreteSlot.parse(s) }
-  }
-  attribute :prison_id
-  attribute :processing_state, Symbol, coercer: lambda { |state|
-    VALID_STATES.find { |s| s.to_s == state } ||
-      fail("Invalid processing_state for visit: #{state}")
-  }
+  VALID_STATES = %i[ requested withdrawn booked cancelled rejected ].freeze
 
-  attribute :visitors, [Visitor], coercer: lambda { |visitors|
-    visitors.map { |v| Visitor.new(v) }
-  }
-  attribute :cancellation_reason, Symbol
-  attribute :cancellation_reasons, Array[Symbol]
-  attribute :cancelled_at, DateTime
-  attribute :can_cancel, Boolean
-  attribute :can_withdraw, Boolean
-  VALID_STATES = %i[ requested withdrawn booked cancelled rejected ]
+  attribute :id, :string
+  attribute :human_id, :string
+  attribute :confirm_by, :date
+  attribute :slot_granted, :concrete_slot
+  attribute :contact_email_address, :string
+  attribute :slots, :concrete_slot_list
+  attribute :prison_id, :string
+  attribute :processing_state, :immutable_string
+  attribute :visitors, :visitor_list
+  attribute :cancellation_reasons
+  attribute :cancelled_at, :datetime
+  attribute :can_cancel, :boolean
+  attribute :can_withdraw, :boolean
+  attribute :created_at, :datetime
+  attribute :updated_at, :datetime
+  attribute :messages
 
   delegate :address, :email_address, :name, :phone_no, :postcode,
     to: :prison, prefix: true
@@ -45,6 +38,11 @@ class Visit
 
   def can_withdraw?
     can_withdraw
+  end
+
+  def processing_state
+    # attribute(:processing_state).to_sym RAILS 5.2
+    super.to_sym
   end
 
 private

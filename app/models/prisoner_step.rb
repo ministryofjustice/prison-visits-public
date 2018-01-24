@@ -1,16 +1,14 @@
-require 'maybe_date'
-
 class PrisonerStep
   include NonPersistedModel
   include Person
 
-  attribute :processor, StepsProcessor
+  attribute :processor, :steps_processor
 
-  attribute :first_name, String
-  attribute :last_name, String
-  attribute :date_of_birth, MaybeDate
-  attribute :number, String
-  attribute :prison_id, Integer
+  attribute :first_name, :string
+  attribute :last_name, :string
+  attribute :date_of_birth, :uncoerced_date
+  attribute :number, :string
+  attribute :prison_id, :string
 
   validates :number, prisoner_number: true
   validates :prison_id, presence: true
@@ -30,6 +28,15 @@ class PrisonerStep
     false
   end
 
+  def prisoner_attributes
+    {
+      first_name: first_name,
+      last_name: last_name,
+      date_of_birth: date_of_birth.to_date,
+      number: number
+    }
+  end
+
 private
 
   # rubocop:disable Metrics/AbcSize
@@ -39,7 +46,7 @@ private
 
     result = PrisonVisits::Api.instance.validate_prisoner(
       number: number,
-      date_of_birth: date_of_birth
+      date_of_birth: date_of_birth.to_date
     )
 
     return if result.fetch('valid')
@@ -53,5 +60,4 @@ private
     Rails.logger.error e.message
   end
   # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 end
