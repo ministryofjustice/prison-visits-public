@@ -1,16 +1,15 @@
-require 'maybe_date'
 require 'email_address_validation'
 
 class FeedbackSubmission
   include NonPersistedModel
 
-  attribute :body, String
-  attribute :prisoner_number, String
-  attribute :prisoner_date_of_birth, MaybeDate
-  attribute :prison_id, String
-  attribute :email_address, String
-  attribute :referrer, String
-  attribute :user_agent, String
+  attribute :body, :string
+  attribute :prisoner_number, :string
+  attribute :prisoner_date_of_birth, :uncoerced_date
+  attribute :prison_id, :string
+  attribute :email_address, :string
+  attribute :referrer, :string
+  attribute :user_agent, :string
 
   validates :body, presence: true
   validates :prisoner_date_of_birth, allow_blank: true, age: true

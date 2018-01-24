@@ -1,18 +1,19 @@
 class Prison
   include NonPersistedModel
 
-  attribute :id, String
-  attribute :name, String
-  attribute :address, String
-  attribute :postcode, String
-  attribute :closed, Boolean
-  attribute :private, Boolean
-  attribute :enabled, Boolean
-  attribute :email_address, String
-  attribute :phone_no, String
-  attribute :prison_finder_url, String
-  attribute :max_visitors, Integer
-  attribute :adult_age, Integer
+  attribute :id, :string
+  attribute :name, :string
+  attribute :address, :string
+  attribute :postcode, :string
+  attribute :closed, :boolean
+  attribute :private, :boolean
+  attribute :enabled, :boolean
+  attribute :email_address, :string
+  attribute :phone_no, :string
+  attribute :prison_finder_url, :string
+  attribute :max_visitors, :integer
+  attribute :adult_age, :integer
+  attribute :prison_url, :string
 
   def self.find_by_id(id)
     PrisonVisits::Api.instance.get_prison(id)
