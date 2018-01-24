@@ -33,7 +33,7 @@ en:
                 You can book a maximum of %{max} visitors
               too_few_visitors:
                 There must be at least 1 visitor
-        visitors_step/visitor:
+        visitor:
           attributes:
             first_name:
               blank: Enter a first name
@@ -44,7 +44,7 @@ en:
               inclusion: Enter a date of birth
               lead_visitor_age:
                 The person requesting the visit must be over the age of %{min}
- 
+
   activerecord:
     errors:
       models:

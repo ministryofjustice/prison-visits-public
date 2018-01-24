@@ -4,7 +4,6 @@ SimpleCov.minimum_coverage 100
 # Minimal auto-load for quicker specs. This avoids loading the whole of Rails
 # solely for dependency resolution.
 autoload :ActiveModel, 'active_model'
-autoload :Virtus, 'virtus'
 require 'active_support/dependencies'
 
 if ENV['CIRCLE_ARTIFACTS']

@@ -324,29 +324,9 @@ RSpec.describe BookingRequestsController do
         expect(booking_request_creator).
           to receive(:create!).
           with(
-            an_object_having_attributes(
-              prison_id: 1,
-              first_name: 'Oscar',
-              last_name: 'Wilde',
-              date_of_birth: Date.new(1980, 12, 31),
-              number: 'a1234bc'
-            ),
-            an_object_having_attributes(
-              email_address: 'ada@test.example.com',
-              phone_no: '07900112233',
-              visitors: [
-                an_object_having_attributes(
-                  first_name: 'Ada',
-                  last_name: 'Lovelace',
-                  date_of_birth: Date.new(1970, 11, 30)
-                )
-              ]
-            ),
-            an_object_having_attributes(
-              option_0: '2015-01-02T09:00/10:00',
-              option_1: '2015-01-03T09:00/10:00',
-              option_2: '2015-01-04T09:00/10:00'
-            ),
+            instance_of(PrisonerStep),
+            instance_of(VisitorsStep),
+            instance_of(SlotsStep),
             :en
           )
         post :create, params: params
