@@ -97,7 +97,7 @@ GEM
     erubi (1.7.0)
     excon (0.60.0)
     execjs (2.7.0)
-    faraday (0.13.1)
+    faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     fuubar (2.3.1)
@@ -257,7 +257,7 @@ GEM
     selenium-webdriver (3.8.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
-    sentry-raven (2.7.1)
+    sentry-raven (2.7.2)
       faraday (>= 0.7.6, < 1.0)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
@@ -346,7 +346,7 @@ DEPENDENCIES
   sass-rails
   secure_headers
   selenium-webdriver
-  sentry-raven (~> 2.7.0)
+  sentry-raven (~> 2.7.2)
   shoulda-matchers
   simplecov
   string_scrubber
