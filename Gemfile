@@ -20,7 +20,7 @@ gem 'jquery-ui-rails', '~> 6.0.1'
 
 gem 'rake'
 gem 'request_store'
-gem 'sentry-raven', '~> 2.7.0'
+gem 'sentry-raven', '~> 2.7.2'
 gem 'pvb-instrumentation',
   git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
   ref: 'a264627211f2bf68f4e388200b2a050fe9081504'
