@@ -27,7 +27,7 @@ Rails.application.configure do
                 end
 
   config.action_controller.default_url_options = { host: service_url.hostname }
-  config.action_controller.asset_host = service_url.hostname
+  # config.action_controller.asset_host = service_url.hostname
 
   EmailAddressValidation.configure do |config|
     config.mx_checker = MxChecker.new
