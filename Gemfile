@@ -26,11 +26,10 @@ gem 'request_store'
 gem 'sentry-raven', '~> 2.7.2'
 gem 'pvb-instrumentation',
   git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
-  ref: 'a264627211f2bf68f4e388200b2a050fe9081504'
-
+  tag: 'v1.0.1'
 gem 'email_address_validation',
   git: 'https://github.com/ministryofjustice/email_address_validation',
-  ref: 'c19178437958c53fa41fcd54b4ecebe9f8e6a2cf'
+  ref: '5ed2fb93f8d5bc419f03cecb408c688c5bd9fd74'
 
 gem 'string_scrubber'
 gem 'uglifier', '~> 2.7.2', require: false
