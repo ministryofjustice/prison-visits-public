@@ -92,7 +92,9 @@ describe('Modules.bookingCalendar', function() {
         expect($('#js-calendarTable #day9').length).toBe(1);
       });
       it('should hide the selected date box', function() {
-        expect($('#js-slotTarget').attr('aria-hidden')).toBe('true');
+        setTimeout(function() {
+          expect($('#js-slotTarget').attr('aria-hidden')).toBe('true');
+        }, 500);
       });
     });
 
