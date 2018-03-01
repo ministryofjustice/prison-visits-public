@@ -8,6 +8,7 @@ Rails.application.config.assets.precompile += %w[
   application-ie8.css
   gov.uk_logotype_crown.svg
   application_ie.js
+  jasmine-jquery.js
 ]
 
 Rails.application.config.assets.paths <<
