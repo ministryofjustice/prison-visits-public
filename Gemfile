@@ -2,9 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.2'
 
 gem 'rails', '~> 5.1'
-gem 'active_model_attributes', # Delete when using Rails 5.2
-  git: 'https://github.com/alan/active_model_attributes.git',
-  ref: 'd690c5fd73bb3fec56a7e906cf014e0b4f41d31f'
+gem 'active_model_attributes'
 
 gem 'connection_pool'
 gem 'excon'
