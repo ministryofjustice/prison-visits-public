@@ -23,8 +23,11 @@ The codebase was split from [ministryofjustice/prison-visits-2](https://github.c
 ### Dependencies
 
 - [ministryofjustice/prison-visits-2](https://github.com/ministryofjustice/prison-visits-2). This a separate Ruby on Rails application that exposes prison information, slot availability, and allows booking and managing a visit. Details of the API methods consumed can be found in [api.rb](app/services/prison_visits/api.rb).
-
-- (Optional) Transifex Client. [ministryofjustice/prison-visits-public](https://github.com/ministryofjustice/prison-visits-public) is provided with a Welsh translation. See [additional documentation](docs/welsh_translation.md) for setup and updating translations.     
+- [Firefox browser v57.0.4](https://download-installer.cdn.mozilla.net/pub/firefox/releases/57.0.4/mac/en-US/Firefox%2057.0.4.dmg)
+- [Selenium webdriver](https://www.seleniumhq.org/projects/webdriver/) - for executing tests against different browsers.
+- [Geckodriver v0.19.1](https://github.com/mozilla/geckodriver) - for executing tests against the firefox browser.
+- [direnv](https://direnv.net/) - for managing environment variables and storing credentials.
+- (Optional) Transifex Client. [ministryofjustice/prison-visits-public](https://github.com/ministryofjustice/prison-visits-public) - for managing site translation. See [additional documentation](docs/welsh_translation.md) for setup and updating translations.     
 
 
 ### Ruby version
@@ -37,14 +40,32 @@ This application uses Ruby v2.4.2. Use [RVM](https://rvm.io/) or similar to mana
 *Note* - You will need to spin up both [ministryofjustice/prison-visits-public](https://github.com/ministryofjustice/prison-visits-public) and [ministryofjustice/prison-visits-2](https://github.com/ministryofjustice/prison-visits-2)
 
 1. Install gems (dependencies) locally. To do this you will need to first install [Bundler](http://bundler.io/)
-2. In separate terminal windows start up [ministryofjustice/prison-visits-2](https://github.com/ministryofjustice/prison-visits-2) and [Sidekiq](https://sidekiq.org/). The latter processes jobs in the background.
+
+2. Create a .env file in the root of the folder and add any necessary environment variables. Load your environment variables into your current session ... 
+```sh 
+pvb-public $ direnv allow .
+
+```
+3. Install Selenium Webdriver
+```sh
+pvb-public $ brew install selenium-server-standalone
+
+```
+
+4. Install Geckodriver
+```sh
+pvb-public $ brew install geckodriver
+
+```
+
+5. In separate terminal windows start up [ministryofjustice/prison-visits-2](https://github.com/ministryofjustice/prison-visits-2) and [Sidekiq](https://sidekiq.org/). The latter processes jobs in the background.
     
     ```sh
-    pvb2 $ bundle exec sidekiq
-    pvb2 $ rails server
+    pvb-public $ bundle exec sidekiq
+    pvb-public $ rails server
 
     ```
-3. In another terminal window start up [ministryofjustice/prison-visits-public](https://github.com/ministryofjustice/prison-visits-public) on port 4000
+6. In another terminal window start up [ministryofjustice/prison-visits-public](https://github.com/ministryofjustice/prison-visits-public) on port 4000
     
     ```sh
     pvb-public $ rails server -p 4000
@@ -54,7 +75,7 @@ This application uses Ruby v2.4.2. Use [RVM](https://rvm.io/) or similar to mana
 ### Running the test suite
 
 ```sh
-pvb-public $ rails spec
+pvb-public $ rspec spec
 
 ```    
 
