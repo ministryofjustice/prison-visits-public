@@ -1,5 +1,7 @@
 require 'email_address_validation'
 
+# add a comment to create change, but never commit this!
+
 class VisitorsStep
   include NonPersistedModel
 
