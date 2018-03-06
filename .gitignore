@@ -20,3 +20,6 @@
 .byebug_history
 tags
 .wercker
+
+#Ignore Rubymine
+.idea/
