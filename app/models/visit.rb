@@ -49,6 +49,6 @@ private
 
   def prison
     # Memoize since this does an API lookup
-    @_prison ||= Prison.find_by_id(prison_id)
+    @prison ||= Prison.find_by_id(prison_id)
   end
 end
