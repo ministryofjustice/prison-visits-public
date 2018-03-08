@@ -95,3 +95,4 @@ The API client is then tested by recording real API interactions using VCR. The 
 
 
 ## Licence
+[MIT Licence (MIT)](LICENCE)
