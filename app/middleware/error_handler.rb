@@ -25,4 +25,3 @@ class ErrorHandler
     false
   end
 end
-# rubocop:enable Lint/RescueWithoutErrorClass

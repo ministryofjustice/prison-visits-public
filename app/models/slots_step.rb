@@ -75,7 +75,7 @@ class SlotsStep
   end
 
   def slot_constraints
-    @constraints ||= processor.booking_constraints.on_slots
+    @slot_constraints ||= processor.booking_constraints.on_slots
   end
 
   def next_slot_to_fill

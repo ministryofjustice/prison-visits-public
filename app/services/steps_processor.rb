@@ -47,7 +47,7 @@ private
     # Memoize this method, since otherwise potentially expensive step
     # validations are excecuted multiple times (for example the Visitor step
     # validation which calls the Sendgrid API)
-    @_incomplete_step_name ||= STEP_NAMES.find { |name| incomplete_step?(name) }
+    @incomplete_step_name ||= STEP_NAMES.find { |name| incomplete_step?(name) }
   end
 
   def incomplete_step?(name)
