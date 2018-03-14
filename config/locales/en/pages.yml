@@ -304,9 +304,8 @@ en:
 
         ### Session
 
-        The PVB service does not store your prisoner and visitor information.
-        The details you enter are encrypted and temporarily stored on your
-        computer until your booking request is sent.
+        When you use the “Prison Visits Booking” service, we’ll set a cookie to remember your progress through the forms.
+        These cookies don’t store your personal data and are deleted once you’ve completed the transaction.
 
         | Name | Purpose | Expires |
         | ------------------------ |
