@@ -204,9 +204,7 @@ cy:
         a'n helpu i wneud gwelliannau.\n\nMae Google Analytics yn storio gwybodaeth
         am:\n\n-   y tudalennau yr ydych wedi ymweld â nhw ar PVB - faint o amser
         yr ydych wedi'i dreulio ar bob tudalen PVB\n-   sut y daethoch o hyd i'r safle\n-
-        \  beth rydych yn glicio arno tra byddwch ar y safle\n\nNid ydym yn casglu
-        gwybodaeth nac yn storio eich gwybodaeth bersonol (ee eich enw neu\ngyfeiriad)
-        ac felly ni ellir defnyddio'r wybodaeth hon i ganfod pwy ydych chi.\n\nNid
+        \  beth rydych yn glicio arno tra byddwch ar y safle\n\nNid
         ydym yn caniatáu Google i ddefnyddio na rhannu ein data dadansoddol.\n\nMae
         Google Analytics yn gosod y cwcis canlynol:\n\n| Enw | Pwrpas | Dod i ben
         |\n| ------------------------ |\n| _ga | Pennu'r nifer o ymwelwyr unigryw
@@ -217,9 +215,8 @@ cy:
         fel bod eich cyfrifiadur yn gwybod eich bod wedi gweld y neges ac i wybod
         i beidio\nâ'i ddangos i chi eto.\n\n| Enw | Pwrpas | Dod i ben |\n| ------------------------
         |\n| seen_cookie_message | Cadw neges i roi gwybod i ni eich bod wedi gweld
-        ein neges cwci | 1 mis |\n\n### Sesiwn\n\nNid yw'r gwasanaeth PVB yn storio
-        manylion y carcharor na manylion yr ymwelydd.\nMae'r manylion yr ydych yn
-        eu rhoi yn cael eu hamgryptio a'u storio ar eich\ncyfrifiadur dros dro nes
-        yr anfonir eich cais nesaf i ymweld â rhywun yn y carchar.\n\n| Enw | Pwrpas
+        ein neges cwci | 1 mis |\n\n### Sesiwn\n\nPan fyddwch chi’n defnyddio’r gwasanaeth 
+        \"Archebu Ymweliadau Prison\", byddwn yn gosod cwci ar eich cyfrifiadur i 
+        gofio sut yr ydych chi’n symud ymlaen drwy’r ffurflenni.\n\n| Enw | Pwrpas
         | Dod i ben |\n| ------------------------ |\n| pvbs | Storio manylion carcharor,
         ymwelydd a manylion yr ymweliad | 20 munud |\n"
