@@ -61,29 +61,13 @@ module PrisonVisits
     def request(method, route, params:, idempotent:)
       path = "/api/#{sanitise_route(route)}"
       api_method = "#{method.to_s.upcase} #{path}"
-
-      options = {
-        method: method,
-        path: path,
-        expects: [200],
-        headers: {
-          'Accept' => 'application/json',
-          'Accept-Language' => I18n.locale,
-          'X-Request-Id' => RequestStore.store[:request_id]
-        },
-        idempotent: idempotent
-      }.deep_merge(params_options(method, params))
-
+      options = build_options(path, method, params, idempotent)
       response = @connection.request(options)
+
       JSON.parse(response.body)
     rescue Excon::Error::Socket => e
-      if @first_time_try && !idempotent
-        @first_time_try = false
-        @connection.reset
-        retry
-      else
-        raise APIError, "Exception #{e.class} calling #{api_method}: #{e}"
-      end
+      try_resetting_connection(idempotent, api_method, e)
+      retry
     rescue Excon::Errors::NotFound
       raise APINotFound, api_method
     rescue Excon::Errors::HTTPStatusError => e
@@ -91,18 +75,43 @@ module PrisonVisits
 
       # API errors should be returned as JSON, but there are many scenarios
       # where this may not be the case.
-      begin
-        error = JSON.parse(body)
-      rescue JSON::ParserError
-        # Present non-JSON bodies truncated (e.g. this could be HTML)
-        error = "(invalid-JSON) #{body[0, 80]}"
-      end
-
+      error = describe_error(body)
       raise APIError,
         "Unexpected status #{e.response.status} calling #{api_method}: #{error}"
     rescue Excon::Errors::Error => e
       raise APIError, "Exception #{e.class} calling #{api_method}: #{e}"
     end
+
+    def build_options(path, method, params, idempotent)
+      {
+        method: method,
+        path: path,
+        expects: [200],
+        headers: {
+            'Accept' => 'application/json',
+            'Accept-Language' => I18n.locale,
+            'X-Request-Id' => RequestStore.store[:request_id]
+        },
+        idempotent: idempotent
+      }.deep_merge(params_options(method, params))
+    end
+
+    def try_resetting_connection(idempotent, api_method, error)
+      if @first_time_try && !idempotent
+        @first_time_try = false
+        @connection.reset
+      else
+        raise APIError, "Exception #{error.class} calling #{api_method}: #{error}"
+      end
+    end
+
+    def describe_error(body)
+      JSON.parse(body)
+    rescue JSON::ParserError
+      # Present non-JSON bodies truncated (e.g. this could be HTML)
+      "(invalid-JSON) #{body[0, 80]}"
+    end
+
     # rubocop:enable Metrics/MethodLength
     # rubocop:enable Metrics/AbcSize
 
