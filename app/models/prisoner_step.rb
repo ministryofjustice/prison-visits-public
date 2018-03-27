@@ -39,25 +39,33 @@ class PrisonerStep
 
 private
 
-  # rubocop:disable Metrics/AbcSize
   def validate_prisoner
-    # If date_of_birth of number are invalid, there's no need to call the API
-    return if errors[:date_of_birth].any? || errors[:number].any?
-
-    result = PrisonVisits::Api.instance.validate_prisoner(
-      number: number,
-      date_of_birth: date_of_birth.to_date
-    )
-
-    return if result.fetch('valid')
-
-    error_nomatch = 'prisoner_does_not_exist'
-    if result.fetch('errors').include?(error_nomatch)
-      errors.add :number, I18n.t(error_nomatch, scope: I18N_SCOPE)
-      errors.add :date_of_birth, I18n.t(error_nomatch, scope: I18N_SCOPE)
-    end
+    return if prevent_api_call?
+    return if prisoner_valid?
+    describe_errors
   rescue PrisonVisits::APIError => e
     Rails.logger.error e.message
   end
-  # rubocop:enable Metrics/AbcSize
+
+  def prisoner_valid?
+    prisoner_validation_results.fetch('valid')
+  end
+
+  def describe_errors
+    error_nomatch = 'prisoner_does_not_exist'
+    if prisoner_validation_results.fetch('errors').include?(error_nomatch)
+      errors.add :number, I18n.t(error_nomatch, scope: I18N_SCOPE)
+      errors.add :date_of_birth, I18n.t(error_nomatch, scope: I18N_SCOPE)
+    end
+  end
+
+  def prisoner_validation_results
+    options = { number: number, date_of_birth: date_of_birth.to_date }
+    @prisoner_validation_results ||= PrisonVisits::Api.instance.validate_prisoner(options)
+  end
+
+  def prevent_api_call?
+    # If date_of_birth of number are invalid, there's no need to call the API
+    errors[:date_of_birth].any? || errors[:number].any?
+  end
 end
