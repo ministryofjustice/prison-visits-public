@@ -64,7 +64,7 @@ GEM
     arel (8.0.0)
     ast (2.4.0)
     awesome_print (1.8.0)
-    brakeman (4.2.0)
+    brakeman (4.2.1)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (2.18.0)
