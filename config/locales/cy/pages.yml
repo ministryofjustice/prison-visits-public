@@ -188,35 +188,85 @@ cy:
         France\nLlundain SW1H 9AJ Y Deyrnas Unedig\n"
     cookies:
       title: Cwcis
-      body_md: "Mae'r System trefnu i ymweld â rhywun yn y Carchar (PVB) yn rhoi ffeiliau
-        bychain (a elwir yn 'cwcis') ar \neich cyfrifiadur i gasglu gwybodaeth am
-        sut yr ydych yn pori'r safle.\n\nMae cwcis yn cael eu defnyddio i:\n\n-   fesur
-        sut y byddwch yn defnyddio'r wefan fel y gellir ei diweddaru a'i gwella\n
-        \   ar sail eich anghenion\n-   cofio'r hysbysiadau yr ydych wedi'u gweld
-        fel na fyddwn yn eu dangos\n    i chi eto\n\nNi ddefnyddir cwcis PVB i gael
-        gwybod pwy ydych chi'n bersonol. \n\nFel arfer, fe welwch neges ar y safle
-        cyn y byddwn yn storio cwcis ar\neich cyfrifiadur.\n\nI gael gwybod mwy am
-        reoli cwcis [how to manage\ncookies.](http://www.aboutcookies.org/)\n\nSut
-        y defnyddir cwcis ar PVB\n---------------------------\n\n### Mesur y defnydd
-        a wneir o'r wefan (Google Analytics)\n\nRydym yn defnyddio meddalwedd Google
-        Analytics i gasglu gwybodaeth am sut yr ydych yn\ndefnyddio PVB. Rydym yn
-        gwneud hyn i helpu sicrhau bod y safle'n cwrdd ag anghenion\nei defnyddwyr
-        a'n helpu i wneud gwelliannau.\n\nMae Google Analytics yn storio gwybodaeth
-        am:\n\n-   y tudalennau yr ydych wedi ymweld â nhw ar PVB - faint o amser
-        yr ydych wedi'i dreulio ar bob tudalen PVB\n-   sut y daethoch o hyd i'r safle\n-
-        \  beth rydych yn glicio arno tra byddwch ar y safle\n\nNid
-        ydym yn caniatáu Google i ddefnyddio na rhannu ein data dadansoddol.\n\nMae
-        Google Analytics yn gosod y cwcis canlynol:\n\n| Enw | Pwrpas | Dod i ben
-        |\n| ------------------------ |\n| _ga | Pennu'r nifer o ymwelwyr unigryw
-        i'r safle | 2 flynedd |\n\nGallwch ddewis i optio allan rhag defnyddio cwcis
-        Google Analytics [opt out of Google Analytics\ncookies.](https://tools.google.com/dlpage/gaoptout)\n\n###
-        Ein neges rhagarweiniol\n\nEfallai y byddwch yn gweld neges i'ch croesawu
-        pan fyddwch yn ymweld â thudalen PVB am y tro cyntaf.  Byddwn\nyn storio cwci
-        fel bod eich cyfrifiadur yn gwybod eich bod wedi gweld y neges ac i wybod
-        i beidio\nâ'i ddangos i chi eto.\n\n| Enw | Pwrpas | Dod i ben |\n| ------------------------
-        |\n| seen_cookie_message | Cadw neges i roi gwybod i ni eich bod wedi gweld
-        ein neges cwci | 1 mis |\n\n### Sesiwn\n\nPan fyddwch chi’n defnyddio’r gwasanaeth 
-        \"Archebu Ymweliadau Prison\", byddwn yn gosod cwci ar eich cyfrifiadur i 
-        gofio sut yr ydych chi’n symud ymlaen drwy’r ffurflenni.\n\n| Enw | Pwrpas
-        | Dod i ben |\n| ------------------------ |\n| pvbs | Storio manylion carcharor,
-        ymwelydd a manylion yr ymweliad | 20 munud |\n"
+      body_html: |
+        <p>Mae'r System trefnu i ymweld â rhywun yn y Carchar (PVB) yn rhoi ffeiliau bychain (a elwir yn 'cwcis') ar 
+        eich cyfrifiadur i gasglu gwybodaeth am sut yr ydych yn pori'r safle.</p>
+        <p>Mae cwcis yn cael eu defnyddio i:</p>
+        <ul class="list list-bullet">
+          <li>fesur sut y byddwch yn defnyddio'r wefan fel y gellir ei diweddaru a'i gwella ar sail eich anghenion</li>
+          <li>cofio'r hysbysiadau yr ydych wedi'u gweld fel na fyddwn yn eu dangos i chi eto</li>
+        </ul>
+        <div class="panel panel-border-wide">Ni ddefnyddir cwcis PVB i gael gwybod pwy ydych chi’n bersonol.</div>
+        <p><p>Fel arfer, fe welwch neges ar y safle cyn y byddwn yn storio cwcis ar eich cyfrifiadur.</p></p>
+        <p>I gael gwybod mwy am reoli cwcis <a href="http://www.aboutcookies.org/">how to manage cookies.</a></p>
+        <h2 class="heading-large">Sut y defnyddir cwcis ar PVB</h2>
+        <h3 class="heading-medium">Mesur y defnydd a wneir o’r wefan (Google Analytics)</h3>
+        <p>Rydym yn defnyddio meddalwedd Google Analytics i gasglu gwybodaeth am sut yr ydych yn
+        defnyddio PVB. Rydym yn gwneud hyn i helpu sicrhau bod y safle’n cwrdd ag anghenion
+        ei defnyddwyr a’n helpu i wneud gwelliannau.</p>
+        <p>Mae Google Analytics yn storio gwybodaeth am:</p>
+        <ul class="list list-bullet">
+          <li>y tudalennau yr ydych wedi ymweld â nhw ar PVB - faint o amser yr ydych wedi’i dreulio ar bob tudalen PVB</li>
+          <li>sut y daethoch o hyd i’r safle</li>
+          <li>beth rydych yn glicio arno tra byddwch ar y safle</li>
+        </ul>
+        <div class="panel panel-border-wide">Nid ydym yn caniatáu Google i ddefnyddio na rhannu ein data dadansoddol.</div>
+        <p>Mae Google Analytics yn gosod y cwcis canlynol:</p>
+        <table class="responsive">
+          <thead>
+            <tr>
+              <th>Enw</th>
+              <th>Pwrpas</th>
+              <th>Dod i ben</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td aria-label="Name">_ga</td>
+              <td aria-label="Pwrpas">Pennu’r nifer o ymwelwyr unigryw i’r safle</td>
+              <td aria-label="Dod i ben">2 flynedd</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="push-top">Gallwch ddewis i optio allan rhag defnyddio cwcis Google Analytics 
+          <a href="https://tools.google.com/dlpage/gaoptout">opt out of Google Analytics cookies.</a>
+        </p>
+        <h3 class="heading-medium" id="ein-neges-rhagarweiniol">Ein neges rhagarweiniol</h3>
+        <p>Efallai y byddwch yn gweld neges i’ch croesawu pan fyddwch yn ymweld â thudalen PVB am y tro cyntaf.  Byddwn
+        yn storio cwci fel bod eich cyfrifiadur yn gwybod eich bod wedi gweld y neges ac i wybod i beidio 
+        â’i ddangos i chi eto.</p>
+        <table class="responsive">
+          <thead>
+            <tr>
+              <th>Enw</th>
+              <th>Pwrpas</th>
+              <th>Dod i ben</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td aria-label="Name">seen_cookie_message</td>
+              <td aria-label="Pwrpas">Cadw neges i roi gwybod i ni eich bod wedi gweld ein neges cwci</td>
+              <td aria-label="Dod i ben">1 mis</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 class="heading-medium" id="sesiwn">Sesiwn</h3>
+        <p>Pan fyddwch chi’n defnyddio’r gwasanaeth “Archebu Ymweliadau Prison”, byddwn yn gosod cwci ar eich cyfrifiadur 
+        i gofio sut yr ydych chi’n symud ymlaen drwy’r ffurflenni.</p>
+        <table class="responsive">
+          <thead>
+            <tr>
+              <th>Enw</th>
+              <th>Pwrpas</th>
+              <th>Dod i ben</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td aria-label="Name">pvbs</td>
+              <td aria-label="Pwrpas">Storio manylion carcharor, ymwelydd a manylion yr ymweliad</td>
+              <td aria-label="Dod i ben">20 munud</td>
+            </tr>
+          </tbody>
+        </table>
