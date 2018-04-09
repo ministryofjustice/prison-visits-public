@@ -77,20 +77,20 @@ RSpec.describe SlotsStep, type: :model do
   end
 
   context 'with #options_available?' do
-    shared_examples :options_are_available do
+    shared_examples 'options are available' do
       it 'options are available' do
         expect(subject.options_available?).to eq(true)
       end
     end
 
-    shared_examples :options_are_not_available do
+    shared_examples 'options are not available' do
       it 'options are not available' do
         expect(subject.options_available?).to eq(false)
       end
     end
 
     context 'when posted from Prisoner page' do
-      it_behaves_like :options_are_available
+      it_behaves_like 'options are available'
     end
 
     context 'when posted from Slot 1 page' do
@@ -106,7 +106,7 @@ RSpec.describe SlotsStep, type: :model do
             and_return(true)
         end
 
-        it_behaves_like :options_are_available
+        it_behaves_like 'options are available'
       end
 
       context 'with no bookable slots available' do
@@ -116,7 +116,7 @@ RSpec.describe SlotsStep, type: :model do
             and_return(false)
         end
 
-        it_behaves_like :options_are_not_available
+        it_behaves_like 'options are not available'
       end
     end
 
@@ -127,7 +127,7 @@ RSpec.describe SlotsStep, type: :model do
         subject.skip_remaining_slots = 'true'
       end
 
-      it_behaves_like :options_are_not_available
+      it_behaves_like 'options are not available'
     end
 
     context 'when posting from Slot 2 page' do
@@ -143,7 +143,7 @@ RSpec.describe SlotsStep, type: :model do
             to receive(:available_bookable_slots?).
             and_return(true)
         end
-        it_behaves_like :options_are_available
+        it_behaves_like 'options are available'
       end
 
       context 'with no options available' do
@@ -153,7 +153,7 @@ RSpec.describe SlotsStep, type: :model do
             and_return(false)
         end
 
-        it_behaves_like :options_are_not_available
+        it_behaves_like 'options are not available'
       end
     end
 
@@ -164,7 +164,7 @@ RSpec.describe SlotsStep, type: :model do
         subject.currently_filling = '2'
       end
 
-      it_behaves_like :options_are_not_available
+      it_behaves_like 'options are not available'
     end
 
     context 'when posting from visitor page' do
@@ -174,7 +174,7 @@ RSpec.describe SlotsStep, type: :model do
         subject.currently_filling = '2'
       end
 
-      it_behaves_like :options_are_not_available
+      it_behaves_like 'options are not available'
     end
 
     context 'when posting from Review slot 2 link on review page' do
@@ -184,7 +184,7 @@ RSpec.describe SlotsStep, type: :model do
         subject.review_slot = '1'
       end
 
-      it_behaves_like :options_are_available
+      it_behaves_like 'options are available'
     end
 
     context 'when posting from Slot 2 page when reviewing' do
@@ -195,7 +195,7 @@ RSpec.describe SlotsStep, type: :model do
         subject.currently_filling = '1'
       end
 
-      it_behaves_like :options_are_not_available
+      it_behaves_like 'options are not available'
     end
 
     context 'when posting from review page with absent slots' do
@@ -206,7 +206,7 @@ RSpec.describe SlotsStep, type: :model do
         subject.skip_remaining_slots = 'true'
       end
 
-      it_behaves_like :options_are_not_available
+      it_behaves_like 'options are not available'
     end
   end
 
