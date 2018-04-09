@@ -20,7 +20,7 @@
 //= require modules/moj.hijacks
 //= require modules/moj.submit-once
 //= require modules/moj.RevealAdditional
-//= require modules/moj.booking-calendar
+//= require modules/moj.calendar
 //= require modules/moj.AsyncGA
 
 (function() {
