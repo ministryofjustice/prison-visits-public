@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.2'
 
-gem 'rails', '~> 5.1'
+gem 'rails', '~> 5.2'
 gem 'active_model_attributes'
 
 gem 'connection_pool'
