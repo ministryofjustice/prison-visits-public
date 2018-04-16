@@ -332,7 +332,7 @@ DEPENDENCIES
   pry-rails
   puma
   pvb-instrumentation!
-  rails (~> 5.1)
+  rails (~> 5.2)
   rails-controller-testing
   rake
   request_store
