@@ -8,6 +8,7 @@
      data-slot-submit="js-slotSubmit"
      data-slot-cancel="js-slotCancel"
      data-slot-skip="js-skipSlot"
+     data-skip-input="slots_step_skip_remaining_slots"
      data-i18n=<%= javascript_i18n.to_json %>
      data-slot-number="<%= slot_number %>"
      data-available-message="<%= t('.day_available') %>"
@@ -31,7 +32,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td id="errMsg" colspan="7"><%= t('booking_requests.booking_calendar.javascript_enabled') %></td></tr>
+      <tr><td colspan="7"><noscript><%= t('booking_requests.booking_calendar.javascript_enabled') %></noscript></td></tr>
     </tbody>
   </table>
 
