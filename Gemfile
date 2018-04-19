@@ -16,7 +16,7 @@ gem 'sass-rails', require: false
 gem 'govuk_template'
 gem 'govuk_frontend_toolkit'
 gem 'govuk_elements_rails'
-gem 'jquery-rails', '~> 4.2.0'
+gem 'jquery-rails', '~> 4.3.3'
 gem 'jquery-ui-rails', '~> 6.0.1'
 
 gem 'rake'
