@@ -4,7 +4,7 @@ RSpec.describe Person do
   subject {
     described_module = described_class
     Class.new {
-      include NonPersistedModel
+      include MemoryModel
       include described_module
 
       attribute :first_name, :string
@@ -28,14 +28,6 @@ RSpec.describe Person do
       subject.first_name = 'Oscar'
       subject.last_name = 'Wilde'
       expect(subject.full_name).to eq('Oscar Wilde')
-    end
-  end
-
-  describe 'anonymized_name' do
-    it 'uses only the first letter of the last name' do
-      subject.first_name = 'Oscar'
-      subject.last_name = 'Wilde'
-      expect(subject.anonymized_name).to eq('Oscar W')
     end
   end
 end

@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.5.1'
 
-gem 'rails', '~> 5.1'
-gem 'active_model_attributes'
+gem 'rails', '~> 5.2'
 
 gem 'connection_pool'
 gem 'excon'

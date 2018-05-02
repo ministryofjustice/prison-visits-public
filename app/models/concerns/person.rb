@@ -10,8 +10,4 @@ module Person
   def full_name
     I18n.t('formats.name.full', first: first_name, last: last_name)
   end
-
-  def anonymized_name
-    I18n.t('formats.name.full', first: first_name, last: last_name[0])
-  end
 end

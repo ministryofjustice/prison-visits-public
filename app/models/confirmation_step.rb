@@ -1,5 +1,5 @@
 class ConfirmationStep
-  include NonPersistedModel
+  include MemoryModel
 
   attribute :processor, :steps_processor
   attribute :confirmed, :boolean

@@ -1,7 +1,7 @@
 require 'email_address_validation'
 
 class FeedbackSubmission
-  include NonPersistedModel
+  include MemoryModel
 
   attribute :body, :string
   attribute :prisoner_number, :string

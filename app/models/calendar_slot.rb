@@ -1,5 +1,5 @@
 class CalendarSlot
-  include NonPersistedModel
+  include MemoryModel
   include Comparable
 
   delegate :begin_at, :iso8601, :to_date, to: :slot

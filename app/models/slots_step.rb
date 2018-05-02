@@ -1,5 +1,5 @@
 class SlotsStep
-  include NonPersistedModel
+  include MemoryModel
 
   attribute :processor, :steps_processor
 
