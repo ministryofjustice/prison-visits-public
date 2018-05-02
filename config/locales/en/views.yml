@@ -12,7 +12,9 @@ en:
         </p>
   booking_requests:
     hidden_inputs_for_calendars:
-      option: Option %{n}
+      option_0: Option 1
+      option_1: Option 2
+      option_2: Option 3
       none: None
     booking_calendar:
       today: Today
@@ -132,9 +134,6 @@ en:
       confirm_amend: Save changes
       choose_alternatives: >-
         Choose two alternative dates in case your first choice isn’t available.
-      option_0: Option 1
-      option_1: Option 2
-      option_2: Option 3
       next_step: Continue
       prisoner_availability_title: You can't book a visit right now
       prisoner_availability_md: |
