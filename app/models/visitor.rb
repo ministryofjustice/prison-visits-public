@@ -1,5 +1,5 @@
 class Visitor
-  include NonPersistedModel
+  include MemoryModel
   include Person
 
   attribute :anonymized_name, :string

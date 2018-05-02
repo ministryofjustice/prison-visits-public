@@ -1,5 +1,5 @@
 class PrisonerStep
-  include NonPersistedModel
+  include MemoryModel
   include Person
 
   attribute :processor, :steps_processor

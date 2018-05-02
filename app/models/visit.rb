@@ -1,5 +1,5 @@
 class Visit
-  include NonPersistedModel
+  include MemoryModel
 
   VALID_STATES = %i[ requested withdrawn booked cancelled rejected ].freeze
 

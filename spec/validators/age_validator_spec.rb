@@ -8,7 +8,7 @@ RSpec.describe AgeValidator do
 
   let(:model) {
     Class.new {
-      include NonPersistedModel
+      include MemoryModel
 
       def self.model_name
         ActiveModel::Name.new(self, nil, 'thing')

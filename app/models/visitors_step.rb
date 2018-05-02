@@ -1,7 +1,7 @@
 require 'email_address_validation'
 
 class VisitorsStep
-  include NonPersistedModel
+  include MemoryModel
 
   MAX_ADULTS = 3
   LEAD_VISITOR_MIN_AGE = 18
@@ -10,7 +10,7 @@ class VisitorsStep
 
   attribute :email_address, :string
   attribute :phone_no, :string
-  attribute :visitors, :visitor_list, default: -> { VisitorList.new }
+  attribute :visitors, :visitor_list, default: [].freeze
   attribute :additional_visitor_count, :integer
 
   delegate :max_visitors, :adult_age, to: :visitor_constraints

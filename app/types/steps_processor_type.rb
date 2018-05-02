@@ -1,7 +1,7 @@
 class StepsProcessorType < ActiveModel::Type::Value
-  def cast(val)
-    if val.is_a?(StepsProcessor)
-      val
+  def cast(value)
+    if value.is_a?(StepsProcessor)
+      value
     else
       raise ArgumentError
     end

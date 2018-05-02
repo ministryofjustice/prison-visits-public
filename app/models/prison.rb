@@ -1,5 +1,5 @@
 class Prison
-  include NonPersistedModel
+  include MemoryModel
 
   attribute :id, :string
   attribute :name, :string
