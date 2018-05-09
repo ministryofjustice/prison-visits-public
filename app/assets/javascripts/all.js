@@ -1,7 +1,7 @@
 // Vendor assets
 //= require modernizr-custom
 //= require dest/respond.min
-//= require raven-3.14.2.min.js
+//= require raven-3.24.2.min.js
 
 // GOVUK modules
 //= require govuk_toolkit
