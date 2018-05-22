@@ -152,6 +152,9 @@ RSpec.feature 'Booking a visit', js: true do
     expect(page).to have_text('Enter a first name')
 
     enter_prisoner_information
+
+    # HACK: make sure the 'Continue' button is visible....
+    page.find_button('Continue', visible: false).send_keys :tab
     click_button 'Continue'
 
     # Slot 1
