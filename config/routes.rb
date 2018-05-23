@@ -37,6 +37,7 @@ Rails.application.routes.draw do
       controller 'high_voltage/pages' do
         get 'cookies', action: :show, id: 'cookies'
         get 'terms-and-conditions', action: :show, id: 'terms_and_conditions'
+        get 'privacy-policy', action: :show, id: 'privacy_policy'
         get 'unsubscribe', action: :show, id: 'unsubscribe'
       end
     end
