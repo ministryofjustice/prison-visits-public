@@ -12,15 +12,6 @@
 
 <p class="bold-small"><%= t('.subtitle', date: format_date_without_year(@visit.confirm_by)) %></p>
 
-<% if ['Askham Grange', 'Brinsford ', 'Bristol ', 'Downview', 'Drake Hall', 'East Sutton Park', 'Eastwood Park', 'Featherstone', 'Foston Hall', 'Hewell', 'Low Newton', 'New Hall ', 'Send', 'Stafford ', 'Stoke Heath', 'Styal', 'Swinfen Hall ', 'Werrington', 'Wormwood Scrubs'].include? @visit.prison_name %>
-  <div class="notice">
-    <i class="icon icon-important">
-      <span class="visually-hidden">Warning</span>
-    </i>
-    <strong class="bold-small">Due to technical issues, it may take longer than 3 working days to receive a reply to your visit request. Please allow 5 working days before contacting the prison.</strong>
-  </div>
-<% end %>
-
 <h3 class="heading-medium"><%= t('.what_happens_next') %></h3>
 
 <%= t('.info_html') %>
