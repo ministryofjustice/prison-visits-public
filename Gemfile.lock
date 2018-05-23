@@ -160,7 +160,7 @@ GEM
     parser (2.5.1.0)
       ast (~> 2.4.0)
     phantomjs (2.1.1.0)
-    phonelib (0.6.21)
+    phonelib (0.6.22)
     powerpack (0.1.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
