@@ -45,6 +45,7 @@ RSpec.describe PrisonerStep do
       before do
         expect(pvb_api).to receive(:get_prison).and_return(prison)
       end
+
       it { is_expected.to eq(prison) }
     end
   end

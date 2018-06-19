@@ -39,6 +39,7 @@ RSpec.describe Visit, type: :model do
 
     it { is_expected.to be_can_withdraw }
   end
+
   describe "visitors" do
     let(:visitors) { [allowed_visitor, not_allowed_visitor] }
     let(:allowed_visitor) { Visitor.new(allowed: true) }
