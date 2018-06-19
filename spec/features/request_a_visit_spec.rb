@@ -9,6 +9,7 @@ RSpec.feature 'Booking a visit', js: true do
   before do
     travel_to Date.parse('2017-03-08')
   end
+
   after do
     travel_back
   end

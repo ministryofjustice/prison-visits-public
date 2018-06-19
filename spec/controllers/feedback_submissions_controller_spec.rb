@@ -20,6 +20,7 @@ RSpec.describe FeedbackSubmissionsController, type: :controller do
       before do
         allow_any_instance_of(PrisonVisits::Api).to receive(:create_feedback)
       end
+
       let(:params) {
         {
           feedback_submission: {

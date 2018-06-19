@@ -143,6 +143,7 @@ RSpec.describe SlotsStep, type: :model do
             to receive(:available_bookable_slots?).
             and_return(true)
         end
+
         it_behaves_like 'options are available'
       end
 
