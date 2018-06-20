@@ -5,6 +5,7 @@ require 'active_model/railtie'
 require 'action_controller/railtie'
 require 'action_view/railtie'
 require 'sprockets/railtie'
+require_relative '../app/middleware/robots_tag'
 require_relative '../app/middleware/http_method_not_allowed'
 
 Bundler.require(*Rails.groups)
@@ -64,5 +65,6 @@ module PrisonVisits
     config.max_threads = ENV.fetch('RAILS_MAX_THREADS', 15)
 
     config.middleware.insert_before Rack::Head, HttpMethodNotAllowed
+    config.middleware.use RobotsTag
   end
 end
