@@ -2,7 +2,13 @@ SecureHeaders::Configuration.default do |config|
   config.csp = {
     default_src: ["'self'"],
     font_src: ["'self'", 'data:'],
-    img_src: ["'self'", 'data:', 'www.google-analytics.com', 'stats.g.doubleclick.net'],
+    img_src: [
+      "'self'",
+      'data:',
+      'www.google-analytics.com',
+      'stats.g.doubleclick.net',
+      'www.google.co.uk'
+    ],
     style_src: ["'self'"],
     script_src: [
       "'self'",
@@ -12,6 +18,7 @@ SecureHeaders::Configuration.default do |config|
       "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='",  # govuk
       "'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g='",  # govuk
       "'sha256-9GTWoKmlaDM3V+GStWlXFaD4tf+wPfBN2ds2eySQ9aE='",  # govuk
+      "'sha256-ilofvlKM19VofnYx59p0jVBmaDFKHc8KYj8rW/jltn0='",  # ga
       (Rails.env.test? ? "'unsafe-inline'" : '')
     ]
   }
