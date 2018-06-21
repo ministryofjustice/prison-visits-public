@@ -12,6 +12,7 @@ SecureHeaders::Configuration.default do |config|
       "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='",  # govuk
       "'sha256-G29/qSW/JHHANtFhlrZVDZW1HOkCDRc78ggbqwwIJ2g='",  # govuk
       "'sha256-9GTWoKmlaDM3V+GStWlXFaD4tf+wPfBN2ds2eySQ9aE='",  # govuk
+      "'sha256-Q0mJccZAt9ialqbRWPR4kv1DXhrRJdK6zX5Fi2NS9zY='",  # ga
       (Rails.env.test? ? "'unsafe-inline'" : '')
     ]
   }
