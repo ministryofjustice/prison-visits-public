@@ -7,7 +7,7 @@ class RobotsTag
   end
 
   def call(env)
-    status, headers, response = @app.call(env.dup)
+    status, headers, response = @app.call(env)
     headers[X_ROBOT_TAG_HEADER] = X_ROBOT_TAG_HEADER_VALUE
 
     [status, headers, response]
