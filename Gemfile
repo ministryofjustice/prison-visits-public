@@ -31,7 +31,6 @@ gem 'email_address_validation',
 gem 'string_scrubber'
 gem 'uglifier', '~> 2.7.2', require: false
 gem 'uri_template'
-gem 'secure_headers'
 
 group :development, :test do
   gem 'brakeman'
