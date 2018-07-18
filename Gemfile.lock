@@ -251,7 +251,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    secure_headers (6.0.0)
     selenium-webdriver (3.13.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
@@ -336,7 +335,6 @@ DEPENDENCIES
   rubocop
   rubocop-rspec
   sass-rails
-  secure_headers
   selenium-webdriver
   sentry-raven (~> 2.7.4)
   shoulda-matchers
