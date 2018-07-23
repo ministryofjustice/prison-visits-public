@@ -9,7 +9,7 @@ en:
       models:
         prisoner_step:
           attributes:
-            first_name: 
+            first_name:
               blank: Enter a first name
             last_name:
               blank: Enter a last name
@@ -20,8 +20,11 @@ en:
           api:
             prisoner_does_not_exist: No prisoner matches the details you’ve supplied, please ask the prisoner to check your details are correct
         visitors_step:
+          confirmation: Make sure email addresses match
           attributes:
             email_address:
+              blank: Enter a valid email address
+            email_address_confirmation:
               blank: Enter a valid email address
             phone_no:
               invalid: Enter a valid phone number
@@ -38,7 +41,7 @@ en:
             first_name:
               blank: Enter a first name
             last_name:
-              blank: Enter a last name 
+              blank: Enter a last name
             date_of_birth:
               blank: Enter a date of birth
               inclusion: Enter a date of birth

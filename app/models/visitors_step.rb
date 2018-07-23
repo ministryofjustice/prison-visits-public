@@ -15,7 +15,8 @@ class VisitorsStep
 
   delegate :max_visitors, :adult_age, to: :visitor_constraints
 
-  validates :email_address, presence: true
+  validates :email_address, confirmation: true, presence: true
+  validates :email_address_confirmation, presence: true
   validates :phone_no, phone: true
 
   validate :validate_email, :validate_visitors
