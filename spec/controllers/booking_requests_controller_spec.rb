@@ -18,6 +18,7 @@ RSpec.describe BookingRequestsController do
   let(:visitors_details) {
     {
       email_address: 'ada@test.example.com',
+      email_address_confirmation: 'ada@test.example.com',
       phone_no: '07900112233',
       visitors_attributes: {
         0 => {

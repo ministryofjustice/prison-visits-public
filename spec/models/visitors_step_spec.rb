@@ -76,6 +76,13 @@ RSpec.describe VisitorsStep do
     end
   end
 
+  describe "email_address_confirmation=" do
+    it 'strips whitespace' do
+      subject.email_address_confirmation = ' email@example.com '
+      expect(subject.email_address_confirmation).to eq('email@example.com')
+    end
+  end
+
   describe 'backfilled_visitors' do
     it 'includes supplied visitors' do
       subject.visitors_attributes = {
@@ -162,6 +169,7 @@ RSpec.describe VisitorsStep do
   describe 'valid?' do
     before do
       subject.email_address = 'user@test.example.com'
+      subject.email_address_confirmation = 'user@test.example.com'
       subject.phone_no = '07900112233'
     end
 
@@ -225,6 +233,13 @@ RSpec.describe VisitorsStep do
       expect(subject).to_not be_valid
       expect(subject.errors[:phone_no]).to_not be_empty
     end
+
+    it 'is invalid if email_address confirmation does not match email address' do
+      subject.email_address_confirmation = 'blah@thing.com'
+      subject.email_address_confirmation = 'blahblah@thing.com'
+      expect(subject).to_not be_valid
+      expect(subject.errors[:email_address_confirmation]).to_not be_empty
+    end
   end
 
   context 'with age-related validations' do
@@ -234,6 +249,7 @@ RSpec.describe VisitorsStep do
 
     before do
       subject.email_address = 'user@test.example.com'
+      subject.email_address_confirmation = 'user@test.example.com'
       subject.phone_no = '07900112233'
     end
 
