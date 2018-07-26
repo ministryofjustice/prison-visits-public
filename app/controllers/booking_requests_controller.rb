@@ -84,6 +84,7 @@ private
   def permitted_visitors_params
     [
       :email_address,
+      :email_address_confirmation,
       :phone_no,
       :additional_visitor_count,
       visitors_attributes: [

@@ -17,16 +17,17 @@ module FeaturesHelper
     select_prison options.fetch(:prison_name)
   end
 
-  def enter_visitor_information(options = {})
+  def enter_visitor_information(new_options = {})
     options = {
       first_name: 'Ada',
       last_name: 'Lovelace',
       date_of_birth: Date.new(1970, 11, 30),
       prison_name: 'Reading Gaol',
       email_address: 'user@test.example.com',
+      email_address_confirmation: 'user@test.example.com',
       phone_no: '07771232323',
       index: 0
-    }.merge(options)
+    }.merge(new_options)
 
     index = options.fetch(:index)
 
@@ -36,6 +37,7 @@ module FeaturesHelper
 
       if index.zero?
         fill_in 'Email address', with: options.fetch(:email_address)
+        fill_in 'Confirm email address', with: options.fetch(:email_address_confirmation)
         fill_in 'Phone number', with: options.fetch(:phone_no)
       end
 

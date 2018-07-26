@@ -38,7 +38,11 @@ RSpec.feature 'Booking a visit', js: true do
     select_first_available_slot
     click_button 'Continue'
 
-    enter_visitor_information email_address: visitor_email
+    enter_visitor_information(
+      email_address: visitor_email,
+      email_address_confirmation: visitor_email
+    )
+
     click_button 'Add another visitor'
     enter_visitor_information index: 1
     click_button 'Continue'
@@ -73,7 +77,10 @@ RSpec.feature 'Booking a visit', js: true do
     select_first_available_slot
     click_button 'Continue'
 
-    enter_visitor_information email_address: visitor_email
+    enter_visitor_information(
+      email_address: visitor_email,
+      email_address_confirmation: visitor_email
+    )
     click_button 'Add another visitor'
     enter_visitor_information index: 1
     click_button 'Continue'
@@ -112,7 +119,10 @@ RSpec.feature 'Booking a visit', js: true do
     select_first_available_slot
     click_button 'Continue'
 
-    enter_visitor_information email_address: visitor_email
+    enter_visitor_information(
+      email_address: visitor_email,
+      email_address_confirmation: visitor_email
+    )
     click_button 'Add another visitor'
     enter_visitor_information index: 1
     click_button 'Continue'

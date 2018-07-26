@@ -94,6 +94,7 @@ en:
       date_of_birth_hint: You must be over 18 to book a visit
       email_address: Email address
       email_address_hint: We'll send email confirmation to this address
+      email_address_confirmation: Confirm email address
       phone_no: Phone number
     additional_visitors:
       visitor: "Visitor %{n}"

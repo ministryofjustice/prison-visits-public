@@ -9,13 +9,14 @@ class VisitorsStep
   attribute :processor, :steps_processor
 
   attribute :email_address, :string
+  attribute :email_address_confirmation, :string
   attribute :phone_no, :string
   attribute :visitors, :visitor_list, default: [].freeze
   attribute :additional_visitor_count, :integer
 
   delegate :max_visitors, :adult_age, to: :visitor_constraints
 
-  validates :email_address, presence: true
+  validates :email_address, confirmation: true, presence: true
   validates :phone_no, phone: true
 
   validate :validate_email, :validate_visitors
@@ -24,6 +25,10 @@ class VisitorsStep
 
   def email_address=(val)
     super(val.strip)
+  end
+
+  def email_address_confirmation=(val)
+    super(val.strip) if val
   end
 
   # Return at least Prison::MAX_VISITORS visitors, filling with new instances
