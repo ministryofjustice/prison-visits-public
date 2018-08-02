@@ -149,6 +149,9 @@ en:
         Our calendars are updated daily, so please try again later.
     confirmation_step:
       title: Check your visit details
+      check_your_answers_intro_html: >-
+        Check your visit details carefully and change anything you need to. <br>
+        You won’t be able to make changes to your visit after you have sent your request.
       prisoner_details: Prisoner details
       prisoner_name: Prisoner name
       date_of_birth: "Date of birth"
