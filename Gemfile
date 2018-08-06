@@ -39,7 +39,7 @@ group :development, :test do
   gem 'jasmine', '~> 3.1.0'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '~> 3.8'
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'shoulda-matchers'
