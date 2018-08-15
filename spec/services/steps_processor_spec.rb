@@ -78,7 +78,7 @@ RSpec.describe StepsProcessor do
 
   shared_examples 'it is incomplete' do
     it 'does not tell BookingRequestCreator to create a Visit record' do
-      allow(BookingRequestCreator).to receive(:new).never
+      allow(BookingRequestCreator).not_to receive(:new)
       subject.execute!
     end
   end
