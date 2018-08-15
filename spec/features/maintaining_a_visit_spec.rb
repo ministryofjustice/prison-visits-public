@@ -41,8 +41,8 @@ RSpec.feature 'Maintaining a visit', js: true do
     visit visit_path(id: 'FOOBAR', locale: 'en')
     expect(page).to have_text('Your visit request has been rejected')
 
-    # click_link 'new visit'
-    # expect(page).to have_css('h1', text: 'Who are you visiting?')
+    click_link 'new visit'
+    expect(page).to have_css('h1', text: 'Who are you visiting?')
   end
 
   scenario 'viewing a withdrawn visit and trying again', vcr: {
