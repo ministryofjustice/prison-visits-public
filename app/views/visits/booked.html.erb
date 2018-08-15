@@ -1,62 +1,65 @@
-<% content_for :header, t('.title') %>
+<% content_for :pagetitle, t('.title') %>
+
+<div class="govuk-box-highlight">
+  <h2 class="bold-large push-bottom">
+    <i class="icon icon-tick push-right--half">
+      <span class="visually-hidden"><%= t('visits.shared.tick') %></span>
+    </i>
+    <%= t('.title') %>
+  </h2>
+  <%= t('visits.shared.highlight_visit_id_html', id: @visit.human_id) %>
+  <p><%= t('.highlight_intro') %></p>
+</div>
 
 <div class="grid-row">
   <div class="column-two-thirds">
+  </div>
+</div>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h3 class="heading-medium"><%= t('.visit_details_title') %></h3>
+    <p><%= format_slot_for_public(@visit.slot_granted) %></p>
+    <h3 class="heading-small">HMP <%= @visit.prison_name %></h3>
     <p>
-      <%= t('.intro_html', prison_name: @visit.prison_name) %>
+      <%= add_line_breaks(@visit.prison_address) %>
+      <br>
+      <%= @visit.prison_postcode %>
+      <br>
+      <%= link_to(t('visits.shared.google_maps'),
+                  link_directory.google_maps(@visit.prison_postcode)) %>
     </p>
-
-    <p><%= t('.confirmation_email') %></p>
-
-    <p><%= t('.cancel_pre_intro_html') %></p>
-  </div>
-</div>
-
-<div class="grid-row">
-  <div class="column-two-thirds">
-    <h2><%= t('.visit_details_title') %></h2>
-
-    <dl>
-      <dt><%= t('.your_visit') %></dt>
-      <dd>
-        <ul class="unstyled-list visit-times">
-          <li>
-            <strong><%= format_slot_for_public(@visit.slot_granted) %></strong>
-          </li>
-        </ul>
-      </dd>
-    </dl>
-  </div>
-</div>
-<div class="grid-row">
-  <div class="column-one-third">
-    <dl>
-      <dt>Allowed visitors</dt>
-      <dd>
-        <ul class="unstyled-list visit-times">
-          <% @visit.allowed_visitors.each do |visitor| %>
-            <li><strong><%= visitor.anonymized_name %></strong></li>
-          <% end %>
-        </ul>
-      </dd>
-    </dl>
-  </div>
-  <div class="column-one-third">
+    <p>
+      <%= t('visits.shared.phone_no') %>: <span class="bold-small"><%= @visit.prison_phone_no %></span>
+      <br>
+      <%= t('visits.shared.email') %>: <span class="bold-small"><%= mail_to(@visit.prison_email_address) %></span>
+    </p>
+    <h3 class="heading-small"><%= t('.confirmed_visitors') %>:</h3>
+    <ul class="list list-bullet">
+      <% @visit.allowed_visitors.each do |visitor| %>
+        <li><%= visitor.anonymized_name %></li>
+      <% end %>
+    </ul>
     <% if @visit.rejected_visitors.any? %>
-      <dl>
-        <dt>Rejected visitors</dt>
-        <dd>
-        <ul class="unstyled-list visit-times">
-          <% @visit.rejected_visitors.each do |visitor| %>
-            <li><strong><%= visitor.anonymized_name %></strong></li>
-          <% end %>
-        </ul>
-        </dd>
-      </dl>
-  <% end %>
+      <h3 class="heading-small"><%= t('.rejected_visitors') %>:</h3>
+      <ul class="list list-bullet">
+        <% @visit.rejected_visitors.each do |visitor| %>
+          <li><%= visitor.anonymized_name %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <div class="panel panel-border-narrow"><%= t('.not_received_html') %></div>
+    <h3 class="heading-medium"><%= t('.cancel_or_change_title') %></h3>
+    <p><%= t('.cancel_or_change') %></p>
+    <p><%= t('.request_new_visit_html', url: booking_requests_path) %></p>
+    <details id="cancel-visit-section">
+      <summary><span class="summary"><%= t('visits.shared.cancel_visit') %></span></summary>
+      <div class="panel panel-border-narrow">
+        <%= render('cancel_form') %>
+      </div>
+    </details>
+    <hr>
+    <p><%= link_to(t('visits.shared.rate_service_html', url: link_directory.rate_service)) %></p>
+    <p class="visible--js-enabled"><%= link_to(t('.print_page'), '#', class: 'print-link') %></p>
   </div>
 </div>
-
-<%= render 'visiting_info' %>
-
-<%= render 'visit_id' %>

@@ -3,21 +3,20 @@
 <div class="govuk-box-highlight">
   <h2 class="bold-large push-bottom">
     <i class="icon icon-tick push-right--half">
-      <span class="visually-hidden"><%= t('.tick') %></span>
+      <span class="visually-hidden"><%= t('visits.shared.tick') %></span>
     </i>
     <%= t('.title') %>
   </h2>
-  <%= t('.visit_id_html', id: @visit.human_id) %>
+  <%= t('visits.shared.highlight_visit_id_html', id: @visit.human_id) %>
+  <p><%= t('.highlight_intro') %></p>
 </div>
 
 <p class="bold-small"><%= t('.subtitle', date: format_date_without_year(@visit.confirm_by)) %></p>
 
 <h3 class="heading-medium"><%= t('.what_happens_next') %></h3>
-
 <%= t('.info_html') %>
-
-<h3 class="bold-medium push-top"><%= t('.visit_details_title') %></h3>
-<p class="bold-small"><%= t('.requested_date') %></p>
+<h3 class="heading-medium"><%= t('.visit_details_title') %></h3>
+<p><%= t('.requested_date') %></p>
 
 <div class="grid-row">
   <% @visit.slots.each_with_index do |slot, index| %>
@@ -31,48 +30,37 @@
   <% end %>
 </div>
 
-<h3 class="heading-medium" id="contact-prison"><%= t('.prison_details') %></h3>
-
-<dl>
-  <dt class="bold-small"><%= @visit.prison_name %></dt>
-  <dd>
-    <span>
-      <%= add_line_breaks(@visit.prison_address) %>
-      <br/>
-      <%= @visit.prison_postcode %>
-    </span>
-  </dd>
-</dl>
-<p class="map-link">
-  <%= link_to(t('.google_maps'), link_directory.google_maps(@visit.prison_postcode)) %>
+<h3 id="contact-prison" class="heading-small">HMP <%= @visit.prison_name %></h3>
+<p>
+  <%= add_line_breaks(@visit.prison_address) %>
+  <br>
+  <%= @visit.prison_postcode %>
+  <br>
+  <%= link_to(t('visits.shared.google_maps'),
+              link_directory.google_maps(@visit.prison_postcode)) %>
 </p>
-<dl>
-  <dt class="float-left"><%= t('.phone_no') %>:&nbsp;</dt>
-  <dd><span class="bold-small"><%= @visit.prison_phone_no %></span></dd>
-  <dt class="float-left"><%= t('.email') %>:&nbsp;</dt>
-  <dd><span class="bold-small"><%= mail_to(@visit.prison_email_address) %></span></dd>
-</dl>
+<p>
+  <%= t('visits.shared.phone_no') %>: <span class="bold-small"><%= @visit.prison_phone_no %></span>
+  <br>
+  <%= t('visits.shared.email') %>: <span class="bold-small"><%= mail_to(@visit.prison_email_address) %></span>
+</p>
 
-<h3 class="heading-medium"><%= t('.other_services') %></h3>
-
-<h4 class="heading-small"><%= t('.get_help_with_visits') %></h4>
-<%= t('.get_help_details_html') %>
-
-<h4 class="heading-small"><%= t('.money_to_prisoners') %></h4>
-<%= t('.mtp_details_html') %>
-
-<hr>
-<details id="cancel-visit-section">
-
-  <summary><span class="summary"><%= t('.cancel_visit') %></span></summary>
-
-  <div class="panel panel-border-narrow">
-
-    <%= render('cancel_form') %>
-
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h3 class="heading-medium"><%= t('.other_services') %></h3>
+    <h4 class="heading-small"><%= t('.get_help_with_visits') %></h4>
+    <%= t('.get_help_details_html') %>
+    <h4 class="heading-small"><%= t('.money_to_prisoners') %></h4>
+    <%= t('.mtp_details_html') %>
+    <hr>
+    <details id="cancel-visit-section">
+      <summary><span class="summary"><%= t('visits.shared.cancel_visit') %></span></summary>
+      <div class="panel panel-border-narrow">
+        <%= render('cancel_form') %>
+      </div>
+    </details>
   </div>
-
-</details>
+</div>
 
 <% if @request_completed %>
   <div class="visuallyhidden js-AsyncGA"
