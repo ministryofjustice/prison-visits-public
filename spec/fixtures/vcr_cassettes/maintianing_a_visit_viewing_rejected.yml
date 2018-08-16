@@ -45,6 +45,51 @@ http_interactions:
   recorded_at: Wed, 01 Mar 2017 16:34:52 GMT
 - request:
     method: get
+    uri: http://localhost:3000/api/prisons/f18ca4d5-8cdc-4aa0-97e6-83d04e1e983c
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.56.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      X-Request-Id:
+      - 7bbb8f47-b1c7-4799-bc65-840f392454bc
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"88ed65c0a22bbad8f9685f70f2325c38"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7bbb8f47-b1c7-4799-bc65-840f392454bc
+      X-Runtime:
+      - '0.017771'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"prison":{"id":"f18ca4d5-8cdc-4aa0-97e6-83d04e1e983c","name":"Sudbury",
+      "address":"Ashbourne\nDerbyshire","postcode":"DE6 5HW","email_address":"socialvisitssudbury@hmps.gsi.gov.uk",
+      "phone_no":"01283 584175",
+      "prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/sudbury","max_visitors":6,
+      "adult_age":18,"closed":false,"private":false,"enabled":true}}'
+    http_version:
+  recorded_at: Wed, 01 Mar 2017 15:33:57 GMT
+- request:
+    method: get
     uri: http://localhost:3000/api/prisons
     body:
       encoding: US-ASCII

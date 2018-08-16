@@ -321,58 +321,53 @@ en:
     show:
       title: Visit status
     shared:
-      avoid_spam_filtering_html: >-
-        To stop visit confirmation emails going to your spam or junk folder
-        please add <span class="no-wrap">%{email}</span> to your address book
-        or safe senders list.
+      tick: Tick
+      highlight_visit_id_html: >-
+        <p class="lede">Your reference number is <span class="bold-medium">%{id}</span></p>
+      highlight_intro: Use this if you need to contact the prison
       request_new_visit_html: >-
         Request a <a href="%{url}">new visit</a>
+      cancel_visit: Cancel this visit
       cancel_title: Cancel this visit request
       cancel_intro: >-
         If you no longer want to visit on this date, you can cancel this
         visit.
       cancel_confirm: Yes, I want to cancel this visit
       cancel_cta: Cancel visit
-    visiting_info:
-      location: Location
-      phone_no: Phone
-      google_maps: View on Google Maps
-      email_address: Email
-      print_page: Print this page
-      instructions_nav_title: Visiting %{name} prison
-      cancel_title: Cancel this visit request
       rate_service_html: >-
-        Take a moment to rate this service
+        <a href="%{url}">What did you think of this service?</a> (takes 30 seconds)
+      phone_no: Phone number
+      email: Email
+      google_maps: View on Google Maps
     booked:
       title: Your visit has been confirmed
-      intro_html: >-
-        The details of your visit to %{prison_name} are displayed below.
-      confirmation_email: >-
-        A copy of this information has been sent to your email address.
-        If you haven’t received this email, please check your spam or junk
-        folder. You need to do this on a computer or tablet (rather than
-        a smart phone).
-      cancel_pre_intro_html: >-
-        If you no longer want to visit on this date, you can
-        <a href="#cancel-visit">cancel this visit</a>.
+      highlight_intro: >-
+        Use this if you need to contact the prison about your visit
       visit_details_title: Your visit details
-      your_visit: Date and time
+      confirmed_visitors: Confirmed visitors
+      rejected_visitors: The following visitors can't attend this visit
+      not_received_html: >-
+        We have sent you an email with more information about your visit. To make sure
+        this email doesn't go to your spam or junk folder, add <br>no-reply@email.prisonvisits.service.gov.uk to your address book.
+      cancel_or_change_title: Cancel or change your visit
+      cancel_or_change: If you no longer want this visit, please cancel it.
+      request_new_visit_html: >-
+        If you want to change anything about your visit, like dates or visitors coming, you should cancel your
+        visit and <a href="%{url}">request another one</a>.
+      print_page: Print this page
     rejected:
-      title: Your visit request cannot take place on the dates you’ve chosen
-      intro: >-
-        There are a couple of possible reasons for this, for example there may
-        be no space in the visiting hall, or the prisoner may not have any
-        visiting allowance left.
-      not_received: >-
-        If you haven’t received an email to say that your visit can’t take
-        place as planned, please check your spam or junk folder. You need to do
-        this on a computer or tablet (rather than a smart phone).
+      title: Your visit request has been rejected
+      subtitle_html: >-
+        <p class="lede">Your reference number is <span class="bold-medium">%{id}</span></p>
+        <p>Use this if you need to contact the prison</p>
+      intro_html: >-
+        HMP %{prison} has rejected your visit request. The prison has sent you an email with the reason why the visit can't go ahead.
+      not_received_html: >-
+        To make sure this email doesn't go to your spam or junk folder, add <br>no-reply@email.prisonvisits.service.gov.uk to your address book.
     requested:
       title: Visit request sent
-      tick: Tick
-      visit_id_html: >-
-        <p class="lede">Your visit ID: <span class="bold-medium">%{id}</span></p>
-        <p>Make a note of your visit ID<br>in case you need to contact the prison</p>
+      highlight_intro: >-
+        Use this if you need to contact the prison about your visit
       subtitle: Your visit is not booked yet - you should hear from the prison by %{date}
       what_happens_next: What happens next?
       info_html: >-
@@ -382,20 +377,8 @@ en:
           <li>If you don't get an email, <a href="#contact-prison">contact the prison</a>.</li>
           <li>If you no longer want the visit on this date, you can <a href="#cancel-visit-section">cancel this visit</a>.</li>
         </ul>
-      not_received: >-
-        If you don’t receive an email within 3 working days, please check your
-        spam or junk folder. You need to do this on a computer or tablet
-        (rather than a smart phone).
-      prison_details: Prison details
-      cancel_visit: Cancel this visit
-      cancel_pre_intro_html: >-
-        If you no longer want to visit on this date, you can
-        <a href="#cancel-visit">cancel this visit</a>.
       visit_details_title: Your visit details
       requested_date: Requested date and times
-      google_maps: View on google maps
-      phone_no: Phone number
-      email: Email
       other_services: Other services you might be interested in
       get_help_with_visits: Get help with the cost of prison visits
       get_help_details_html: >-
@@ -404,7 +387,6 @@ en:
       mtp_details_html: >-
         <p>If you have a bank account, you can <a href="https://www.gov.uk/send-prisoner-money">send money to a prisoner</a> online.</p>
         <p>This free, fast and secure service lets you make online payments by debit card, or can give you a prisoner reference to use in a UK bank transfer.</p>
-
     cancelled:
       title: Your visit is cancelled
       your_visit: Date and time of your visit

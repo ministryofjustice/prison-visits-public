@@ -14,6 +14,7 @@ RSpec.describe VisitsController, type: :controller do
 
       before do
         expect(pvb_api).to receive(:get_visit).with(visit.human_id).and_return(visit)
+        expect(visit).to receive(:prison_name)
       end
 
       it 'calls the get visit API' do

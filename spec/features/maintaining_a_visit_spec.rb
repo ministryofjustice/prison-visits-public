@@ -26,6 +26,10 @@ RSpec.feature 'Maintaining a visit', js: true do
     visit visit_path(id: 'FOOBAR', locale: 'en')
     expect(page).to have_text('Your visit has been confirmed')
 
+    within '#cancel-visit-section' do
+      find('.summary').click
+    end
+
     check_yes_i_want_to_cancel
     click_button 'Cancel visit'
     expect(page).to have_text('Your visit is cancelled')
@@ -35,7 +39,7 @@ RSpec.feature 'Maintaining a visit', js: true do
     cassette_name: :maintianing_a_visit_viewing_rejected
   } do
     visit visit_path(id: 'FOOBAR', locale: 'en')
-    expect(page).to have_text('Your visit request cannot take place')
+    expect(page).to have_text('Your visit request has been rejected')
 
     click_link 'new visit'
     expect(page).to have_css('h1', text: 'Who are you visiting?')
