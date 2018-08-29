@@ -76,12 +76,17 @@ RSpec.describe StepsProcessor do
     end
   end
 
+  # In this instance the cop, "RSpec/ReceiveNever", causes failures in RSpec with this error:
+  # `allow(...).not_to receive` is not supported, so we are disabling it here.
+
+  # rubocop:disable RSpec/ReceiveNever
   shared_examples 'it is incomplete' do
     it 'does not tell BookingRequestCreator to create a Visit record' do
       allow(BookingRequestCreator).to receive(:new).never
       subject.execute!
     end
   end
+  # rubocop:enable RSpec/ReceiveNever
 
   context 'with no params' do
     let(:params) { {} }
