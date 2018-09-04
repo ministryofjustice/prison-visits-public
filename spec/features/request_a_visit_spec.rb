@@ -170,11 +170,13 @@ RSpec.feature 'Booking a visit', js: true do
 
     # Slot 1
     select_first_available_date
+    page.find_button('Add another choice', visible: false).send_keys :tab
     click_button 'Add another choice'
     expect(page).to have_text('You must choose at least one date and time slot')
 
     select_first_available_date
     select_first_available_slot
+
     click_link 'No more to add'
 
     enter_visitor_information date_of_birth: Date.new(2014, 11, 30)
@@ -192,6 +194,7 @@ RSpec.feature 'Booking a visit', js: true do
 
     # Slot 1
     select_first_available_date
+    page.find_button('Add another choice', visible: false).send_keys :tab
     click_button 'Add another choice'
     expect(page).to have_text('You must choose at least one date and time slot')
 

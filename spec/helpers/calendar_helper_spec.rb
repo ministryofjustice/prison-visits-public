@@ -114,8 +114,8 @@ RSpec.describe CalendarHelper do
         let(:reviewing) { true }
 
         it do
-          is_expected.to eq('data-message' => 'Already chosen',
-                            'data-slot-chosen' => true)
+          expect(subject).to eq('data-message' => 'Already chosen',
+                                'data-slot-chosen' => true)
         end
       end
 
@@ -123,9 +123,9 @@ RSpec.describe CalendarHelper do
         let(:reviewing) { false }
 
         it do
-          is_expected.to eq('data-message' => 'Already chosen',
-                            'data-slot-chosen' => true,
-                            'disabled' => 'disabled')
+          expect(subject).to eq('data-message' => 'Already chosen',
+                                'data-slot-chosen' => true,
+                                'disabled' => 'disabled')
         end
       end
 
@@ -144,8 +144,8 @@ RSpec.describe CalendarHelper do
           let(:unavailability_reason) { 'prisoner_unavailable' }
 
           it do
-            is_expected.to eq('disabled' => 'disabled',
-                              'data-message' => 'Not available')
+            expect(subject).to eq('disabled' => 'disabled',
+                                  'data-message' => 'Not available')
           end
         end
 
@@ -153,8 +153,8 @@ RSpec.describe CalendarHelper do
           let(:unavailability_reason) { 'prison_unavailable' }
 
           it do
-            is_expected.to eq('disabled' => 'disabled',
-                              'data-message' => 'Fully booked')
+            expect(subject).to eq('disabled' => 'disabled',
+                                  'data-message' => 'Fully booked')
           end
         end
       end
