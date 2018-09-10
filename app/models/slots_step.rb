@@ -81,8 +81,10 @@ class SlotsStep
   def next_slot_to_fill
     return '0' if unbookable_slots_selected?
     return review_slot if review_slot.present?
+
     slots_select_count = valid_options.size
     return nil if slots_select_count == 3
+
     slots_select_count.to_s
   end
 
