@@ -19,6 +19,7 @@ class StepsProcessor
 
   def execute!
     return if incomplete_step_name
+
     BookingRequestCreator.new.create!(
       steps.fetch(:prisoner_step),
       steps.fetch(:visitors_step),

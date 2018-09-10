@@ -42,6 +42,7 @@ private
   def validate_prisoner
     return if prevent_api_call?
     return if prisoner_valid?
+
     describe_errors
   rescue PrisonVisits::APIError => e
     Rails.logger.error e.message

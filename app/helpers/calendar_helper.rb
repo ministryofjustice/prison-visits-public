@@ -18,6 +18,7 @@ module CalendarHelper
       class: 'BookingCalendar-day'
     )
     return day if bookable == false
+
     content_tag(
       :a, day,
       class: 'BookingCalendar-dateLink', 'data-date': date.iso8601,

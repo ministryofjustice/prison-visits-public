@@ -29,6 +29,7 @@ module FormElementsHelper
   def field_error(form, name)
     errors = form.object.errors[name]
     return '' unless errors.any?
+
     content_tag(:span, class: 'error-message') { errors.first }
   end
 

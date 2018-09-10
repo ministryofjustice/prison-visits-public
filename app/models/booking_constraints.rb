@@ -14,6 +14,7 @@ class BookingConstraints
   def on_slots
     fail 'No prison' unless @prison
     fail 'No prisoner details' unless @prisoner_number && @prisoner_dob
+
     slots = PrisonVisits::Api.instance.get_slots(
       prison_id: @prison.id,
       prisoner_number: @prisoner_number,
