@@ -92,6 +92,7 @@ The API client is then tested by recording real API interactions using VCR. The 
 - [Requesting a visit (Models)](docs/models.rb)
 - [Application configuration](docs/configuration.md)
 - [Welsh Translation](docs/welsh_translation.md)
+- [Frontend](docs/frontend.md)
 
 
 ## Licence
