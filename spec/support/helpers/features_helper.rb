@@ -53,7 +53,7 @@ module FeaturesHelper
   end
 
   def select_first_available_slot
-    first('#js-slotAvailability input[type="radio"]').click
+    first('#js-slotAvailability input[type="radio"]', visible: false).click
   end
 
   def select_prison(name)
