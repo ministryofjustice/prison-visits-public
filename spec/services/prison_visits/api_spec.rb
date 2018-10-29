@@ -144,9 +144,9 @@ RSpec.describe PrisonVisits::Api do
   describe 'get_slots', vcr: { cassette_name: 'get_slots' } do
     let(:params) {
       {
-        prison_id:       leicester_prison_id,
+        prison_id: leicester_prison_id,
         prisoner_number: 'A1410AE',
-        prisoner_dob:    Date.parse('1960-06-01')
+        prisoner_dob: Date.parse('1960-06-01')
       }
     }
 

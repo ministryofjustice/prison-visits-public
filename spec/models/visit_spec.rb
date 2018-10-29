@@ -5,12 +5,12 @@ RSpec.describe Visit, type: :model do
 
   let(:params) {
     {
-      id:               '1',
-      prison_id:        '2',
+      id: '1',
+      prison_id: '2',
       processing_state: 'requested',
-      slots:            ['2015-10-23T14:00/15:30'],
-      can_cancel:       can_cancel,
-      can_withdraw:     can_withdraw
+      slots: ['2015-10-23T14:00/15:30'],
+      can_cancel: can_cancel,
+      can_withdraw: can_withdraw
     }
   }
   let(:can_cancel)   { false }

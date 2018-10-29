@@ -24,20 +24,20 @@ RSpec.describe VisitorsStep do
   let(:adult_dob) { Date.parse('1990-04-03') }
   let(:child_13) {
     {
-      first_name:  'Jim',
-      last_name:  'Johnson',
-      date_of_birth:  {
-        day:  '1', month:  '12', year:  '2002' # 13 today
+      first_name: 'Jim',
+      last_name: 'Johnson',
+      date_of_birth: {
+        day: '1', month:  '12', year:  '2002' # 13 today
       }
     }
   }
   let(:child_13_dob) { Date.parse('2002-12-01') }
   let(:child_12) {
     {
-      first_name:  'Jessica',
-      last_name:  'Johnson',
-      date_of_birth:  {
-        day:  '2', month:  '12', year:  '2002' # 13 tomorrow
+      first_name: 'Jessica',
+      last_name: 'Johnson',
+      date_of_birth: {
+        day: '2', month:  '12', year:  '2002' # 13 tomorrow
       }
     }
   }
