@@ -1,4 +1,4 @@
-FROM ministryofjustice/ruby:2.5.3-webapp-onbuild
+FROM registry.service.dsd.io/ruby:2.5.3-webapp-onbuild
 
 EXPOSE 3000
 RUN gem update bundler --no-doc
