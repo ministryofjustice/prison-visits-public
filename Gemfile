@@ -29,7 +29,7 @@ gem 'email_address_validation',
   ref: '5ed2fb93f8d5bc419f03cecb408c688c5bd9fd74'
 
 gem 'string_scrubber'
-gem 'uglifier', '~> 4.1.19', require: false
+gem 'uglifier', '~> 4.1.20', require: false
 gem 'uri_template'
 
 group :development, :test do
