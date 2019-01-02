@@ -288,7 +288,7 @@ GEM
     uuid (2.3.9)
       macaddr (~> 1.0)
     vcr (4.0.0)
-    webmock (3.4.2)
+    webmock (3.5.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
