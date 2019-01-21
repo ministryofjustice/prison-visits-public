@@ -128,7 +128,7 @@ GEM
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
     json (2.1.0)
-    kramdown (1.17.0)
+    kramdown (2.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     lograge (0.10.0)
