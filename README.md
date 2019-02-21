@@ -8,14 +8,14 @@ A service for booking a social visit to a prisoner in England or Wales
 
 ## Live application
 
-Production application is made available through GOV.UK and can be found at [https://www.gov.uk/prison-visits](https://www.gov.uk/prison-visits) 
+Production application is made available through GOV.UK and can be found at [https://www.gov.uk/prison-visits](https://www.gov.uk/prison-visits)
 
 
 ## Technical Information
 
 This a Ruby on Rails application that contains the public interface for booking a prison visit.
 
-It is *stateless* and relies entirely on the prison visits booking API exposed by [ministryofjustice/prison-visits-2](https://github.com/ministryofjustice/prison-visits-2). 
+It is *stateless* and relies entirely on the prison visits booking API exposed by [ministryofjustice/prison-visits-2](https://github.com/ministryofjustice/prison-visits-2).
 
 The codebase was split from [ministryofjustice/prison-visits-2](https://github.com/ministryofjustice/prison-visits-2), which previously was also responsible for serving the public interface.
 
@@ -32,8 +32,22 @@ The codebase was split from [ministryofjustice/prison-visits-2](https://github.c
 
 ### Ruby version
 
-This application uses Ruby v2.5.1. Use [RVM](https://rvm.io/) or similar to manage your ruby environment and sets of dependencies. 
-    
+This application uses Ruby v2.5.1. Use [RVM](https://rvm.io/) or similar to manage your ruby environment and sets of dependencies.
+
+### Setup
+
+ Install the git pre-commit hook before you start working on this repository so
+that we're all using some checks to help us avoid committing unencrypted
+secrets. From the root of the repo:
+
+ ```
+ln -s ../../config/git-hooks/pre-commit.sh .git/hooks/pre-commit
+```
+
+ To test that the pre-commit hook is set up correctly, try removing the `diff`
+attribute from a line in a `.gitattributes` file and then committing something -
+the hook should prevent you from committing.
+
 
 ### Running the application
 
@@ -41,8 +55,8 @@ This application uses Ruby v2.5.1. Use [RVM](https://rvm.io/) or similar to mana
 
 1. Install gems (dependencies) locally. To do this you will need to first install [Bundler](http://bundler.io/)
 
-2. Create a .env file in the root of the folder and add any necessary environment variables. Load your environment variables into your current session ... 
-```sh 
+2. Create a .env file in the root of the folder and add any necessary environment variables. Load your environment variables into your current session ...
+```sh
 pvb-public $ direnv allow .
 
 ```
@@ -59,17 +73,17 @@ pvb-public $ brew install geckodriver
 ```
 
 5. In separate terminal windows start up [ministryofjustice/prison-visits-2](https://github.com/ministryofjustice/prison-visits-2) and [Sidekiq](https://sidekiq.org/). The latter processes jobs in the background.
-    
+
     ```sh
     pvb-public $ bundle exec sidekiq
     pvb-public $ rails server
 
     ```
 6. In another terminal window start up [ministryofjustice/prison-visits-public](https://github.com/ministryofjustice/prison-visits-public) on port 4000
-    
+
     ```sh
     pvb-public $ rails server -p 4000
-    
+
     ```
 
 ### Running the test suite
