@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: prison-visits-public
+  namespace: prison-visits-booking-staging
+spec:
+  selector:
+    matchLabels:
+      app:
+  namespaceSelector:
+    matchNames:
+    - prison-visits-booking-staging
+  endpoints:
+  - port: metrics
+    interval: 15s

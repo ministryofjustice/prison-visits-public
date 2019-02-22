@@ -1,0 +1,76 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: prison-visits-public
+  labels:
+    app: prison-visits-public
+  annotations:
+    kubernetes.io/change-cause: "<to be filled in deploy job command>"
+spec:
+  replicas: 3
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 2
+  selector:
+    matchLabels:
+      app: prison-visits-public
+  template:
+    metadata:
+      labels:
+        app: prison-visits-public
+    spec:
+      containers:
+      - name: prison-visits-public
+        image: 926803513772.dkr.ecr.eu-west-1.amazonaws.com/prison-visits-booking/prison-visits-public:latest
+        imagePullPolicy: Always
+        command: ['sh', '-c', "bundle exec puma -p 3000 -C ./config/puma_prod.rb --pidfile /tmp/server.pid"]
+        ports:
+        - containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 60
+        readinessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 60
+        env:
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              name: prison-visits-public-secrets
+              key: secret_key_base
+        - name: RAILS_ENV
+          value: "production"
+        - name: RAILS_SERVE_STATIC_FILES
+          value: "true"
+        - name:  PRISON_VISITS_API
+          value: https://staff-staging.pvb.dsd.io/
+        - name: EMAIL_DOMAIN
+          value: email-staging.pvb.dsd.io
+        - name: STAFF_SERVICE_URL
+          value: https://staff-staging.pvb.dsd.io
+        - name: SERVICE_URL
+          value: https://public-staging.pvb.dsd.io
+        - name: SENTRY_DSN
+          valueFrom:
+            secretKeyRef:
+              name: prison-visits-public-secrets
+              key: sentry_dsn
+        - name: SENTRY_JS_DSN
+          valueFrom:
+            secretKeyRef:
+              name: prison-visits-public-secrets
+              key: sentry_js_dsn
+        - name: GA_TRACKING_ID
+          valueFrom:
+            secretKeyRef:
+              name: prison-visits-public-secrets
+              key: ga_tracking_id
