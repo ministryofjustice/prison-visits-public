@@ -7,13 +7,13 @@ metadata:
   annotations:
     kubernetes.io/change-cause: "<to be filled in deploy job command>"
 spec:
-  replicas: 3
+  replicas: 1
   revisionHistoryLimit: 1
   minReadySeconds: 10
   strategy:
     rollingUpdate:
       maxSurge: 1
-      maxUnavailable: 2
+      maxUnavailable: 1
   selector:
     matchLabels:
       app: prison-visits-public
@@ -29,18 +29,18 @@ spec:
         command: ['sh', '-c', "bundle exec puma -p 3000 -C ./config/puma_prod.rb --pidfile /tmp/server.pid"]
         ports:
         - containerPort: 3000
-        livenessProbe:
-          httpGet:
-            path: /healthcheck
-            port: 3000
-          initialDelaySeconds: 10
-          periodSeconds: 60
-        readinessProbe:
-          httpGet:
-            path: /healthcheck
-            port: 3000
-          initialDelaySeconds: 10
-          periodSeconds: 60
+#        livenessProbe:
+#          httpGet:
+#            path: /healthcheck
+#            port: 3000
+#          initialDelaySeconds: 10
+#          periodSeconds: 60
+#        readinessProbe:
+#          httpGet:
+#            path: /healthcheck
+#            port: 3000
+#          initialDelaySeconds: 10
+#          periodSeconds: 60
         env:
         - name: SECRET_KEY_BASE
           valueFrom:
@@ -52,13 +52,13 @@ spec:
         - name: RAILS_SERVE_STATIC_FILES
           value: "true"
         - name:  PRISON_VISITS_API
-          value: https://staff-staging.pvb.dsd.io/
+          value: "https://prison-visits-booking-staff-staging.apps.cloud-platform-live-0.k8s.integration.dsd.io/"
         - name: EMAIL_DOMAIN
-          value: email-staging.pvb.dsd.io
+          value: "email-staging.pvb.dsd.io"
         - name: STAFF_SERVICE_URL
-          value: https://staff-staging.pvb.dsd.io
+          value: "https://prison-visits-booking-staff-staging.apps.cloud-platform-live-0.k8s.integration.dsd.io"
         - name: SERVICE_URL
-          value: https://public-staging.pvb.dsd.io
+          value: "https://prison-visits-public-staging.apps.cloud-platform-live-0.k8s.integration.dsd.io"
         - name: SENTRY_DSN
           valueFrom:
             secretKeyRef:
