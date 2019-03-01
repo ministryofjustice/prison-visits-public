@@ -1,81 +1,261 @@
+references:
+  defaults: &defaults
+    working_directory: ~/repo
+
+  github_team_name_slug: &github_team_name_slug
+    GITHUB_TEAM_NAME_SLUG: prison-visits-booking
+
+  deploy_container_config: &deploy_container_config
+    docker:
+    - image: ${ECR_ENDPOINT}/cloud-platform/tools:circleci
+
+  test_container_config: &test_container_config
+    docker:
+    - image: circleci/ruby:2.5.3-node-browsers
+      environment:
+        RAILS_ENV: test
+        PGHOST: 127.0.0.1
+        PGUSER: ubuntu
+        RACK_ENV: test
+    - image: circleci/postgres:9.4-alpine
+      environment:
+        POSTGRES_USER: ubuntu
+        POSTGRES_PASSWORD: ""
+        POSTGRES_DB: prisonvisitsbooking_test
+
+  install_gpg: &install_gpg
+    run:
+      name: Install GPG
+      command: |
+        apk add \
+          --no-cache \
+          --no-progress \
+          gnupg
+
+  configure_gpg: &configure_gpg
+    run:
+      name: Configure GPG
+      command: |
+        echo "${GPG_PRIVATE_KEY}" | base64 -d | gpg --batch --allow-secret-key-import --import
+
+  decrypt_secrets: &decrypt_secrets
+    run:
+      name: Decrypt secrets file
+      command: |
+        gpg --export-ownertrust > /tmp/ownertrust.txt
+        echo $GPG_KEY_ID:1 >> /tmp/ownertrust.txt
+        gpg --import-ownertrust /tmp/ownertrust.txt
+        gpgconf --kill gpg-agent
+        gpg-agent --daemon --allow-preset-passphrase
+        /usr/libexec/gpg-preset-passphrase --preset --passphrase $GPG_PASSPHRASE $GPG_KEY_KEYGRIP_ID
+        git-crypt unlock
+
+
+  install_aws_cli: &install_aws_cli
+    run:
+      name: Set up aws
+      command: |
+        sudo apt-get --assume-yes install python3-pip
+        sudo pip3 install awscli
+
+  build_docker_image: &build_docker_image
+    run:
+      name: Build prison-visits-public docker image
+      command: |
+        export BUILD_DATE=$(date -Is) >> $BASH_ENV
+        source $BASH_ENV
+        docker build \
+          --build-arg VERSION_NUMBER=${CIRCLE_BUILD_NUM} \
+          --build-arg COMMIT_ID=${CIRCLE_SHA1} \
+          --build-arg BUILD_DATE=${BUILD_DATE} \
+          --build-arg BUILD_TAG=${CIRCLE_BRANCH} \
+          -f Dockerfile.kubernetes -t pvb-public  .
+
+  push_docker_image: &push_docker_image
+    run:
+      name: Push prison-visits-booking docker image
+      command: |
+        login="$(aws ecr get-login --region eu-west-1 --no-include-email)"
+        ${login}
+        docker tag app "${ECR_ENDPOINT}/${GITHUB_TEAM_NAME_SLUG}/${REPONAME}:${CIRCLE_SHA1}"
+        docker push "${ECR_ENDPOINT}/${GITHUB_TEAM_NAME_SLUG}/${REPONAME}:${CIRCLE_SHA1}"
+        if [ "${CIRCLE_BRANCH}" == "master" ]; then
+          docker tag app "${ECR_ENDPOINT}/${GITHUB_TEAM_NAME_SLUG}/${REPONAME}:latest"
+          docker push "${ECR_ENDPOINT}/${GITHUB_TEAM_NAME_SLUG}/${REPONAME}:latest"
+        fi
+      environment:
+        <<: *github_team_name_slug
+        REPONAME: prison-visits-public
+
 version: 2
 jobs:
-  build:
-    parallelism: 1
-    working_directory: ~/prison-visits-public
-    docker:
-      - image: circleci/ruby:2.5.3-node-browsers
+  install_dependencies:
+    <<: *defaults
+    <<: *test_container_config
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/repo
+    - run:
+        name: Which bundler?
+        command: bundle -v
+    - restore_cache:
+        keys:
+        -  prison-visits-public-v1-{{ checksum "Gemfile.lock" }}
+        -  prison-visits-public-v1-
+    - run:
+        name: Update npm
+        command: 'sudo npm install -g npm@latest'
+    - run:
+        name: Install GOV.UK frontend modules
+        command: npm install
+    - run: bundle check --path vendor/bundle || bundle install --path vendor/bundle
+    - save_cache:
+        key:  prison-visits-public-v1-{{ checksum "Gemfile.lock" }}
+        paths:
+        - ~/repo/vendor/bundle
+    - persist_to_workspace:
+        root: .
+        paths:
+        - vendor/bundle
+        - node_modules/
+
+  test:
+    <<: *defaults
+    <<: *test_container_config
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/repo
+    - run: bundle --path vendor/bundle
+    - run:
+        name: Download Code Climate
+        command: |
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+          chmod +x ./cc-test-reporter
+    - run:
+        name: install firefox
+        command: |
+          if [[ $(command -v firefox) ]] && [[ $(firefox --version) == "Mozilla Firefox $FIREFOX_VERSION" ]]; then
+            echo "Skiping, Firefox $FIREFOX_VERSION already install."
+          else
+            sudo rm -rf /opt/firefox
+            wget -L "https://ftp.mozilla.org/pub/firefox/releases/$FIREFOX_VERSION/linux-x86_64/en-US/firefox-$FIREFOX_VERSION.tar.bz2" -O "firefox-$FIREFOX_VERSION.tar.bz2"
+            sudo tar xjf "firefox-$FIREFOX_VERSION.tar.bz2" -C /opt
+          fi
+          [[ -L /usr/local/bin/firefox ]] || sudo ln -sf /opt/firefox/firefox /usr/bin/firefox
+    - run:
+        name: install geckodriver
+        command: |
+          if [[ $(command -v geckodriver) ]] && [[ $(geckodriver --version) =~ $GECKODRIVER_VERSION  ]]; then
+            echo "Skiping, geckodriver $GECKODRIVER_VERSION already install."
+          else
+            wget https://github.com/mozilla/geckodriver/releases/download/v0.19.0/geckodriver-v0.19.0-linux64.tar.gz
+            sudo tar -zxvf geckodriver-v0.19.0-linux64.tar.gz -C /opt
+          fi
+          [[ -L /usr/local/bin/geckodriver ]] || sudo ln -sf /opt/geckodriver /usr/local/bin/geckodriver
+    - run:
+        name: Run tests
+        command: |
+          ./cc-test-reporter before-build
+          bundle exec rake
+          ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
         environment:
           RAILS_ENV: test
           RACK_ENV: test
+    - store_test_results:
+        path: coverage
+    - store_artifacts:
+        path: coverage
+
+  security-static-analysis:
+    <<: *defaults
+    <<: *test_container_config
     steps:
-      - checkout
-      - restore_cache:
-          key: prison-visits-public-{{ checksum "Gemfile.lock" }}
-      - run: bundle check --path vendor/bundle || bundle install --path vendor/bundle
-      - run:
-          name: install firefox
-          command: |
-            if [[ $(command -v firefox) ]] && [[ $(firefox --version) == "Mozilla Firefox $FIREFOX_VERSION" ]]; then
-              echo "Skiping, Firefox $FIREFOX_VERSION already install."
-            else
-              sudo rm -rf /opt/firefox
-              wget -L "https://ftp.mozilla.org/pub/firefox/releases/$FIREFOX_VERSION/linux-x86_64/en-US/firefox-$FIREFOX_VERSION.tar.bz2" -O "firefox-$FIREFOX_VERSION.tar.bz2"
-              sudo tar xjf "firefox-$FIREFOX_VERSION.tar.bz2" -C /opt
-            fi
-            [[ -L /usr/local/bin/firefox ]] || sudo ln -sf /opt/firefox/firefox /usr/bin/firefox
-      - run:
-          name: install geckodriver
-          command: |
-            if [[ $(command -v geckodriver) ]] && [[ $(geckodriver --version) =~ $GECKODRIVER_VERSION  ]]; then
-              echo "Skiping, geckodriver $GECKODRIVER_VERSION already install."
-            else
-              wget https://github.com/mozilla/geckodriver/releases/download/v0.19.0/geckodriver-v0.19.0-linux64.tar.gz
-              sudo tar -zxvf geckodriver-v0.19.0-linux64.tar.gz -C /opt
-            fi
-            [[ -L /usr/local/bin/geckodriver ]] || sudo ln -sf /opt/geckodriver /usr/local/bin/geckodriver
+    - checkout
+    - attach_workspace:
+        at: ~/repo
+    - run: bundle --path vendor/bundle
+    - run: bundle exec brakeman -o ~/test-results/brakeman/brakeman.json -o ~/test-results/brakeman/brakeman.html
+    - store_artifacts:
+        path: ~/test-results
 
-      - run:
-          name: Setup Code Climate test-reporter
-          command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-      - run:
-          name: Run tests
-          command: |
-            ./cc-test-reporter before-build
-            bundle exec rake
-            ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
-      - save_cache:
-          key: prison-visits-public-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
-      - store_test_results:
-          path: coverage
-      - store_artifacts:
-          path: screenshots
-          path: coverage
+  rubocop:
+    <<: *defaults
+    <<: *test_container_config
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/repo
+    - run: bundle --path vendor/bundle
+    - run: bundle exec rubocop
 
-  # The following section is an attempts to have circleci run our integration tests per branch
-  # It was abandonned because it was causing out of memory errors. Maybe this will be worth optimising in the future
-  # build:
-  #   working_directory: ~/prison-visits-public
-  #   docker:
-  #     - image: docker:17.09.0-ce-git
-  #   steps:
-  #     - checkout
-  #     - setup_remote_docker
-  #     - type: shell
-  #       name: Push application Docker image
-  #       command: |
-  #         docker login -u $DOCKER_USER -p $DOCKER_PASS
-  #         docker build -t "stupidcodefactory/prison-visits-public:${CIRCLE_BRANCH}" .
-  #         docker push "stupidcodefactory/prison-visits-public:${CIRCLE_BRANCH}"
-# workflows:
-#   version: 2
-#   test-and-build:
-#     jobs:
-#       - test
-#       - build:
-#           requires:
-#             - test
+  build_and_push_docker_image:
+    <<: *defaults
+    <<: *test_container_config
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/repo
+    - setup_remote_docker:
+        docker_layer_caching: true
+    - *install_aws_cli
+    - *build_docker_image
+    - *push_docker_image
+
+  deploy_staging:
+    <<: *deploy_container_config
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/repo
+    - run:
+        name: Kubectl deployment staging setup
+        command: |
+          setup-kube-auth
+          kubectl config use-context staging
+    - *install_gpg
+    - *configure_gpg
+    - *decrypt_secrets
+    - deploy:
+        name: Deploy to staging
+        command: |
+          kubectl set image -f deploy/staging/deployment.yaml prison-visits-public=${ECR_ENDPOINT}/${GITHUB_TEAM_NAME_SLUG}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1} --local -o yaml \
+          | kubectl annotate -f - kubernetes.io/change-cause="$CIRCLE_BUILD_URL" --local -o yaml \
+          | kubectl apply --record=false \
+            -f - \
+            -f ./deploy/staging/deployment.yaml\
+            -f ./deploy/staging/ingress.yaml \
+            -f ./deploy/staging/service.yaml \
+            -f ./deploy/staging/prison-visits-public-secrets.yaml \
+        environment:
+          <<: *github_team_name_slug
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+    - install_dependencies
+    - test:
+        requires:
+        - install_dependencies
+    - security-static-analysis:
+        requires:
+        - install_dependencies
+    - rubocop:
+        requires:
+        - install_dependencies
+    - build_and_push_docker_image:
+        requires:
+        - test
+        - security-static-analysis
+        - rubocop
+        filters:
+          branches:
+            only: master
+    - deploy_staging:
+        requires:
+        - build_and_push_docker_image
+        filters:
+          branches:
+            only: master
