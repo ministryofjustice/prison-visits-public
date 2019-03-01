@@ -69,7 +69,7 @@ references:
           --build-arg COMMIT_ID=${CIRCLE_SHA1} \
           --build-arg BUILD_DATE=${BUILD_DATE} \
           --build-arg BUILD_TAG=${CIRCLE_BRANCH} \
-          -f Dockerfile.kubernetes -t pvb-public  .
+          -f Dockerfile.kubernetes -t app  .
 
   push_docker_image: &push_docker_image
     run:
