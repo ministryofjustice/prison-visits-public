@@ -52,7 +52,7 @@ spec:
         - name: RAILS_SERVE_STATIC_FILES
           value: "true"
         - name: PROMETHEUS_METRICS
-            value: "on"
+          value: "on"
         - name:  PRISON_VISITS_API
           value: "https://prison-visits-booking-staff-staging.apps.cloud-platform-live-0.k8s.integration.dsd.io/"
         - name: EMAIL_DOMAIN
