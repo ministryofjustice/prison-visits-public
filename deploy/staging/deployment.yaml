@@ -7,13 +7,13 @@ metadata:
   annotations:
     kubernetes.io/change-cause: "<to be filled in deploy job command>"
 spec:
-  replicas: 1
+  replicas: 3
   revisionHistoryLimit: 1
   minReadySeconds: 10
   strategy:
     rollingUpdate:
       maxSurge: 1
-      maxUnavailable: 1
+      maxUnavailable: 2
   selector:
     matchLabels:
       app: prison-visits-public
