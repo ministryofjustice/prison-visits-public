@@ -226,6 +226,8 @@ jobs:
             -f ./deploy/staging/deployment.yaml\
             -f ./deploy/staging/ingress.yaml \
             -f ./deploy/staging/service.yaml \
+            -f ./deploy/staging/service-monitor.yaml \
+            -f ./deploy/staging/network-policy.yaml \
             -f ./deploy/staging/prison-visits-public-secrets.yaml \
         environment:
           <<: *github_team_name_slug
