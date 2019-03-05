@@ -33,7 +33,7 @@ module PrisonVisits
     config.ga_id = ENV['GA_TRACKING_ID']
     config.sentry_dsn = ENV['SENTRY_DSN']
     config.sentry_js_dsn = ENV['SENTRY_JS_DSN']
-    config.prometheus_metrics = ENV['PROMETHEUS_METRICS']
+    config.kubernetes_deployment = ENV['KUBERNETES_DEPLOYMENT']
 
     config.smoke_test =
       OpenStruct.new(
