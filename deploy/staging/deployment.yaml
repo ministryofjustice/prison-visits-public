@@ -29,18 +29,18 @@ spec:
         command: ['sh', '-c', "bundle exec puma -p 3000 -C ./config/puma_prod.rb --pidfile /tmp/server.pid"]
         ports:
         - containerPort: 3000
-#        livenessProbe:
-#          httpGet:
-#            path: /healthcheck
-#            port: 3000
-#          initialDelaySeconds: 10
-#          periodSeconds: 60
-#        readinessProbe:
-#          httpGet:
-#            path: /healthcheck
-#            port: 3000
-#          initialDelaySeconds: 10
-#          periodSeconds: 60
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 60
+        readinessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 60
         env:
         - name: SECRET_KEY_BASE
           valueFrom:
@@ -52,7 +52,7 @@ spec:
         - name: RAILS_SERVE_STATIC_FILES
           value: "true"
         - name: PROMETHEUS_METRICS
-          value: "on"
+          value: "true"
         - name:  PRISON_VISITS_API
           value: "https://prison-visits-booking-staff-staging.apps.cloud-platform-live-0.k8s.integration.dsd.io/"
         - name: EMAIL_DOMAIN
