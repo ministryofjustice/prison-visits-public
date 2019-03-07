@@ -29,8 +29,6 @@ Rails.application.configure do
   config.action_controller.default_url_options = { host: service_url.hostname }
   # config.action_controller.asset_host = service_url.hostname
 
-  config.kubernetes_deployment = ENV['KUBERNETES_DEPLOYMENT']
-
   EmailAddressValidation.configure do |config|
     config.mx_checker = MxChecker.new
   end
