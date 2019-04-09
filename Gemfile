@@ -41,6 +41,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.8'
   gem 'rubocop'
+  gem 'rubocop-performance'
   gem 'rubocop-rspec'
   gem 'shoulda-matchers'
 end
