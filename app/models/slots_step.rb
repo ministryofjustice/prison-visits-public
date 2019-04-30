@@ -13,7 +13,7 @@ class SlotsStep
   before_validation :reorder_options
 
   validates_each :option_0, :option_1, :option_2,
-    allow_blank: true do |record, attr, value|
+                 allow_blank: true do |record, attr, value|
     begin
       slot = ConcreteSlot.parse(value) # rescue ArgumentError false
     rescue ArgumentError

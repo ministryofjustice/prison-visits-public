@@ -4,9 +4,9 @@ RSpec.describe VisitsController, type: :controller do
   describe 'show' do
     let(:visit) do
       instance_double(Visit,
-        id: '123456789',
-        human_id: 'ABCEFGHI',
-        processing_state: :rejected)
+                      id: '123456789',
+                      human_id: 'ABCEFGHI',
+                      processing_state: :rejected)
     end
 
     context "with no errors" do

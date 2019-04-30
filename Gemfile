@@ -5,8 +5,8 @@ gem 'rails', '~> 5.2'
 
 gem 'connection_pool'
 gem 'email_address_validation',
-  git: 'https://github.com/ministryofjustice/email_address_validation',
-  ref: '5ed2fb93f8d5bc419f03cecb408c688c5bd9fd74'
+    git: 'https://github.com/ministryofjustice/email_address_validation',
+    ref: '5ed2fb93f8d5bc419f03cecb408c688c5bd9fd74'
 gem 'excon'
 gem 'govuk_elements_rails'
 gem 'govuk_frontend_toolkit'
@@ -21,8 +21,8 @@ gem 'phonelib'
 gem 'prometheus_exporter'
 gem 'puma'
 gem 'pvb-instrumentation',
-  git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
-  tag: 'v1.0.1'
+    git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
+    tag: 'v1.0.1'
 gem 'rake'
 gem 'request_store'
 gem 'sass-rails', require: false

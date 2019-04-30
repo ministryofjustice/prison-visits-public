@@ -13,8 +13,8 @@ RSpec.describe SlotsStep, type: :model do
 
   let(:processor) do
     instance_double(StepsProcessor,
-      booking_constraints: booking_constraints,
-      prisoner_step: prisoner_step)
+                    booking_constraints: booking_constraints,
+                    prisoner_step: prisoner_step)
   end
 
   let(:calendar_slots) do
@@ -381,8 +381,8 @@ RSpec.describe SlotsStep, type: :model do
 
     let(:processor) do
       instance_double(StepsProcessor,
-        booking_constraints: booking_constraints,
-        prisoner_step: prisoner_step)
+                      booking_constraints: booking_constraints,
+                      prisoner_step: prisoner_step)
     end
 
     before do

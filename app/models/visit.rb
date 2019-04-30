@@ -21,7 +21,7 @@ class Visit
   attribute :messages
 
   delegate :address, :email_address, :name, :phone_no, :postcode,
-    to: :prison, prefix: true
+           to: :prison, prefix: true
   delegate :prison_finder_url, to: :prison
 
   def allowed_visitors
