@@ -77,7 +77,7 @@ module PrisonVisits
       # where this may not be the case.
       error = describe_error(body)
       raise APIError,
-        "Unexpected status #{e.response.status} calling #{api_method}: #{error}"
+            "Unexpected status #{e.response.status} calling #{api_method}: #{error}"
     rescue Excon::Errors::Error => e
       raise APIError, "Exception #{e.class} calling #{api_method}: #{e}"
     end

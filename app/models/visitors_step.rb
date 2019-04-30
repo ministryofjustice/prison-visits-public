@@ -116,13 +116,13 @@ private
 
     if result.fetch('errors').include?('too_many_adults')
       errors.add :general, :too_many_adults,
-        max: MAX_ADULTS,
-        age: adult_age
+                 max: MAX_ADULTS,
+                 age: adult_age
     end
 
     if result.fetch('errors').include?('lead_visitor_age')
       lead_visitor.errors.add :date_of_birth, :lead_visitor_age,
-        min: LEAD_VISITOR_MIN_AGE
+                              min: LEAD_VISITOR_MIN_AGE
     end
   end
   # rubocop:enable Metrics/AbcSize
