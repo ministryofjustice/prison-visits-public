@@ -25,7 +25,7 @@ gem 'pvb-instrumentation',
     tag: 'v1.0.1'
 gem 'rake'
 gem 'request_store'
-gem 'sass-rails', require: false
+gem 'sassc-rails'
 gem 'sentry-raven', '~> 2.9.0'
 gem 'string_scrubber'
 gem 'uglifier', '~> 4.1.20', require: false
