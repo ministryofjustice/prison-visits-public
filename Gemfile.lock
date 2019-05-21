@@ -110,7 +110,7 @@ GEM
     govuk_template (0.26.0)
       rails (>= 3.1)
     hashdiff (0.3.8)
-    high_voltage (3.1.1)
+    high_voltage (3.1.2)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.2)
