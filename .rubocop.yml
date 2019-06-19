@@ -1,6 +1,7 @@
 require:
   - rubocop-performance
   - rubocop-rspec
+  - rubocop-rails
 
 AllCops:
   # Exclude anything that isn't really part of our code.
