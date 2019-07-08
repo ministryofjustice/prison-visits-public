@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: prison-visits-public
+  namespace: prison-visits-booking-production
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - prison-visits-public-production.apps.live-1.cloud-platform.service.justice.gov.uk
+  rules:
+  - host: prison-visits-public-production.apps.live-1.cloud-platform.service.justice.gov.uk
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: prison-visits-public
+          servicePort: 3000
