@@ -23,9 +23,11 @@ class Prison
     closed
   end
 
+  # rubocop:disable Layout/EmptyLinesAroundAccessModifier
   def private?
     private
   end
+  # rubocop:enable Layout/EmptyLinesAroundAccessModifier
 
   # TODO: Remove nil check once pvb2 related PR has been deployed
   def enabled?
