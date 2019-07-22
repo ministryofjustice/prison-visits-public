@@ -80,6 +80,7 @@ RSpec.describe BookingRequestsController do
 
       it 'renders the prisoner template' do
         expect(response).to render_template('prisoner_step')
+        expect(request.flash[:notice]).to eq "This service will be unavailable from 10am - 2pm Thursday 25th July 2019"
       end
     end
 
