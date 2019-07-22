@@ -8,7 +8,11 @@ class BookingRequestsController < ApplicationController
     instrument_booking_request(step_name: @step_name)
 
     respond_to do |format|
-      format.html { render processor.step_name }
+      format.html do render processor.step_name end
+
+      # Temporarily display flash notice ahead of PVB migration 25/7/19;
+      # it will be removed once the migration complete
+      flash[:notice] = t('.service_update')
     end
   end
 
