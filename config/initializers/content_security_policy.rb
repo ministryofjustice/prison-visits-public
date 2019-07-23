@@ -6,7 +6,8 @@ Rails.application.config.content_security_policy do |config|
                  'www.google-analytics.com',
                  'stats.g.doubleclick.net',
                  'www.google.co.uk'
-  config.style_src   :self
+  config.style_src   :self,
+                     "'sha256-mSgDE2fpxm1YRDuH4jEsnK/mfa2KECJOXYfzdD5N4xM='"
   config.connect_src :self
   config.script_src  :self,
                      'www.google-analytics.com',
