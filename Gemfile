@@ -28,6 +28,7 @@ gem 'request_store'
 gem 'sassc-rails'
 gem 'sentry-raven', '~> 2.9.0'
 gem 'string_scrubber'
+gem 'turnout'
 gem 'uglifier', '~> 4.1.20', require: false
 gem 'uri_template'
 
