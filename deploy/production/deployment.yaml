@@ -56,7 +56,7 @@ spec:
         - name:  PRISON_VISITS_API
           value: "https://prison-visits-booking-staff-production.apps.live-1.cloud-platform.service.justice.gov.uk/"
         - name: EMAIL_DOMAIN
-          value: "email-production.pvb.dsd.io"
+          value: "email.prisonvisits.service.gov.uk"
         - name: STAFF_SERVICE_URL
           value: "https://prison-visits-booking-staff-production.apps.live-1.cloud-platform.service.justice.gov.uk"
         - name: SERVICE_URL
