@@ -12,8 +12,6 @@ en:
           <span>This service is being improved and you may notice changes – <a href='%{url}' target='_blank' rel='external'>contact us<span class='visuallyhidden'> (link opens in a new browser window)</span></a> if you need help.</span>
         </p>
   booking_requests:
-    index:
-      service_update: This service will be unavailable from 10am - 2pm Thursday 25th July 2019
     hidden_inputs_for_calendars:
       option_0: Option 1
       option_1: Option 2
