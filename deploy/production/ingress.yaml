@@ -8,8 +8,9 @@ metadata:
 spec:
   tls:
   - hosts:
-    - prison-visits-public-production.apps.live-1.cloud-platform.service.justice.gov.uk
+    - www.prisonvisits.service.gov.uk
     - prisonvisits.service.gov.uk
+    - prison-visits-public-production.apps.live-1.cloud-platform.service.justice.gov.uk
     secretName: prison-visits-public-secret
   rules:
   - host: prison-visits-public-production.apps.live-1.cloud-platform.service.justice.gov.uk
@@ -20,6 +21,13 @@ spec:
           serviceName: prison-visits-public
           servicePort: 3000
   - host: prisonvisits.service.gov.uk
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: prison-visits-public
+          servicePort: 3000
+  - host: www.prisonvisits.service.gov.uk
     http:
       paths:
       - path: /
