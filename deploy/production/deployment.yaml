@@ -61,11 +61,11 @@ spec:
         - name: KUBERNETES_DEPLOYMENT
           value: "true"
         - name:  PRISON_VISITS_API
-          value: "https://prison-visits-booking-staff-production.apps.live-1.cloud-platform.service.justice.gov.uk/"
+          value: "https://staff.prisonvisits.service.justice.gov.uk/"
         - name: EMAIL_DOMAIN
           value: "email.prisonvisits.service.gov.uk"
         - name: STAFF_SERVICE_URL
-          value: "https://prison-visits-booking-staff-production.apps.live-1.cloud-platform.service.justice.gov.uk"
+          value: "https://staff.prisonvisits.service.justice.gov.uk"
         - name: SERVICE_URL
           value: "https://prison-visits-public-production.apps.live-1.cloud-platform.service.justice.gov.uk"
         - name: SENTRY_DSN
