@@ -26,7 +26,7 @@ gem 'pvb-instrumentation',
 gem 'rake'
 gem 'request_store'
 gem 'sassc-rails'
-gem 'sentry-raven', '~> 2.10.0'
+gem 'sentry-raven', '~> 2.11.0'
 gem 'string_scrubber'
 gem 'turnout'
 gem 'uglifier', '~> 4.1.20', require: false
