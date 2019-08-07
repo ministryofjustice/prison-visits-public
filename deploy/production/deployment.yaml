@@ -44,10 +44,10 @@ spec:
         resources:
           limits:
             memory: "1Gi"
-            cpu: "250m"
+            cpu: "50m"
           requests:
             memory: "125Mi"
-            cpu: "150m"
+            cpu: "15m"
         env:
         - name: SECRET_KEY_BASE
           valueFrom:
