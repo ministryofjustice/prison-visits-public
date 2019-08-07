@@ -41,6 +41,13 @@ spec:
             port: 3000
           initialDelaySeconds: 10
           periodSeconds: 60
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "50m"
+          requests:
+            memory: "125Mi"
+            cpu: "15m"
         env:
         - name: SECRET_KEY_BASE
           valueFrom:
