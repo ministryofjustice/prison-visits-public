@@ -84,13 +84,11 @@ RSpec.describe BookingRequestsController do
     end
 
     context 'with an unknown format' do
-      subject do
-        lambda {
+      it 'handles an unknown format' do
+        expect {
           get :index, params: { locale: 'en', format: 'random' }
-        }
+        }.to raise_error(ActionController::UnknownFormat)
       end
-
-      it { is_expected.to raise_error(ActionController::UnknownFormat) }
     end
 
     context 'when submitting prisoner details' do
