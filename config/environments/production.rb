@@ -14,9 +14,9 @@ Rails.application.configure do
 
   config.force_ssl = true if ENV.key?('HEROKU_APP_NAME')
 
+  config.lograge.enabled = true
   config.lograge.formatter = Lograge::Formatters::Logstash.new
-  config.lograge.logger = ActiveSupport::Logger.new \
-    "#{Rails.root}/log/logstash_#{Rails.env}.json"
+  config.lograge.logger = ActiveSupport::Logger.new(STDOUT)
 
   config.staff_url = ENV.fetch('STAFF_SERVICE_URL')
 
