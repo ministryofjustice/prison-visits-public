@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
 
   get '/', to: redirect(ENV.fetch('GOVUK_START_PAGE', '/en/request'))
+  get '/.well_known/security.txt', to: redirect('https://raw.githubusercontent.com/ministryofjustice/security-guidance/master/contact/vulnerability-disclosure-security.txt')
 
   match 'exception', to: 'errors#test', via: %i[ get post ]
 
