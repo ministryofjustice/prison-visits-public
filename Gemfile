@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 6.0'
 
 gem 'connection_pool'
 gem 'email_address_validation',
