@@ -29,7 +29,7 @@ gem 'sassc-rails'
 gem 'sentry-raven', '~> 2.11.3'
 gem 'string_scrubber'
 gem 'turnout'
-gem 'uglifier', '~> 4.1.20', require: false
+gem 'uglifier', '~> 4.2.0', require: false
 gem 'uri_template'
 
 group :development, :test do
