@@ -40,7 +40,7 @@ group :development, :test do
   gem 'jasmine', '~> 3.5.0'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.8'
+  gem 'rspec-rails', '~> 3.9'
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rspec'
