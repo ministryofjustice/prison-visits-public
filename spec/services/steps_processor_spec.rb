@@ -247,6 +247,7 @@ RSpec.describe StepsProcessor do
       end
 
       it { expect(subject.step_name).to eq(:slots_step) }
+
       it_behaves_like 'it is incomplete'
     end
 
