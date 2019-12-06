@@ -33,7 +33,7 @@ Layout/AccessModifierIndentation:
 
 # Just indent parameters by two spaces. It's less volatile if methods change,
 # and there's less busy work lining things up.
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 
 Style/AsciiComments:
@@ -120,6 +120,9 @@ Lint/AssignmentInCondition:
 
 Lint/AmbiguousBlockAssociation:
   Enabled: false
+
+Lint/SuppressedException:
+  AllowComments: true
 
 # Just a preference to use %w[] over %w()
 Style/PercentLiteralDelimiters:
@@ -219,7 +222,7 @@ Rails/OutputSafety:
 Style/ConditionalAssignment:
   Enabled: false
 
-Layout/IndentFirstArrayElement:
+Layout/FirstArrayElementIndentation:
   Enabled: false
 
 Style/MutableConstant:

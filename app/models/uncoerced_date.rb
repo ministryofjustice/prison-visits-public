@@ -14,7 +14,7 @@ class UncoercedDate
 
     self.casted_to_date = true
     self.date = Date.new(year, month, day)
-  rescue ArgumentError # rubocop:disable Lint/HandleExceptions
+  rescue ArgumentError
     # Do nothing
   end
 
