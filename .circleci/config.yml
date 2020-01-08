@@ -155,6 +155,12 @@ jobs:
           fi
           [[ -L /usr/local/bin/geckodriver ]] || sudo ln -sf /opt/geckodriver /usr/local/bin/geckodriver
     - run:
+        name: Rubocop
+        command: bundle exec rubocop
+    - run:
+        name: Security analysis
+        command: bundle exec brakeman -o ~/test-results/brakeman/brakeman.json -o ~/test-results/brakeman/brakeman.html
+    - run:
         name: Run tests
         command: |
           ./cc-test-reporter before-build
@@ -167,28 +173,8 @@ jobs:
         path: coverage
     - store_artifacts:
         path: coverage
-
-  security-static-analysis:
-    <<: *defaults
-    <<: *test_container_config
-    steps:
-    - checkout
-    - attach_workspace:
-        at: ~/repo
-    - run: bundle --path vendor/bundle
-    - run: bundle exec brakeman -o ~/test-results/brakeman/brakeman.json -o ~/test-results/brakeman/brakeman.html
     - store_artifacts:
         path: ~/test-results
-
-  rubocop:
-    <<: *defaults
-    <<: *test_container_config
-    steps:
-    - checkout
-    - attach_workspace:
-        at: ~/repo
-    - run: bundle --path vendor/bundle
-    - run: bundle exec rubocop
 
   build_and_push_docker_image:
     <<: *defaults
@@ -257,17 +243,9 @@ workflows:
     - test:
         requires:
         - install_dependencies
-    - security-static-analysis:
-        requires:
-        - install_dependencies
-    - rubocop:
-        requires:
-        - install_dependencies
     - build_and_push_docker_image:
         requires:
         - test
-        - security-static-analysis
-        - rubocop
         filters:
           branches:
             only: master
