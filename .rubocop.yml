@@ -78,7 +78,7 @@ Style/SymbolProc:
 Style/TrivialAccessors:
   AllowPredicates: true
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 90
   Exclude:
     - 'spec/**/*'
