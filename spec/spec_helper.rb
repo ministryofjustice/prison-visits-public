@@ -25,7 +25,7 @@ locations.each do |location|
   end
 end
 
-Dir[File.expand_path('support/matchers/*.rb', __dir__)].each do |path|
+Dir[File.expand_path('support/matchers/*.rb', __dir__)].sort.each do |path|
   require path
 end
 
