@@ -19,6 +19,8 @@ cy:
       go_to_previous_month: 'Mynd yn ôl i''r mis blaenorol '
       go_to_next_month: Mynd ymlaen i'r mis nesaf
       javascript_enabled: Rhaid i JavaScript fod wedi'i alluogi
+      day_available: Ymweliadau ar gael
+      day_unavailable: Dim ymweliadau ar gael
     booking_calendar_legend:
       visit_days: 'Diwrnodau y gellir ymweld '
       non_visit_days: Diwrnodau na ellir ymweld
@@ -136,6 +138,9 @@ cy:
 '
     confirmation_step:
       title: Gwiriwch fanylion eich ymweliad
+      check_your_answers_intro_html: >-
+        Gwiriwch fanylion eich ymweliad yn ofalus a newid unrhyw beth sydd ei angen arnoch chi. <br>
+        Ni fyddwch yn gallu gwneud newidiadau i'ch ymweliad ar ôl i chi anfon eich cais.
       prisoner_details: Manylion y carcharor
       prisoner_name: Enw'r carcharor
       date_of_birth: Dyddiad geni
@@ -155,6 +160,7 @@ cy:
       change_visit_details: Newid dyddiad ac amser eich ymweliad
       ts_and_cs: null
       next_step: Anfon cais i ymweld
+      add_another_choice: Ychwanegwch ddewis arall
     cancel:
       link_text: 'Canslo a dileu''r holl fanylion '
       confirmation: 'Ydych chi''n siŵr eich bod yn dymuno canslo''r cais hwn i ymweld?

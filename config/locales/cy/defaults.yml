@@ -15,53 +15,53 @@ cy:
       year_and_month_internal: '%Y-%m'
       date_internal: '%Y-%m-%d'
     day_names:
-    - Dydd Sul
-    - Dydd Llun
-    - Dydd Mawrth
-    - Dydd Mercher
-    - Dydd Iau
-    - Dydd Gwener
-    - Dydd Sadwrn
+      - Sul
+      - Llun
+      - Maw
+      - Mer
+      - Iau
+      - Gwe
+      - Sad
     abbr_day_names:
-    - Sul
-    - Llun
-    - Maw
-    - Mer
-    - Iau
-    - Gwe
-    - Sad
+      - Sul
+      - Llun
+      - Maw
+      - Mer
+      - Iau
+      - Gwe
+      - Sad
     month_names:
-    - Dim
-    - Ionawr
-    - Chwefror
-    - Mawrth
-    - Ebrill
-    - Mai
-    - 'Mehefin '
-    - Gorffennaf
-    - Awst
-    - Medi
-    - Hydref
-    - Tachwedd
-    - Rhagfyr
+      - Dim
+      - Ionawr
+      - Chwefror
+      - Mawrth
+      - Ebrill
+      - Mai
+      - Mehefin
+      - Gorffennaf
+      - Awst
+      - Medi
+      - Hydref
+      - Tachwedd
+      - Rhagfyr
     abbr_month_names:
-    - Dim
-    - Ion
-    - Chwe
-    - Maw
-    - Ebr
-    - Mai
-    - Meh
-    - Gorff
-    - Awst
-    - Medi
-    - Hyd
-    - Tach
-    - Rhag
+      - Dim
+      - Ion
+      - Chwe
+      - Maw
+      - Ebr
+      - Mai
+      - Meh
+      - Gorff
+      - Awst
+      - Medi
+      - Hyd
+      - Tach
+      - Rhag
     order:
-    - diwrnod
-    - mis
-    - blwyddyn
+      - diwrnod
+      - mis
+      - blwyddyn
   time:
     formats:
       twelve_hour: '%-l:%M%P'
@@ -71,15 +71,14 @@ cy:
     hour:
       one: awr
       other: awr
-      many: awr
-      two: awr
     minute:
       one: munud
       other: munud
-      many: munud
-      two: munud
   formats:
     slot:
+      first: first
+      second: second
+      third: third
       public:
         full: '%{date} %{time} am %{duration}'
         begin_only: '%{date} %{time}'
@@ -89,12 +88,8 @@ cy:
       hours:
         one: '%{count} awr'
         other: '%{count} awr'
-        many: '%{count} awr'
-        two: '%{count} awr'
       minutes:
         one: '%{count} munud'
         other: '%{count} munud'
-        many: '%{count} munud'
-        two: '%{count} munud'
     name:
       full: '%{first} %{last}'
