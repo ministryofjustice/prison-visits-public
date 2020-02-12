@@ -95,9 +95,10 @@ cy:
     slots_step:
       title: 'Pa bryd hoffech chi ymweld? '
       slot1_error: Rhaid i chi ddewis o leiaf un dyddiad ac amser ar gyfer eich ymweliad
-      info_html: <p>Dewiswch hyd at 3 dyddiad ac amser ar gyfer eich ymweliad. Os
-        nad yw eich dewis cyntaf ar gael, byddwn yn ceisio sicrhau un o'ch dewisiadau
-        eraill.</p>
+      info_html: >-
+        <p>Dewiswch hyd at 3 dyddiad ac amser. Bydd y carchar yn cadarnhau un o’ch dewisiadau.</p>
+        <p>Cychwynnwch gyda’r dyddiad a’r amser fyddai orau gennych.  Mae’r dyddiadau sydd ar
+        gael wedi eu hamlygu mewn span class=bold>print bras</span>.</p>
       keyboard_directions_html: "<ul class=\"visuallyhidden\">\n  <li>Pwyswch y botymau
         saeth i'r DDE ac i'r CHWITH i symud ar y rhes yn ôl diwrnod yr wythnos.</li>\n
         \ <li>Pwyswch y botymau HAFAN a DIWEDD i neidio i ddechrau neu ddiwedd y mis
@@ -137,7 +138,7 @@ cy:
 
 '
     confirmation_step:
-      title: Gwiriwch fanylion eich ymweliad
+      title: Gwiriwch fanylion eich cais am ymweliad
       check_your_answers_intro_html: >-
         Gwiriwch fanylion eich ymweliad yn ofalus a newid unrhyw beth sydd ei angen arnoch chi. <br>
         Ni fyddwch yn gallu gwneud newidiadau i'ch ymweliad ar ôl i chi anfon eich cais.
