@@ -49,3 +49,12 @@ cy:
         nodi fel sbam. Edrychwch yn eich ffolder sbam hefyd
       bounced: 'mae angen edrych ar hyn oherwydd bod negeseuon wedi cael eu hanfon
         yn ôl yn y gorffennol '
+
+  age_validator:
+    errors:
+      invalid_date: yn ddyddiad annilys
+      range: rhaid bod llai na %{max} mlynedd yn ôl
+
+    prisoner_number_validator:
+      errors:
+        format: Rhowch rif carcharor. Dylai fod yn 7 nod gan ddechrau gyda llythyr.
