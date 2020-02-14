@@ -76,31 +76,27 @@ RSpec.describe SlotConstraints do
         ).to be false
       end
     end
-  end
 
-  describe '#last_bookable_date' do
-    it 'retuns the last bookable date' do
-      expect(subject.last_bookable_date).to eq(Date.parse('2017-02-17'))
-    end
-  end
-
-  describe '#bookable_slot?' do
     describe 'with at least one bookable slot' do
       it 'is true' do
         expect(subject.bookable_slots?).to be true
       end
     end
 
-    describe 'with at least one bookable slot' do
-      describe 'with no bookable slot' do
-        let(:slots) do
-          [unbookable_slot]
-        end
-
-        it 'is false' do
-          expect(subject.bookable_slots?).to be false
-        end
+    describe 'with no bookable slot' do
+      let(:slots) do
+        [unbookable_slot]
       end
+
+      it 'is false' do
+        expect(subject.bookable_slots?).to be false
+      end
+    end
+  end
+
+  describe '#last_bookable_date' do
+    it 'retuns the last bookable date' do
+      expect(subject.last_bookable_date).to eq(Date.parse('2017-02-17'))
     end
   end
 
