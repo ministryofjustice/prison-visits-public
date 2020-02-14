@@ -168,16 +168,6 @@ RSpec.describe SlotsStep, type: :model do
       it_behaves_like 'options are not available'
     end
 
-    context 'when posting from visitor page' do
-      before do
-        subject.option_0 = '2015-01-02T09:00/10:00'
-        subject.option_1 = '2015-01-03T09:00/10:00'
-        subject.currently_filling = '2'
-      end
-
-      it_behaves_like 'options are not available'
-    end
-
     context 'when posting from Review slot 2 link on review page' do
       before do
         subject.option_0 = '2015-01-02T09:00/10:00'
