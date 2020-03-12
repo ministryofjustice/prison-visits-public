@@ -10,6 +10,7 @@ module ApplicationHelper
   # rubocop:disable Rails/HelperInstanceVariable
   def ga_tracking_data
     data = { ga_tracking_id: config_item(:ga_id) }
+    data[:shared_ga_tracking_id] = config_item(:shared_ga_id)
     data[:hit_type_page] = @step_name if @step_name
     data
   end

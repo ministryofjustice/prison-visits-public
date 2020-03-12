@@ -38,7 +38,11 @@
       );
 
       ga('create', gaTrackingId, cookieDomain);
-
+      ga('create', 'UA-145652997-1', cookieDomain, 'govuk_shared', {
+        allowLinker: true
+      });
+      ga('govuk_shared.require', 'linker');
+      ga('govuk_shared.linker:autoLink', ['www.gov.uk']);
       // Configure profiles and make interface public
       // for custom dimensions, virtual pageviews and events
 
@@ -55,6 +59,7 @@
         ga('send', 'pageview', this.pageView);
       } else {
         ga('send', 'pageview');
+        ga('govuk_shared.send', 'pageview', { anonymizeIp: true });
       }
     }
   };
