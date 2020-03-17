@@ -9,6 +9,7 @@ describe('moj.Modules.Slotpicker', function() {
     datePicker = new moj.Modules.Slotpicker.Datepicker(calendar, calendar.data());
     moj.Modules.Slotpicker.Helpers.init();
     moj.Modules.Slotpicker.SlotSource.init();
+    moj.Modules.Analytics.send = function() {};
   });
 
   describe('fixture', function() {
