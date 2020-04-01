@@ -269,6 +269,22 @@ en:
         <h2 class="heading-large" id="how-cookies-are-used-on-pvb">How cookies are used on PVB</h2>
         <h3 class="heading-medium" id="measuring-website-usage-google-analytics">Measuring website usage (Google Analytics)</h3>
         <p>We use Google Analytics software to collect information about how you use PVB. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.</p>
+        <fieldset>
+          <legend> 
+            Do you agree to the Ministry of Justice and other UK government departments using Google Analytics to help improve the ‘Prison visits’ service?
+          </legend>
+          <div id="id_accept_cookies-wrapper">
+            <div class="multiple-choice">
+              <input id="accept_cookies-yes" type="radio" name="accept_cookies" value="yes">
+              <label for="accept_cookies-yes" id="id_accept_cookies-label">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="accept_cookies-no" type="radio" name="accept_cookies" value="no">
+              <label for="accept_cookies-no" id="id_accept_cookies-label">No</label>
+            </div>
+          </div>
+          </fieldset>
+          <input id="save_cookie_preference" class="button" type="submit" value="Save changes">
         <p>Google Analytics stores information about:</p>
         <ul class="list list-bullet">
           <li>the pages you visit on PVB – how long you spend on each PVB page</li>
@@ -310,6 +326,11 @@ en:
               <td aria-label="Purpose">Saves a message to let us know that you have seen our cookie message</td>
               <td aria-label="Expires">1 month</td>
             </tr>
+            <tr>
+            <td aria-label="Name">accepted_cookies</td>
+            <td aria-label="Purpose">Stores cookie consent</td>
+            <td aria-label="Expires">1 year</td>
+          </tr>
           </tbody>
         </table>
         <h3 class="heading-medium" id="session">Session</h3>
