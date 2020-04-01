@@ -11,8 +11,27 @@
     },
 
     render: function() {
-      // Use document.domain in dev, preview and staging so that tracking works
-      // Otherwise explicitly set the domain as www.gov.uk (and not gov.uk).
+      var self = this;
+      window['ga-disable-UA-14565299-1'] = true;
+
+      document.getElementById("accept-cookies").onclick = function() {
+        self.hideCookieBanner();
+        document.cookie =
+          'accepted_cookies=true; expires=' +
+          self.cookieOneYearExpiration() +
+          ';';
+        window['ga-disable-UA-14565299-1'] = false;
+
+        self.trackPageView();
+      };
+      document.getElementById('reject-cookies').onclick = function() {
+        document.cookie =
+          'accepted_cookies=false; expires=' +
+          self.cookieOneYearExpiration() +
+          ';';
+          window['ga-disable-UA-14565299-1'] = true;
+        self.hideCookieBanner();
+      };
       var cookieDomain =
         document.domain === 'www.gov.uk' ? '.www.gov.uk' : document.domain;
       var gaTrackingId = $(this.el).data('ga-tracking-id');
@@ -41,7 +60,20 @@
 
       // Configure profiles and make interface public
       // for custom dimensions, virtual pageviews and events
+      if (document.cookie.indexOf('accepted_cookies=true') > -1) {
+        this.hideCookieBanner();
+        window['ga-disable-UA-14565299-1'] = false;
+        this.trackPageView();
+      }
+      if (document.cookie.indexOf('accepted_cookies=false') > -1) {
+        this.hideCookieBanner();
+        window['ga-disable-UA-14565299-1'] = true;
+      }
 
+      this.trackPageView();
+    },
+
+    trackPageView: function() {
       this.hitTypePage = $(this.el)
         .eq(0)
         .data('hit-type-page');
@@ -56,6 +88,17 @@
       } else {
         ga('send', 'pageview');
       }
+    },
+    hideCookieBanner: function() {
+      document.getElementById('cookie-message').style.display = 'none';
+    },
+    removeCookie: function(name) {
+      document.cookie = name + '=; Max-Age=0';
+    },
+    cookieOneYearExpiration: function() {
+      var date = new Date();
+      date.setTime(+date + 365 * 86400000);
+      return date.toGMTString();
     }
   };
 })();

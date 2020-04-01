@@ -41,10 +41,12 @@
 
 <% end %>
 
-<% content_for :cookie_message do %>
-  <%= t('.cookies_intro') %>
-  <%= link_to(t('.cookies_find_out_more'), cookies_path) %>
-<% end %>
+<aside id="cookie-message">
+  <%= t('.cookies_intro_html') %>
+    <button id="accept-cookies" class="button"><%= t('.accept_cookies')%></button>
+    <button id="reject-cookies" class="button"><%= t('.reject_cookies')%></button>
+    <a class="mtp-cancel-button" href="cookies"><%= t('.view_more_information')%></a>
+</aside>
 
 <% content_for :content do %>
   <main id="content">

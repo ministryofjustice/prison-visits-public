@@ -1,7 +1,16 @@
 en:
   layouts:
     application:
-      cookies_intro: GOV.UK uses cookies to make the site simpler.
+      cookies_intro_html: |
+        <p>
+          This service uses cookies which are essential for the site to work. We also use non-essential cookies to help us improve your experience.
+        </p>
+        <p>
+          Do you accept these non-essential cookies?
+        </p>
+      accept_cookies: Accept cookies
+      reject_cookies: Reject cookies
+      view_more_information: View more information
       cookies_find_out_more: Find out more about cookies.
       cookies: Cookies
       ts_and_cs: Terms and conditions
