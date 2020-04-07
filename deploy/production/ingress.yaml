@@ -5,6 +5,7 @@ metadata:
   namespace: prison-visits-booking-production
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/temporal-redirect: https://www.gov.uk/prison-visits
 spec:
   tls:
   - hosts:
