@@ -17,42 +17,17 @@
       if (window.location.href.includes("cookies")) {
         document.getElementById("save_cookie_preference").onclick = function() {
           if (document.getElementById("accept_cookies-yes").checked == true) {
-            self.hideCookieBanner();
-            document.cookie =
-              "accepted_cookies=true; expires=" +
-              self.cookieOneYearExpiration() +
-              ";";
-            window["ga-disable-UA-14565299-1"] = false;
-
-            self.trackPageView();
+            self.acceptCookies();
           } else {
-            self.hideCookieBanner();
-            document.cookie =
-              "accepted_cookies=false; expires=" +
-              self.cookieOneYearExpiration() +
-              ";";
-            window["ga-disable-UA-14565299-1"] = true;
-            self.trackPageView();
+            self.rejectCookies();
           }
         };
       }
       document.getElementById("accept-cookies").onclick = function() {
-        self.hideCookieBanner();
-        document.cookie =
-          "accepted_cookies=true; expires=" +
-          self.cookieOneYearExpiration() +
-          ";";
-        window["ga-disable-UA-14565299-1"] = false;
-
-        self.trackPageView();
+        self.acceptCookies();
       };
       document.getElementById("reject-cookies").onclick = function() {
-        document.cookie =
-          "accepted_cookies=false; expires=" +
-          self.cookieOneYearExpiration() +
-          ";";
-        window["ga-disable-UA-14565299-1"] = true;
-        self.hideCookieBanner();
+        self.rejectCookies();
       };
       var cookieDomain =
         document.domain === "www.gov.uk" ? ".www.gov.uk" : document.domain;
@@ -93,6 +68,8 @@
     },
 
     trackPageView: function() {
+      window["ga-disable-UA-14565299-1"] = false;
+
       this.hitTypePage = $(this.el)
         .eq(0)
         .data("hit-type-page");
@@ -115,6 +92,16 @@
       var date = new Date();
       date.setFullYear(date.getFullYear() + 1);
       return date.toGMTString();
+    },
+    acceptCookies: function(){
+      this.hideCookieBanner();
+      document.cookie = "accepted_cookies=true; expires=" + this.cookieOneYearExpiration() + ";";
+      this.trackPageView();
+    },
+    rejectCookies: function(){
+      window["ga-disable-UA-14565299-1"] = true;
+      this.hideCookieBanner();
+      document.cookie = "accepted_cookies=false; expires=" + this.cookieOneYearExpiration() + ";";
     }
   };
 })();
