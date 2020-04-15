@@ -6,14 +6,14 @@
     el: ".js-AsyncGA",
     init: function() {
       if ($(this.el).length > 0) {
-        var gaTrackingId = $(this.el).data("ga-tracking-id");
-        this.render(gaTrackingId);
+        this.gaTrackingId = $(this.el).data("ga-tracking-id");
+        this.render();
       }
     },
 
-    render: function(gaTrackingId) {
+    render: function() {
       var self = this;
-      window["ga-disable-UA-14565299-1"] = true;
+      window["ga-disable-" + this.gaTrackingId] = true;
       if (window.location.href.includes("cookies")) {
         document.getElementById("save_cookie_preference").onclick = function() {
           if (document.getElementById("accept_cookies-yes").checked == true) {
@@ -52,23 +52,23 @@
         "ga"
       );
 
-      ga("create", gaTrackingId, cookieDomain);
+      ga("create", this.gaTrackingId, cookieDomain);
 
       // Configure profiles and make interface public
       // for custom dimensions, virtual pageviews and events
       if (document.cookie.indexOf("accepted_cookies=true") > -1) {
         this.hideCookieBanner();
-        window["ga-disable-UA-14565299-1"] = false;
+        window["ga-disable-" + this.gaTrackingId] = false;
         this.trackPageView();
       }
       if (document.cookie.indexOf("accepted_cookies=false") > -1) {
         this.hideCookieBanner();
-        window["ga-disable-UA-14565299-1"] = true;
+        window["ga-disable-" + this.gaTrackingId] = true;
       }
     },
 
     trackPageView: function() {
-      window["ga-disable-UA-14565299-1"] = false;
+      window["ga-disable-" + this.gaTrackingId] = false;
 
       this.hitTypePage = $(this.el)
         .eq(0)
@@ -99,7 +99,7 @@
       this.trackPageView();
     },
     rejectCookies: function(){
-      window["ga-disable-UA-14565299-1"] = true;
+      window["ga-disable-" + this.gaTrackingId] = true;
       this.hideCookieBanner();
       document.cookie = "accepted_cookies=false; expires=" + this.cookieOneYearExpiration() + ";";
     }
