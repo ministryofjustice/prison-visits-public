@@ -1,7 +1,11 @@
 cy:
   layouts:
     application:
-      cookies_intro: Mae GOV.UK yn defnyddio cwcis i wneud y safle'n symlach.
+      cookies_intro_explanation: Mae’r gwasanaeth hwn yn defnyddio cwcis sy’n hanfodol i wneud i’r safle weithio.  Rydym hefyd yn defnyddio cwcis nad ydynt yn rhai hanfodol i’n galluogi i wella eich profiad. 
+      cookies_question: A ydych yn derbyn y cwcis hyn nad ydynt yn rhai hanfodol?
+      accept_cookies: Derbyn cwcis 
+      reject_cookies: Gwrthod cwcis
+      view_more_information: Gweler mwy o wybodaeth
       cookies_find_out_more: Rhagor o wybodaeth am gwcis
       cookies: Cwcis
       ts_and_cs: Telerau ac amodau

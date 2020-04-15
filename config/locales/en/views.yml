@@ -1,7 +1,11 @@
 en:
   layouts:
     application:
-      cookies_intro: GOV.UK uses cookies to make the site simpler.
+      cookies_intro_explanation: This service uses cookies which are essential for the site to work. We also use non-essential cookies to help us improve your experience.
+      cookies_question: Do you accept these non-essential cookies?
+      accept_cookies: Accept cookies
+      reject_cookies: Reject cookies
+      view_more_information: View more information
       cookies_find_out_more: Find out more about cookies.
       cookies: Cookies
       ts_and_cs: Terms and conditions
@@ -391,25 +395,15 @@ en:
       cancellation_reason:
         one: Cancellation reason
         other: Cancellation reasons
-      cancelled_on:
-        Cancelled on
-      slot_unavailable:
-        The slot you had booked is no longer available.
-      visitor_banned:
-        You have been banned from visiting this prison.
-      booked_in_error:
-        Unfortunately, we made a mistake booking this visit.
-      capacity_issues:
-        We do not have enough space to sit everyone.
-      child_protection_issues:
-        There are restrictions around this prisoner.
-      prisoner_moved:
-        The prisoner has left this prison.
-      prisoner_non_association:
-        There are restrictions around this prisoner.
-      prisoner_released:
-        The prisoner has been released from prison.
-      prisoner_vos:
-        The prisoner has reached the limit of visits during this time period.
+      cancelled_on: Cancelled on
+      slot_unavailable: The slot you had booked is no longer available.
+      visitor_banned: You have been banned from visiting this prison.
+      booked_in_error: Unfortunately, we made a mistake booking this visit.
+      capacity_issues: We do not have enough space to sit everyone.
+      child_protection_issues: There are restrictions around this prisoner.
+      prisoner_moved: The prisoner has left this prison.
+      prisoner_non_association: There are restrictions around this prisoner.
+      prisoner_released: The prisoner has been released from prison.
+      prisoner_vos: The prisoner has reached the limit of visits during this time period.
     withdrawn:
       title: You cancelled this visit request

@@ -229,6 +229,23 @@ cy:
         <p>Rydym yn defnyddio meddalwedd Google Analytics i gasglu gwybodaeth am sut yr ydych yn
         defnyddio PVB. Rydym yn gwneud hyn i helpu sicrhau bod y safle’n cwrdd ag anghenion
         ei defnyddwyr a’n helpu i wneud gwelliannau.</p>
+        <fieldset>
+        <legend> 
+          A ydych yn cytuno i’r Weinyddiaeth Gyfiawnder ac adrannau eraill o Lywodraeth y DU  i ddefnyddio Google Analytics i helpu wella’r ‘Gwasanaeth Ymweliadau Carchar’?
+        </legend>
+        <div id="id_accept_cookies-wrapper">
+          <div class="multiple-choice">
+            <input id="accept_cookies-yes" type="radio" name="accept_cookies" value="yes">
+            <label for="accept_cookies-yes" id="id_accept_cookies-label">Ydw</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="accept_cookies-no" type="radio" name="accept_cookies" value="no">
+            <label for="accept_cookies-no" id="id_accept_cookies-label">Nac ydw</label>
+          </div>
+        </div>
+        </fieldset>
+        <input id="save_cookie_preference" class="button" type="submit" value= "Cadw newidiadau">
+        <p>Google Analytics stores information about:</p>
         <p>Mae Google Analytics yn storio gwybodaeth am:</p>
         <ul class="list list-bullet">
           <li>y tudalennau yr ydych wedi ymweld â nhw ar PVB - faint o amser yr ydych wedi’i dreulio ar bob tudalen PVB</li>
@@ -293,5 +310,10 @@ cy:
               <td aria-label="Pwrpas">Storio manylion carcharor, ymwelydd a manylion yr ymweliad</td>
               <td aria-label="Dod i ben">20 munud</td>
             </tr>
+          <tr>
+            <td aria-label="Name">accepted_cookies</td>
+            <td aria-label="Pwrpas">daves caniatâd cwci</td>
+            <td aria-label="Dod i ben">1 flwyddyn</td>
+          </tr>
           </tbody>
         </table>
