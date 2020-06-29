@@ -360,6 +360,7 @@ DEPENDENCIES
   sentry-raven (~> 3.0.0)
   shoulda-matchers
   simplecov
+  sprockets (< 4)
   string_scrubber
   turnout
   uglifier (~> 4.2.0)
@@ -372,4 +373,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   1.17.2
+   1.17.3

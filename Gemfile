@@ -27,6 +27,7 @@ gem 'rake'
 gem 'request_store'
 gem 'sassc-rails'
 gem 'sentry-raven', '~> 3.0.0'
+gem 'sprockets', '< 4'
 gem 'string_scrubber'
 gem 'turnout'
 gem 'uglifier', '~> 4.2.0', require: false
