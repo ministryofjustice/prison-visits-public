@@ -158,7 +158,7 @@ GEM
     parser (2.7.1.4)
       ast (~> 2.4.1)
     phantomjs (2.1.1.0)
-    phonelib (0.6.42)
+    phonelib (0.6.44)
     prometheus_exporter (0.4.17)
     pry (0.13.1)
       coderay (~> 1.1)
