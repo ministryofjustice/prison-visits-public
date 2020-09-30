@@ -100,7 +100,7 @@ GEM
     fuubar (2.5.0)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
-    geckodriver-helper (0.20.2)
+    geckodriver-helper (0.24.0)
       archive-zip (~> 0.7)
     globalid (0.4.2)
       activesupport (>= 4.2.0)

@@ -58,7 +58,6 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'fuubar'
-  # gem 'geckodriver-helper', '< 0.21'
   gem 'geckodriver-helper'
   gem 'launchy'
   gem 'rails-controller-testing'
