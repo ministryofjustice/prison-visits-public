@@ -25,6 +25,10 @@ RSpec.configure do |config|
   config.before do
     I18n.locale = I18n.default_locale
   end
+
+  config.before(:each, :js) do
+    page.driver.browser.manage.window.resize_to(768,1280)
+  end
 end
 
 Shoulda::Matchers.configure do |config|
