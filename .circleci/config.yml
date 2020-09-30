@@ -169,6 +169,9 @@ jobs:
         environment:
           RAILS_ENV: test
           RACK_ENV: test
+    - run:
+        name: Jasmine tests
+        command: bundle exec rake jasmine:ci
     - store_test_results:
         path: coverage
     - store_artifacts:
