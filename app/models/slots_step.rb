@@ -42,7 +42,7 @@ class SlotsStep
 
   def options_available?
     if skip_remaining_slots? || just_reviewed_slot? ||
-       currently_filling_slot_left_blank? || !available_bookable_slots?
+        currently_filling_slot_left_blank? || !available_bookable_slots?
       false
     else
       next_slot_to_fill ? true : false

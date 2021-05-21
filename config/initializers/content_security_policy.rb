@@ -29,7 +29,7 @@ Rails.application.config.content_security_policy do |config|
     else
       raise '[FATAL] Sentry JS DSN (SENTRY_JS_DSN) is an invalid URI ' \
             '(we were expecting a valid URI with an http or https scheme): ' +
-            sentry_js_dsn
+        sentry_js_dsn
     end
   else
     STDOUT.puts '[WARN] Sentry JS DSN is not set (SENTRY_JS_DSN)'

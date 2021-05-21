@@ -1,3 +1,8 @@
+inherit_gem:
+  rubocop-govuk:
+    - config/default.yml
+    - config/rails.yml
+
 require:
   - rubocop-performance
   - rubocop-rspec
@@ -20,9 +25,6 @@ AllCops:
     - 'lib/tasks/brakeman.rake'
     - 'lib/tasks/elasticsearch.rake'
     - 'spec/dummy/db/**/*'
-
-  DisplayCopNames: true
-
 
 Rails:
   Enabled: true
@@ -78,6 +80,18 @@ Style/SymbolProc:
 Style/TrivialAccessors:
   AllowPredicates: true
 
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
 Layout/LineLength:
   Max: 90
   Exclude:
@@ -105,13 +119,13 @@ Style/StringLiterals:
     - 'spec/**/*'
 
 # Prefer sensible naming to comments everywhere.
-Documentation:
+Style/Documentation:
   Description: Document classes and non-namespace modules.
   Enabled: false
 
 # Would enforce do_y if x over if x / do y / end. As with GuardClause above,
 # this enforces code organisation that doesn't necesarily make things clearer.
-IfUnlessModifier:
+Style/IfUnlessModifier:
   Enabled: false
 
 # Don't allow safe assignment in conditions.
@@ -132,7 +146,7 @@ Style/PercentLiteralDelimiters:
     '%W': '[]'
     '%': '{}'
 
-ClassAndModuleChildren:
+Style/ClassAndModuleChildren:
   Enabled: false
 
 # This encourages bad style IMHO
