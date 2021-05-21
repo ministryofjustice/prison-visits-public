@@ -27,7 +27,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each, :js) do
-    page.driver.browser.manage.window.resize_to(768,1280)
+    page.driver.browser.manage.window.resize_to(768,2048)
   end
 end
 
