@@ -26,7 +26,7 @@ gem 'pvb-instrumentation',
 gem 'rake'
 gem 'request_store'
 gem 'sassc-rails'
-gem 'sentry-raven', '~> 3.0.0'
+gem 'sentry-raven', '~> 3.1.2'
 gem 'sprockets', '< 4'
 gem 'string_scrubber'
 gem 'turnout'

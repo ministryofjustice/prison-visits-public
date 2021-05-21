@@ -91,8 +91,15 @@ GEM
     erubi (1.10.0)
     excon (0.72.0)
     execjs (2.7.0)
-    faraday (1.0.0)
+    faraday (1.4.1)
+      faraday-excon (~> 1.1)
+      faraday-net_http (~> 1.0)
+      faraday-net_http_persistent (~> 1.1)
       multipart-post (>= 1.2, < 3)
+      ruby2_keywords (>= 0.0.4)
+    faraday-excon (1.1.0)
+    faraday-net_http (1.0.1)
+    faraday-net_http_persistent (1.1.0)
     ffi (1.11.1)
     formatador (0.2.5)
     fuubar (2.5.0)
@@ -277,6 +284,7 @@ GEM
     rubocop-rspec (1.41.0)
       rubocop (>= 0.68.1)
     ruby-progressbar (1.10.1)
+    ruby2_keywords (0.0.4)
     rubyzip (2.0.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -295,7 +303,7 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    sentry-raven (3.0.0)
+    sentry-raven (3.1.2)
       faraday (>= 1.0)
     shellany (0.0.1)
     shoulda-matchers (4.4.1)
@@ -387,7 +395,7 @@ DEPENDENCIES
   rubocop-rspec
   sassc-rails
   selenium-webdriver
-  sentry-raven (~> 3.0.0)
+  sentry-raven (~> 3.1.2)
   shoulda-matchers
   simplecov
   sprockets (< 4)
