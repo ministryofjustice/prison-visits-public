@@ -56,8 +56,6 @@ module PrisonVisits
 
   private
 
-    # rubocop:disable Metrics/MethodLength
-    # rubocop:disable Metrics/AbcSize
     def request(method, route, params:, idempotent:)
       path = "/api/#{sanitise_route(route)}"
       api_method = "#{method.to_s.upcase} #{path}"
@@ -111,9 +109,6 @@ module PrisonVisits
       # Present non-JSON bodies truncated (e.g. this could be HTML)
       "(invalid-JSON) #{body[0, 80]}"
     end
-
-    # rubocop:enable Metrics/MethodLength
-    # rubocop:enable Metrics/AbcSize
 
     # Returns excon options which put params in either the query string or body.
     def params_options(method, params)

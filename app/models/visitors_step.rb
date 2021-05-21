@@ -89,8 +89,6 @@ private
     validate_visitor_collection
   end
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def validate_visitor_collection
     # It's invalid if there are no visitors, but there's no need to call the API
     if visitors.none?
@@ -125,8 +123,6 @@ private
                               min: LEAD_VISITOR_MIN_AGE
     end
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 
   def lead_visitor
     visitors.first

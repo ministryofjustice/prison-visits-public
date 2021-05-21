@@ -1,5 +1,4 @@
 class BookingRequestCreator
-  # rubocop:disable Metrics/MethodLength
   def create!(prisoner_step, visitors_step, slots_step, locale)
     prisoner = prisoner_step.prisoner_attributes
     visitors = visitors_step.visitors.map(&:attributes)
@@ -21,5 +20,4 @@ class BookingRequestCreator
     visit = PrisonVisits::Api.instance.request_visit(params)
     visit
   end
-  # rubocop:enable Metrics/MethodLength
 end

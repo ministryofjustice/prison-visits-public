@@ -1,6 +1,5 @@
 module PrisonVisits
   # (in the context of a HTTP API, get_prisons is not bad style)
-  # rubocop:disable Naming/AccessorMethodName
   class Api
     include Singleton
 
@@ -108,5 +107,4 @@ module PrisonVisits
 
     attr_accessor :pool
   end
-  # rubocop:enable Naming/AccessorMethodName
 end
