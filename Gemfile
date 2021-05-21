@@ -33,6 +33,11 @@ gem 'turnout'
 gem 'uglifier', '~> 4.2.0', require: false
 gem 'uri_template'
 
+group :developmemt do
+  gem 'guard-rspec'
+  gem 'guard-rubocop'
+end
+
 group :development, :test do
   gem 'awesome_print', require: 'ap'
   gem 'brakeman'
