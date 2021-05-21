@@ -23,3 +23,5 @@ tags
 
 #Ignore Rubymine
 .idea/
+*.iml
+.ruby-gemset
