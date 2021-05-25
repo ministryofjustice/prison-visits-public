@@ -1,4 +1,4 @@
-FROM ministryofjustice/ruby:2.6.3-webapp-onbuild
+FROM ruby:2.6.7-stretch
 
 EXPOSE 3000
 RUN gem update bundler --no-doc
