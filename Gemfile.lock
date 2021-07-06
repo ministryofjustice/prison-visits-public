@@ -360,7 +360,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
-  brakeman
+  brakeman (>= 5.0.4)
   byebug
   capybara
   capybara-screenshot
