@@ -42,7 +42,7 @@ end
 
 group :development, :test do
   gem 'awesome_print', require: 'ap'
-  gem 'brakeman'
+  gem 'brakeman', '>= 5.0.4'
   gem 'byebug'
   gem 'jasmine-jquery-rails'
   gem 'jasmine', '~> 3.8.0'
