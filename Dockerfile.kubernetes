@@ -37,6 +37,7 @@ RUN \
     build-essential \
     libpq-dev \
     netcat \
+    apt-utils \
     nodejs \
   && timedatectl set-timezone Europe/London || true \
   && gem update bundler --no-document
