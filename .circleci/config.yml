@@ -12,7 +12,7 @@ references:
 
   test_container_config: &test_container_config
     docker:
-    - image: circleci/ruby:2.7.5-browsers
+    - image: circleci/ruby:2.7.5-node-browsers
       environment:
         RAILS_ENV: test
         PGHOST: 127.0.0.1
