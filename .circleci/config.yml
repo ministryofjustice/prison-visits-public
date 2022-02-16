@@ -56,7 +56,7 @@ references:
     run:
       name: Set up aws
       command: |
-        sudo apt-get update
+        sudo apt-get update --allow-releaseinfo-change
         sudo apt-get --assume-yes install python3-pip
         sudo pip3 install awscli
 
