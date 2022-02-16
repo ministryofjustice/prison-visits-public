@@ -88,19 +88,13 @@ references:
         <<: *github_team_name_slug
         REPONAME: prison-visits-public
 
-version: 2.1
-orbs: 
-  node: circleci/node@5.0.0
+version: 2
 jobs:
   install_dependencies:
     <<: *defaults
     <<: *test_container_config
     steps:
     - checkout
-    - node/install:
-        install-yarn: true
-        node-version: '16.13'
-    - run: node --version
     - attach_workspace:
         at: ~/repo
     - run:
