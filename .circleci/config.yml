@@ -255,18 +255,18 @@ workflows:
     - install_dependencies
     - test:
         requires:
-        - install_dependencies
+          - install_dependencies
     - build_and_push_docker_image:
         requires:
-        - test
+          - test
         filters:
           branches:
             only:
-              main
-              upgrade-ruby267
+              - main
+              - upgrade-ruby267
     - deploy_staging:
         requires:
-        - build_and_push_docker_image
+          - build_and_push_docker_image
         filters:
           branches:
             only: main
