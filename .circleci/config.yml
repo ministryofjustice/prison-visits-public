@@ -191,6 +191,7 @@ jobs:
     - attach_workspace:
         at: ~/repo
     - setup_remote_docker:
+        version: 19.03.13
         docker_layer_caching: true
     - *install_aws_cli
     - *build_docker_image
