@@ -255,8 +255,6 @@ workflows:
     jobs:
     - install_dependencies
     - build_and_push_docker_image:
-        requires:
-          - test
         filters:
           branches:
             only:
