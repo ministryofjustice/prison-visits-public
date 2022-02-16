@@ -97,6 +97,10 @@ jobs:
     <<: *test_container_config
     steps:
     - checkout
+    - node/install:
+        install-yarn: true
+        node-version: '16.13'
+    - run: node --version
     - attach_workspace:
         at: ~/repo
     - run:
