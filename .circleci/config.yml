@@ -22,7 +22,6 @@ references:
         POSTGRES_USER: ubuntu
         POSTGRES_PASSWORD: ""
         POSTGRES_DB: prisonvisitsbooking_test
-    - image: cimg/node:17.5.0
 
   install_gpg: &install_gpg
     run:
@@ -109,7 +108,7 @@ jobs:
         command: 'sudo npm install -g npm@latest'
     - run:
         name: Install GOV.UK frontend modules
-        command: npm install
+        command: sudo npm install
     - run: bundle check --path vendor/bundle || bundle install --path vendor/bundle
     - save_cache:
         key:  prison-visits-public-{{ checksum "Gemfile.lock" }}
