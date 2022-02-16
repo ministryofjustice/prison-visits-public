@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 #  Needed for Heroku
-ruby '2.7.2'
+ruby '2.7.5'
 
 gem 'rails', '~> 5.2'
 

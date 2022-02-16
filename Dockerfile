@@ -1,4 +1,4 @@
-FROM ruby:2.7.2-stretch
+FROM ruby:2.7.5
 
 EXPOSE 3000
 RUN gem update bundler --no-doc
