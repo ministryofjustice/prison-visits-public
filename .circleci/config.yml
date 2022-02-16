@@ -108,7 +108,10 @@ jobs:
         command: 'sudo npm install -g npm@latest'
     - run:
         name: Install GOV.UK frontend modules
-        command: npm install
+        command: |
+          npm cache clean -f
+          npm install -g n
+          sudo n stable
     - run: bundle check --path vendor/bundle || bundle install --path vendor/bundle
     - save_cache:
         key:  prison-visits-public-{{ checksum "Gemfile.lock" }}
