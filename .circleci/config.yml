@@ -11,7 +11,7 @@ references:
 
   test_container_config: &test_container_config
     docker:
-    - image: circleci/ruby:2.6.7-node-browsers
+    - image: circleci/ruby:2.7.2-node-browsers
       environment:
         RAILS_ENV: test
         PGHOST: 127.0.0.1
@@ -103,6 +103,12 @@ jobs:
     - restore_cache:
         keys:
         -  prison-visits-public-{{ checksum "Gemfile.lock" }}
+    - run:
+        name: Update npm
+        command: 'sudo npm install -g npm@latest'
+    - run:
+        name: Install GOV.UK frontend modules
+        command: npm install
     - run: bundle check --path vendor/bundle || bundle install --path vendor/bundle
     - save_cache:
         key:  prison-visits-public-{{ checksum "Gemfile.lock" }}
