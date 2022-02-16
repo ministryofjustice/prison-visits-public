@@ -1,4 +1,4 @@
-FROM ruby:2.7.2-stretch
+FROM ruby:2.6.7-stretch
 
 RUN \
   set -ex \
