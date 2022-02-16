@@ -4,6 +4,8 @@ metadata:
   name: prison-visits-public
   namespace: prison-visits-booking-staging
   annotations:
+    external-dns.alpha.kubernetes.io/set-identifier: prison-visits-public-prison-visits-booking-staging-blue
+    external-dns.alpha.kubernetes.io/aws-weight: "100"
     kubernetes.io/ingress.class: "nginx"
 spec:
   tls:
