@@ -99,7 +99,9 @@ jobs:
         at: ~/repo
     - run:
         name: Which bundler?
-        command: bundle -v
+        command: |
+          bundle update --bundler
+          bundle -v
     - restore_cache:
         keys:
         -  prison-visits-public-{{ checksum "Gemfile.lock" }}
