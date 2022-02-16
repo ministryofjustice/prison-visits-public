@@ -88,7 +88,7 @@ references:
         <<: *github_team_name_slug
         REPONAME: prison-visits-public
 
-version: 2.0
+version: 2
 jobs:
   install_dependencies:
     <<: *defaults
@@ -108,7 +108,7 @@ jobs:
         command: 'sudo npm install -g npm@latest'
     - run:
         name: Install GOV.UK frontend modules
-        command: sudo npm install
+        command: 'sudo npm install -g npm@latest'
     - run: bundle check --path vendor/bundle || bundle install --path vendor/bundle
     - save_cache:
         key:  prison-visits-public-{{ checksum "Gemfile.lock" }}
