@@ -58,6 +58,7 @@ RUN \
 
 COPY Gemfile Gemfile.lock ./
 
+RUN bundle update --bundler
 RUN bundle install --without development test --jobs 2 --retry 3
 COPY . /app
 
