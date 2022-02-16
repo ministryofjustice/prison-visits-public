@@ -88,7 +88,9 @@ references:
         <<: *github_team_name_slug
         REPONAME: prison-visits-public
 
-version: 2
+version: 2.1
+orbs: 
+  node: circleci/node@5.0.0
 jobs:
   install_dependencies:
     <<: *defaults
