@@ -4,15 +4,15 @@ metadata:
   name: prison-visits-public
   namespace: prison-visits-booking-staging
   annotations:
-    external-dns.alpha.kubernetes.io/set-identifier: prison-visits-public-prison-visits-booking-staging-blue
-    external-dns.alpha.kubernetes.io/aws-weight: "100"
+    external-dns.alpha.kubernetes.io/set-identifier: prison-visits-public-prison-visits-booking-staging-green
+    external-dns.alpha.kubernetes.io/aws-weight: "0"
     kubernetes.io/ingress.class: "nginx"
 spec:
   tls:
   - hosts:
-    - prison-visits-public-staging.apps.live-1.cloud-platform.service.justice.gov.uk
+    - prison-visits-public-staging.apps.live.cloud-platform.service.justice.gov.uk
   rules:
-  - host: prison-visits-public-staging.apps.live-1.cloud-platform.service.justice.gov.uk
+  - host: prison-visits-public-staging.apps.live.cloud-platform.service.justice.gov.uk
     http:
       paths:
       - path: /
