@@ -244,7 +244,7 @@ jobs:
           name: Deploy to production
           command: |
             sed -i -e s/:latest/:$CIRCLE_SHA1/ deploy/production/deployment.yaml
-            kubectl annotate deployments/prison-visits-public kubernetes.io/change-cause="$CIRCLE_BUILD_URL"
+            # kubectl annotate deployments/prison-visits-public kubernetes.io/change-cause="$CIRCLE_BUILD_URL"
             kubectl apply --record=false -f ./deploy/production
           environment:
             <<: *github_team_name_slug
