@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/temporal-redirect: https://www.gov.uk/prison-visits
     external-dns.alpha.kubernetes.io/set-identifier: prison-visits-public-prison-visits-booking-production-green
-    external-dns.alpha.kubernetes.io/aws-weight: "0"
+    external-dns.alpha.kubernetes.io/aws-weight: "100"
 spec:
   tls:
   - hosts:
