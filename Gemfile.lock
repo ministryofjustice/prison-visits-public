@@ -192,7 +192,8 @@ GEM
       ast (~> 2.4.1)
     phantomjs (2.1.1.0)
     phonelib (0.6.51)
-    prometheus_exporter (0.4.17)
+    prometheus_exporter (2.0.0)
+      webrick
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
