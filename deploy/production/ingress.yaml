@@ -5,6 +5,9 @@ metadata:
   namespace: prison-visits-booking-production
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/temporal-redirect: https://www.gov.uk/prison-visits
+    external-dns.alpha.kubernetes.io/set-identifier: prison-visits-public-prison-visits-booking-production-green
+    external-dns.alpha.kubernetes.io/aws-weight: "100"
 spec:
   tls:
   - hosts:
@@ -12,10 +15,10 @@ spec:
     secretName: prison-visits-public-www-secret
   - hosts:
     - prisonvisits.service.gov.uk
-    - prison-visits-public-production.apps.live-1.cloud-platform.service.justice.gov.uk
+    - prison-visits-public-production.apps.live.cloud-platform.service.justice.gov.uk
     secretName: prison-visits-public-secret
   rules:
-  - host: prison-visits-public-production.apps.live-1.cloud-platform.service.justice.gov.uk
+  - host: prison-visits-public-production.apps.live.cloud-platform.service.justice.gov.uk
     http:
       paths:
       - path: /

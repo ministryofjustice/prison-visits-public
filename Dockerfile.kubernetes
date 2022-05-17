@@ -1,4 +1,4 @@
-FROM ruby:2.6.7-stretch
+FROM ruby:2.7.5
 
 RUN \
   set -ex \
@@ -37,6 +37,7 @@ RUN \
     build-essential \
     libpq-dev \
     netcat \
+    apt-utils \
     nodejs \
   && timedatectl set-timezone Europe/London || true \
   && gem update bundler --no-document
@@ -57,6 +58,7 @@ RUN \
 
 COPY Gemfile Gemfile.lock ./
 
+RUN bundle update --bundler
 RUN bundle install --without development test --jobs 2 --retry 3
 COPY . /app
 
@@ -67,5 +69,6 @@ RUN mkdir -p /home/appuser && \
 
 USER 1001
 
+RUN bundle update --bundler
 RUN RAILS_ENV=production STAFF_SERVICE_URL=http://example.com SERVICE_URL=http://example.com rails assets:precompile --trace
 EXPOSE 3000
