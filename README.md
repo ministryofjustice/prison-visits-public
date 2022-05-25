@@ -23,6 +23,7 @@ The codebase was split from [ministryofjustice/prison-visits-2](https://github.c
 ### Dependencies
 
 - [ministryofjustice/prison-visits-2](https://github.com/ministryofjustice/prison-visits-2). This a separate Ruby on Rails application that exposes prison information, slot availability, and allows booking and managing a visit. Details of the API methods consumed can be found in [api.rb](app/services/prison_visits/api.rb).
+- **If on a Mac install Xcode from the App Store**
 - [Firefox browser v57.0.4](https://download-installer.cdn.mozilla.net/pub/firefox/releases/57.0.4/mac/en-US/Firefox%2057.0.4.dmg)
 - [Selenium webdriver](https://www.seleniumhq.org/projects/webdriver/) - for executing tests against different browsers.
 - [Geckodriver v0.19.1](https://github.com/mozilla/geckodriver) - for executing tests against the firefox browser.
