@@ -89,7 +89,7 @@ GEM
     diff-lcs (1.4.4)
     docile (1.4.0)
     erubi (1.10.0)
-    excon (0.83.0)
+    excon (0.92.4)
     execjs (2.7.0)
     faraday (1.4.1)
       faraday-excon (~> 1.1)
