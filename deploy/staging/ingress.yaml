@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: prison-visits-public
@@ -6,8 +6,8 @@ metadata:
   annotations:
     external-dns.alpha.kubernetes.io/set-identifier: prison-visits-public-prison-visits-booking-staging-green
     external-dns.alpha.kubernetes.io/aws-weight: "100"
-    kubernetes.io/ingress.class: "nginx"
 spec:
+  ingressClassName: default
   tls:
   - hosts:
     - prison-visits-public-staging.apps.live.cloud-platform.service.justice.gov.uk
@@ -16,6 +16,9 @@ spec:
     http:
       paths:
       - path: /
+        pathType: ImplementationSpecific
         backend:
-          serviceName: prison-visits-public
-          servicePort: 3000
+          service:
+            name: prison-visits-public
+            port:
+              number: 3000
