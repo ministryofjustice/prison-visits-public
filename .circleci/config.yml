@@ -56,6 +56,7 @@ references:
     run:
       name: Set up aws
       command: |
+        wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
         sudo apt-get update --allow-releaseinfo-change
         sudo apt-get --assume-yes install python3-pip
         sudo pip3 install awscli
