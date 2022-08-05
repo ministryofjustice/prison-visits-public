@@ -4,10 +4,10 @@ metadata:
   name: prison-visits-public
   namespace: prison-visits-booking-production
   annotations:
-    kubernetes.io/ingress.class: "nginx"
     external-dns.alpha.kubernetes.io/set-identifier: prison-visits-public-prison-visits-booking-production-green
     external-dns.alpha.kubernetes.io/aws-weight: "100"
 spec:
+  ingressClassName: default
   tls:
   - hosts:
     - www.prisonvisits.service.gov.uk
@@ -21,21 +21,30 @@ spec:
     http:
       paths:
       - path: /
+        pathType: ImplementationSpecific
         backend:
-          serviceName: prison-visits-public
-          servicePort: 3000
+          service:
+            name: prison-visits-public
+            port:
+              number: 3000
   - host: prisonvisits.service.gov.uk
     http:
       paths:
       - path: /
+        pathType: ImplementationSpecific
         backend:
-          serviceName: prison-visits-public
-          servicePort: 3000
+          service:
+            name: prison-visits-public
+            port:
+              number: 3000
   - host: www.prisonvisits.service.gov.uk
     http:
       paths:
       - path: /
+        pathType: ImplementationSpecific
         backend:
-          serviceName: prison-visits-public
-          servicePort: 3000
+          service:
+            name: prison-visits-public
+            port:
+              number: 3000
 
