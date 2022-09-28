@@ -18,7 +18,7 @@ references:
         PGHOST: 127.0.0.1
         PGUSER: ubuntu
         RACK_ENV: test
-    - image: circleci/postgres:12.8-alpine
+    - image: circleci/postgres:12-alpine
       environment:
         POSTGRES_USER: ubuntu
         POSTGRES_PASSWORD: ""
