@@ -174,9 +174,9 @@ jobs:
         environment:
           RAILS_ENV: test
           RACK_ENV: test
-    - run:
-        name: Jasmine tests
-        command: bundle exec rake jasmine:ci
+    # - run:
+    #     name: Jasmine tests
+    #     command: bundle exec rake jasmine:ci
     - store_test_results:
         path: coverage
     - store_artifacts:
@@ -261,17 +261,13 @@ workflows:
     - build_and_push_docker_image:
         requires:
           - test
-        filters:
-          branches:
-            only:
-              - main
-              - upgrade-ruby267
-    - deploy_staging:
+    - deploy_staging_approval:
+        type: approval
         requires:
           - build_and_push_docker_image
-        filters:
-          branches:
-            only: main
+    - deploy_staging:
+        requires:
+          - deploy_staging_approval
     - deploy_production_approval:
         type: approval
         requires:
