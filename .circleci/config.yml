@@ -165,15 +165,15 @@ jobs:
     - run:
         name: Security analysis
         command: bundle exec brakeman -o ~/test-results/brakeman/brakeman.json -o ~/test-results/brakeman/brakeman.html
-    - run:
-        name: Run tests
-        command: |
-          ./cc-test-reporter before-build
-          bundle exec rake
-          ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
-        environment:
-          RAILS_ENV: test
-          RACK_ENV: test
+    # - run:
+    #     name: Run tests
+    #     command: |
+    #       ./cc-test-reporter before-build
+    #       bundle exec rake
+    #       ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
+    #     environment:
+    #       RAILS_ENV: test
+    #       RACK_ENV: test
     # - run:
     #     name: Jasmine tests
     #     command: bundle exec rake jasmine:ci
