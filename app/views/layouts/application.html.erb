@@ -55,24 +55,25 @@
 
 <% content_for :content do %>
   <main id="content">
-
-        <div class="phase-banner phase-banner-beta">
-          <%= t('.feedback_banner_html', url: new_feedback_submission_path) %>
-        </div>
-        <header>
-          <h1 class="heading-xlarge">
-            <%= yield :header %>
-          </h1>
-        </header>
-
-        <% if notice.present? %>
-          <p class="error-summary">
-            <%= notice %>
+    <div class="govuk-width-container">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-l">Sorry, the service is unavailable</h1>
+          <p class="govuk-body">
+            You will not be able to use the service on Wednesday 2 November 2022/
           </p>
-        <% end %>
-
-        <%= yield %>
-
+          <p class="govuk-body">
+            This is due to scheduled maintenance. 
+          </p>
+          <p class="govuk-body">
+            The service will be available again on Thursday 3 November 2022.
+          </p>
+          <p class="govuk-body">
+            <a class="govuk-link" href="https://www.gov.uk/government/collections/prisons-in-england-and-wales">Contact the prison directly</a> if you need to speak to someabout about a visit.
+          </p>
+        </div>
+      </div>
+    </div>
   </main>
 <% end %>
 
