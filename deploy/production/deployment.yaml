@@ -44,11 +44,11 @@ spec:
           periodSeconds: 60
         resources:
           limits:
-            memory: "1Gi"
-            cpu: "50m"
+            memory: "2Gi"
+            cpu: "1000m"
           requests:
-            memory: "125Mi"
-            cpu: "15m"
+            memory: "1Gi"
+            cpu: "30m"
         env:
         - name: SECRET_KEY_BASE
           valueFrom:
