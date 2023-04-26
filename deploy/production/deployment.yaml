@@ -47,8 +47,8 @@ spec:
             memory: "2Gi"
             cpu: "1000m"
           requests:
-            memory: "1Gi"
-            cpu: "30m"
+            memory: "125Mi"
+            cpu: "15m"
         env:
         - name: SECRET_KEY_BASE
           valueFrom:
