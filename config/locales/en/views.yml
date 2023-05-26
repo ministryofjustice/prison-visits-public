@@ -10,10 +10,11 @@ en:
       cookies: Cookies
       ts_and_cs: Terms and conditions
       privacy_policy: Privacy policy
-      contact_us: Contact us
+      contact_us_html: |
+        <a href='%{url}' target="_blank">Contact us</a>
       feedback_banner_html: |
         <p>
-          <span>This service is being improved and you may notice changes – <a href='%{url}' target='_blank' rel='external'>contact us<span class='visuallyhidden'> (link opens in a new browser window)</span></a> if you need help.</span>
+          <span>Help us to improve this service by giving<a href='%{url}' target='_blank'> feedback <span class='visuallyhidden'>(link opens in a new browser window)</span></a></span>
         </p>
   booking_requests:
     hidden_inputs_for_calendars:

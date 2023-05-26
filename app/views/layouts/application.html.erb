@@ -57,7 +57,7 @@
   <main id="content">
    
   <div class="phase-banner phase-banner-beta">
-    <%= t('.feedback_banner_html', url: new_feedback_submission_path) %>
+    <%= <%= t('.feedback_banner_html', url: 'https://visit-someone-in-prison.form.service.justice.gov.uk') %>
   </div>
   <header>
     <h1 class="heading-xlarge">
@@ -88,7 +88,7 @@
       <%= link_to(t('.privacy_policy'), privacy_policy_path) %>
     </li>
     <li>
-      <%= link_to(t('.contact_us'), new_feedback_submission_path) %>
+      <%= t('.contact_us_html', url: 'https://visit-someone-in-prison.form.service.justice.gov.uk') %>
     </li>
     <% alternative_locales.each do |locale| %>
       <li>
