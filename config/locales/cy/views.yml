@@ -9,7 +9,8 @@ cy:
       cookies_find_out_more: Rhagor o wybodaeth am gwcis
       cookies: Cwcis
       ts_and_cs: Telerau ac amodau
-      contact_us: Cysylltwch â ni
+      contact_us_html: |
+        <a href='%{url}' target='_blank' rel='external'>Adborth</a>
       feedback_banner_html: "<p>\n  <span>Mae'r gwasanaeth hwn yn cael ei wella ac
         efallai y byddwch yn sylwi ar newidiadau – <a href='%{url}' target='_blank'
         rel='external'>cysylltwch â ni<span class='visuallyhidden'> (dolen yn agor
