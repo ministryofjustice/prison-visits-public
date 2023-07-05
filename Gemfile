@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 #  Needed for Heroku
 ruby '2.7.5'
 
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 7.0'
 
 gem 'connection_pool'
 gem 'email_address_validation',
