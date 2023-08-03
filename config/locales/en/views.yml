@@ -350,7 +350,7 @@ en:
       rejected_visitors: The following visitors can't attend this visit
       not_received_html: >-
         We have sent you an email with more information about your visit. To make sure
-        this email doesn't go to your spam or junk folder, add <br>no-reply@email.prisonvisits.service.gov.uk to your address book.
+        this email doesn't go to your spam or junk folder, add <br>book.a.prison.visit@notifications.service.gov.uk to your address book.
       cancel_or_change_title: Cancel or change your visit
       cancel_or_change: If you no longer want this visit, please cancel it.
       request_new_visit_html: >-
@@ -365,7 +365,7 @@ en:
       intro_html: >-
         HMP %{prison} has rejected your visit request. The prison has sent you an email with the reason why the visit can't go ahead.
       not_received_html: >-
-        To make sure this email doesn't go to your spam or junk folder, add <br>no-reply@email.prisonvisits.service.gov.uk to your address book.
+        To make sure this email doesn't go to your spam or junk folder, add <br>book.a.prison.visit@notifications.service.gov.uk to your address book.
     requested:
       title: Visit request sent
       highlight_intro: >-
