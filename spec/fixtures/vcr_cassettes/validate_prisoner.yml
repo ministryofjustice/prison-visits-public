@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:3000/api/validations/prisoner
+    uri: http://localhost:4000/api/validations/prisoner
     body:
       encoding: UTF-8
       string: '{"number":"A1459AE","date_of_birth":"1976-06-12"}'
@@ -41,6 +41,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"validation":{"valid":true}}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 May 2016 15:53:29 GMT
 recorded_with: VCR 3.0.1

@@ -53,7 +53,7 @@ module PrisonVisits
       config.asset_host = ENV['ASSET_HOST']
     end
 
-    config.api_host = ENV.fetch('PRISON_VISITS_API', 'http://localhost:3000/')
+    config.api_host = ENV.fetch('PRISON_VISITS_API', 'http://localhost:4000/')
 
     config.lograge.enabled = true
     config.lograge.custom_options = lambda do |event|

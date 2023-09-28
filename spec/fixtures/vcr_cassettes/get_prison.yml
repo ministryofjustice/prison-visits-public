@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/prisons/0614760e-a773-49c0-a29c-35e743e72555
+    uri: http://localhost:4000/api/prisons/0614760e-a773-49c0-a29c-35e743e72555
     body:
       encoding: US-ASCII
       string: ''
@@ -41,6 +41,6 @@ http_interactions:
       string: '{"prison":{"id":"0614760e-a773-49c0-a29c-35e743e72555","name":"Cardiff","address":"Knox
         Road\nCardiff","postcode":"CF24 0UG","email_address":"socialvisits.cardiff@hmps.gsi.gov.uk","phone_no":"029
         20923327","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/cardiff","max_visitors":6,"adult_age":18}}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 May 2016 15:53:29 GMT
 recorded_with: VCR 3.0.1

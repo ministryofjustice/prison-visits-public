@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:3000/api/validations/visitors
+    uri: http://localhost:4000/api/validations/visitors
     body:
       encoding: UTF-8
       string: '{"prison_id":"0614760e-a773-49c0-a29c-35e743e72555","lead_date_of_birth":"1976-06-12","dates_of_birth":["1976-06-12"]}'
@@ -41,6 +41,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"validation":{"valid":true}}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 18 May 2016 13:14:00 GMT
 recorded_with: VCR 3.0.1

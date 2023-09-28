@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/slots?end_date=<%= 28.days.from_now.to_date %>&prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&start_date=<%= Time.zone.today.to_date %>
+    uri: http://localhost:4000/api/slots?end_date=<%= 28.days.from_now.to_date %>&prison_id=bf29bf0f-a046-43d1-911b-59ac58730eff&prisoner_dob=1960-06-01&prisoner_number=A1410AE&start_date=<%= Time.zone.today.to_date %>
     body:
       encoding: US-ASCII
       string: ''
