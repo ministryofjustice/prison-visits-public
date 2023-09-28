@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/visits/much+ado+about+nothing
+    uri: http://localhost:4000/api/visits/much+ado+about+nothing
     body:
       encoding: US-ASCII
       string: ''
@@ -47,11 +47,11 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"message":"Not found"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 28 Sep 2017 08:47:53 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/visits/much+ado+about+nothing
+    uri: http://localhost:4000/api/visits/much+ado+about+nothing
     body:
       encoding: US-ASCII
       string: ''
@@ -96,11 +96,11 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"message":"Not found"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 28 Sep 2017 08:47:53 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/visits/much+ado+about+nothing
+    uri: http://localhost:4000/api/visits/much+ado+about+nothing
     body:
       encoding: US-ASCII
       string: ''
@@ -145,6 +145,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"message":"Not found"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 28 Sep 2017 08:47:53 GMT
 recorded_with: VCR 3.0.3

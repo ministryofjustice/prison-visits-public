@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: head
-    uri: http://localhost:3000/healthcheck
+    uri: http://localhost:4000/healthcheck
     body:
       encoding: US-ASCII
       string: ''
@@ -35,6 +35,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 May 2016 08:35:28 GMT
 recorded_with: VCR 3.0.1
