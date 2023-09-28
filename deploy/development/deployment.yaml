@@ -1,0 +1,109 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prison-visits-public
+  labels:
+    app: prison-visits-public
+  annotations:
+    kubernetes.io/change-cause: "<to be filled in deploy job command>"
+spec:
+  replicas: 4
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 100%
+      maxUnavailable: 50%
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: prison-visits-public
+  template:
+    metadata:
+      labels:
+        app: prison-visits-public
+    spec:
+      containers:
+      - name: prison-visits-public
+        image: 754256621582.dkr.ecr.eu-west-2.amazonaws.com/prison-visits-booking/prison-visits-public:latest
+        imagePullPolicy: Always
+        command: ['sh', '-c', "bundle exec puma -p 3000 -C ./config/puma_prod.rb --pidfile /tmp/server.pid"]
+        ports:
+        - containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /ping
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 60
+        readinessProbe:
+          httpGet:
+            path: /ping
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 60
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "50m"
+          requests:
+            memory: "125Mi"
+            cpu: "15m"
+        env:
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              name: prison-visits-public-secrets
+              key: secret_key_base
+        - name: RAILS_ENV
+          value: "production"
+        - name: RAILS_SERVE_STATIC_FILES
+          value: "true"
+        - name: KUBERNETES_DEPLOYMENT
+          value: "true"
+        - name:  PRISON_VISITS_API
+          value: "https://prison-visits-booking-staff-dev.apps.live.cloud-platform.service.justice.gov.uk/"
+        - name: EMAIL_DOMAIN
+          value: "email-staging.pvb.dsd.io"
+        - name: STAFF_SERVICE_URL
+          value: "https://prison-visits-booking-staff-dev.apps.live.cloud-platform.service.justice.gov.uk"
+        - name: SERVICE_URL
+          value: "https://prison-visits-public-dev.apps.live.cloud-platform.service.justice.gov.uk"
+        - name: SENTRY_DSN
+          valueFrom:
+            secretKeyRef:
+              name: prison-visits-public-secrets
+              key: sentry_dsn
+        - name: SENTRY_JS_DSN
+          valueFrom:
+            secretKeyRef:
+              name: prison-visits-public-secrets
+              key: sentry_js_dsn
+        - name: GA_TRACKING_ID
+          valueFrom:
+            secretKeyRef:
+              name: prison-visits-public-secrets
+              key: ga_tracking_id
+        - name: WEB_CONCURRENCY
+          valueFrom:
+            secretKeyRef:
+              name: prison-visits-public-secrets
+              key: rails_web_concurrency
+      - name: prison-visits-public-metrics
+        image: 754256621582.dkr.ecr.eu-west-2.amazonaws.com/prison-visits-booking/prison-visits-public:latest
+        imagePullPolicy: Always
+        command: ['sh', '-c', "bundle exec prometheus_exporter"]
+        ports:
+        - containerPort: 9394
+        livenessProbe:
+          httpGet:
+            path: /metrics
+            port: 9394
+          initialDelaySeconds: 10
+          periodSeconds: 60
+        readinessProbe:
+          httpGet:
+            path: /metrics
+            port: 9394
+          initialDelaySeconds: 10
+          periodSeconds: 60
