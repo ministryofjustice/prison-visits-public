@@ -10,11 +10,14 @@ require 'webmock/rspec'
 require 'capybara-screenshot/rspec'
 require 'resolv'
 
+Dir[Rails.root.join('spec/support/features/*.rb')].sort.each { |f| require f }
+
 WebMock.disable_net_connect!(allow: 'codeclimate.com', allow_localhost: true)
 
-Capybara.javascript_driver = :selenium
+
 Capybara.default_max_wait_time = 10
 Capybara.asset_host = 'http://localhost:4000'
+Capybara.server = :puma, { Silent: true }
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = false

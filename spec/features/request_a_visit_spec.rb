@@ -164,13 +164,10 @@ RSpec.feature 'Booking a visit', js: true do
 
     enter_prisoner_information
 
-    # HACK: make sure the 'Continue' button is visible....
-    page.find_button('Continue', visible: false).send_keys :tab
     click_button 'Continue'
 
     # Slot 1
     select_first_available_date
-    page.find_button('Add another choice', visible: false).send_keys :tab
     click_button 'Add another choice'
     expect(page).to have_text('You must choose at least one date and time slot')
 
@@ -194,7 +191,6 @@ RSpec.feature 'Booking a visit', js: true do
 
     # Slot 1
     select_first_available_date
-    page.find_button('Add another choice', visible: false).send_keys :tab
     click_button 'Add another choice'
     expect(page).to have_text('You must choose at least one date and time slot')
 
