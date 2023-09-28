@@ -62,7 +62,7 @@ group :test do
   gem 'fuubar'
   gem 'launchy'
   gem 'rails-controller-testing'
-  gem 'selenium-webdriver'
+  gem 'cuprite'
   gem 'simplecov'
   gem 'uuid'
   gem 'vcr'

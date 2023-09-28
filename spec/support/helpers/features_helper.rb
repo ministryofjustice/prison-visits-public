@@ -57,8 +57,18 @@ module FeaturesHelper
   end
 
   def select_prison(name)
-    fill_in 'Prison name', with: name
-    find('.ui-autocomplete a', text: name).click
+    fill_in_autocomplete '#prisoner_step_prison_id', name
+
+    choose_autocomplete(name)
+  end
+
+  def fill_in_autocomplete(selector, value)
+    page.execute_script %[$('#{selector}').val('#{value}').keydown()]
+  end
+
+  def choose_autocomplete(text)
+    find('ul.ui-autocomplete', text: text)
+    page.execute_script("$('.ui-menu-item:contains(\"#{text}\")').find('a').trigger('mouseenter').click()")
   end
 
   def check_yes_i_want_to_cancel
