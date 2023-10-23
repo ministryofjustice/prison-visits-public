@@ -4,6 +4,7 @@ ruby '2.7.5'
 
 gem 'rails', '5.2.8.1'
 
+gem 'bootsnap', require: false
 gem 'connection_pool'
 gem 'email_address_validation',
     git: 'https://github.com/ministryofjustice/email_address_validation',
@@ -16,6 +17,7 @@ gem 'high_voltage'
 gem 'jquery-rails', '~> 4.4.0'
 gem 'jquery-ui-rails', '~> 6.0.1'
 gem 'kramdown'
+gem 'net-http'
 gem 'lograge'
 gem 'logstash-event'
 gem 'phonelib'
