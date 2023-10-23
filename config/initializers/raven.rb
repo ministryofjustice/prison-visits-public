@@ -9,5 +9,5 @@ if sentry_dsn
   end
 else
   # (Rails logger is not initialized yet)
-  STDOUT.puts '[WARN] Sentry DSN is not set (SENTRY_DSN)'
+  $stdout.puts '[WARN] Sentry DSN is not set (SENTRY_DSN)'
 end

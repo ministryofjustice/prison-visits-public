@@ -158,6 +158,12 @@ Rails/TimeZone:
   Exclude:
     - 'spec/**/*'
 
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/StubbedMock:
+  Enabled: false
+
 RSpec/NamedSubject:
   Enabled: false
 
@@ -254,5 +260,5 @@ Style/SignalException:
 Style/FormatStringToken:
   Enabled: false
 
-Capybara/FeatureMethods:
+RSpec/Capybara/FeatureMethods:
   Enabled: false

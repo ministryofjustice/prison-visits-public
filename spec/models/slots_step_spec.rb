@@ -246,7 +246,7 @@ RSpec.describe SlotsStep, type: :model do
     end
   end
 
-  context ' when #next_slot_to_fill' do
+  context 'when with #next_slot_to_fill' do
     context 'when review slot is set' do
       before do
         subject.review_slot = review_slot
@@ -364,7 +364,7 @@ RSpec.describe SlotsStep, type: :model do
     end
   end
 
-  context ' when #available_bookable_slots?' do
+  context 'when with #available_bookable_slots?' do
     let(:booking_constraints) do
       instance_double(BookingConstraints, on_slots: SlotConstraints.new(calendar_slots))
     end

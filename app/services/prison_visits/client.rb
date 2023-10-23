@@ -131,7 +131,7 @@ module PrisonVisits
     end
 
     def strip_initial_forward_slash(path)
-      path.sub(%r{^\/}, '')
+      path.sub(%r{^/}, '')
     end
   end
 end

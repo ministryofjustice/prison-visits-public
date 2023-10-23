@@ -63,7 +63,7 @@ module FeaturesHelper
   end
 
   def fill_in_autocomplete(selector, value)
-    page.execute_script %[$('#{selector}').val('#{value}').keydown()]
+    page.execute_script %{$('#{selector}').val('#{value}').keydown()}
   end
 
   def choose_autocomplete(text)
