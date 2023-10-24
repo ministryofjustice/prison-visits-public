@@ -8,7 +8,7 @@
       "message": "Render path contains parameter value",
       "file": "app/controllers/visits_controller.rb",
       "line": 5,
-      "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
       "code": "render(action => PrisonVisits::Api.instance.get_visit(params[:id]).processing_state.to_s, {})",
       "render_path": null,
       "location": {
@@ -18,29 +18,50 @@
       },
       "user_input": "params[:id]",
       "confidence": "Weak",
+      "cwe_id": [
+        22
+      ],
       "note": "The processing_state is validated against an array, so it's safe."
     },
     {
-      "warning_type": "Dynamic Render Path",
-      "warning_code": 15,
-      "fingerprint": "c87d771314887bf3eed3520cc68295c20852561cefe90dccddb8f07174352b81",
-      "check_name": "Render",
-      "message": "Render path contains request value",
-      "file": "app/controllers/errors_controller.rb",
-      "line": 23,
-      "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
-      "code": "render(action => { 404 => :\"404\", 406 => :\"404\", 422 => :\"503\", 500 => :\"500\", 503 => :\"503\" }.fetch(request.env[\"PATH_INFO\"][(1..-1)].to_i), { :status => request.env[\"PATH_INFO\"][(1..-1)], :format => :html })",
+      "warning_type": "Unmaintained Dependency",
+      "warning_code": 120,
+      "fingerprint": "d84924377155b41e094acae7404ec2e521629d86f97b0ff628e3d1b263f8101c",
+      "check_name": "EOLRails",
+      "message": "Support for Rails 5.2.8.1 ended on 2022-06-01",
+      "file": "Gemfile.lock",
+      "line": 232,
+      "link": "https://brakemanscanner.org/docs/warning_types/unmaintained_dependency/",
+      "code": null,
       "render_path": null,
-      "location": {
-        "type": "method",
-        "class": "ErrorsController",
-        "method": "show"
-      },
-      "user_input": "request.env[\"PATH_INFO\"][(1..-1)]",
-      "confidence": "Weak",
+      "location": null,
+      "user_input": null,
+      "confidence": "High",
+      "cwe_id": [
+        1104
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Unmaintained Dependency",
+      "warning_code": 121,
+      "fingerprint": "edf687f759ec9765bd5db185dbc615c80af77d6e7e19386fc42934e7a80307af",
+      "check_name": "EOLRuby",
+      "message": "Support for Ruby 2.7.5 ended on 2023-03-31",
+      "file": ".ruby-version",
+      "line": 1,
+      "link": "https://brakemanscanner.org/docs/warning_types/unmaintained_dependency/",
+      "code": null,
+      "render_path": null,
+      "location": null,
+      "user_input": null,
+      "confidence": "High",
+      "cwe_id": [
+        1104
+      ],
       "note": ""
     }
   ],
-  "updated": "2017-07-06 09:53:12 +0100",
-  "brakeman_version": "3.6.2"
+  "updated": "2023-10-24 15:47:26 +0100",
+  "brakeman_version": "5.4.1"
 }
