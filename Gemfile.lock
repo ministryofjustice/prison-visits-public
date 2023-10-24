@@ -210,8 +210,7 @@ GEM
       racc
     phantomjs (2.1.1.0)
     phonelib (0.8.4)
-    prometheus_exporter (2.0.8)
-      webrick
+    prometheus_exporter (0.4.17)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -415,7 +414,7 @@ DEPENDENCIES
   lograge
   logstash-event
   phonelib
-  prometheus_exporter
+  prometheus_exporter (= 0.4.17)
   pry-byebug
   pry-rails
   puma

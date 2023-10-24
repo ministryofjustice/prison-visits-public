@@ -19,7 +19,7 @@ gem 'kramdown'
 gem 'lograge'
 gem 'logstash-event'
 gem 'phonelib'
-gem 'prometheus_exporter'
+gem 'prometheus_exporter', '0.4.17'
 gem 'puma'
 gem 'pvb-instrumentation',
     git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
