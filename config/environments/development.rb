@@ -8,7 +8,6 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
-  config.action_controller.perform_caching = false
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
