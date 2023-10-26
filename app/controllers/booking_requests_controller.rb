@@ -77,7 +77,7 @@ private
       :last_name,
       :number,
       :prison_id,
-      date_of_birth: %i[day month year]
+      { date_of_birth: %i[day month year] }
     ]
   end
 
@@ -87,11 +87,11 @@ private
       :email_address_confirmation,
       :phone_no,
       :additional_visitor_count,
-      visitors_attributes: [
+      { visitors_attributes: [
         :first_name,
         :last_name,
-        date_of_birth: %i[day month year]
-      ]
+        { date_of_birth: %i[day month year] }
+      ] }
     ]
   end
 

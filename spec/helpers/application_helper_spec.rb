@@ -18,8 +18,18 @@ RSpec.describe ApplicationHelper do
       # JavaScript follows the libc convention of 0 = January etc.
       expect(javascript_i18n).to include(
         months: %w[
-          January February March April May June
-          July August September October November December
+          January
+          February
+          March
+          April
+          May
+          June
+          July
+          August
+          September
+          October
+          November
+          December
         ]
       )
     end

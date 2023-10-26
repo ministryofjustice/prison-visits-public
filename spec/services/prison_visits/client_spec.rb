@@ -16,7 +16,7 @@ RSpec.describe PrisonVisits::Client do
 
   describe '#healthcheck' do
     it 'calls the healthcheck endpoint', vcr: { cassette_name: 'healthcheck' } do
-      expect(subject.healthcheck.status). to eq(200)
+      expect(subject.healthcheck.status).to eq(200)
     end
   end
 

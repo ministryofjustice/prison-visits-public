@@ -23,7 +23,7 @@ Rails.application.config.content_security_policy do |config|
   sentry_js_dsn = Rails.configuration.sentry_js_dsn
 
   if sentry_js_dsn.present?
-    if sentry_js_dsn.match?(URI.regexp(%w[http https]))
+    if sentry_js_dsn.match?(URI::DEFAULT_PARSER.make_regexp(%w[http https]))
       host = URI.parse(sentry_js_dsn).host
       config.connect_src host
     else
@@ -32,6 +32,6 @@ Rails.application.config.content_security_policy do |config|
         sentry_js_dsn
     end
   else
-    STDOUT.puts '[WARN] Sentry JS DSN is not set (SENTRY_JS_DSN)'
+    $stdout.puts '[WARN] Sentry JS DSN is not set (SENTRY_JS_DSN)'
   end
 end

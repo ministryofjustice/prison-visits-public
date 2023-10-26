@@ -17,7 +17,6 @@ class BookingRequestCreator
       locale: locale
     }
 
-    visit = PrisonVisits::Api.instance.request_visit(params)
-    visit
+    PrisonVisits::Api.instance.request_visit(params)
   end
 end

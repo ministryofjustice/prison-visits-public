@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 #  Needed for Heroku
 ruby '2.7.5'
 
-gem 'rails', '~> 5.2'
+gem 'rails', '5.2.8.1'
 
+gem 'bootsnap', require: false
 gem 'connection_pool'
 gem 'email_address_validation',
     git: 'https://github.com/ministryofjustice/email_address_validation',
@@ -16,10 +17,12 @@ gem 'high_voltage'
 gem 'jquery-rails', '~> 4.4.0'
 gem 'jquery-ui-rails', '~> 6.0.1'
 gem 'kramdown'
+gem 'net-http'
+gem 'uri', '0.10.0'
 gem 'lograge'
 gem 'logstash-event'
 gem 'phonelib'
-gem 'prometheus_exporter'
+gem 'prometheus_exporter', '0.4.17'
 gem 'puma'
 gem 'pvb-instrumentation',
     git: 'https://github.com/ministryofjustice/pvb-instrumentation.git',
@@ -41,7 +44,7 @@ group :developmemt do
 end
 
 group :development, :test do
-  gem 'awesome_print', require: 'ap'
+  gem 'awesome_print'
   gem 'brakeman', '>= 5.0.4'
   gem 'byebug'
   gem 'jasmine-jquery-rails'

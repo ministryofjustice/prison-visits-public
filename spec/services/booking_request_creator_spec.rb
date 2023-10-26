@@ -51,11 +51,12 @@ RSpec.describe BookingRequestCreator do
         first_name: "Ada",
         last_name: "Lovelace",
         date_of_birth: Date.new(1970, 11, 30)
-      }, {
-        first_name: "Charlie",
-        last_name: "Chaplin",
-        date_of_birth: Date.new(2005, 1, 2)
-      }],
+      },
+                 {
+                   first_name: "Charlie",
+                   last_name: "Chaplin",
+                   date_of_birth: Date.new(2005, 1, 2)
+                 }],
       contact_email_address: "ada@test.example.com",
       contact_phone_no: "01154960222",
       slot_options: [

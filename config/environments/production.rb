@@ -16,7 +16,7 @@ Rails.application.configure do
 
   config.lograge.enabled = true
   config.lograge.formatter = Lograge::Formatters::Logstash.new
-  config.lograge.logger = ActiveSupport::Logger.new(STDOUT)
+  config.lograge.logger = ActiveSupport::Logger.new($stdout)
 
   config.staff_url = ENV.fetch('STAFF_SERVICE_URL')
 
