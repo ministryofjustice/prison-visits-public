@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 #  Needed for Heroku
 ruby '2.7.5'
 
-gem 'rails', '5.2.8.1'
+gem 'rails', '6.0.6.1'
 
 gem 'bootsnap', require: false
 gem 'connection_pool'
