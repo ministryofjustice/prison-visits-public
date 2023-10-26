@@ -117,7 +117,6 @@ jobs:
         name: Install GOV.UK frontend modules
         command: sudo npm install -g npm@8.1.2
     - run: bundle check --path vendor/bundle || bundle install --path vendor/bundle
-    # - run: bundle config set path vendor/bundle
     - save_cache:
         key:  prison-visits-public-{{ checksum "Gemfile.lock" }}
         paths:
@@ -142,7 +141,6 @@ jobs:
         command: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
           chmod +x ./cc-test-reporter
-    # - run: bundle install
     - run:
         name: Rubocop
         command: bundle exec rubocop
