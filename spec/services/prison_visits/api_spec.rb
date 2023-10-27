@@ -155,7 +155,7 @@ RSpec.describe PrisonVisits::Api do
       '2017-02-15T14:15/16:15'
     end
 
-    subject { super().get_slots(params) }
+    subject { super().get_slots(**params) }
 
     it 'returns an array of concrete slots' do
       expect(subject).to be_kind_of(Array)
