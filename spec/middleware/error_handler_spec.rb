@@ -48,7 +48,7 @@ RSpec.describe ErrorHandler do
       end
 
       it 'reports the error to sentry and reraises' do
-        expect(Raven).to receive(:capture_exception).with(error)
+        expect(Sentry).to receive(:capture_exception).with(error)
         expect { subject }.to raise_error(error)
       end
     end

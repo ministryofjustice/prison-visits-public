@@ -41,6 +41,6 @@ private
   def store_request_id
     PVB::Instrumentation.append_to_log(request_id: request.uuid)
     RequestStore.store[:request_id] = request.uuid
-    Raven.extra_context(request_id: request.uuid)
+    Sentry.set_extras(request_id: request.uuid)
   end
 end
