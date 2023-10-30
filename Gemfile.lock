@@ -336,8 +336,11 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    sentry-raven (3.1.2)
-      faraday (>= 1.0)
+    sentry-rails (5.12.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.12.0)
+    sentry-ruby (5.12.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     shellany (0.0.1)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
@@ -402,6 +405,7 @@ DEPENDENCIES
   cuprite
   email_address_validation!
   excon
+  faraday
   fuubar
   govuk_elements_rails
   govuk_frontend_toolkit
@@ -434,7 +438,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   sassc-rails
-  sentry-raven (~> 3.1.2)
+  sentry-rails
   shoulda-matchers
   simplecov
   sprockets (< 4)
