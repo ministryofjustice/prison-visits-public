@@ -89,21 +89,3 @@ spec:
             secretKeyRef:
               name: prison-visits-public-secrets
               key: rails_web_concurrency
-      - name: prison-visits-public-metrics
-        image: 754256621582.dkr.ecr.eu-west-2.amazonaws.com/prison-visits-booking/prison-visits-public:latest
-        imagePullPolicy: Always
-        command: ['sh', '-c', "bundle exec prometheus_exporter"]
-        ports:
-        - containerPort: 9394
-        livenessProbe:
-          httpGet:
-            path: /metrics
-            port: 9394
-          initialDelaySeconds: 10
-          periodSeconds: 60
-        readinessProbe:
-          httpGet:
-            path: /metrics
-            port: 9394
-          initialDelaySeconds: 10
-          periodSeconds: 60
