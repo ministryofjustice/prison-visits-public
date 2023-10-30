@@ -106,9 +106,7 @@ jobs:
         at: ~/repo
     - run:
         name: Which bundler?
-        command: |
-          bundle update --bundler
-          bundle -v
+        command: bundle -v
     - restore_cache:
         keys:
         -  prison-visits-public-{{ checksum "Gemfile.lock" }}
@@ -136,7 +134,6 @@ jobs:
     - checkout
     - attach_workspace:
         at: ~/repo
-    - run: bundle update --bundler
     - run: bundle --path vendor/bundle
     - run:
         name: Download Code Climate
