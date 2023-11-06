@@ -197,6 +197,28 @@ jobs:
         region: $ECR_REGION
         repo: $ECR_REPOSITORY
 
+  deploy_development:
+    <<: *deploy_container_config
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/repo
+    - run:
+        name: Kubectl deployment development setup
+        command: |
+          echo -n ${KUBE_ENV_DEVELOPMENT_CACERT} | base64 -d > ./ca.crt
+          kubectl config set-cluster ${KUBE_ENV_DEVELOPMENT_NAME} --certificate-authority=./ca.crt --server=https://${KUBE_ENV_DEVELOPMENT_NAME}
+          kubectl config set-credentials circleci --token=${KUBE_ENV_DEVELOPMENT_TOKEN}
+          kubectl config set-context ${KUBE_ENV_DEVELOPMENT_NAME} --cluster=${KUBE_ENV_DEVELOPMENT_NAME} --user=circleci --namespace=${KUBE_ENV_DEVELOPMENT_NAMESPACE}
+          kubectl config use-context ${KUBE_ENV_DEVELOPMENT_NAME}
+    - deploy:
+        name: Deploy to development
+        command: |
+            sed -i -e s/:latest/:$CIRCLE_SHA1/ deploy/development/deployment.yaml
+            kubectl apply --record=false -f ./deploy/development
+        environment:
+          <<: *github_team_name_slug
+
   deploy_staging:
     <<: *deploy_container_config
     steps:
@@ -260,10 +282,13 @@ workflows:
     - build_and_push_docker_image:
         requires:
           - test
+    - deploy_development:
+        requires:
+          - build_and_push_docker_image
     - deploy_staging_approval:
         type: approval
         requires:
-          - build_and_push_docker_image
+          - deploy_development
     - deploy_staging:
         requires:
           - deploy_staging_approval
