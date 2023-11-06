@@ -7,6 +7,14 @@ require 'action_view/railtie'
 require 'sprockets/railtie'
 require_relative '../app/middleware/http_method_not_allowed'
 
+# require "action_mailer/railtie"
+# require "action_mailbox/engine"
+# require "action_text/engine"
+# require "action_cable/engine"
+# require 'rails/test_unit/railtie'
+
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module PrisonVisits
@@ -65,5 +73,8 @@ module PrisonVisits
     config.max_threads = ENV.fetch('RAILS_MAX_THREADS', 15)
 
     config.middleware.insert_before Rack::Head, HttpMethodNotAllowed
+    # Application configuration can go into files in config/initializers
+    # -- all .rb files in that directory are automatically loaded after loading
+    # the framework and any gems in your application.
   end
 end

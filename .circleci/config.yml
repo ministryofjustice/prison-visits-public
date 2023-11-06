@@ -134,6 +134,7 @@ jobs:
     - checkout
     - attach_workspace:
         at: ~/repo
+    - run: gem install bundler
     - run: bundle --path vendor/bundle
     - run:
         name: Download Code Climate
