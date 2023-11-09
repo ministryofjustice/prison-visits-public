@@ -117,9 +117,13 @@ jobs:
     - run:
         name: Install GOV.UK frontend modules
         command: sudo npm install -g npm@8.1.2
+    - run:
+        name: Install Bundler
+        command: |
+          gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
     - run: bundle check --path vendor/bundle || bundle install --path vendor/bundle
     - save_cache:
-        key:  prison-visits-public-{{ checksum "Gemfile.lock" }}
+        key: prison-visits-public-{{ checksum "Gemfile.lock" }}
         paths:
         - vendor/bundle
     - persist_to_workspace:
