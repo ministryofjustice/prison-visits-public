@@ -121,7 +121,7 @@ jobs:
     - save_cache:
         key:  prison-visits-public-{{ checksum "Gemfile.lock" }}
         paths:
-        - ~/repo/vendor/bundle
+        - vendor/bundle
     - persist_to_workspace:
         root: .
         paths:
