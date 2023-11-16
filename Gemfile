@@ -31,7 +31,7 @@ gem 'rake'
 gem 'request_store'
 gem 'sassc-rails'
 gem 'sentry-rails'
-gem 'sprockets', '< 4'
+gem 'sprockets-rails'
 gem 'string_scrubber'
 gem 'turnout'
 gem 'uglifier', '~> 4.2.0', require: false
