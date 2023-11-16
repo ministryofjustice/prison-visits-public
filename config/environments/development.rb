@@ -35,6 +35,7 @@ Rails.application.configure do
   config.assets.debug = true
   config.assets.digest = true
   config.assets.raise_runtime_errors = true
+  config.assets.precompile += %w[jasmine-jquery.js]
 
   config.i18n.load_path =
     Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]

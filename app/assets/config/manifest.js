@@ -1,7 +1,6 @@
 //= link_tree ../images
 //= link application.js
 //= link application_ie.js
-//= link jasmine-jquery.js
 //= link application.css
 //= link application-ie8.css
 //= link email.css
