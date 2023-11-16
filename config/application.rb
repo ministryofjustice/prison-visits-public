@@ -6,7 +6,7 @@ require 'action_controller/railtie'
 require 'action_view/railtie'
 require 'sprockets/railtie'
 require_relative '../app/middleware/http_method_not_allowed'
-require_relative '../app/middleware/robots_tag.rb'
+require_relative '../app/middleware/robots_tag'
 
 # require "action_mailer/railtie"
 # require "action_mailbox/engine"
