@@ -19,7 +19,7 @@
       <%= add_line_breaks(@visit.prison_address) %></p>
 
     <h2 class="heading-small"><%= t('.cancelled_on') %></h2>
-    <p><%= @visit.cancelled_at.to_s(:short) %></p>
+    <p><%= @visit.cancelled_at.to_fs(:short) %></p>
 
     <h2 class="heading-small"><%= t('.cancellation_reason', count: @visit.cancellation_reasons.size) %></h2>
     <ul class='list list-bullet'>
