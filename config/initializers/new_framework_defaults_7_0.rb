@@ -47,7 +47,7 @@ Rails.application.config.active_support.executor_around_test_case = true
 # better preview images (rather than the previous default of using the first frame
 # of the video).
 # Rails.application.config.active_storage.video_preview_arguments =
-#   "-vf 'select=eq(n\\,0)+eq(key\\,1)+gt(scene\\,0.015),loop=loop=-1:size=2,trim=start_frame=1' -frames:v 1 -f image2"
+# "-vf 'select=eq(n\\,0)+eq(key\\,1)+gt(scene\\,0.015),loop=loop=-1:size=2,trim=start_frame=1' -frames:v 1 -f image2"
 
 # Automatically infer `inverse_of` for associations with a scope.
 # Rails.application.config.active_record.automatic_scope_inversing = true
@@ -128,7 +128,7 @@ Rails.application.config.action_dispatch.default_headers = {
 # See https://guides.rubyonrails.org/action_controller_overview.html#cookies for more information.
 
 # Change the return value of `ActionDispatch::Request#content_type` to the Content-Type header without modification.
-# Rails.application.config.action_dispatch.return_only_request_media_type_on_content_type = false
+Rails.application.config.action_dispatch.return_only_request_media_type_on_content_type = false
 
 # Active Storage `has_many_attached` relationships will default to replacing the current collection instead of appending to it.
 # Thus, to support submitting an empty collection, the `file_field` helper will render an hidden field `include_hidden` by default when `multiple_file_field_include_hidden` is set to `true`.
