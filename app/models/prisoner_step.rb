@@ -30,10 +30,10 @@ class PrisonerStep
 
   def prisoner_attributes
     {
-      first_name: first_name,
-      last_name: last_name,
+      first_name:,
+      last_name:,
       date_of_birth: date_of_birth.to_date,
-      number: number
+      number:
     }
   end
 
@@ -61,7 +61,7 @@ private
   end
 
   def prisoner_validation_results
-    options = { number: number, date_of_birth: date_of_birth.to_date }
+    options = { number:, date_of_birth: date_of_birth.to_date }
     @prisoner_validation_results ||= PrisonVisits::Api.instance.validate_prisoner(**options)
   end
 

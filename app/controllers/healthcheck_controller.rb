@@ -3,7 +3,7 @@ class HealthcheckController < ApplicationController
     healthcheck = Healthcheck::PvbApiCheck.new('PVB API healthcheck')
     status = healthcheck.ok? ? :ok : :bad_gateway
 
-    render status: status, json: {
+    render status:, json: {
       ok: healthcheck.ok?,
       api: healthcheck.report
     }

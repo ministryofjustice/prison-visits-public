@@ -9,8 +9,8 @@ RSpec.describe Visit, type: :model do
       prison_id: '2',
       processing_state: 'requested',
       slots: ['2015-10-23T14:00/15:30'],
-      can_cancel: can_cancel,
-      can_withdraw: can_withdraw
+      can_cancel:,
+      can_withdraw:
     }
   }
   let(:can_cancel)   { false }

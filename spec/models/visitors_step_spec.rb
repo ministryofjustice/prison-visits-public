@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe VisitorsStep do
-  subject { described_class.new(processor: processor) }
+  subject { described_class.new(processor:) }
 
   let(:processor) { StepsProcessor.new({}, 'en') }
 

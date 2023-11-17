@@ -14,7 +14,7 @@ RSpec.describe PrisonerStep do
         year: '1970'
       },
       number: 'a1234bc',
-      prison_id: prison_id
+      prison_id:
     }
   }
 

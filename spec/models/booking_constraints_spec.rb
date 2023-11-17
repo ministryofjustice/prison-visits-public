@@ -5,9 +5,9 @@ RSpec.describe BookingConstraints, type: :model do
 
   let(:params) {
     {
-      prison: prison,
-      prisoner_number: prisoner_number,
-      prisoner_dob: prisoner_dob
+      prison:,
+      prisoner_number:,
+      prisoner_dob:
     }
   }
   let(:prison) {
@@ -45,8 +45,8 @@ RSpec.describe BookingConstraints, type: :model do
       expect(pvb_api).to receive(:get_slots).
         with(
           prison_id: prison.id,
-          prisoner_number: prisoner_number,
-          prisoner_dob: prisoner_dob
+          prisoner_number:,
+          prisoner_dob:
         )
 
       subject

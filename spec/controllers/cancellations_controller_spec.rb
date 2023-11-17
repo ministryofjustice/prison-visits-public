@@ -13,7 +13,7 @@ RSpec.describe CancellationsController, type: :controller do
 
       it 'calls the cancel API' do
         expect(pvb_api).to receive(:cancel_visit).with(visit_id)
-        post :create, params: params
+        post :create, params:
       end
     end
 
@@ -22,11 +22,11 @@ RSpec.describe CancellationsController, type: :controller do
 
       it 'does not call the API' do
         expect(pvb_api).to_not receive(:cancel_visit)
-        post :create, params: params
+        post :create, params:
       end
 
       it 'redirects to the visit page' do
-        post :create, params: params
+        post(:create, params:)
         expect(response).to redirect_to(visit_path(visit_id, locale: 'en'))
       end
     end

@@ -67,7 +67,7 @@ module FeaturesHelper
   end
 
   def choose_autocomplete(text)
-    find('ul.ui-autocomplete', text: text)
+    find('ul.ui-autocomplete', text:)
     page.execute_script("$('.ui-menu-item:contains(\"#{text}\")').find('a').trigger('mouseenter').click()")
   end
 

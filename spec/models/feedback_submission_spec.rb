@@ -9,11 +9,11 @@ RSpec.describe FeedbackSubmission, type: :model do
 
   subject(:instance) do
     described_class.new(
-      body: body,
-      email_address: email_address,
-      prisoner_number: prisoner_number,
-      prisoner_date_of_birth: prisoner_date_of_birth,
-      prison_id: prison_id
+      body:,
+      email_address:,
+      prisoner_number:,
+      prisoner_date_of_birth:,
+      prison_id:
     )
   end
 
