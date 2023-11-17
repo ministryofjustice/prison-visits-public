@@ -47,7 +47,7 @@ Rails.application.config.active_support.executor_around_test_case = true
 # better preview images (rather than the previous default of using the first frame
 # of the video).
 # Rails.application.config.active_storage.video_preview_arguments =
-#   "-vf 'select=eq(n\\,0)+eq(key\\,1)+gt(scene\\,0.015),loop=loop=-1:size=2,trim=start_frame=1' -frames:v 1 -f image2"
+# "-vf 'select=eq(n\\,0)+eq(key\\,1)+gt(scene\\,0.015),loop=loop=-1:size=2,trim=start_frame=1' -frames:v 1 -f image2"
 
 # Automatically infer `inverse_of` for associations with a scope.
 # Rails.application.config.active_record.automatic_scope_inversing = true
