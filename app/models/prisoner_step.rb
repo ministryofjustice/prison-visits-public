@@ -62,7 +62,7 @@ private
 
   def prisoner_validation_results
     options = { number: number, date_of_birth: date_of_birth.to_date }
-    @prisoner_validation_results ||= PrisonVisits::Api.instance.validate_prisoner(options)
+    @prisoner_validation_results ||= PrisonVisits::Api.instance.validate_prisoner(**options)
   end
 
   def prevent_api_call?

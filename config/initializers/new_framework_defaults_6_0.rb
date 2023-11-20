@@ -7,7 +7,7 @@
 # Read the Guide for Upgrading Ruby on Rails for more info on each option.
 
 # Don't force requests from old versions of IE to be UTF-8 encoded.
-# Rails.application.config.action_view.default_enforce_utf8 = false
+Rails.application.config.action_view.default_enforce_utf8 = false
 
 # Embed purpose and expiry metadata inside signed and encrypted
 # cookies for increased security.
@@ -37,7 +37,7 @@ Rails.application.config.action_dispatch.return_only_media_type_on_content_type 
 # If you send mail in the background, job workers need to have a copy of
 # MailDeliveryJob to ensure all delivery jobs are processed properly.
 # Make sure your entire app is migrated and stable on 6.0 before using this setting.
-# Rails.application.config.action_mailer.delivery_job = "ActionMailer::MailDeliveryJob"
+# Rails.application.config.action_mailer.delivery_job = 'ActionMailer::MailDeliveryJob'
 
 # Enable the same cache key to be reused when the object being cached of type
 # `ActiveRecord::Relation` changes by moving the volatile information (max updated at and count)

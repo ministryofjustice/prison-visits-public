@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe BookingConstraints, type: :model do
-  subject { described_class.new(params) }
+  subject { described_class.new(**params) }
 
   let(:params) {
     {

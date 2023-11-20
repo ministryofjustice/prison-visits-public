@@ -1,4 +1,4 @@
-FROM ruby:2.7.5
+FROM ruby:3.0.6
 
 EXPOSE 3000
 RUN gem update bundler --no-doc

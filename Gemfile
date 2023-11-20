@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 #  Needed for Heroku
-ruby '2.7.5'
+ruby '3.0.6'
 
-gem 'rails', '6.0.6.1'
+gem 'rails', '6.1.7.6'
 
 gem 'bootsnap', require: false
 gem 'connection_pool'
