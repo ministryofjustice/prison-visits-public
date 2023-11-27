@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 #  Needed for Heroku
 ruby '3.0.6'
 
-gem 'rails', '6.1.7.6'
+gem 'rails', '7.0.8'
 
 gem 'bootsnap', require: false
 gem 'connection_pool'
@@ -31,7 +31,7 @@ gem 'rake'
 gem 'request_store'
 gem 'sassc-rails'
 gem 'sentry-rails'
-gem 'sprockets', '< 4'
+gem 'sprockets-rails'
 gem 'string_scrubber'
 gem 'turnout'
 gem 'uglifier', '~> 4.2.0', require: false

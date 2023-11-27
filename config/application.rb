@@ -6,6 +6,7 @@ require 'action_controller/railtie'
 require 'action_view/railtie'
 require 'sprockets/railtie'
 require_relative '../app/middleware/http_method_not_allowed'
+require_relative '../app/middleware/robots_tag'
 
 # require "action_mailer/railtie"
 # require "action_mailbox/engine"
@@ -19,10 +20,10 @@ Bundler.require(*Rails.groups)
 
 module PrisonVisits
   class Application < Rails::Application
+    config.load_defaults 6.1
+
     config.phase = 'live'
     config.product_type = 'service'
-
-    config.autoload_paths += %w[ app/mailers/concerns ]
 
     config.i18n.load_path =
       Dir[Rails.root.join('config', 'locales', '{en,cy}', '*.yml').to_s]
@@ -72,6 +73,7 @@ module PrisonVisits
 
     config.max_threads = ENV.fetch('RAILS_MAX_THREADS', 15)
 
+    config.middleware.use RobotsTag
     config.middleware.insert_before Rack::Head, HttpMethodNotAllowed
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

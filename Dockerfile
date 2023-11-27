@@ -70,5 +70,5 @@ RUN mkdir -p /home/appuser && \
 USER 1001
 
 RUN bundle update --bundler
-RUN RAILS_ENV=production STAFF_SERVICE_URL=http://example.com SERVICE_URL=http://example.com rails assets:precompile --trace
+RUN SECRET_KEY_BASE=`rails secret` RAILS_ENV=production STAFF_SERVICE_URL=http://example.com SERVICE_URL=http://example.com rails assets:precompile --trace
 EXPOSE 3000
