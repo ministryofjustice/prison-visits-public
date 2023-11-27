@@ -315,7 +315,7 @@ RSpec.describe BookingRequestsController do
       end
 
       it 'renders the completed template' do
-        post :create, params: params
+        post(:create, params:)
         expect(response).to redirect_to(visit_path(visit.human_id, locale: 'en'))
       end
 
@@ -328,7 +328,7 @@ RSpec.describe BookingRequestsController do
             instance_of(SlotsStep),
             :en
           )
-        post :create, params: params
+        post :create, params:
       end
     end
   end

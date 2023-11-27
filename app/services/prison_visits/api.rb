@@ -27,8 +27,8 @@ module PrisonVisits
         client.post(
           '/validations/prisoner',
           params: {
-            number: number,
-            date_of_birth: date_of_birth
+            number:,
+            date_of_birth:
           },
           idempotent: true
         )
@@ -41,9 +41,9 @@ module PrisonVisits
         client.post(
           '/validations/visitors',
           params: {
-            prison_id: prison_id,
-            lead_date_of_birth: lead_date_of_birth,
-            dates_of_birth: dates_of_birth
+            prison_id:,
+            lead_date_of_birth:,
+            dates_of_birth:
           },
           idempotent: true
         )
@@ -57,9 +57,9 @@ module PrisonVisits
         client.get(
           '/slots',
           params: {
-            prison_id: prison_id,
-            prisoner_number: prisoner_number,
-            prisoner_dob: prisoner_dob,
+            prison_id:,
+            prisoner_number:,
+            prisoner_dob:,
             start_date: Time.zone.today.to_date,
             end_date: 28.days.from_now.to_date
           }
@@ -69,7 +69,7 @@ module PrisonVisits
     end
 
     def request_visit(params)
-      response = pool.with { |client| client.post('/visits', params: params) }
+      response = pool.with { |client| client.post('/visits', params:) }
       Visit.new(response.fetch('visit'))
     end
 
@@ -96,7 +96,7 @@ module PrisonVisits
         }
       }
 
-      pool.with do |client| client.post('/feedback', params: params) end
+      pool.with do |client| client.post('/feedback', params:) end
       nil
     end
 

@@ -36,7 +36,7 @@ class StepsProcessor
 
   def booking_constraints
     BookingConstraints.new(
-      prison: prison,
+      prison:,
       prisoner_number: prisoner_step.number,
       prisoner_dob: prisoner_step.date_of_birth.to_date
     )

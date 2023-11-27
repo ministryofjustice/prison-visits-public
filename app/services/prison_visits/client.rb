@@ -29,7 +29,7 @@ module PrisonVisits
       #   have 4 puma threads we only need 4 sockets
       # - the cache has a memory leak when there are short lived threads.
       @connection = Excon.new(
-        host, persistent: persistent, connect_timeout: TIMEOUT,
+        host, persistent:, connect_timeout: TIMEOUT,
               read_timeout: TIMEOUT, write_timeout: TIMEOUT, retry_limit: 3,
               thread_safe_sockets: false,
               instrumentor: ActiveSupport::Notifications,
@@ -38,16 +38,16 @@ module PrisonVisits
     end
 
     def get(route, params: {}, idempotent: true)
-      request(:get, route, params: params, idempotent: idempotent)
+      request(:get, route, params:, idempotent:)
     end
 
     def post(route, params:, idempotent: false)
       @first_time_try = true
-      request(:post, route, params: params, idempotent: idempotent)
+      request(:post, route, params:, idempotent:)
     end
 
     def delete(route, params: {}, idempotent: true)
-      request(:delete, route, params: params, idempotent: idempotent)
+      request(:delete, route, params:, idempotent:)
     end
 
     def healthcheck
@@ -82,15 +82,15 @@ module PrisonVisits
 
     def build_options(path, method, params, idempotent)
       {
-        method: method,
-        path: path,
+        method:,
+        path:,
         expects: [200],
         headers: {
           'Accept' => 'application/json',
           'Accept-Language' => I18n.locale,
           'X-Request-Id' => RequestStore.store[:request_id]
         },
-        idempotent: idempotent
+        idempotent:
       }.deep_merge(params_options(method, params))
     end
 

@@ -6,7 +6,7 @@ class LinkDirectory
   PRISON_FINDER = 'http://www.gov.uk/government/collections/prisons-in-england-and-wales'
 
   def google_maps(query)
-    URITemplate.new(GOOGLE_MAPS).expand(query: query)
+    URITemplate.new(GOOGLE_MAPS).expand(query:)
   end
 
   def rate_service
