@@ -24,6 +24,7 @@ module PrisonVisits
 
     # Rails 7 new defaults
     config.active_support.cache_format_version = 7.0
+    config.active_support.disable_to_s_conversion = true
 
     config.phase = 'live'
     config.product_type = 'service'
