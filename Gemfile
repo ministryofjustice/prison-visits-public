@@ -48,7 +48,7 @@ group :development, :test do
   gem 'brakeman', '>= 5.0.4'
   gem 'byebug'
   gem 'jasmine-jquery-rails'
-  gem 'jasmine', '~> 3.8.0'
+  gem 'jasmine', '~> 3.99.0'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 6.1'
