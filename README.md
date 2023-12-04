@@ -30,7 +30,7 @@ The codebase was split from [ministryofjustice/prison-visits-2](https://github.c
 
 ### Ruby version
 
-This application uses Ruby v2.6.2. Use [RVM](https://rvm.io/) or similar to manage your ruby environment and sets of dependencies.
+This application uses Ruby v3.2.2. Use [RVM](https://rvm.io/) or similar to manage your ruby environment and sets of dependencies.
 
 ### Running the application
 
