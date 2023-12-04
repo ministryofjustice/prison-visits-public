@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 #  Needed for Heroku
-ruby '3.1.4'
+ruby '3.2.2'
 
-gem 'rails', '7.0.8'
+gem 'rails', '7.1.2'
 
 gem 'bootsnap', require: false
 gem 'connection_pool'
@@ -48,10 +48,10 @@ group :development, :test do
   gem 'brakeman', '>= 5.0.4'
   gem 'byebug'
   gem 'jasmine-jquery-rails'
-  gem 'jasmine', '~> 3.8.0'
+  gem 'jasmine'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 6.1'
+  gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rspec'
