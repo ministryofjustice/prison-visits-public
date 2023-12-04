@@ -436,7 +436,7 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (2.5.0)
-    uri (0.10.0)
+    uri (0.13.0)
     uri_template (0.7.0)
     uuid (2.3.9)
       macaddr (~> 1.0)
@@ -508,7 +508,7 @@ DEPENDENCIES
   string_scrubber
   turnout
   uglifier (~> 4.2.0)
-  uri (= 0.10.0)
+  uri (= 0.13.0)
   uri_template
   uuid
   vcr
