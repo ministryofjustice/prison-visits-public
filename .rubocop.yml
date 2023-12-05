@@ -26,6 +26,12 @@ AllCops:
     - 'lib/tasks/elasticsearch.rake'
     - 'spec/dummy/db/**/*'
 
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - local
 Rails:
   Enabled: true
 
