@@ -276,4 +276,4 @@ Rails.application.config.active_support.raise_on_invalid_cache_expiration_time =
 #
 # In previous versions of Rails, these test helpers always used an HTML4 parser.
 #++
-# Rails.application.config.dom_testing_default_html_version = :html5
+Rails.application.config.dom_testing_default_html_version = :html5
