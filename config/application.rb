@@ -22,6 +22,9 @@ module PrisonVisits
   class Application < Rails::Application
     config.load_defaults 7.0
 
+    # Rails 7.1 defaults
+    config.active_support.cache_format_version = 7.1
+
     config.phase = 'live'
     config.product_type = 'service'
 
