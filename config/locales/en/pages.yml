@@ -256,22 +256,21 @@ en:
     cookies:
       title: Cookies
       body_html: |
-        <p>Prison Visits Booking (PVB) puts small files (known as ‘cookies’) onto
-          your computer to collect information about how you browse the site.</p>
+        <p>The 'Visit someone in prison' service puts small files (known as ‘cookies’) onto your computer to collect information about how you browse the site.</p>
         <p>Cookies are used to:</p>
         <ul class="list list-bullet">
           <li>measure how you use the website so it can be updated and improved based on your needs</li>
           <li>remember the notifications you’ve seen so that we don’t show them to you again</li>
         </ul>
-        <div class="panel panel-border-wide">PVB cookies aren’t used to identify you personally.</div>
+        <div class="panel panel-border-wide">These cookies aren’t used to identify you personally.</div>
         <p>You’ll normally see a message on the site before we store a cookie on your computer.</p>
         <p>Find out more about <a href="http://www.aboutcookies.org/">how to manage cookies.</a></p>
-        <h2 class="heading-large" id="how-cookies-are-used-on-pvb">How cookies are used on PVB</h2>
+        <h2 class="heading-large" id="how-cookies-are-used-on-pvb">How cookies are used on the service</h2>
         <h3 class="heading-medium" id="measuring-website-usage-google-analytics">Measuring website usage (Google Analytics)</h3>
-        <p>We use Google Analytics software to collect information about how you use PVB. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.</p>
+        <p>We use Google Analytics software to collect information about how you use the service. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.</p>
         <fieldset>
           <legend> 
-            Do you agree to the Ministry of Justice and other UK government departments using Google Analytics to help improve the ‘Prison visits’ service?
+            Do you agree to the Ministry of Justice and other UK government departments using Google Analytics to help improve the ‘Visit someone in prison’ service?
           </legend>
           <div id="id_accept_cookies-wrapper">
             <div class="multiple-choice">
@@ -287,7 +286,7 @@ en:
           <input id="save_cookie_preference" class="button" type="submit" value="Save changes">
         <p>Google Analytics stores information about:</p>
         <ul class="list list-bullet">
-          <li>the pages you visit on PVB – how long you spend on each PVB page</li>
+          <li>the pages you visit – how long you spend on each page</li>
           <li>how you got to the site</li>
           <li>what you click on while you’re visiting the site</li>
         </ul>
@@ -311,7 +310,7 @@ en:
         </table>
         <p class="push-top">You can <a href="https://tools.google.com/dlpage/gaoptout">opt out of Google Analytics cookies.</a></p>
         <h3 class="heading-medium" id="our-introductory-message">Our introductory message</h3>
-        <p>You may see a pop-up welcome message when you first visit PVB. We’ll store a cookie so that your computer knows you’ve seen it and knows not to show it again.</p>
+        <p>You may see a pop-up welcome message when you first visit the service. We’ll store a cookie so that your computer knows you’ve seen it and knows not to show it again.</p>
         <table class="responsive">
           <thead>
             <tr>
@@ -334,7 +333,7 @@ en:
           </tbody>
         </table>
         <h3 class="heading-medium" id="session">Session</h3>
-        <p>When you use the “Prison Visits Booking” service, we’ll set a cookie to remember your progress through the forms. These cookies don’t store your personal data and are deleted once you’ve completed the transaction.</p>
+        <p>When you use the service, we’ll set a cookie to remember your progress through the forms. These cookies don’t store your personal data and are deleted once you’ve completed the transaction.</p>
         <table class="responsive">
           <thead>
             <tr>
