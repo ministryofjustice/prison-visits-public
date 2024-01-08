@@ -70,13 +70,12 @@ en:
           <li>the name, date of birth, prisoner number and location of the person you want to visit</li>
           <li>the names and dates of birth of any additional visitors</li>
         </ul>
-        <p>We also collect site-usage information which allows us to see how the service is being used in order
+        <p>We also collect site usage information which allows us to see how the service is being used in order
         to allow us to improve it. This information does not contain any personal data. It includes:</p>
         <ul class="list list-bullet">
           <li>questions, queries or feedback you leave if you send a message via feedback</li>
           <li>your IP address, and details of which version of web browser you used</li>
-          <li>information on how you use the site, using cookies and page tagging techniques
-          to help us improve the website</li>
+          <li>information on how you use the site, using cookies and page tagging techniques to help us improve the website</li>
         </ul>
         <p>This helps us to:</p>
         <ul class="list list-bullet">
@@ -89,19 +88,16 @@ en:
         Purpose of processing and the lawful basis for the process</h3>
         <p>We collect personal data so that you can request to visit someone in prison. Prisons and Young Offender
         Institutions need this information to ensure visits are safe and secure for visitors, offenders and staff.</p>
-        <h3 class="heading-medium" id="who-the-information-may-be-shared-with">
-        Who the information may be shared with</h3>
-        <p>We sometimes need to share the personal information we process with the individual themselves
-        and also with other organisations. Where this is necessary we will comply with all aspects of the data laws.
-        The organisations we share your personal information with are:<p>
+        <h3 class="heading-medium" id="who-your-data-may-be-shared-with">
+        Who your data might be shared with</h3>
+        <p>We may share your information with our agents or representatives, so they can manage your account. 
+        Our agents or representatives will only use your personal data in line with what we have set out in this privacy notice.</p>
+        <p>We will not:</p>
         <ul class="list list-bullet">
-          <li><a href="http://sendgrid.com">SendGrid</a> to send you emails about the status of your visit
-          request and to relay information to prisons. See the
-          <a href="http://sendgrid.com/tos">terms &amp; conditions</a> attached to this service.</li>
-          <li><a href="http://www.zendesk.com">ZenDesk</a> to handle any feedback that you leave.
-          See the <a href="http://www.zendesk.com/company/terms">terms &amp; conditions</a> attached to
-          this service.</li>
+          <li><sell or rent your data to third parties</li>
+          <li><share your data with third parties for marketing purposes</li>
         </ul>
+        <p>We may share your data or disclose information because of a law, regulation or court order and to protect our interests and legal rights.</p>
         <h3 class="heading-medium" id="details-of-transfers-third-country-and-safeguards">
         Details of transfers to third country and safeguards</h3>
         <p>All data collected by this service is stored within the European Economic Area (EEA).
@@ -112,7 +108,7 @@ en:
         <p>Data is retained for seven years in accordance with HMPPS retention policy.</p>
         <h3 class="heading-medium" id="access-to-personal-information">Access to personal information</h3>
         <p>You can find out if we hold any personal data about you by making a ‘subject access request’.
-        To make a subject access request please contact:<p>
+        To make a subject access request please contact:</p>
         <p>
         Offender and ex-offenders;</br>
         Branston Registry</br>
@@ -152,7 +148,7 @@ en:
         if you close your browser, or navigate away from this service. During this time, personal information
         about you may be visible to anyone with access to your computer.</p>
         <p>Your data is held in memory during the duration of the session;
-        this is cleared after 20 minutes of inactivity.<p>
+        this is cleared after 20 minutes of inactivity.</p>
         <h3 class="heading-medium" id="more-information">More information</h3>
         <p>You can get more details on:</p>
         <ul class="list list-bullet">
@@ -188,6 +184,11 @@ en:
         Tel: 0303 123 1113</br>
         <a href="http://www.ico.org.uk">www.ico.org.uk</a>
         </p>
+        <h3 class="heading-medium" id="changes">Changes to this policy</h3>
+        <p>We may change this privacy policy. In that case, the ‘last updated’ date at the bottom of this page will also change. 
+        Any changes to this privacy policy will apply to you and your data immediately.</p>
+        <p>We encourage you to review this privacy policy regularly to find out how we are protecting your data.</p>
+        <p>Last updated: 08 January 2024</p>
     terms_and_conditions:
       title: Terms and conditions
       body_html: |
@@ -249,10 +250,13 @@ en:
           or misrepresentation as to a fundamental matter, nor any other liability
         which cannot be excluded or limited under applicable law.</p>
         <h3  class="heading-medium" id="contact-us">Contact us</h3>
-        <p>Ministry of Justice
-          Digital Services, 11.51
-          102 Petty France
-        London SW1H 9AJ United Kingdom</p>
+         <p>
+          Ministry of Justice</br>
+          Digital Services</br>
+          11.51, 102 Petty France</br>
+          London</br>
+          SW1H 9AJ
+        </p>
     cookies:
       title: Cookies
       body_html: |
