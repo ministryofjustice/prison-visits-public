@@ -113,7 +113,7 @@ en:
       prisoner_changed: As you've changed the prisoner details, you need to choose new visit slots.
       info_html: >-
         <p>Choose up to 3 possible dates and times. The prison will confirm one of your choices for the visit.</p>
-        <p>Start with your first choice of date and time.  Available dates are in <span class=bold>bold</span>.</p>
+        <p>Start with your first choice of date and time. The prison’s visit dates are in <span class=bold>bold</span>. These dates may not be available.</p>
       keyboard_directions_html: |
         <ul>
           <li>Press the LEFT and RIGHT arrow keys to navigate the row by week day.</li>
