@@ -288,7 +288,9 @@ workflows:
     - deploy_staging:
         requires:
           - deploy_staging_approval
-        context: prison-visits-booking-staging
+        context:
+          - prison-visits-booking-staging
+          - hmpps-common-vars
     - deploy_production_approval:
         type: approval
         requires:
@@ -299,7 +301,9 @@ workflows:
     - deploy_production:
         requires:
           - deploy_production_approval
-        context: prison-visits-booking-production
+        context:
+          - prison-visits-booking-production
+          - hmpps-common-vars
         filters:
           branches:
             only: main
