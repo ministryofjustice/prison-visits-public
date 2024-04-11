@@ -96,6 +96,18 @@ orbs:
   aws-cli: circleci/aws-cli@4.0.0
   aws-ecr: circleci/aws-ecr@8.2.1 # this orb doesn't support OIDC v2, so we use aws-cli to authenticate
 
+commands:
+  kubectl-setup:
+    steps:
+      - run:
+          name: Kubectl Setup
+          command: |
+            echo -n ${KUBE_ENV_CACERT} | base64 -d > ./ca.crt
+            kubectl config set-cluster ${KUBE_ENV_NAME} --certificate-authority=./ca.crt --server=${KUBE_ENV_API}
+            kubectl config set-credentials circleci --token=${KUBE_ENV_TOKEN}
+            kubectl config set-context ${KUBE_ENV_NAME} --cluster=${KUBE_ENV_NAME} --user=circleci --namespace=${KUBE_ENV_NAMESPACE}
+            kubectl config use-context ${KUBE_ENV_NAME}
+
 jobs:
   install_dependencies:
     <<: *defaults
@@ -208,14 +220,7 @@ jobs:
     - checkout
     - attach_workspace:
         at: ~/repo
-    - run:
-        name: Kubectl deployment development setup
-        command: |
-          echo -n ${KUBE_ENV_DEVELOPMENT_CACERT} | base64 -d > ./ca.crt
-          kubectl config set-cluster ${KUBE_ENV_DEVELOPMENT_NAME} --certificate-authority=./ca.crt --server=https://${KUBE_ENV_DEVELOPMENT_NAME}
-          kubectl config set-credentials circleci --token=${KUBE_ENV_DEVELOPMENT_TOKEN}
-          kubectl config set-context ${KUBE_ENV_DEVELOPMENT_NAME} --cluster=${KUBE_ENV_DEVELOPMENT_NAME} --user=circleci --namespace=${KUBE_ENV_DEVELOPMENT_NAMESPACE}
-          kubectl config use-context ${KUBE_ENV_DEVELOPMENT_NAME}
+    - kubectl-setup
     - deploy:
         name: Deploy to development
         command: |
@@ -230,14 +235,7 @@ jobs:
     - checkout
     - attach_workspace:
         at: ~/repo
-    - run:
-        name: Kubectl deployment staging setup
-        command: |
-          echo -n ${KUBE_ENV_STAGING_CACERT_LIVE} | base64 -d > ./ca.crt
-          kubectl config set-cluster ${CLUSTER_NAME_LIVE} --certificate-authority=./ca.crt --server=https://${CLUSTER_NAME_LIVE}
-          kubectl config set-credentials circleci --token=${KUBE_ENV_STAGING_TOKEN_LIVE}
-          kubectl config set-context ${CLUSTER_NAME_LIVE} --cluster=${CLUSTER_NAME_LIVE} --user=circleci --namespace=${KUBE_ENV_STAGING_NAMESPACE}
-          kubectl config use-context ${CLUSTER_NAME_LIVE}
+    - kubectl-setup
     # - *install_gpg
     # - *configure_gpg
     # - *decrypt_secrets
@@ -256,14 +254,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/repo
-      - run:
-          name: Kubectl deployment production setup
-          command: |
-            echo -n ${KUBE_ENV_PRODUCTION_CACERT_LIVE} | base64 -d > ./ca.crt
-            kubectl config set-cluster ${CLUSTER_NAME_LIVE} --certificate-authority=./ca.crt --server=https://${CLUSTER_NAME_LIVE}
-            kubectl config set-credentials circleci --token=${KUBE_ENV_PRODUCTION_TOKEN_LIVE}
-            kubectl config set-context ${CLUSTER_NAME_LIVE} --cluster=${CLUSTER_NAME_LIVE} --user=circleci --namespace=${KUBE_ENV_PRODUCTION_NAMESPACE}
-            kubectl config use-context ${CLUSTER_NAME_LIVE}
+      - kubectl-setup
       # - *install_gpg
       # - *configure_gpg
       # - *decrypt_secrets
@@ -288,6 +279,8 @@ workflows:
         requires:
           - test
     - deploy_development:
+        context:
+          - hmpps-common-vars
         requires:
           - build_and_push_docker_image
     - deploy_staging_approval:
@@ -297,6 +290,9 @@ workflows:
     - deploy_staging:
         requires:
           - deploy_staging_approval
+        context:
+          - prison-visits-public-staging
+          - hmpps-common-vars
     - deploy_production_approval:
         type: approval
         requires:
@@ -307,6 +303,9 @@ workflows:
     - deploy_production:
         requires:
           - deploy_production_approval
+        context:
+          - prison-visits-public-production
+          - hmpps-common-vars
         filters:
           branches:
             only: main
