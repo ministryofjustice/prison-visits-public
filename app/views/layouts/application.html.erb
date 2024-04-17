@@ -55,22 +55,20 @@
 
 <% content_for :content do %>
   <main id="content">
-    <div class="phase-banner phase-banner-beta">
-      <%= t('.feedback_banner_html', url: 'https://visit-someone-in-prison.form.service.justice.gov.uk') %>
+    <div class="govuk-width-container">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <br><br>
+          <h1 class="govuk-heading-l">Sorry, the service is unavailable</h1>
+          <p class="govuk-body">
+            The service is currently down for scheduled maintenance.
+          </p>
+          <p class="govuk-body">
+            We aim to get this service back as soon as possible.
+          </p>
+        </div>
+      </div>
     </div>
-    <header>
-      <h1 class="heading-xlarge">
-        <%= yield :header %>
-      </h1>
-    </header>
-
-    <% if notice.present? %>
-      <p class="error-summary">
-        <%= notice %>
-      </p>
-    <% end %>
-
-    <%= yield %>
   </main>
 <% end %>
 
