@@ -1,4 +1,5 @@
 require 'simplecov'
+
 SimpleCov.minimum_coverage 100
 
 # Minimal auto-load for quicker specs. This avoids loading the whole of Rails
@@ -24,6 +25,10 @@ locations.each do |location|
 end
 
 Dir[File.expand_path('support/matchers/*.rb', __dir__)].sort.each do |path|
+  require path
+end
+
+Dir[File.expand_path('support/shared/*.rb', __dir__)].sort.each do |path|
   require path
 end
 
@@ -147,6 +152,8 @@ VCR.configure do |config|
     # Ignore capybara requests within feature tests
     request.uri =~ /__identify__|session|\/json\/version/
   end
+
+  config.allow_http_connections_when_no_cassette = true
 end
 
 def pvb_api

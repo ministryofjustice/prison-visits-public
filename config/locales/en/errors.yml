@@ -6,7 +6,18 @@ en:
         blank: is required
         invalid: is invalid
         too_short: is too short (minimum is %{count} characters)
+        lead_visitor_age:
+          The person requesting the visit must be over the age of %{min}
+        too_many_adults:
+          You can book a maximum of %{max} visitors over the age of
+          %{age} on this visit
       models:
+        staff_response:
+          attributes:
+            visit:
+              already_processed: can't be processed
+            base:
+              visitors_invalid: visitor selection is invalid
         prisoner_step:
           attributes:
             first_name:
@@ -47,6 +58,7 @@ en:
               inclusion: Enter a date of birth
               lead_visitor_age:
                 The person requesting the visit must be over the age of %{min}
+          unprocessed_contact_list: Process this visitor to continue
 
   activerecord:
     errors:
@@ -54,6 +66,14 @@ en:
         prison:
           duplicate_unbookable_date: An unbookable date may not be duplicated
           unbookable_and_anomalous_conflict: An unbookable date may not also be anomalous
+        rejection:
+          invalid_reason: "%{reason} is not in the list"
+        cancellation:
+          invalid_reason: "%{reason} is not in the list"
+        visitor:
+          unprocessed_contact_list: Process this visitor to continue
+      messages:
+        no_cancellation_reason: Please provide a cancellation reason
 
   email_checker:
     errors:
@@ -75,3 +95,6 @@ en:
   prisoner_number_validator:
     errors:
       format: Enter a prisoner number. It should be 7 characters starting with a letter.
+  errors:
+    messages:
+      unprocessed_contact_list: Process this visitor to continue

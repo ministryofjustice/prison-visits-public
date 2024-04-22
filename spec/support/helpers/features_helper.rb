@@ -17,6 +17,24 @@ module FeaturesHelper
     select_prison options.fetch(:prison_name)
   end
 
+  def enter_direct_prisoner_information(options = {})
+    options = {
+      first_name: 'Aiemonda',
+      last_name: 'Gracasina',
+      date_of_birth: Date.new(1985, 10, 3),
+      number: 'G6587UU',
+      prison_name: 'Hewell'
+    }.merge(options)
+
+    fill_in 'Prisoner first name', with: options.fetch(:first_name)
+    fill_in 'Prisoner last name', with: options.fetch(:last_name)
+    fill_in 'Day', with: options.fetch(:date_of_birth).mday
+    fill_in 'Month', with: options.fetch(:date_of_birth).month
+    fill_in 'Year', with: options.fetch(:date_of_birth).year
+    fill_in 'Prisoner number', with: options.fetch(:number)
+    select_prison options.fetch(:prison_name)
+  end
+
   def enter_visitor_information(new_options = {})
     options = {
       first_name: 'Ada',
@@ -50,6 +68,11 @@ module FeaturesHelper
   def select_first_available_date
     expect(page).to have_css('table.booking-calendar td.available')
     first("table.booking-calendar td.available").click
+  end
+
+  def select_nth_available_date(nth)
+    expect(page).to have_css('table.booking-calendar td.available')
+    page.all('table.booking-calendar td.available')[nth].click
   end
 
   def select_first_available_slot
