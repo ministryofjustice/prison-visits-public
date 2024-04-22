@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Booking a visit', js: true do
+RSpec.feature 'Booking a visit through staff api', js: true do
   include FeaturesHelper
 
   # Whitespace on email to test stripping
