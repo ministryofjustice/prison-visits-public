@@ -50,11 +50,10 @@ RSpec.describe Staff::VisitsManager do
         }
       }
 
-      describe 'when successfull' do
+      describe 'when successful' do
         it 'creates a new visit booking request' do
-          visit_count_before = Staff
-          ::Visit.count
-          described_class.new.create(params)
+          visit_count_before = Staff::Visit.count
+          expect(described_class.new.create(params)).to be_truthy
           visit_added = Staff::Visit.last
 
           expect(Staff::Visit.count).to eq(visit_count_before + 1)
