@@ -44,15 +44,15 @@ RSpec.describe Excon::Middleware::CustomIdempotent do
       end
     )
 
-    expect { connection.request(method: :get, path: '/some-path') }
-      .to raise_error(Excon::Errors::SocketError)
+    expect { connection.request(method: :get, path: '/some-path') }.
+      to raise_error(Excon::Errors::SocketError)
   end
 
   it "Idempotent request with a timeout error" do
     WebMock.stub_request(:get, /\w/).to_timeout
 
-    expect { connection.request(method: :get, path: '/some-path') }
-      .to raise_error(Excon::Errors::Timeout)
+    expect { connection.request(method: :get, path: '/some-path') }.
+      to raise_error(Excon::Errors::Timeout)
   end
 
   it "Idempotent request with socket erroring first 3 times" do
@@ -63,7 +63,7 @@ RSpec.describe Excon::Middleware::CustomIdempotent do
         if run_count <= 3 # First 3 calls fail.
           raise Excon::Errors::SocketError, Exception.new("Mock Error")
         else
-          { status:  200 }
+          { status: 200 }
         end
       end
     )
@@ -85,8 +85,8 @@ RSpec.describe Excon::Middleware::CustomIdempotent do
       end
     )
 
-    expect { connection.request(method: :get, idempotent: true, path: '/some-path') }
-      .to raise_error(Excon::Errors::SocketError)
+    expect { connection.request(method: :get, idempotent: true, path: '/some-path') }.
+      to raise_error(Excon::Errors::SocketError)
   end
 
   it "Lowered retry limit with socket erroring first time" do
@@ -119,8 +119,8 @@ RSpec.describe Excon::Middleware::CustomIdempotent do
       end
     )
 
-    expect { connection.request(method: :get, idempotent: true, path: '/some-path', retry_limit: 2) }
-      .to raise_error(Excon::Errors::SocketError)
+    expect { connection.request(method: :get, idempotent: true, path: '/some-path', retry_limit: 2) }.
+      to raise_error(Excon::Errors::SocketError)
   end
 
   it "Raised retry limit with socket erroring first 5 times" do
@@ -153,8 +153,8 @@ RSpec.describe Excon::Middleware::CustomIdempotent do
       end
     )
 
-    expect { connection.request(method: :get, idempotent: true, path: '/some-path', retry_limit: 8) }
-     .to raise_error(Excon::Errors::SocketError)
+    expect { connection.request(method: :get, idempotent: true, path: '/some-path', retry_limit: 8) }.
+     to raise_error(Excon::Errors::SocketError)
   end
 
   it "Retry limit in constructor with socket erroring first 5 times" do
@@ -200,7 +200,7 @@ RSpec.describe Excon::Middleware::CustomIdempotent do
         if run_count <= 2 # First 5 calls fail.
           raise Excon::Error::Socket, Exception.new("Mock Error")
         else
-          { body: request.body, headers: request.headers, status:  200 }
+          { body: request.body, headers: request.headers, status: 200 }
         end
       end
     )
@@ -248,7 +248,7 @@ RSpec.describe Excon::Middleware::CustomIdempotent do
 
   it "Overriding default retry_errors" do
     WebMock.stub_request(:get, /\w/).to_raise(
-      Excon::Error::Socket.new(Exception.new "Mock Error")
+      Excon::Error::Socket.new(Exception.new("Mock Error"))
     )
 
     expect {
