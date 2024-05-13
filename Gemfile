@@ -36,6 +36,7 @@ gem 'pvb-instrumentation',
 gem 'rake'
 gem 'request_store'
 gem 'sassc-rails'
+gem 'scenic'
 gem 'sentry-rails'
 gem 'sprockets-rails'
 gem 'state_machines-activerecord'
