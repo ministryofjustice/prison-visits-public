@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Staff::PrisonerValidator do
   describe 'validate' do
-    context 'validates correctly' do
+    context 'when validating correctly' do
       before do
         allow(Staff::ApiPrisonerChecker).to receive(:new).and_return(OpenStruct.new({ valid?: true }))
       end
@@ -12,7 +12,7 @@ RSpec.describe Staff::PrisonerValidator do
       end
     end
 
-    context 'validates incorrectly' do
+    context 'when validating incorrectly' do
       before do
         allow(Staff::ApiPrisonerChecker).to receive(:new).and_return(OpenStruct.new({ valid?: false, error: :error }))
       end

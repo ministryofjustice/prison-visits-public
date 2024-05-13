@@ -87,7 +87,7 @@ RSpec.describe GovNotifyEmailer do
                  visitors: [visitor])
         }
 
-        it  do
+        it do
           expect(client).to have_received(:send_email).with(
             client_params.deep_merge(
               personalisation: {
@@ -101,8 +101,10 @@ RSpec.describe GovNotifyEmailer do
       end
 
       context 'with rejection.email_formatted_reasons.empty?' do
-        let(:visit) { create(:rejected_visit, rejection_attributes: { reasons: [Rejection::BANNED] },
-                             visitors: [visitor]) }
+        let(:visit) {
+          create(:rejected_visit, rejection_attributes: { reasons: [Rejection::BANNED] },
+                                  visitors: [visitor])
+        }
 
         it do
           expect(client).to have_received(:send_email).with(
@@ -118,8 +120,10 @@ RSpec.describe GovNotifyEmailer do
       end
 
       context 'with anything else' do
-        let(:visit) { create(:rejected_visit, rejection_attributes: { reasons: [Rejection::PRISONER_OUT_OF_PRISON] },
-                             visitors: [visitor]) }
+        let(:visit) {
+          create(:rejected_visit, rejection_attributes: { reasons: [Rejection::PRISONER_OUT_OF_PRISON] },
+                                  visitors: [visitor])
+        }
 
         it do
           expect(client).to have_received(:send_email).with(

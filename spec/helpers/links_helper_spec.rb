@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe LinksHelper do
   describe 'address_book' do
     before do
-      @address_book = Rails.configuration.address_book
+      Rails.configuration.address_book_old = Rails.configuration.address_book
       Rails.configuration.address_book = :address_book
     end
 
     after do
-      Rails.configuration.address_book = @address_book
+      Rails.configuration.address_book = Rails.configuration.address_book_old
     end
 
     it 'returns address book' do
@@ -18,12 +18,12 @@ RSpec.describe LinksHelper do
 
   describe 'link_directory' do
     before do
-      @link_directory = Rails.configuration.link_directory
+      Rails.configuration.link_directory_old = Rails.configuration.link_directory
       Rails.configuration.link_directory = :link_directory
     end
 
     after do
-      Rails.configuration.link_directory = @link_directory
+      Rails.configuration.link_directory = Rails.configuration.link_directory_old
     end
 
     it 'returns link_address' do

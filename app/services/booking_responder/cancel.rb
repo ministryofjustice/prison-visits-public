@@ -1,4 +1,4 @@
-#:nocov:
+# :nocov:
 # Ignoring this for coverage as only brought to support testing when moved from staff to public app.  Not used in the
 # by the pubic app in requesting a visit, but kept in for future reference.
 class BookingResponder

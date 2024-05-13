@@ -3,10 +3,12 @@
 module Excon
   module Errors
     class DeadlineError < Error
+      # rubocop:disable Lint/MissingSuper
       def initialize(deadline, exceeded_by)
         @deadline = deadline
         @exceeded_by = exceeded_by
       end
+      # rubocop:enable Lint/MissingSuper
 
       def message
         "Deadline exceeded by #{@exceeded_by.abs}, \

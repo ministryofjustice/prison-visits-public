@@ -20,10 +20,10 @@ RSpec.describe BookingResponder do
       before do
         visit.slot_granted = visit.slot_option_0
 
-        expect(BookingResponder::Accept)
-          .to receive(:new)
-          .with(instance_of(StaffResponse))
-          .and_return(accept_processor)
+        expect(BookingResponder::Accept).
+          to receive(:new).
+          with(instance_of(StaffResponse)).
+          and_return(accept_processor)
       end
 
       it 'accepts the booking' do
@@ -37,8 +37,8 @@ RSpec.describe BookingResponder do
         visit.slot_granted = Rejection::SLOT_UNAVAILABLE
 
         expect(BookingResponder::Accept).not_to receive(:new)
-        expect(BookingResponder::Reject).to receive(:new)
-          .and_return(reject_processor)
+        expect(BookingResponder::Reject).to receive(:new).
+          and_return(reject_processor)
       end
 
       it 'rejects the booking' do

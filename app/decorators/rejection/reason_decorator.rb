@@ -1,10 +1,10 @@
-#:nocov:
+# :nocov:
 # Ignoring this for coverage as only brought to support testing when moved from staff to public app.  Not used in the
 # by the pubic app in requesting a visit, but kept in for future reference.
 #
 class Rejection::ReasonDecorator < Draper::Decorator
   delegate_all
-  def checkbox_for(reason, html_options = {}, visit_has_error = false)
+  def checkbox_for(reason, html_options = {}, visit_has_error: false)
     html_options_defaults(html_options)
 
     reason        = reason.to_s
@@ -15,7 +15,8 @@ class Rejection::ReasonDecorator < Draper::Decorator
     html_options[:class] = html_class(show_override, html_options[:class])
 
     h.check_box_tag(
-      'visit[rejection_attributes][reasons][]', reason, has_reason, html_options)
+      'visit[rejection_attributes][reasons][]', reason, has_reason, html_options
+    )
   end
 
   def html_options_defaults(html_options)

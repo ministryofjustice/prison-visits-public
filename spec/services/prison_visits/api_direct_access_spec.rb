@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe PrisonVisits::Api do
   before do
-    @use_staff_api = Rails.configuration.use_staff_api
+    Rails.configuration.use_staff_api_old = Rails.configuration.use_staff_api
     Rails.configuration.use_staff_api = false
   end
 
   after do
-    Rails.configuration.use_staff_api = @use_staff_api
+    Rails.configuration.use_staff_api = Rails.configuration.use_staff_api_old
   end
 
   let(:valid_visit) {

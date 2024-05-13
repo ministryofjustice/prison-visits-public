@@ -1,4 +1,4 @@
-#:nocov:
+# :nocov:
 # Ignoring this for coverage as only brought to support testing when moved from staff to public app.  Not used in the
 # by the pubic app in requesting a visit, but kept in for future reference.
 #
@@ -24,17 +24,18 @@ class RejectionDecorator < Draper::Decorator
       end
   end
 
-  def checkbox_for(reason, html_options = {}, visit_has_error = false)
+  def checkbox_for(reason, html_options = {}, visit_has_error: false)
     reasons_decorator = Rejection::ReasonDecorator.decorate(object.reasons)
     reasons_decorator.checkbox_for(reason, html_options, visit_has_error)
   end
 
   def email_formatted_reasons
-    email_reasons.each_with_object(Set.new) do |reason, result|
+    response = email_reasons.each_with_object(Set.new) do |reason, result|
       email_formatted_reason(reason).each do |formatted_reason|
         result << formatted_reason
       end
-    end.to_a
+    end
+    response.to_a
   end
 
   def staff_formatted_reasons

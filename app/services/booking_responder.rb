@@ -14,7 +14,7 @@ class BookingResponder
     processor.process_request(message)
   end
 
-  private
+private
 
   attr_accessor :staff_response, :message
 

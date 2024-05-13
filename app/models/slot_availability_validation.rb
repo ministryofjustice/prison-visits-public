@@ -1,4 +1,4 @@
-#:nocov:
+# :nocov:
 # Ignoring this for coverage as only brought to support testing when moved from staff to public app.  Not used in the
 # by the pubic app in requesting a visit, but kept in for future reference.
 #
@@ -51,8 +51,9 @@ private
     Nomis::Api.instance.fetch_bookable_slots(
       prison:,
       start_date: valid_requested_slots.min.to_date,
-      end_date: valid_requested_slots.max.to_date)
-      .slots
+      end_date: valid_requested_slots.max.to_date
+    ).
+      slots
   rescue Nomis::APIError => e
     @api_error = true
     Rails.logger.warn "Error calling the NOMIS API: #{e.inspect}"

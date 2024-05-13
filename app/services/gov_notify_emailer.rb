@@ -1,4 +1,4 @@
-#:nocov:
+# :nocov:
 
 require 'notifications/client'
 

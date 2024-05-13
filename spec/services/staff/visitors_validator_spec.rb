@@ -8,13 +8,13 @@ RSpec.describe Staff::VisitorsValidator do
       allow(Staff::Prison).to receive(:find).and_return(prison)
     end
 
-    context 'valid' do
+    context 'when valid' do
       it 'validates a visitor' do
         expect(described_class.validate(1, '1/1/2000', [Time.zone.today - 3.days])).
           to eq({ validation: { "valid" => true } })
       end
 
-      context 'invalid' do
+      context 'when invalid' do
         it 'validates a visitor who is not valid' do
           expect(described_class.validate(1, '1/1/2000',
                                           [Time.zone.today - 20.years,
@@ -25,7 +25,7 @@ RSpec.describe Staff::VisitorsValidator do
         end
       end
 
-      context 'invalid date format' do
+      context 'when invalid date format' do
         it 'validates a visitor who is not valid' do
           expect {
             described_class.validate(1, '1/1/2000',
