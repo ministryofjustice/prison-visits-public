@@ -136,7 +136,6 @@ jobs:
         command: |
           gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
     - run: bundle check --path vendor/bundle || bundle install --path vendor/bundle
-    - run: bundle exec rake db:create db:schema:load
     - save_cache:
         key: prison-visits-public-{{ checksum "Gemfile.lock" }}
         paths:
@@ -161,6 +160,7 @@ jobs:
         command: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
           chmod +x ./cc-test-reporter
+    - run: bundle exec rake db:create db:schema:load
     - run:
         name: Rubocop
         command: bundle exec rubocop
