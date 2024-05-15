@@ -39,6 +39,7 @@ RUN \
     netcat \
     apt-utils \
     nodejs \
+    iputils-ping\
   && timedatectl set-timezone Europe/London || true \
   && gem update bundler --no-document
 
@@ -70,5 +71,5 @@ RUN mkdir -p /home/appuser && \
 USER 1001
 
 RUN bundle update --bundler
-RUN SECRET_KEY_BASE=`rails secret` RAILS_ENV=production STAFF_SERVICE_URL=http://example.com SERVICE_URL=http://example.com rails assets:precompile --trace
+RUN SECRET_KEY_BASE=`rails secret` PUBLIC_SERVICE_URL=http://example.com RAILS_ENV=production STAFF_SERVICE_URL=http://example.com SERVICE_URL=http://example.com rails assets:precompile --trace
 EXPOSE 3000

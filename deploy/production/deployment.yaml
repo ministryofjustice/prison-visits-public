@@ -63,6 +63,8 @@ spec:
           value: "true"
         - name:  PRISON_VISITS_API
           value: "https://staff.prisonvisits.service.justice.gov.uk/"
+        - name: PUBLIC_SERVICE_URL
+          value: "https://prisonvisits.service.gov.uk"
         - name: EMAIL_DOMAIN
           value: "email.prisonvisits.service.gov.uk"
         - name: STAFF_SERVICE_URL

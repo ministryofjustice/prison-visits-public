@@ -8,6 +8,7 @@ require 'action_view/railtie'
 require 'sprockets/railtie'
 require_relative '../app/middleware/http_method_not_allowed'
 require_relative '../app/middleware/robots_tag'
+require 'ostruct'
 
 # require "action_mailer/railtie"
 # require "action_mailbox/engine"
