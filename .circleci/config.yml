@@ -272,12 +272,9 @@ workflows:
   build_and_test:
     jobs:
     - install_dependencies
-    # - test:
-    #     requires:
-    #       - install_dependencies
     - build_and_push_docker_image:
-        # requires:
-        #   - test
+        requires:
+          - install_dependencies
     - deploy_development:
         context:
           - hmpps-common-vars
