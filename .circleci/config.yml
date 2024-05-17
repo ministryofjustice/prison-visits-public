@@ -277,7 +277,7 @@ workflows:
           - install_dependencies
     - build_and_push_docker_image:
         requires:
-          - test
+          - install_dependencies
     - deploy_development:
         context:
           - hmpps-common-vars
