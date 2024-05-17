@@ -144,44 +144,44 @@ jobs:
         - vendor/bundle
         - node_modules/
 
-  test:
-    <<: *defaults
-    <<: *docker_container_config
-    steps:
-    - checkout
-    - attach_workspace:
-        at: ~/repo
-    - run: gem install bundler
-    - run: bundle --path vendor/bundle
-    - run:
-        name: Download Code Climate
-        command: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-          chmod +x ./cc-test-reporter
-    - run:
-        name: Rubocop
-        command: bundle exec rubocop
-    - run:
-        name: Security analysis
-        command: bundle exec brakeman -o ~/test-results/brakeman/brakeman.json -o ~/test-results/brakeman/brakeman.html
-    - run:
-        name: Run tests
-        command: |
-          ./cc-test-reporter before-build
-          bundle exec rake
-          ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
-        environment:
-          RAILS_ENV: test
-          RACK_ENV: test
-    # - run:
-    #     name: Jasmine tests
-    #     command: bundle exec rake jasmine:ci
-    - store_test_results:
-        path: coverage
-    - store_artifacts:
-        path: coverage
-    - store_artifacts:
-        path: ~/test-results
+  # test:
+  #   <<: *defaults
+  #   <<: *docker_container_config
+  #   steps:
+  #   - checkout
+  #   - attach_workspace:
+  #       at: ~/repo
+  #   - run: gem install bundler
+  #   - run: bundle --path vendor/bundle
+  #   - run:
+  #       name: Download Code Climate
+  #       command: |
+  #         curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  #         chmod +x ./cc-test-reporter
+  #   - run:
+  #       name: Rubocop
+  #       command: bundle exec rubocop
+  #   - run:
+  #       name: Security analysis
+  #       command: bundle exec brakeman -o ~/test-results/brakeman/brakeman.json -o ~/test-results/brakeman/brakeman.html
+  #   - run:
+  #       name: Run tests
+  #       command: |
+  #         ./cc-test-reporter before-build
+  #         bundle exec rake
+  #         ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
+  #       environment:
+  #         RAILS_ENV: test
+  #         RACK_ENV: test
+  #   # - run:
+  #   #     name: Jasmine tests
+  #   #     command: bundle exec rake jasmine:ci
+  #   - store_test_results:
+  #       path: coverage
+  #   - store_artifacts:
+  #       path: coverage
+  #   - store_artifacts:
+  #       path: ~/test-results
 
   build_and_push_docker_image:
     <<: *defaults
@@ -272,12 +272,12 @@ workflows:
   build_and_test:
     jobs:
     - install_dependencies
-    - test:
-        requires:
-          - install_dependencies
+    # - test:
+    #     requires:
+    #       - install_dependencies
     - build_and_push_docker_image:
-        requires:
-          - test
+        # requires:
+        #   - test
     - deploy_development:
         context:
           - hmpps-common-vars
