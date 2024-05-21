@@ -99,11 +99,7 @@ The API client is then tested by recording real API interactions using VCR. The 
 
 ### Further Technical Information
 
-- [Requesting a visit (Booking Visits Controller)](docs/controllers.md)
-- [Requesting a visit (Models)](docs/models.rb)
-- [Application configuration](docs/configuration.md)
-- [Welsh Translation](docs/welsh_translation.md)
-- [Frontend](docs/frontend.md)
+More information can be found in the [GitHub Wiki.](https://github.com/ministryofjustice/prison-visits-public/wiki)
 
 
 ## Licence
