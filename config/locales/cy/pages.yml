@@ -60,7 +60,7 @@ cy:
         felly gwnewch yn siŵr eich bod yn ychwanegu'r cyfeiriad e-bost hwn at eich
         llyfr cyfeiriadau neu restr anfonwyr diogel.
     privacy_policy:
-      title: pholisi preifatrwydd
+      title: Polisi preifatrwydd
       body_html: |
         <h2 class="heading-large" id="polisi-preifatrwydd">Polisi preifatrwydd</h2>
         <h3 class="heading-medium" id="gwybodaeth-a-ddarperir-gan-y-gwasanaeth-hwn">Gwybodaeth a ddarperir gan y gwasanaeth hwn</h3>
@@ -163,10 +163,11 @@ cy:
           neu anwiredd mewn perthynas â mater sylfaenol, nac unrhyw gyfrifoldeb arall
         na ellir ei eithrio neu sy’n gyfyngedig o dan y gyfraith berthnasol.</p>
         <h3 class="heading-medium" id="cysylltwch--ni">Cysylltwch â ni</h3>
-        <p>Y Weinyddiaeth Cyfiawnder
-          Gwasanaethau Digidol, 11.51
-          102 Petty France
-        Llundain SW1H 9AJ Y Deyrnas Unedig</p>
+        <p>Y Weinyddiaeth Cyfiawnder<br>
+          Gwasanaethau Digidol, 11.51<br>
+          102 Petty France<br>
+          Llundain<br>
+          SW1H 9AJ</p>
     terms_and_conditions:
       title: Telerau ac amodau
       body_html: |
