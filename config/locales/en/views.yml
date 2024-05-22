@@ -388,7 +388,6 @@ en:
       money_to_prisoners: Send money to someone in prison
       mtp_details_html: >-
         <p>If you have a bank account, you can <a href="https://www.gov.uk/send-prisoner-money">send money to a prisoner</a> online.</p>
-        <p>This free, fast and secure service lets you make online payments by debit card, or can give you a prisoner reference to use in a UK bank transfer.</p>
     cancelled:
       title: Your visit is cancelled
       your_visit: Date and time of your visit
