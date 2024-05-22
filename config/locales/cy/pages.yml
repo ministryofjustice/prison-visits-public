@@ -59,53 +59,9 @@ cy:
       confirmation: Byddwn yn anfon neges e-bost atoch i gadarnhau eich ymweliad,
         felly gwnewch yn siŵr eich bod yn ychwanegu'r cyfeiriad e-bost hwn at eich
         llyfr cyfeiriadau neu restr anfonwyr diogel.
-    terms_and_conditions:
-      title: Telerau ac amodau a pholisi preifatrwydd
+    privacy_policy:
+      title: pholisi preifatrwydd
       body_html: |
-        <p>Drwy ddefnyddio’r gwasanaeth digidol hwn i drefnu i ymweld â rhywun yn y carchar, rydych yn cytuno i’n
-        polisi preifatrwydd ac i’r telerau ac amodau hyn. Darllenwch yn ofalus, os gwelwch yn dda.</p>
-        <h2 class="heading-large" id="telerau-ac-amodau">Telerau ac Amodau</h2>
-        <h3 class="heading-medium" id="cyffredinol">Cyffredinol</h3>
-        <p>Mae’r telerau ac amodau hyn yn effeithio ar eich hawliau a’ch atebolrwydd dan y
-          gyfraith. Maent yn llywodraethu’r defnydd a wnewch, a’r perthynas gyda’r gwasanaeth
-          digidol i wneud cais i ymweld â rhywun yn y carchar. Nid ydynt yn berthnasol wasanaethau eraill a ddarperir gan
-          y Weinyddiaeth Cyfiawnder (Gwasanaeth Carchardai EM), neu i unrhyw adran neu
-        wasanaeth arall sy’n gysylltiedig â’r gwasanaeth hwn.</p>
-        <p>Efallai y byddwn yn diweddaru’r telerau ac amodau hyn o dro i dro. Gall hyn ddigwydd
-          os oes newid yn y gyfraith neu i’r ffordd y mae’r gwasanaeth hwn yn gweithio. Os
-          oes newid, gofynnir i chi gytuno i’r telerau ac amodau
-          newydd y tro nesaf y byddwch yn mewngofnodi, fel y gallwch barhau i ddefnyddio’r
-        gwasanaeth hwn.</p>
-        <p>Os nad ydych yn cytuno i’r telerau ac amodau na’r polisi preifatrwydd a nodir
-        yn y ddogfen hon, ni ddylech ddefnyddio’r gwasanaeth hwn.</p>
-        <h3 class="heading-medium" id="cyfraith-berthnasol">Cyfraith berthnasol</h3>
-        <p>Bydd y defnydd a wnewch o’r gwasanaeth hwn, ac unrhyw anghydfod sy’n codi yn sgil hynny,
-          yn cael ei lywodraethu gan, a’i ddehongli yn unol â chyfreithiau Cymru
-        a Lloegr, gan gynnwys ond nid yn gyfyngedig i’r canlynol:</p>
-        <ul class="list list-bullet">
-          <li>Deddf Camddefnyddio Cyfrifiaduron 1990</li>
-          <li>Deddf Diogelu Data 1998</li>
-          <li>Deddf Galluedd Meddyliol 2005</li>
-        </ul>
-        <h3 class="heading-medium" id="sut-i-ddefnyddior-gwasanaeth-hwn-mewn-ffordd-gyfrifol">Sut i ddefnyddio’r gwasanaeth hwn mewn ffordd gyfrifol</h3>
-        <p>Mae peryglon ynghlwm wrth ddefnyddio cyfrifiadur a rennir, megis mewn caffi rhyngrwyd,
-          i ddefnyddio’r gwasanaeth hwn. Eich cyfrifoldeb chi yw bod yn ymwybodol o’r peryglon hyn
-          ac osgoi defnyddio unrhyw gyfrifiadur allai adael eich gwybodaeth bersonol
-          ar gael i eraill gael mynediad ati. Chi sy’n gyfrifol os byddwch yn dewis
-          i adael cyfrifiadur heb ei ddiogelu pan fyddwch yn y broses o wneud cais
-        i ymweld â rhywun yn y carchar.</p>
-        <p>Rydym yn gwneud ein gorau glas i wirio a phrofi’r gwasanaeth hwn pa bryd bynnag y byddwn yn
-          newid neu’n diweddaru unrhyw beth. Fodd bynnag, rhaid i chi gymryd camau eich hunan i ofalu a sicrhau nad yw’r
-          ffordd yr ydych yn cael mynediad at y gwasanaeth hwn yn eich gwneud yn agored i beryglon
-          firysau, codau cyfrifiaduron maleisus neu ffurfiau eraill o ymyrraeth allai
-        ddifrodi eich system gyfrifiadurol eich hun.</p>
-        <p>Ni ddylech gamddefnyddio ein gwasanaeth drwy gyflwyno firysau, ymwelwyr diwahoddiad,
-          mwydod, bomiau rhesymeg neu ddeunydd arall sy’n faleisus neu’n
-          niweidiol yn dechnolegol. Ni ddylech geisio cael mynediad heb awdurdod
-          i’n gwasanaeth, y system lle cedwir ein gwasanaeth nac unrhyw
-          weinydd, cyfrifiadur neu gronfa data sy’n gysylltiedig â’n gwasanaeth. Ni ddylech
-          ymosod ar ein safle drwy ymosodiad gwrthod gwasanaeth neu ymosodiad atal
-        gwasanaeth.</p>
         <h2 class="heading-large" id="polisi-preifatrwydd">Polisi preifatrwydd</h2>
         <h3 class="heading-medium" id="gwybodaeth-a-ddarperir-gan-y-gwasanaeth-hwn">Gwybodaeth a ddarperir gan y gwasanaeth hwn</h3>
         <p>Rydym yn gweithio’n galed i sicrhau bod yr wybodaeth o fewn y gwasanaeth digidol hwn
@@ -211,6 +167,53 @@ cy:
           Gwasanaethau Digidol, 11.51
           102 Petty France
         Llundain SW1H 9AJ Y Deyrnas Unedig</p>
+    terms_and_conditions:
+      title: Telerau ac amodau
+      body_html: |
+        <p>Drwy ddefnyddio’r gwasanaeth digidol hwn i drefnu i ymweld â rhywun yn y carchar, rydych yn cytuno i’n
+        polisi preifatrwydd ac i’r telerau ac amodau hyn. Darllenwch yn ofalus, os gwelwch yn dda.</p>
+        <h2 class="heading-large" id="telerau-ac-amodau">Telerau ac Amodau</h2>
+        <h3 class="heading-medium" id="cyffredinol">Cyffredinol</h3>
+        <p>Mae’r telerau ac amodau hyn yn effeithio ar eich hawliau a’ch atebolrwydd dan y
+          gyfraith. Maent yn llywodraethu’r defnydd a wnewch, a’r perthynas gyda’r gwasanaeth
+          digidol i wneud cais i ymweld â rhywun yn y carchar. Nid ydynt yn berthnasol wasanaethau eraill a ddarperir gan
+          y Weinyddiaeth Cyfiawnder (Gwasanaeth Carchardai EM), neu i unrhyw adran neu
+        wasanaeth arall sy’n gysylltiedig â’r gwasanaeth hwn.</p>
+        <p>Efallai y byddwn yn diweddaru’r telerau ac amodau hyn o dro i dro. Gall hyn ddigwydd
+          os oes newid yn y gyfraith neu i’r ffordd y mae’r gwasanaeth hwn yn gweithio. Os
+          oes newid, gofynnir i chi gytuno i’r telerau ac amodau
+          newydd y tro nesaf y byddwch yn mewngofnodi, fel y gallwch barhau i ddefnyddio’r
+        gwasanaeth hwn.</p>
+        <p>Os nad ydych yn cytuno i’r telerau ac amodau na’r polisi preifatrwydd a nodir
+        yn y ddogfen hon, ni ddylech ddefnyddio’r gwasanaeth hwn.</p>
+        <h3 class="heading-medium" id="cyfraith-berthnasol">Cyfraith berthnasol</h3>
+        <p>Bydd y defnydd a wnewch o’r gwasanaeth hwn, ac unrhyw anghydfod sy’n codi yn sgil hynny,
+          yn cael ei lywodraethu gan, a’i ddehongli yn unol â chyfreithiau Cymru
+        a Lloegr, gan gynnwys ond nid yn gyfyngedig i’r canlynol:</p>
+        <ul class="list list-bullet">
+          <li>Deddf Camddefnyddio Cyfrifiaduron 1990</li>
+          <li>Deddf Diogelu Data 1998</li>
+          <li>Deddf Galluedd Meddyliol 2005</li>
+        </ul>
+        <h3 class="heading-medium" id="sut-i-ddefnyddior-gwasanaeth-hwn-mewn-ffordd-gyfrifol">Sut i ddefnyddio’r gwasanaeth hwn mewn ffordd gyfrifol</h3>
+        <p>Mae peryglon ynghlwm wrth ddefnyddio cyfrifiadur a rennir, megis mewn caffi rhyngrwyd,
+          i ddefnyddio’r gwasanaeth hwn. Eich cyfrifoldeb chi yw bod yn ymwybodol o’r peryglon hyn
+          ac osgoi defnyddio unrhyw gyfrifiadur allai adael eich gwybodaeth bersonol
+          ar gael i eraill gael mynediad ati. Chi sy’n gyfrifol os byddwch yn dewis
+          i adael cyfrifiadur heb ei ddiogelu pan fyddwch yn y broses o wneud cais
+        i ymweld â rhywun yn y carchar.</p>
+        <p>Rydym yn gwneud ein gorau glas i wirio a phrofi’r gwasanaeth hwn pa bryd bynnag y byddwn yn
+          newid neu’n diweddaru unrhyw beth. Fodd bynnag, rhaid i chi gymryd camau eich hunan i ofalu a sicrhau nad yw’r
+          ffordd yr ydych yn cael mynediad at y gwasanaeth hwn yn eich gwneud yn agored i beryglon
+          firysau, codau cyfrifiaduron maleisus neu ffurfiau eraill o ymyrraeth allai
+        ddifrodi eich system gyfrifiadurol eich hun.</p>
+        <p>Ni ddylech gamddefnyddio ein gwasanaeth drwy gyflwyno firysau, ymwelwyr diwahoddiad,
+          mwydod, bomiau rhesymeg neu ddeunydd arall sy’n faleisus neu’n
+          niweidiol yn dechnolegol. Ni ddylech geisio cael mynediad heb awdurdod
+          i’n gwasanaeth, y system lle cedwir ein gwasanaeth nac unrhyw
+          weinydd, cyfrifiadur neu gronfa data sy’n gysylltiedig â’n gwasanaeth. Ni ddylech
+          ymosod ar ein safle drwy ymosodiad gwrthod gwasanaeth neu ymosodiad atal
+        gwasanaeth.</p>
     cookies:
       title: Cwcis
       body_html: |
