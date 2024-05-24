@@ -20,7 +20,7 @@ en:
     "500":
       title: We are experiencing technical difficulties
       body_md: |
-        The prison visits booking system is not available right now, but
+        The prison visits booking service is not available right now, but
         we're working hard to get things up and running again.
 
         You can try again later or book your visit by phone instead. See the
@@ -28,7 +28,7 @@ en:
     "503":
       title: We are experiencing technical difficulties
       body_md: |
-        The prison visits booking system is not available as we're carrying
+        The prison visits booking service is not available as we're carrying
         out some planned maintenance.
 
         You can try again later or book your visit by phone instead. See the
@@ -45,7 +45,7 @@ en:
       title: Privacy policy
       body_html: |
         <p>This privacy policy explains why the HM Prison and Probation Service (HMPPS)
-        collects personal data when you use the Prison Visit Booking service.</p>
+        collects personal data when you use the 'Visit someone in prison' service.</p>
         <p>This policy also explains:</p>
         <ul class="list list-bullet">
           <li>how we store this data</li>
@@ -87,20 +87,17 @@ en:
         <p>We can’t personally identify you using your site usage data.</p>
         <h3 class="heading-medium" id="purpose-of-procesessing-and-the-lawful-basis-for-the-process">
         Purpose of processing and the lawful basis for the process</h3>
-        <p>We collect personal data so that you can request to visit someone in prison. Prisons and Young Offender
-        Institutions need this information to ensure visits are safe and secure for visitors, offenders and staff.</p>
+        <p>We collect personal data so that you can request to visit someone in prison. We may also use the data to contact you to offer you the opportunity to take part in future research to improve our services.</p>        
+        <p>Prisons and Young Offender Institutions need this information to ensure visits are safe and secure for visitors, offenders and staff.</p>
         <h3 class="heading-medium" id="who-the-information-may-be-shared-with">
         Who the information may be shared with</h3>
         <p>We sometimes need to share the personal information we process with the individual themselves
         and also with other organisations. Where this is necessary we will comply with all aspects of the data laws.
         The organisations we share your personal information with are:<p>
         <ul class="list list-bullet">
-          <li><a href="http://sendgrid.com">SendGrid</a> to send you emails about the status of your visit
-          request and to relay information to prisons. See the
-          <a href="http://sendgrid.com/tos">terms &amp; conditions</a> attached to this service.</li>
-          <li><a href="http://www.zendesk.com">ZenDesk</a> to handle any feedback that you leave.
-          See the <a href="http://www.zendesk.com/company/terms">terms &amp; conditions</a> attached to
-          this service.</li>
+          <li><a href="https://moj-forms.service.justice.gov.uk/">MOJ Forms</a> to collect feedback. See their <a href="https://moj-forms.service.justice.gov.uk/terms-of-use/">terms of use.</a></li>
+                   <li><a href="https://www.notifications.service.gov.uk">GOV.UK Notify</a> to send you texts and emails. See their <a href="https://www.notifications.service.gov.uk/privacy">privacy notice.</a></li>
+          <li><a href="http://www.zendesk.com">ZenDesk</a> to handle any feedback that you leave. See the <a href="http://www.zendesk.com/company/terms">terms &amp; conditions</a> attached to this service.</li>          
         </ul>
         <h3 class="heading-medium" id="details-of-transfers-third-country-and-safeguards">
         Details of transfers to third country and safeguards</h3>
@@ -112,7 +109,7 @@ en:
         <p>Data is retained for seven years in accordance with HMPPS retention policy.</p>
         <h3 class="heading-medium" id="access-to-personal-information">Access to personal information</h3>
         <p>You can find out if we hold any personal data about you by making a ‘subject access request’.
-        To make a subject access request please contact:<p>
+        To make a subject access request please contact:</p>
         <p>
         Offender and ex-offenders;</br>
         Branston Registry</br>
@@ -188,6 +185,10 @@ en:
         Tel: 0303 123 1113</br>
         <a href="http://www.ico.org.uk">www.ico.org.uk</a>
         </p>
+        <h3 class="heading-medium" id="changes">Changes to this policy</h3>
+        <p>We may change this privacy policy. In that case, the ‘last updated’ date at the bottom of this page will also change. Any changes to this privacy policy will apply to you and your data immediately.</p>
+        <p>If these changes affect how your personal data is processed, MOJ will take reasonable steps to let you know.</p>
+        <p>Last updated on 21 May 2024</p>
     terms_and_conditions:
       title: Terms and conditions
       body_html: |
