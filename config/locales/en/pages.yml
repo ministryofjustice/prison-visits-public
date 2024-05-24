@@ -249,10 +249,13 @@ en:
           or misrepresentation as to a fundamental matter, nor any other liability
         which cannot be excluded or limited under applicable law.</p>
         <h3  class="heading-medium" id="contact-us">Contact us</h3>
-        <p>Ministry of Justice
-          Digital Services, 11.51
-          102 Petty France
-        London SW1H 9AJ United Kingdom</p>
+        <p>
+          Ministry of Justice</br>
+          Digital Services, 11.51</br>
+          102 Petty France</br>
+          London</br>
+          SW1H 9AJ
+        </p>
     cookies:
       title: Cookies
       body_html: |
