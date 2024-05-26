@@ -9,7 +9,7 @@ en:
       cookies_find_out_more: Find out more about cookies.
       cookies: Cookies
       ts_and_cs: Terms and conditions
-      privacy_policy: Privacy policy
+      privacy_policy: Privacy
       contact_us_html: |
         <a href='%{url}' target='_blank' rel='external'>Feedback</a>
       feedback_banner_html: |
