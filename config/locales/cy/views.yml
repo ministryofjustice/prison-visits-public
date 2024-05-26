@@ -9,7 +9,7 @@ cy:
       cookies_find_out_more: Rhagor o wybodaeth am gwcis
       cookies: Cwcis
       ts_and_cs: Telerau ac amodau
-      privacy_policy: Polisi preifatrwydd
+      privacy_policy: Preifatrwydd
       contact_us_html: |
         <a href='%{url}' target='_blank' rel='external'>Adborth</a>
       feedback_banner_html: "<p>\n  <span>Mae'r gwasanaeth hwn yn cael ei wella ac
