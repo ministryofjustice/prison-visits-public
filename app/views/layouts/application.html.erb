@@ -58,6 +58,19 @@
     <div class="phase-banner phase-banner-beta">
       <%= t('.feedback_banner_html', url: 'https://visit-someone-in-prison.form.service.justice.gov.uk') %>
     </div>
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          We have updated our privacy policy. It explains how we use your data.
+          <a class="govuk-notification-banner__link" href="/privacy-policy">View the privacy policy</a>.
+        </p>
+      </div>
+    </div>
     <header>
       <h1 class="heading-xlarge">
         <%= yield :header %>
