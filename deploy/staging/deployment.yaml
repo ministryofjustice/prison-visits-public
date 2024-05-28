@@ -133,3 +133,5 @@ spec:
             secretKeyRef:
               name: secrets
               key: NOMIS_OAUTH_CLIENT_SECRET
+        - name:  SENTRY_CURRENT_ENV
+          value: "staging"
