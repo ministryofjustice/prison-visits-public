@@ -6,7 +6,7 @@ class Staff::PrisonerValidator
       if checker.valid?
         { 'valid' => true }
       else
-        { 'valid' => false, errors: [checker.error] }
+        { 'valid' => false, 'errors' => [checker.error] }
       end
     end
   end
