@@ -15,6 +15,9 @@ cy:
         efallai y byddwch yn sylwi ar newidiadau – <a href='%{url}' target='_blank'
         rel='external'>cysylltwch â ni<span class='visuallyhidden'> (dolen yn agor
         mewn ffenestr bori newydd)</span></a> os oes arnoch angen cymorth.</span>\n</p>\n"
+      privacy_policy_header_text: Pwysig
+      privacy_policy_header_html: Rydym wedi diweddaru ein polisi preifatrwydd. Mae'n esbonio sut rydym yn defnyddio'ch data.<a class="govuk-notification-banner__link" href='/cy/privacy-policy'>Gweld y polisi preifatrwydd</a>.
+
   booking_requests:
     hidden_inputs_for_calendars:
       option: Opsiwn %{n}
