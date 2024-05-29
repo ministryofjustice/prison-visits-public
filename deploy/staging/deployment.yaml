@@ -135,3 +135,8 @@ spec:
               key: NOMIS_OAUTH_CLIENT_SECRET
         - name:  SENTRY_CURRENT_ENV
           value: "staging"
+        - name: GOV_NOTIFY_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: secrets
+              key: GOV_NOTIFY_API_KEY
