@@ -18,7 +18,7 @@ RSpec.describe Staff::PrisonerValidator do
       end
 
       it 'passes through the error' do
-        expect(described_class.validate(1, 1)[:errors]).to eq([:error])
+        expect(described_class.validate(1, 1)['errors']).to eq([:error])
       end
     end
   end
