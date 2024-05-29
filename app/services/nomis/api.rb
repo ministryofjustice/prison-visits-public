@@ -32,6 +32,8 @@ module Nomis
                    noms_id:, date_of_birth:)
       }
 
+      Rails.logger.info("rwx1 response #{response}")
+
       build_prisoner(response).tap do |prisoner|
         PVB::Instrumentation.append_to_log(valid_prisoner_lookup: !(!response['found']))
         prisoner.noms_id = noms_id

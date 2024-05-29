@@ -65,10 +65,17 @@ module Nomis
         }
       }.deep_merge(params_options(method, params)))
 
+      Rails.logger.info("rwx2  #{options}")
+
       response = @connection.request(options)
+
+      Rails.logger.info("rwx3  #{response.status}")
+      Rails.logger.info("rwx4  #{response.body}")
 
       JSON.parse(response.body)
     rescue Excon::Error::HTTPStatus => e
+      Rails.logger.info("rwx5  #{e}")
+
       body = e.response.body
 
       # API errors should be returned as JSON, but there are many scenarios
