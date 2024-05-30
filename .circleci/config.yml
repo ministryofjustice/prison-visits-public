@@ -176,8 +176,6 @@ jobs:
         environment:
           RAILS_ENV: test
           RACK_ENV: test
-          SENTRY_JS_DSN: ""
-          SENTRY_DSN: ""
     # - run:
     #     name: Jasmine tests
     #     command: bundle exec rake jasmine:ci
