@@ -21,6 +21,7 @@ class Staff::VisitsManager
     elsif VisitorWithdrawalResponse.new(visit: @visit).visitor_can_withdraw?
       VisitorWithdrawalResponse.new(visit: @visit).withdraw!
     end
+    @visit.visit_state_changes.last.update!(creator_type: :Visitor)
     @visit
   end
 
