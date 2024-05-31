@@ -90,7 +90,6 @@ http_interactions:
         (Convicted only)","closed":false,"private":false,"prison_url":"http://localhost:4000/api/prisons/ea94276d-b563-4e15-8140-9676a48ca528"},{"id":"a37cdb69-690c-482e-9a21-9379f7ccc35d","name":"Winchester
         (Remand only)","closed":false,"private":false,"prison_url":"http://localhost:4000/api/prisons/a37cdb69-690c-482e-9a21-9379f7ccc35d"},{"id":"a85c970a-c3fd-4974-9b2d-e1c0a2afd586","name":"Wolds","closed":false,"private":false,"prison_url":"http://localhost:4000/api/prisons/a85c970a-c3fd-4974-9b2d-e1c0a2afd586"},{"id":"4855bb0f-b053-42a7-9564-c89fc8a2ddf0","name":"Woodhill","closed":false,"private":false,"prison_url":"http://localhost:4000/api/prisons/4855bb0f-b053-42a7-9564-c89fc8a2ddf0"},{"id":"945accc1-c6aa-49ca-9df3-b48693cd937e","name":"Wormwood
         Scrubs","closed":false,"private":false,"prison_url":"http://localhost:4000/api/prisons/945accc1-c6aa-49ca-9df3-b48693cd937e"},{"id":"8484479f-f7f5-4002-a748-38d68b1bf43d","name":"Wymott","closed":false,"private":false,"prison_url":"http://localhost:4000/api/prisons/8484479f-f7f5-4002-a748-38d68b1bf43d"}]}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:27 GMT
 - request:
     method: get
@@ -133,7 +132,6 @@ http_interactions:
       string: '{"prison":{"id":"bf29bf0f-a046-43d1-911b-59ac58730eff","name":"Leicester","address":"116
         Welford Road","postcode":"LE2 7AJ","email_address":"socialvisitsleiceste@hmps.gsi.gov.uk","phone_no":"0116
         228 3128","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/leicester","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:27 GMT
 - request:
     method: post
@@ -176,7 +174,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:27 GMT
 - request:
     method: get
@@ -217,7 +214,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"slots":{"2017-03-14T14:15/16:15":[],"2017-03-15T14:15/16:15":[],"2017-03-16T14:15/16:15":[],"2017-03-18T14:15/16:15":[],"2017-03-19T14:15/16:15":[],"2017-03-21T14:15/16:15":[],"2017-03-22T14:15/16:15":[],"2017-03-23T14:15/16:15":[],"2017-03-25T14:15/16:15":[],"2017-03-26T14:15/16:15":[],"2017-03-28T14:15/16:15":[],"2017-03-29T14:15/16:15":[],"2017-03-30T14:15/16:15":[],"2017-04-01T14:15/16:15":[],"2017-04-02T14:15/16:15":[],"2017-04-04T14:15/16:15":[],"2017-04-05T14:15/16:15":[]}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:27 GMT
 - request:
     method: get
@@ -260,7 +256,6 @@ http_interactions:
       string: '{"prison":{"id":"bf29bf0f-a046-43d1-911b-59ac58730eff","name":"Leicester","address":"116
         Welford Road","postcode":"LE2 7AJ","email_address":"socialvisitsleiceste@hmps.gsi.gov.uk","phone_no":"0116
         228 3128","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/leicester","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:28 GMT
 - request:
     method: post
@@ -303,7 +298,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:28 GMT
 - request:
     method: get
@@ -344,7 +338,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"slots":{"2017-03-14T14:15/16:15":[],"2017-03-15T14:15/16:15":[],"2017-03-16T14:15/16:15":[],"2017-03-18T14:15/16:15":[],"2017-03-19T14:15/16:15":[],"2017-03-21T14:15/16:15":[],"2017-03-22T14:15/16:15":[],"2017-03-23T14:15/16:15":[],"2017-03-25T14:15/16:15":[],"2017-03-26T14:15/16:15":[],"2017-03-28T14:15/16:15":[],"2017-03-29T14:15/16:15":[],"2017-03-30T14:15/16:15":[],"2017-04-01T14:15/16:15":[],"2017-04-02T14:15/16:15":[],"2017-04-04T14:15/16:15":[],"2017-04-05T14:15/16:15":[]}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:28 GMT
 - request:
     method: get
@@ -387,7 +380,6 @@ http_interactions:
       string: '{"prison":{"id":"bf29bf0f-a046-43d1-911b-59ac58730eff","name":"Leicester","address":"116
         Welford Road","postcode":"LE2 7AJ","email_address":"socialvisitsleiceste@hmps.gsi.gov.uk","phone_no":"0116
         228 3128","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/leicester","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:28 GMT
 - request:
     method: post
@@ -430,7 +422,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:28 GMT
 - request:
     method: get
@@ -471,7 +462,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"slots":{"2017-03-14T14:15/16:15":[],"2017-03-15T14:15/16:15":[],"2017-03-16T14:15/16:15":[],"2017-03-18T14:15/16:15":[],"2017-03-19T14:15/16:15":[],"2017-03-21T14:15/16:15":[],"2017-03-22T14:15/16:15":[],"2017-03-23T14:15/16:15":[],"2017-03-25T14:15/16:15":[],"2017-03-26T14:15/16:15":[],"2017-03-28T14:15/16:15":[],"2017-03-29T14:15/16:15":[],"2017-03-30T14:15/16:15":[],"2017-04-01T14:15/16:15":[],"2017-04-02T14:15/16:15":[],"2017-04-04T14:15/16:15":[],"2017-04-05T14:15/16:15":[]}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:29 GMT
 - request:
     method: get
@@ -514,7 +504,6 @@ http_interactions:
       string: '{"prison":{"id":"bf29bf0f-a046-43d1-911b-59ac58730eff","name":"Leicester","address":"116
         Welford Road","postcode":"LE2 7AJ","email_address":"socialvisitsleiceste@hmps.gsi.gov.uk","phone_no":"0116
         228 3128","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/leicester","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:29 GMT
 - request:
     method: post
@@ -557,7 +546,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:30 GMT
 - request:
     method: get
@@ -598,7 +586,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"slots":{"2017-03-14T14:15/16:15":[],"2017-03-15T14:15/16:15":[],"2017-03-16T14:15/16:15":[],"2017-03-18T14:15/16:15":[],"2017-03-19T14:15/16:15":[],"2017-03-21T14:15/16:15":[],"2017-03-22T14:15/16:15":[],"2017-03-23T14:15/16:15":[],"2017-03-25T14:15/16:15":[],"2017-03-26T14:15/16:15":[],"2017-03-28T14:15/16:15":[],"2017-03-29T14:15/16:15":[],"2017-03-30T14:15/16:15":[],"2017-04-01T14:15/16:15":[],"2017-04-02T14:15/16:15":[],"2017-04-04T14:15/16:15":[],"2017-04-05T14:15/16:15":[]}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:31 GMT
 - request:
     method: get
@@ -641,7 +628,6 @@ http_interactions:
       string: '{"prison":{"id":"bf29bf0f-a046-43d1-911b-59ac58730eff","name":"Leicester","address":"116
         Welford Road","postcode":"LE2 7AJ","email_address":"socialvisitsleiceste@hmps.gsi.gov.uk","phone_no":"0116
         228 3128","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/leicester","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:31 GMT
 - request:
     method: post
@@ -684,7 +670,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:32 GMT
 - request:
     method: get
@@ -725,7 +710,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"slots":{"2017-03-14T14:15/16:15":[],"2017-03-15T14:15/16:15":[],"2017-03-16T14:15/16:15":[],"2017-03-18T14:15/16:15":[],"2017-03-19T14:15/16:15":[],"2017-03-21T14:15/16:15":[],"2017-03-22T14:15/16:15":[],"2017-03-23T14:15/16:15":[],"2017-03-25T14:15/16:15":[],"2017-03-26T14:15/16:15":[],"2017-03-28T14:15/16:15":[],"2017-03-29T14:15/16:15":[],"2017-03-30T14:15/16:15":[],"2017-04-01T14:15/16:15":[],"2017-04-02T14:15/16:15":[],"2017-04-04T14:15/16:15":[],"2017-04-05T14:15/16:15":[]}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:32 GMT
 - request:
     method: post
@@ -768,7 +752,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:33 GMT
 - request:
     method: get
@@ -811,7 +794,6 @@ http_interactions:
       string: '{"prison":{"id":"bf29bf0f-a046-43d1-911b-59ac58730eff","name":"Leicester","address":"116
         Welford Road","postcode":"LE2 7AJ","email_address":"socialvisitsleiceste@hmps.gsi.gov.uk","phone_no":"0116
         228 3128","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/leicester","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:33 GMT
 - request:
     method: post
@@ -854,7 +836,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:33 GMT
 - request:
     method: get
@@ -895,7 +876,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"slots":{"2017-03-14T14:15/16:15":[],"2017-03-15T14:15/16:15":[],"2017-03-16T14:15/16:15":[],"2017-03-18T14:15/16:15":[],"2017-03-19T14:15/16:15":[],"2017-03-21T14:15/16:15":[],"2017-03-22T14:15/16:15":[],"2017-03-23T14:15/16:15":[],"2017-03-25T14:15/16:15":[],"2017-03-26T14:15/16:15":[],"2017-03-28T14:15/16:15":[],"2017-03-29T14:15/16:15":[],"2017-03-30T14:15/16:15":[],"2017-04-01T14:15/16:15":[],"2017-04-02T14:15/16:15":[],"2017-04-04T14:15/16:15":[],"2017-04-05T14:15/16:15":[]}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:34 GMT
 - request:
     method: post
@@ -938,7 +918,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:34 GMT
 - request:
     method: get
@@ -1030,7 +1009,6 @@ http_interactions:
         (Convicted only)","closed":false,"private":false,"prison_url":"http://localhost:4000/api/prisons/ea94276d-b563-4e15-8140-9676a48ca528"},{"id":"a37cdb69-690c-482e-9a21-9379f7ccc35d","name":"Winchester
         (Remand only)","closed":false,"private":false,"prison_url":"http://localhost:4000/api/prisons/a37cdb69-690c-482e-9a21-9379f7ccc35d"},{"id":"a85c970a-c3fd-4974-9b2d-e1c0a2afd586","name":"Wolds","closed":false,"private":false,"prison_url":"http://localhost:4000/api/prisons/a85c970a-c3fd-4974-9b2d-e1c0a2afd586"},{"id":"4855bb0f-b053-42a7-9564-c89fc8a2ddf0","name":"Woodhill","closed":false,"private":false,"prison_url":"http://localhost:4000/api/prisons/4855bb0f-b053-42a7-9564-c89fc8a2ddf0"},{"id":"945accc1-c6aa-49ca-9df3-b48693cd937e","name":"Wormwood
         Scrubs","closed":false,"private":false,"prison_url":"http://localhost:4000/api/prisons/945accc1-c6aa-49ca-9df3-b48693cd937e"},{"id":"8484479f-f7f5-4002-a748-38d68b1bf43d","name":"Wymott","closed":false,"private":false,"prison_url":"http://localhost:4000/api/prisons/8484479f-f7f5-4002-a748-38d68b1bf43d"}]}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:34 GMT
 - request:
     method: get
@@ -1073,7 +1051,6 @@ http_interactions:
       string: '{"prison":{"id":"664ca96b-b4c9-4602-8fbe-cef5218c455e","name":"Usk","address":"47
         Maryport Street","postcode":"NP15 1XP","email_address":"socialvisits.usk@hmps.gsi.gov.uk","phone_no":"01291
         671730","prison_finder_url":"http://www.justice.gov.uk/contacts/prison-finder/usk-prescoed-usk","max_visitors":6,"adult_age":18,"closed":false,"private":false,"enabled":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:35 GMT
 - request:
     method: post
@@ -1116,7 +1093,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:35 GMT
 - request:
     method: get
@@ -1157,7 +1133,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"slots":{"2017-03-14T14:00/16:00":[],"2017-03-15T14:00/16:00":[],"2017-03-15T17:00/19:00":[],"2017-03-16T14:00/16:00":[],"2017-03-17T14:00/16:00":[],"2017-03-17T17:00/19:00":[],"2017-03-18T14:00/16:00":[],"2017-03-19T14:00/16:00":[],"2017-03-20T17:00/19:00":[],"2017-03-21T14:00/16:00":[],"2017-03-22T14:00/16:00":[],"2017-03-22T17:00/19:00":[],"2017-03-23T14:00/16:00":[],"2017-03-24T14:00/16:00":[],"2017-03-24T17:00/19:00":[],"2017-03-25T14:00/16:00":[],"2017-03-26T14:00/16:00":[],"2017-03-27T17:00/19:00":[],"2017-03-28T14:00/16:00":[],"2017-03-29T14:00/16:00":[],"2017-03-29T17:00/19:00":[],"2017-03-30T14:00/16:00":[],"2017-03-31T14:00/16:00":[],"2017-03-31T17:00/19:00":[],"2017-04-01T14:00/16:00":[],"2017-04-02T14:00/16:00":[],"2017-04-03T17:00/19:00":[],"2017-04-04T14:00/16:00":[],"2017-04-05T14:00/16:00":[],"2017-04-05T17:00/19:00":[]}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:36 GMT
 - request:
     method: post
@@ -1200,6 +1175,59 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"validation":{"valid":true}}'
-    http_version: 
   recorded_at: Wed, 08 Mar 2017 16:01:36 GMT
-recorded_with: VCR 3.0.3
+- request:
+    method: post
+    uri: https://o345774.ingest.sentry.io/api/5780496/envelope/
+    body:
+      encoding: UTF-8
+      string: |-
+        {"event_id":"a26072e137d44f2f9242642465dfb6e7","dsn":"https://8bdbc0c961b9446a8e080a6a1c005633@o345774.ingest.sentry.io/5780496","sdk":{"name":"sentry.ruby","version":"5.17.3"},"sent_at":"2024-06-03T12:06:47Z","trace":{"trace_id":"7fb8bb9728614afd9d5cf3da33e34c8b","environment":"test","release":"5c9f61bd3fa9a7ff60fa2dedb6e54c35f7a04e6d","public_key":"8bdbc0c961b9446a8e080a6a1c005633"}}
+        {"type":"event","content_type":"application/json"}
+        {"event_id":"a26072e137d44f2f9242642465dfb6e7","level":"error","timestamp":"2024-06-03T12:06:47Z","release":"5c9f61bd3fa9a7ff60fa2dedb6e54c35f7a04e6d","environment":"test","server_name":"L0433","modules":{"rake":"13.2.1","base64":"0.2.0","bigdecimal":"3.1.7","concurrent-ruby":"1.2.3","connection_pool":"2.4.1","drb":"2.2.1","i18n":"1.14.4","minitest":"5.22.3","mutex_m":"0.2.0","tzinfo":"2.0.6","activesupport":"7.1.2","builder":"3.2.4","erubi":"1.12.0","racc":"1.7.3","nokogiri":"1.16.4","rails-dom-testing":"2.2.0","crass":"1.0.6","loofah":"2.22.0","rails-html-sanitizer":"1.6.0","actionview":"7.1.2","rack":"2.2.9","rack-session":"1.0.2","rack-test":"2.1.0","actionpack":"7.1.2","nio4r":"2.7.1","websocket-extensions":"0.1.5","websocket-driver":"0.7.6","zeitwerk":"2.6.13","actioncable":"7.1.2","globalid":"1.2.1","activejob":"7.1.2","activemodel":"7.1.2","timeout":"0.4.1","activerecord":"7.1.2","marcel":"1.0.4","activestorage":"7.1.2","mini_mime":"1.1.5","date":"3.3.4","net-protocol":"0.2.2","net-imap":"0.4.10","net-pop":"0.1.2","net-smtp":"0.5.0","mail":"2.8.1","actionmailbox":"7.1.2","actionmailer":"7.1.2","actiontext":"7.1.2","activemodel-serializers-xml":"1.0.2","public_suffix":"5.0.5","addressable":"2.8.6","ast":"2.4.2","awesome_print":"1.9.2","base32-crockford":"0.1.0","msgpack":"1.7.2","bootsnap":"1.18.3","brakeman":"6.1.2","bundler":"2.5.6","business":"2.3.0","byebug":"11.1.3","matrix":"0.4.2","regexp_parser":"2.9.0","xpath":"3.2.0","capybara":"3.40.0","childprocess":"5.0.0","launchy":"3.0.0","capybara-screenshot":"1.0.26","coderay":"1.1.3","rexml":"3.2.6","crack":"1.0.0","webrick":"1.8.1","ferrum":"0.14","cuprite":"0.15","diff-lcs":"1.5.1","docile":"1.4.0","request_store":"1.3.2","ruby2_keywords":"0.0.5","draper":"4.0.2","email_address_validation":"0.1.2","excon":"0.110.0","execjs":"2.9.1","factory_bot":"6.4.6","stringio":"3.1.0","psych":"5.1.2","rdoc":"6.6.3.1","io-console":"0.7.2","reline":"0.5.2","irb":"1.12.0","rackup":"1.0.0","thor":"1.3.1","railties":"7.1.2","factory_bot_rails":"6.4.3","uri":"0.13.0","net-http":"0.4.1","faraday-net_http":"3.1.0","faraday":"2.9.0","ffaker":"2.23.0","ffi":"1.16.3","formatador":"1.1.0","rspec-support":"3.13.1","rspec-core":"3.13.0","ruby-progressbar":"1.13.0","fuubar":"2.5.1","govuk_frontend_toolkit":"9.0.1","rails":"7.1.2","rb-fsevent":"0.11.2","rb-inotify":"0.10.1","sass-listen":"4.0.0","sass":"3.7.4","govuk_elements_rails":"3.1.3","govuk_template":"0.26.0","listen":"3.9.0","lumberjack":"1.2.10","nenv":"0.3.0","shellany":"0.0.1","notiffany":"0.1.3","method_source":"1.1.0","pry":"0.14.2","guard":"2.18.1","guard-compat":"1.2.1","rspec-expectations":"3.13.0","rspec-mocks":"3.13.0","rspec":"3.13.0","guard-rspec":"4.7.3","json":"2.7.2","language_server-protocol":"3.17.0.3","parallel":"1.24.0","parser":"3.3.0.5","rainbow":"3.1.1","rubocop-ast":"1.31.2","unicode-display_width":"2.5.0","rubocop":"1.62.1","guard-rubocop":"1.5.0","hashdiff":"1.1.0","high_voltage":"3.1.2","jasmine-core":"3.99.0","phantomjs":"2.1.1.0","jasmine":"3.99.0","jasmine-jquery-rails":"2.0.3","jquery-rails":"4.6.0","jquery-ui-rails":"6.0.1","jwt":"2.8.1","kramdown":"2.4.0","lograge":"0.14.0","logstash-event":"1.2.02","systemu":"2.6.5","macaddr":"1.7.2","notifications-ruby-client":"5.4.0","pg":"1.5.6","phonelib":"0.8.8","pry-byebug":"3.10.1","pry-rails":"0.3.9","puma":"6.4.2","pvb-instrumentation":"1.0.1","rack-accept":"0.4.5","rails-controller-testing":"1.0.5","rspec-rails":"6.1.2","rubocop-capybara":"2.20.0","rubocop-factory_bot":"2.25.1","rubocop-rails":"2.24.1","rubocop-rake":"0.6.0","rubocop-rspec_rails":"2.28.3","rubocop-rspec":"2.28.0","rubocop-govuk":"4.16.1","rubocop-performance":"1.21.0","sassc":"2.4.0","sprockets":"4.2.1","sprockets-rails":"3.4.2","tilt":"2.3.0","sassc-rails":"2.1.2","scenic":"1.8.0","sentry-ruby":"5.17.3","sentry-rails":"5.17.3","shoulda-matchers":"6.2.0","simplecov-html":"0.12.3","simplecov_json_formatter":"0.1.4","simplecov":"0.22.0","spring":"4.2.0","spring-commands-rspec":"1.0.4","state_machines":"0.6.0","state_machines-activemodel":"0.9.0","state_machines-activerecord":"0.9.0","string-scrub":"0.0.5","string_scrubber":"0.3.0","turnout":"2.5.0","uglifier":"4.2.0","uri_template":"0.7.0","uuid":"2.3.9","vcr":"6.2.0","webmock":"3.23.0"},"message":"","user":{},"tags":{},"contexts":{"os":{"name":"Darwin","version":"Darwin Kernel Version 23.5.0: Wed May  1 20:14:38 PDT 2024; root:xnu-10063.121.3~5/RELEASE_ARM64_T6020","build":"23.5.0","kernel_version":"Darwin Kernel Version 23.5.0: Wed May  1 20:14:38 PDT 2024; root:xnu-10063.121.3~5/RELEASE_ARM64_T6020","machine":"arm64"},"runtime":{"name":"ruby","version":"ruby 3.2.2 (2023-03-30 revision e51014f9c0) [arm64-darwin23]"},"trace":{"trace_id":"7fb8bb9728614afd9d5cf3da33e34c8b","span_id":"de715a8bc7d8484c","parent_span_id":null}},"extra":{},"fingerprint":[],"breadcrumbs":{"values":[{"category":"sql.active_record","data":{"sql":"SET client_min_messages TO 'warning'","name":"SCHEMA","statement_name":null},"level":null,"message":"","timestamp":1717416407,"type":null},{"category":"sql.active_record","data":{"sql":"SET standard_conforming_strings = on","name":"SCHEMA","statement_name":null},"level":null,"message":"","timestamp":1717416407,"type":null},{"category":"sql.active_record","data":{"sql":"SET intervalstyle = iso_8601","name":"SCHEMA","statement_name":null},"level":null,"message":"","timestamp":1717416407,"type":null},{"category":"sql.active_record","data":{"sql":"SELECT t.oid, t.typname\nFROM pg_type as t\nWHERE t.typname IN ('int2', 'int4', 'int8', 'oid', 'float4', 'float8', 'numeric', 'bool', 'timestamp', 'timestamptz')\n","name":"SCHEMA","statement_name":null},"level":null,"message":"","timestamp":1717416407,"type":null},{"category":"sql.active_record","data":{"sql":"SET SESSION timezone TO 'UTC'","name":"SCHEMA","statement_name":null},"level":null,"message":"","timestamp":1717416407,"type":null},{"category":"sql.active_record","data":{"sql":"SELECT t.oid, t.typname, t.typelem, t.typdelim, t.typinput, r.rngsubtype, t.typtype, t.typbasetype\nFROM pg_type as t\nLEFT JOIN pg_range as r ON oid = rngtypid\nWHERE\n  t.typname IN ('int2', 'int4', 'int8', 'oid', 'float4', 'float8', 'text', 'varchar', 'char', 'name', 'bpchar', 'bool', 'bit', 'varbit', 'date', 'money', 'bytea', 'point', 'hstore', 'json', 'jsonb', 'cidr', 'inet', 'uuid', 'xml', 'tsvector', 'macaddr', 'citext', 'ltree', 'line', 'lseg', 'box', 'path', 'polygon', 'circle', 'numeric', 'interval', 'time', 'timestamp', 'timestamptz')\n","name":"SCHEMA","statement_name":null},"level":null,"message":"","timestamp":1717416407,"type":null},{"category":"sql.active_record","data":{"sql":"SELECT t.oid, t.typname, t.typelem, t.typdelim, t.typinput, r.rngsubtype, t.typtype, t.typbasetype\nFROM pg_type as t\nLEFT JOIN pg_range as r ON oid = rngtypid\nWHERE\n  t.typtype IN ('r', 'e', 'd')\n","name":"SCHEMA","statement_name":null},"level":null,"message":"","timestamp":1717416407,"type":null},{"category":"sql.active_record","data":{"sql":"SELECT t.oid, t.typname, t.typelem, t.typdelim, t.typinput, r.rngsubtype, t.typtype, t.typbasetype\nFROM pg_type as t\nLEFT JOIN pg_range as r ON oid = rngtypid\nWHERE\n  t.typelem IN (16, 17, 18, 19, 20, 21, 23, 25, 26, 114, 142, 600, 601, 602, 603, 604, 628, 700, 701, 718, 790, 829, 869, 650, 1042, 1043, 1082, 1083, 1114, 1184, 1186, 1560, 1562, 1700, 2950, 3614, 3802, 13736, 13739, 13741, 13747, 13749, 3904, 3906, 3908, 3910, 3912, 3926)\n","name":"SCHEMA","statement_name":null},"level":null,"message":"","timestamp":1717416407,"type":null},{"category":"sql.active_record","data":{"sql":"BEGIN","name":"TRANSACTION","statement_name":null},"level":null,"message":"","timestamp":1717416407,"type":null}]},"platform":"ruby","sdk":{"name":"sentry.ruby","version":"5.17.3"},"type":"event","threads":{"values":[{"id":5580,"name":null,"crashed":true,"current":true,"stacktrace":null}]},"exception":{"values":[{"type":"Nomis::Error::UnhandledApiField","value":"      Unhandled attribute :unknown_attribute (Nomis::Error::UnhandledApiField)\n\n      Consider adding the following to the class #<Class:0x000000010bb18ad0>\n\n         class #<Class:0x000000010bb18ad0>\n           # ...\n           attribute :unknown_attribute\n         end\n","module":"Nomis::Error","thread_id":5580,"stacktrace":null,"mechanism":{"type":"generic","handled":true}}]}}
+    headers:
+      Content-Type:
+      - application/x-sentry-envelope
+      Content-Encoding:
+      - ''
+      User-Agent:
+      - sentry-ruby/5.17.3
+      X-Sentry-Auth:
+      - Sentry sentry_version=7, sentry_client=sentry-ruby/5.17.3, sentry_timestamp=1717416407,
+        sentry_key=8bdbc0c961b9446a8e080a6a1c005633
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 03 Jun 2024 12:06:47 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '41'
+      Access-Control-Allow-Origin:
+      - "*"
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers
+      Access-Control-Expose-Headers:
+      - x-sentry-error,x-sentry-rate-limits,retry-after
+      Cross-Origin-Resource-Policy:
+      - cross-origin
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+    body:
+      encoding: UTF-8
+      string: '{"id":"a26072e137d44f2f9242642465dfb6e7"}'
+  recorded_at: Wed, 08 Mar 2017 00:00:00 GMT
+recorded_with: VCR 6.2.0

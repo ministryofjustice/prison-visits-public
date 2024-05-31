@@ -21,7 +21,7 @@ RSpec.describe Staff::VisitsManager do
     end
 
     before do
-      allow_any_instance_of(GovNotifyEmailer).to receive(:send_email)
+      allow(GovNotifyEmailer).to receive(:new).and_return(GovNotifyEmailerMock.new)
     end
 
     describe 'create' do
@@ -127,6 +127,72 @@ RSpec.describe Staff::VisitsManager do
 
         it 'fails if the visit does not exist' do
           expect(described_class.new.destroy("#{visit.human_id}_does_not_exit")).to be_falsey
+        end
+      end
+    end
+  end
+
+  describe 'with vsip derived slots' do
+    let(:visit)    { create(:staff_visit) }
+    let(:estate) { create(:staff_estate, vsip_supported: true) }
+    let(:prison)   do
+      create(
+        :staff_prison,
+        slot_details: { 'recurring' => { 'mon' => ['1330-1430'] } },
+        estate:
+      )
+    end
+
+    let(:parsed_body) {
+      JSON.parse(response.body)
+    }
+
+    around do |example|
+      travel_to Time.zone.local(2016, 2, 3, 14, 0) do
+        example.run
+      end
+    end
+
+    before do
+      allow(VsipVisitSessions).to receive(:get_sessions).and_return({ "slot1" => [] })
+      allow_any_instance_of(described_class).to receive(:fail_if_invalid).and_return(true)
+      allow(GovNotifyEmailer).to receive(:new).and_return(GovNotifyEmailerMock.new)
+    end
+
+    describe 'create' do
+      let(:params) {
+        {
+          format: :json,
+          prison_id: prison.id,
+          prisoner: {
+            first_name: 'Joe',
+            last_name: 'Bloggs',
+            date_of_birth: '1980-01-01',
+            number: 'A1234BC'
+          },
+          visitors: [
+            {
+              first_name: 'Joe',
+              last_name: 'Bloggs',
+              date_of_birth: '1980-01-01'
+            }
+          ],
+          slot_options: [
+            '2016-02-15T13:30/14:30'
+          ],
+          contact_email_address: 'foo@example.com',
+          contact_phone_no: '1234567890'
+        }
+      }
+
+      describe 'when sucessfull' do
+        it 'creates a new visit booking request' do
+          visit_count_before = Staff::Visit.count
+          expect(described_class.new.create(params)).to be_truthy
+          visit_added = Staff::Visit.last
+
+          expect(Staff::Visit.count).to eq(visit_count_before + 1)
+          expect(visit_added.visitors[0][:first_name]).to eq(params[:visitors][0][:first_name])
         end
       end
     end

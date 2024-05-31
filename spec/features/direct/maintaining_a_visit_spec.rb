@@ -53,6 +53,7 @@ RSpec.feature 'Booking a visit direct to nomis and to staff model', js: true do
     Rails.configuration.use_staff_api_old = Rails.configuration.use_staff_api
     Rails.configuration.use_staff_api = false
     Rails.configuration.public_prisons_with_slot_availability = []
+    Rails.configuration.vsip_host = nil
     create(:staff_prison, id: 'bf29bf0f-a046-43d1-911b-59ac58730eff', name: 'Leicester', estate: create(:staff_estate))
     create(:staff_prison, id: 'bf29bf0f-a046-43d1-911b-59ac58730efx', name: 'Usk')
 
@@ -87,7 +88,7 @@ RSpec.feature 'Booking a visit direct to nomis and to staff model', js: true do
 
     # Notifier email
 
-    allow_any_instance_of(Notifications::Client).to receive(:send_email).and_return(true)
+    allow(GovNotifyEmailer).to receive(:new).and_return(GovNotifyEmailerMock.new)
   end
 
   after do

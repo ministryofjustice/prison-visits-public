@@ -18,4 +18,6 @@ Rails.application.configure do
   EmailAddressValidation.configure do |config|
     config.mx_checker = MxChecker::Dummy.new
   end
+
+  config.sentry_dsn = ''
 end

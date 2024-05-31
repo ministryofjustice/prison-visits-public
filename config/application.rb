@@ -120,5 +120,10 @@ module PrisonVisits
     }
 
     config.use_staff_api = ENV['USE_STAFF_API']&.strip == 'true'
+
+    config.vsip_oauth_client_id = ENV['NOMIS_OAUTH_CLIENT_ID']
+    config.vsip_oauth_client_secret = ENV['NOMIS_OAUTH_CLIENT_SECRET']
+    config.vsip_host = ENV['VSIP_HOST']
+    config.vsip_supported_prisons_retrieved = false
   end
 end

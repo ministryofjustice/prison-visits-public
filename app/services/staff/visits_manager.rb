@@ -4,6 +4,12 @@ class Staff::VisitsManager
   # class << self
   def create(params)
     check_params(params)
+    @vsip_slots = {}
+    prison = Staff::Prison.find(params[:prison_id])
+    if prison.estate.vsip_supported
+      @vsip_slots = VsipVisitSessions.get_sessions(prison.estate.nomis_id, prisoner_step(params).number).keys
+    end
+
     fail_if_invalid('prisoner', prisoner_step(params))
     fail_if_invalid('visitors', visitors_step(params))
     fail_if_invalid('slot_options', slots_step(params))
@@ -61,7 +67,8 @@ private
       option_0: params[:slot_options][0], # We expect at least 1 slot
       option_1: params[:slot_options][1],
       option_2: params[:slot_options][2],
-      prison: prison(params[:prison_id])
+      prison: prison(params[:prison_id]),
+      vsip_slots: @vsip_slots
     )
   end
 

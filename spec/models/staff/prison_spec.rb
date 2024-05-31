@@ -39,6 +39,14 @@ RSpec.describe Staff::Prison, type: :model do
   describe '#available_slots' do
     let(:today) { Date.new(2015, 10, 1) } # Thursday
 
+    context 'with vsip slots' do
+      let(:prison) { create(:staff_prison, estate: create(:staff_estate, vsip_supported: true)) }
+
+      it 'returns slots from vsip' do
+        expect(prison.available_slots(today, vsip_slots: :passed_in_slots)).to eq(:passed_in_slots)
+      end
+    end
+
     context 'with auto_slots_enabled' do
       let(:prison) {
         create(:staff_prison,
@@ -50,7 +58,8 @@ RSpec.describe Staff::Prison, type: :model do
                  build(:nomis_concrete_slot, date: Date.new(2015, 10, 15), start_hour: 10, start_minute: 3, end_hour: 11, end_minute: 0),
                  build(:nomis_concrete_slot, date: Date.new(2015, 10, 7), start_hour: 10, start_minute: 3, end_hour: 11, end_minute: 0),
                  build(:nomis_concrete_slot, date: Date.new(2015, 10, 1), start_hour: 10, start_minute: 3, end_hour: 11, end_minute: 0)
-               ]).tap do |prison|
+               ],
+               estate: create(:staff_estate, vsip_supported: false)).tap do |prison|
           switch_feature_flag_with(:public_prisons_with_slot_availability, [prison.name])
         end
       }

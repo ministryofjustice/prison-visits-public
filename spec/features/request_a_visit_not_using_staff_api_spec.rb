@@ -1,12 +1,22 @@
 require 'rails_helper'
-require 'notifications/client'
-# require './spec/support/helpers/gov_notify_emailer_mock'
 
-RSpec.feature 'Booking a visit direct to nomis and to staff model', js: true do
+RSpec.feature 'Booking a visit through staff api not using the staff_api', js: true do
   include FeaturesHelper
 
   # Whitespace on email to test stripping
   let(:visitor_email) { ' ado@test.example.com ' }
+
+  let(:nomis_oauth_host) { 'http://localhost:9090' }
+  let(:nomis_oauth_client_id) { 'test' }
+  let(:nomis_oauth_client_secret) { '6+9tp<TO4b0!s)>>hSA.Kq7Rjtab.6V9P-lW*TZIW:2nj8>u&2F&>snY5G9v' }
+  let(:slot) {
+    ConcreteSlot.new(2015, 11, 5, 13, 30, 14, 45)
+  }
+
+  let(:vsip_available_dates) {
+    [{ "sessionDate" => "2024-06-07", "sessionTemplateReference" => "-afe.dcc.10", "sessionTimeSlot" => { "startTime" => "09:00", "endTime" => "10:00" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-08", "sessionTemplateReference" => "-afe.dcc.11", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-09", "sessionTemplateReference" => "-afe.dcc.12", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-09", "sessionTemplateReference" => "wni.plo.qpn", "sessionTimeSlot" => { "startTime" => "19:00", "endTime" => "21:00" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-10", "sessionTemplateReference" => "-afe.dcc.14", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-12", "sessionTemplateReference" => "-afe.dcc.0f", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-14", "sessionTemplateReference" => "-afe.dcc.10", "sessionTimeSlot" => { "startTime" => "09:00", "endTime" => "10:00" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-15", "sessionTemplateReference" => "-afe.dcc.11", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-16", "sessionTemplateReference" => "-afe.dcc.12", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-16", "sessionTemplateReference" => "wni.plo.qpn", "sessionTimeSlot" => { "startTime" => "19:00", "endTime" => "21:00" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-17", "sessionTemplateReference" => "-afe.dcc.14", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-19", "sessionTemplateReference" => "-afe.dcc.0f", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-21", "sessionTemplateReference" => "-afe.dcc.10", "sessionTimeSlot" => { "startTime" => "09:00", "endTime" => "10:00" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-23", "sessionTemplateReference" => "-afe.dcc.12", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-23", "sessionTemplateReference" => "wni.plo.qpn", "sessionTimeSlot" => { "startTime" => "19:00", "endTime" => "21:00" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-24", "sessionTemplateReference" => "-afe.dcc.14", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-26", "sessionTemplateReference" => "-afe.dcc.0f", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-28", "sessionTemplateReference" => "-afe.dcc.10", "sessionTimeSlot" => { "startTime" => "09:00", "endTime" => "10:00" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-29", "sessionTemplateReference" => "-afe.dcc.11", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-30", "sessionTemplateReference" => "-afe.dcc.12", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-06-30", "sessionTemplateReference" => "wni.plo.qpn", "sessionTimeSlot" => { "startTime" => "19:00", "endTime" => "21:00" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-07-01", "sessionTemplateReference" => "-afe.dcc.14", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }, { "sessionDate" => "2024-07-03", "sessionTemplateReference" => "-afe.dcc.0f", "sessionTimeSlot" => { "startTime" => "13:45", "endTime" => "14:45" }, "sessionRestriction" => "OPEN" }]
+  }
+
   let(:available_dates) {
     %w[2017-03-14
        2017-03-15
@@ -42,19 +52,16 @@ RSpec.feature 'Booking a visit direct to nomis and to staff model', js: true do
       '7gWVC1gPrm6-S6CoIGu54KNQ6hF8rsntFeFvPr1ff8WrRgOtg'
   end
 
-  let(:nomis_oauth_host) { 'http://localhost:9090' }
-  let(:nomis_oauth_client_id) { 'test' }
-  let(:nomis_oauth_client_secret) { '6+9tp<TO4b0!s)>>hSA.Kq7Rjtab.6V9P-lW*TZIW:2nj8>u&2F&>snY5G9v' }
-
   before do
-    travel_to Date.parse('2017-03-08')
     Rails.configuration.use_staff_api_old = Rails.configuration.use_staff_api
     Rails.configuration.use_staff_api = false
     Rails.configuration.vsip_host_old = Rails.configuration.vsip_host
-    Rails.configuration.vsip_host = nil
-
+    Rails.configuration.vsip_host = "http://example.com"
     Rails.configuration.public_prisons_with_slot_availability = []
-    create(:staff_prison, id: 'bf29bf0f-a046-43d1-911b-59ac58730eff', name: 'Leicester', estate: create(:staff_estate))
+    Rails.configuration.vsip_supported_prisons_retrieved = true
+
+    travel_to Date.parse('2017-03-08')
+    create(:staff_prison, id: 'bf29bf0f-a046-43d1-911b-59ac58730eff', name: 'Leicester', estate: create(:staff_estate, vsip_supported: true))
     create(:staff_prison, id: 'bf29bf0f-a046-43d1-911b-59ac58730efx', name: 'Usk')
 
     # stub nomis oauth
@@ -81,6 +88,10 @@ RSpec.feature 'Booking a visit direct to nomis and to staff model', js: true do
 
     stub_request(:get, "#{AuthHelper::API_PREFIX}/lookup/active_offender?date_of_birth=1960-06-01&noms_id=A1410AE").
       to_return(body: { found: true, offender: { id: 'A1410AE' } }.to_json)
+
+    # stub slots
+
+    stub_request(:get, /.*visit-sessions.*/).to_return(body: vsip_available_dates.to_json)
 
     # stub slots
 
@@ -112,17 +123,22 @@ RSpec.feature 'Booking a visit direct to nomis and to staff model', js: true do
     click_button 'Add another choice'
 
     # Slot 2
-    select_nth_available_date(1)
+    select_first_available_date
     select_first_available_slot
     click_button 'Add another choice'
 
-    click_link 'No more to add'
+    # Slot 3
+    select_first_available_date
+    select_first_available_slot
+    click_button 'Continue'
 
     enter_visitor_information(
       email_address: visitor_email,
       email_address_confirmation: visitor_email
     )
 
+    click_button 'Add another visitor'
+    enter_visitor_information index: 1
     click_button 'Continue'
 
     expect(page).to have_text('Check your visit details')
@@ -144,12 +160,12 @@ RSpec.feature 'Booking a visit direct to nomis and to staff model', js: true do
     click_button 'Add another choice'
 
     # Slot 2
-    select_nth_available_date(1)
+    select_first_available_date
     select_first_available_slot
     click_button 'Add another choice'
 
     # Slot 3
-    select_nth_available_date(2)
+    select_first_available_date
     select_first_available_slot
     click_button 'Continue'
 
@@ -170,6 +186,44 @@ RSpec.feature 'Booking a visit direct to nomis and to staff model', js: true do
     expect(page).to have_css('.date-box-1')
     expect(page).to have_css('.date-box-2')
     expect(page).not_to have_css('.date-box-3')
+  end
+
+  scenario 'change prison' do
+    visit booking_requests_path(locale: 'en')
+
+    enter_prisoner_information
+    click_button 'Continue'
+
+    # Slot 1
+    select_first_available_date
+    select_first_available_slot
+    click_button 'Add another choice'
+
+    # Slot 2
+    select_first_available_date
+    select_first_available_slot
+    click_button 'Add another choice'
+
+    # Slot 3
+    select_first_available_date
+    select_first_available_slot
+    click_button 'Continue'
+
+    enter_visitor_information(
+      email_address: visitor_email,
+      email_address_confirmation: visitor_email
+    )
+    click_button 'Add another visitor'
+    enter_visitor_information index: 1
+    click_button 'Continue'
+
+    click_button 'Change prisoner details'
+
+    select_prison 'Usk'
+    click_button 'Continue'
+
+    # We should be presented with slots page as they should have been cleared
+    expect(page).to have_text('When do you want to visit')
   end
 
   scenario 'skip slots' do
@@ -214,7 +268,7 @@ RSpec.feature 'Booking a visit direct to nomis and to staff model', js: true do
     expect(page).to have_text('The person requesting the visit must be over the age of 18')
   end
 
-  scenario 'age of leading visitor' do
+  scenario 'slot validation errors' do
     visit booking_requests_path(locale: 'en')
     enter_prisoner_information
     click_button 'Continue'
@@ -229,12 +283,12 @@ RSpec.feature 'Booking a visit direct to nomis and to staff model', js: true do
     click_button 'Add another choice'
 
     # Slot 2
-    select_nth_available_date(1)
+    select_first_available_date
     select_first_available_slot
     click_button 'Add another choice'
 
     # Slot 3
-    select_nth_available_date(2)
+    select_first_available_date
     select_first_available_slot
     click_button 'Continue'
 
@@ -278,7 +332,7 @@ RSpec.feature 'Booking a visit direct to nomis and to staff model', js: true do
     # Add an alternative slot
     click_button 'Add another choice'
 
-    select_nth_available_date(1)
+    select_first_available_date
     select_first_available_slot
     click_button 'Save changes'
 

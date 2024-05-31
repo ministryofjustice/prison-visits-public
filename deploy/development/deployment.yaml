@@ -150,9 +150,11 @@ spec:
           valueFrom:
             secretKeyRef:
               name: secrets
-              key: NOMIS_OAUTH_CLIENT_ID
+              key: NOMIS_OAUTH_CLIENT_SECRET
         - name: GA_TRACKING_ID
           valueFrom:
             secretKeyRef:
               name: prison-visits-public-secrets
               key: ga_tracking_id
+        - name: VSIP_HOST
+          value: 'https://hmpps-manage-prison-visits-orchestration-dev.prison.service.justice.gov.uk'

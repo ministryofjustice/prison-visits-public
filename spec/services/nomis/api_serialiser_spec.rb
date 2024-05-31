@@ -18,9 +18,15 @@ RSpec.describe Nomis::ApiSerialiser do
     expect(described_class.new.serialise(memory_model_class, payload)).to have_attributes foo: 'bar'
   end
 
-  it 'raises an error in dev or tests mode' do
-    expect {
-      described_class.new.serialise(memory_model_class, payload)
-    }.to raise_error(Nomis::Error::UnhandledApiField)
+  context 'with sentry not set' do
+    before do
+      Rails.configuration.sentry_dsn = nil
+    end
+
+    it 'raises an error in dev or tests mode' do
+      expect {
+        described_class.new.serialise(memory_model_class, payload)
+      }.to raise_error(Nomis::Error::UnhandledApiField)
+    end
   end
 end

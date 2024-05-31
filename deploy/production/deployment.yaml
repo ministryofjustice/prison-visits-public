@@ -140,3 +140,5 @@ spec:
             secretKeyRef:
               name: secrets
               key: GOV_NOTIFY_API_KEY
+        - name: VSIP_HOST
+          value: 'https://hmpps-manage-prison-visits-orchestration.prison.service.justice.gov.uk'

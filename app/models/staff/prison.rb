@@ -26,8 +26,11 @@ class Staff::Prison < Staff::ApplicationRecord
   }
 
   # This method represents the 'fallback position' i.e. the slots to use if the API is unavailable
-  def available_slots(today = Time.zone.today)
-    if auto_slots_enabled?
+  def available_slots(today = Time.zone.today, vsip_slots: {})
+    # get and set Vsip supported prisons
+    if !estate.nil? && estate.vsip_supported
+      vsip_slots
+    elsif auto_slots_enabled?
       nomis_concrete_slots.order(:date).
         where('date >= ?', first_bookable_date(today)).
         where('date <= ?', last_bookable_date(today)).

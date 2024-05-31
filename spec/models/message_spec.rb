@@ -16,6 +16,10 @@ RSpec.describe Message, type: :model do
       }
     end
 
+    before do
+      allow(GovNotifyEmailer).to receive(:new).and_return(GovNotifyEmailerMock.new)
+    end
+
     context 'when is a valid message' do
       let(:message_body) { 'Hello' }
 
