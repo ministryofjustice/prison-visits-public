@@ -100,6 +100,9 @@
     <li>
       <%= t('.contact_us_html', url: 'https://visit-someone-in-prison.form.service.justice.gov.uk') %>
     </li>
+    <li>
+      <%= link_to(t('.help'), new_feedback_submission_path) %>
+    </li>
     <% alternative_locales.each do |locale| %>
       <li>
         <% if controller_name == 'errors' %>
