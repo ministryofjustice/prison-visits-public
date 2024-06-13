@@ -1,4 +1,6 @@
 class Staff::Prison < Staff::ApplicationRecord
+  attr_accessor :vsip_failed
+
   MAX_VISITORS = 6
   MAX_ADULTS = 3
   LEAD_VISITOR_MIN_AGE = 18
@@ -28,7 +30,7 @@ class Staff::Prison < Staff::ApplicationRecord
   # This method represents the 'fallback position' i.e. the slots to use if the API is unavailable
   def available_slots(today = Time.zone.today, vsip_slots: {})
     # get and set Vsip supported prisons
-    if !estate.nil? && estate.vsip_supported
+    if !estate.nil? && estate.vsip_supported && !vsip_failed
       vsip_slots
     elsif auto_slots_enabled?
       nomis_concrete_slots.order(:date).
