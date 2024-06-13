@@ -20,6 +20,11 @@ ConcreteSlot = Struct.new(
     ]
   end
 
+  def self.parse_times(begin_at, end_at)
+    new(begin_at.year, begin_at.mon, begin_at.day, begin_at.hour, begin_at.min,
+        end_at.hour, end_at.min)
+  end
+
   alias_method :to_s, :iso8601
 
   def to_date
@@ -51,5 +56,9 @@ ConcreteSlot = Struct.new(
   # Sort by begin date and slot duration
   def <=>(other)
     iso8601 <=> other.iso8601
+  end
+
+  def overlaps?(other)
+    end_at > other.begin_at
   end
 end

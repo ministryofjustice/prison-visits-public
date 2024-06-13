@@ -61,7 +61,7 @@ describe('moj.Modules.Slotpicker', function() {
     it('should be a function', function(){
       expect(typeof moj.Modules.Slotpicker.Calendar).toEqual('function');
     });
-    describe('setting up the calendar', function(){
+    describe('setting up the calendars', function(){
       it('should create at least 2 rows of dates', function() {
         var rows = $('#js-calendarTable tbody tr');
         expect(rows.length).toBeGreaterThan(2);

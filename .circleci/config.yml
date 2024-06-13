@@ -18,6 +18,9 @@ references:
         PGHOST: 127.0.0.1
         PGUSER: ubuntu
         RACK_ENV: test
+        PRISON_API_HOST: https://prison-api-dev.prison.service.justice.gov.uk
+        NOMIS_OAUTH_HOST: https://sign-in-dev.hmpps.service.justice.gov.uk
+        VSIP_HOST: https://hmpps-manage-prison-visits-orchestration-dev.prison.service.justice.gov.uk
     - image: cimg/postgres:12.11
       environment:
         POSTGRES_USER: ubuntu
@@ -158,6 +161,7 @@ jobs:
         command: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
           chmod +x ./cc-test-reporter
+    - run: bundle exec rake db:create db:schema:load
     - run:
         name: Rubocop
         command: bundle exec rubocop
@@ -173,6 +177,8 @@ jobs:
         environment:
           RAILS_ENV: test
           RACK_ENV: test
+          SENTRY_JS_DSN: ""
+          SENTRY_DSN: ""
     # - run:
     #     name: Jasmine tests
     #     command: bundle exec rake jasmine:ci
