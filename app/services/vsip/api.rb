@@ -29,7 +29,7 @@ module Vsip
 
     def visit_sessions(nomis_id, prisoner_number)
       response = @pool.with { |client|
-        client.get('visit-sessions/available', prisonId: nomis_id, prisonerId: prisoner_number,
+        client.get('visit-sessions/available', prisonId: nomis_id, prisonerId: prisoner_number.upcase,
                                                visitRestriction: 'OPEN')
       }
       slots = {}
