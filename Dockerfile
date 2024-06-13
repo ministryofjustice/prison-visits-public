@@ -1,5 +1,8 @@
 FROM ruby:3.2.2-bullseye
 
+ARG BUILD_NUMBER
+ARG GIT_BRANCH
+
 RUN \
   set -ex \
   && apt-get update \
@@ -61,6 +64,9 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle update --bundler
 RUN bundle install --without development test --jobs 2 --retry 3
 COPY . /app
+
+ENV BUILD_NUMBER=${BUILD_NUMBER}
+ENV GIT_BRANCH=${GIT_BRANCH}
 
 RUN mkdir -p /home/appuser && \
   useradd appuser -u 1001 --user-group --home /home/appuser && \

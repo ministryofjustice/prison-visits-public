@@ -50,6 +50,8 @@ spec:
             memory: "125Mi"
             cpu: "15m"
         env:
+        - name: PRODUCT_ID
+          value: "DPS031"
         - name: SECRET_KEY_BASE
           valueFrom:
             secretKeyRef:

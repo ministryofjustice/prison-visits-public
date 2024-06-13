@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   constraints format: 'json' do
     get 'ping', to: 'ping#index'
     get 'healthcheck', to: 'healthcheck#index'
+    get 'info', to: 'info#index'
   end
 
   constraints format: 'html' do
