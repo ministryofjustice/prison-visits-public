@@ -145,5 +145,5 @@ spec:
         - name: USE_VSIP
           valueFrom:
             secretKeyRef:
-              name: use_vsip
+              name: use-vsip
               key: USE_VSIP
