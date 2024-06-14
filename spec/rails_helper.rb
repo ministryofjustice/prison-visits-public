@@ -105,3 +105,4 @@ Shoulda::Matchers.configure do |config|
 end
 
 Rails.configuration.use_staff_api = true
+Rails.configuration.use_vsip = true
