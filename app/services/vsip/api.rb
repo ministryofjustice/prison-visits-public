@@ -40,9 +40,9 @@ module Vsip
           Time.zone.parse(session.sessionTimeSlot['endTime']).strftime('/%H:%M').to_s
         ] = []
       end
-      slots
-    rescue APIError => _e
-      {}
+      slots.merge({ vsip_api_failed: false })
+    rescue APIError => _
+      { vsip_api_failed: true }
     end
 
   private
