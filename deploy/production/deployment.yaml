@@ -96,7 +96,7 @@ spec:
         - name: NOMIS_STAFF_SLOT_AVAILABILITY_ENABLED
           value: "true"
         - name: PRISON_API_HOST
-          value: "https://api.prison.service.justice.gov.uk"
+          value: "https://prison-api.prison.service.justice.gov.uk"
         - name: PUBLIC_PRISONS_WITH_SLOT_AVAILABILITY
           value: >
             High Down,
