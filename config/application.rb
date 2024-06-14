@@ -125,5 +125,6 @@ module PrisonVisits
     config.vsip_oauth_client_secret = ENV['NOMIS_OAUTH_CLIENT_SECRET']
     config.vsip_host = ENV['VSIP_HOST']
     config.vsip_supported_prisons_retrieved = false
+    config.use_vsip = ENV['USE_VSIP'] == 'true'
   end
 end

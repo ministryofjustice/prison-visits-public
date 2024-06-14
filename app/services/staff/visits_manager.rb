@@ -6,7 +6,7 @@ class Staff::VisitsManager
     check_params(params)
     @vsip_slots = {}
     prison = Staff::Prison.find(params[:prison_id])
-    if prison.estate.vsip_supported
+    if prison.estate.vsip_supported && Rails.configuration.use_vsip
       @vsip_slots = VsipVisitSessions.get_sessions(prison.estate.nomis_id, prisoner_step(params).number).keys
     end
 
