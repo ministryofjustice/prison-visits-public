@@ -6,7 +6,7 @@ module Staff
 
       prison = Staff::Prison.enabled.find(prison_id)
 
-      if prison.estate.vsip_supported
+      if prison.estate.vsip_supported && Rails.configuration.use_vsip
         @slots = VsipVisitSessions.get_sessions(prison.estate.nomis_id, prisoner_number)
       elsif prison.auto_slots_enabled?
         api_slots = ApiSlotAvailability.new(prison:, use_nomis_slots: true, start_date:, end_date:)

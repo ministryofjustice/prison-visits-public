@@ -158,3 +158,8 @@ spec:
               key: ga_tracking_id
         - name: VSIP_HOST
           value: 'https://hmpps-manage-prison-visits-orchestration-dev.prison.service.justice.gov.uk'
+        - name: USE_VSIP
+          valueFrom:
+            secretKeyRef:
+              name: use_vsip
+              key: USE_VSIP

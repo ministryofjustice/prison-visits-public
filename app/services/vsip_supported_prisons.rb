@@ -1,5 +1,7 @@
 class VsipSupportedPrisons
   def supported_prisons
+    return unless Rails.configuration.use_vsip
+
     @vsip_enabled_prisons = if Vsip::Api.enabled?
                               Rails.configuration.vsip_supported_prisons_retrieved = true
                               Vsip::Api.instance.supported_prisons
