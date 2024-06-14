@@ -109,9 +109,10 @@ cy:
         <p>Cychwynnwch gyda’r dyddiad a’r amser fyddai orau gennych.  Mae’r dyddiadau sydd ar
         gael wedi eu hamlygu mewn <span class=bold>print bras</span>.</p>
       vsip_html: >-
-        <p>Dewiswch hyd at 3 dyddiad ac amser. Bydd y carchar yn cadarnhau un o’ch dewisiadau.</p>
-        <p>Cychwynnwch gyda’r dyddiad a’r amser fyddai orau gennych.  Mae’r dyddiadau sydd ar
-        gael wedi eu hamlygu mewn <span class=bold>print bras</span>.</p>
+        <p>Rydym wedi gwella'r gwasanaeth i ddangos argaeledd mwy cywir.</p>
+        <p>Mae hyn yn golygu efallai y byddwch yn gweld llai o slotiau yn gyffredinol ond gallwch fod yn fwy hyderus bod y slotiau a ddangosir ar gael.</p>
+      help_html: '<a href="%{url}" rel="external"> Cysylltwch â''r carchar </a> os
+        na allwch wneud cais i ymweld gan ddefnyddio''r gwasanaeth hwn. '
       keyboard_directions_html: "<ul class=\"visuallyhidden\">\n  <li>Pwyswch y botymau
         saeth i'r DDE ac i'r CHWITH i symud ar y rhes yn ôl diwrnod yr wythnos.</li>\n
         \ <li>Pwyswch y botymau HAFAN a DIWEDD i neidio i ddechrau neu ddiwedd y mis

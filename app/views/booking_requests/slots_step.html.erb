@@ -13,7 +13,11 @@
     <div class="column-two-thirds">
       <% slot_number = @steps.fetch(:slots_step).next_slot_to_fill %>
       <% if slot_number == "0" && !reviewing? %>
-        <%= Rails.configuration.use_vsip ? t(".vsip_html") : t(".info_html") %>
+        <%= t(".info_html") %>
+        <p><%= t('.help_html', url: link_directory.prison_finder ) %></p>
+        <% if Rails.configuration.use_vsip %>
+          <%= t('.vsip_html') %>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -128,12 +132,6 @@
     <% end %>
 
   <% end %>
-
-  <div class="grid-row push-top">
-    <div class="column-two-thirds">
-      <%= render('contact_prison') %>
-    </div>
-  </div>
 
 <% else %>
   <div class="js-AsyncGA" data-ga-tracking-id="<%= config_item :ga_id %>" data-hit-type-page="no_slots_available">
