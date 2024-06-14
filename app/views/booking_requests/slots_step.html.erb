@@ -13,7 +13,7 @@
     <div class="column-two-thirds">
       <% slot_number = @steps.fetch(:slots_step).next_slot_to_fill %>
       <% if slot_number == "0" && !reviewing? %>
-        <%= t(".info_html") %>
+        <%= Rails.configuration.use_vsip ? t(".vsip_html") : t(".info_html") %>
       <% end %>
     </div>
   </div>
@@ -24,7 +24,7 @@
           <p><%= t('.your_choices') %>:</p>
           <div class="grid-row">
             <% slots_step.valid_options.each.with_index do |slot, index| %>
-              <% className = (index == slot_number.to_i) ? 'active' : '' %>
+            <% className = (index == slot_number.to_i) ? 'active' : '' %>
               <div class="column-one-third">
                 <div class="date-box date-box--small <%= className %>" aria-live="assertive" aria-atomic="true" aria-relevant="text">
                   <span class="date-box__number"><%= index + 1 %></span>

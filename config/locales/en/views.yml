@@ -117,6 +117,9 @@ en:
       info_html: >-
         <p>Choose up to 3 possible dates and times. The prison will confirm one of your choices for the visit.</p>
         <p>Start with your first choice of date and time. The prison’s visit dates are in <span class=bold>bold</span>. These dates may not be available.</p>
+      vsip_html: >-
+        <p>Choose up to 3 possible dates and times. The prison will confirm one of your choices for the visit.</p>
+        <p>We have improved the service to show more accurate availability. This means you might see fewer slots overall but you can be more confident that the slots shown are available.</p>
       keyboard_directions_html: |
         <ul>
           <li>Press the LEFT and RIGHT arrow keys to navigate the row by week day.</li>
