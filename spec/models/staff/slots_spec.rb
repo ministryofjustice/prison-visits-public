@@ -164,6 +164,35 @@ RSpec.describe Staff::Slots do
       end
     end
   end
+
+  describe 'with vsip slots with wrong prison' do
+    let(:parsed_body) { JSON.parse(response.body) }
+    let(:prisoner)    { create(:prisoner) }
+    let(:start_date)  { '2016-02-09' }
+    let(:end_date) { '2016-04-15' }
+
+    describe '#index' do
+      before do
+        stub_auth_token
+        Rails.configuration.vsip_host = 'http://example.com'
+      end
+
+      context 'with no sessions' do
+        let(:prison) { create(:staff_prison, estate: create(:staff_estate, vsip_supported: true)) }
+
+        before do
+          allow_any_instance_of(VsipSupportedPrisons).to receive(:supported_prisons)
+          allow(VsipVisitSessions).to receive(:get_sessions).and_return({ vsip_api_failed: true })
+          allow(described_class).to receive(:nomis_slots).and_return({ no_slots: true })
+        end
+
+        it 'returns the list of slots with their availabilities' do
+          expect(described_class.slots(prison.id, prisoner.number, prisoner.date_of_birth, start_date, end_date)).
+            to eq({ no_slots: true })
+        end
+      end
+    end
+  end
 end
 
 def create_slot(start_time)

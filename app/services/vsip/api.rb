@@ -41,7 +41,7 @@ module Vsip
         ] = []
       end
       slots.merge({ vsip_api_failed: false })
-    rescue APIError => _
+    rescue APIError => _e
       { vsip_api_failed: true }
     end
 
