@@ -14,6 +14,7 @@ module Staff
           @slots = nomis_slots(prison, prisoner_number, date_of_birth, start_date, end_date)
         else
           @slots.delete(:vsip_api_failed)
+          @slots
         end
       else
         @slots = nomis_slots(prison, prisoner_number, date_of_birth, start_date, end_date)

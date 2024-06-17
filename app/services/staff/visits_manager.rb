@@ -42,10 +42,6 @@ private
   end
 
   def fail_if_invalid(param, step)
-    p :rwx1
-    p param
-    p step
-    p step.valid?
     unless step.valid?
       fail ParameterError,
            "#{param} (#{step.errors.full_messages.join(', ')})"
