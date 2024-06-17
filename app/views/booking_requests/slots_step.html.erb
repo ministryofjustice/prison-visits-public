@@ -16,7 +16,12 @@
         <%= t(".info_html") %>
         <p><%= t('.help_html', url: link_directory.prison_finder ) %></p>
         <% if Rails.configuration.use_vsip %>
-          <%= t('.vsip_html') %>
+          <div class="warning_div">
+            <span class="warning_icon">!</span>
+            <strong class="warning_strong">
+              <div class="warning_text"><%= t('.vsip_html') %></div>
+            </strong>
+          </div>
         <% end %>
       <% end %>
     </div>
