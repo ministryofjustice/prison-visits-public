@@ -8,6 +8,9 @@ class Staff::VisitsManager
     prison = Staff::Prison.find(params[:prison_id])
     if prison.estate.vsip_supported && Rails.configuration.use_vsip
       @vsip_slots = VsipVisitSessions.get_sessions(prison.estate.nomis_id, prisoner_step(params).number).keys
+      # if @vsip_slots[:vsip_api_failed]
+      #   prison.vsip_failed = true
+      # end
     end
 
     fail_if_invalid('prisoner', prisoner_step(params))
@@ -38,6 +41,10 @@ private
   end
 
   def fail_if_invalid(param, step)
+    p :rwx1
+    p param
+    p step
+    p step.valid?
     unless step.valid?
       fail ParameterError,
            "#{param} (#{step.errors.full_messages.join(', ')})"

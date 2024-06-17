@@ -29,7 +29,7 @@ module Vsip
 
     def visit_sessions(nomis_id, prisoner_number)
       response = @pool.with { |client|
-        client.get('visit-sessions/available', prisonId: nomis_id, prisonerId: prisoner_number.to_s.upcase,
+        client.get('visit-sessions/availablerwx', prisonId: nomis_id, prisonerId: prisoner_number.to_s.upcase,
                                                visitRestriction: 'OPEN')
       }
       slots = {}
@@ -40,9 +40,9 @@ module Vsip
           Time.zone.parse(session.sessionTimeSlot['endTime']).strftime('/%H:%M').to_s
         ] = []
       end
-      slots
-    rescue APIError => e
-      PVB::ExceptionHandler.capture_exception(e, fingerprint: %w[vsip api_error])
+      slots.merge({ vsip_api_failed: false })
+    rescue APIError => _
+      { vsip_api_failed: true }
     end
 
   private
