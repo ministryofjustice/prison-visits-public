@@ -15,7 +15,7 @@
       <% if slot_number == "0" && !reviewing? %>
         <%= t(".info_html") %>
         <p><%= t('.help_html', url: link_directory.prison_finder ) %></p>
-        <% if Rails.configuration.use_vsip %>
+        <% if Rails.configuration.use_vsip && @vsip_supported %>
           <%= t('.vsip_html') %>
         <% end %>
       <% end %>
