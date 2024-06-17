@@ -14,6 +14,8 @@ module Staff
         #   prison.vsip_failed = true
         #   @slots = SlotAvailability.new(prison, prisoner_number, date_of_birth, start_date..end_date).slots
         # end
+      end
+
       elsif prison.auto_slots_enabled?
         api_slots = ApiSlotAvailability.new(prison:, use_nomis_slots: true, start_date:, end_date:)
         prisoner_dates = api_slots.prisoner_available_dates(prisoner_number:, prisoner_dob: date_of_birth, start_date:)
