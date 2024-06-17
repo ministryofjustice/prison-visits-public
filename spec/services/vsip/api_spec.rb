@@ -77,7 +77,7 @@ RSpec.describe Vsip::Api do
     let(:end_time) { (Time.zone.now + 1.hour).strftime('%H:%M').to_s }
     let(:expected) {
       { "#{Date.parse(session_date).strftime('%Y-%m-%d')}T#{start_time}/#{end_time}" => [],
-        :vsip_api_failed => false}
+        :vsip_api_failed => false }
     }
 
     context 'when retrieves VSIP sessions' do
