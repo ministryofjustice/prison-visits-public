@@ -196,5 +196,47 @@ RSpec.describe Staff::VisitsManager do
         end
       end
     end
+
+    describe 'create with wrong prison' do
+      let(:params) {
+        {
+          format: :json,
+          prison_id: prison.id,
+          prisoner: {
+            first_name: 'Joe',
+            last_name: 'Bloggs',
+            date_of_birth: '1980-01-01',
+            number: 'A1234BC'
+          },
+          visitors: [
+            {
+              first_name: 'Joe',
+              last_name: 'Bloggs',
+              date_of_birth: '1980-01-01'
+            }
+          ],
+          slot_options: [
+            '2016-02-15T13:30/14:30'
+          ],
+          contact_email_address: 'foo@example.com',
+          contact_phone_no: '1234567890'
+        }
+      }
+
+      describe 'when sucessfull' do
+        before do
+          allow(VsipVisitSessions).to receive(:get_sessions).and_return({ vsip_api_failed: true })
+        end
+
+        it 'creates a new visit booking request' do
+          visit_count_before = Staff::Visit.count
+          expect(described_class.new.create(params)).to be_truthy
+          visit_added = Staff::Visit.last
+
+          expect(Staff::Visit.count).to eq(visit_count_before + 1)
+          expect(visit_added.visitors[0][:first_name]).to eq(params[:visitors][0][:first_name])
+        end
+      end
+    end
   end
 end

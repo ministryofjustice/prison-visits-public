@@ -40,9 +40,9 @@ module Vsip
           Time.zone.parse(session.sessionTimeSlot['endTime']).strftime('/%H:%M').to_s
         ] = []
       end
-      slots
-    rescue APIError => e
-      PVB::ExceptionHandler.capture_exception(e, fingerprint: %w[vsip api_error])
+      slots.merge({ vsip_api_failed: false })
+    rescue APIError => _e
+      { vsip_api_failed: true }
     end
 
   private

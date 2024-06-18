@@ -10,7 +10,7 @@ class Staff::SlotsStep
 
   validates :option_0, :option_1, :option_2,
             inclusion: { in: lambda { |o|
-              if o.prison.estate.vsip_supported && Rails.configuration.use_vsip
+              if o.prison.estate.vsip_supported && Rails.configuration.use_vsip && o.vsip_slots != {}
                 o.available_slots(vsip_slots: o.vsip_slots)
               else
                 o.available_slots.map(&:iso8601)
