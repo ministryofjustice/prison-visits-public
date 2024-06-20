@@ -8,7 +8,7 @@ module Vsip
 
   # This client is **NOT** thread safe. To be used with a connection pool. See below.
   class Client
-    TIMEOUT = 5 # seconds
+    TIMEOUT = 10 # seconds
     EXCON_INSTRUMENT_NAME = 'vsip_api'.freeze
     JSON_MIME_TYPE = 'application/json'.freeze
 
