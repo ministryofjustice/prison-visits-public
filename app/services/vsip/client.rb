@@ -56,14 +56,16 @@ module Vsip
         path:,
         expects: [200],
         idempotent:,
+        retry_limit: 6,
+        retry_interval: 0.5,
         deadline: RequestStore.store[:deadline],
-        retry_limit: 2,
         headers: {
           'Accept' => JSON_MIME_TYPE,
           'Authorization' => auth_header,
           'X-Request-Id' => RequestStore.store[:request_id]
         }
       }.deep_merge(params_options(method, params)))
+
       response = @connection.request(options)
 
       JSON.parse(response.body)
