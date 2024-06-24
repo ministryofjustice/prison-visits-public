@@ -44,6 +44,10 @@ module Vsip
       request(:get, route, params, idempotent: true)
     end
 
+    def healthcheck
+      @connection.head(path: 'health')
+    end
+
   private
 
     def request(method, route, params, idempotent:, options: {})

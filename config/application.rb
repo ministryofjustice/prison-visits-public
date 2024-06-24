@@ -9,6 +9,7 @@ require 'sprockets/railtie'
 require_relative '../app/middleware/http_method_not_allowed'
 require_relative '../app/middleware/robots_tag'
 require 'ostruct'
+require 'active_support'
 
 # require "action_mailer/railtie"
 # require "action_mailbox/engine"
@@ -126,5 +127,6 @@ module PrisonVisits
     config.vsip_host = ENV['VSIP_HOST']
     config.vsip_supported_prisons_retrieved = false
     config.use_vsip = ENV['USE_VSIP'] == 'true'
+    config.booted_at = Time.current
   end
 end

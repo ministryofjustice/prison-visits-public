@@ -2,6 +2,7 @@ FROM ruby:3.2.2-bullseye
 
 ARG BUILD_NUMBER
 ARG GIT_BRANCH
+ARG GIT_REF
 
 RUN \
   set -ex \
@@ -68,6 +69,7 @@ COPY . /app
 
 ENV BUILD_NUMBER=${BUILD_NUMBER}
 ENV GIT_BRANCH=${GIT_BRANCH}
+ENV GIT_REF=${GIT_REF}
 
 RUN mkdir -p /home/appuser && \
   useradd appuser -u 1001 --user-group --home /home/appuser && \

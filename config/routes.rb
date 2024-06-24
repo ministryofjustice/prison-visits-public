@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get 'ping', to: 'ping#index'
     get 'healthcheck', to: 'healthcheck#index'
     get 'info', to: 'info#index'
+    get 'health', to: 'health#index'
   end
 
   constraints format: 'html' do
