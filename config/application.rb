@@ -1,12 +1,14 @@
 require File.expand_path('boot', __dir__)
 
 require 'rails'
+require 'active_record/railtie'
 require 'active_model/railtie'
 require 'action_controller/railtie'
 require 'action_view/railtie'
 require 'sprockets/railtie'
 require_relative '../app/middleware/http_method_not_allowed'
 require_relative '../app/middleware/robots_tag'
+require 'ostruct'
 
 # require "action_mailer/railtie"
 # require "action_mailbox/engine"
@@ -73,6 +75,9 @@ module PrisonVisits
 
     config.max_threads = ENV.fetch('RAILS_MAX_THREADS', 15)
 
+    config.connection_pool_size =
+      config.database_configuration[Rails.env]['pool'] || 5
+
     config.middleware.use RobotsTag
     config.middleware.insert_before Rack::Head, HttpMethodNotAllowed
     # Application configuration can go into files in config/initializers
@@ -81,5 +86,45 @@ module PrisonVisits
 
     # We still use ie stylesheets as well as the govuk_template
     config.action_view.preload_links_header = false
+
+    #
+    # These settings can be overridden in specific environments using the files
+    # in config/environments, which are processed later.
+    #
+    config.nomis_user_oauth_client_id = ENV['NOMIS_USER_OAUTH_CLIENT_ID']&.strip
+    config.nomis_user_oauth_client_secret = ENV['NOMIS_USER_OAUTH_CLIENT_SECRET']&.strip
+    config.prison_api_host = ENV['PRISON_API_HOST']&.strip
+
+    config.nomis_oauth_host = ENV['NOMIS_OAUTH_HOST']&.strip
+    # client_id and secret for the API
+    config.nomis_oauth_client_id = ENV['NOMIS_OAUTH_CLIENT_ID']&.strip
+    config.nomis_oauth_client_secret = ENV['NOMIS_OAUTH_CLIENT_SECRET']&.strip
+
+    # If you want to record new/re-record VCR cassettes then you need to update the line
+    # below to 'config.call', once completed you can return it to the value below so that
+    # the VCR cassettes will be used during testing
+    feature_flag_value = proc do |&config|
+      Rails.env.test? ? nil : config.call
+    end
+
+    config.nomis_staff_slot_availability_enabled = feature_flag_value.call {
+      ENV['NOMIS_STAFF_SLOT_AVAILABILITY_ENABLED']&.downcase == 'true'
+    }
+
+    config.staff_prisons_with_slot_availability = feature_flag_value.call {
+      ENV['STAFF_PRISONS_WITH_SLOT_AVAILABILITY']&.split(',')&.map(&:strip) || []
+    }
+
+    config.public_prisons_with_slot_availability = feature_flag_value.call {
+      ENV['PUBLIC_PRISONS_WITH_SLOT_AVAILABILITY']&.split(',')&.map(&:strip) || []
+    }
+
+    config.use_staff_api = ENV['USE_STAFF_API']&.strip == 'true'
+
+    config.vsip_oauth_client_id = ENV['NOMIS_OAUTH_CLIENT_ID']
+    config.vsip_oauth_client_secret = ENV['NOMIS_OAUTH_CLIENT_SECRET']
+    config.vsip_host = ENV['VSIP_HOST']
+    config.vsip_supported_prisons_retrieved = false
+    config.use_vsip = ENV['USE_VSIP'] == 'true'
   end
 end

@@ -1,0 +1,319 @@
+en:
+  mailer:
+    noreply: "Prison Visits Booking (Unattended) <noreply@%{domain}>"
+  visitor_mailer:
+    booked:
+      subject: >-
+        Visit confirmed: your visit for %{date} has been confirmed
+      salutation: Dear %{name},
+      visit_confirmed: Your visit to %{prison} is now successfully confirmed.
+      please_arrive: Please arrive 45 minutes before your visit starts.
+      prisoner: "Prisoner:"
+      number: "Number:"
+      visitor: "Visitor %{n}:"
+      visitor_banned_html: >-
+        <strong>%{name} cannot attend</strong> as they are currently
+        <strong>banned</strong>
+      visitor_banned_until_html: >-
+        <strong>%{name} cannot attend</strong> as they are currently
+        <strong>banned</strong> until %{banned_until}
+      banned_instructions: >-
+        Banned visitors should have received a letter to say that they are
+        banned from visiting the prison at the moment. Get in touch with
+        the prison for more information.
+      visitor_not_on_list_html: >-
+        <strong>%{name} cannot attend</strong> as they are
+        <strong>not on the prisoner's contact list</strong>
+      visitor_rejected_other_reason_html: >-
+        <strong>%{name} cannot attend</strong><br/>
+        Please contact the prison for more information about why they can’t attend.
+      not_on_list_instructions: >-
+        Visitors not on contact lists need to ask prisoners to update their
+        lists with correct details, making sure that names appear exactly the
+        same as on ID documents.
+      reference_no: "Your reference number is:"
+      this_is_a_closed_visit_html: >-
+        <strong>This is a closed visit:</strong>
+        the prisoner will be behind a glass screen in a separate area rather
+        than in the visiting hall.
+      message_title: "Message from the prison:"
+      cancel_change_title: Cancel or change this visit
+      cancel_html: >-
+        If you no longer want to visit on this date,
+        <a href="%{url}">you can cancel this visit</a>.
+      want_to_change: >-
+        If you want to change anything about your visit, like dates or visitors
+        coming, you should cancel your visit and request another one.
+      questions_about_your_visit: Questions about your visit
+      dont_reply: >-
+        Please don’t reply to this email if you have any other questions about
+        your visit. Instead you must contact us directly.
+      phone_no: "Phone:"
+      email_address: "Email:"
+      avoid_spam_filtering_title: Add this email to your address book
+      avoid_spam_filtering_body: >-
+        To stop visit confirmation emails going to your spam or junk folder
+        please add %{email} to your address book or safe senders list.
+      your_data_title: Your data
+      your_data_body: >-
+        The Ministry of Justice (HM Prison Service) uses and retains the
+        personal data of visitors for the purposes of the safe and secure
+        provision of Prison Services, including those related to the management
+        and rehabilitation of offenders. Access to the establishment can only
+        be granted by supplying the prescribed information in order to ensure
+        and maintain a safe and secure environment for all. You have the right
+        to request details as to the personal information we hold for you; and
+        subsequently request that we correct any personal information if it is
+        found to be inaccurate or out of date. We will not share your
+        information with other organisations unless it is required for the
+        purposes of prevention, detection of crime, apprehension, prosecution,
+        and management of offenders; prevention of terrorism; National
+        Security; or required to do by law.
+      need_help_title: Need help or have a question?
+      need_help_body_html: >-
+        If you have a question or need any help with the online visits service,
+        please <a href="%{url}">contact us</a>.
+      visit_id: "Visit ID:"
+    rejected:
+      subject: >-
+        Your visit to %{prison_name} is NOT booked
+      salutation: Dear %{name}
+      intro_html:
+        <p>We've not been able to book your visit to %{prison_name}. Please do NOT
+        go to the prison as you won't be able to get in.</p>
+      cant_visit: You can't visit because
+      slot_unavailable_html: >-
+        the dates and times you chose aren't available - choose new dates on
+        https://www.gov.uk/prison-visits
+      no_allowance_html: >-
+        the prisoner has used their allowance of visits for this month
+      no_allowance_date_html: >-
+        the prisoner has used their allowance of visits for this month - you
+        can only book a visit from %{date} onwards
+      no_adult_html:
+        children under 18 can only visit prison with an adult and you've not
+        listed any adults
+      prisoner_details_incorrect_html: >-
+        we can't find the prisoner from the information you've given - check
+        the prisoner's name, number and/or date of birth or contact the prisoner
+        to get this information
+      prisoner_moved_html: >-
+        the prisoner has moved prisons - they should contact you soon or you
+        can use the find a prisoner service https://www.gov.uk/find-prisoner
+      prisoner_released_html:
+        the prisoner has been released - hopefully they will contact you soon
+      restricted_reason:
+        the prisoner has a restriction
+      duplicate_visit_request_single_html:
+        <p>We haven't booked your visit to %{prisoner} at %{prison_name} because
+        you've already requested a visit for the same date and time at this prison.</p>
+        <p>We've sent you a separate email about your other visit request.
+        Please click the link in that email to check the status of your request.</p>
+      duplicate_visit_request_html:
+        you've already requested a visit with these details and we've already
+        sent you an email response - please click on the link in our original
+        response to check the status of your request
+      visitor_banned_html: >-
+        %{name} is banned from visiting the prison at the moment and
+        should have received a letter from the prison.
+      visitor_banned_until_html: >-
+        %{name} is banned from visiting the prison until %{banned_until}
+        and should have received a letter from the prison.
+      visitor_not_on_list_html:
+        details for %{visitors} don't match our records or aren't on the
+        prisoner's contact list - ask the prisoner to update their contact list
+        with correct details, making sure that names appear exactly the same as
+        on ID documents; if this is the prisoner's first visit (reception
+        visit), then you need to contact the prison directly to book
+      update_list:
+        Please contact the prisoner and ask them to update their contact list
+        with correct details, making sure that names appear exactly the same as
+        on ID documents.
+      first_visit:
+        If this is the prisoner's first visit (reception visit), then you need
+        to contact the prison to book.
+      any_questions_html:
+        If you have any questions, visit the
+        <a href="%{url}">prison website</a> or call the prison on
+        <strong>%{phone_no}</strong>.
+      medway_any_questions_html:
+        If you have any questions, call the prison on <strong>%{phone_no}</strong>.
+      visit_id: "Visit ID:"
+      message_title: "Message from the prison:"
+    request_acknowledged:
+      subject: "Not booked yet: we’ve received your visit request for %{receipt_date}"
+      add_address: >-
+        To stop visit confirmation emails going to your spam or junk folder
+        please add %{email} to your address book or safe senders list.
+      avoid_spam_filtering: "Add this email to your address book"
+      cancel_title: Cancel this visit request
+      cancel_html: >-
+        If you no longer want to visit on this date,
+        <a href="%{url}">you can cancel this visit</a>.
+      choice: "Choice %{n}:"
+      details: "Visit request details"
+      feedback_html: >-
+        Need help or want to make a complaint? If you have a question or need
+        any help with the online visits service, please
+        <a href="%{url}">contact us</a>.
+      prisoner: "Prisoner:"
+      prisoner_number: "Prisoner number:"
+      request:
+        one: You have requested a visit to %{prison} for %{count} person
+        other: You have requested a visit to %{prison} for %{count} people
+      salutation: "Dear %{visitor_full_name}"
+      status: "Your visit is not booked yet"
+      phone_no: "Phone:"
+      email_address: "Email:"
+      when_to_check_spam: >-
+        If you don’t receive a confirmation email by %{when}, please check
+        your spam or junk folder for it. You need to do this on a computer or
+        tablet (rather than a smart phone).
+      when_to_expect_response: >-
+        We’ll email you by %{when} to confirm the date and time of your visit.
+        Please don’t contact us any sooner than that, as we won’t be able to
+        comment on booking requests that are being processed.
+      where_to_check_status_html: >-
+        You can check whether your visit has been booked on the
+        <a href="%{url}">visit status page</a>.
+    cancelled:
+      subject: "CANCELLED: Your %{prison_name} prison visit for %{date}"
+      salutation: Dear %{name},
+      intro:
+        We're sorry to let you know we have cancelled your visit to %{prisoner} at %{prison} on %{date}.
+      cant_visit: You can't visit because
+      slot_unavailable_html: >-
+        the dates and times you chose are no longer available.
+      visitor_banned_html: >-
+        you have been banned from visiting this prison. We’ve sent you a letter with further details.
+      booked_in_error_html: >-
+        we made a mistake booking this visit.
+      capacity_issues_html: >-
+        the visit hall is fully booked for the dates and times you chose.
+      prisoner_moved_html: >-
+        they have left this prison. If you don’t know where they are, you can visit https://www.gov.uk/find-prisoner.
+      restricted_reason_html: >-
+        there are restrictions around this prisoner. You may be able to visit them at a later date.
+      prisoner_released_html: >-
+        they have been released from prison. We can’t share any contact details but we hope they get in touch with you soon.
+      prisoner_vos_html: >-
+        there is a limit to how many visits a prisoner can have each month. %{prisoner} will have reached this limit by the date you’ve chosen,
+        but you can arrange another visit after their visit allowance is renewed.
+      prisoner_cancelled_html: >-
+        they aren’t available at the date and time you requested.
+      any_questions_html:
+        If you have any questions, visit the <a href="%{url}">prison website</a> or call the prison on <strong>%{phone_no}</strong>.
+      visit_id: "Visit ID:"
+      arrange_html: >-
+        You can arrange another visit on https://www.gov.uk/prison-visits.
+    visit_info:
+      what_to_bring_title: What to bring when you visit
+      id_requirements_html: |
+        <p>
+          Please make sure you bring ID with you. This can be ONE of
+          the following:
+        </p>
+
+        <ul>
+          <li>
+            passport, including foreign passports, and expired passports where
+            the photograph is still recognisable
+          </li>
+          <li>
+            identity card (including European identity cards)
+          </li>
+          <li>
+            driving licence
+          </li>
+          <li>
+            biometric residence permit
+          </li>
+          <li>
+            benefits book
+          </li>
+          <li>
+            senior citizen’s public transport photo pass issued by a local
+            authority
+          </li>
+          <li>
+            employer’s or student ID card but only if this has a photo and
+            clearly shows your name and the issuing employer or educational
+            establishment
+          </li>
+        </ul>
+
+        <p>
+          If you don’t have one of these forms of ID, you can bring TWO of
+          the following:
+        </p>
+
+        <ul>
+          <li>
+            birth or marriage certificate
+          </li>
+          <li>
+            cheque book or credit or debit card
+          </li>
+          <li>
+            employer’s pass or ID or student ID card without photo
+          </li>
+          <li>
+            young person’s ‘proof of age’ card
+          </li>
+          <li>
+            trade union or National Students’ Union membership card
+          </li>
+          <li>
+            rent book
+          </li>
+          <li>
+            foreign identity or residents’ card
+          </li>
+        </ul>
+      any_questions: >-
+        If you have any questions about ID requirements, please contact the
+        prison.
+      bringing_child_title: If you’re bringing someone else’s child
+      bringing_child_body: >-
+        You’ll need a letter from that child’s parents giving you permission to
+        accompany their child.
+      what_to_expect_title: What to expect when visiting prison
+      what_to_expect_body: >-
+        You will be searched before entering the prison visiting room. Prison
+        staff may check  your pockets, pat you down and ask you to go through a
+        metal detector. Dogs may also be used to detect illegal substances.
+      what_not_to_bring_title: What not to bring
+      what_not_to_bring_body_html: >-
+        Please don’t bring anything restricted or illegal to the prison. The
+        <a href="%{url}">%{prison} prison page</a> has more information about
+        what you can bring.
+      medway_what_not_to_bring_body_html: >-
+        Please don’t bring anything restricted or illegal to the prison. For more information about
+        what you can't bring call the prison on <strong>%{phone_no}</strong>.
+    one_off_message:
+      subject: "UPDATE: Your visit to %{prison_name} on %{date} (Do not reply)"
+      salutation: Dear %{name},
+      regarding: >-
+        We are writing to you to give you an important information update
+        regarding your visit to %{prison} on %{date}.
+      message: >-
+        %{message_body}
+      any_questions_html:
+        Please be advised that your visit is still confirmed. Should the
+        information in this email mean you can no longer visit on the above date,
+        please <a href="%{url}">cancel your booking</a> or call %{prison} at %{phone_no}.
+    cross_promote:
+      other_services: Other services you might be interested in
+      money_to_prisoners: Send money to someone in prison
+      mtp_details_html: >-
+        <p>If you have a bank account, you can <a href="https://www.gov.uk/send-prisoner-money">send money to a
+        prisoner</a> online.</p>
+        <p>This free, fast and secure service lets you make online payments by debit card, or can give you a prisoner
+        reference to use in a UK bank transfer.</p>
+      help_with_prison_visits: Get help with the cost of prison visits
+      help_details_html: >-
+        <p>If you're visiting a family member, partner or someone who doesn't get other visitors and you get certain benefits,
+        you may be able to <a href="https://www.gov.uk/help-with-prison-visits">get help with the cost of prison visits</a>.</p>
+      support_for_families: Support for families and friends of prisoners
+      support_details_html: >-
+        <p>Get <a href="https://www.gov.uk/support-for-families-friends-of-prisoners">support and advice</a> if you know someone in prison.</p>

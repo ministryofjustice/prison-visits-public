@@ -108,17 +108,22 @@ private
     # make the step invalid, hence this line
     invalidate_step
 
-    if result.fetch('errors').include?('too_many_visitors')
+    if result['errors'].nil?
+      error_list = result[:errors]
+    else
+      error_list = result.fetch('errors')
+    end
+    if error_list.include?('too_many_visitors')
       errors.add :general, :too_many_visitors, max: max_visitors
     end
 
-    if result.fetch('errors').include?('too_many_adults')
+    if error_list.include?('too_many_adults')
       errors.add :general, :too_many_adults,
                  max: MAX_ADULTS,
                  age: adult_age
     end
 
-    if result.fetch('errors').include?('lead_visitor_age')
+    if error_list.include?('lead_visitor_age')
       lead_visitor.errors.add :date_of_birth, :lead_visitor_age,
                               min: LEAD_VISITOR_MIN_AGE
     end

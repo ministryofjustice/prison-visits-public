@@ -55,4 +55,15 @@ Rails.application.routes.draw do
       "#{Rails.configuration.staff_url}#{request.fullpath}"
     }
   end
+
+  namespace :staff do
+    namespace :api do
+      resources :feedback,        only: %i[ create ]
+      resources :prisons,         only: %i[ index show ]
+      resources :slots,           only: %i[ index ]
+      resources :visits,          only: %i[ create show destroy ]
+      post '/validations/prisoner', to: 'validations#prisoner'
+      post '/validations/visitors', to: 'validations#visitors'
+    end
+  end
 end

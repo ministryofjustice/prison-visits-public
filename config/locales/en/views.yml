@@ -115,8 +115,12 @@ en:
       slot1_error: You must choose at least one date and time slot.
       prisoner_changed: As you've changed the prisoner details, you need to choose new visit slots.
       info_html: >-
-        <p>Choose up to 3 possible dates and times. The prison will confirm one of your choices for the visit.</p>
-        <p>Start with your first choice of date and time. The prison’s visit dates are in <span class=bold>bold</span>. These dates may not be available.</p>
+        <p>Choose up to 3 possible dates and times for your visit. The dates shown in bold are currently available, however sessions may be fully booked by the time your request is reviewed.</p>
+        <p>The prison will confirm one of your choices for the visit.</p>
+      vsip_html: >-
+        We have improved the service to show more accurate availability. This means you might see fewer slots overall but you can be more confident that the slots shown are available.
+      help_html: >-
+        If you see no available slots <a href="%{url}" rel="external">contact the prison</a>.
       keyboard_directions_html: |
         <ul>
           <li>Press the LEFT and RIGHT arrow keys to navigate the row by week day.</li>
@@ -227,7 +231,7 @@ en:
     slotpicker_templates:
       one_slot_available: >-
         Only one time is available on this day, select it to continue
-      choose_date_and_time: Choose a date and time from the calendar
+      choose_date_and_time: Choose a date and time from the calendars
       promote: Promote slot
       remove: Remove slot
       today: Today

@@ -24,6 +24,8 @@ class BookingRequestsController < ApplicationController
 
       instrument_booking_request(step_name: @step_name, visit: @visit)
 
+      @vsip_supported = vsip_supported?
+
       respond_to_request(@visit, @step_name)
     end
   end
@@ -104,5 +106,18 @@ private
   def reviewing?
     params.key?(:review_step)
   end
+
+  def vsip_supported?
+    return false if processor.nil? || processor.prison.nil?
+
+    prison = Staff::Prison.find_by_id(processor.prison.id)
+    return false unless prison
+
+    estate = prison.estate
+    return false unless estate
+
+    estate.vsip_supported
+  end
+
   helper_method :reviewing?
 end
