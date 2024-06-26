@@ -108,8 +108,6 @@ module PrisonVisits
         visit = Staff::Visit.where(human_id: id).first
         if visit
           visit_decorator(Staff::Visit.where(human_id: id).first)
-        else
-          return
         end
       end
     end
