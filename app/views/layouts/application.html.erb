@@ -1,32 +1,17 @@
 <% content_for :page_title do %>
-  <% if content_for?(:pagetitle) %>
-    <%= page_title(yield(:pagetitle)) %>
-  <% else %>
-    <%= page_title(yield(:header)) %>
-  <% end %>
+  <%= page_title(yield(:pagetitle)) %>
 <% end %>
+
+
 
 <% content_for :head do %>
   <%= csrf_meta_tag %>
   <%= favicon_link_tag %>
   <%= stylesheet_link_tag('application', media: 'all') %>
-  <!--[if IE 8]>
-    <%= stylesheet_link_tag('application-ie8', media: 'all') %>
-    <meta http-equiv="X-UA-Compatible" content="IE=8" >
-  <![endif]-->
+
 <% end %>
 
-<aside id="cookie-message">
-  <p>
-    <%= t('.cookies_intro_explanation') %>
-  </p>
-  <p>
-    <%= t('.cookies_question') %>
-  </p>
-    <button id="accept-cookies" class="button"><%= t('.accept_cookies')%></button>
-    <button id="reject-cookies" class="button"><%= t('.reject_cookies')%></button>
-    <a class="mtp-cancel-button" href="cookies"><%= t('.view_more_information')%></a>
-</aside>
+
 
 <% content_for :proposition_header do %>
   <div class="header-proposition">
@@ -43,11 +28,11 @@
   <%= content_tag :div, nil, class: "js-Sentry", data: { sentry_js_dsn: config_item(:sentry_js_dsn) } %>
 
   <!--[if lte IE 8]>
-    <%= javascript_include_tag('application_ie') %>
+  <%= javascript_include_tag('application_ie') %>
   <![endif]-->
 
   <!--[if gte IE 9]><!-->
-    <%= javascript_include_tag('application') %>
+  <%= javascript_include_tag('application') %>
   <!--<![endif]-->
 
 
@@ -111,5 +96,41 @@
     <% end %>
   </ul>
 <% end %>
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+  <title><%= content_for :page_title %></title>
 
-<%= render(template: 'layouts/govuk_template') %>
+  <%= csrf_meta_tags %>
+
+  <%= tag :meta, name: 'viewport', content: 'width=device-width, initial-scale=1' %>
+  <%= tag :meta, property: 'og:image', content: asset_path('/govuk/assets/images/govuk-opengraph-image.png') %>
+  <%= tag :meta, name: 'theme-color', content: '#0b0c0c' %>
+  <%= favicon_link_tag asset_path('/govuk/assets/images/favicon.ico'), sizes: '48x48' %>
+  <%= favicon_link_tag asset_path('/govuk/assets/images/favicon.svg'), type: 'image/svg+xml', sizes: 'any' %>
+  <%= favicon_link_tag asset_path('/govuk/assets/images/govuk-icon-mask.svg'), rel: 'mask-icon', color: '#0b0c0c' %>
+  <%= favicon_link_tag asset_path('/govuk/assets/images/govuk-icon-180.png'), rel: 'apple-touch-icon', type: 'image/png', size: '180x180' %>
+
+  <%= javascript_include_tag "application", defer: true %>
+  <%= stylesheet_link_tag "application" %>
+  <%= content_for 'head' %>
+</head>
+
+<body class="govuk-template__body govuk-frontend-supported">
+
+<%= govuk_skip_link %>
+
+<%= govuk_header(homepage_url: "/", service_name: t("service.name")) %>
+
+<div class="govuk-width-container">
+  <%= govuk_phase_banner(tag: { text: "Beta" }, text: "This is a new service – your feedback will help us to improve it. ") %>
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+    <%= yield %>
+  </main>
+</div>
+
+<%= govuk_footer(meta_items_title: "Support links", meta_items: {
+  t("footer.help") => "https://www.gov.uk/help", t("footer.cookie") => "https://www.gov.uk/help/cookies" }) %>
+
+</body>
+</html>

@@ -16,6 +16,10 @@ gem 'excon'
 gem 'govuk_elements_rails'
 gem 'govuk_frontend_toolkit'
 gem 'govuk_template'
+
+gem 'govuk-components'
+gem "govuk_design_system_formbuilder"
+
 gem 'high_voltage'
 gem 'jquery-rails', '~> 4.6.0'
 gem 'jquery-ui-rails', '~> 6.0.1'

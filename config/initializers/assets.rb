@@ -6,6 +6,7 @@ Rails.application.config.assets.version = '1.0'
 # Add additional assets to the asset load path.
 Rails.application.config.assets.paths <<
   "#{Rails.root}/vendor/assets/moj.slot-picker/dist/stylesheets"
+Rails.application.config.assets.paths << "node_modules/govuk-frontend/dist"
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets

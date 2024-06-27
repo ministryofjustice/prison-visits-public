@@ -1,0 +1,25 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>here</p>
+  </div>
+</div>
+
+<%= render GovukComponent::PanelComponent.new(title_text: "Hello", text: "world!") %>
+
+<% content_for :header, t('.title') %>
+
+<%= render GovukComponent::WarningTextComponent.new do %>
+  A serious warning
+<% end %>
+
+<%= govuk_warning_text do %>
+  A serious warning
+<% end %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">
+      Missing cases
+    </h1>
+  </div>
+</div>
