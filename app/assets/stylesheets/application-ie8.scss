@@ -1,0 +1,48 @@
+$is-ie: true;
+$ie-version: 8;
+
+@import "application";
+
+.grid-row {
+  margin: 0 (-$gutter);
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .column-one-quarter {
+    width: $one-quarter;
+  }
+
+  .column-one-third {
+    width: $one-third;
+  }
+
+  .column-one-half {
+    width: $half;
+  }
+
+  .column-two-thirds {
+    width: $two-thirds;
+  }
+
+  .column-three-quarters {
+    width: $three-quarters;
+  }
+
+  [class^='column-'] {
+    padding: 0 $gutter;
+    float: left;
+    box-sizing: border-box;
+  }
+}
+
+.js-enabled {
+  .multiple-choice {
+    input {
+      @include opacity(1);
+    }
+  }
+}

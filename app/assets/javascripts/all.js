@@ -4,7 +4,7 @@
 //= require raven-3.24.2.min.js
 
 // GOVUK modules
-= require govuk_toolkit
+//= require govuk_toolkit
 //= require vendor/polyfills/bind
 
 // MOJ elements
