@@ -1,5 +1,4 @@
 <% content_for :header, t('.title') %>
-<%= render GovukComponent::PanelComponent.new(title_text: "Hello", text: "world!") %>
 <%= render('shared/timeout_prompt') %>
 <%= form_for(@steps.fetch(:prisoner_step),
   url: booking_requests_path,

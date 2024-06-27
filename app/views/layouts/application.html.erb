@@ -71,35 +71,10 @@
   </main>
 <% end %>
 
-<% content_for :footer_support_links do %>
-  <ul>
-    <li>
-      <%= link_to(t('.cookies'), cookies_path) %>
-    </li>
-    <li>
-      <%= link_to(t('.ts_and_cs'), terms_and_conditions_path) %>
-    </li>
-    <li>
-      <%= link_to(t('.privacy_policy'), privacy_policy_path) %>
-    </li>
-    <li>
-      <%= t('.contact_us_html', url: 'https://visit-someone-in-prison.form.service.justice.gov.uk') %>
-    </li>
-    <% alternative_locales.each do |locale| %>
-      <li>
-        <% if controller_name == 'errors' %>
-          <%= link_to(t('language', locale: locale), "/#{response.status}?locale=#{locale}")%>
-        <% else %>
-          <%= link_to(t('language', locale: locale), locale: locale) %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
 <!DOCTYPE html>
 <html lang="en" class="govuk-template">
 <head>
-  <title><%= content_for :page_title %></title>
+  <title><%= :page_title %></title>
 
   <%= csrf_meta_tags %>
 
@@ -129,8 +104,21 @@
   </main>
 </div>
 
+<% alternative_locales.each do |locale| %>
+  <% if controller_name == 'errors' %>
+    <% @alternative_locale = {language: t('language', locale: locale), url: "/#{response.status}?locale=#{locale}"}%>
+  <% else %>
+    <% @alternative_locale = {language: t('language', locale: locale), url: locale}%>
+  <% end %>
+<% end %>
+
 <%= govuk_footer(meta_items_title: "Support links", meta_items: {
-  t("footer.help") => "https://www.gov.uk/help", t("footer.cookie") => "https://www.gov.uk/help/cookies" }) %>
+  t('.cookies') => cookies_path,
+  t('.ts_and_cs') => terms_and_conditions_path,
+  t('.privacy_policy') => privacy_policy_path,
+  t('.contact_us_html', url: 'https://visit-someone-in-prison.form.service.justice.gov.uk') => 'https://visit-someone-in-prison.form.service.justice.gov.uk',
+  @alternative_locale[:language] => "/#{@alternative_locale[:url]}"
+}) %>
 
 </body>
 </html>
