@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
 
   helper LinksHelper
 
+  def not_found
+    render status: :not_found, plain: 'Not found'
+  end
+
 private
 
   def http_referrer

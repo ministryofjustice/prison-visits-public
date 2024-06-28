@@ -66,4 +66,6 @@ Rails.application.routes.draw do
       post '/validations/visitors', to: 'validations#visitors'
     end
   end
+
+  match '*path', to: 'application#not_found', via: :all
 end

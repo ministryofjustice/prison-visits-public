@@ -105,7 +105,10 @@ module PrisonVisits
         response = pool.with { |client| client.get("visits/#{id}") }
         Visit.new(response.fetch('visit'))
       else
-        visit_decorator(Staff::Visit.where(human_id: id).first)
+        visit = Staff::Visit.where(human_id: id).first
+        if visit
+          visit_decorator(Staff::Visit.where(human_id: id).first)
+        end
       end
     end
 
