@@ -51,7 +51,7 @@ spec:
             cpu: "15m"
         env:
         - name: PRODUCT_ID
-          value: "DPS031"
+          value: "DPS075"
         - name: SECRET_KEY_BASE
           valueFrom:
             secretKeyRef:
