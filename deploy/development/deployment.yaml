@@ -73,32 +73,14 @@ spec:
           value: "https://prison-visits-booking-staff-dev.apps.live.cloud-platform.service.justice.gov.uk/"
         - name: PUBLIC_PRISONS_WITH_SLOT_AVAILABILITY
           value: >
-            Bedford,
-            Feltham (Young People 15-18 only),
-            Feltham (Young Adults 18-21 only),
             High Down,
-            Hull,
-            Medway Secure Training Centre,
-            North Sea Camp,
-            Nottingham,
-            Swaleside,
-            Whitemoor,
         - name: PUBLIC_SERVICE_URL
           value: "https://prison-visits-public-dev.apps.live.cloud-platform.service.justice.gov.uk"
         - name: EMAIL_DOMAIN
           value: "email-staging.pvb.dsd.io"
         - name: STAFF_PRISONS_WITH_SLOT_AVAILABILITY
           value: >
-            Bedford,
-            Feltham (Young People 15-18 only),
-            Feltham (Young Adults 18-21 only),
             High Down,
-            Hull,
-            Medway Secure Training Centre,
-            North Sea Camp,
-            Nottingham,
-            Swaleside,
-            Whitemoor,
         - name: STAFF_SERVICE_URL
           value: "https://prison-visits-booking-staff-dev.apps.live.cloud-platform.service.justice.gov.uk"
         - name: SERVICE_URL
