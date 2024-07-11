@@ -111,7 +111,7 @@
         if (this.isSlotDate(i,date)) {
           attrs.className = this.isAvailableDate(i)
             ? 'available' + this.chosenDate(i)
-            : 'unavailable';
+            : 'disabled';
           attrs.className += this.isSelected(date)? ' selected' : '';
           attrs.readonly = this.isAvailableDate(i)? false : true;
           attrs.ariaLabel = '';
