@@ -74,7 +74,7 @@ en:
         <p>%{prison_name} is privately run and manages its own visitor bookings.</p>
         <p>For information on how to book a visit to %{prison_name}, go to the <a href="%{url}" rel="external">prison finder</a>.</p>
       shutdown_html: |
-        <p>For information on how to find prisoners who used to be in %{prison_name} prison, go to the <a href="https://www.gov.uk/find-prisoner" rel="external">find a prisoner</a> service.</p>
+        <p>For information on how to find prisoners who used to be in %{prison_name} prison, go to the <a href="https://www.gov.uk/find-prisoner" rel="external">find a prisoner</a>service.</p>
     visitors_step:
       title: Visitor details
       info_html: |
