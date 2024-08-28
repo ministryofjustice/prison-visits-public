@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 #  Needed for Heroku
 ruby '3.2.2'
 
-gem 'rails', '7.1.2'
+gem 'rails', '7.2.1'
 
 gem 'bootsnap', require: false
 gem 'base32-crockford', require: 'base32/crockford'
