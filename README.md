@@ -104,4 +104,3 @@ More information can be found in the [GitHub Wiki.](https://github.com/ministryo
 
 ## Licence
 [MIT Licence (MIT)](LICENCE)
-
