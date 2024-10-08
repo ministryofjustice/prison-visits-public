@@ -12,7 +12,7 @@ references:
 
   docker_container_config: &docker_container_config
     docker:
-    - image: cimg/ruby:3.2.2-browsers
+    - image: cimg/ruby:3.3.5-browsers
       environment:
         RAILS_ENV: test
         PGHOST: 127.0.0.1
@@ -200,7 +200,6 @@ jobs:
     - attach_workspace:
         at: ~/repo
     - setup_remote_docker:
-        version: 19.03.13
         docker_layer_caching: true
     - *build_docker_image
     - aws-cli/setup:

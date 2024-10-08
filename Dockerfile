@@ -1,4 +1,4 @@
-FROM ruby:3.2.2-bullseye
+FROM ruby:3.3.5-bullseye
 
 ARG BUILD_NUMBER
 ARG GIT_BRANCH
@@ -64,7 +64,8 @@ RUN \
 COPY Gemfile Gemfile.lock ./
 
 RUN bundle update --bundler
-RUN bundle install --without development test --jobs 2 --retry 3
+RUN bundle config set without 'development test'
+RUN bundle install --jobs 2 --retry 3
 COPY . /app
 
 ENV BUILD_NUMBER=${BUILD_NUMBER}
