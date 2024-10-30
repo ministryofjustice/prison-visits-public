@@ -1,9 +1,9 @@
 require 'uri_template'
 
 class LinkDirectory
-  GOOGLE_MAPS = 'http://google.com/maps?q={query}'
+  GOOGLE_MAPS = 'https://google.com/maps?q={query}'
   RATE_SERVICE = 'https://visit-someone-in-prison.form.service.justice.gov.uk'
-  PRISON_FINDER = 'http://www.gov.uk/government/collections/prisons-in-england-and-wales'
+  PRISON_FINDER = 'https://www.gov.uk/government/collections/prisons-in-england-and-wales'
 
   def google_maps(query)
     URITemplate.new(GOOGLE_MAPS).expand(query:)
