@@ -18,7 +18,7 @@ en:
         </p>
       privacy_policy_header_text: Important
       privacy_policy_header_html: We have updated our privacy policy. It explains how we use your data. <a class="govuk-notification-banner__link" href='/en/privacy-policy'>View the privacy policy</a>.
-      
+      help: Help
   booking_requests:
     hidden_inputs_for_calendars:
       option_0: Option 1
