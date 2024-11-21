@@ -34,20 +34,8 @@
       <br>
       <%= t('visits.shared.email') %>: <span class="bold-small"><%= mail_to(@visit.prison_email_address) %></span>
     </p>
-    <h3 class="heading-small"><%= t('.confirmed_visitors') %>:</h3>
-    <ul class="list list-bullet">
-      <% @visit.allowed_visitors.each do |visitor| %>
-        <li><%= visitor.anonymized_name %></li>
-      <% end %>
-    </ul>
-    <% if @visit.rejected_visitors.any? %>
-      <h3 class="heading-small"><%= t('.rejected_visitors') %>:</h3>
-      <ul class="list list-bullet">
-        <% @visit.rejected_visitors.each do |visitor| %>
-          <li><%= visitor.anonymized_name %></li>
-        <% end %>
-      </ul>
     <% end %>
+
     <div class="panel panel-border-narrow"><%= t('.not_received_html') %></div>
     <h3 class="heading-medium"><%= t('.cancel_or_change_title') %></h3>
     <p><%= t('.cancel_or_change') %></p>
