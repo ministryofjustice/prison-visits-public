@@ -11,9 +11,10 @@ spec:
   ingressClassName: default
   tls:
   - hosts:
-    - prison-visits-public-dev.apps.live.cloud-platform.service.justice.gov.uk
+    - prisonvisits-dev.service.gov.uk
+    secretName: prison-visits-public-cert
   rules:
-  - host: prison-visits-public-dev.apps.live.cloud-platform.service.justice.gov.uk
+  - host: prisonvisits-dev.service.gov.uk
     http:
       paths:
       - path: /
