@@ -70,7 +70,7 @@ spec:
         - name: PRISON_API_HOST
           value: "https://prison-api-dev.prison.service.justice.gov.uk"
         - name:  PRISON_VISITS_API
-          value: "https://prison-visits-booking-staff-dev.apps.live.cloud-platform.service.justice.gov.uk/"
+          value: "https://staff.prisonvisits-dev.service.justice.gov.uk/"
         - name: PUBLIC_PRISONS_WITH_SLOT_AVAILABILITY
           value: >
             Bedford,
@@ -84,7 +84,7 @@ spec:
             Swaleside,
             Whitemoor,
         - name: PUBLIC_SERVICE_URL
-          value: "https://prison-visits-public-dev.apps.live.cloud-platform.service.justice.gov.uk"
+          value: "https://prisonvisits-dev.service.gov.uk"
         - name: EMAIL_DOMAIN
           value: "email-staging.pvb.dsd.io"
         - name: STAFF_PRISONS_WITH_SLOT_AVAILABILITY
@@ -100,9 +100,9 @@ spec:
             Swaleside,
             Whitemoor,
         - name: STAFF_SERVICE_URL
-          value: "https://prison-visits-booking-staff-dev.apps.live.cloud-platform.service.justice.gov.uk"
+          value: "https://staff.prisonvisits-dev.service.justice.gov.uk"
         - name: SERVICE_URL
-          value: "https://prison-visits-public-dev.apps.live.cloud-platform.service.justice.gov.uk"
+          value: "https://prisonvisits-dev.service.gov.uk"
         - name: DATABASE_URL
           valueFrom:
             secretKeyRef:
