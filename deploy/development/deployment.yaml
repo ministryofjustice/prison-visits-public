@@ -100,7 +100,7 @@ spec:
             Swaleside,
             Whitemoor,
         - name: STAFF_SERVICE_URL
-          value: "https://staff.prisonvisits-dev.service.justice.gov.uk"
+          value: "https://staff.dev.prisonvisits.service.justice.gov.uk"
         - name: SERVICE_URL
           value: "https://dev.prisonvisits.service.justice.gov.uk"
         - name: DATABASE_URL
