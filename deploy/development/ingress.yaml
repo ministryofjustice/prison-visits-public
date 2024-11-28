@@ -11,10 +11,10 @@ spec:
   ingressClassName: default
   tls:
   - hosts:
-    - prisonvisits-dev.service.gov.uk
+    - dev.prisonvisits.service.justice.gov.uk
     secretName: prison-visits-public-cert
   rules:
-  - host: prisonvisits-dev.service.gov.uk
+  - host: dev.prisonvisits.service.justice.gov.uk
     http:
       paths:
       - path: /
