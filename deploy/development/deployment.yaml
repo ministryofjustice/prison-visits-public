@@ -70,15 +70,15 @@ spec:
         - name: PRISON_API_HOST
           value: "https://prison-api-dev.prison.service.justice.gov.uk"
         - name:  PRISON_VISITS_API
-          value: "https://prison-visits-booking-staff-dev.apps.live.cloud-platform.service.justice.gov.uk/"
+          value: "https://staff.dev.prisonvisits.service.justice.gov.uk/"
         - name: PUBLIC_SERVICE_URL
-          value: "https://prison-visits-public-dev.apps.live.cloud-platform.service.justice.gov.uk"
+          value: "https://dev.prisonvisits.service.justice.gov.uk"
         - name: EMAIL_DOMAIN
           value: "email-staging.pvb.dsd.io"
         - name: STAFF_SERVICE_URL
-          value: "https://prison-visits-booking-staff-dev.apps.live.cloud-platform.service.justice.gov.uk"
+          value: "https://staff.dev.prisonvisits.service.justice.gov.uk"
         - name: SERVICE_URL
-          value: "https://prison-visits-public-dev.apps.live.cloud-platform.service.justice.gov.uk"
+          value: "https://dev.prisonvisits.service.justice.gov.uk"
         - name: DATABASE_URL
           valueFrom:
             secretKeyRef:
