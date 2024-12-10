@@ -96,9 +96,15 @@ spec:
         - name: NOMIS_OAUTH_HOST
           value: "https://sign-in.hmpps.service.justice.gov.uk"
         - name: NOMIS_STAFF_SLOT_AVAILABILITY_ENABLED
-          value: "false"
+          value: "true"
         - name: PRISON_API_HOST
           value: "https://prison-api.prison.service.justice.gov.uk"
+        - name: PUBLIC_PRISONS_WITH_SLOT_AVAILABILITY
+          value: >
+            High Down,
+        - name: STAFF_PRISONS_WITH_SLOT_AVAILABILITY
+          value: >
+            High Down,
         - name: DATABASE_URL
           valueFrom:
             secretKeyRef:
