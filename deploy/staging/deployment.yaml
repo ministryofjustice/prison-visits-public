@@ -64,15 +64,15 @@ spec:
         - name: KUBERNETES_DEPLOYMENT
           value: "true"
         - name:  PRISON_VISITS_API
-          value: "https://prison-visits-booking-staff-staging.apps.live.cloud-platform.service.justice.gov.uk/"
+          value: "https://staff.preprod.prisonvisits.service.justice.gov.uk/"
         - name: PUBLIC_SERVICE_URL
-          value: "https://prison-visits-public-staging.apps.live.cloud-platform.service.justice.gov.uk"
+          value: "https://preprod.prisonvisits.service.justice.gov.uk"
         - name: EMAIL_DOMAIN
           value: "email-staging.pvb.dsd.io"
         - name: STAFF_SERVICE_URL
-          value: "https://prison-visits-booking-staff-staging.apps.live.cloud-platform.service.justice.gov.uk"
+          value: "https://staff.preprod.prisonvisits.service.justice.gov.uk"
         - name: SERVICE_URL
-          value: "https://prison-visits-public-staging.apps.live.cloud-platform.service.justice.gov.uk"
+          value: "https://preprod.prisonvisits.service.justice.gov.uk"
         - name: SENTRY_DSN
           valueFrom:
             secretKeyRef:
