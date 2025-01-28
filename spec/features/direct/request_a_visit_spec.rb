@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'notifications/client'
 # require './spec/support/helpers/gov_notify_emailer_mock'
 
-RSpec.feature 'Booking a visit direct to nomis and to staff model', js: true do
+RSpec.feature 'Booking a visit direct to nomis and to staff model', :js do
   include FeaturesHelper
 
   # Whitespace on email to test stripping

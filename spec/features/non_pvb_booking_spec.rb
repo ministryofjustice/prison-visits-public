@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Booking for non-PVB prison', js: true do
+RSpec.feature 'Booking for non-PVB prison', :js do
   include FeaturesHelper
 
   scenario 'booking a visit to a private prison', vcr: {

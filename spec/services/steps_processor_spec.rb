@@ -54,10 +54,7 @@ RSpec.describe StepsProcessor do
   }
 
   before do
-    allow(pvb_api).to receive(:get_prison).and_return(prison)
-    allow(pvb_api).to receive(:get_slots).and_return(slots)
-    allow(pvb_api).to receive(:validate_prisoner).and_return('valid' => true)
-    allow(pvb_api).to receive(:validate_visitors).and_return('valid' => true)
+    allow(pvb_api).to receive_messages(get_prison: prison, get_slots: slots, validate_prisoner: { 'valid' => true }, validate_visitors: { 'valid' => true })
   end
 
   subject { described_class.new(params, :cy) }

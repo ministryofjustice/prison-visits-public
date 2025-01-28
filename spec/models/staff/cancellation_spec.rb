@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Staff::Cancellation, model: true do
+RSpec.describe Staff::Cancellation, :model do
   subject { build(:cancellation, visit: create(:staff_visit)) }
 
   describe 'validation' do

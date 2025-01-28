@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Maintaining a visit', js: true do
+RSpec.feature 'Maintaining a visit', :js do
   include FeaturesHelper
 
   scenario 'viewing and withdrawing a visit request', vcr: {

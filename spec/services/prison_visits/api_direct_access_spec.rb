@@ -77,7 +77,7 @@ RSpec.describe PrisonVisits::Api do
     end
 
     it "request visit" do
-      expect(subject.request_visit(prison_id: 1, prisoner_number: 1, prisoner_dob: '12/12/2000')).to be_kind_of(Visit)
+      expect(subject.request_visit(prison_id: 1, prisoner_number: 1, prisoner_dob: '12/12/2000')).to be_a(Visit)
     end
   end
 
@@ -87,7 +87,7 @@ RSpec.describe PrisonVisits::Api do
     end
 
     it "gets visit" do
-      expect(subject.get_visit(prison_id: 1, prisoner_number: 1, prisoner_dob: '12/12/2000')).to be_kind_of(Visit)
+      expect(subject.get_visit(prison_id: 1, prisoner_number: 1, prisoner_dob: '12/12/2000')).to be_a(Visit)
     end
   end
 
@@ -97,7 +97,7 @@ RSpec.describe PrisonVisits::Api do
     end
 
     it "gets visit" do
-      expect(subject.cancel_visit(1)).to be_kind_of(Visit)
+      expect(subject.cancel_visit(1)).to be_a(Visit)
     end
   end
 end

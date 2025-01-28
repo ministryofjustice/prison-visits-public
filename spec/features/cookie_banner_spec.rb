@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Cookie banner', js: true do
+RSpec.feature 'Cookie banner', :js do
   include FeaturesHelper
 
   cookie_banner_text_1 = "This service uses cookies which are essential for the site to work. We also use non-essential cookies to help us improve your experience."

@@ -58,8 +58,7 @@ RSpec.describe VisitorsStep do
   }
 
   before do
-    allow(processor).to receive(:booking_constraints).and_return(booking_constraints)
-    allow(processor).to receive(:prison).and_return(prison)
+    allow(processor).to receive_messages(booking_constraints: booking_constraints, prison: prison)
     allow(pvb_api).to receive(:validate_visitors).and_return('valid' => true)
   end
 

@@ -46,6 +46,7 @@ gem 'uglifier', '~> 4.2.0', require: false
 gem 'uri_template'
 
 group :developmemt do
+  gem 'rubocop-capybara'
   gem 'rubocop-govuk'
   gem 'guard-rspec'
   gem 'guard-rubocop'

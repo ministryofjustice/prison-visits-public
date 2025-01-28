@@ -39,12 +39,6 @@ RSpec.describe Vsip::Api do
     }.to raise_error(Vsip::Error::Disabled, 'Vsip API is disabled')
   end
 
-  describe 'initialize' do
-    it 'initializes' do
-      expect(described_class).to eq(described_class)
-    end
-  end
-
   describe 'supported_prisons' do
     context 'gets list back from api'
     let(:estate) { create(:estate, nomis_id: 'LEI') }

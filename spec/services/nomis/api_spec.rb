@@ -65,7 +65,7 @@ RSpec.describe Nomis::Api do
     let(:prisoner) { subject.lookup_active_prisoner(**params) }
 
     it 'returns and prisoner if the data matches' do
-      expect(prisoner).to be_kind_of(Nomis::Prisoner)
+      expect(prisoner).to be_a(Nomis::Prisoner)
       expect(prisoner.nomis_offender_id).to eq(1_502_035)
       expect(prisoner.noms_id).to eq('G7244GR')
     end
@@ -272,7 +272,7 @@ RSpec.describe Nomis::Api do
       subject { super().prisoner_visiting_availability(**params) }
 
       it 'returns availability info containing a list of available dates' do
-        expect(subject).to be_kind_of(Nomis::PrisonerAvailability)
+        expect(subject).to be_a(Nomis::PrisonerAvailability)
         expect(subject.dates.first).to eq(Date.parse('2020-10-15'))
       end
 
@@ -296,7 +296,7 @@ RSpec.describe Nomis::Api do
       subject { super().prisoner_visiting_availability(**params) }
 
       it 'returns empty list of available dates if there is no availability' do
-        expect(subject).to be_kind_of(Nomis::PrisonerAvailability)
+        expect(subject).to be_a(Nomis::PrisonerAvailability)
         expect(subject.dates).to be_empty
       end
     end
@@ -328,7 +328,7 @@ RSpec.describe Nomis::Api do
     subject { super().prisoner_visiting_detailed_availability(**params) }
 
     it 'returns availability info containing a list of available dates' do
-      expect(subject).to be_kind_of(Nomis::PrisonerDetailedAvailability)
+      expect(subject).to be_a(Nomis::PrisonerDetailedAvailability)
       expect(subject.dates.map(&:date)).
         to contain_exactly(slot1.to_date, slot2.to_date, slot3.to_date)
     end
