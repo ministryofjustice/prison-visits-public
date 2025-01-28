@@ -60,7 +60,7 @@ RSpec.describe PrisonerStep do
 
     dob = subject.date_of_birth
 
-    expect(dob).to be_kind_of(UncoercedDate)
+    expect(dob).to be_a(UncoercedDate)
     expect(dob.month).to eql(13)
   end
 

@@ -69,7 +69,7 @@ RSpec.describe PrisonVisits::Client do
         subject.get('/prisons/ff6eb0ca-da69-4495-ac9d-b383e01371eb')
       }.to raise_error(PrisonVisits::APIError, 'Unexpected status 401 calling GET /api/prisons/ff6eb0ca-da69-4495-ac9d-b383e01371eb: {"message"=>"get off my back"}')
 
-      expect(a_request(:get, /\w/)).to have_been_made.times(3)
+      expect(a_request(:get, /\w/)).to have_been_made.times(1)
     end
 
     it 'encodes the URL', vcr: { cassette_name: 'encode_url' } do

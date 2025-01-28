@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'PVB1 old links', js: true do
+RSpec.feature 'PVB1 old links', :js do
   before do skip 'Too slow' end
 
   it 'renders an appropiate message' do

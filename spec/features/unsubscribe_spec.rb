@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Unsubscribe', js: true do
+RSpec.feature 'Unsubscribe', :js do
   before do skip 'Too slow' end
 
   scenario 'happy path' do

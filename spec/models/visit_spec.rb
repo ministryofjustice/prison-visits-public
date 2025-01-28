@@ -19,7 +19,7 @@ RSpec.describe Visit, type: :model do
   let(:prison) { Prison.new(email_address: 'test@example.com') }
 
   it 'corces slots into [ConcreteSlot]' do
-    expect(subject.slots.first).to be_kind_of(ConcreteSlot)
+    expect(subject.slots.first).to be_a(ConcreteSlot)
     expect(subject.slots.first.iso8601).to eq('2015-10-23T14:00/15:30')
   end
 

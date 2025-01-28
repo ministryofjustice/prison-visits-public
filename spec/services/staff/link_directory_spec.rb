@@ -15,7 +15,7 @@ RSpec.describe Staff::LinkDirectory do
     end
 
     it 'appends the prison finder slug to the base URL' do
-      prison = instance_double('Staff::Prison', finder_slug: 'luna')
+      prison = instance_double(Staff::Prison, finder_slug: 'luna')
       expect(subject.prison_finder(prison)).
         to eq('http://pf.example.com/find/luna')
     end

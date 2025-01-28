@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Submit feedback', js: true do
+RSpec.feature 'Submit feedback', :js do
   include FeaturesHelper
 
   # The body contains two fields which can vary:

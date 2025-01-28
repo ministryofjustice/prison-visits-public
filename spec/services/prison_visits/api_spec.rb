@@ -89,8 +89,8 @@ RSpec.describe PrisonVisits::Api do
     subject { super().get_prisons }
 
     it 'returns an array of prisons' do
-      expect(subject).to be_kind_of(Array)
-      expect(subject.first).to be_kind_of(Prison)
+      expect(subject).to be_a(Array)
+      expect(subject.first).to be_a(Prison)
     end
 
     it 'returns prison names and ids' do
@@ -103,7 +103,7 @@ RSpec.describe PrisonVisits::Api do
   describe 'get_prison', vcr: { cassette_name: 'get_prison' } do
     subject { super().get_prison(cardiff_prison_id) }
 
-    it { is_expected.to be_kind_of(Prison) }
+    it { is_expected.to be_a(Prison) }
 
     it 'returns information about the prison' do
       expect(subject.name).to eq("Cardiff")
@@ -158,8 +158,8 @@ RSpec.describe PrisonVisits::Api do
     subject { super().get_slots(**params) }
 
     it 'returns an array of concrete slots' do
-      expect(subject).to be_kind_of(Array)
-      expect(subject.first).to be_kind_of(CalendarSlot)
+      expect(subject).to be_a(Array)
+      expect(subject.first).to be_a(CalendarSlot)
     end
 
     it 'returns sensible looking concrete slots' do
@@ -170,7 +170,7 @@ RSpec.describe PrisonVisits::Api do
   describe 'request_visit', vcr: { cassette_name: 'request_visit' } do
     subject { super().request_visit(valid_booking_params) }
 
-    it { is_expected.to be_kind_of(Visit) }
+    it { is_expected.to be_a(Visit) }
 
     it 'returns the UUID of the visit booking' do
       expect(subject.id.length).to eq(36)
@@ -197,7 +197,7 @@ RSpec.describe PrisonVisits::Api do
       described_class.instance.request_visit(valid_booking_params).id
     }
 
-    it { is_expected.to be_kind_of(Visit) }
+    it { is_expected.to be_a(Visit) }
 
     it 'returns the processing state of the visit booking' do
       expect(subject.processing_state).to eq(:requested)
@@ -212,7 +212,7 @@ RSpec.describe PrisonVisits::Api do
       described_class.instance.request_visit(valid_booking_params).id
     }
 
-    it { is_expected.to be_kind_of(Visit) }
+    it { is_expected.to be_a(Visit) }
 
     it 'returns the processing state of the visit booking' do
       expect(subject.processing_state).to eq(:withdrawn)

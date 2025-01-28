@@ -7,6 +7,8 @@ require:
   - rubocop-performance
   - rubocop-rspec
   - rubocop-rails
+  - rubocop-capybara
+
 
 AllCops:
   # Exclude anything that isn't really part of our code.
@@ -232,6 +234,18 @@ RSpec/VerifiedDoubles:
 
 RSpec/ExpectInHook:
   Enabled: false
+  
+RSpec/BeEq:
+  Enabled: false
+
+RSpec/IndexedLet:
+  Enabled: false
+
+RSpec/BeNil:
+  Enabled: false
+
+RSpec/NoExpectationExample:
+  Enabled: false
 
 Rails/DynamicFindBy:
   Enabled: false
@@ -264,7 +278,4 @@ Style/SignalException:
   Enabled: false
 
 Style/FormatStringToken:
-  Enabled: false
-
-RSpec/Capybara/FeatureMethods:
   Enabled: false
