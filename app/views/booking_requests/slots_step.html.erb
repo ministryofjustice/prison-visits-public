@@ -15,14 +15,6 @@
       <% if slot_number == "0" && !reviewing? %>
         <%= t(".info_html") %>
         <p><%= t('.help_html', url: link_directory.prison_finder ) %></p>
-        <% if Rails.configuration.use_vsip %>
-          <div class="warning_div">
-            <span class="warning_icon">!</span>
-            <strong class="warning_strong">
-              <div class="warning_text"><%= t('.vsip_html') %></div>
-            </strong>
-          </div>
-        <% end %>
       <% end %>
     </div>
   </div>

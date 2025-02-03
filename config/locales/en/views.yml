@@ -117,8 +117,6 @@ en:
       info_html: >-
         <p>Choose up to 3 possible dates and times for your visit. The dates shown in bold are currently available, however sessions may be fully booked by the time your request is reviewed.</p>
         <p>The prison will confirm one of your choices for the visit.</p>
-      vsip_html: >-
-        We have improved the service to show more accurate availability. This means you might see fewer slots overall but you can be more confident that the slots shown are available.
       help_html: >-
         If you see no available slots <a href="%{url}" rel="external">contact the prison</a>.
       keyboard_directions_html: |
