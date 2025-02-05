@@ -116,7 +116,7 @@ en:
       prisoner_changed: As you've changed the prisoner details, you need to choose new visit slots.
       info_html: >-
         <p>Choose up to 3 possible dates and times for your visit.</p> 
-        <p>The dates shown in bold may be available - sessions may be fully booked by the time your request is reviewed.</p>
+        <p>The dates shown in bold are potentially available. However, please note that sessions may be fully booked by the time your request is reviewed.</p>
       help_html: >-
         If you see no available slots <a href="%{url}" rel="external">contact the prison</a>.
       keyboard_directions_html: |
