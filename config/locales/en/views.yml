@@ -64,7 +64,7 @@ en:
       next_step: Continue
     prison_unavailable:
       title_prison_shutdown: >-
-        %{prison_name} prison has shutdown
+        %{prison_name} prison has closed
       title_pvb_unavailable: >-
         You cannot book visits to %{prison_name} prison using this service
       doesnt_use_pvb_html: |
@@ -74,7 +74,7 @@ en:
         <p>%{prison_name} is privately run and manages its own visitor bookings.</p>
         <p>For information on how to book a visit to %{prison_name}, go to the <a href="%{url}" rel="external">prison finder</a>.</p>
       shutdown_html: |
-        <p>For information on how to find prisoners who used to be in %{prison_name} prison, go to the <a href="https://www.gov.uk/find-prisoner" rel="external">find a prisoner</a> service.</p>
+        <p>For information on how to find prisoners who used to be in %{prison_name} prison, you can <a href="https://www.gov.uk/find-prisoner" rel="external">apply to find a prisoner’s location</a>.</p>
     visitors_step:
       title: Visitor details
       info_html: |

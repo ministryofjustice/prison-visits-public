@@ -20,6 +20,6 @@ RSpec.feature 'Booking for non-PVB prison', :js do
     enter_prisoner_information(prison_name: "Holloway")
     click_button 'Continue'
 
-    expect(page).to have_text('Holloway prison has shutdown')
+    expect(page).to have_text('Holloway prison has closed')
   end
 end
