@@ -52,7 +52,7 @@ en:
       last_name: Prisoner last name
       date_of_birth: Prisoner date of birth
       date_of_birth_hint: For example, 28 04 1996
-      number: Prisoner number
+      number: Prison number
       number_hint: For example, A1234BC
       prison_id: Prison name
       prison_id_hint: For example, Cardiff
@@ -162,7 +162,7 @@ en:
       prisoner_details: Prisoner details
       prisoner_name: Prisoner name
       date_of_birth: "Date of birth"
-      prisoner_number: "Prisoner number"
+      prisoner_number: "Prison number"
       prison: "Prison"
       change_prisoner_details: Change prisoner details
       visitor_details: Visitor details
@@ -213,7 +213,7 @@ en:
       body: Your message
       prisoner_date_of_birth: Prisoner date of birth
       prisoner_date_of_birth_hint: For example, 28 04 1996
-      prisoner_number: Prisoner number
+      prisoner_number: Prison number
       prisoner_number_hint: For example, A1234BC
       prison_id: Prison name
       want_reply_title: Do you want a reply?
