@@ -13,7 +13,7 @@ module FeaturesHelper
     fill_in 'Day', with: options.fetch(:date_of_birth).mday
     fill_in 'Month', with: options.fetch(:date_of_birth).month
     fill_in 'Year', with: options.fetch(:date_of_birth).year
-    fill_in 'Prisoner number', with: options.fetch(:number)
+    fill_in 'Prison number', with: options.fetch(:number)
     select_prison options.fetch(:prison_name)
   end
 
@@ -31,7 +31,7 @@ module FeaturesHelper
     fill_in 'Day', with: options.fetch(:date_of_birth).mday
     fill_in 'Month', with: options.fetch(:date_of_birth).month
     fill_in 'Year', with: options.fetch(:date_of_birth).year
-    fill_in 'Prisoner number', with: options.fetch(:number)
+    fill_in 'Prison number', with: options.fetch(:number)
     select_prison options.fetch(:prison_name)
   end
 
