@@ -6,7 +6,7 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
   config.action_controller.allow_forgery_protection = false
-  config.action_dispatch.show_exceptions = false
+  config.action_dispatch.show_exceptions = :none
   config.active_support.test_order = :random
   config.active_support.deprecation = :stderr
   config.assets.precompile += %w[jasmine-jquery.js]
