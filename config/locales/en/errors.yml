@@ -94,7 +94,7 @@ en:
 
   prisoner_number_validator:
     errors:
-      format: Enter a prisoner number. It should be 7 characters starting with a letter.
+      format: Enter a prison number. It should be 7 characters starting with a letter.
   errors:
     messages:
       unprocessed_contact_list: Process this visitor to continue
