@@ -27,7 +27,7 @@ module Vsip
       PVB::ExceptionHandler.capture_exception(e, fingerprint: %w[vsip api_error])
     end
 
-    def visit_sessions(nomis_id, prisoner_number)
+    def visit_sessions(nomis_id, prisoner_number, advanceDays)
       response = @pool.with { |client|
         client.get('visit-sessions/available', prisonId: nomis_id, prisonerId: prisoner_number.to_s.upcase, pvbAdvanceFromDateByDays: advanceDays, toDateOverride: 28)
       }
