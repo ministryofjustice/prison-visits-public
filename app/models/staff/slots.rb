@@ -8,7 +8,11 @@ module Staff
       prison.vsip_failed = false
 
       if prison.estate.vsip_supported && Rails.configuration.use_vsip
-        @slots = VsipVisitSessions.get_sessions(prison.estate.nomis_id, prisoner_number)
+        if prison.estate.nomis_id === 'HEI'
+          @slots = VsipVisitSessions.get_sessions(prison.estate.nomis_id, prisoner_number, 11)
+        else 
+          @slots = VsipVisitSessions.get_sessions(prison.estate.nomis_id, prisoner_number, 1)
+        end
         if @slots[:vsip_api_failed]
           prison.vsip_failed = true
           @slots = nomis_slots(prison, prisoner_number, date_of_birth, start_date, end_date)
