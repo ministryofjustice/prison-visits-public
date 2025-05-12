@@ -58,8 +58,10 @@ module Vsip
       requeststore_deadline = RequestStore.store[:deadline]
       if requeststore_deadline.nil?
         Rails.logger.warn 'The RequestStore deadline is nil'
+        puts '----------- is nil --------------'
       else
         Rails.logger.warn 'The RequestStore deadline is valid'
+        puts '---------- is valid -------------'
       end
 
       options.merge!({
