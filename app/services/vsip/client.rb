@@ -55,21 +55,12 @@ module Vsip
 
       api_method = "#{method.to_s.upcase} #{path}"
 
-      requeststore_deadline = RequestStore.store[:deadline]
-      if requeststore_deadline.nil?
-        Rails.logger.warn 'The RequestStore deadline is nil'
-        puts '----------- is nil --------------'
-      else
-        Rails.logger.warn 'The RequestStore deadline is valid'
-        puts '---------- is valid -------------'
-      end
-
       options.merge!({
         method:,
         path:,
         expects: [200],
         idempotent:,
-        deadline: requeststore_deadline,
+        deadline: RequestStore.store[:deadline],
         retry_limit: 2,
         headers: {
           'Accept' => JSON_MIME_TYPE,
