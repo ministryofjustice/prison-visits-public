@@ -10,6 +10,7 @@ Rails.application.configure do
   config.active_support.test_order = :random
   config.active_support.deprecation = :stderr
   config.assets.precompile += %w[jasmine-jquery.js]
+  config.log_level = :info
 
   config.i18n.load_path =
     Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
