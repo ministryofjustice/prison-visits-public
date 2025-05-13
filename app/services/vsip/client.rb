@@ -55,12 +55,15 @@ module Vsip
 
       api_method = "#{method.to_s.upcase} #{path}"
 
+      deadline_requeststore = RequestStore.store[:deadline]
+      console.log(type(deadline_requeststore))
+
       options.merge!({
         method:,
         path:,
         expects: [200],
         idempotent:,
-        deadline: RequestStore.store[:deadline],
+        deadline: deadline_requeststore,
         retry_limit: 2,
         headers: {
           'Accept' => JSON_MIME_TYPE,

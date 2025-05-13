@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
 private
 
   def set_and_check_deadline
-    console.log(type(Time.zone.now + API_SLA))
     RequestStore.store[:deadline] = Time.zone.now + API_SLA
     yield
     elapsed = RequestStore.store[:deadline] - Time.zone.now
