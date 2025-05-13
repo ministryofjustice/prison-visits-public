@@ -22,7 +22,7 @@ private
   def set_and_check_deadline
     RequestStore.store[:deadline] = Process.clock_gettime(Process::CLOCK_MONOTONIC) + API_SLA
     yield
-    elapsed = RequestStore.store[:deadline] - Time.zone.now
+    elapsed = RequestStore.store[:deadline] - Process.clock_gettime(Process::CLOCK_MONOTONIC)
     PVB::Instrumentation.append_to_log(deadline_exceeded: elapsed < 0)
   end
 
