@@ -56,9 +56,7 @@ module Vsip
       api_method = "#{method.to_s.upcase} #{path}"
 
       deadline_requeststore = RequestStore.store[:deadline]
-      puts type(deadline_requeststore)
-      deadline_requeststore.to_f
-      puts type(deadline_requeststore)
+      puts deadline_requeststore.class
 
       options.merge!({
         method:,
