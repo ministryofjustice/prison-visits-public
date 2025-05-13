@@ -57,6 +57,8 @@ module Vsip
 
       deadline_requeststore = RequestStore.store[:deadline]
       console.log(type(deadline_requeststore))
+      deadline_requeststore.to_f
+      console.log(type(deadline_requeststore))
 
       options.merge!({
         method:,
