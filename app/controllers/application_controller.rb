@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  API_SLA = 2.seconds
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -7,6 +9,8 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :store_request_id
 
+  around_action :set_and_check_deadline
+
   helper LinksHelper
 
   def not_found
@@ -14,6 +18,13 @@ class ApplicationController < ActionController::Base
   end
 
 private
+
+  def set_and_check_deadline
+    RequestStore.store[:deadline] = Time.zone.now + API_SLA
+    yield
+    elapsed = RequestStore.store[:deadline] - Time.zone.now
+    PVB::Instrumentation.append_to_log(deadline_exceeded: elapsed < 0)
+  end
 
   def http_referrer
     request.headers['REFERER']

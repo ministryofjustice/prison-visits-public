@@ -34,6 +34,7 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
   config.assets.digest = true
+  config.log_level = :info
   config.assets.raise_runtime_errors = true
   config.assets.precompile += %w[jasmine-jquery.js]
 
