@@ -55,17 +55,14 @@ module Vsip
 
       api_method = "#{method.to_s.upcase} #{path}"
 
-      deadline_requeststore = RequestStore.store[:deadline].to_f
-      puts '--------------------------------'
-      puts deadline_requeststore.class
-      puts '--------------------------------'
+      rebuilt_deadline = Process.clock_gettime(Process::CLOCK_MONOTONIC) + 10.seconds
 
       options.merge!({
         method:,
         path:,
         expects: [200],
         idempotent:,
-        deadline: deadline_requeststore,
+        deadline: rebuilt_deadline,
         retry_limit: 2,
         headers: {
           'Accept' => JSON_MIME_TYPE,
