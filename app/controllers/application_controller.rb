@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  API_SLA = 2.seconds
+  API_SLA = 10.seconds
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
