@@ -20,9 +20,9 @@ class ApplicationController < ActionController::Base
 private
 
   def set_and_check_deadline
-    RequestStore.store[:deadline] = Time.now.to_f + API_SLA
+    RequestStore.store[:deadline] = Process.clock_gettime(Process::CLOCK_MONOTONIC) + API_SLA
     yield
-    elapsed = RequestStore.store[:deadline] - Time.now
+    elapsed = RequestStore.store[:deadline] - Time.zone.now
     PVB::Instrumentation.append_to_log(deadline_exceeded: elapsed < 0)
   end
 
