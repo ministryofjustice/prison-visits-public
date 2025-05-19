@@ -19,13 +19,6 @@ class ApplicationController < ActionController::Base
 
 private
 
-  def set_and_check_deadline
-    RequestStore.store[:deadline] = Time.zone.now + API_SLA
-    yield
-    elapsed = RequestStore.store[:deadline] - Time.zone.now
-    PVB::Instrumentation.append_to_log(deadline_exceeded: elapsed < 0)
-  end
-
   def http_referrer
     request.headers['REFERER']
   end
