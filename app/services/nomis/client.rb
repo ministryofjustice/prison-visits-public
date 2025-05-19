@@ -60,7 +60,6 @@ module Nomis
         path:,
         expects: [200],
         idempotent:,
-        deadline: RequestStore.store[:deadline],
         retry_limit: 2,
         headers: {
           'Accept' => JSON_MIME_TYPE,
