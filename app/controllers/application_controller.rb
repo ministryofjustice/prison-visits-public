@@ -9,8 +9,6 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :store_request_id
 
-  around_action :set_and_check_deadline
-
   helper LinksHelper
 
   def not_found
