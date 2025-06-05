@@ -101,7 +101,6 @@ The API client is then tested by recording real API interactions using VCR. The 
 
 More information can be found in the [GitHub Wiki.](https://github.com/ministryofjustice/prison-visits-public/wiki)
 
-
 ## Licence
 [MIT Licence (MIT)](LICENCE)
 
