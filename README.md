@@ -3,7 +3,7 @@
 
 # Visit someone in prison
 
-A service for booking a social visit to a prisoner in England or Wales
+A service for booking a social visit to a prisoner in England or Wales.
 
 
 ## Live application
