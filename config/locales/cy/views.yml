@@ -84,7 +84,7 @@ cy:
       your_details: 'Eich manylion '
       other_visitors: 'Ymwelwyr eraill '
       seating_arrangements: Mae trefniadau eistedd yn y carchar hwn yn caniatáu 3 ymwelydd
-        dros %{adult_age} oed, â 3 o blant o dan yr oedran hwnnw.  Efallai y bydd yn rhaid i blant eistedd ar eich glin. Rhaid i o leiaf un oedolyn fod yn 18 oed neu'n hŷn.
+        dros %{adult_age} oed, â 3 o blant o dan yr oedran hwnnw. Efallai y bydd yn rhaid i blant eistedd ar eich glin. Rhaid i o leiaf un ymwelydd fod yn 18 oed neu'n hŷn.
       additional_visitor_count: 'Faint o ymwelwyr eraill? '
       next_step: Parhau
     principal_visitor:
