@@ -1,7 +1,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/030196c789926bb3382f/maintainability)](https://codeclimate.com/github/ministryofjustice/prison-visits-public/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/030196c789926bb3382f/test_coverage)](https://codeclimate.com/github/ministryofjustice/prison-visits-public/test_coverage)
 
-# Visit someone in prison
+# Visit someone in prison - legacy
 
 A service for requesting a social visit to a prisoner in England or Wales.
 
