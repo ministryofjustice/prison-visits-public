@@ -24,7 +24,7 @@ class Staff::VisitsManager
 
   def destroy(human_id)
     @visit = Staff::Visit.where(human_id:).first
-    return(@visit) unless @visit
+    return @visit unless @visit
 
     if VisitorCancellationResponse.new(visit: @visit).visitor_can_cancel?
       VisitorCancellationResponse.new(visit: @visit).cancel!
