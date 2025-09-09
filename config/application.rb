@@ -23,7 +23,7 @@ Bundler.require(*Rails.groups)
 
 module PrisonVisits
   class Application < Rails::Application
-    config.load_defaults 7.1
+    config.load_defaults 7.2
 
     config.phase = 'live'
     config.product_type = 'service'
