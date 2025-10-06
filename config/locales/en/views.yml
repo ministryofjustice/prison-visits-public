@@ -51,7 +51,7 @@ en:
       first_name: Prisoner first name
       last_name: Prisoner last name
       date_of_birth: Prisoner date of birth
-      date_of_birth_hint: For example, 28 04 1996
+      date_of_birth_hint: For example, 28 4 1996
       number: Prison number
       number_hint: For example, A1234BC
       prison_id: Prison name
