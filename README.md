@@ -3,7 +3,7 @@
 
 # Visit someone in prison - legacy
 
-A service for requesting a social visit to a prisoner in England or Wales.
+A service for requesting social visits to a prisoner in England or Wales.
 
 
 ## Live application
