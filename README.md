@@ -13,7 +13,7 @@ Production application is made available through GOV.UK and can be found at [htt
 
 ## Technical Information
 
-This a Ruby on Rails application that contains the public interface for booking a prison visit.
+This a Ruby on Rails application that contains the public interface for requesting a social prison visit.
 
 It is *stateless* and relies entirely on the prison visits booking API exposed by [ministryofjustice/prison-visits-2](https://github.com/ministryofjustice/prison-visits-2).
 
