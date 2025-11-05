@@ -270,7 +270,7 @@ GEM
     minitest (5.26.0)
     msgpack (1.8.0)
     nenv (0.3.0)
-    net-http (0.6.0)
+    net-http (0.7.0)
       uri
     net-imap (0.5.12)
       date
@@ -522,7 +522,7 @@ GEM
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.1.0)
-    uri (1.0.4)
+    uri (1.1.1)
     uri_template (0.7.0)
     useragent (0.16.11)
     uuid (2.3.9)
