@@ -7,7 +7,7 @@ gem 'rails', '7.2.2.2'
 gem 'bootsnap', require: false
 gem 'base32-crockford', require: 'base32/crockford'
 gem 'business'
-gem 'connection_pool'
+gem 'connection_pool', '2.5.4'
 gem 'email_address_validation',
     git: 'https://github.com/ministryofjustice/email_address_validation',
     ref: 'd37caea140a11bbb82f6abfbecef39fef78b97e8'
