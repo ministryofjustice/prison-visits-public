@@ -139,8 +139,8 @@ jobs:
         name: Install Bundler
         command: gem install bundler -v 2.5.6
     - run:
-      name: Configure Bundler path
-      command: bundle config set path 'vendor/bundle'
+        name: Configure Bundler path
+        command: bundle config set path 'vendor/bundle' 
     - run:
         name: Install gems
         command: bundle check || bundle install
