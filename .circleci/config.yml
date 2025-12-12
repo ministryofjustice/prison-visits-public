@@ -137,7 +137,7 @@ jobs:
         command: sudo npm install -g npm@8.1.2
     - run:
         name: Install Bundler
-        command: gem install bundler -v 2.5.6
+        command: gem install bundler -v 4.0.1
     - run:
         name: Configure Bundler path
         command: bundle config set path 'vendor/bundle' 
