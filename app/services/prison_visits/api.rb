@@ -4,8 +4,8 @@ module PrisonVisits
     include Singleton
 
     def initialize
-      self.pool = ConnectionPool.new(pool_size: Rails.configuration.max_threads,
-                                     timeout: 1) do
+      pool_size = Rails.configuration.connection_pool_size
+      self.pool = ConnectionPool.new(size: pool_size, timeout: 1) do
         PrisonVisits::Client.new(Rails.configuration.api_host)
       end
     end
