@@ -312,7 +312,7 @@ GEM
     pg (1.6.2-x86_64-darwin)
     pg (1.6.2-x86_64-linux)
     phantomjs (2.1.1.0)
-    phonelib (0.10.14)
+    phonelib (0.10.15)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
