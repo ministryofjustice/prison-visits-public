@@ -271,7 +271,7 @@ GEM
     minitest (5.27.0)
     msgpack (1.8.0)
     nenv (0.3.0)
-    net-http (0.8.0)
+    net-http (0.9.1)
       uri (>= 0.11.1)
     net-imap (0.5.12)
       date
