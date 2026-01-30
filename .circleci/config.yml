@@ -27,43 +27,6 @@ references:
         POSTGRES_PASSWORD: ""
         POSTGRES_DB: prisonvisitsbooking_test
 
-  # install_gpg: &install_gpg
-  #   run:
-  #     name: Install GPG
-  #     command: |
-  #       apk add \
-  #         --no-cache \
-  #         --no-progress \
-  #         gnupg
-
-  # configure_gpg: &configure_gpg
-  #   run:
-  #     name: Configure GPG
-  #     command: |
-  #       echo "${GPG_PRIVATE_KEY}" | base64 -d | gpg --batch --allow-secret-key-import --import
-
-  # decrypt_secrets: &decrypt_secrets
-  #   run:
-  #     name: Decrypt secrets file
-  #     command: |
-  #       gpg --export-ownertrust > /tmp/ownertrust.txt
-  #       echo $GPG_KEY_ID:1 >> /tmp/ownertrust.txt
-  #       gpg --import-ownertrust /tmp/ownertrust.txt
-  #       gpgconf --kill gpg-agent
-  #       gpg-agent --daemon --allow-preset-passphrase
-  #       /usr/libexec/gpg-preset-passphrase --preset --passphrase $GPG_PASSPHRASE $GPG_KEY_KEYGRIP_ID
-  #       git-crypt unlock
-
-
-  # install_aws_cli: &install_aws_cli
-  #   run:
-  #     name: Set up aws
-  #     command: |
-  #       wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  #       sudo apt-get update --allow-releaseinfo-change
-  #       sudo apt-get --assume-yes install python3-pip
-  #       sudo pip3 install awscli
-
   build_docker_image: &build_docker_image
     run:
       name: Build prison-visits-public docker image
@@ -80,25 +43,10 @@ references:
           --build-arg GIT_REF=${CIRCLE_SHA1} \
           -t app  .
 
-  # push_docker_image: &push_docker_image
-  #   run:
-  #     name: Push prison-visits-booking docker image
-  #     command: |
-  #       login="$(aws ecr get-login --region eu-west-2 --no-include-email)"
-  #       ${login}
-  #       docker tag app "${ECR_ENDPOINT}/${GITHUB_TEAM_NAME_SLUG}/${REPONAME}:${CIRCLE_SHA1}"
-  #       docker push "${ECR_ENDPOINT}/${GITHUB_TEAM_NAME_SLUG}/${REPONAME}:${CIRCLE_SHA1}"
-  #       if [ "${CIRCLE_BRANCH}" == "main" ]; then
-  #         docker tag app "${ECR_ENDPOINT}/${GITHUB_TEAM_NAME_SLUG}/${REPONAME}:latest"
-  #         docker push "${ECR_ENDPOINT}/${GITHUB_TEAM_NAME_SLUG}/${REPONAME}:latest"
-  #       fi
-  #     environment:
-  #       <<: *github_team_name_slug
-  #       REPONAME: prison-visits-public
-
 version: 2.1
 
 orbs:
+  hmpps: ministryofjustice/hmpps@11
   aws-cli: circleci/aws-cli@4.0.0
   aws-ecr: circleci/aws-ecr@8.2.1 # this orb doesn't support OIDC v2, so we use aws-cli to authenticate
 
@@ -182,9 +130,6 @@ jobs:
           RACK_ENV: test
           SENTRY_JS_DSN: ""
           SENTRY_DSN: ""
-    # - run:
-    #     name: Jasmine tests
-    #     command: bundle exec rake jasmine:ci
     - store_test_results:
         path: coverage
     - store_artifacts:
@@ -207,35 +152,32 @@ jobs:
         region: $ECR_REGION
     - run: |
         aws ecr get-login-password --region $ECR_REGION | docker login --username AWS --password-stdin ${AWS_ECR_REGISTRY_ID}.dkr.ecr.${ECR_REGION}.amazonaws.com
+    - hmpps/create_app_version
     - run:
         name: Setup, tag and push docker image
         command: |
-          echo 'export DOCKER_TAGS=$CIRCLE_SHA1' >> $BASH_ENV
-          docker tag app "${ECR_ENDPOINT}/${ECR_REPOSITORY}:${CIRCLE_SHA1}"
-          if [ "${CIRCLE_BRANCH}" == "main" ]; then
-            echo 'export DOCKER_TAGS=${DOCKER_TAGS},latest' >> $BASH_ENV
-            docker tag app "${ECR_ENDPOINT}/${ECR_REPOSITORY}:latest"
-          fi
+          echo 'export DOCKER_TAGS=$APP_VERSION' >> $BASH_ENV
+          docker tag app "${ECR_ENDPOINT}/${ECR_REPOSITORY}:${APP_VERSION}"
           source $BASH_ENV
     - aws-ecr/push-image:
         tag: $DOCKER_TAGS
         region: $ECR_REGION
         repo: $ECR_REPOSITORY
 
-  deploy_development:
-    <<: *deploy_container_config
-    steps:
-    - checkout
-    - attach_workspace:
-        at: ~/repo
-    - kubectl-setup
-    - deploy:
-        name: Deploy to development
-        command: |
-            sed -i -e s/:latest/:$CIRCLE_SHA1/ deploy/development/deployment.yaml
-            kubectl apply --record=false -f ./deploy/development
-        environment:
-          <<: *github_team_name_slug
+  # deploy_development:
+  #   <<: *deploy_container_config
+  #   steps:
+  #   - checkout
+  #   - attach_workspace:
+  #       at: ~/repo
+  #   - kubectl-setup
+  #   - deploy:
+  #       name: Deploy to development
+  #       command: |
+  #           sed -i -e s/:latest/:$CIRCLE_SHA1/ deploy/development/deployment.yaml
+  #           kubectl apply --record=false -f ./deploy/development
+  #       environment:
+  #         <<: *github_team_name_slug
 
   deploy_staging:
     <<: *deploy_container_config
@@ -244,9 +186,6 @@ jobs:
     - attach_workspace:
         at: ~/repo
     - kubectl-setup
-    # - *install_gpg
-    # - *configure_gpg
-    # - *decrypt_secrets
     - deploy:
         name: Deploy to staging
         command: |
@@ -263,9 +202,6 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - kubectl-setup
-      # - *install_gpg
-      # - *configure_gpg
-      # - *decrypt_secrets
       - deploy:
           name: Deploy to production
           command: |
@@ -280,16 +216,22 @@ workflows:
   build_and_test:
     jobs:
     - install_dependencies
+    - hmpps/helm_lint:
+        name: helm_lint
     - test:
         requires:
           - install_dependencies
     - build_and_push_docker_image:
         requires:
           - install_dependencies
-    - deploy_development:
+    - hmpps/deploy_env:
+        name: deploy_development
         context:
           - hmpps-common-vars
+          - prison-visits-booking-dev
+        env: dev
         requires:
+          - helm_lint
           - build_and_push_docker_image
     - deploy_staging_approval:
         type: approval
