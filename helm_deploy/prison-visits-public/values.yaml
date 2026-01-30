@@ -44,5 +44,5 @@ generic-service:
       - global_protect
 
 generic-prometheus-alerts:
-  targetApplication: prison-visits-booking-staff
+  targetApplication: prison-visits-public
   alertSeverity: visits-alerts
