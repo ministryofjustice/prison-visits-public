@@ -1,0 +1,62 @@
+environment:
+  name: dev
+  variables:
+    VSIP_HOST: "https://hmpps-manage-prison-visits-orchestration-dev.prison.service.justice.gov.uk"
+    PRODUCT_ID: "DPS031"
+    RACK_ENV: "development"
+    RAILS_SERVE_STATIC_FILES: "true"
+    KUBERNETES_DEPLOYMENT: "true"
+    NOMIS_OAUTH_HOST: "https://sign-in-dev.hmpps.service.justice.gov.uk"
+    NOMIS_STAFF_SLOT_AVAILABILITY_ENABLED: "true"
+    PRISON_API_HOST: "https://prison-api-dev.prison.service.justice.gov.uk"
+    PRISON_VISITS_API: "https://staff.dev.prisonvisits.prison.service.justice.gov.uk/"
+    STAFF_PRISONS_WITH_SLOT_AVAILABILITY: >
+      High Down,
+    PUBLIC_PRISONS_WITH_SLOT_AVAILABILITY: >
+      High Down,
+    PUBLIC_SERVICE_URL: "https://dev.prisonvisits.prison.service.justice.gov.uk"
+    EMAIL_DOMAIN: "email-staging.pvb.dsd.io"
+    STAFF_SERVICE_URL: "https://staff.dev.prisonvisits.prison.service.justice.gov.uk"
+    SERVICE_URL: "https://dev.prisonvisits.prison.service.justice.gov.uk"
+
+generic-service:
+  replicaCount: 2
+  resources:
+    limits:
+      memory: "2Gi"
+      cpu: "200m"
+    requests:
+      memory: "125Mi"
+      cpu: "15m"
+
+  ingress:
+    hosts:
+      - dev.prisonvisits.prison.service.justice.gov.uk
+
+  scheduledDowntime:
+    enabled: true
+
+  namespace_secrets:
+    hmpps-auth-secrets:
+      NOMIS_USER_OAUTH_CLIENT_ID: NOMIS_USER_OAUTH_CLIENT_ID
+      NOMIS_USER_OAUTH_CLIENT_SECRET: NOMIS_USER_OAUTH_CLIENT_SECRET
+    secrets:
+      NOMIS_OAUTH_CLIENT_ID: NOMIS_OAUTH_CLIENT_ID
+      NOMIS_OAUTH_CLIENT_SECRET: NOMIS_OAUTH_CLIENT_SECRET
+      GOV_NOTIFY_API_KEY: GOV_NOTIFY_API_KEY
+    use-vsip:
+      USE_VSIP: USE_VSIP
+    prison-visits-public-secrets:
+      GA_TRACKING_ID: ga_tracking_id
+      WEB_CONCURRENCY: rails_web_concurrency
+      SENTRY_JS_DSN: sentry_js_dsn
+      SENTRY_DSN: sentry_dsn
+      SECRET_KEY_BASE: secret_key_base
+    elasticache-redis:
+      REDIS_URL: url
+    prison-visits-rds-instance-output:
+      DATABASE_URL: url
+
+generic-prometheus-alerts:
+  alertSeverity: visits-alerts-nonprod
+  businessHoursOnly: true
