@@ -6,7 +6,7 @@ generic-service:
 
   containerCommand: ["sh", "-c", "bundle exec puma -p 3000 -C ./config/puma_prod.rb --pidfile /tmp/server.pid"]
 
-  fullnameOverride: "prison-visits-booking-public"
+  fullnameOverride: "prison-visits-public"
 
   service:
     enabled: true
