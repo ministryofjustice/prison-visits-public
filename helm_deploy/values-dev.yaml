@@ -49,6 +49,7 @@ generic-service:
     REMOVE_LOAD_TEST_DATA: "true"
     SENTRY_CURRENT_ENV: "development"
     STAFF_SERVICE_URL: "https://staff.dev.prisonvisits.prison.service.justice.gov.uk"
+    SERVICE_URL: "https://dev.prisonvisits.prison.service.justice.gov.uk"
     SMTP_DOMAIN: "mailtrap.io"
     WEB_CONCURRENCY: "5"
     ZENDESK_URL: "https://ministryofjustice.zendesk.com/api/v2"
