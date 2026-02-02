@@ -29,6 +29,7 @@ generic-service:
     RACK_ENV: "development"
     RAILS_ENV: "production"
     RAILS_SERVE_STATIC_FILES: "true"
+    EMAIL_DOMAIN: "email-staging.pvb.dsd.io"
     SERVICE_URL: "https://dev.prisonvisits.prison.service.justice.gov.uk"
     STAFF_SERVICE_URL: "https://staff.dev.prisonvisits.prison.service.justice.gov.uk"
     VSIP_HOST: "https://hmpps-manage-prison-visits-orchestration-dev.prison.service.justice.gov.uk"
