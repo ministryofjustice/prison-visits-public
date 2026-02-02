@@ -1,24 +1,4 @@
-environment:
-  name: dev
-  variables:
-    VSIP_HOST: "https://hmpps-manage-prison-visits-orchestration-dev.prison.service.justice.gov.uk"
-    PRODUCT_ID: "DPS031"
-    RACK_ENV: "development"
-    RAILS_SERVE_STATIC_FILES: "true"
-    KUBERNETES_DEPLOYMENT: "true"
-    NOMIS_OAUTH_HOST: "https://sign-in-dev.hmpps.service.justice.gov.uk"
-    NOMIS_STAFF_SLOT_AVAILABILITY_ENABLED: "true"
-    PRISON_API_HOST: "https://prison-api-dev.prison.service.justice.gov.uk"
-    PRISON_VISITS_API: "https://staff.dev.prisonvisits.prison.service.justice.gov.uk/"
-    STAFF_PRISONS_WITH_SLOT_AVAILABILITY: >
-      High Down,
-    PUBLIC_PRISONS_WITH_SLOT_AVAILABILITY: >
-      High Down,
-    PUBLIC_SERVICE_URL: "https://dev.prisonvisits.prison.service.justice.gov.uk"
-    EMAIL_DOMAIN: "email-staging.pvb.dsd.io"
-    STAFF_SERVICE_URL: "https://staff.dev.prisonvisits.prison.service.justice.gov.uk"
-    SERVICE_URL: "https://dev.prisonvisits.prison.service.justice.gov.uk"
-
+---
 generic-service:
   replicaCount: 2
   resources:
