@@ -39,6 +39,8 @@ generic-service:
 
   env:
     PRISON_API_HOST: "https://prison-api-dev.prison.service.justice.gov.uk"
+    PRISON_VISITS_API: "https://staff.dev.prisonvisits.prison.service.justice.gov.uk/"
+    VSIP_HOST: "https://hmpps-manage-prison-visits-orchestration-dev.prison.service.justice.gov.uk"
     NOMIS_OAUTH_HOST: "https://sign-in-dev.hmpps.service.justice.gov.uk"
     KUBERNETES_DEPLOYMENT: "true"
     NOMIS_STAFF_SLOT_AVAILABILITY_ENABLED: "true"
