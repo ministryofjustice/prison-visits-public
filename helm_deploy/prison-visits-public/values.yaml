@@ -33,10 +33,6 @@ generic-service:
       path: /ping
       port: 3000
 
-  envFrom:
-    - secretRef:
-        name: secrets
-
   allowlist:
     groups:
       - internal
