@@ -17,46 +17,21 @@ generic-service:
     enabled: true
 
   namespace_secrets:
-    hmpps-auth-secrets:
-      NOMIS_USER_OAUTH_CLIENT_ID: NOMIS_USER_OAUTH_CLIENT_ID
-      NOMIS_USER_OAUTH_CLIENT_SECRET: NOMIS_USER_OAUTH_CLIENT_SECRET
-    secrets:
-      NOMIS_OAUTH_CLIENT_ID: NOMIS_OAUTH_CLIENT_ID
-      NOMIS_OAUTH_CLIENT_SECRET: NOMIS_OAUTH_CLIENT_SECRET
-      GOV_NOTIFY_API_KEY: GOV_NOTIFY_API_KEY
-    use-vsip:
-      USE_VSIP: USE_VSIP
-    prison-visits-public-secrets:
-      GA_TRACKING_ID: ga_tracking_id
-      WEB_CONCURRENCY: rails_web_concurrency
-      SENTRY_JS_DSN: sentry_js_dsn
-      SENTRY_DSN: sentry_dsn
-      SECRET_KEY_BASE: secret_key_base
     elasticache-prison-visits-booking-token-cache-staging:
       REDIS_URL: url
-    prison-visits-rds-instance-output:
-      DATABASE_URL: url
 
   env:
-    KUBERNETES_DEPLOYMENT: "true"
-    NOMIS_OAUTH_HOST: "https://sign-in-preprod.hmpps.service.justice.gov.uk"
     NOMIS_STAFF_SLOT_AVAILABILITY_ENABLED: "true"
+    NOMIS_OAUTH_HOST: "https://sign-in-preprod.hmpps.service.justice.gov.uk"
     PRISON_API_HOST: "https://prison-api-preprod.prison.service.justice.gov.uk"
     PRISON_VISITS_API: "https://staff.preprod.prisonvisits.prison.service.justice.gov.uk/"
-    PRODUCT_ID: "DPS031"
     PUBLIC_SERVICE_URL: "https://preprod.prisonvisits.prison.service.justice.gov.uk"
-    PVB_TEAM_EMAIL: "prison-visits@justice.gov.uk"
     RACK_ENV: "preprod"
     RAILS_ENV: "production"
     RAILS_SERVE_STATIC_FILES: "true"
-    REMOVE_LOAD_TEST_DATA: "true"
     SERVICE_URL: "https://preprod.prisonvisits.prison.service.justice.gov.uk"
-    SMTP_DOMAIN: "mailtrap.io"
     STAFF_SERVICE_URL: "https://staff.preprod.prisonvisits.prison.service.justice.gov.uk"
     VSIP_HOST: "https://hmpps-manage-prison-visits-orchestration-preprod.prison.service.justice.gov.uk"
-    WEB_CONCURRENCY: "5"
-    ZENDESK_URL: "https://ministryofjustice.zendesk.com/api/v2"
-    ZENDESK_USERNAME: "pvb-technical-support+zendesk@digital.justice.gov.uk"
     PUBLIC_PRISONS_WITH_SLOT_AVAILABILITY: >
       High Down,
     STAFF_PRISONS_WITH_SLOT_AVAILABILITY: >

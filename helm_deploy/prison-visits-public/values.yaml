@@ -33,6 +33,29 @@ generic-service:
       path: /ping
       port: 3000
 
+  namespace_secrets:
+    hmpps-auth-secrets:
+      NOMIS_USER_OAUTH_CLIENT_ID: NOMIS_USER_OAUTH_CLIENT_ID
+      NOMIS_USER_OAUTH_CLIENT_SECRET: NOMIS_USER_OAUTH_CLIENT_SECRET
+    secrets:
+      NOMIS_OAUTH_CLIENT_ID: NOMIS_OAUTH_CLIENT_ID
+      NOMIS_OAUTH_CLIENT_SECRET: NOMIS_OAUTH_CLIENT_SECRET
+      GOV_NOTIFY_API_KEY: GOV_NOTIFY_API_KEY
+    use-vsip:
+      USE_VSIP: USE_VSIP
+    prison-visits-public-secrets:
+      GA_TRACKING_ID: ga_tracking_id
+      WEB_CONCURRENCY: rails_web_concurrency
+      SENTRY_JS_DSN: sentry_js_dsn
+      SENTRY_DSN: sentry_dsn
+      SECRET_KEY_BASE: secret_key_base
+    prison-visits-rds-instance-output:
+      DATABASE_URL: url
+
+  env:
+    PRODUCT_ID: "DPS031"
+    KUBERNETES_DEPLOYMENT: "true"
+
   allowlist:
     groups:
       - internal
