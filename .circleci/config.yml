@@ -63,45 +63,79 @@ commands:
             kubectl config use-context ${KUBE_ENV_NAME}
 
 jobs:
-  install_dependencies:
-    <<: *defaults
-    <<: *docker_container_config
-    steps:
-    - checkout
-    - attach_workspace:
-        at: ~/repo
-    - run:
-        name: Which bundler?
-        command: bundle -v
-    - restore_cache:
-        keys:
-        - prison-visits-public-{{ checksum "Gemfile.lock" }}
-        - prison-visits-public-
-    - run:
-        name: Update npm
-        command: 'sudo npm install -g npm@8.1.2'
-    - run:
-        name: Install GOV.UK frontend modules
-        command: sudo npm install -g npm@8.1.2
-    - run:
-        name: Install Bundler
-        command: gem install bundler -v 4.0.1
-    - run:
-        name: Configure Bundler path
-        command: bundle config set path 'vendor/bundle' 
-    - run:
-        name: Install gems
-        command: bundle check || bundle install
-    - save_cache:
-        key: prison-visits-public-{{ checksum "Gemfile.lock" }}
-        paths:
-        - vendor/bundle
-    - persist_to_workspace:
-        root: .
-        paths:
-        - vendor/bundle
-        - node_modules/
+  # install_dependencies:
+  #   <<: *defaults
+  #   <<: *docker_container_config
+  #   steps:
+  #   - checkout
+  #   - attach_workspace:
+  #       at: ~/repo
+  #   - run:
+  #       name: Which bundler?
+  #       command: bundle -v
+  #   - restore_cache:
+  #       keys:
+  #       - prison-visits-public-{{ checksum "Gemfile.lock" }}
+  #       - prison-visits-public-
+  #   - run:
+  #       name: Update npm
+  #       command: 'sudo npm install -g npm@8.1.2'
+  #   - run:
+  #       name: Install GOV.UK frontend modules
+  #       command: sudo npm install -g npm@8.1.2
+  #   - run:
+  #       name: Install Bundler
+  #       command: gem install bundler -v 4.0.1
+  #   - run:
+  #       name: Configure Bundler path
+  #       command: bundle config set path 'vendor/bundle' 
+  #   - run:
+  #       name: Install gems
+  #       command: bundle check || bundle install
+  #   - save_cache:
+  #       key: prison-visits-public-{{ checksum "Gemfile.lock" }}
+  #       paths:
+  #       - vendor/bundle
+  #   - persist_to_workspace:
+  #       root: .
+  #       paths:
+  #       - vendor/bundle
+  #       - node_modules/
 
+  # test:
+  #   <<: *defaults
+  #   <<: *docker_container_config
+  #   steps:
+  #   - checkout
+  #   - attach_workspace:
+  #       at: ~/repo
+  #   - run:
+  #       name: Configure Bundler path
+  #       command: bundle config set path 'vendor/bundle'
+  #   - run:
+  #       name: Install gems
+  #       command: bundle check || bundle install
+  #   - run: bundle exec rake db:create db:schema:load
+  #   - run:
+  #       name: Rubocop
+  #       command: bundle exec rubocop
+  #   - run:
+  #       name: Security analysis
+  #       command: bundle exec brakeman -o ~/test-results/brakeman/brakeman.json -o ~/test-results/brakeman/brakeman.html
+  #   - run:
+  #       name: Run tests
+  #       command: bundle exec rake
+  #       environment:
+  #         RAILS_ENV: test
+  #         RACK_ENV: test
+  #         SENTRY_JS_DSN: ""
+  #         SENTRY_DSN: ""
+  #   - store_test_results:
+  #       path: coverage
+  #   - store_artifacts:
+  #       path: coverage
+  #   - store_artifacts:
+  #       path: ~/test-results
   test:
     <<: *defaults
     <<: *docker_container_config
@@ -214,12 +248,12 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-    - install_dependencies
+    # - install_dependencies
     - hmpps/helm_lint:
         name: helm_lint
-    - test:
-        requires:
-          - install_dependencies
+    - test
+        # requires:
+          # - install_dependencies
     - build_and_push_docker_image:
         requires:
           - helm_lint
