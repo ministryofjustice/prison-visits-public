@@ -1,0 +1,44 @@
+---
+generic-service:
+  replicaCount: 2
+  resources:
+    limits:
+      memory: "2Gi"
+      cpu: "200m"
+    requests:
+      memory: "125Mi"
+      cpu: "15m"
+
+  ingress:
+    hosts:
+      - preprod.prisonvisits.prison.service.justice.gov.uk
+
+  scheduledDowntime:
+    enabled: true
+
+  namespace_secrets:
+    elasticache-prison-visits-booking-token-cache-staging:
+      REDIS_URL: url
+
+  env:
+    NOMIS_STAFF_SLOT_AVAILABILITY_ENABLED: "true"
+    NOMIS_OAUTH_HOST: "https://sign-in-preprod.hmpps.service.justice.gov.uk"
+    PRISON_API_HOST: "https://prison-api-preprod.prison.service.justice.gov.uk"
+    PRISON_VISITS_API: "https://staff.preprod.prisonvisits.prison.service.justice.gov.uk/"
+    PUBLIC_SERVICE_URL: "https://preprod.prisonvisits.prison.service.justice.gov.uk"
+    RACK_ENV: "preprod"
+    RAILS_ENV: "production"
+    RAILS_SERVE_STATIC_FILES: "true"
+    EMAIL_DOMAIN: "email-staging.pvb.dsd.io"
+    SENTRY_CURRENT_ENV: "staging"
+    SERVICE_URL: "https://preprod.prisonvisits.prison.service.justice.gov.uk"
+    STAFF_SERVICE_URL: "https://staff.preprod.prisonvisits.prison.service.justice.gov.uk"
+    VSIP_HOST: "https://hmpps-manage-prison-visits-orchestration-preprod.prison.service.justice.gov.uk"
+    PUBLIC_PRISONS_WITH_SLOT_AVAILABILITY: >
+      High Down,
+    STAFF_PRISONS_WITH_SLOT_AVAILABILITY: >
+      High Down,
+
+generic-prometheus-alerts:
+  alertSeverity: visits-alerts-nonprod
+  businessHoursOnly: true
