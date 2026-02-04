@@ -1,3 +1,11 @@
+parameters:
+  alerts-slack-channel:
+    type: string
+    default: visits-alerts
+  releases-slack-channel:
+    type: string
+    default: visits-releases
+
 references:
   defaults: &defaults
     working_directory: ~/repo
@@ -125,21 +133,6 @@ jobs:
         region: $ECR_REGION
         repo: $ECR_REPOSITORY
 
-  deploy_preprod:
-    <<: *deploy_container_config
-    steps:
-    - checkout
-    - attach_workspace:
-        at: ~/repo
-    - kubectl-setup
-    - deploy:
-        name: Deploy to preprod
-        command: |
-            sed -i -e s/:latest/:$CIRCLE_SHA1/ deploy/staging/deployment.yaml
-            kubectl apply --record=false -f ./deploy/staging
-        environment:
-          <<: *github_team_name_slug
-
   deploy_production:
     <<: *deploy_container_config
     steps:
@@ -151,7 +144,6 @@ jobs:
           name: Deploy to production
           command: |
             sed -i -e s/:latest/:$CIRCLE_SHA1/ deploy/production/deployment.yaml
-            # kubectl annotate deployments/prison-visits-public kubernetes.io/change-cause="$CIRCLE_BUILD_URL"
             kubectl apply --record=false -f ./deploy/production
           environment:
             <<: *github_team_name_slug
@@ -179,12 +171,14 @@ workflows:
         type: approval
         requires:
           - deploy_development
-    - deploy_preprod:
+    - hmpps/deploy_env:
+        name: deploy_preprod
+        context:
+          - hmpps-common-vars
+          - prison-visits-booking-staging
+        env: preprod
         requires:
           - deploy_preprod_approval
-        context:
-          - prison-visits-public-staging
-          - hmpps-common-vars
     - deploy_production_approval:
         type: approval
         requires:
