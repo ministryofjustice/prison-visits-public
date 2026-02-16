@@ -189,7 +189,9 @@ workflows:
         filters:
           branches:
             only: main
-    - deploy_production:
+    - hmpps/deploy_env:
+        name: deploy_preprod
+        env: prod
         requires:
           - deploy_production_approval
         context:
