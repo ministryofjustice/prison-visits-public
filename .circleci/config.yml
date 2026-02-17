@@ -143,10 +143,11 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - kubectl-setup
+      - hmpps/recall_container_image
       - deploy:
           name: Deploy to production
           command: |
-            sed -i -e s/:latest/:$CIRCLE_SHA1/ deploy/production/deployment.yaml
+            sed -i -e s/:latest/:$APP_VERSION/ deploy/production/deployment.yaml
             kubectl apply --record=false -f ./deploy/production
           environment:
             <<: *github_team_name_slug

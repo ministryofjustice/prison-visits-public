@@ -11,8 +11,6 @@ spec:
   tls:
   - hosts:
     - www.prisonvisits.service.gov.uk
-    secretName: prison-visits-public-www-cert
-  - hosts:
     - prisonvisits.service.gov.uk
     secretName: prison-visits-public-cert
   rules:
