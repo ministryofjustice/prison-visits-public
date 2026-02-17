@@ -143,8 +143,7 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - kubectl-setup
-      - recall:
-          env_var: APP_VERSION
+      - recall_container_image
       - deploy:
           name: Deploy to production
           command: |
