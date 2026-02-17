@@ -43,4 +43,3 @@ generic-service:
 
 generic-prometheus-alerts:
   alertSeverity: visits-alerts
-  businessHoursOnly: true
