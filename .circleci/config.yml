@@ -143,6 +143,7 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - kubectl-setup
+      - hmpps/create_app_version
       - deploy:
           name: Deploy to production
           command: |
