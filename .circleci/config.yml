@@ -136,23 +136,6 @@ jobs:
         region: $ECR_REGION
         repo: $ECR_REPOSITORY
 
-  deploy_production:
-    <<: *deploy_container_config
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/repo
-      - kubectl-setup
-      - hmpps/recall:
-          env_var: APP_VERSION
-      - deploy:
-          name: Deploy to production
-          command: |
-            sed -i -e s/:latest/:$APP_VERSION/ deploy/production/deployment.yaml
-            kubectl apply --record=false -f ./deploy/production
-          environment:
-            <<: *github_team_name_slug
-
 workflows:
   version: 2
   build_and_test:
@@ -191,7 +174,9 @@ workflows:
         filters:
           branches:
             only: main
-    - deploy_production:
+    - hmpps/deploy_env:
+        name: deploy_production
+        env: prod
         requires:
           - deploy_production_approval
         context:

@@ -12,6 +12,8 @@ generic-service:
   ingress:
     hosts:
       - prisonvisits.service.gov.uk
+      - www.prisonvisits.service.gov.uk
+    tlsSecretName: prison-visits-public-cert
 
   scheduledDowntime:
     enabled: true
@@ -41,4 +43,3 @@ generic-service:
 
 generic-prometheus-alerts:
   alertSeverity: visits-alerts
-  businessHoursOnly: true

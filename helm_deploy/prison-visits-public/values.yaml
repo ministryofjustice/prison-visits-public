@@ -65,3 +65,4 @@ generic-service:
 generic-prometheus-alerts:
   targetApplication: prison-visits-public
   alertSeverity: visits-alerts
+  businessHoursOnly: false
