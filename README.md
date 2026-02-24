@@ -1,5 +1,3 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/030196c789926bb3382f/maintainability)](https://codeclimate.com/github/ministryofjustice/prison-visits-public/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/030196c789926bb3382f/test_coverage)](https://codeclimate.com/github/ministryofjustice/prison-visits-public/test_coverage)
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/ministryofjustice/prison-visits-public/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ministryofjustice/prison-visits-public/tree/main)
 
 # Visit someone in prison - legacy
