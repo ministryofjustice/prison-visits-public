@@ -10,8 +10,7 @@ generic-service:
       cpu: "15m"
 
   ingress:
-    hosts:
-      - preprod.prisonvisits.prison.service.justice.gov.uk
+    host: preprod.prisonvisits.prison.service.justice.gov.uk
 
   scheduledDowntime:
     enabled: true
@@ -38,6 +37,12 @@ generic-service:
       High Down,
     STAFF_PRISONS_WITH_SLOT_AVAILABILITY: >
       High Down,
+
+  allowlist:
+    groups:
+      - internal
+      - prisons
+      - global_protect
 
 generic-prometheus-alerts:
   alertSeverity: visits-alerts-nonprod

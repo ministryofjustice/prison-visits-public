@@ -10,8 +10,7 @@ generic-service:
       cpu: "15m"
 
   ingress:
-    hosts:
-      - dev.prisonvisits.prison.service.justice.gov.uk
+    host: dev.prisonvisits.prison.service.justice.gov.uk
 
   scheduledDowntime:
     enabled: true
@@ -19,6 +18,12 @@ generic-service:
   namespace_secrets:
     elasticache-redis:
       REDIS_URL: url
+
+  allowlist:
+    groups:
+      - internal
+      - prisons
+      - global_protect
 
   env:
     NOMIS_STAFF_SLOT_AVAILABILITY_ENABLED: "true"

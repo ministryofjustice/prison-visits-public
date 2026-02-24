@@ -13,7 +13,6 @@ generic-service:
     hosts:
       - prisonvisits.service.gov.uk
       - www.prisonvisits.service.gov.uk
-    tlsSecretName: prison-visits-public-cert
 
   scheduledDowntime:
     enabled: true
