@@ -56,12 +56,6 @@ generic-service:
     PRODUCT_ID: "DPS031"
     KUBERNETES_DEPLOYMENT: "true"
 
-  allowlist:
-    groups:
-      - internal
-      - prisons
-      - global_protect
-
 generic-prometheus-alerts:
   targetApplication: prison-visits-public
   alertSeverity: visits-alerts
