@@ -64,7 +64,7 @@ jobs:
         with:
           bundler-cache: true
       - name: Setup test database
-        run: bin/rails db:prepare
+        run: bin/rails db:create db:schema:load
       - name: Run brakeman
         run: bundle exec brakeman
       - name: Run rubocop
