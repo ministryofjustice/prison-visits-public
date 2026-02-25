@@ -41,6 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
+      DATABASE_URL: "postgresql://ubuntu:password@127.0.0.1/prisonvisitsbooking_test"
       PGHOST: 127.0.0.1
       PGUSER: ubuntu
       RACK_ENV: test
