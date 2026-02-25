@@ -42,6 +42,7 @@ generic-service:
       High Down,
     STAFF_PRISONS_WITH_SLOT_AVAILABILITY: >
       High Down,
+    ENVIRONMENT_NAME: dev
 
 generic-prometheus-alerts:
   alertSeverity: visits-alerts-nonprod
