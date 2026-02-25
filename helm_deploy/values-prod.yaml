@@ -14,9 +14,6 @@ generic-service:
       - prisonvisits.service.gov.uk
       - www.prisonvisits.service.gov.uk
 
-  scheduledDowntime:
-    enabled: true
-
   namespace_secrets:
     elasticache-prison-visits-booking-token-cache-production:
       REDIS_URL: url
