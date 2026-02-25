@@ -48,7 +48,7 @@ jobs:
       VSIP_HOST: https://hmpps-manage-prison-visits-orchestration-dev.prison.service.justice.gov.uk
     services:
       postgres:
-        image: postgres:12.11-alpine
+        image: postgres:15.12-alpine
         env:
           POSTGRES_DB: prisonvisitsbooking_test
           POSTGRES_USER: ubuntu
