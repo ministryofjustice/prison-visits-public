@@ -36,42 +36,42 @@ jobs:
     with:
       environment: ${{ matrix.environments }}
 
-  # test:
-  #   name: Test
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     RAILS_ENV: test
-  #     RACK_ENV: test
-  #     DATABASE_URL: "postgresql://postgres:postgres@127.0.0.1/hmpps_complexity_of_need_test"
-  #     AWS_DEFAULT_REGION: eu-west-2
-  #     NOMIS_OAUTH_HOST: https://test-auth-service.example.com
-  #     NOMIS_OAUTH_CLIENT_ID: test-client-id
-  #     MOCK_AUTH: 1
-  #   services:
-  #     postgres:
-  #       image: postgres:15.2-alpine
-  #       env:
-  #         POSTGRES_DB: hmpps_complexity_of_need_test
-  #         POSTGRES_USER: postgres
-  #         POSTGRES_PASSWORD: postgres
-  #       ports:
-  #         - 5432:5432
-  #       options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
-  #     - name: Setup Ruby and install gems
-  #       uses: ruby/setup-ruby@v1
-  #       with:
-  #         bundler-cache: true
-  #     - name: Setup test database
-  #       run: bin/rails db:prepare
-  #     - name: Run brakeman
-  #       run: bundle exec brakeman
-  #     - name: Run rubocop
-  #       run: bundle exec rubocop
-  #     - name: Run rspec
-  #       run: bundle exec rspec
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    env:
+      RAILS_ENV: test
+      PGHOST: 127.0.0.1
+      PGUSER: ubuntu
+      RACK_ENV: test
+      PRISON_API_HOST: https://prison-api-dev.prison.service.justice.gov.uk
+      NOMIS_OAUTH_HOST: https://sign-in-dev.hmpps.service.justice.gov.uk
+      VSIP_HOST: https://hmpps-manage-prison-visits-orchestration-dev.prison.service.justice.gov.uk
+    services:
+      postgres:
+        image: postgres:12.11-alpine
+        env:
+          POSTGRES_DB: prisonvisitsbooking_test
+          POSTGRES_USER: ubuntu
+          POSTGRES_PASSWORD: ""
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Setup test database
+        run: bin/rails db:prepare
+      - name: Run brakeman
+        run: bundle exec brakeman
+      - name: Run rubocop
+        run: bundle exec rubocop
+      - name: Run rspec
+        run: bundle exec rspec
 
   build:
     name: Build docker image
