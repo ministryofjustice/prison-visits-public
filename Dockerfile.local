@@ -1,7 +1,37 @@
-FROM ruby:3.2.2-bullseye
+FROM ruby:3.3.5-alpine3.20
+
+RUN \
+	set -ex \
+	&& apk add --no-cache \
+		musl-locales \
+		musl-locales-lang \
+		tzdata \
+	&& cp /usr/share/zoneinfo/Europe/London /etc/localtime \
+	&& echo "Europe/London" > /etc/timezone
+
+ENV \
+	LANG=en_GB.UTF-8 \
+	LANGUAGE=en_GB.UTF-8 \
+	LC_ALL=en_GB.UTF-8 \
+	MUSL_LOCPATH=/usr/share/i18n/locales/musl
+
+WORKDIR /app
+
+RUN \
+	set -ex \
+	&& apk add --no-cache \
+		build-base \
+		git \
+		postgresql-dev \
+		netcat-openbsd \
+		nodejs \
+		npm \
+		iputils \
+	&& gem update bundler --no-document \
+	&& npm install -g yarn@1.10.1 \
+	&& yarn add govuk-frontend
 
 EXPOSE 3000
-RUN gem update bundler --no-doc
 RUN SECRET_KEY_BASE=`rails secret` PUBLIC_SERVICE_URL=http://example.com RAILS_ENV=production STAFF_SERVICE_URL=http://example.com SERVICE_URL=http://example.com bin/rake assets:precompile --trace
 
 ENTRYPOINT ["./run.sh"]
