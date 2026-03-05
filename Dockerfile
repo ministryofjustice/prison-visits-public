@@ -1,4 +1,4 @@
-FROM ruby:3.3.5-bullseye
+FROM ruby:3.3.5-alpine3.20
 
 ARG BUILD_NUMBER
 ARG GIT_BRANCH
@@ -6,19 +6,18 @@ ARG GIT_REF
 
 RUN \
   set -ex \
-  && apt-get update \
-  && DEBIAN_FRONTEND=noninteractive apt-get install \
-    -y \
-    --no-install-recommends \
-    locales \
-  && sed -i -e 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen \
-  && dpkg-reconfigure --frontend=noninteractive locales \
-  && update-locale LANG=en_GB.UTF-8
+  && apk add --no-cache \
+    musl-locales \
+    musl-locales-lang \
+    tzdata \
+  && cp /usr/share/zoneinfo/Europe/London /etc/localtime \
+  && echo "Europe/London" > /etc/timezone
 
 ENV \
   LANG=en_GB.UTF-8 \
   LANGUAGE=en_GB.UTF-8 \
-  LC_ALL=en_GB.UTF-8
+  LC_ALL=en_GB.UTF-8 \
+  MUSL_LOCPATH=/usr/share/i18n/locales/musl
 
 ARG VERSION_NUMBER
 ARG COMMIT_ID
@@ -34,31 +33,16 @@ WORKDIR /app
 
 RUN \
   set -ex \
-  && apt-get install \
-    -y \
-    --no-install-recommends \
-    apt-transport-https \
-    build-essential \
-    libpq-dev \
-    netcat \
-    apt-utils \
+  && apk add --no-cache \
+    build-base \
+    git \
+    postgresql-dev \
+    netcat-openbsd \
     nodejs \
-    iputils-ping\
-  && timedatectl set-timezone Europe/London || true \
-  && gem update bundler --no-document
-
-RUN \
-  set -ex \
-  && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-  && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-
-RUN \
-  set -ex \
-  && apt-get update \
-  && apt-get install \
-    -y \
-    --no-install-recommends \
-    yarn=1.10.1-1 \
+    npm \
+    iputils \
+  && gem update bundler --no-document \
+  && npm install -g yarn@1.10.1 \
   && yarn add govuk-frontend
 
 COPY Gemfile Gemfile.lock ./
@@ -73,7 +57,8 @@ ENV GIT_BRANCH=${GIT_BRANCH}
 ENV GIT_REF=${GIT_REF}
 
 RUN mkdir -p /home/appuser && \
-  useradd appuser -u 1001 --user-group --home /home/appuser && \
+  addgroup -S -g 1001 appuser && \
+  adduser -S -D -u 1001 -G appuser -h /home/appuser appuser && \
   chown -R appuser:appuser /app && \
   chown -R appuser:appuser /home/appuser
 
