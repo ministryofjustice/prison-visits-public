@@ -1,8 +1,7 @@
-[![Pipeline [test -> build -> deploy]](https://github.com/ministryofjustice/prison-visits-public/actions/workflows/pipeline.yml/badge.svg)](https://github.com/ministryofjustice/prison-visits-public/actions/workflows/pipeline.yml)
-
-[![Ministry of Justice Repository Compliance Badge](https://github-community.service.justice.gov.uk/repository-standards/api/prison-visits-public/badge)](https://github-community.service.justice.gov.uk/repository-standards/prison-visits-public)
-
 # Visit someone in prison - legacy
+
+[![Ministry of Justice Repository Compliance Badge](https://github-community.service.justice.gov.uk/repository-standards/api/prison-visits-public/badge?style=flat)](https://github-community.service.justice.gov.uk/repository-standards/prison-visits-public)
+[![Pipeline [test -> build -> deploy]](https://github.com/ministryofjustice/prison-visits-public/actions/workflows/pipeline.yml/badge.svg)](https://github.com/ministryofjustice/prison-visits-public/actions/workflows/pipeline.yml)
 
 A service for requesting social visits to a prisoner in England or Wales. 
 
