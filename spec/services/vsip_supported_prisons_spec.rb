@@ -3,13 +3,6 @@ require 'rails_helper'
 RSpec.describe VsipSupportedPrisons do
   subject { described_class.instance }
 
-  # Ensure that we have a new instance to prevent other specs interfering
-  around do |ex|
-    Singleton.__init__(described_class)
-    ex.run
-    Singleton.__init__(described_class)
-  end
-
   describe 'initialize' do
     context 'when vsip host set' do
       before do

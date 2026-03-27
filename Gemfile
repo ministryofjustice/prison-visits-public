@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.3.5'
+ruby '3.4.8'
 
 gem 'rails', '7.2.2.2'
 
@@ -8,6 +8,7 @@ gem 'bootsnap', require: false
 gem 'base32-crockford', require: 'base32/crockford'
 gem 'business'
 gem 'connection_pool'
+gem 'csv'
 gem 'email_address_validation',
     git: 'https://github.com/ministryofjustice/email_address_validation',
     ref: 'd37caea140a11bbb82f6abfbecef39fef78b97e8'
@@ -29,6 +30,7 @@ gem 'phonelib'
 gem 'pg'
 gem 'puma'
 gem 'faraday'
+gem 'psych', '4.0.6'
 gem 'pvb-instrumentation',
     git: 'https://github.com/ministryofjustice/prison-visit-booking-instrumentation.git',
     tag: 'v1.0.1'
