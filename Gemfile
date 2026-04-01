@@ -30,7 +30,7 @@ gem 'phonelib'
 gem 'pg'
 gem 'puma'
 gem 'faraday'
-gem 'psych', '4.0.6'
+gem 'psych', '5.3.1'
 gem 'pvb-instrumentation',
     git: 'https://github.com/ministryofjustice/prison-visit-booking-instrumentation.git',
     tag: 'v1.0.1'
