@@ -42,7 +42,7 @@ RUN \
     npm \
     iputils \
   && gem update bundler --no-document \
-  && npm install -g yarn@1.22.0 \
+  && npm install -g yarn@1.22.22 \
   && yarn add govuk-frontend
 
 COPY Gemfile Gemfile.lock ./
