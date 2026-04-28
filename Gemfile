@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '3.4.8'
 
-gem 'rails', '7.2.2.2'
+gem 'rails', '7.2.3.1'
 
 gem 'bootsnap', require: false
 gem 'base32-crockford', require: 'base32/crockford'
