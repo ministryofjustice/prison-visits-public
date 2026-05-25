@@ -8,7 +8,7 @@ A service for requesting social visits to a prisoner in England or Wales.
 
 ## Live application
 
-Production application is made available through GOV.UK and can be found at [https://www.gov.uk/prison-visits](https://www.gov.uk/prison-visits)
+Production application is made available through GOV.UK and can be found at [https://www.gov.uk/prison-visits](https://www.gov.uk/prison-visits).
 
 
 ## Technical Information
