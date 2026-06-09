@@ -276,7 +276,7 @@ GEM
     method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (5.27.0)
-    msgpack (1.8.1)
+    msgpack (1.8.2)
     nenv (0.3.0)
     net-http (0.9.1)
       uri (>= 0.11.1)
@@ -483,10 +483,10 @@ GEM
       activerecord (>= 4.0.0)
       railties (>= 4.0.0)
     securerandom (0.4.1)
-    sentry-rails (6.6.0)
+    sentry-rails (6.6.1)
       railties (>= 5.2.0)
-      sentry-ruby (~> 6.6.0)
-    sentry-ruby (6.6.0)
+      sentry-ruby (~> 6.6.1)
+    sentry-ruby (6.6.1)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
       logger
@@ -549,7 +549,7 @@ GEM
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
     webrick (1.9.2)
-    websocket-driver (0.8.0)
+    websocket-driver (0.8.1)
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -738,7 +738,7 @@ CHECKSUMS
   method_source (1.1.0) sha256=181301c9c45b731b4769bc81e8860e72f9161ad7d66dd99103c9ab84f560f5c5
   mini_mime (1.1.5) sha256=8681b7e2e4215f2a159f9400b5816d85e9d8c6c6b491e96a12797e798f8bccef
   minitest (5.27.0) sha256=2d3b17f8a36fe7801c1adcffdbc38233b938eb0b4966e97a6739055a45fa77d5
-  msgpack (1.8.1) sha256=3fef787cd3965fd119c08a22724a56a93ca25008c3421fc15039f603a8b7c86c
+  msgpack (1.8.2) sha256=e440d11c99d6dfe8b2fbc4feb74c3518c1ba024357c70bbd734d9bb1a44d0d25
   nenv (0.3.0) sha256=d9de6d8fb7072228463bf61843159419c969edb34b3cef51832b516ae7972765
   net-http (0.9.1) sha256=25ba0b67c63e89df626ed8fac771d0ad24ad151a858af2cc8e6a716ca4336996
   net-imap (0.6.4) sha256=9a5598c67a3022c284d98430ef1d4948e7dbdb62596f61081ea8ca933270a02b
@@ -819,8 +819,8 @@ CHECKSUMS
   sassc-rails (2.1.2) sha256=5f4fdf3881fc9bdc8e856ffbd9850d70a2878866feae8114aa45996179952db5
   scenic (1.9.0) sha256=6eec3aa049ba2a137e7eb0b4c4f0200b77f7765fc82e08ad44c01da7905563d9
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
-  sentry-rails (6.6.0) sha256=d9c0b353ccf12c82dc17eafe788acafc587472c2d442905f71f9e5c5fb24bb10
-  sentry-ruby (6.6.0) sha256=05ecaaefa177745cffa4f4228364cdddd766372f564fc0709d29df96c4c2887a
+  sentry-rails (6.6.1) sha256=11546059d21efccbd949c8b861757038d807f5042a385d72bb27c9d2565d7d6c
+  sentry-ruby (6.6.1) sha256=e731251ae4bdfd7d1df70ae715c3dda2921ee6e93a83a8b0a69a73c20c274421
   shellany (0.0.1) sha256=0e127a9132698766d7e752e82cdac8250b6adbd09e6c0a7fbbb6f61964fedee7
   shoulda-matchers (7.0.1) sha256=b4bfd8744c10e0a36c8ac1a687f921ee7e25ed529e50488d61b79a8688749c77
   simplecov (0.22.0) sha256=fe2622c7834ff23b98066bb0a854284b2729a569ac659f82621fc22ef36213a5
@@ -853,7 +853,7 @@ CHECKSUMS
   vcr (6.4.0) sha256=077ac92cc16efc5904eb90492a18153b5e6ca5398046d8a249a7c96a9ea24ae6
   webmock (3.26.2) sha256=774556f2ea6371846cca68c01769b2eac0d134492d21f6d0ab5dd643965a4c90
   webrick (1.9.2) sha256=beb4a15fc474defed24a3bda4ffd88a490d517c9e4e6118c3edce59e45864131
-  websocket-driver (0.8.0) sha256=ed0dba4b943c22f17f9a734817e808bc84cdce6a7e22045f5315aa57676d4962
+  websocket-driver (0.8.1) sha256=5ab238238ce230e5d4b262d2be39624c867914eab99171dc4952b58b577c2d96
   websocket-extensions (0.1.5) sha256=1c6ba63092cda343eb53fc657110c71c754c56484aad42578495227d717a8241
   xpath (3.2.0) sha256=6dfda79d91bb3b949b947ecc5919f042ef2f399b904013eb3ef6d20dd3a4082e
   zeitwerk (2.8.2) sha256=7212a61311083c604184b1ea2574b9aa05cd14f855a0841c06985cabe9181d12
