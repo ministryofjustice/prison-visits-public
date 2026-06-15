@@ -5,7 +5,6 @@
 
 A service for requesting social visits to a prisoner in England or Wales.
 
-
 ## Live application
 
 Production application is made available through GOV.UK and can be found at [https://www.gov.uk/prison-visits](https://www.gov.uk/prison-visits).
@@ -27,10 +26,6 @@ The codebase was split from [ministryofjustice/prison-visits-2](https://github.c
 - [direnv](https://direnv.net/) - for managing environment variables and storing credentials.
 - (Optional) Transifex Client. [ministryofjustice/prison-visits-public](https://github.com/ministryofjustice/prison-visits-public) - for managing site translation. See [additional documentation](docs/welsh_translation.md) for setup and updating translations.     
 
-
-### Ruby version
-
-This application uses Ruby v3.2.2. Use [RVM](https://rvm.io/) or similar to manage your ruby environment and sets of dependencies.
 
 ### Running the application
 

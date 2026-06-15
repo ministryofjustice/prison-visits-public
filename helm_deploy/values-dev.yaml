@@ -39,9 +39,7 @@ generic-service:
     STAFF_SERVICE_URL: "https://staff.dev.prisonvisits.prison.service.justice.gov.uk"
     VSIP_HOST: "https://hmpps-manage-prison-visits-orchestration-dev.prison.service.justice.gov.uk"
     PUBLIC_PRISONS_WITH_SLOT_AVAILABILITY: >
-      High Down,
     STAFF_PRISONS_WITH_SLOT_AVAILABILITY: >
-      High Down,
     ENVIRONMENT_NAME: dev
 
 generic-prometheus-alerts:
