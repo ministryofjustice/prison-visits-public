@@ -33,10 +33,6 @@ generic-service:
     SERVICE_URL: "https://preprod.prisonvisits.prison.service.justice.gov.uk"
     STAFF_SERVICE_URL: "https://staff.preprod.prisonvisits.prison.service.justice.gov.uk"
     VSIP_HOST: "https://hmpps-manage-prison-visits-orchestration-preprod.prison.service.justice.gov.uk"
-    PUBLIC_PRISONS_WITH_SLOT_AVAILABILITY: >
-      High Down,
-    STAFF_PRISONS_WITH_SLOT_AVAILABILITY: >
-      High Down,
     ENVIRONMENT_NAME: preprod
 
   allowlist:

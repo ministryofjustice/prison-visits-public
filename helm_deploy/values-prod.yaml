@@ -32,8 +32,4 @@ generic-service:
     SERVICE_URL: "https://prison-visits-public-production.apps.live.cloud-platform.service.justice.gov.uk"
     STAFF_SERVICE_URL: "https://staff.prisonvisits.prison.service.justice.gov.uk"
     VSIP_HOST: "https://hmpps-manage-prison-visits-orchestration.prison.service.justice.gov.uk"
-    PUBLIC_PRISONS_WITH_SLOT_AVAILABILITY: >
-      High Down,
-    STAFF_PRISONS_WITH_SLOT_AVAILABILITY: >
-      High Down,
     ENVIRONMENT_NAME: prod
