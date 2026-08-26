@@ -571,7 +571,7 @@ DEPENDENCIES
   awesome_print
   base32-crockford
   bootsnap
-  brakeman (>= 5.0.4)
+  brakeman (= 8.0.6)
   business
   byebug
   capybara
