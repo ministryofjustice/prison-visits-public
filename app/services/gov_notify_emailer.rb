@@ -1,4 +1,4 @@
-# :nocov:
+# simplecov:disable
 
 require 'notifications/client'
 

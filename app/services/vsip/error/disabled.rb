@@ -1,7 +1,7 @@
-# :nocov:
+# simplecov:disable
 module Vsip
   class Error
     class Disabled < Error; end
   end
 end
-# :nocov:
+# simplecov:disable
