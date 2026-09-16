@@ -11,7 +11,7 @@ RSpec.describe NameValidator do
       def self.model_name
         ActiveModel::Name.new(self, nil, 'thing')
       end
-      attribute :first_name, String
+      attribute :first_name, :string
       validates :first_name, presence: true, name: true
     }.new
   }
