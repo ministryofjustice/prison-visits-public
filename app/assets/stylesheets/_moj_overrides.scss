@@ -1,3 +1,14 @@
+html,
+body {
+  font-size: 100%;
+}
+
 #global-header-bar {
   display: none;
+}
+
+#footer .govuk-footer__copyright-logo::before {
+  background-image: image-url('govuk-frontend/dist/govuk/assets/images/govuk-crest.svg');
+  -webkit-mask-image: image-url('govuk-frontend/dist/govuk/assets/images/govuk-crest.svg');
+  mask-image: image-url('govuk-frontend/dist/govuk/assets/images/govuk-crest.svg');
 }

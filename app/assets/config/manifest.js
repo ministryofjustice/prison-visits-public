@@ -2,6 +2,7 @@
 //= link application.js
 //= link application_ie.js
 //= link application.css
+//= link govuk-frontend/dist/govuk/govuk-frontend.min.css
 //= link application-ie8.css
 //= link email.css
 //= link govuk-template.css

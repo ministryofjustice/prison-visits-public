@@ -11,7 +11,7 @@ cy:
       ts_and_cs: Telerau ac amodau
       privacy_policy: Preifatrwydd
       contact_us_html: |
-        <a href='%{url}' target='_blank' rel='external'>Adborth</a>
+        <a class="govuk-footer__link" href='%{url}' target='_blank' rel='external'>Adborth</a>
       feedback_banner_html: "<p>\n  <span>Mae'r gwasanaeth hwn yn cael ei wella ac
         efallai y byddwch yn sylwi ar newidiadau – <a href='%{url}' target='_blank'
         rel='external'>cysylltwch â ni<span class='visuallyhidden'> (dolen yn agor

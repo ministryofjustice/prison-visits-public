@@ -78,25 +78,25 @@
 <% end %>
 
 <% content_for :footer_support_links do %>
-  <ul>
-    <li>
-      <%= link_to(t('.cookies'), cookies_path) %>
+  <ul class="govuk-footer__inline-list">
+    <li class="govuk-footer__inline-list-item">
+      <%= link_to(t('.cookies'), cookies_path, class: 'govuk-footer__link') %>
     </li>
-    <li>
-      <%= link_to(t('.ts_and_cs'), terms_and_conditions_path) %>
+    <li class="govuk-footer__inline-list-item">
+      <%= link_to(t('.ts_and_cs'), terms_and_conditions_path, class: 'govuk-footer__link') %>
     </li>
-    <li>
-      <%= link_to(t('.privacy_policy'), privacy_policy_path) %>
+    <li class="govuk-footer__inline-list-item">
+      <%= link_to(t('.privacy_policy'), privacy_policy_path, class: 'govuk-footer__link') %>
     </li>
-    <li>
+    <li class="govuk-footer__inline-list-item">
       <%= t('.contact_us_html', url: 'https://visit-someone-in-prison.form.service.justice.gov.uk') %>
     </li>
     <% alternative_locales.each do |locale| %>
-      <li>
+      <li class="govuk-footer__inline-list-item">
         <% if controller_name == 'errors' %>
-          <%= link_to(t('language', locale: locale), "/#{response.status}?locale=#{locale}")%>
+          <%= link_to(t('language', locale: locale), "/#{response.status}?locale=#{locale}", class: 'govuk-footer__link') %>
         <% else %>
-          <%= link_to(t('language', locale: locale), locale: locale) %>
+          <%= link_to(t('language', locale: locale), { locale: locale }, class: 'govuk-footer__link') %>
         <% end %>
       </li>
     <% end %>
