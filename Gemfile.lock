@@ -185,6 +185,10 @@ GEM
       ruby-progressbar (~> 1.4)
     globalid (1.4.0)
       activesupport (>= 6.1)
+    govuk-components (6.5.0)
+      html-attributes-utils (~> 1.0.0, >= 1.0.0)
+      pagy (>= 6, < 10)
+      view_component (>= 4.9, < 4.16)
     govuk_elements_rails (3.1.3)
       govuk_frontend_toolkit (>= 6.0.2)
       rails (>= 4.1.0)
@@ -213,6 +217,8 @@ GEM
       rubocop (< 2.0)
     hashdiff (1.2.1)
     high_voltage (5.0.0)
+    html-attributes-utils (1.0.2)
+      activesupport (>= 6.1.4.4)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
     io-console (0.9.2)
@@ -311,6 +317,7 @@ GEM
       shellany (~> 0.0)
     notifications-ruby-client (6.4.0)
       jwt (>= 1.5, < 4)
+    pagy (9.4.0)
     parallel (1.28.0)
     parser (3.3.12.0)
       ast (~> 2.4.1)
@@ -543,6 +550,10 @@ GEM
     uuid (2.3.9)
       macaddr (~> 1.0)
     vcr (6.4.0)
+    view_component (4.15.0)
+      actionview (>= 7.1.0)
+      activesupport (>= 7.1.0)
+      concurrent-ruby (~> 1)
     webmock (3.26.4)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -587,6 +598,7 @@ DEPENDENCIES
   faraday
   ffaker
   fuubar
+  govuk-components
   govuk_elements_rails
   govuk_frontend_toolkit
   govuk_template
@@ -699,6 +711,7 @@ CHECKSUMS
   formatador (1.2.3) sha256=19fa898133c2c26cdbb5d09f6998c1e137ad9427a046663e55adfe18b950d894
   fuubar (2.5.1) sha256=b272a7804b282661c7fab583a3764f92543cb482c365ae39c685cd218fdd4880
   globalid (1.4.0) sha256=037f12fbf1d9d7a014d501c2d5c77356fd4ddd96d7a7991d6700bba96706f427
+  govuk-components (6.5.0) sha256=9f2476ac0c64a15ce4afc5d331c5f318679401f6cb844876a03b2f120f47b45c
   govuk_elements_rails (3.1.3) sha256=4ab9a6c17e063f78b324f7ea1468c087c1de1e55387bfcdf1a98609980c31c12
   govuk_frontend_toolkit (9.0.1) sha256=18fdae529c9003e023c3461d89a45ddaf5ac0df311705351743c9f1b7b48a2de
   govuk_template (0.26.0) sha256=2b9a2de390963aef16d5c6453a53a2d790987c30b0835f82223d6fd2adc30771
@@ -708,6 +721,7 @@ CHECKSUMS
   guard-rubocop (1.5.0) sha256=3041d796dcb5ee31e352de74732250826f5f235b4ff48df9dbf424a6dc736251
   hashdiff (1.2.1) sha256=9c079dbc513dfc8833ab59c0c2d8f230fa28499cc5efb4b8dd276cf931457cd1
   high_voltage (5.0.0) sha256=fbdd1a861af30d51d6a9f710b37709ab489211402685972945cd5eac6a4c0b23
+  html-attributes-utils (1.0.2) sha256=594e0b37b3dd4e554abe893bee9719896f876675fd08fe534fc2e6e1b4e2538c
   i18n (1.15.2) sha256=00f9eb62412fe593b2a65a97daa75300d37abb8f7202ec748e94b6d46a9dd1b5
   io-console (0.9.2) sha256=efa74f891dd03c0939a931dfc6e74c2813d904763d456ea9762b0525e748db08
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
@@ -753,6 +767,7 @@ CHECKSUMS
   nokogiri (1.19.4-x86_64-linux-musl) sha256=17dfb7c1fa194ae02fbf7c51a7afc8d278045ab3fdacfd86f91d02d7b274470b
   notiffany (0.1.3) sha256=d37669605b7f8dcb04e004e6373e2a780b98c776f8eb503ac9578557d7808738
   notifications-ruby-client (6.4.0) sha256=1aff01a7990d6c2b8a261c144e1d65143372da4674f73dd37409ca287dcc2822
+  pagy (9.4.0) sha256=db3f2e043f684155f18f78be62a81e8d033e39b9f97b1e1a8d12ad38d7bce738
   parallel (1.28.0) sha256=33e6de1484baf2524792d178b0913fc8eb94c628d6cfe45599ad4458c638c970
   parser (3.3.12.0) sha256=21a6d7f755d5a24dfbdc6e6b772e4e879a52e7631a88bc5a3a134606052c9828
   pg (1.6.3) sha256=1388d0563e13d2758c1089e35e973a3249e955c659592d10e5b77c468f628a99
@@ -847,6 +862,7 @@ CHECKSUMS
   useragent (0.16.11) sha256=700e6413ad4bb954bb63547fa098dddf7b0ebe75b40cc6f93b8d54255b173844
   uuid (2.3.9) sha256=aec0cf592053cd6e07c13c1ef94c440aba705f22eb1ee767b39631f2760124d7
   vcr (6.4.0) sha256=077ac92cc16efc5904eb90492a18153b5e6ca5398046d8a249a7c96a9ea24ae6
+  view_component (4.15.0) sha256=2924e207b102c04ab51c4d318535f03f1c3aab3c81ecff99b1cc631b43e14eac
   webmock (3.26.4) sha256=8d8da206d217ebe6968cfb09c77f4533c23074e1432bad865f3994eacbaad50d
   webrick (1.9.2) sha256=beb4a15fc474defed24a3bda4ffd88a490d517c9e4e6118c3edce59e45864131
   websocket-driver (0.8.2) sha256=97c556b019bf3410b4961002ac501621e9322d3f8a7bc02161a09301cc4c4146

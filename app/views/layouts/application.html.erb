@@ -9,6 +9,7 @@
 <% content_for :head do %>
   <%= csrf_meta_tag %>
   <%= favicon_link_tag %>
+  <%= stylesheet_link_tag('govuk-frontend/dist/govuk/govuk-frontend.min.css', media: 'all') %>
   <%= stylesheet_link_tag('application', media: 'all') %>
   <!--[if IE 8]>
     <%= stylesheet_link_tag('application-ie8', media: 'all') %>
@@ -28,14 +29,15 @@
     <a class="mtp-cancel-button" href="cookies"><%= t('.view_more_information')%></a>
 </aside>
 
-<% content_for :proposition_header do %>
-  <div class="header-proposition">
-    <div class="content">
-      <nav id="proposition-menu" class="header__menu" role="navigation">
-        <a href="/" id="proposition-name" class="header__menu__proposition-name"><%= t('app_title') %></a>
-      </nav>
-    </div>
-  </div>
+<% @omit_header = true %>
+<% content_for :after_header do %>
+  <%= govuk_header do |header| %>
+    <% header.with_service_navigation(
+        service_name: t('app_title'),
+        service_url: '/',
+        html_attributes: { id: 'proposition-name' }
+    ) %>
+  <% end %>
 <% end %>
 
 <% content_for :body_end do %>

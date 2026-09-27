@@ -15,6 +15,7 @@ gem 'email_address_validation',
 gem 'draper'
 gem 'excon'
 gem 'govuk_elements_rails'
+gem 'govuk-components', require: false
 gem 'govuk_frontend_toolkit'
 gem 'govuk_template'
 gem 'high_voltage'
