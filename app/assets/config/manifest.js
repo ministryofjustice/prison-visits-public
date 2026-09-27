@@ -3,6 +3,10 @@
 //= link application_ie.js
 //= link application.css
 //= link govuk-frontend/dist/govuk/govuk-frontend.min.css
+//= link govuk-frontend/dist/govuk/assets/images/favicon.ico
+//= link govuk-frontend/dist/govuk/assets/images/favicon.svg
+//= link govuk-frontend/dist/govuk/assets/images/govuk-icon-mask.svg
+//= link govuk-frontend/dist/govuk/assets/images/govuk-icon-180.png
 //= link application-ie8.css
 //= link email.css
 //= link govuk-template.css
