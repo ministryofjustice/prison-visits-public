@@ -63,6 +63,14 @@ jobs:
         uses: ruby/setup-ruby@3ff19f5e2baf30647122352b96108b1fbe250c64 # v1
         with:
           bundler-cache: true
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install GOV.UK frontend assets
+        run: |
+          npm install --global yarn@1.22.22
+          yarn add govuk-frontend
       - name: Setup test database
         run: bin/rails db:create db:schema:load
       - name: Run brakeman
