@@ -77,7 +77,7 @@ module PrisonVisits
     config.max_threads = ENV.fetch('RAILS_MAX_THREADS', 15)
 
     config.connection_pool_size =
-      config.database_configuration[Rails.env]['pool'] || 5
+      Integer(ENV['HTTP_POOL_SIZE'] || ENV['RAILS_MAX_THREADS'] || 5)
 
     config.middleware.use RobotsTag
     config.middleware.insert_before Rack::Head, HttpMethodNotAllowed
