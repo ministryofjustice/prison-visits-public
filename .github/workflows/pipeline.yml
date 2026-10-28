@@ -38,7 +38,7 @@ jobs:
 
   test:
     name: Test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     env:
       RAILS_ENV: test
       DATABASE_URL: "postgresql://ubuntu:password@127.0.0.1/prisonvisitsbooking_test"
@@ -60,7 +60,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - name: Setup Ruby and install gems
-        uses: ruby/setup-ruby@3ff19f5e2baf30647122352b96108b1fbe250c64 # v1
+        uses: ruby/setup-ruby@7f797815d8adceb1c412e7abefdd1ab4abc47a5f # v1.335
         with:
           bundler-cache: true
       - name: Setup test database
