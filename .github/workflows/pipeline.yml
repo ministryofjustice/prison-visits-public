@@ -60,7 +60,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - name: Setup Ruby and install gems
-        uses: ruby/setup-ruby@v1.335.0 # v1.335 (includes 3.4.12 changes)
+        uses: ruby/setup-ruby@7f797815d8adceb1c412e7abefdd1ab4abc47a5f # v1.335
         with:
           bundler-cache: true
       - name: Setup test database
