@@ -88,6 +88,8 @@ jobs:
         run: bundle exec rspec
 
   build:
+    name: Build
+    steps:
     - name: Obtain Octo STS Token
       uses: octo-sts/action@f603d3be9d8dd9871a265776e625a27b00effe05 # v1.1.1
       id: octo_sts_email
@@ -102,7 +104,7 @@ jobs:
         token: ${{ steps.octo_sts_email.outputs.token }}
         repository: ministryofjustice/email_address_validation
         path: ministryofjustice/email_address_validation
-    - name: Build docker image
+    - name: Build Docker image
       uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@v2 # WORKFLOW_VERSION
       needs:
         - helm_lint
