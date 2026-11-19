@@ -87,8 +87,8 @@ jobs:
       - name: Run rspec
         run: bundle exec rspec
 
-  build:
-    name: Build
+  sts_token_email:
+    name: STS token - email_address_validation
     steps:
     - name: Obtain Octo STS Token
       uses: octo-sts/action@f603d3be9d8dd9871a265776e625a27b00effe05 # v1.1.1
@@ -104,16 +104,18 @@ jobs:
         token: ${{ steps.octo_sts_email.outputs.token }}
         repository: ministryofjustice/email_address_validation
         path: ministryofjustice/email_address_validation
-    - name: Build Docker image
-      uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@v2 # WORKFLOW_VERSION
-      needs:
-        - helm_lint
-      with:
-        docker_registry: 'ghcr.io'
-        registry_org: 'ministryofjustice'
-        additional_docker_tag: ${{ inputs.additional_docker_tag }}
-        push: ${{ inputs.push || true }}
-        docker_multiplatform: false
+
+  build:
+    name: Build docker image
+    uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@v2 # WORKFLOW_VERSION
+    needs:
+      - helm_lint
+    with:
+      docker_registry: 'ghcr.io'
+      registry_org: 'ministryofjustice'
+      additional_docker_tag: ${{ inputs.additional_docker_tag }}
+      push: ${{ inputs.push || true }}
+      docker_multiplatform: false
 
   deploy_dev:
     name: Deploy to dev
