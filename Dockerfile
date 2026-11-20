@@ -47,11 +47,10 @@ RUN \
 
 COPY Gemfile Gemfile.lock ./
 
-RUN --mount=type=secret,id=github_netrc,target=/home/appuser/.netrc,uid=1001,required=true \
-    HOME=/home/appuser bundle update --bundler
-RUN bundle config set without 'development test'
 RUN --mount=type=secret,id=github_netrc,target=/root/.netrc,required=true \
-    bundle install --jobs 2 --retry 3
+    bundle update --bundler \
+    && bundle config set without 'development test' \
+    && bundle install --jobs 2 --retry 3
 COPY . /app
 
 ENV BUILD_NUMBER=${BUILD_NUMBER}
