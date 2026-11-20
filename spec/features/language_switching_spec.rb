@@ -8,14 +8,14 @@ RSpec.feature 'Switching languages' do
   scenario 'switching between available languages' do
     visit booking_requests_path(locale: 'en')
 
-    expect(page).to have_selector(
+    expect(page).to have_css(
       '#proposition-name', text: 'Visit someone in prison'
     )
 
     click_on('Cymraeg')
 
     expect(have_current_path).to eq(booking_requests_path(locale: 'cy'))
-    expect(page).to have_selector(
+    expect(page).to have_css(
       '#proposition-name', text: 'Ymweld â rhywun yn y carchar'
     )
 

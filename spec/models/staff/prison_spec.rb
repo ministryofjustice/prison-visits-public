@@ -99,9 +99,9 @@ RSpec.describe Staff::Prison, type: :model do
       it 'enumerates available slots within booking window starting after lead time' do
         expect(subject.available_slots(today).to_a).to eq(
           [
-            ConcreteSlot.new(2015, 10,  7, 10, 3, 11, 0),
-            ConcreteSlot.new(2015, 10,  8, 10, 4, 11, 0),
-            ConcreteSlot.new(2015, 10,  9, 10, 5, 11, 0),
+            ConcreteSlot.new(2015, 10, 7, 10, 3, 11, 0),
+            ConcreteSlot.new(2015, 10, 8, 10, 4, 11, 0),
+            ConcreteSlot.new(2015, 10, 9, 10, 5, 11, 0),
             ConcreteSlot.new(2015, 10, 10, 10, 6, 11, 0),
             ConcreteSlot.new(2015, 10, 11, 10, 7, 11, 0)
           ]

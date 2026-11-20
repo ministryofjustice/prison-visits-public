@@ -1,6 +1,6 @@
 RSpec.shared_examples 'make a booking' do
   scenario do
-    find('#booking_response_selection_slot_0').click
+    find_by_id('booking_response_selection_slot_0').click
     fill_in 'Reference number', with: '12345678'
 
     click_button 'Send email'

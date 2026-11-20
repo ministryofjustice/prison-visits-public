@@ -95,6 +95,6 @@ module FeaturesHelper
   end
 
   def check_yes_i_want_to_cancel
-    find("#confirmed", visible: false).click
+    find_by_id('confirmed', visible: false).click
   end
 end

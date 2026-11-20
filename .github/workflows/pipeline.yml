@@ -59,7 +59,7 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - name: Checkout code
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Obtain Octo STS Token
         uses: octo-sts/action@f603d3be9d8dd9871a265776e625a27b00effe05 # v1.1.1
         id: octo_sts_email
@@ -67,7 +67,7 @@ jobs:
           scope: ministryofjustice/email_address_validation
           identity: ministryofjustice-prison-visits-public
       - name: Setup Ruby and install gems
-        uses: ruby/setup-ruby@7f797815d8adceb1c412e7abefdd1ab4abc47a5f # v1.335
+        uses: ruby/setup-ruby@be3c7df29b3349ec6bcfc6b4792f1cf9f5237d18 # v1.343
         env:
           OCTO_TOKEN: ${{ steps.octo_sts_email.outputs.token }}
           GIT_CONFIG_COUNT: "1"

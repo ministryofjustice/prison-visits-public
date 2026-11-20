@@ -169,7 +169,7 @@ RSpec.feature 'Booking a visit direct to nomis and to staff model', :js do
 
     expect(page).to have_css('.date-box-1')
     expect(page).to have_css('.date-box-2')
-    expect(page).not_to have_css('.date-box-3')
+    expect(page).to have_no_css('.date-box-3')
   end
 
   scenario 'skip slots' do
