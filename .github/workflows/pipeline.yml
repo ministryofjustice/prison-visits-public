@@ -89,7 +89,7 @@ jobs:
 
   build:
     name: Build docker image
-    uses: ministryofjustice/hmpps-github-actions/.github/workflows/docker_build.yml@v2 # WORKFLOW_VERSION
+    uses: ./.github/workflows/docker_build.yml
     needs:
       - helm_lint
     with:
