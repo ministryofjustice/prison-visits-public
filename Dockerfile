@@ -47,9 +47,11 @@ RUN \
 
 COPY Gemfile Gemfile.lock ./
 
-RUN bundle update --bundler
+RUN --mount=type=secret,id=github_netrc,target=/home/appuser/.netrc,uid=1001,required=true \
+    HOME=/home/appuser bundle update --bundler
 RUN bundle config set without 'development test'
-RUN bundle install --jobs 2 --retry 3
+RUN --mount=type=secret,id=github_netrc,target=/root/.netrc,required=true \
+    bundle install --jobs 2 --retry 3
 COPY . /app
 
 ENV BUILD_NUMBER=${BUILD_NUMBER}
@@ -64,6 +66,7 @@ RUN mkdir -p /home/appuser && \
 
 USER 1001
 
-RUN bundle update --bundler
+RUN --mount=type=secret,id=github_netrc,target=/home/appuser/.netrc,uid=1001,required=true \
+    HOME=/home/appuser bundle update --bundler
 RUN SECRET_KEY_BASE=`rails secret` PUBLIC_SERVICE_URL=http://example.com RAILS_ENV=production STAFF_SERVICE_URL=http://example.com SERVICE_URL=http://example.com rails assets:precompile --trace
 EXPOSE 3000
