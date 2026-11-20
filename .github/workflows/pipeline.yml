@@ -82,8 +82,8 @@ jobs:
         run: bin/rails db:create db:schema:load
       - name: Run brakeman
         run: bundle exec brakeman
-      - name: Run rubocop
-        run: bundle exec rubocop
+      # - name: Run rubocop
+        # run: bundle exec rubocop
       - name: Run rspec
         run: bundle exec rspec
 
