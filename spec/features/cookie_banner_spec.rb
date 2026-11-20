@@ -21,9 +21,9 @@ RSpec.feature 'Cookie banner', :js do
   } do
     visit booking_requests_path(locale: 'en')
     click_button 'Accept cookies'
-    expect(page).to_not have_text(cookie_banner_text_1)
-    expect(page).to_not have_text(cookie_banner_text_2)
-    expect(page).to_not have_text(cookie_banner_text_3)
+    expect(page).to have_no_text(cookie_banner_text_1)
+    expect(page).to have_no_text(cookie_banner_text_2)
+    expect(page).to have_no_text(cookie_banner_text_3)
   end
 
   scenario 'rejecting cookies', vcr: {
@@ -31,9 +31,9 @@ RSpec.feature 'Cookie banner', :js do
   } do
     visit booking_requests_path(locale: 'en')
     click_button 'Reject cookies'
-    expect(page).to_not have_text(cookie_banner_text_1)
-    expect(page).to_not have_text(cookie_banner_text_2)
-    expect(page).to_not have_text(cookie_banner_text_3)
+    expect(page).to have_no_text(cookie_banner_text_1)
+    expect(page).to have_no_text(cookie_banner_text_2)
+    expect(page).to have_no_text(cookie_banner_text_3)
   end
 
   scenario 'accepting cookies from cookies page', vcr: {
@@ -46,9 +46,9 @@ RSpec.feature 'Cookie banner', :js do
     expect(page).to have_text(cookie_banner_text_3)
     choose(option: 'yes', visible: false)
     click_button 'Save changes'
-    expect(page).to_not have_text(cookie_banner_text_1)
-    expect(page).to_not have_text(cookie_banner_text_2)
-    expect(page).to_not have_text(cookie_banner_text_3)
+    expect(page).to have_no_text(cookie_banner_text_1)
+    expect(page).to have_no_text(cookie_banner_text_2)
+    expect(page).to have_no_text(cookie_banner_text_3)
   end
 
   scenario 'rejecting cookies from cookies page', vcr: {
@@ -61,8 +61,8 @@ RSpec.feature 'Cookie banner', :js do
     expect(page).to have_text(cookie_banner_text_3)
     choose(option: 'yes', visible: false)
     click_button 'Save changes'
-    expect(page).to_not have_text(cookie_banner_text_1)
-    expect(page).to_not have_text(cookie_banner_text_2)
-    expect(page).to_not have_text(cookie_banner_text_3)
+    expect(page).to have_no_text(cookie_banner_text_1)
+    expect(page).to have_no_text(cookie_banner_text_2)
+    expect(page).to have_no_text(cookie_banner_text_3)
   end
 end

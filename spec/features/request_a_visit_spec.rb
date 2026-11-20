@@ -93,7 +93,7 @@ RSpec.feature 'Booking a visit through staff api', :js do
 
     expect(page).to have_css('.date-box-1')
     expect(page).to have_css('.date-box-2')
-    expect(page).not_to have_css('.date-box-3')
+    expect(page).to have_no_css('.date-box-3')
   end
 
   scenario 'change prison', vcr: {
