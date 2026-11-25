@@ -3,31 +3,16 @@ FROM ruby:3.4.13-alpine3.24
 ARG BUILD_NUMBER
 ARG GIT_BRANCH
 ARG GIT_REF
-
-RUN \
-  set -ex \
-  && apk add --no-cache \
-    musl-locales \
-    musl-locales-lang \
-    tzdata \
-  && cp /usr/share/zoneinfo/Europe/London /etc/localtime \
-  && echo "Europe/London" > /etc/timezone
+ARG VERSION_NUMBER
+ARG COMMIT_ID
+ARG BUILD_DATE
+ARG BUILD_TAG
 
 ENV \
   LANG=en_GB.UTF-8 \
   LANGUAGE=en_GB.UTF-8 \
   LC_ALL=en_GB.UTF-8 \
   MUSL_LOCPATH=/usr/share/i18n/locales/musl
-
-ARG VERSION_NUMBER
-ARG COMMIT_ID
-ARG BUILD_DATE
-ARG BUILD_TAG
-
-ENV APPVERSION=${VERSION_NUMBER}
-ENV APP_GIT_COMMIT=${COMMIT_ID}
-ENV APP_BUILD_DATE=${BUILD_DATE}
-ENV APP_BUILD_TAG=${BUILD_TAG}
 
 WORKDIR /app
 
@@ -38,12 +23,13 @@ RUN \
     git \
     postgresql-dev \
     netcat-openbsd \
-    nodejs \
-    npm \
     iputils \
-  && gem update bundler --no-document \
-  && npm install -g yarn@1.22.22 \
-  && yarn add govuk-frontend
+    musl-locales \
+    musl-locales-lang \
+    tzdata \
+  && cp /usr/share/zoneinfo/Europe/London /etc/localtime \
+  && echo "Europe/London" > /etc/timezone \
+  && gem update bundler --no-document 
 
 COPY Gemfile Gemfile.lock ./
 
@@ -56,6 +42,11 @@ COPY . /app
 ENV BUILD_NUMBER=${BUILD_NUMBER}
 ENV GIT_BRANCH=${GIT_BRANCH}
 ENV GIT_REF=${GIT_REF}
+
+ENV APPVERSION=${VERSION_NUMBER}
+ENV APP_GIT_COMMIT=${COMMIT_ID}
+ENV APP_BUILD_DATE=${BUILD_DATE}
+ENV APP_BUILD_TAG=${BUILD_TAG}
 
 RUN mkdir -p /home/appuser && \
   addgroup -S -g 1001 appuser && \

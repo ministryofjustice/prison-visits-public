@@ -24,12 +24,8 @@ RUN \
 		git \
 		postgresql-dev \
 		netcat-openbsd \
-		nodejs \
-		npm \
 		iputils \
-	&& gem update bundler --no-document \
-	&& npm install -g yarn@1.22.22 \
-	&& yarn add govuk-frontend
+	&& gem update bundler --no-document
 
 EXPOSE 3000
 RUN SECRET_KEY_BASE=`rails secret` PUBLIC_SERVICE_URL=http://example.com RAILS_ENV=production STAFF_SERVICE_URL=http://example.com SERVICE_URL=http://example.com bin/rake assets:precompile --trace
