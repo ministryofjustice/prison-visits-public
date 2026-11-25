@@ -34,6 +34,7 @@ gem 'psych', '4.0.6'
 gem 'pvb-instrumentation',
     git: 'https://github.com/ministryofjustice/prison-visit-booking-instrumentation.git',
     tag: 'v1.1.1'
+gem "rack", ">= 2.2.26" #dependency or turnout, force upgrade
 gem 'rake'
 gem 'request_store'
 gem 'sassc-rails'
